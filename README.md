@@ -1,21 +1,21 @@
-# ivy projects
+# Ivy demo projects
 
 This repository contains multiple demos how to use the Axon.ivy platform.
 
-- ConnectivityDemos: How to build and consume Rest or Soap services
-- ErrorHandlingDemos: How to handle errors 
-- HtmlDialogDemos: How to build dialogs and use [PrimeFaces](https://www.primefaces.org) widgets
-- WorkflowDemos: How to build complexer workflow processes
+- **ConnectivityDemos**: How to build and consume Rest or Soap services
+- **ErrorHandlingDemos**: How to handle errors 
+- **HtmlDialogDemos**: How to build dialogs and use [PrimeFaces](https://www.primefaces.org) widgets
+- **WorkflowDemos**: How to build complexer workflow processes
 
-- QuickStartTutorial: Shows a simple process
-- DemosApp: Collects all Demos to one deployable app
+- **QuickStartTutorial**: Quick jump in our platform
+- **DemosApp**: Collects all Demos to one deployable app
 
-## test
+## Test
 
-Requirements (for web integration tests):
+Requirements *(web integration tests)*:
 
 - Firefox
-- Maven (terminal only)
+- Maven *(terminal)*
 
 To run the tests import a project into your Axon.ivy Designer or open a terminal, 
 navigate to a project and run:
