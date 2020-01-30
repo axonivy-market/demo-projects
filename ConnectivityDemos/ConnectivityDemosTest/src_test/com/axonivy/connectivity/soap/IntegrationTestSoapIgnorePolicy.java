@@ -9,7 +9,8 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.connectivity.rest.EngineUrl;
+import com.axonivy.ivy.supplements.engine.EngineUrl;
+
 
 public class IntegrationTestSoapIgnorePolicy
 {

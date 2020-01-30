@@ -1,6 +1,2 @@
 Data #class
 error.handling.demo #namespace
-order error.handling.demo.Order #field
-order PERSISTENT #fieldModifier
-availableItems Number #field
-availableItems PERSISTENT #fieldModifier

@@ -16,6 +16,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.axonivy.ivy.supplements.IvySelenide;
+import com.axonivy.ivy.supplements.engine.EngineUrl;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 

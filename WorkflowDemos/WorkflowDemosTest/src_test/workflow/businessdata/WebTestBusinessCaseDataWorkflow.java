@@ -7,17 +7,18 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.sleep;
 import static test.web.ProcessUtil.checkEndPage;
 import static test.web.ProcessUtil.checkTaskList;
 import static test.web.ProcessUtil.startProcess;
+import static test.web.ProcessUtil.startTestProcess;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.ivy.supplements.IvySelenide;
-import com.codeborne.selenide.Selenide;
-
-import test.web.EngineUrl;
+import com.axonivy.ivy.supplements.engine.EngineUrl;
 
 @IvySelenide
 public class WebTestBusinessCaseDataWorkflow
@@ -26,7 +27,7 @@ public class WebTestBusinessCaseDataWorkflow
   @BeforeEach
   void cleanElasticSearch()
   {
-    Selenide.open(EngineUrl.process() + "/WorkflowDemosTest/1537FF3C3382D47F/clearDemoDossiers.ivp");
+    startTestProcess("1537FF3C3382D47F/clearDemoDossiers.ivp");
     checkEndPage();
   }
   
@@ -51,7 +52,7 @@ public class WebTestBusinessCaseDataWorkflow
     $("#form\\:proceed").click();
     
     startProcess("16EF567002B146F2/browse.ivp");
-    Selenide.sleep(1000); //wait for elasic search
+    sleep(1000); //wait for elasic search
     $$("button").find(text("Search")).shouldBe(visible, enabled).click();
     $$("#interviewTable tbody tr").first().shouldHave(text("Hans"), 
             text("Mustermann"), 
@@ -63,7 +64,7 @@ public class WebTestBusinessCaseDataWorkflow
   {
     if (!EngineUrl.applicationName().equals("designer"))
     {
-      Selenide.open(EngineUrl.base() + "wf/" + EngineUrl.applicationName() + "/login");
+      open(EngineUrl.base() + "wf/" + EngineUrl.applicationName() + "/login");
       $("#loginForm\\:userName").shouldBe(visible).sendKeys("hb");
       $("#loginForm\\:password").sendKeys("hb");
       $("#loginForm\\:login").click();

@@ -1,6 +1,6 @@
 package ch.ivyteam.htmldialog.demo.other;
 
-import static ch.ivyteam.htmldialog.server.test.EngineUrl.startProcess;
+import static ch.ivyteam.htmldialog.server.test.ProcessUtil.startProcess;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import com.axonivy.ivy.supplements.IvySelenide;
-
-import ch.ivyteam.htmldialog.server.test.EngineUrl;
+import com.axonivy.ivy.supplements.engine.EngineUrl;
 
 @IvySelenide
 public class WebTestErrorHandling

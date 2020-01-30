@@ -1,6 +1,6 @@
 package ch.ivyteam.htmldialog.demo;
 
-import static ch.ivyteam.htmldialog.server.test.EngineUrl.startProcess;
+import static ch.ivyteam.htmldialog.server.test.ProcessUtil.startProcess;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.not;

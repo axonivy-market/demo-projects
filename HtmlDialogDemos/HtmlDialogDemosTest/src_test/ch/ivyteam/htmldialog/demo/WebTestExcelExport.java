@@ -1,6 +1,6 @@
 package ch.ivyteam.htmldialog.demo;
 
-import static ch.ivyteam.htmldialog.server.test.EngineUrl.startProcess;
+import static ch.ivyteam.htmldialog.server.test.ProcessUtil.startProcess;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static org.assertj.core.api.Assertions.assertThat;

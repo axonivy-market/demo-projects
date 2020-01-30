@@ -16,6 +16,7 @@ import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.rest.provider.ApprovalService;
+import com.axonivy.ivy.supplements.engine.EngineUrl;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
