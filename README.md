@@ -28,4 +28,4 @@ If you want to know more about testing checkout our documentation chapter: [Test
 
 
 #### increase version
-[Increase version job](build.maven/job/README.md)
+[Increase version job](build.maven/job/update-version/README.md)
