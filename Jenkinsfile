@@ -1,7 +1,8 @@
 pipeline {
-  
   agent {
-    dockerfile true
+    docker {
+      image 'axonivy/build-container:web-1.0'
+    }
   }
 
   triggers {

@@ -7,6 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static test.web.ProcessUtil.checkEndPage;
 import static test.web.ProcessUtil.startProcess;
+import static test.web.ProcessUtil.startTestProcess;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -15,8 +16,6 @@ import com.axonivy.ivy.supplements.IvySelenide;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 import com.axonivy.ivy.supplements.primeui.tester.widget.Table;
 import com.codeborne.selenide.Selenide;
-
-import test.web.EngineUrl;
 
 @IvySelenide
 public class WebTestBusinessData
@@ -47,7 +46,7 @@ public class WebTestBusinessData
 
   private void cleanAndOpenBrowseDossier()
   {
-    Selenide.open(EngineUrl.process() + "/WorkflowDemosTest/1537FF3C3382D47F/clearDemoDossiers.ivp");
+    startTestProcess("1537FF3C3382D47F/clearDemoDossiers.ivp");
     checkEndPage();
     Selenide.sleep(1000); //wait for elasic search
     startProcess(BROWSE_DOSSIERS_LINK);

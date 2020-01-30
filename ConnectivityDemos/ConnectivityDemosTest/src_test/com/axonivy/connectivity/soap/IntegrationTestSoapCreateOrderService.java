@@ -11,7 +11,7 @@ import com.axonivy.connectivity.createorder.client.CreateOrderService;
 import com.axonivy.connectivity.createorder.client.Order;
 import com.axonivy.connectivity.createorder.client.Task;
 import com.axonivy.connectivity.createorder.client.WebServiceProcessTechnicalException;
-import com.axonivy.connectivity.rest.EngineUrl;
+import com.axonivy.ivy.supplements.engine.EngineUrl;
 
 public class IntegrationTestSoapCreateOrderService
 {
