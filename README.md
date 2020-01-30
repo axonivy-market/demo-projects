@@ -1,15 +1,31 @@
 # ivy projects
 
+This repository contains multiple demos how to use the Axon.ivy platform.
+
+- ConnectivityDemos: How to build and consume Rest or Soap services
+- ErrorHandlingDemos: How to handle errors 
+- HtmlDialogDemos: How to build dialogs and use [PrimeFaces](https://www.primefaces.org) widgets
+- WorkflowDemos: How to build complexer workflow processes
+
+- QuickStartTutorial: Shows a simple process
+- DemosApp: Collects all Demos to one deployable app
+
 ## test
 
-to run test, firefox in version 58 is required. if you don't want to install firefox in version 58. just run a container based on the `Dockerfile` and execute the tests.
+Requirements (for web integration tests):
 
-## increase version
-0. Use Java 1.8 (11 does not run): 
-`export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64`
-1. Execute the command to define the new version. Be aware the `-SNAPSHOT` is not required. So just use a version like `8.0.0` with the following command in the root folder:
-`mvn clean process-resources -Dnew.ivy.version=<NEW-VERSION> -f build.maven/job/update-version/pom.xml
-`
-2. Commit Changes
-3. Start the build
-4. Increase the `ivy.projects.version` in the trunk: `build.maven/config/dependencies/pom.xml`
+- Firefox
+- Maven (terminal only)
+
+To run the tests import a project into your Axon.ivy Designer or open a terminal, 
+navigate to a project and run:
+
+```console
+mvn clean verify
+```
+
+If you want to know more about testing checkout our documentation chapter: [Testing](https://developer.axonivy.com/doc/dev/concepts/testing.html)
+
+
+#### increase version
+[Increase version job](build.maven/job/README.md)
