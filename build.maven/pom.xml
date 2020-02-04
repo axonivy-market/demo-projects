@@ -14,34 +14,13 @@
 	<pluginRepositories>
 		<!-- Used to install project-build-plugin -->
 		<pluginRepository>
-			<id>zugpronexus.snapshots</id>
-			<name>Internal Plugin Build Integration Repository</name>
-			<url>http://zugpronexus:8081/nexus/content/groups/build-plugins/</url>
-			<snapshots>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</pluginRepository>
-		<!-- Used to install manually installed artifacts -->
-		<pluginRepository>
-			<id>zugpronexus.manual</id>
-			<name>Internal Build Integration Repository</name>
-			<url>http://zugpronexus:8081/nexus/content/repositories/non-maven-releases//</url>
+			<id>sonatype</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 			<snapshots>
 				<updatePolicy>always</updatePolicy>
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
- 
- 	<repositories>
-		<repository>
-			<id>zugpronexus.snapshots</id>
-			<name>Internal Build Integration Repository</name>
-			<url>http://zugpronexus:8081/nexus/content/groups/build/</url>
-			<snapshots>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</repository>
-	</repositories>
  
 	<distributionManagement>
 		<repository>
