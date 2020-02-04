@@ -28,7 +28,7 @@ pipeline {
         script {
           def workspace = pwd()
           def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
-          maven cmd: "-P repo.axonivy.com clean ${phase} -Dmaven.test.failure.ignore=true  " + 
+          maven cmd: "-P deploy.repo.axonivy.com clean ${phase} -Dmaven.test.failure.ignore=true  " + 
                      "-Dengine.directory=${workspace}/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine " +
                      "-Divy.engine.list.url=${params.engineListUrl} "
         }
