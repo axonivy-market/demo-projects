@@ -20,6 +20,15 @@
 				<updatePolicy>always</updatePolicy>
 			</snapshots>
 		</pluginRepository>
+		<!-- Used to install manually installed artifacts -->
+		<pluginRepository>
+			<id>zugpronexus.manual</id>
+			<name>Internal Build Integration Repository</name>
+			<url>http://zugpronexus:8081/nexus/content/repositories/non-maven-releases//</url>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</pluginRepository>
 	</pluginRepositories>
  
 	<distributionManagement>
