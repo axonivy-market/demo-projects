@@ -59,7 +59,6 @@
 						<iarIncludesEmptyDirs>false</iarIncludesEmptyDirs>
 						<compilerWarnings>true</compilerWarnings>
 						<skipDeploy>${maven.test.skip}</skipDeploy>
-						<skipScriptValidation>false</skipScriptValidation><!-- ivyScripts in processes -->
 					</configuration>
 				</plugin>
 				<plugin>
