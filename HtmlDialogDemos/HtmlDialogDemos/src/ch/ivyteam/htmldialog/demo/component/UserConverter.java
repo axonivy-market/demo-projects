@@ -17,7 +17,7 @@ public class UserConverter implements Converter
   public Object getAsObject(FacesContext arg0, UIComponent arg1, String arg2)
           throws ConverterException
   {
-    return Ivy.wf().getSecurityContext().findUser(Long.parseLong(arg2));
+    return Ivy.wf().getSecurityContext().users().find(Long.parseLong(arg2));
   }
 
   @Override
