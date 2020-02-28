@@ -65,6 +65,11 @@
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
 				<extensions>true</extensions>
+				<configuration>
+					<compilerOptions>
+					 	<arg>-nowarn:[${project.basedir}/src_generated/io]</arg>
+					</compilerOptions>
+				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
