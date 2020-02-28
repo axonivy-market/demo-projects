@@ -13,12 +13,11 @@ import javax.ws.rs.core.Response;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.connectivity.rest.provider.BatchService;
 import com.axonivy.ivy.supplements.engine.EngineUrl;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 /**
- * Tests the REST interface of the {@link BatchService}.
+ * Tests the REST interface of the {@link com.axonivy.connectivity.rest.provider.BatchService}.
  */
 public class IntegrationTestBatchService
 {

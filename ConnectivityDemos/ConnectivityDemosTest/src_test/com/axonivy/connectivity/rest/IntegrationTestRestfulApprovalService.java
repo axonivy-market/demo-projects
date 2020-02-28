@@ -15,7 +15,6 @@ import javax.ws.rs.core.Response;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.connectivity.rest.provider.ApprovalService;
 import com.axonivy.ivy.supplements.engine.EngineUrl;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
@@ -23,7 +22,7 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 import ch.ivyteam.ivy.workflow.TaskState;
 
 /**
- * Tests the REST interface of the {@link ApprovalService}.
+ * Tests the REST interface of the {@link com.axonivy.connectivity.rest.provider.ApprovalService}.
  */
 public class IntegrationTestRestfulApprovalService
 {

@@ -12,12 +12,11 @@ import javax.ws.rs.core.Response.Status;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.connectivity.rest.provider.SecureService;
 import com.axonivy.ivy.supplements.engine.EngineUrl;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 /**
- * Tests the REST interface of the {@link SecureService}.
+ * Tests the REST interface of the {@link com.axonivy.connectivity.rest.provider.SecureService}.
  */
 public class IntegrationTestSecureService
 {

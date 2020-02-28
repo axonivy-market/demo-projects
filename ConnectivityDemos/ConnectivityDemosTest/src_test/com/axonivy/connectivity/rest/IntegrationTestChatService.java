@@ -32,12 +32,11 @@ import org.hamcrest.core.IsNull;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.rest.aynch.chat.ChatMessage;
-import com.axonivy.connectivity.rest.provider.SecureService;
 import com.axonivy.ivy.supplements.engine.EngineUrl;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 /**
- * Tests the REST interface of the {@link SecureService}.
+ * Tests the REST interface of the {@link com.axonivy.connectivity.rest.provider.SecureService}.
  */
 public class IntegrationTestChatService
 {
