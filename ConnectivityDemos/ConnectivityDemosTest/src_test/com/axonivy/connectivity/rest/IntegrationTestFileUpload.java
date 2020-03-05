@@ -166,7 +166,7 @@ public class IntegrationTestFileUpload
     return httpClient;
   }
 
-  @SuppressWarnings({"deprecation", "restriction"})
+  @SuppressWarnings("deprecation")
   private static Client createClient()
   {
     Client httpClient = ClientBuilder.newClient();
@@ -176,7 +176,7 @@ public class IntegrationTestFileUpload
     return httpClient;
   }
 
-  @SuppressWarnings({"restriction", "deprecation"})
+  @SuppressWarnings("deprecation")
   private static Client createClientCustom(ClientConfig config)
   {
     Client httpClient = ClientBuilder.newClient(config);

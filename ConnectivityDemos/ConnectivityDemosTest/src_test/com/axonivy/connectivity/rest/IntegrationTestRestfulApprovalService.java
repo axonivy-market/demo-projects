@@ -65,7 +65,7 @@ public class IntegrationTestRestfulApprovalService
     return createAuthenticatedClient().target(EngineUrl.rest() + "/approve");
   }
 
-  @SuppressWarnings({"restriction", "deprecation"})
+  @SuppressWarnings("deprecation")
   private static Client createAuthenticatedClient()
   {
     Client httpClient = ClientBuilder.newClient();

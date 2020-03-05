@@ -42,7 +42,7 @@ public class IntegrationTestBatchService
             .isEqualTo(REST_USER);
   }
 
-  @SuppressWarnings({"restriction", "deprecation"})
+  @SuppressWarnings("deprecation")
   private static Client createAuthenticatedClient()
   {
     Client httpClient = ClientBuilder.newClient();

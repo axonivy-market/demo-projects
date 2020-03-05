@@ -86,7 +86,6 @@ public class FileUpload
    */
   public static IFile getHdResource(String dialogId, String pathToFileInDialog) throws FileNotFoundException
   {
-    @SuppressWarnings("restriction")
     IProject eclipseProject = Ivy.request().getProject().getProject();
     String dialogPath = dialogId.replace(".", "/");
 

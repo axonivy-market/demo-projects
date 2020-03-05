@@ -112,7 +112,7 @@ public class IntegrationTestRestfulPersonService
     return createAuthenticatedClient().target(EngineUrl.rest() + "/persons");
   }
 
-  @SuppressWarnings({"restriction", "deprecation"})
+  @SuppressWarnings("deprecation")
   private static Client createAuthenticatedClient()
   {
     Client httpClient = ClientBuilder.newClient();
