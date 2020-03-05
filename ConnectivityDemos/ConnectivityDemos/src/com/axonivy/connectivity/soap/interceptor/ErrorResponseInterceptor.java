@@ -12,7 +12,6 @@ import org.apache.cxf.phase.Phase;
  * WebService Call Activity properties To see the returned status code check the
  * "Runtime Log View"
  */
-@SuppressWarnings("restriction")
 public class ErrorResponseInterceptor extends AbstractSoapInterceptor
 {
 

@@ -5,6 +5,7 @@ import java.util.Locale;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.security.ISecurityContext;
 import ch.ivyteam.ivy.security.IUser;
+import ch.ivyteam.ivy.security.user.NewUser;
 
 public class UserCreator
 {
@@ -19,10 +20,16 @@ public class UserCreator
         System.out.println("/" + i);
       }
       String userN = prefix + i;
-      IUser user = securityContext.findUserWithoutLookup(userN);
+      IUser user = securityContext.users().find(userN);
       if (user == null)
       {
-        user = securityContext.createUser(userN, userN, userN, Locale.GERMAN, "nomail@junit.com", userN);
+        NewUser newUser = NewUser.create(userN)
+            .fullName(userN)
+            .password(userN)
+            .mailLanguage(Locale.GERMAN)
+            .mailAddress("nomail@junit.com")
+            .externalName(userN).toNewUser();
+        user = securityContext.users().create(newUser);
       }
     }
   }

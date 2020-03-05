@@ -22,12 +22,11 @@ import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.Person;
-import com.axonivy.connectivity.rest.provider.PersonService;
 import com.axonivy.ivy.supplements.engine.EngineUrl;
 import com.fasterxml.jackson.databind.JsonNode;
 
 /**
- * Tests the REST interface of the {@link PersonService}.
+ * Tests the REST interface of the {@link com.axonivy.connectivity.rest.provider.PersonService}.
  */
 public class IntegrationTestRestfulPersonService
 {
@@ -113,7 +112,7 @@ public class IntegrationTestRestfulPersonService
     return createAuthenticatedClient().target(EngineUrl.rest() + "/persons");
   }
 
-  @SuppressWarnings({"restriction", "deprecation"})
+  @SuppressWarnings("deprecation")
   private static Client createAuthenticatedClient()
   {
     Client httpClient = ClientBuilder.newClient();

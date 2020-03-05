@@ -2,7 +2,6 @@ package com.axonivy.connectivity.rest.aynch;
 
 import javax.ws.rs.client.InvocationCallback;
 
-import ch.ivyteam.ivy.environment.EnvironmentNotAvailableException;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.process.model.value.SignalCode;
 import ch.ivyteam.util.threadcontext.IvyAsyncRunner;
@@ -13,7 +12,7 @@ import ch.ivyteam.util.threadcontext.IvyAsyncRunner;
  * 
  * <p>
  * Async callback methods use the {@link IvyAsyncRunner} to avoid
- * {@link EnvironmentNotAvailableException}s.
+ * {@link ch.ivyteam.ivy.environment.EnvironmentNotAvailableException}s.
  * </p>
  * 
  * <p>
