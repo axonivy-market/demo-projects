@@ -41,7 +41,6 @@
 					<extensions>true</extensions>
 					<configuration>
 						<ivyVersion>[8.0.0,]</ivyVersion>
-						<engineDownloadUrl>https://developer.axonivy.com/permalink/nightly/axonivy-engine.zip</engineDownloadUrl>
 						<engineDirectory>${engine.directory}</engineDirectory>
 						<iarFileSets>
 							<iarFileSet>
