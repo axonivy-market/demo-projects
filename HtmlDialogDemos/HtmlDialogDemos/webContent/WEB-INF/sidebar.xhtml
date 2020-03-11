@@ -1,0 +1,75 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/serenity">
+
+    <div class="layout-sidebar #{guestPreferences.darkMenu ? 'layout-sidebar-dark' : ''}">
+        <div class="sidebar-logo">
+            <a href="dashboard.xhtml">
+                <p:graphicImage name="images/logo-slim.png" library="serenity-layout" />
+                <span class="app-name">SERENITY</span>
+            </a>
+            <a href="#" class="sidebar-anchor" title="Toggle Menu"></a>
+        </div>
+
+        <div class="nano">
+            <div class="nano-content sidebar-scroll-content">
+                <div class="layout-menu-container">
+                    <h:form id="menuform">
+                        <pm:menu widgetVar="serenityMenuWidget">
+                            <p:menuitem id="sr_dashboard" value="Dashboard" icon="&#xE871;" outcome="dashboard"/>
+                            <p:submenu id="sr_components" label="Components" icon="&#xE896;">
+                                <f:attribute name="badge" value="2" />
+                                <p:menuitem id="sr_sample" value="Sample Page" icon="&#xE30B;" outcome="sample" />
+                                <p:menuitem id="sr_forms" value="Forms" icon="&#xE890;" outcome="forms" />
+                                <p:menuitem id="sr_data" value="Data" icon="&#xE3EC;" outcome="data" />
+                                <p:menuitem id="sr_panels" value="Panels" icon="&#xE14F;" outcome="panel" />
+                                <p:menuitem id="sr_overlays" value="Overlays" icon="&#xE14D;" outcome="overlay" />
+                                <p:menuitem id="sr_menus" value="Menus" icon="&#xE5D2;" outcome="menu" />
+                                <p:menuitem id="sr_messages" value="Messages" icon="&#xE0C9;" outcome="messages" />
+                                <p:menuitem id="sr_charts" value="Charts" icon="&#xE24B;" outcome="charts" />
+                                <p:menuitem id="sr_file" value="File" icon="&#xE226;" outcome="file" />
+                                <p:menuitem id="sr_misc" value="Misc" icon="&#xE332;" outcome="misc" />
+                            </p:submenu>
+                            <p:submenu id="sr_default" label="Template Pages" icon="&#xE884;">
+                                <p:menuitem id="sr_db_landing" value="Landing" icon="&#xE904;" outcome="landing"/>
+                                <p:menuitem id="sr_empty" value="Empty Page" icon="&#xE88B;" outcome="empty" />
+                                <p:menuitem id="sr_login" value="Login Page" icon="&#xE8E8;" outcome="login" />
+                                <p:menuitem id="sr_error" value="Error Page" icon="&#xE000;" outcome="error" />
+                                <p:menuitem id="sr_404" value="404 Page" icon="&#xE001;" outcome="notfound" />
+                                <p:menuitem id="sr_access" value="Access Denied Page" icon="&#xE32A;" outcome="access" />
+                            </p:submenu>
+                            <p:submenu id="sr_hierarchy" label="Hierarchy" icon="&#xE5D2;">
+                                <p:submenu id="sr_sm1" label="Submenu 1" icon="&#xE8D2;">
+                                    <p:submenu id="sr_sm11" label="Submenu 1.1" icon="&#xE8D2;">
+                                        <p:menuitem id="sr_lnk111" value="Link 1.1.1" icon="&#xE8D2;" url="#" />
+                                        <p:menuitem id="sr_lnk112" value="Link 1.1.2" icon="&#xE8D2;" url="#" />
+                                        <p:menuitem id="sr_lnk113" value="Link 1.1.3" icon="&#xE8D2;" url="#" />
+                                    </p:submenu>
+                                    <p:submenu id="sr_sm12" label="Submenu 1.2" icon="&#xE8D2;">
+                                        <p:menuitem id="sr_lnk121" value="Link 1.2.1" icon="&#xE8D2;" url="#" />
+                                    </p:submenu>
+                                </p:submenu>
+                                <p:submenu id="sr_sm2" label="Submenu 2" icon="&#xE8D2;">
+                                    <p:submenu id="sr_sm21" label="Submenu 2.1" icon="&#xE8D2;">
+                                        <p:menuitem id="sr_lnk211" value="Link 2.1.1" icon="&#xE8D2;" url="#" />
+                                        <p:menuitem id="sr_lnk212" value="Link 2.1.2" icon="&#xE8D2;" url="#" />
+                                    </p:submenu>
+                                    <p:submenu id="sr_sm22" label="Submenu 2.2" icon="&#xE8D2;">
+                                        <p:menuitem id="sr_lnk221" value="Link 2.2.1" icon="&#xE8D2;" url="#" />
+                                    </p:submenu>
+                                </p:submenu>
+                            </p:submenu>
+                            <p:menuitem id="sr_utils" value="Utils" icon="&#xE869;" outcome="utils" />
+                            <p:menuitem id="sr_doc" value="Docs" icon="&#xE880;" outcome="docs"/>
+                        </pm:menu>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ui:composition>

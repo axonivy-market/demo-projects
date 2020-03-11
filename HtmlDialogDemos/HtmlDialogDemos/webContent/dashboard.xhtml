@@ -1,0 +1,617 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Dashboard</ui:define>
+
+    <ui:define name="head">
+           <script type="text/javascript">
+               //<![CDATA[
+               function skinBar() {
+                   this.cfg.shadow = false;
+                   this.cfg.title = '';
+                   this.cfg.seriesColors = ['#00bcd4', '#cddc39'];
+                   this.cfg.grid = {
+                       background: '#ffffff',
+                       borderColor: '#ffffff',
+                       gridLineColor: '#EEEEEE',
+                       shadow: false
+                   };
+                   this.cfg.axesDefaults = {
+                       borderWidth: 0.1,
+                       borderColor: 'dce2e7',
+                       rendererOptions: {
+                           textColor: '#212121'
+                       }
+                   };
+                   this.cfg.seriesDefaults = {
+                       shadow: false,
+                       lineWidth: 1,
+                       renderer: $.jqplot.BarRenderer,
+                       markerOptions: {
+                           shadow: false,
+                           size: 7,
+                           style: 'circle'
+                       }
+                   }
+               }
+               //]]>
+           </script>
+           <style type="text/css">
+               .main-content {
+                   padding: 0;
+               }
+           </style>
+       </ui:define>
+
+    <ui:define name="content">
+        <div class="ui-g dashboard">
+            <div class="ui-g-12 ui-lg-4">
+                <div class="task-box task-box-1">
+                    <div class="task-box-header">
+                        <i class="material-icons">&#xE5D5;</i>
+                    </div>
+                    <div class="task-box-content">
+                        <h3>Client Meeting</h3>
+                        <p>Waiting brief from the client</p>
+                    </div>
+                    <div class="task-box-footer">
+                        <span class="task-status">WAITING</span>
+                        <p:graphicImage name="images/avatar1.png" library="serenity-layout" />
+                        <p:graphicImage name="images/avatar2.png" library="serenity-layout" />
+                        <p:graphicImage name="images/avatar3.png" library="serenity-layout" />
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-lg-4">
+                <div class="task-box task-box-2">
+                    <div class="task-box-header">
+                        <i class="material-icons">&#xE5D5;</i>
+                    </div>
+                    <div class="task-box-content">
+                        <h3>Sale Reports</h3>
+                        <p>Annual reports per branch</p>
+                    </div>
+                    <div class="task-box-footer">
+                        <span class="task-status">IN PROGRESS</span>
+                        <p:graphicImage name="images/avatar2.png" library="serenity-layout" />
+                        <p:graphicImage name="images/avatar3.png" library="serenity-layout" />
+                        <p:graphicImage name="images/avatar4.png" library="serenity-layout" />
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-lg-4">
+                <div class="task-box task-box-3">
+                    <div class="task-box-header">
+                        <i class="material-icons">&#xE5D5;</i>
+                    </div>
+                    <div class="task-box-content">
+                        <h3>Marketing Meeting</h3>
+                        <p>Marketing meeting to review sales.</p>
+                    </div>
+                    <div class="task-box-footer">
+                        <span class="task-status">ON HOLD</span>
+                        <p:graphicImage name="images/avatar1.png" library="serenity-layout" />
+                        <p:graphicImage name="images/avatar2.png" library="serenity-layout" />
+                        <p:graphicImage name="images/avatar3.png" library="serenity-layout" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+                <div class="overview-box overview-box-1">
+                    <div class="overview-box-header"></div>
+                    <div class="overview-box-content">
+                        <div class="overview-box-icon"><i class="material-icons">&#xE156;</i></div>
+                        <div class="overview-box-title">Messages</div>
+                        <div class="overview-box-count">152</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-3">
+                <div class="overview-box overview-box-2">
+                    <div class="overview-box-header"></div>
+                    <div class="overview-box-content">
+                        <div class="overview-box-icon"><i class="material-icons">&#xE56A;</i></div>
+                        <div class="overview-box-title">Check-Ins</div>
+                        <div class="overview-box-count">532</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-3">
+                <div class="overview-box overview-box-3">
+                    <div class="overview-box-header"></div>
+                    <div class="overview-box-content">
+                        <div class="overview-box-icon"><i class="material-icons">&#xE24D;</i></div>
+                        <div class="overview-box-title">Files Sycned</div>
+                        <div class="overview-box-count">28</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-3">
+                <div class="overview-box overview-box-4">
+                    <div class="overview-box-header"></div>
+                    <div class="overview-box-content">
+                        <div class="overview-box-icon"><i class="material-icons">&#xE8D3;</i></div>
+                        <div class="overview-box-title">Users Online</div>
+                        <div class="overview-box-count">256</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-6 ui-lg-4 task-list">
+                <p:panel header="Tasks">
+                    <p:commandButton id="tasksButton" type="button" icon="ui-icon-menu" styleClass="secondary-btn"/>
+                    <p:menu overlay="true" trigger="tasksButton" my="left top" at="left bottom">
+                        <p:menuitem value="Refresh" icon="ui-icon-refresh" url="#" />
+                        <p:menuitem value="Update" icon="ui-icon-update" url="#" />
+                    </p:menu>
+
+                    <ul>
+                        <li>
+                            <p:selectBooleanCheckbox />
+                            <span class="task-name">Sales Reports</span>
+                            <i class="material-icons">&#xE8C9;</i>
+                        </li>
+                        <li>
+                            <p:selectBooleanCheckbox />
+                            <span class="task-name">Pay Invoices</span>
+                            <i class="material-icons">&#xE8A1;</i>
+                        </li>
+                        <li>
+                            <p:selectBooleanCheckbox />
+                            <span class="task-name">Dinner with Tony</span>
+                            <i class="material-icons">&#xE561;</i>
+                        </li>
+                        <li>
+                            <p:selectBooleanCheckbox />
+                            <span class="task-name">Client Meeting</span>
+                            <i class="material-icons">&#xE7FB;</i>
+                        </li>
+                        <li>
+                            <p:selectBooleanCheckbox />
+                            <span class="task-name">New Theme</span>
+                            <i class="material-icons">&#xE3AE;</i>
+                        </li>
+                        <li>
+                            <p:selectBooleanCheckbox />
+                            <span class="task-name">Flight Ticket</span>
+                            <i class="material-icons">&#xE01B;</i>
+                        </li>
+                        <li>
+                            <p:selectBooleanCheckbox />
+                            <span class="task-name">Guide Translation</span>
+                            <i class="material-icons">&#xE894;</i>
+                        </li>
+                    </ul>
+                </p:panel>
+            </div>
+            <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid contact-form">
+                <p:panel header="Contact Us">
+                    <div class="ui-g">
+                        <div class="ui-g-12">
+                            <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" autoWidth="false">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </div>
+                        <div class="ui-g-12">
+                            <h:panelGroup styleClass="md-inputfield">
+                                <p:inputText />
+                                <label>Name</label>
+                            </h:panelGroup>
+                        </div>
+                        <div class="ui-g-12">
+                            <h:panelGroup styleClass="md-inputfield">
+                                <p:inputText />
+                                <label>Age</label>
+                            </h:panelGroup>
+                        </div>
+                        <div class="ui-g-12">
+                            <h:panelGroup styleClass="md-inputfield">
+                                <p:inputText />
+                                <label>Message</label>
+                            </h:panelGroup>
+                        </div>
+                    </div>
+                    <p:commandButton type="button" value="Send" icon="ui-icon-send" />
+                </p:panel>
+            </div>
+            <div class="ui-g-12 ui-lg-4 messages">
+                <p:panel header="Messages">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <p:graphicImage name="images/avatar1.png" library="serenity-layout" width="45"/>
+                                <div>
+                                    <span class="name">Joshua Williams</span>
+                                    <span class="message">Sales reports attached.</span>
+                                </div>
+                                <p:commandButton type="button" icon="ui-icon-close" title="Reply" styleClass="remove-btn" />
+                                <p:commandButton type="button" icon="ui-icon-message" title="Reply" styleClass="message-btn secondary-btn"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p:graphicImage name="images/avatar2.png" library="serenity-layout" width="45"/>
+                                <div>
+                                    <span class="name">Emily Watson</span>
+                                    <span class="message">Meeting at 2pm tomorrow.</span>
+                                </div>
+                                <p:commandButton type="button" icon="ui-icon-close" title="Reply" styleClass="remove-btn" />
+                                <p:commandButton type="button" icon="ui-icon-message" title="Reply" styleClass="message-btn secondary-btn"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p:graphicImage name="images/avatar3.png" library="serenity-layout" width="45"/>
+                                <div>
+                                    <span class="name">James White</span>
+                                    <span class="message">Status update required.</span>
+                                </div>
+                                <p:commandButton type="button" icon="ui-icon-close" title="Reply" styleClass="remove-btn" />
+                                <p:commandButton type="button" icon="ui-icon-message" title="Reply" styleClass="message-btn secondary-btn"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p:graphicImage name="images/avatar4.png" library="serenity-layout" width="45"/>
+                                <div>
+                                    <span class="name">David Hughes</span>
+                                    <span class="message">Exchange rates estimates.</span>
+                                </div>
+                                <p:commandButton type="button" icon="ui-icon-close" title="Reply" styleClass="remove-btn" />
+                                <p:commandButton type="button" icon="ui-icon-message" title="Reply" styleClass="message-btn secondary-btn"/>
+                            </a>
+                        </li>
+                    </ul>
+                </p:panel>
+            </div>
+
+            <div class="ui-g-12 ui-lg-6 ui-g-nopad">
+                <div class="ui-g-12 chat">
+                    <p:panel header="Chat">
+                        <p:tabView>
+                            <p:tab title="Sales Team">
+                                <ul>
+                                    <li class="message-from">
+                                        <p:graphicImage name="images/avatar2.png" library="serenity-layout" />
+                                        <span>Retro occupy organic, stumptown shabby chic pour-over roof party DIY normcore.</span>
+                                    </li>
+                                    <li class="message-own">
+                                        <p:graphicImage name="images/avatar.png" library="serenity-layout" />
+                                        <span>Actually artisan organic occupy, Wes Anderson ugh whatever pour-over gastropub selvage.</span>
+                                    </li>
+                                    <li class="message-from">
+                                        <p:graphicImage name="images/avatar2.png" library="serenity-layout" />
+                                        <span>Chillwave craft beer tote bag stumptown quinoa hashtag.</span>
+                                    </li>
+                                    <li class="message-own">
+                                        <p:graphicImage name="images/avatar.png" library="serenity-layout" />
+                                        <span>Dreamcatcher locavore iPhone chillwave, occupy trust fund slow-carb distillery art party narwhal.</span>
+                                    </li>
+                                    <li class="message-own">
+                                        <span>Sed ut perspiciatis unde omnis iste natus.</span>
+                                    </li>
+                                    <li class="message-from">
+                                        <p:graphicImage name="images/avatar2.png" library="serenity-layout" />
+                                        <span>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse.</span>
+                                    </li>
+                                    <li class="message-own">
+                                        <p:graphicImage name="images/avatar.png" library="serenity-layout" />
+                                        <span>At vero eos et accusamus.</span>
+                                    </li>
+                                </ul>
+                            </p:tab>
+                            <p:tab title="Design Team">
+                                <ul>
+                                    <li class="message-from">
+                                        <p:graphicImage name="images/avatar3.png" library="serenity-layout" />
+                                        <span>Cliche flannel fam mixtape.</span>
+                                    </li>
+                                    <li class="message-own">
+                                        <p:graphicImage name="images/avatar.png" library="serenity-layout" />
+                                        <span>Tofu glossier bicycle rights banh mi direct trade austin salvia slow-carb occupy.</span>
+                                    </li>
+                                    <li class="message-from">
+                                        <p:graphicImage name="images/avatar3.png" library="serenity-layout" />
+                                        <span>Crucifix tote bag pork belly distillery church-key jianbing jean shorts taxidermy.</span>
+                                    </li>
+                                    <li class="message-own">
+                                        <p:graphicImage name="images/avatar.png" library="serenity-layout" />
+                                        <span>Deep v hexagon street art migas butcher, keytar biodiesel bicycle rights typewriter cornhole actually next.</span>
+                                    </li>
+                                    <li class="message-own">
+                                        <span>Oh. You need a little dummy text for your mockup? How quaint.</span>
+                                    </li>
+                                    <li class="message-from">
+                                        <p:graphicImage name="images/avatar3.png" library="serenity-layout" />
+                                        <span>Salvia woke bushwick leggings mumblecore poke tumblr master cleanse.</span>
+                                    </li>
+                                    <li class="message-own">
+                                        <p:graphicImage name="images/avatar.png" library="serenity-layout" />
+                                        <span>Skateboard ethical adaptogen, quinoa wolf poutine echo park.</span>
+                                    </li>
+                                </ul>
+                            </p:tab>
+
+                        </p:tabView>
+
+                        <div class="new-message">
+                            <div class="message-attachment">
+                                <i class="material-icons">&#xE226;</i>
+                            </div>
+                            <div class="message-input">
+                                <input type="text" placeholder="Write a message" />
+                            </div>
+                        </div>
+                    </p:panel>
+                </div>
+
+                <div class="ui-g-12 status-bars">
+                    <div class="card">
+                        <ul>
+                            <li>
+                                <div class="status-bar status-bar-1">
+                                    <div class="status-bar-value" style="width:22%">22%</div>
+                                </div>
+                                <span>Users</span>
+                                <i class="material-icons">&#xE853;</i>
+                            </li>
+                            <li>
+                                <div class="status-bar status-bar-2">
+                                    <div class="status-bar-value" style="width:78%">78%</div>
+                                </div>
+                                <span>Confirmed</span>
+                                <i class="material-icons">&#xE86C;</i>
+                            </li>
+                            <li>
+                                <div class="status-bar status-bar-3">
+                                    <div class="status-bar-value" style="width:51%">51%</div>
+                                </div>
+                                <span>Defects</span>
+                                <i class="material-icons">&#xE868;</i>
+                            </li>
+                            <li>
+                                <div class="status-bar status-bar-4">
+                                    <div class="status-bar-value" style="width:68%">68%</div>
+                                </div>
+                                <span>Issues</span>
+                                <i class="material-icons">&#xE8B2;</i>
+                            </li>
+                            <li>
+                                <div class="status-bar status-bar-5">
+                                    <div class="status-bar-value" style="width:80%">80%</div>
+                                </div>
+                                <span>Searches</span>
+                                <i class="material-icons">&#xE8B6;</i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui-g-12 ui-lg-6 ui-g-nopad">
+                <div class="ui-g-12 global-sales">
+                    <p:panel>
+                        <f:facet name="header">
+                            Global Sales by Region
+                            <span class="header-helper">Last Update: 21m</span>
+                        </f:facet>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Total Sales</th>
+                                    <th>Change</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><p:graphicImage name="images/dashboard/flag-brazil.png" library="serenity-layout" width="45"/></td>
+                                    <td>BRAZIL</td>
+                                    <td>4234</td>
+                                    <td>35%</td>
+                                    <td><i class="material-icons up-arrow">&#xE5D8;</i></td>
+                                    <td>
+                                        <p:commandButton type="button" icon="ui-icon-close" title="Reply" styleClass="remove-btn" />
+                                        <p:commandButton type="button" icon="ui-icon-message" title="Reply" styleClass="message-btn secondary-btn"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><p:graphicImage name="images/dashboard/flag-china.png" library="serenity-layout" width="45"/></td>
+                                    <td>CHINA</td>
+                                    <td>3214</td>
+                                    <td>25%</td>
+                                    <td><i class="material-icons up-arrow">&#xE5D8;</i></td>
+                                    <td>
+                                        <p:commandButton type="button" icon="ui-icon-close" title="Reply" styleClass="remove-btn" />
+                                        <p:commandButton type="button" icon="ui-icon-message" title="Reply" styleClass="message-btn secondary-btn"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><p:graphicImage name="images/dashboard/flag-belgium.png" library="serenity-layout" width="45"/></td>
+                                    <td>BELGIUM</td>
+                                    <td>2842</td>
+                                    <td>28%</td>
+                                    <td><i class="material-icons down-arrow">&#xE5DB;</i></td>
+                                    <td>
+                                        <p:commandButton type="button" icon="ui-icon-close" title="Reply" styleClass="remove-btn" />
+                                        <p:commandButton type="button" icon="ui-icon-message" title="Reply" styleClass="message-btn secondary-btn"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td><p:graphicImage name="images/dashboard/flag-france.png" library="serenity-layout" width="45"/></td>
+                                    <td>FRANCE</td>
+                                    <td>1942</td>
+                                    <td>15%</td>
+                                    <td><i class="material-icons down-arrow">&#xE5DB;</i></td>
+                                    <td>
+                                        <p:commandButton type="button" icon="ui-icon-close" title="Reply" styleClass="remove-btn" />
+                                        <p:commandButton type="button" icon="ui-icon-message" title="Reply" styleClass="message-btn secondary-btn"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td><p:graphicImage name="images/dashboard/flag-uk.png" library="serenity-layout" width="45"/></td>
+                                    <td>UK</td>
+                                    <td>1956</td>
+                                    <td>25%</td>
+                                    <td><i class="material-icons up-arrow">&#xE5DB;</i></td>
+                                    <td>
+                                        <p:commandButton type="button" icon="ui-icon-close" title="Reply" styleClass="remove-btn" />
+                                        <p:commandButton type="button" icon="ui-icon-message" title="Reply" styleClass="message-btn secondary-btn"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p:panel>
+                </div>
+
+                <div class="ui-g-12 image-box">
+                    <div class="card">
+                        <p:graphicImage name="images/dashboard/gradient-waters.png" library="serenity-layout" />
+
+                        <div class="image-box-content">
+                            <h3>Gradient Waters</h3>
+                            <span class="image-box-tag">article</span>
+                            <p>
+                                Derive inexpedient reason law virtues superiority victorious. Overcome pious horror suicide revaluation. Holiest ocean society disgust passion value love.
+                                Faithful mountains morality hope disgust merciful moral will revaluation society fearful love.
+                            </p>
+                            <div class="image-box-footer">
+                                <p:commandButton type="button" icon="ui-icon-close" title="Close" value="Close" styleClass="remove-btn orange-btn" style="margin-right:4px;"/>
+                                <p:commandButton type="button" icon="ui-icon-plus" title="New" value="New" styleClass="message-btn secondary-btn"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="ui-g-12 ui-lg-8">
+                <div class="card">
+                    <h:form>
+                        <p:dataTable var="car" value="#{dtBasicView.cars}" selectionMode="single" rowKey="#{car.id}" reflow="true" style="margin-bottom:20px">
+                            <f:facet name="header">RECENT SALES</f:facet>
+                            <p:column headerText="Id" sortBy="#{car.id}">
+                                <h:outputText value="#{car.id}" />
+                            </p:column>
+
+                            <p:column headerText="Year" sortBy="#{car.year}">
+                                <h:outputText value="#{car.year}" />
+                            </p:column>
+
+                            <p:column headerText="Brand" sortBy="#{car.brand}">
+                                <h:outputText value="#{car.brand}" />
+                            </p:column>
+
+                            <p:column headerText="Color" sortBy="#{car.color}">
+                                <h:outputText value="#{car.color}" />
+                            </p:column>
+                        </p:dataTable>
+
+                        <p:panel header="SALES GRAPH" styleClass="chart-panel">
+                            <p:chart type="bar" model="#{chartDemoView.barModel}" responsive="true"/>
+                        </p:panel>
+                    </h:form>
+                </div>
+            </div>
+
+            <div class="ui-g-12 ui-lg-4">
+                <div class="ui-g-12">
+                    <div class="user-card card">
+                        <div class="user-card-header">
+                            <p:graphicImage name="images/dashboard/usercard.png" library="serenity-layout" width="100"/>
+                        </div>
+                        <div class="user-card-content">
+                            <p:graphicImage name="images/avatar.png" library="serenity-layout" />
+                            <p:commandButton id="user-button" type="button" icon="ui-icon-plus" styleClass="secondary-btn"/>
+
+                            <p:menu overlay="true" trigger="user-button" my="left top" at="left bottom">
+                                <p:menuitem value="Save" icon="ui-icon-check" url="#"/>
+                                <p:menuitem value="Update" icon="ui-icon-refresh" url="#"/>
+                                <p:menuitem value="Delete" icon="ui-icon-close" url="#"/>
+                            </p:menu>
+
+                            <div class="user-card-name">
+                                <span>Wendy Lorina</span>
+                            </div>
+
+                            <div class="user-detail">
+                               <ul>
+                                 <li class="clearfix">
+                                     <i class="fa fa-tasks fa-fw"></i>
+                                     <span class="project-title">Tasks</span>
+                                     <span class="project-detail">3 open</span>
+                                     <div class="project-progressbar">
+                                         <div class="project-progressbar-value" style="width: 50%"></div>
+                                     </div>
+                                 </li>
+                                 <li class="clearfix">
+                                     <i class="fa fa-usd fa-fw"></i>
+                                     <span class="project-title">Revenue</span>
+                                     <span class="project-detail">+20%</span>
+                                     <div class="project-progressbar">
+                                         <div class="project-progressbar-value" style="width: 20%"></div>
+                                     </div>
+                                 </li>
+                                 <li class="clearfix">
+                                     <i class="fa fa-credit-card fa-fw"></i>
+                                     <span class="project-title">Payments</span>
+                                     <span class="project-detail">24 new</span>
+                                     <div class="project-progressbar">
+                                         <div class="project-progressbar-value" style="width: 65%"></div>
+                                     </div>
+                                 </li>
+                                 <li class="clearfix">
+                                     <i class="fa fa-users fa-fw"></i>
+                                     <span class="project-title">Clients</span>
+                                     <span class="project-detail">+80%</span>
+                                     <div class="project-progressbar">
+                                         <div class="project-progressbar-value" style="width: 80%"></div>
+                                     </div>
+                                 </li>
+                                 <li class="clearfix">
+                                     <i class="fa fa-users fa-fw"></i>
+                                     <span class="project-title">Turnover</span>
+                                     <span class="project-detail">+40%</span>
+                                     <div class="project-progressbar">
+                                         <div class="project-progressbar-value" style="width: 40%"></div>
+                                     </div>
+                                 </li>
+                               </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 map">
+                    <p:panel header="Map">
+                        <p:graphicImage name="images/dashboard/map.jpg" library="serenity-layout" />
+                    </p:panel>
+                </div>
+            </div>
+
+            <div class="ui-g-12 schedule">
+                <p:panel header="Calendar" style="height:100%">
+                    <p:schedule value="#{scheduleView.eventModel}"/>
+                </p:panel>
+            </div>
+
+        </div>
+    </ui:define>
+
+</ui:composition>

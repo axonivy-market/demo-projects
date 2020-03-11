@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-linkedin</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Default-Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="landing-without-slider" transform="translate(-979.000000, -2914.000000)" fill="#FFFFFF">
+            <g id="footer" transform="translate(0.000000, 2845.000000)">
+                <g id="social" transform="translate(925.000000, 32.000000)">
+                    <path d="M81,37 L57,37 C55.35,37 54,38.35 54,40 L54,64 C54,65.65 55.35,67 57,67 L81,67 C82.65,67 84,65.65 84,64 L84,40 C84,38.35 82.65,37 81,37 L81,37 Z M63,62.5 L58.5,62.5 L58.5,49 L63,49 L63,62.5 L63,62.5 Z M60.75,46.45 C59.25,46.45 58.05,45.25 58.05,43.75 C58.05,42.25 59.25,41.05 60.75,41.05 C62.25,41.05 63.45,42.25 63.45,43.75 C63.45,45.25 62.25,46.45 60.75,46.45 L60.75,46.45 Z M79.5,62.5 L75,62.5 L75,54.55 C75,53.35 73.95,52.3 72.75,52.3 C71.55,52.3 70.5,53.35 70.5,54.55 L70.5,62.5 L66,62.5 L66,49 L70.5,49 L70.5,50.8 C71.25,49.6 72.9,48.7 74.25,48.7 C77.1,48.7 79.5,51.1 79.5,53.95 L79.5,62.5 L79.5,62.5 Z" id="icon-linkedin"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
