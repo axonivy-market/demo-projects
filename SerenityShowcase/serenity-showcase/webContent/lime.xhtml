@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      lang="en">
+
+    <h:head>
+        <f:attribute name="primefaces.THEME" value="serenity-lime" />
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <title><ui:insert name="title">PrimeFaces Serenity</ui:insert></title>
+        <h:outputScript name="js/nanoscroller.js" library="serenity-layout" />
+        <h:outputScript name="js/layout.js" library="serenity-layout" />
+        <h:outputScript name="js/ripple.js" library="serenity-layout" />
+        <ui:insert name="head"/>
+    </h:head>
+
+    <h:body>
+        <div class="layout-wrapper #{guestPreferences.orientationRTL ? 'layout-rtl' : null} #{guestPreferences.horizontal ? 'layout-menu-horizontal' : null}">
+            <ui:include src="./WEB-INF/sidebar.xhtml" />
+            
+            <div class="layout-main">
+                <ui:include src="./WEB-INF/topbar.xhtml" />
+                
+                <div class="layout-breadcrumb">
+                    <ul>
+                        <li><p:link outcome="dashboard"><i class="material-icons">&#xE88A;</i></p:link></li>
+                        <li>/</li>
+                        <li><p:link outcome="/lime">Lime</p:link></li>
+                    </ul>
+                    
+                    <div class="layout-breadcrumb-options">
+                        <a href="#" title="Backup">
+                            <i class="material-icons">&#xE864;</i>
+                        </a>
+                        <a href="#" title="Bookmark">
+                            <i class="material-icons">&#xE866;</i>
+                        </a>
+                        <a href="#" title="Logout">
+                            <i class="material-icons">&#xE8AC;</i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="layout-content">
+                    <div class="ui-g">
+                        <div class="ui-g-12">
+                            <div class="card">
+                                <h1>Lime Theme</h1>
+                                <p>This page is only for legacy browser tests.</p>
+                                <p:button outcome="dashboard" value="Home" style="display:inline-block;margin-top:5px"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <ui:include src="./WEB-INF/config.xhtml" />
+                
+                <ui:include src="./WEB-INF/footer.xhtml" />
+                
+                <div class="layout-main-mask"></div>
+            </div>
+        </div>
+        
+        <p:ajaxStatus style="width:32px;height:32px;position:fixed;right:7px;bottom:7px">
+           <f:facet name="start">
+               <i class="fa fa-circle-o-notch fa-spin ajax-loader" aria-hidden="true"></i>
+           </f:facet>
+
+           <f:facet name="complete">
+               <h:outputText value="" />
+           </f:facet>
+       </p:ajaxStatus>
+        
+        <h:outputStylesheet name="css/nanoscroller.css" library="serenity-layout" />
+        <h:outputStylesheet name="css/ripple.css" library="serenity-layout" />
+        <h:outputStylesheet name="css/layout-lime.css" library="serenity-layout" />
+    </h:body>
+
+</html>

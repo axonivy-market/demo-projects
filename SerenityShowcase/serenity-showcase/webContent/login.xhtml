@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:attribute name="primefaces.THEME" value="serenity-ivy" />
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <title>PrimeFaces Serenity</title>
+        <h:outputScript name="js/layout.js" library="serenity-layout" />
+        <h:outputScript name="js/ripple.js" library="serenity-layout" />
+    </h:head>
+
+    <h:body styleClass="login-body">
+        <div class="login-panel ui-fluid">
+            <div class="login-panel-header">
+                <p:graphicImage name="images/logo-slim.png" library="serenity-layout" />
+            </div>
+            <div class="login-panel-content">
+                <div class="ui-g">
+                    <div class="ui-g-12">
+                        <h1>Sign-in to Serenity Network</h1>
+                    </div>
+                    <div class="ui-g-12">
+                        <h:panelGroup styleClass="md-inputfield">
+                            <p:inputText autocomplete="off" />
+                            <label>Username</label>
+                        </h:panelGroup>
+                    </div>
+                    <div class="ui-g-12">
+                        <h:panelGroup styleClass="md-inputfield">
+                            <p:password autocomplete="off" />
+                            <label>Password</label>
+                        </h:panelGroup>
+                    </div>
+                    <div class="ui-g-6 ">
+                        <p:selectBooleanCheckbox id="rememberme" />
+                        <p:outputLabel for="rememberme" value="Remember Me?" />
+                    </div>
+                    <div class="ui-g-6 password-reset">
+                        <h:outputLink>Reset Password</h:outputLink>
+                    </div>
+                    <div class="ui-g-12">
+                        <p:button outcome="dashboard" value="Sign In" icon="ui-icon-person" />
+                    </div>
+                    <div class="ui-g-12">
+                        Don't have an account? <h:outputLink value="#">Sign Up</h:outputLink> now.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h:outputStylesheet name="css/layout-ivy.css" library="serenity-layout" />
+    </h:body>
+
+</html>

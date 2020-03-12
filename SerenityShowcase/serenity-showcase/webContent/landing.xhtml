@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:attribute name="primefaces.THEME" value="serenity-ivy" />
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <title>PrimeFaces Serenity</title>
+        <script type="text/javascript">
+            $(function() {
+                $('#landing-menu-button').on('click', function(e) {
+                    $('.landing-body').toggleClass('landing-menu-active');
+                    e.preventDefault();
+                });
+                
+                $('#landing-menu').on('click', function() {
+                    $('.landing-body').removeClass('landing-menu-active');
+                });
+                
+                $('.landing-mask').on('click', function() {
+                    $('.landing-body').removeClass('landing-menu-active');
+                });
+            });
+        </script>
+        <h:outputScript name="js/layout.js" library="serenity-layout" />
+        <h:outputScript name="js/ripple.js" library="serenity-layout" />
+    </h:head>
+
+    <h:body styleClass="landing-body">
+        <div class="landing-wrapper">
+            <div id="header">
+                <div>
+                    <p:graphicImage name="images/logo-colored.png" library="serenity-layout" styleClass="logo"/>
+                    <a id="landing-menu-button" href="#">
+                        <i class="material-icons">&#xE5D2;</i>
+                    </a>
+                    
+                    <ul id="landing-menu">
+                        <li>
+                            <a href="#home">HOME</a>
+                        </li>
+                        <li>
+                            <a href="#features">FEATURES</a>
+                        </li>
+                        <li>
+                            <a href="#stats">STATS</a>
+                        </li>
+                        <li>
+                            <a href="#video">VIDEO</a>
+                        </li>
+                        <li>
+                            <a href="#pricing">PRICING</a>
+                        </li>
+                        <li>
+                            <a href="#contact">CONTACT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="introduction">
+                <div>
+                    <h1>PrimeFaces Presents Serenity</h1>
+                    <p>Modern and elegant responsive application template with a premium look for PrimeFaces components.</p>
+                    <p:button outcome="dashboard" value="LEARN MORE"  styleClass="pink-btn"/>
+                </div>
+            </div>
+            
+            <div id="features">
+                <div>
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-6 feature-box">
+                            <p:graphicImage name="images/landing/icon-responsive.svg" library="serenity-layout" />
+                            <div>
+                                <h3>RESPONSIVE LAYOUT</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ui-g-12 ui-md-6 feature-box">
+                            <p:graphicImage name="images/landing/icon-moderndesign.svg" library="serenity-layout" />
+                            <div>
+                                <h3>MODERN DESIGN</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ui-g-12 ui-md-6 feature-box">
+                            <p:graphicImage name="images/landing/icon-welldocumented.svg" library="serenity-layout" />
+                            <div>
+                                <h3>WELL DOCUMENTED</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ui-g-12 ui-md-6 feature-box">
+                            <p:graphicImage name="images/landing/icon-cleancode.svg" library="serenity-layout" />
+                            <div>
+                                <h3>CLEAN CODE</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="stats">
+                <div>
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-4">
+                            <div class="stat-box">
+                                <p:graphicImage name="images/landing/icon-ui.svg" library="serenity-layout" />
+                                <h3>100+</h3>
+                                <p>UI COMPONENTS</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ui-g-12 ui-md-4">
+                            <div class="stat-box stat-box-active">
+                                <p:graphicImage name="images/landing/icon-hours.svg" library="serenity-layout" />
+                                <h3>425</h3>
+                                <p>HOURS OF DEVELOPMENT</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ui-g-12 ui-md-4">
+                            <div class=" stat-box">
+                                <p:graphicImage name="images/landing/icon-coffee.svg" library="serenity-layout" />
+                                <h3>129</h3>
+                                <p>CUPS OF COFFE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="video">
+                <div>
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-6 video-description">
+                            <h3>PrimeFaces Premium Layout and Theme</h3>
+                            <p>Take advantage of media's most prominent business trend, and empowers your internal advertising teams.</p>
+                            <p:button outcome="dashboard" value="LEARN MORE"  styleClass="pink-btn"/>
+                        </div>
+                        
+                        <div class="ui-g-12 ui-md-6">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/eKQUP2el3zU" frameborder="0" allowfullscreen="true"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="pricing">
+                <div>
+                    <h2>Pricing</h2>
+                    <p>Quis nostrud exercitation ullamco </p>
+                    
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-4">
+                            <div class="pricing-box">
+                                <div class="pricing-header">
+                                    <h3>BEGINNER</h3>
+                                    <p>For starts</p>
+                                </div>
+                                
+                                <div class="pricing-content">
+                                    <div class="pricing-fee">5$</div>
+                                    
+                                    <ul>
+                                        <li><i class="material-icons">&#xE86C;</i> Responsive</li>
+                                        <li><i class="material-icons">&#xE86C;</i> Push Messages</li>
+                                    </ul>
+
+                                    <p:button outcome="dashboard" styleClass="pink-btn" value="BUY NOW"/>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ui-g-12 ui-md-4">
+                            <div class="pricing-box pricing-box-pro">
+                                <div class="pricing-header">
+                                    <h3>PROFESSIONAL</h3>
+                                    <p>Most Popular</p>
+                                </div>
+                                
+                                <div class="pricing-content">
+                                    <div class="pricing-fee">10$</div>
+                                                                    
+                                    <ul>
+                                        <li><i class="material-icons">&#xE86C;</i> Responsive</li>
+                                        <li><i class="material-icons">&#xE86C;</i> Push Messages</li>
+                                        <li><i class="material-icons">&#xE86C;</i> 10 Support Tickets</li>
+                                        <li><i class="material-icons">&#xE86C;</i> Free Shipping</li>
+                                    </ul>
+                                    
+                                    <p:button outcome="dashboard" styleClass="pink-btn" value="BUY NOW"/>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ui-g-12 ui-md-4">
+                            <div class="pricing-box">
+                                <div class="pricing-header">
+                                    <h3>ENTERPRISE</h3>
+                                    <p>Larger Teams</p>
+                                </div>
+                                
+                                <div class="pricing-content">
+                                    <div class="pricing-fee">20$</div>
+                                    
+                                    <ul>
+                                        <li><i class="material-icons">&#xE86C;</i> Responsive</li>
+                                        <li><i class="material-icons">&#xE86C;</i> Push Messages</li>
+                                        <li><i class="material-icons">&#xE86C;</i> 7/24 Support</li>
+                                        <li><i class="material-icons">&#xE86C;</i> Free Shipping</li>
+                                        <li><i class="material-icons">&#xE86C;</i> Unlimited Space</li>
+                                    </ul>
+                                    
+                                    <p:button outcome="dashboard" styleClass="pink-btn" value="BUY NOW"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="contact">
+                <div>
+                    <h2>Contact</h2>
+                    <p>Fill in the fields below and we’ll get back to you</p>
+                    
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-8 contact-map">
+                            <p:graphicImage name="images/landing/map-contact.png" library="serenity-layout" />
+                        </div>
+                                            
+                        <div class="ui-g-12 ui-md-4 contact-form ui-fluid">
+                            <div class="ui-g-12">
+                                <span class="md-inputfield">
+                                    <p:inputText />
+                                    <label>Name</label>
+                                </span>
+                            </div>
+
+                            <div class="ui-g-12">
+                                <span class="md-inputfield">
+                                    <p:inputText />
+                                    <label>Email</label>
+                                </span>
+                            </div>
+                            
+                            <div class="ui-g-12">
+                                <span class="md-inputfield">
+                                    <p:inputText />
+                                    <label>Message</label>
+                                </span>
+                            </div>
+                            
+                            <p:button outcome="dashboard" styleClass="indigo-btn" value="SEND"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="footer">
+                <div>
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-4">
+                            <p:graphicImage name="images/logo-slim.png" library="serenity-layout" styleClass="footer-logo" />
+                            
+                            <div>
+                                <h4>ABOUT SERENITY</h4>
+                                <p>PrimeFaces Premium Templates</p>    
+                            </div>
+                        </div>
+                        
+                        <div class="ui-g-12 ui-md-4">
+                            <h4>CONTACT</h4>
+                            <p>Lorem ipsum dolor sit amet, Consectetur adipisicing elit.  344 CA, San Francisco USA</p>
+                            <p><i class="material-icons">&#xE0CD;</i> +108278 92 728</p>    
+                        </div>
+                        
+                        <div class="ui-g-12 ui-md-4 footer-social">
+                            <h4>SOCIAL</h4>
+                            <a href="#">
+                                <p:graphicImage name="images/landing/icon-twitter.svg" library="serenity-layout" />
+                            </a>
+                            <a href="#">
+                                <p:graphicImage name="images/landing/icon-linkedin.svg" library="serenity-layout" />
+                            </a>
+                            <a href="#">
+                                <p:graphicImage name="images/landing/icon-facebook.svg" library="serenity-layout" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="landing-mask"></div>
+        </div>
+       
+        <h:outputStylesheet name="css/layout-ivy.css" library="serenity-layout"/>
+    </h:body>
+
+</html>

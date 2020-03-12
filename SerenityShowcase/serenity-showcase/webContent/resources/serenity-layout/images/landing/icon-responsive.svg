@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="110" height="111" viewBox="0 0 110 111">
+    <defs>
+        <path id="b" d="M50 100c-13.36 0-25.92-5.2-35.36-14.64C5.2 75.92 0 63.36 0 50s5.2-25.92 14.64-35.36C24.08 5.2 36.64 0 50 0s25.92 5.2 35.36 14.64C94.8 24.08 100 36.64 100 50s-5.2 25.92-14.64 35.36C75.92 94.8 63.36 100 50 100z"/>
+        <filter id="a" width="133%" height="133%" x="-16.5%" y="-10.5%" filterUnits="objectBoundingBox">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2.5"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+            <feOffset dy="3" in="SourceAlpha" result="shadowOffsetOuter2"/>
+            <feGaussianBlur in="shadowOffsetOuter2" result="shadowBlurOuter2" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter2" result="shadowMatrixOuter2" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0"/>
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter3"/>
+            <feGaussianBlur in="shadowOffsetOuter3" result="shadowBlurOuter3" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter3" result="shadowMatrixOuter3" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="shadowMatrixOuter2"/>
+                <feMergeNode in="shadowMatrixOuter3"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero" transform="translate(5 4)">
+            <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+            <use fill="#FFF" fill-rule="evenodd" xlink:href="#b"/>
+        </g>
+        <path fill="#783394" d="M55 7.2C29.2 7.2 8.2 28.2 8.2 54c0 25.8 21 46.8 46.8 46.8 25.8 0 46.8-21 46.8-46.8 0-25.8-21-46.8-46.8-46.8z"/>
+        <path fill="#FFF" fill-rule="nonzero" d="M78.92 73.34V47.42h-6.36V36.34c0-4.06-3.3-7.34-7.34-7.34H38.44c-4.06 0-7.36 3.3-7.36 7.34v25.7c0 4.06 3.3 7.34 7.34 7.34h11.34v6h-9.64V79h23.32v-3.62H53.8v-6h6.68v3.92l18.44.04zm-14.7-3.68v-2.58h11.02v2.58H64.22zM75.24 51.1v12.36H64.22V51.1h11.02zm-36.8-18.42h26.78c2.02 0 3.68 1.66 3.68 3.68v11.08h-8.34v9.14h-25.8V36.34c0-2.02 1.66-3.66 3.68-3.66zm0 33.04c-2.02 0-3.68-1.66-3.68-3.68v-1.88h25.78v5.54l-22.1.02z"/>
+    </g>
+</svg>
