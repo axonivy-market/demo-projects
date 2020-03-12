@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-facebook</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Default-Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="landing-without-slider" transform="translate(-1033.000000, -2914.000000)" fill="#FFFFFF">
+            <g id="footer" transform="translate(0.000000, 2845.000000)">
+                <g id="social" transform="translate(925.000000, 32.000000)">
+                    <path d="M135,37 L111,37 C109.35,37 108,38.35 108,40 L108,64 C108,65.65 109.35,67 111,67 L135,67 C136.65,67 138,65.65 138,64 L138,40 C138,38.35 136.65,37 135,37 L135,37 Z M133.5,40 L133.5,44.5 L130.5,44.5 C129.6,44.5 129,45.1 129,46 L129,49 L133.5,49 L133.5,53.5 L129,53.5 L129,64 L124.5,64 L124.5,53.5 L121.5,53.5 L121.5,49 L124.5,49 L124.5,45.25 C124.5,42.4 126.9,40 129.75,40 L133.5,40 L133.5,40 Z" id="icon-facebook"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

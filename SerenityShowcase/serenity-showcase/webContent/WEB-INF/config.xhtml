@@ -1,0 +1,178 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+
+
+    <div id="layout-config" class="layout-config">
+        <div class="layout-config-content">
+            <a href="#" id="layout-config-button" class="layout-config-button">
+                <i class="material-icons">settings</i>
+            </a>
+            <a href="#" class="layout-config-close">
+                <i class="material-icons">clear</i>
+            </a>
+            <h:form id="config-form">
+                <p:tabView id="config-form-tabs">
+                    <p:tab title="Menu">
+                        <p:outputPanel id="menumodes-panel">
+                            <h1>Menu Modes</h1>
+                            <div class="panel-items">
+                                <div class="panel-item">
+                                    <p:commandLink actionListener="#{guestPreferences.setHorizontal(false)}"
+                                        update=":config-form:config-form-tabs:menumodes-panel  menuform"
+                                        oncomplete="PrimeFaces.SerenityConfigurator.changeMenuToVertical()">
+                                        <p:graphicImage name="images/configurator/menu/serenity-overlay.png"
+                                            library="serenity-layout" title="Verical" />
+                                        <ui:fragment rendered="#{!guestPreferences.horizontal}">
+                                            <i class="material-icons">check</i>
+                                        </ui:fragment>
+                                    </p:commandLink>
+                                    <span>Vertical</span>
+                                </div>
+                                <div class="panel-item">
+                                    <p:commandLink actionListener="#{guestPreferences.setHorizontal(true)}"
+                                        update=":config-form:config-form-tabs:menumodes-panel menuform"
+                                        oncomplete="PrimeFaces.SerenityConfigurator.changeMenuToHorizontal()">
+                                        <p:graphicImage name="images/configurator/menu/serenity-horizontal.png"
+                                            library="serenity-layout" title="Horizontal" />
+                                        <ui:fragment rendered="#{guestPreferences.horizontal}">
+                                            <i class="material-icons">check</i>
+                                        </ui:fragment>
+                                    </p:commandLink>
+                                    <span>Horizontal</span>
+                                </div>
+                            </div>
+                        </p:outputPanel>
+
+                        <p:outputPanel id="menucolors-panel">
+                            <h1>Menu Colors</h1>
+                            <div class="panel-items">
+                                <div class="panel-item">
+                                    <p:commandLink actionListener="#{guestPreferences.setDarkMenu(true)}"
+                                        oncomplete="PrimeFaces.SerenityConfigurator.changeMenuToDark()"
+                                        update=":config-form:config-form-tabs:menucolors-panel menuform">
+                                        <p:graphicImage name="images/configurator/menu/serenity-dark.png"
+                                            library="serenity-layout" title="Dark" />
+                                        <ui:fragment rendered="#{guestPreferences.darkMenu}">
+                                            <i class="material-icons">check</i>
+                                        </ui:fragment>
+                                    </p:commandLink>
+                                    <span>Dark </span>
+                                </div>
+                                <div class="panel-item">
+                                    <p:commandLink actionListener="#{guestPreferences.setDarkMenu(false)}"
+                                        oncomplete="PrimeFaces.SerenityConfigurator.changeMenuToLight()"
+                                        update=":config-form:config-form-tabs:menucolors-panel menuform">
+                                        <p:graphicImage name="images/configurator/menu/serenity-overlay.png"
+                                            library="serenity-layout" title="Light" />
+                                        <ui:fragment rendered="#{!guestPreferences.darkMenu}">
+                                            <i class="material-icons">check</i>
+                                        </ui:fragment>
+                                    </p:commandLink>
+                                    <span>Light</span>
+                                </div>
+                            </div>
+                        </p:outputPanel>
+                    </p:tab>
+                    <p:tab title="Orientation">
+                        <p:outputPanel id="orientation-panel">
+                            <div class="panel-items">
+                                <div class="panel-item">
+                                    <p:commandLink actionListener="#{guestPreferences.setOrientationRTL(false)}"
+                                        oncomplete="PrimeFaces.SerenityConfigurator.changeMenuToLTR()"
+                                        update=":config-form:config-form-tabs:orientation-panel">
+                                        <p:graphicImage name="images/configurator/menu/serenity-overlay.png"
+                                            library="serenity-layout" title="LTR" />
+                                        <ui:fragment rendered="#{!guestPreferences.orientationRTL}">
+                                            <i class="material-icons">check</i>
+                                        </ui:fragment>
+                                    </p:commandLink>
+                                    <span>LTR</span>
+                                </div>
+                                <div class="panel-item">
+                                    <p:commandLink actionListener="#{guestPreferences.setOrientationRTL(true)}"
+                                        oncomplete="PrimeFaces.SerenityConfigurator.changeMenuToRTL()"
+                                        update=":config-form:config-form-tabs:orientation-panel">
+                                        <p:graphicImage name="images/configurator/menu/serenity-rtl.png"
+                                            library="serenity-layout" title="RTL" />
+                                        <ui:fragment rendered="#{guestPreferences.orientationRTL}">
+                                            <i class="material-icons">check</i>
+                                        </ui:fragment>
+                                    </p:commandLink>
+                                    <span>RTL</span>
+                                </div>
+                            </div>
+                        </p:outputPanel>
+                    </p:tab>
+                    <!-- <p:tab title="Layout">
+                        <p:outputPanel id="layoutflatcolors-panel">
+                            <h1>Flat</h1>
+                            <div class="panel-items">
+                                <ui:repeat value="#{guestPreferences.layoutThemes}" var="layoutTheme">
+                                    <div class="panel-item colors">
+                                        <p:commandLink actionListener="#{guestPreferences.setLayout(layoutTheme.file)}"
+                                            update=" :config-form:config-form-tabs:layoutflatcolors-panel :config-form:config-form-tabs:layoutspecialcolors-panel"
+                                            oncomplete="PrimeFaces.SerenityConfigurator.changeLayout('#{layoutTheme.file}')"
+                                            styleClass="layout-config-layout-option">
+                                            <p:graphicImage name="images/configurator/layout/flat/#{layoutTheme.image}"
+                                                library="serenity-layout" title="#{layoutTheme.name}" />
+                                            <ui:fragment rendered="#{layoutTheme.file eq guestPreferences.layout}">
+                                                <i class="material-icons">check</i>
+                                            </ui:fragment>
+                                        </p:commandLink>
+
+                                    </div>
+                                </ui:repeat>
+                            </div>
+                        </p:outputPanel>
+
+                        <p:outputPanel id="layoutspecialcolors-panel">
+                            <h1>Special</h1>
+                            <div class="panel-items">
+                                <ui:repeat value="#{guestPreferences.layoutSpecialThemes}" var="layoutSpecialTheme">
+                                    <div class="panel-item colors">
+                                        <p:commandLink
+                                            actionListener="#{guestPreferences.setLayout(layoutSpecialTheme.file)}"
+                                            update=" :config-form:config-form-tabs:layoutspecialcolors-panel :config-form:config-form-tabs:layoutflatcolors-panel "
+                                            oncomplete="PrimeFaces.SerenityConfigurator.changeLayout('#{layoutSpecialTheme.file}')"
+                                            styleClass="layout-config-layout-option">
+                                            <p:graphicImage
+                                                name="images/configurator/layout/special/#{layoutSpecialTheme.image}"
+                                                library="serenity-layout" title="#{layoutSpecialTheme.name}" />
+                                            <ui:fragment
+                                                rendered="#{layoutSpecialTheme.file eq guestPreferences.layout}">
+                                                <i class="material-icons">check</i>
+                                            </ui:fragment>
+                                        </p:commandLink>
+                                    </div>
+                                </ui:repeat>
+                            </div>
+                        </p:outputPanel>
+                    </p:tab>
+                    <p:tab title="Themes">
+                        <p:outputPanel id="componentthemes-panel">
+                            <div class="panel-items">
+                                <ui:repeat value="#{guestPreferences.componentThemes}" var="componentTheme">
+                                    <div class="panel-item colors">
+                                        <p:commandLink
+                                            actionListener="#{guestPreferences.setTheme(componentTheme.file)}"
+                                            update=" :config-form:config-form-tabs:componentthemes-panel"
+                                            oncomplete="PrimeFaces.SerenityConfigurator.changeComponentsTheme('#{componentTheme.file}')"
+                                            styleClass="layout-config-option">
+                                            <p:graphicImage name="images/configurator/theme/#{componentTheme.image}"
+                                                library="serenity-layout" title="#{componentTheme.name}" />
+                                            <ui:fragment rendered="#{componentTheme.file eq guestPreferences.theme}">
+                                                <i class="material-icons">check</i>
+                                            </ui:fragment>
+                                        </p:commandLink>
+                                    </div>
+                                </ui:repeat>
+                            </div>
+                        </p:outputPanel>
+                    </p:tab>-->
+                </p:tabView>
+            </h:form>
+        </div>
+    </div>
+</ui:composition>

@@ -1,0 +1,1096 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+                
+<ui:define name="head">
+    <style type="text/css">
+        .icon-grid div.ui-g-12 {
+            color: #757575;
+            text-align: center;
+            padding: 16px;
+            font-size: 12px;
+        }
+        
+        .icon-grid i {
+            display: block;
+            margin: 0 auto;
+            font-size: 24px;
+        }
+        
+        pre {
+            font-family: monospace;
+            background-color: #0C2238;
+            color: #dddddd;
+            padding: 1em;
+            font-size: 14px;
+            border-radius: 3px;
+            overflow: auto;
+        }
+        
+        .shadow-box {
+            background-color: #607D8B;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</ui:define>
+
+    <ui:define name="breadcrumb">
+        <li><p:link outcome="/utils">Utilities</p:link></li>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card">
+                    <h1>Card</h1>
+                    <p>Card is a section to group content and layout provides a built-in css for it. Apply .card style class to your container to use it. If the
+                    card has a title defined with h1 tag, add card-w-title to adjust paddings.</p>
+<pre>
+&lt;div class="card"&gt;
+    Content here
+&lt;/div&gt;
+
+&lt;div class="card card-w-title"&gt;
+    &lt;h1&gt;Card with Title&lt;h1&gt;
+    Content here
+&lt;/div&gt;
+</pre>  
+                    
+                    <div class="card">
+                        Content
+                    </div>
+                    
+                    <div class="card card-w-title">
+                        <h1>Card with Title</h1>
+                        Content
+                    </div>
+                    
+                    <h1>Input Animations</h1>
+                    <p>Label of an input can be animated on focus by wrapping both the input and label in an element with md-inputfield style class.</p>
+                    <br />
+                    
+                    <h:panelGroup styleClass="md-inputfield">
+                        <p:inputText id="name"/>
+                        <p:outputLabel for="name" value="Name" />
+                    </h:panelGroup>
+
+<pre>
+&lt;h:panelGroup styleClass="md-inputfield"&gt;
+    &lt;p:inputText id="name"/&gt;
+    &lt;p:outputLabel for="name" value="Name" /&gt;
+&lt;/h:panelGroup&gt;
+</pre>      
+                    
+                    <h1>Shadows</h1>
+                    <p>5 levels of shadows are provided varying from ui-shadow-1 to ui-shadow-5 to define the level of depth.</p>
+                    
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-2">
+                            <div class="shadow-box"></div>
+                        </div>
+                        <div class="ui-g-12 ui-md-2">
+                            <div class="shadow-box ui-shadow-1"></div>
+                        </div>
+                        <div class="ui-g-12 ui-md-2">
+                            <div class="shadow-box ui-shadow-2"></div>
+                        </div>
+                        <div class="ui-g-12 ui-md-2">
+                            <div class="shadow-box ui-shadow-3"></div>
+                        </div>
+                        <div class="ui-g-12 ui-md-2">
+                            <div class="shadow-box ui-shadow-4"></div>
+                        </div>
+                        <div class="ui-g-12 ui-md-2">
+                            <div class="shadow-box ui-shadow-5"></div>
+                        </div>
+                    </div>
+<pre>
+&lt;div class="ui-g"&gt;
+    &lt;div class="ui-g-12 ui-md-2"&gt;
+        &lt;div class="shadow-box"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="ui-g-12 ui-md-2"&gt;
+        &lt;div class="shadow-box ui-shadow-1"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="ui-g-12 ui-md-2"&gt;
+        &lt;div class="shadow-box ui-shadow-2"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="ui-g-12 ui-md-2"&gt;
+        &lt;div class="shadow-box ui-shadow-3"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="ui-g-12 ui-md-2"&gt;
+        &lt;div class="shadow-box ui-shadow-4"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="ui-g-12 ui-md-2"&gt;
+        &lt;div class="shadow-box ui-shadow-5"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>  
+                    
+                    <h1>Icons</h1>
+                    <p><a href="https://design.google.com/icons/">All material icons</a> have been ported 
+                        using <i>ui-icon-</i> convention to be utilized by PrimeFaces components. To use an icon within a component
+                        such as button below, define it using the icon attribute prefixed by <i>ui-icon-</i>. In addition font-awesome
+                        icons can also be used which requires setting primefaces.FONT_AWESOME parameters
+                        in web.xml as true or manually installing font awesome.</p>
+                        
+                    <p>Note: For Serenity menu, keep the material icon name as it is instead of ui-icon.</p>
+<pre>
+&lt;p:menuitem value="Filters" icon="filter-list" outcome="filters"/&gt;
+</pre>  
+                        
+                        <div style="text-align:center;margin-bottom:16px;">
+                            <p:commandButton type="button" value="ui-icon-check" icon="ui-icon-check" style="margin-right:4px"/>
+                            
+                            <p:commandButton type="button" value="fa fa-check" icon="fa fa-check" />
+                        </div>
+                        
+<pre>
+&lt;p:commandButton type="button" value="ui-icon-check" icon="ui-icon-check" /&gt;
+</pre>  
+                        
+                        <div class="ui-g icon-grid">
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-3d-rotation"></i>3d-rotation</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-ac-unit"></i>ac-unit</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-access-alarm"></i>access-alarm</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-access-alarms"></i>access-alarms</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-access-time"></i>access-time</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-accessibility"></i>accessibility</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-accessible"></i>accessible</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-account-balance"></i>account-balance</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-account-balance-wallet"></i>account-balance-wallet</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-account-box"></i>account-box</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-account-circle"></i>account-circle</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-adb"></i>adb</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-add"></i>add</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-add-a-photo"></i>add-a-photo</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-add-alarm"></i>add-alarm</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-add-alert"></i>add-alert</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-add-box"></i>add-box</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-add-circle"></i>add-circle</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-add-circle-outline"></i>add-circle-outline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-add-location"></i>add-location</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-add-shopping-cart"></i>add-shopping-cart</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-add-to-photos"></i>add-to-photos</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-add-to-queue"></i>add-to-queue</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-adjust"></i>adjust</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-airline-seat-flat"></i>airline-seat-flat</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-airline-seat-flat-angled"></i>airline-seat-flat-angled</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-airline-seat-individual-suite"></i>airline-seat-individual-suite</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-airline-seat-legroom-extra"></i>airline-seat-legroom-extra</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-airline-seat-legroom-normal"></i>airline-seat-legroom-normal</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-airline-seat-legroom-reduced"></i>airline-seat-legroom-reduced</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-airline-seat-recline-extra"></i>airline-seat-recline-extra</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-airline-seat-recline-normal"></i>airline-seat-recline-normal</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-airplanemode-active"></i>airplanemode-active</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-airplanemode-inactive"></i>airplanemode-inactive</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-airplay"></i>airplay</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-airport-shuttle"></i>airport-shuttle</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-alarm"></i>alarm</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-alarm-add"></i>alarm-add</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-alarm-off"></i>alarm-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-alarm-on"></i>alarm-on</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-album"></i>album</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-all-inclusive"></i>all-inclusive</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-all-out"></i>all-out</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-android"></i>android</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-announcement"></i>announcement</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-apps"></i>apps</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-archive"></i>archive</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-arrow-back"></i>arrow-back</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-arrow-downward"></i>arrow-downward</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-arrow-drop-down"></i>arrow-drop-down</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-arrow-drop-down-circle"></i>arrow-drop-down-circle</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-arrow-drop-up"></i>arrow-drop-up</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-arrow-forward"></i>arrow-forward</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-arrow-upward"></i>arrow-upward</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-art-track"></i>art-track</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-aspect-ratio"></i>aspect-ratio</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-assessment"></i>assessment</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-assignment"></i>assignment</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-assignment-ind"></i>assignment-ind</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-assignment-late"></i>assignment-late</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-assignment-return"></i>assignment-return</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-assignment-returned"></i>assignment-returned</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-assignment-turned-in"></i>assignment-turned-in</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-assistant"></i>assistant</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-assistant-photo"></i>assistant-photo</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-attach-file"></i>attach-file</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-attach-money"></i>attach-money</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-attachment"></i>attachment</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-audiotrack"></i>audiotrack</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-autorenew"></i>autorenew</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-av-timer"></i>av-timer</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-backspace"></i>backspace</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-backup"></i>backup</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-battery-alert"></i>battery-alert</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-battery-charging-full"></i>battery-charging-full</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-battery-full"></i>battery-full</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-battery-std"></i>battery-std</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-battery-unknown"></i>battery-unknown</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-beach-access"></i>beach-access</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-beenhere"></i>beenhere</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-block"></i>block</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-bluetooth"></i>bluetooth</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-bluetooth-audio"></i>bluetooth-audio</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-bluetooth-connected"></i>bluetooth-connected</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-bluetooth-disabled"></i>bluetooth-disabled</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-bluetooth-searching"></i>bluetooth-searching</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-blur-circular"></i>blur-circular</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-blur-linear"></i>blur-linear</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-blur-off"></i>blur-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-blur-on"></i>blur-on</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-book"></i>book</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-bookmark"></i>bookmark</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-bookmark-border"></i>bookmark-border</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-border-all"></i>border-all</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-border-bottom"></i>border-bottom</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-border-clear"></i>border-clear</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-border-color"></i>border-color</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-border-horizontal"></i>border-horizontal</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-border-inner"></i>border-inner</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-border-left"></i>border-left</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-border-outer"></i>border-outer</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-border-right"></i>border-right</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-border-style"></i>border-style</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-border-top"></i>border-top</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-border-vertical"></i>border-vertical</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-branding-watermark"></i>branding-watermark</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-brightness-1"></i>brightness-1</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-brightness-2"></i>brightness-2</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-brightness-3"></i>brightness-3</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-brightness-4"></i>brightness-4</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-brightness-5"></i>brightness-5</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-brightness-6"></i>brightness-6</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-brightness-7"></i>brightness-7</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-brightness-auto"></i>brightness-auto</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-brightness-high"></i>brightness-high</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-brightness-low"></i>brightness-low</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-brightness-medium"></i>brightness-medium</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-broken-image"></i>broken-image</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-brush"></i>brush</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-bubble-chart"></i>bubble-chart</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-bug-report"></i>bug-report</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-build"></i>build</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-burst-mode"></i>burst-mode</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-business"></i>business</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-business-center"></i>business-center</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-cached"></i>cached</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-cake"></i>cake</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-call"></i>call</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-call-end"></i>call-end</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-call-made"></i>call-made</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-call-merge"></i>call-merge</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-call-missed"></i>call-missed</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-call-missed-outgoing"></i>call-missed-outgoing</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-call-received"></i>call-received</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-call-split"></i>call-split</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-call-to-action"></i>call-to-action</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-camera"></i>camera</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-camera-alt"></i>camera-alt</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-camera-enhance"></i>camera-enhance</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-camera-front"></i>camera-front</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-camera-rear"></i>camera-rear</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-camera-roll"></i>camera-roll</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-cancel"></i>cancel</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-card-giftcard"></i>card-giftcard</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-card-membership"></i>card-membership</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-card-travel"></i>card-travel</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-casino"></i>casino</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-cast"></i>cast</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-cast-connected"></i>cast-connected</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-center-focus-strong"></i>center-focus-strong</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-center-focus-weak"></i>center-focus-weak</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-change-history"></i>change-history</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-chat"></i>chat</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-chat-bubble"></i>chat-bubble</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-chat-bubble-outline"></i>chat-bubble-outline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-check"></i>check</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-check-box"></i>check-box</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-check-box-outline-blank"></i>check-box-outline-blank</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-check-circle"></i>check-circle</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-chevron-left"></i>chevron-left</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-chevron-right"></i>chevron-right</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-child-care"></i>child-care</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-child-friendly"></i>child-friendly</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-chrome-reader-mode"></i>chrome-reader-mode</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-class"></i>class</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-clear"></i>clear</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-clear-all"></i>clear-all</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-close"></i>close</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-closed-caption"></i>closed-caption</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-cloud"></i>cloud</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-cloud-circle"></i>cloud-circle</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-cloud-done"></i>cloud-done</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-cloud-download"></i>cloud-download</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-cloud-off"></i>cloud-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-cloud-queue"></i>cloud-queue</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-cloud-upload"></i>cloud-upload</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-code"></i>code</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-collections"></i>collections</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-collections-bookmark"></i>collections-bookmark</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-color-lens"></i>color-lens</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-colorize"></i>colorize</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-comment"></i>comment</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-compare"></i>compare</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-compare-arrows"></i>compare-arrows</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-computer"></i>computer</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-confirmation-number"></i>confirmation-number</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-contact-mail"></i>contact-mail</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-contact-phone"></i>contact-phone</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-contacts"></i>contacts</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-content-copy"></i>content-copy</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-content-cut"></i>content-cut</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-content-paste"></i>content-paste</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-control-point"></i>control-point</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-control-point-duplicate"></i>control-point-duplicate</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-copyright"></i>copyright</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-create"></i>create</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-create-new-folder"></i>create-new-folder</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-credit-card"></i>credit-card</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-crop"></i>crop</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-crop-16-9"></i>crop-16-9</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-crop-3-2"></i>crop-3-2</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-crop-5-4"></i>crop-5-4</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-crop-7-5"></i>crop-7-5</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-crop-din"></i>crop-din</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-crop-free"></i>crop-free</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-crop-landscape"></i>crop-landscape</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-crop-original"></i>crop-original</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-crop-portrait"></i>crop-portrait</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-crop-rotate"></i>crop-rotate</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-crop-square"></i>crop-square</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-dashboard"></i>dashboard</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-data-usage"></i>data-usage</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-date-range"></i>date-range</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-dehaze"></i>dehaze</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-delete"></i>delete</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-delete-forever"></i>delete-forever</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-delete-sweep"></i>delete-sweep</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-description"></i>description</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-desktop-mac"></i>desktop-mac</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-desktop-windows"></i>desktop-windows</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-details"></i>details</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-developer-board"></i>developer-board</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-developer-mode"></i>developer-mode</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-device-hub"></i>device-hub</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-devices"></i>devices</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-devices-other"></i>devices-other</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-dialer-sip"></i>dialer-sip</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-dialpad"></i>dialpad</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-directions"></i>directions</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-directions-bike"></i>directions-bike</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-directions-boat"></i>directions-boat</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-directions-bus"></i>directions-bus</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-directions-car"></i>directions-car</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-directions-railway"></i>directions-railway</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-directions-run"></i>directions-run</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-directions-subway"></i>directions-subway</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-directions-transit"></i>directions-transit</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-directions-walk"></i>directions-walk</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-disc-full"></i>disc-full</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-dns"></i>dns</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-do-not-disturb"></i>do-not-disturb</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-do-not-disturb-alt"></i>do-not-disturb-alt</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-do-not-disturb-off"></i>do-not-disturb-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-do-not-disturb-on"></i>do-not-disturb-on</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-dock"></i>dock</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-domain"></i>domain</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-done"></i>done</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-done-all"></i>done-all</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-donut-large"></i>donut-large</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-donut-small"></i>donut-small</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-drafts"></i>drafts</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-drag-handle"></i>drag-handle</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-drive-eta"></i>drive-eta</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-dvr"></i>dvr</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-edit"></i>edit</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-edit-location"></i>edit-location</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-eject"></i>eject</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-email"></i>email</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-enhanced-encryption"></i>enhanced-encryption</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-equalizer"></i>equalizer</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-error"></i>error</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-error-outline"></i>error-outline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-euro-symbol"></i>euro-symbol</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-ev-station"></i>ev-station</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-event"></i>event</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-event-available"></i>event-available</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-event-busy"></i>event-busy</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-event-note"></i>event-note</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-event-seat"></i>event-seat</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-exit-to-app"></i>exit-to-app</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-expand-less"></i>expand-less</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-expand-more"></i>expand-more</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-explicit"></i>explicit</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-explore"></i>explore</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-exposure"></i>exposure</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-exposure-neg-1"></i>exposure-neg-1</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-exposure-neg-2"></i>exposure-neg-2</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-exposure-plus-1"></i>exposure-plus-1</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-exposure-plus-2"></i>exposure-plus-2</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-exposure-zero"></i>exposure-zero</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-extension"></i>extension</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-face"></i>face</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-fast-forward"></i>fast-forward</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-fast-rewind"></i>fast-rewind</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-favorite"></i>favorite</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-favorite-border"></i>favorite-border</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-featured-play-list"></i>featured-play-list</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-featured-video"></i>featured-video</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-feedback"></i>feedback</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-fiber-dvr"></i>fiber-dvr</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-fiber-manual-record"></i>fiber-manual-record</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-fiber-new"></i>fiber-new</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-fiber-pin"></i>fiber-pin</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-fiber-smart-record"></i>fiber-smart-record</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-file-download"></i>file-download</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-file-upload"></i>file-upload</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter"></i>filter</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-1"></i>filter-1</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-2"></i>filter-2</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-3"></i>filter-3</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-4"></i>filter-4</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-5"></i>filter-5</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-6"></i>filter-6</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-7"></i>filter-7</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-8"></i>filter-8</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-9"></i>filter-9</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-9-plus"></i>filter-9-plus</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-b-and-w"></i>filter-b-and-w</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-center-focus"></i>filter-center-focus</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-drama"></i>filter-drama</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-frames"></i>filter-frames</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-hdr"></i>filter-hdr</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-list"></i>filter-list</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-none"></i>filter-none</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-tilt-shift"></i>filter-tilt-shift</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-filter-vintage"></i>filter-vintage</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-find-in-page"></i>find-in-page</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-find-replace"></i>find-replace</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-fingerprint"></i>fingerprint</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-first-page"></i>first-page</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-fitness-center"></i>fitness-center</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-flag"></i>flag</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-flare"></i>flare</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-flash-auto"></i>flash-auto</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-flash-off"></i>flash-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-flash-on"></i>flash-on</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-flight"></i>flight</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-flight-land"></i>flight-land</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-flight-takeoff"></i>flight-takeoff</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-flip"></i>flip</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-flip-to-back"></i>flip-to-back</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-flip-to-front"></i>flip-to-front</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-folder"></i>folder</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-folder-open"></i>folder-open</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-folder-shared"></i>folder-shared</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-folder-special"></i>folder-special</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-font-download"></i>font-download</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-align-center"></i>format-align-center</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-align-justify"></i>format-align-justify</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-align-left"></i>format-align-left</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-align-right"></i>format-align-right</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-bold"></i>format-bold</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-clear"></i>format-clear</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-color-fill"></i>format-color-fill</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-color-reset"></i>format-color-reset</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-color-text"></i>format-color-text</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-indent-decrease"></i>format-indent-decrease</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-indent-increase"></i>format-indent-increase</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-italic"></i>format-italic</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-line-spacing"></i>format-line-spacing</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-list-bulleted"></i>format-list-bulleted</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-list-numbered"></i>format-list-numbered</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-paint"></i>format-paint</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-quote"></i>format-quote</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-shapes"></i>format-shapes</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-size"></i>format-size</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-strikethrough"></i>format-strikethrough</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-textdirection-l-to-r"></i>format-textdirection-l-to-r</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-textdirection-r-to-l"></i>format-textdirection-r-to-l</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-format-underlined"></i>format-underlined</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-forum"></i>forum</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-forward"></i>forward</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-forward-10"></i>forward-10</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-forward-30"></i>forward-30</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-forward-5"></i>forward-5</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-free-breakfast"></i>free-breakfast</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-fullscreen"></i>fullscreen</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-fullscreen-exit"></i>fullscreen-exit</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-functions"></i>functions</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-g-translate"></i>g-translate</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-gamepad"></i>gamepad</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-games"></i>games</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-gavel"></i>gavel</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-gesture"></i>gesture</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-get-app"></i>get-app</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-gif"></i>gif</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-golf-course"></i>golf-course</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-gps-fixed"></i>gps-fixed</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-gps-not-fixed"></i>gps-not-fixed</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-gps-off"></i>gps-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-grade"></i>grade</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-gradient"></i>gradient</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-grain"></i>grain</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-graphic-eq"></i>graphic-eq</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-grid-off"></i>grid-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-grid-on"></i>grid-on</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-group"></i>group</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-group-add"></i>group-add</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-group-work"></i>group-work</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-hd"></i>hd</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-hdr-off"></i>hdr-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-hdr-on"></i>hdr-on</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-hdr-strong"></i>hdr-strong</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-hdr-weak"></i>hdr-weak</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-headset"></i>headset</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-headset-mic"></i>headset-mic</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-healing"></i>healing</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-hearing"></i>hearing</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-help"></i>help</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-help-outline"></i>help-outline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-high-quality"></i>high-quality</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-highlight"></i>highlight</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-highlight-off"></i>highlight-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-history"></i>history</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-home"></i>home</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-hot-tub"></i>hot-tub</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-hotel"></i>hotel</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-hourglass-empty"></i>hourglass-empty</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-hourglass-full"></i>hourglass-full</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-http"></i>http</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-https"></i>https</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-image"></i>image</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-image-aspect-ratio"></i>image-aspect-ratio</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-import-contacts"></i>import-contacts</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-import-export"></i>import-export</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-important-devices"></i>important-devices</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-inbox"></i>inbox</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-indeterminate-check-box"></i>indeterminate-check-box</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-info"></i>info</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-info-outline"></i>info-outline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-input"></i>input</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-insert-chart"></i>insert-chart</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-insert-comment"></i>insert-comment</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-insert-drive-file"></i>insert-drive-file</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-insert-emoticon"></i>insert-emoticon</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-insert-invitation"></i>insert-invitation</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-insert-link"></i>insert-link</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-insert-photo"></i>insert-photo</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-invert-colors"></i>invert-colors</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-invert-colors-off"></i>invert-colors-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-iso"></i>iso</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-keyboard"></i>keyboard</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-keyboard-arrow-down"></i>keyboard-arrow-down</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-keyboard-arrow-left"></i>keyboard-arrow-left</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-keyboard-arrow-right"></i>keyboard-arrow-right</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-keyboard-arrow-up"></i>keyboard-arrow-up</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-keyboard-backspace"></i>keyboard-backspace</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-keyboard-capslock"></i>keyboard-capslock</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-keyboard-hide"></i>keyboard-hide</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-keyboard-return"></i>keyboard-return</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-keyboard-tab"></i>keyboard-tab</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-keyboard-voice"></i>keyboard-voice</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-kitchen"></i>kitchen</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-label"></i>label</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-label-outline"></i>label-outline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-landscape"></i>landscape</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-language"></i>language</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-laptop"></i>laptop</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-laptop-chromebook"></i>laptop-chromebook</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-laptop-mac"></i>laptop-mac</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-laptop-windows"></i>laptop-windows</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-last-page"></i>last-page</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-launch"></i>launch</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-layers"></i>layers</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-layers-clear"></i>layers-clear</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-leak-add"></i>leak-add</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-leak-remove"></i>leak-remove</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-lens"></i>lens</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-library-add"></i>library-add</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-library-books"></i>library-books</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-library-music"></i>library-music</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-lightbulb-outline"></i>lightbulb-outline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-line-style"></i>line-style</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-line-weight"></i>line-weight</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-linear-scale"></i>linear-scale</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-link"></i>link</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-linked-camera"></i>linked-camera</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-list"></i>list</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-live-help"></i>live-help</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-live-tv"></i>live-tv</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-activity"></i>local-activity</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-airport"></i>local-airport</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-atm"></i>local-atm</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-bar"></i>local-bar</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-cafe"></i>local-cafe</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-car-wash"></i>local-car-wash</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-convenience-store"></i>local-convenience-store</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-dining"></i>local-dining</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-drink"></i>local-drink</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-florist"></i>local-florist</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-gas-station"></i>local-gas-station</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-grocery-store"></i>local-grocery-store</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-hospital"></i>local-hospital</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-hotel"></i>local-hotel</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-laundry-service"></i>local-laundry-service</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-library"></i>local-library</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-mall"></i>local-mall</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-movies"></i>local-movies</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-offer"></i>local-offer</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-parking"></i>local-parking</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-pharmacy"></i>local-pharmacy</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-phone"></i>local-phone</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-pizza"></i>local-pizza</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-play"></i>local-play</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-post-office"></i>local-post-office</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-printshop"></i>local-printshop</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-see"></i>local-see</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-shipping"></i>local-shipping</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-local-taxi"></i>local-taxi</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-location-city"></i>location-city</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-location-disabled"></i>location-disabled</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-location-off"></i>location-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-location-on"></i>location-on</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-location-searching"></i>location-searching</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-lock"></i>lock</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-lock-open"></i>lock-open</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-lock-outline"></i>lock-outline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-looks"></i>looks</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-looks-3"></i>looks-3</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-looks-4"></i>looks-4</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-looks-5"></i>looks-5</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-looks-6"></i>looks-6</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-looks-one"></i>looks-one</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-looks-two"></i>looks-two</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-loop"></i>loop</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-loupe"></i>loupe</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-low-priority"></i>low-priority</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-loyalty"></i>loyalty</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-mail"></i>mail</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-mail-outline"></i>mail-outline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-map"></i>map</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-markunread"></i>markunread</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-markunread-mailbox"></i>markunread-mailbox</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-memory"></i>memory</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-menu"></i>menu</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-merge-type"></i>merge-type</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-message"></i>message</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-mic"></i>mic</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-mic-none"></i>mic-none</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-mic-off"></i>mic-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-mms"></i>mms</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-mode-comment"></i>mode-comment</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-mode-edit"></i>mode-edit</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-monetization-on"></i>monetization-on</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-money-off"></i>money-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-monochrome-photos"></i>monochrome-photos</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-mood"></i>mood</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-mood-bad"></i>mood-bad</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-more"></i>more</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-more-horiz"></i>more-horiz</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-more-vert"></i>more-vert</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-motorcycle"></i>motorcycle</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-mouse"></i>mouse</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-move-to-inbox"></i>move-to-inbox</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-movie"></i>movie</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-movie-creation"></i>movie-creation</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-movie-filter"></i>movie-filter</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-multiline-chart"></i>multiline-chart</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-music-note"></i>music-note</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-music-video"></i>music-video</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-my-location"></i>my-location</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-nature"></i>nature</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-nature-people"></i>nature-people</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-navigate-before"></i>navigate-before</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-navigate-next"></i>navigate-next</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-navigation"></i>navigation</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-near-me"></i>near-me</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-network-cell"></i>network-cell</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-network-check"></i>network-check</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-network-locked"></i>network-locked</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-network-wifi"></i>network-wifi</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-new-releases"></i>new-releases</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-next-week"></i>next-week</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-nfc"></i>nfc</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-no-encryption"></i>no-encryption</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-no-sim"></i>no-sim</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-not-interested"></i>not-interested</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-note"></i>note</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-note-add"></i>note-add</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-notifications"></i>notifications</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-notifications-active"></i>notifications-active</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-notifications-none"></i>notifications-none</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-notifications-off"></i>notifications-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-notifications-paused"></i>notifications-paused</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-offline-pin"></i>offline-pin</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-ondemand-video"></i>ondemand-video</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-opacity"></i>opacity</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-open-in-browser"></i>open-in-browser</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-open-in-new"></i>open-in-new</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-open-with"></i>open-with</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-pages"></i>pages</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-pageview"></i>pageview</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-palette"></i>palette</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-pan-tool"></i>pan-tool</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-panorama"></i>panorama</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-panorama-fish-eye"></i>panorama-fish-eye</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-panorama-horizontal"></i>panorama-horizontal</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-panorama-vertical"></i>panorama-vertical</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-panorama-wide-angle"></i>panorama-wide-angle</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-party-mode"></i>party-mode</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-pause"></i>pause</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-pause-circle-filled"></i>pause-circle-filled</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-pause-circle-outline"></i>pause-circle-outline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-payment"></i>payment</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-people"></i>people</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-people-outline"></i>people-outline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-perm-camera-mic"></i>perm-camera-mic</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-perm-contact-calendar"></i>perm-contact-calendar</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-perm-data-setting"></i>perm-data-setting</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-perm-device-information"></i>perm-device-information</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-perm-identity"></i>perm-identity</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-perm-media"></i>perm-media</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-perm-phone-msg"></i>perm-phone-msg</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-perm-scan-wifi"></i>perm-scan-wifi</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-person"></i>person</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-person-add"></i>person-add</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-person-outline"></i>person-outline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-person-pin"></i>person-pin</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-person-pin-circle"></i>person-pin-circle</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-personal-video"></i>personal-video</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-pets"></i>pets</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phone"></i>phone</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phone-android"></i>phone-android</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phone-bluetooth-speaker"></i>phone-bluetooth-speaker</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phone-forwarded"></i>phone-forwarded</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phone-in-talk"></i>phone-in-talk</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phone-iphone"></i>phone-iphone</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phone-locked"></i>phone-locked</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phone-missed"></i>phone-missed</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phone-paused"></i>phone-paused</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phonelink"></i>phonelink</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phonelink-erase"></i>phonelink-erase</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phonelink-lock"></i>phonelink-lock</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phonelink-off"></i>phonelink-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phonelink-ring"></i>phonelink-ring</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-phonelink-setup"></i>phonelink-setup</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-photo"></i>photo</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-photo-album"></i>photo-album</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-photo-camera"></i>photo-camera</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-photo-filter"></i>photo-filter</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-photo-library"></i>photo-library</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-photo-size-select-actual"></i>photo-size-select-actual</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-photo-size-select-large"></i>photo-size-select-large</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-photo-size-select-small"></i>photo-size-select-small</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-picture-as-pdf"></i>picture-as-pdf</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-picture-in-picture"></i>picture-in-picture</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-picture-in-picture-alt"></i>picture-in-picture-alt</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-pie-chart"></i>pie-chart</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-pie-chart-outlined"></i>pie-chart-outlined</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-pin-drop"></i>pin-drop</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-place"></i>place</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-play-arrow"></i>play-arrow</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-play-circle-filled"></i>play-circle-filled</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-play-circle-outline"></i>play-circle-outline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-play-for-work"></i>play-for-work</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-playlist-add"></i>playlist-add</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-playlist-add-check"></i>playlist-add-check</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-playlist-play"></i>playlist-play</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-plus-one"></i>plus-one</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-poll"></i>poll</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-polymer"></i>polymer</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-pool"></i>pool</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-portable-wifi-off"></i>portable-wifi-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-portrait"></i>portrait</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-power"></i>power</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-power-input"></i>power-input</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-power-settings-new"></i>power-settings-new</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-pregnant-woman"></i>pregnant-woman</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-present-to-all"></i>present-to-all</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-print"></i>print</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-priority-high"></i>priority-high</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-public"></i>public</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-publish"></i>publish</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-query-builder"></i>query-builder</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-question-answer"></i>question-answer</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-queue"></i>queue</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-queue-music"></i>queue-music</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-queue-play-next"></i>queue-play-next</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-radio"></i>radio</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-radio-button-checked"></i>radio-button-checked</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-radio-button-unchecked"></i>radio-button-unchecked</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-rate-review"></i>rate-review</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-receipt"></i>receipt</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-recent-actors"></i>recent-actors</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-record-voice-over"></i>record-voice-over</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-redeem"></i>redeem</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-redo"></i>redo</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-refresh"></i>refresh</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-remove"></i>remove</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-remove-circle"></i>remove-circle</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-remove-circle-outline"></i>remove-circle-outline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-remove-from-queue"></i>remove-from-queue</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-remove-red-eye"></i>remove-red-eye</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-remove-shopping-cart"></i>remove-shopping-cart</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-reorder"></i>reorder</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-repeat"></i>repeat</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-repeat-one"></i>repeat-one</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-replay"></i>replay</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-replay-10"></i>replay-10</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-replay-30"></i>replay-30</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-replay-5"></i>replay-5</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-reply"></i>reply</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-reply-all"></i>reply-all</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-report"></i>report</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-report-problem"></i>report-problem</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-restaurant"></i>restaurant</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-restaurant-menu"></i>restaurant-menu</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-restore"></i>restore</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-restore-page"></i>restore-page</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-ring-volume"></i>ring-volume</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-room"></i>room</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-room-service"></i>room-service</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-rotate-90-degrees-ccw"></i>rotate-90-degrees-ccw</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-rotate-left"></i>rotate-left</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-rotate-right"></i>rotate-right</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-rounded-corner"></i>rounded-corner</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-router"></i>router</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-rowing"></i>rowing</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-rss-feed"></i>rss-feed</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-rv-hookup"></i>rv-hookup</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-satellite"></i>satellite</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-save"></i>save</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-scanner"></i>scanner</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-schedule"></i>schedule</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-school"></i>school</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-screen-lock-landscape"></i>screen-lock-landscape</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-screen-lock-portrait"></i>screen-lock-portrait</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-screen-lock-rotation"></i>screen-lock-rotation</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-screen-rotation"></i>screen-rotation</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-screen-share"></i>screen-share</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sd-card"></i>sd-card</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sd-storage"></i>sd-storage</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-search"></i>search</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-security"></i>security</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-select-all"></i>select-all</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-send"></i>send</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sentiment-dissatisfied"></i>sentiment-dissatisfied</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sentiment-neutral"></i>sentiment-neutral</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sentiment-satisfied"></i>sentiment-satisfied</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sentiment-very-dissatisfied"></i>sentiment-very-dissatisfied</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sentiment-very-satisfied"></i>sentiment-very-satisfied</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings"></i>settings</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-applications"></i>settings-applications</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-backup-restore"></i>settings-backup-restore</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-bluetooth"></i>settings-bluetooth</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-brightness"></i>settings-brightness</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-cell"></i>settings-cell</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-ethernet"></i>settings-ethernet</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-input-antenna"></i>settings-input-antenna</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-input-component"></i>settings-input-component</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-input-composite"></i>settings-input-composite</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-input-hdmi"></i>settings-input-hdmi</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-input-svideo"></i>settings-input-svideo</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-overscan"></i>settings-overscan</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-phone"></i>settings-phone</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-power"></i>settings-power</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-remote"></i>settings-remote</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-system-daydream"></i>settings-system-daydream</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-settings-voice"></i>settings-voice</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-share"></i>share</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-shop"></i>shop</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-shop-two"></i>shop-two</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-shopping-basket"></i>shopping-basket</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-shopping-cart"></i>shopping-cart</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-short-text"></i>short-text</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-show-chart"></i>show-chart</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-shuffle"></i>shuffle</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-signal-cellular-4-bar"></i>signal-cellular-4-bar</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-signal-cellular-connected-no-internet-4-bar"></i>signal-cellular-connected-no-internet-4-bar</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-signal-cellular-no-sim"></i>signal-cellular-no-sim</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-signal-cellular-null"></i>signal-cellular-null</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-signal-cellular-off"></i>signal-cellular-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-signal-wifi-4-bar"></i>signal-wifi-4-bar</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-signal-wifi-4-bar-lock"></i>signal-wifi-4-bar-lock</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-signal-wifi-off"></i>signal-wifi-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sim-card"></i>sim-card</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sim-card-alert"></i>sim-card-alert</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-skip-next"></i>skip-next</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-skip-previous"></i>skip-previous</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-slideshow"></i>slideshow</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-slow-motion-video"></i>slow-motion-video</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-smartphone"></i>smartphone</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-smoke-free"></i>smoke-free</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-smoking-rooms"></i>smoking-rooms</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sms"></i>sms</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sms-failed"></i>sms-failed</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-snooze"></i>snooze</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sort"></i>sort</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sort-by-alpha"></i>sort-by-alpha</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-spa"></i>spa</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-space-bar"></i>space-bar</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-speaker"></i>speaker</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-speaker-group"></i>speaker-group</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-speaker-notes"></i>speaker-notes</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-speaker-notes-off"></i>speaker-notes-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-speaker-phone"></i>speaker-phone</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-spellcheck"></i>spellcheck</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-star"></i>star</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-star-border"></i>star-border</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-star-half"></i>star-half</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-stars"></i>stars</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-stay-current-landscape"></i>stay-current-landscape</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-stay-current-portrait"></i>stay-current-portrait</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-stay-primary-landscape"></i>stay-primary-landscape</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-stay-primary-portrait"></i>stay-primary-portrait</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-stop"></i>stop</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-stop-screen-share"></i>stop-screen-share</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-storage"></i>storage</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-store"></i>store</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-store-mall-directory"></i>store-mall-directory</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-straighten"></i>straighten</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-streetview"></i>streetview</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-strikethrough-s"></i>strikethrough-s</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-style"></i>style</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-subdirectory-arrow-left"></i>subdirectory-arrow-left</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-subdirectory-arrow-right"></i>subdirectory-arrow-right</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-subject"></i>subject</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-subscriptions"></i>subscriptions</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-subtitles"></i>subtitles</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-subway"></i>subway</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-supervisor-account"></i>supervisor-account</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-surround-sound"></i>surround-sound</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-swap-calls"></i>swap-calls</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-swap-horiz"></i>swap-horiz</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-swap-vert"></i>swap-vert</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-swap-vertical-circle"></i>swap-vertical-circle</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-switch-camera"></i>switch-camera</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-switch-video"></i>switch-video</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sync"></i>sync</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sync-disabled"></i>sync-disabled</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-sync-problem"></i>sync-problem</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-system-update"></i>system-update</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-system-update-alt"></i>system-update-alt</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-tab"></i>tab</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-tab-unselected"></i>tab-unselected</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-tablet"></i>tablet</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-tablet-android"></i>tablet-android</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-tablet-mac"></i>tablet-mac</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-tag-faces"></i>tag-faces</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-tap-and-play"></i>tap-and-play</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-terrain"></i>terrain</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-text-fields"></i>text-fields</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-text-format"></i>text-format</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-textsms"></i>textsms</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-texture"></i>texture</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-theaters"></i>theaters</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-thumb-down"></i>thumb-down</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-thumb-up"></i>thumb-up</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-thumbs-up-down"></i>thumbs-up-down</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-time-to-leave"></i>time-to-leave</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-timelapse"></i>timelapse</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-timeline"></i>timeline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-timer"></i>timer</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-timer-10"></i>timer-10</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-timer-3"></i>timer-3</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-timer-off"></i>timer-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-title"></i>title</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-toc"></i>toc</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-today"></i>today</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-toll"></i>toll</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-tonality"></i>tonality</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-touch-app"></i>touch-app</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-toys"></i>toys</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-track-changes"></i>track-changes</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-traffic"></i>traffic</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-train"></i>train</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-tram"></i>tram</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-transfer-within-a-station"></i>transfer-within-a-station</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-transform"></i>transform</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-translate"></i>translate</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-trending-down"></i>trending-down</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-trending-flat"></i>trending-flat</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-trending-up"></i>trending-up</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-tune"></i>tune</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-turned-in"></i>turned-in</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-turned-in-not"></i>turned-in-not</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-tv"></i>tv</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-unarchive"></i>unarchive</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-undo"></i>undo</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-unfold-less"></i>unfold-less</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-unfold-more"></i>unfold-more</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-update"></i>update</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-usb"></i>usb</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-verified-user"></i>verified-user</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-vertical-align-bottom"></i>vertical-align-bottom</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-vertical-align-center"></i>vertical-align-center</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-vertical-align-top"></i>vertical-align-top</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-vibration"></i>vibration</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-video-call"></i>video-call</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-video-label"></i>video-label</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-video-library"></i>video-library</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-videocam"></i>videocam</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-videocam-off"></i>videocam-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-videogame-asset"></i>videogame-asset</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-view-agenda"></i>view-agenda</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-view-array"></i>view-array</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-view-carousel"></i>view-carousel</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-view-column"></i>view-column</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-view-comfy"></i>view-comfy</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-view-compact"></i>view-compact</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-view-day"></i>view-day</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-view-headline"></i>view-headline</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-view-list"></i>view-list</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-view-module"></i>view-module</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-view-quilt"></i>view-quilt</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-view-stream"></i>view-stream</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-view-week"></i>view-week</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-vignette"></i>vignette</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-visibility"></i>visibility</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-visibility-off"></i>visibility-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-voice-chat"></i>voice-chat</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-voicemail"></i>voicemail</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-volume-down"></i>volume-down</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-volume-mute"></i>volume-mute</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-volume-off"></i>volume-off</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-volume-up"></i>volume-up</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-vpn-key"></i>vpn-key</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-vpn-lock"></i>vpn-lock</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-wallpaper"></i>wallpaper</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-warning"></i>warning</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-watch"></i>watch</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-watch-later"></i>watch-later</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-wb-auto"></i>wb-auto</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-wb-cloudy"></i>wb-cloudy</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-wb-incandescent"></i>wb-incandescent</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-wb-iridescent"></i>wb-iridescent</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-wb-sunny"></i>wb-sunny</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-wc"></i>wc</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-web"></i>web</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-web-asset"></i>web-asset</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-weekend"></i>weekend</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-whatshot"></i>whatshot</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-widgets"></i>widgets</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-wifi"></i>wifi</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-wifi-lock"></i>wifi-lock</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-wifi-tethering"></i>wifi-tethering</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-work"></i>work</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-wrap-text"></i>wrap-text</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-youtube-searched-for"></i>youtube-searched-for</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-zoom-in"></i>zoom-in</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-zoom-out"></i>zoom-out</div>
+                            <div class="ui-g-12 ui-md-2"><i class="ui-icon ui-icon-zoom-out-map"></i>zoom-out-map</div>
+                            </div>
+                </div>
+            </div>
+        </div>
+        
+    </ui:define>
+
+</ui:composition>
