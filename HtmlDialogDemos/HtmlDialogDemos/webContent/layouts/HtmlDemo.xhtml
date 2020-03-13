@@ -6,13 +6,13 @@
     xmlns:pm="http://primefaces.org/serenity"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-  <f:attribute name="primefaces.THEME" value="serenity-ivy" />
+  <f:attribute name="primefaces.THEME" value="#{guestPreferences.theme}" />
   <title>Html Dialogs Template</title>
   <link rel="shortcut icon" href="#{resource['ivy-webcontent:layouts/images/ivy_favicon_48.png']}" />
 
   <h:outputStylesheet name="css/nanoscroller.css" library="serenity-layout" />
   <h:outputStylesheet name="css/ripple.css" library="serenity-layout" />
-  <h:outputStylesheet name="css/layout-ivy.css" library="serenity-layout" />
+  <h:outputStylesheet name="css/layout-#{guestPreferences.layout}.css" library="serenity-layout" />
   <h:outputStylesheet name="layouts/styles/ivy-serenity.css" />
   <h:outputStylesheet name="layouts/styles/color-customize.css" />
   <h:outputScript name="js/nanoscroller.js" library="serenity-layout" />
