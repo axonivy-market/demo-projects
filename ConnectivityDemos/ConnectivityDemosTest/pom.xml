@@ -67,6 +67,13 @@
     		<scope>system</scope>
     		<systemPath>${project.basedir}/lib_ws/client/cxfClient_1624D62D6426F325.jar</systemPath>
 		</dependency>
+		
+		<dependency>
+    		<groupId>org.assertj</groupId>
+    		<artifactId>assertj-core</artifactId>
+    		<version>3.15.0</version>
+    		<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -114,8 +121,9 @@
 				<version>${maven.surefire.version}</version>
 				<executions>
 					<execution>
-						<id>default-test</id>
+						<id>integration.test</id>
 						<phase>integration-test</phase>
+						<goals><goal>test</goal></goals>
 						<configuration>
 							<includes>
 								<include>**/IntegrationTest*.java</include>
