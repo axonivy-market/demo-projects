@@ -121,6 +121,12 @@
 				<version>${maven.surefire.version}</version>
 				<executions>
 					<execution>
+						<id>default-test</id>
+						<configuration>
+							<argLine>-Ddesigner.dir=${engine.directory}</argLine>
+						</configuration>
+					</execution>
+					<execution>
 						<id>integration.test</id>
 						<phase>integration-test</phase>
 						<goals><goal>test</goal></goals>
