@@ -22,10 +22,10 @@
           <h:form id="themeswitcher">
             <h:panelGrid columns="2">
               <!-- See Designer Documentation about Themes or the PublicAPI of IvyPrimefacesThemeResolver for more information -->
-              <p:outputLabel value="Theme" style="font-weight:bold; color: #888888;"/>
-              <p:themeSwitcher id="basic" value="#{ivyPrimefacesThemeResolver.sessionTheme}" style="width: 160px;margin-right:20px;color:#888888">
-                <f:selectItems value="#{ivyPrimefacesThemeResolver.themes}" var="theme" itemLabel="#{theme}" itemValue="#{theme}" />
-                <p:ajax />
+              <p:outputLabel value="Theme" style="font-weight:bold; color: #000;"/>
+              <p:themeSwitcher id="basic" value="#{guestPreferences.theme}" style="width: 160px;margin-right:20px;color:#000">
+                <f:selectItems value="#{guestPreferences.themes}" var="theme" itemLabel="#{theme}" itemValue="#{theme}" />
+                <p:ajax oncomplete="window.location.reload()"/>
               </p:themeSwitcher>
             </h:panelGrid>
             <style>
