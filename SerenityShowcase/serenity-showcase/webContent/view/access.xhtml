@@ -13,26 +13,25 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
             <meta name="apple-mobile-web-app-capable" content="yes" />
         </f:facet>
-        <title>PrimeFaces Serenity - Error</title>
+        <title>PrimeFaces Serenity - Access Denied</title>
     </h:head>
 
-    <h:body styleClass="exception-body error">
+    <h:body styleClass="exception-body accessdenied">
         <div class="exception-panel">
             <div class="exception-code">
-                <p:graphicImage name="images/exception/500.svg" library="serenity-layout" />
+                <p:graphicImage name="images/exception/401.svg" library="serenity-layout" />
             </div>
-
+            
             <div class="exception-detail">
-
                 <div class="exception-icon">
                     <i class="material-icons">&#xE5CD;</i>
                 </div>
-                <h1>ERROR OCCURED</h1>
+                <h1>ACCESS DENIED</h1>
                 <p>Please contact the system administrator</p>
-                <p:button outcome="dashboard" value="GO TO DASHBOARD" />
+                <p:button href="dashboard.xhtml" value="GO TO DASHBOARD" />
             </div>
         </div>
-
+        
         <h:outputStylesheet name="css/layout-ivy.css" library="serenity-layout" />
     </h:body>
 
