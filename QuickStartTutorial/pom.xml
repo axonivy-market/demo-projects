@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.ivyteam.ivy.project.demo</groupId>
   <artifactId>quick-start-tutorial</artifactId>
-  <version>8.0.1-SNAPSHOT</version>
+  <version>8.0.4-SNAPSHOT</version>
   <packaging>iar</packaging>
   <build>
     <plugins>
@@ -18,7 +18,7 @@
   <parent>
   	<groupId>ch.ivyteam.ivy.project</groupId>
   	<artifactId>build.maven.iar</artifactId>
-  	<version>8.0.1-SNAPSHOT</version>
+  	<version>8.0.4-SNAPSHOT</version>
   	<relativePath>../build.maven/iar</relativePath>
   </parent>
 </project>

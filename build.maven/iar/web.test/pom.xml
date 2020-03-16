@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>ch.ivyteam.ivy.project</groupId>
 		<artifactId>build.maven.iar</artifactId>
-		<version>8.0.1-SNAPSHOT</version>
+		<version>8.0.4-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 
