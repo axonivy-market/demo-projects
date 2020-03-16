@@ -30,6 +30,7 @@ import ch.ivyteam.ivy.jsf.primefaces.theme.IvyPrimefacesThemeResolver;
 @SessionScoped
 public class GuestPreferences implements Serializable {
 
+    private static final long serialVersionUID = -64663298861770279L;
     private String theme = "serenity-ivy";
     private List<String> themes;
     
