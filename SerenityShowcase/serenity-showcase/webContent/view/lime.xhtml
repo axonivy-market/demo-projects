@@ -23,16 +23,16 @@
 
     <h:body>
         <div class="layout-wrapper #{guestPreferences.orientationRTL ? 'layout-rtl' : null} #{guestPreferences.horizontal ? 'layout-menu-horizontal' : null}">
-            <ui:include src="./WEB-INF/sidebar.xhtml" />
+            <ui:include src="./../WEB-INF/sidebar.xhtml" />
             
             <div class="layout-main">
-                <ui:include src="./WEB-INF/topbar.xhtml" />
+                <ui:include src="./../WEB-INF/topbar.xhtml" />
                 
                 <div class="layout-breadcrumb">
                     <ul>
-                        <li><p:link outcome="dashboard"><i class="material-icons">&#xE88A;</i></p:link></li>
+                        <li><p:link url="dashboard.xhtml"><i class="material-icons">&#xE88A;</i></p:link></li>
                         <li>/</li>
-                        <li><p:link outcome="/lime">Lime</p:link></li>
+                        <li><p:link url="lime.xhtml">Lime</p:link></li>
                     </ul>
                     
                     <div class="layout-breadcrumb-options">
@@ -54,15 +54,15 @@
                             <div class="card">
                                 <h1>Lime Theme</h1>
                                 <p>This page is only for legacy browser tests.</p>
-                                <p:button outcome="dashboard" value="Home" style="display:inline-block;margin-top:5px"/>
+                                <p:button href="dashboard.xhtml" value="Home" style="display:inline-block;margin-top:5px"/>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <ui:include src="./WEB-INF/config.xhtml" />
+                <ui:include src="./../WEB-INF/config.xhtml" />
                 
-                <ui:include src="./WEB-INF/footer.xhtml" />
+                <ui:include src="./../WEB-INF/footer.xhtml" />
                 
                 <div class="layout-main-mask"></div>
             </div>

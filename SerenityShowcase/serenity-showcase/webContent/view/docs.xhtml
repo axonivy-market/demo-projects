@@ -3,7 +3,7 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                template="/WEB-INF/template.xhtml">
+                template="/../WEB-INF/template.xhtml">
 
     <ui:define name="title">Documentation</ui:define>
 
@@ -44,7 +44,7 @@
     </ui:define>
 
     <ui:define name="breadcrumb">
-        <li><p:link outcome="/docs">Documentation</p:link></li>
+        <li><p:link url="docs.xhtml">Documentation</p:link></li>
     </ui:define>
 
     <ui:define name="content">
@@ -63,7 +63,7 @@ mvn jetty:run
                     
                     <h1>Template</h1>
                     <p>Serenity utilizes <a href="http://docs.oracle.com/javaee/6/tutorial/doc/giqxp.html">JSF templating APIs</a> and provides a main template.xhtml along with additional <i>topbar</i>, <i>sidebar</i> and <i>footer</i> fragments for the base layout.
-                        These xhtml files must be placed under WEB-INF folder and client pages should reference the template.xhtml as their template.
+                        These xhtml files must be placed under ../WEB-INF folder and client pages should reference the template.xhtml as their template.
                         Provided empty.xhtml is a sample content page using the main template.xhtml that defines "content" as the main ui:define placeholder. By default template defines 3 placeholders
                         (page title, header content and actual content) to insert content and you can add more as per your requirements.</p>
 
@@ -74,7 +74,7 @@ mvn jetty:run
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                template="/WEB-INF/template.xhtml"&gt;
+                template="/../WEB-INF/template.xhtml"&gt;
 
     &lt;ui:define name="title"&gt;Test Page&lt;/ui:define&gt;
 
