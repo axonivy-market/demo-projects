@@ -2,21 +2,16 @@ package rest.bpm;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.File;
-
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.rest.OpenApiData;
 import com.axonivy.connectivity.rest.odata.OData;
 import com.axonivy.connectivity.rest.odata.User;
 
-import ch.ivyteam.ivy.application.IProcessModelVersion;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
 import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
-import ch.ivyteam.ivy.bpm.exec.client.ManagedBpmAccess;
 
 
 @IvyProcessTest
@@ -24,15 +19,7 @@ public class TestDataMapping
 {
   // TODO : currently only works with system property (designer.dir) in run config. it should point to the 'webapps' dir.
   // -Ddesigner.dir=/mnt/data/axonIvyProducts/designer_2002071630-XIVY-3450-bpmTest-protoTstServer
-        
-  @BeforeEach
-  public void deploy(ManagedBpmAccess bpm)
-  {
-    File project = new File("../ConnectivityDemos");
-    IProcessModelVersion pmv = bpm.deploy(project);
-    assertThat(pmv).isNotNull();
-  }
-  
+
   @Test
   public void odataJsonMapping_single(BpmClient bpmClient) throws Exception
   {
