@@ -14,7 +14,7 @@
 
 	<properties>
 		<antrun.version>1.7</antrun.version>
-		<project.build.plugin.version>8.0.3</project.build.plugin.version>
+		<project.build.plugin.version>8.0.4-SNAPSHOT</project.build.plugin.version>
 		<maven.dependency.plugin.version>3.0.2</maven.dependency.plugin.version>
 	</properties>
 
