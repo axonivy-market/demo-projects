@@ -17,9 +17,6 @@ import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 @IvyProcessTest
 public class TestDataMapping
 {
-  // TODO : currently only works with system property (designer.dir) in run config. it should point to the 'webapps' dir.
-  // -Ddesigner.dir=/mnt/data/axonIvyProducts/designer_2002071630-XIVY-3450-bpmTest-protoTstServer
-
   @Test
   public void odataJsonMapping_single(BpmClient bpmClient) throws Exception
   {
