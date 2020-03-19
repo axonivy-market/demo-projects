@@ -83,7 +83,6 @@
 		                    <targetPackage>com.typicode.jsonplaceholder</targetPackage>
 		                    <sourceDirectory>${basedir}/src/com/axonivy/connectivity/rest/sample/typicode</sourceDirectory>
 		                    <sourceType>json</sourceType>
-		                    <useCommonsLang3>true</useCommonsLang3>
                         </configuration>
                     </execution>
                     <execution>
