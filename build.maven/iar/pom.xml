@@ -103,6 +103,17 @@
 												<version>${project.build.plugin.version}</version>
 											]]>
 										</insert>
+										<insert path="/:project" >
+											<![CDATA[
+  <pluginRepositories>
+    <pluginRepository>
+      <id>sonatype</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <snapshots><updatePolicy>always</updatePolicy></snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+											]]>
+										</insert>
 									</xmltask>
 								</target>
 							</configuration>
