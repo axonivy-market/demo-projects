@@ -62,6 +62,9 @@
 					</compilerOptions>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
 			
             <plugin>
                 <groupId>org.jsonschema2pojo</groupId>
