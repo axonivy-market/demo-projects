@@ -20,7 +20,7 @@ public class TestDataMapping
   @Test
   public void odataJsonMapping_single(BpmClient bpmClient) throws Exception
   {
-    ExecutionResult result = bpmClient.request(Process.REST_ODATA + "/readById.ivp").execute();
+    ExecutionResult result = bpmClient.request().path("rest/odata/readById.ivp").execute();
     assertThat(result).isNotNull();
     
     OData data = result.getData().last();
@@ -35,7 +35,7 @@ public class TestDataMapping
   @Test
   public void odataJsonMapping_collection(BpmClient bpmClient) throws Exception
   {
-    ExecutionResult result = bpmClient.request(Process.REST_ODATA + "/readCollection.ivp").execute();
+    ExecutionResult result = bpmClient.request().path("rest/odata/readCollection.ivp").execute();
     assertThat(result).isNotNull();
     
     OData data = result.getData().last();
@@ -45,20 +45,11 @@ public class TestDataMapping
   @Test
   public void openApiPetListing(BpmClient bpmClient) throws Exception
   {
-    ExecutionResult result = bpmClient.request(Process.REST_OPENAPI + "/listPets.ivp").execute();
+    ExecutionResult result = bpmClient.request().path("rest/openapi/listPets.ivp").execute();
     assertThat(result).isNotNull();
     
     OpenApiData data = result.getData().last();
     assertThat(data.getPets()).isNotEmpty();
     assertThat(data.getPets().get(0).getName()).isNotEmpty();
-  }
-  
-  /**
-   * Well known IDs of Processes under test
-   */
-  private static interface Process
-  {
-    String REST_ODATA = "15DEF1BE5B9E5A42";
-    String REST_OPENAPI = "16F375741231763F";
   }
 }
