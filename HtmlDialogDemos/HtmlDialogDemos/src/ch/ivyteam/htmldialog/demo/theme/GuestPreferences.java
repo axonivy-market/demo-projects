@@ -39,6 +39,8 @@ public class GuestPreferences implements Serializable {
       IvyPrimefacesThemeResolver themeResolver = new IvyPrimefacesThemeResolver();
       themes = new ArrayList<>();
       themes.add(theme);
+      themes.add("serenity-cockpit");
+      themes.add("serenity-preview");
       themes.addAll(themeResolver.getPrimefacesAdditionalThemes());
     }
     
