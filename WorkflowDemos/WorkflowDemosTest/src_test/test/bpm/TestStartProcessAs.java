@@ -22,13 +22,13 @@ import ch.ivyteam.ivy.security.IUser;
 @IvyProcessTest
 class TestStartProcessAs
 {
-  private static final String PROCESS = "152551002ABB8DFE/start.ivp";
+  private static final String PROCESS = "AgileBPM/FlowPatterns/start.ivp";
   
   @Test
   void noAs(BpmClient client) throws Exception
   {
     ExecutionResult result = client
-        .request(PROCESS)
+        .start().process(PROCESS)
         .usingHttp()
         .execute();
     
@@ -40,7 +40,7 @@ class TestStartProcessAs
   void asAnonymous(BpmClient client) throws Exception
   {
     ExecutionResult result = client
-        .request(PROCESS)
+        .start().process(PROCESS)
         .usingHttp()
         .as().anonymous()
         .execute();
@@ -53,7 +53,7 @@ class TestStartProcessAs
   void asEverybody(BpmClient client, IRole everybody) throws Exception
   {
     ExecutionResult result = client
-        .request(PROCESS)
+        .start().process(PROCESS)
         .usingHttp()
         .as().everybody()
         .execute();
@@ -68,7 +68,7 @@ class TestStartProcessAs
   void asRoleName(BpmClient client, @Named("HR Manager") IRole hrManager) throws Exception
   {
     ExecutionResult result = client
-        .request(PROCESS)
+        .start().process(PROCESS)
         .usingHttp()
         .as().role("HR Manager")
         .execute();
@@ -83,7 +83,7 @@ class TestStartProcessAs
   void asRole(BpmClient client, @Named("HR Manager") IRole hrManager) throws Exception
   {
     ExecutionResult result = client
-        .request(PROCESS)
+        .start().process(PROCESS)
         .usingHttp()
         .as().role(hrManager)
         .execute();
@@ -98,7 +98,7 @@ class TestStartProcessAs
   void asUserName(BpmClient client, @Named("jb") IUser jamesBond) throws Exception
   {
     ExecutionResult result = client
-        .request(PROCESS)
+        .start().process(PROCESS)
         .usingHttp()
         .as().user("jb")
         .execute();
@@ -112,7 +112,7 @@ class TestStartProcessAs
   void asUser(BpmClient client, @Named("jb") IUser jamesBond) throws Exception
   {
     ExecutionResult result = client
-        .request(PROCESS)
+        .start().process(PROCESS)
         .usingHttp()
         .as().user(jamesBond)
         .execute();
@@ -126,7 +126,7 @@ class TestStartProcessAs
   void asSystemUser(BpmClient client, IApplication app) throws Exception
   {
     ExecutionResult result = client
-        .request(PROCESS)
+        .start().process(PROCESS)
         .usingHttp()
         .as().systemUser()
         .execute();
@@ -142,7 +142,7 @@ class TestStartProcessAs
     session.authenticateSessionUser(jamesBond, "testing");
     
     ExecutionResult result = client
-        .request(PROCESS)
+        .start().process(PROCESS)
         .usingHttp()
         .as().session(session)
         .execute();
