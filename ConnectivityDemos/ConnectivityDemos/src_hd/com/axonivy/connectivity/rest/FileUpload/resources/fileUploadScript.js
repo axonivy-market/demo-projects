@@ -7,7 +7,7 @@ function uploadFileJS(file) {
   var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://"+window.location.hostname+":"+window.location.port+"/ivy/api/designer/file",
+    "url": "http://"+window.location.hostname+":"+window.location.port+"/designer/api/file",
     "method": "PUT",
     "headers": { "X-Requested-By": "ivy" },
     "processData": false,

@@ -4,14 +4,14 @@
     <webServiceConfig>
         <name>factory</name>
         <id>16FEC3EAEC5333CC</id>
-        <wsdlUrl>http://localhost:9999/ivy/ws/designer/NikeProject/16FEAF30FCA53A53?WSDL</wsdlUrl>
+        <wsdlUrl>http://localhost:9999/designer/ws/NikeProject/16FEAF30FCA53A53?WSDL</wsdlUrl>
         <wsCallLibrary>CXF</wsCallLibrary>
         <service>
             <serviceClass>nike.project.client.NikeFactoryService</serviceClass>
             <port>
                 <name>NikeFactoryPort</name>
                 <portType>NikeFactory</portType>
-                <locationUri>http://localhost:8082/ivy/ws/designer/NikeProject/16FEAF30FCA53A53</locationUri>
+                <locationUri>http://localhost:8082/designer/ws/NikeProject/16FEAF30FCA53A53</locationUri>
             </port>
             <portType>
                 <name>NikeFactory</name>

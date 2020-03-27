@@ -35,7 +35,7 @@ public class ConsoleClient implements InvocationCallback<List<ChatMessage>>
   {
     String port = System.getProperty("ivy.port", "8081");
     return ClientBuilder.newClient()
-            .target("http://localhost:" + port + "/ivy/api/designer/chatdemo")
+            .target("http://localhost:" + port + "/designer/api/chatdemo")
             .register(HttpBasicOrDigestAuthenticationFeature.class)
             .register(JsonFeature.class)
             .property("username", "theWorker")
