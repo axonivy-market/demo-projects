@@ -3,14 +3,14 @@
     <webServiceConfig>
         <name>createOrderService</name>
         <id>1624D62D6426F325</id>
-        <wsdlUrl>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/162492A1649E72DF?WSDL</wsdlUrl>
+        <wsdlUrl>http://localhost:8081/designer/ws/ConnectivityDemos/162492A1649E72DF?WSDL</wsdlUrl>
         <wsCallLibrary>CXF</wsCallLibrary>
         <service>
             <serviceClass>com.axonivy.connectivity.createorder.client.CreateOrderService</serviceClass>
             <port>
                 <name>CreateOrderPort</name>
                 <portType>createOrder</portType>
-                <locationUri>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/162492A1649E72DF</locationUri>
+                <locationUri>http://localhost:8081/designer/ws/ConnectivityDemos/162492A1649E72DF</locationUri>
             </port>
             <portType>
                 <name>createOrder</name>

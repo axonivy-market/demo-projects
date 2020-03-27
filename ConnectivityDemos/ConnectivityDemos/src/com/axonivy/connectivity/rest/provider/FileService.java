@@ -27,7 +27,7 @@ import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.scripting.objects.File;
 
 /**
- * URI for file upload: http://localhost:8081/ivy/api/designer/file
+ * URI for file upload: http://localhost:8081/designer/api/file
  * @since 7.3.0
  */
 @Path("file")

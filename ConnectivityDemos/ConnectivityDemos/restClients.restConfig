@@ -4,7 +4,7 @@
         <uuid>e00c9735-7733-4da8-85c8-6413c6fb2cd3</uuid>
         <name>personService</name>
         <configuration>
-            <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/persons</uri>
+            <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/designer/api/{ivy.request.application}/persons</uri>
             <property>
                 <name>username</name>
                 <value>theWorker</value>
@@ -49,7 +49,7 @@
         <uuid>e61c6d1f-106e-46ea-8327-fe18e4c1d912</uuid>
         <name>approvalService</name>
         <configuration>
-            <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/approve</uri>
+            <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/designer/api/{ivy.request.application}/approve</uri>
             <property>
                 <name>username</name>
                 <value>theWorker</value>
@@ -71,7 +71,7 @@
         <uuid>b0a5f371-e479-444d-b71c-af1fff4c084d</uuid>
         <name>batchService</name>
         <configuration>
-            <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/batch</uri>
+            <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/designer/api/{ivy.request.application}/batch</uri>
             <property>
                 <name>jersey.config.client.readTimeout</name>
                 <value>35000</value>
@@ -138,7 +138,7 @@ To run this service locally:
         <uuid>4d9a8b09-9968-4476-a8ac-b71a94d25e94</uuid>
         <name>file</name>
         <configuration>
-            <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/file</uri>
+            <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/designer/api/{ivy.request.application}/file</uri>
             <property>
                 <name>username</name>
                 <value>theWorker</value>
