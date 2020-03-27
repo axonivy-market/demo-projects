@@ -48,7 +48,7 @@ ce0 ws0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
         <tool>
             <toolName>wsdl</toolName>
-            <url>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/162492A1649E72DF?WSDL</url>
+            <url>http://localhost:8081/designer/ws/ConnectivityDemos/162492A1649E72DF?WSDL</url>
         </tool>
     </language>
 </elementInfo>
@@ -163,7 +163,7 @@ ce0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
         <tool>
             <toolName>wsdl</toolName>
-            <url>http://127.0.0.1:8081/ivy/ws/designer/ConnectivityDemos/162492A1649E72DF?WSDL</url>
+            <url>http://127.0.0.1:8081/designer/ws/ConnectivityDemos/162492A1649E72DF?WSDL</url>
         </tool>
     </language>
 </elementInfo>
