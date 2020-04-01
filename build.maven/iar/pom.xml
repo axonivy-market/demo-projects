@@ -49,12 +49,6 @@
 									<include>pom.xml</include><!-- include modified pom.xml (see antrun below) -->
 								</includes>
 							</iarFileSet>
-							<iarFileSet>
-								<includes>
-									<!-- yet target is default excluded unless explicitly whitelisted -->
-									<include>target/classes/**/*</include>
-								</includes>
-							</iarFileSet>
 						</iarFileSets>
 						<iarIncludesEmptyDirs>false</iarIncludesEmptyDirs>
 						<skipDeploy>${maven.test.skip}</skipDeploy>
