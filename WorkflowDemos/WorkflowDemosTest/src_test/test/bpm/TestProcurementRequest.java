@@ -3,6 +3,7 @@ package test.bpm;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;
@@ -162,10 +163,10 @@ class TestProcurementRequest
     List<ITask> tasks = result.getRequestedCase().getActiveTasks();
     assertThat(tasks).hasSize(2);
     ITask verifyTask1 = tasks.get(0);
-    assertThat(verifyTask1.getName()).startsWith("Prüfe Antrag:");
+    assertThat(verifyTask1.getName()).startsWith("Verify Request:");
     assertThat(verifyTask1.getActivatorName()).isEqualTo("Teamleader");
     ITask verifyTask2 = tasks.get(1);
-    assertThat(verifyTask2.getName()).startsWith("Prüfe Antrag:");
+    assertThat(verifyTask2.getName()).startsWith("Verify Request:");
     assertThat(verifyTask2.getActivatorName()).isEqualTo("Manager");
     return tasks;
   }
@@ -189,10 +190,12 @@ class TestProcurementRequest
   //TODO API Sugar: set locale to default cms language. Provide api to set other language
   private ITask getAcceptRequestTask(ICase caze)
   {
+    // Locale of system user session seems to be the default locale of the os
+    String taskName = Locale.ENGLISH.equals(Locale.getDefault()) ? "Accept Request:" : "Antrag annehmen:";
     return caze
         .getActiveTasks()
         .stream()
-        .filter(task -> task.getName().contains("Antrag annehmen:"))  
+        .filter(task -> task.getName().contains(taskName))  
         .findAny()
         .orElse(null);
   }
