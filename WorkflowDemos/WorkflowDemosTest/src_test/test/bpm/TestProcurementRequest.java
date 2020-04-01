@@ -191,7 +191,7 @@ class TestProcurementRequest
   private ITask getAcceptRequestTask(ICase caze)
   {
     // Locale of system user session seems to be the default locale of the os
-    String taskName = Locale.ENGLISH.equals(Locale.getDefault()) ? "Accept Request:" : "Antrag annehmen:";
+    String taskName = Locale.ENGLISH.getLanguage().equals(Locale.getDefault().getLanguage()) ? "Accept Request:" : "Antrag annehmen:";
     return caze
         .getActiveTasks()
         .stream()
