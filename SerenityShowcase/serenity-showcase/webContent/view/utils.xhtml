@@ -3,7 +3,7 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                template="/WEB-INF/template.xhtml">
+                template="/../WEB-INF/template.xhtml">
                 
 <ui:define name="head">
     <style type="text/css">
@@ -39,7 +39,7 @@
 </ui:define>
 
     <ui:define name="breadcrumb">
-        <li><p:link outcome="/utils">Utilities</p:link></li>
+        <li><p:link url="utils.xhtml">Utilities</p:link></li>
     </ui:define>
 
     <ui:define name="content">
@@ -140,7 +140,7 @@
                         
                     <p>Note: For Serenity menu, keep the material icon name as it is instead of ui-icon.</p>
 <pre>
-&lt;p:menuitem value="Filters" icon="filter-list" outcome="filters"/&gt;
+&lt;p:menuitem value="Filters" icon="filter-list" url="filters.xhtml"/&gt;
 </pre>  
                         
                         <div style="text-align:center;margin-bottom:16px;">

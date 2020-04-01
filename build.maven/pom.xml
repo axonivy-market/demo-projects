@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.ivy.project</groupId>
 	<artifactId>build.maven</artifactId>
-	<version>8.0.1-SNAPSHOT</version>
+	<version>8.0.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<organization>
