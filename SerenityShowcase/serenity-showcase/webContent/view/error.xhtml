@@ -13,26 +13,26 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
             <meta name="apple-mobile-web-app-capable" content="yes" />
         </f:facet>
-        <title>Engine 404 - Not Found</title>
+        <title>PrimeFaces Serenity - Error</title>
     </h:head>
 
-    <h:body styleClass="exception-body notfound">
+    <h:body styleClass="exception-body error">
         <div class="exception-panel">
             <div class="exception-code">
-                <p:graphicImage name="images/exception/404.svg" library="serenity-layout" />
+                <p:graphicImage name="images/exception/500.svg" library="serenity-layout" />
             </div>
-            
+
             <div class="exception-detail">
-                
+
                 <div class="exception-icon">
                     <i class="material-icons">&#xE5CD;</i>
                 </div>
-                <h1>PAGE NOT FOUND</h1>
+                <h1>ERROR OCCURED</h1>
                 <p>Please contact the system administrator</p>
-                <p:button outcome="dashboard" value="GO TO DASHBOARD" />
+                <p:button href="dashboard.xhtml" value="GO TO DASHBOARD" />
             </div>
         </div>
-        
+
         <h:outputStylesheet name="css/layout-ivy.css" library="serenity-layout" />
     </h:body>
 

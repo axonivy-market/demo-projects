@@ -3,7 +3,7 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                template="/WEB-INF/template.xhtml">
+                template="/../WEB-INF/template.xhtml">
 
     <ui:define name="title">Menus</ui:define>
                 
@@ -18,7 +18,7 @@
     <ui:define name="breadcrumb">
         <li>Components</li>
         <li>/</li>
-        <li><p:link outcome="/menu">Menu</p:link></li>
+        <li><p:link url="menu.xhtml">Menu</p:link></li>
     </ui:define>
 
     <ui:define name="content">
@@ -298,19 +298,19 @@
                     <div class="card">
                         <h1>TabMenu</h1>
                         <p:tabMenu activeIndex="#{param.i}">
-                            <p:menuitem value="Overview" outcome="/menu" icon="ui-icon-star">
+                            <p:menuitem value="Overview" url="menu.xhtml" icon="ui-icon-star">
                                 <f:param name="i" value="0" />
                             </p:menuitem>
-                            <p:menuitem value="Demos" outcome="/menu" icon="ui-icon-search">
+                            <p:menuitem value="Demos" url="menu.xhtml" icon="ui-icon-search">
                                 <f:param name="i" value="1" />
                             </p:menuitem>
-                            <p:menuitem value="Documentation" outcome="/menu" icon="ui-icon-insert-drive-file">
+                            <p:menuitem value="Documentation" url="menu.xhtml" icon="ui-icon-insert-drive-file">
                                 <f:param name="i" value="2" />
                             </p:menuitem>
-                            <p:menuitem value="Support" outcome="/menu" icon="ui-icon-help-outline">
+                            <p:menuitem value="Support" url="menu.xhtml" icon="ui-icon-help-outline">
                                 <f:param name="i" value="3" />
                             </p:menuitem>
-                            <p:menuitem value="Profile" outcome="/menu" icon="ui-icon-person">
+                            <p:menuitem value="Profile" url="menu.xhtml" icon="ui-icon-person">
                                 <f:param name="i" value="4" />
                             </p:menuitem>
                         </p:tabMenu>
