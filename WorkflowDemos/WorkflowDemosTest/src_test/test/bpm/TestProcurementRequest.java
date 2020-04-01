@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 
 import org.awaitility.Awaitility;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
@@ -30,21 +29,12 @@ import workflow.humantask.ProcurementRequest;
  * <code>WorkflowDemos/processes/Humantask/ProcurementRequestParallel.mod</code>
  * 
  * @author rew
+ * @author rwei
  * @since Mar 3, 2020
  */
-@SuppressWarnings("all")
 @IvyProcessTest
 class TestProcurementRequest
 {
-  private final ProcurementRequest testData = new ProcurementRequest();
-  
-  @BeforeEach
-  void before()
-  {
-    testData.setDescription("PC");
-    testData.setAmount(3);
-    testData.setPricePerUnit(1222.95);
-  }
   
   /**
    * Manager and Team Leader do not verify
@@ -52,13 +42,12 @@ class TestProcurementRequest
   @Test
   void approvalTask_notVerified_byBoth(BpmClient bpmClient, UiMocker ui) throws Exception
   {
-    ui.mock(new PID("15254DC87A1B183B-f3"), in -> testData);
-    List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
+    List<ITask> verifyTasks = createProcurrementRequest(bpmClient, ui);
     
-    ui.mock(new PID("15254DC87A1B183B-f5"), ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(false));
+    ui.mock(HtmlDialog.VERIFY_REQUEST_TEAM_LEADER, ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(false));
     verifyRequest(bpmClient, verifyTasks.get(0), "Teamleader");
 
-    ui.mock(new PID("15254DC87A1B183B-f6"), ProcurementRequest.class, (in, out) -> out.setDataOkManager(false));
+    ui.mock(HtmlDialog.VERIFY_REQUEST_MANAGER, ProcurementRequest.class, (in, out) -> out.setDataOkManager(false));
     verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
     
     ICase caze = verifyTasks.get(0).getCase();
@@ -73,13 +62,12 @@ class TestProcurementRequest
   @Test
   void approvalTask_notVerified_byManager(BpmClient bpmClient, UiMocker ui) throws Exception
   {
-    ui.mock(new PID("15254DC87A1B183B-f3"), in -> testData);
-    List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
+    List<ITask> verifyTasks = createProcurrementRequest(bpmClient, ui);
 
-    ui.mock(new PID("15254DC87A1B183B-f5"), ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(true));
+    ui.mock(HtmlDialog.VERIFY_REQUEST_TEAM_LEADER, ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(true));
     verifyRequest(bpmClient, verifyTasks.get(0), "Teamleader");
 
-    ui.mock(new PID("15254DC87A1B183B-f6"), ProcurementRequest.class, (in, out) -> out.setDataOkManager(false));
+    ui.mock(HtmlDialog.VERIFY_REQUEST_MANAGER, ProcurementRequest.class, (in, out) -> out.setDataOkManager(false));
     verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
     
     ICase caze = verifyTasks.get(0).getCase();
@@ -94,13 +82,12 @@ class TestProcurementRequest
   @Test
   void approvalTask_notVerified_byTeamLeader(BpmClient bpmClient, UiMocker ui) throws Exception
   {
-    ui.mock(new PID("15254DC87A1B183B-f3"), in -> testData);
-    List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
+    List<ITask> verifyTasks = createProcurrementRequest(bpmClient, ui);
 
-    ui.mock(new PID("15254DC87A1B183B-f5"), ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(false));
+    ui.mock(HtmlDialog.VERIFY_REQUEST_TEAM_LEADER, ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(false));
     verifyRequest(bpmClient, verifyTasks.get(0), "Teamleader");
     
-    ui.mock(new PID("15254DC87A1B183B-f6"), ProcurementRequest.class, (in, out) -> out.setDataOkManager(true));
+    ui.mock(HtmlDialog.VERIFY_REQUEST_MANAGER, ProcurementRequest.class, (in, out) -> out.setDataOkManager(true));
     verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
     
     ICase caze = verifyTasks.get(0).getCase();
@@ -115,19 +102,18 @@ class TestProcurementRequest
   @Test
   void approvalTask_verified_notAccepted(BpmClient bpmClient, UiMocker ui) throws Exception
   {
-    ui.mock(new PID("15254DC87A1B183B-f3"), in -> testData);
-    List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
+    List<ITask> verifyTasks = createProcurrementRequest(bpmClient, ui);
 
-    ui.mock(new PID("15254DC87A1B183B-f5"), ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(true));
+    ui.mock(HtmlDialog.VERIFY_REQUEST_TEAM_LEADER, ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(true));
     verifyRequest(bpmClient, verifyTasks.get(0), "Teamleader");
 
-    ui.mock(new PID("15254DC87A1B183B-f6"), ProcurementRequest.class, (in, out) -> out.setDataOkManager(true));
+    ui.mock(HtmlDialog.VERIFY_REQUEST_MANAGER, ProcurementRequest.class, (in, out) -> out.setDataOkManager(true));
     verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
     
     ICase caze = verifyTasks.get(0).getCase();
     waitUntilAcceptRequestTaskIsAvailable(caze);
     
-    ui.mock(new PID("15254DC87A1B183B-f16"));
+    ui.mock(HtmlDialog.ACCEPT_REQUEST);
     ProcurementRequest request = acceptRequest(bpmClient, getAcceptRequestTask(caze));
     
     assertThat(request.getAccepted()).isFalse();
@@ -140,29 +126,36 @@ class TestProcurementRequest
    @Test
    void approvalTask_verified_accepted(BpmClient bpmClient, UiMocker ui) throws Exception
    {
-     ui.mock(new PID("15254DC87A1B183B-f3"), in -> testData);
-     List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
+     List<ITask> verifyTasks = createProcurrementRequest(bpmClient, ui);
 
-     ui.mock(new PID("15254DC87A1B183B-f5"), ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(true));
+     ui.mock(HtmlDialog.VERIFY_REQUEST_TEAM_LEADER, ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(true));
      verifyRequest(bpmClient, verifyTasks.get(0), "Teamleader");
 
-     ui.mock(new PID("15254DC87A1B183B-f6"), ProcurementRequest.class, (in, out) -> out.setDataOkManager(true));
+     ui.mock(HtmlDialog.VERIFY_REQUEST_MANAGER, ProcurementRequest.class, (in, out) -> out.setDataOkManager(true));
      verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
 
      ICase caze = verifyTasks.get(0).getCase();
      waitUntilAcceptRequestTaskIsAvailable(caze);
      
-     ui.mock(new PID("15254DC87A1B183B-f16"), ProcurementRequest.class, (in, out) -> out.setAccepted(true));
+     ui.mock(HtmlDialog.ACCEPT_REQUEST, ProcurementRequest.class, (in, out) -> out.setAccepted(true));
      ProcurementRequest request = acceptRequest(bpmClient, getAcceptRequestTask(caze));
      
      assertThat(request.getAccepted()).isTrue();
      assertThat(caze.getState()).isEqualTo(CaseState.DONE);
    }
 
-  private List<ITask> createProcurrementRequest(BpmClient bpmClient) throws Exception
+  private List<ITask> createProcurrementRequest(BpmClient bpmClient, UiMocker ui) throws Exception
   {
+    var testData = new ProcurementRequest();
+    testData.setDescription("PC");
+    testData.setAmount(3);
+    testData.setPricePerUnit(1222.95);
+    testData.setTotalPrice(3668.85);
+
+    ui.mock(HtmlDialog.ENTER_REQUEST, in -> testData);
+
     ExecutionResult result = bpmClient
-        .start().process(Process.ProcurementRequest+"/start.ivp")
+        .start().process("Humantask/ProcurementRequestParallel")
         .as().user("ldv")
         .execute();
     assertThat(result).isNotNull();
@@ -170,10 +163,10 @@ class TestProcurementRequest
     assertThat(tasks).hasSize(2);
     ITask verifyTask1 = tasks.get(0);
     assertThat(verifyTask1.getName()).startsWith("Prüfe Antrag:");
-    assertThat(verifyTask1.getActivatorName()).isEqualTo((Object)"Teamleader");
+    assertThat(verifyTask1.getActivatorName()).isEqualTo("Teamleader");
     ITask verifyTask2 = tasks.get(1);
     assertThat(verifyTask2.getName()).startsWith("Prüfe Antrag:");
-    assertThat(verifyTask2.getActivatorName()).isEqualTo((Object)"Manager");
+    assertThat(verifyTask2.getActivatorName()).isEqualTo("Manager");
     return tasks;
   }
 
@@ -222,4 +215,16 @@ class TestProcurementRequest
   {
     String ProcurementRequest = "15254DC87A1B183B";
   }
+  
+  /**
+   * Well known IDs of UI Process Elements under test
+   */
+  public static interface HtmlDialog
+  {
+    PID ENTER_REQUEST = new PID("15254DC87A1B183B-f3");
+    PID VERIFY_REQUEST_TEAM_LEADER = new PID("15254DC87A1B183B-f5");
+    PID VERIFY_REQUEST_MANAGER = new PID("15254DC87A1B183B-f6");
+    PID ACCEPT_REQUEST = new PID("15254DC87A1B183B-f16");
+  }
+
 }
