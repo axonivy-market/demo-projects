@@ -7,9 +7,9 @@ import static com.codeborne.selenide.Selenide.$$;
 
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.ivy.supplements.IvySelenide;
+import com.axonivy.ivy.webtest.IvyWebTest;
 
-@IvySelenide
+@IvyWebTest
 public class WebTestStaticPage {
 	
   @Test

@@ -32,7 +32,7 @@ import org.hamcrest.core.IsNull;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.rest.aynch.chat.ChatMessage;
-import com.axonivy.ivy.supplements.engine.EngineUrl;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 /**

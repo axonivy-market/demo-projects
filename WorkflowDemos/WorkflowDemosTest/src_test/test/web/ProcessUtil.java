@@ -3,7 +3,7 @@ package test.web;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
 
-import com.axonivy.ivy.supplements.engine.EngineUrl;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 import com.codeborne.selenide.Selenide;
 
 public class ProcessUtil

@@ -12,11 +12,11 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import com.axonivy.ivy.supplements.IvySelenide;
+import com.axonivy.ivy.webtest.IvyWebTest;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 
-@IvySelenide
+@IvyWebTest
 public class WebTestOther
 {
   @Test

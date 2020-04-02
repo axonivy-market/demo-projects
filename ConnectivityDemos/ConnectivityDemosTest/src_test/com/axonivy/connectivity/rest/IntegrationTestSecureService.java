@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response.Status;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.ivy.supplements.engine.EngineUrl;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 /**

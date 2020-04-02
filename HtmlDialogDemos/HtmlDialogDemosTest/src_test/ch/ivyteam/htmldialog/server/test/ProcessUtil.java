@@ -5,7 +5,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 import org.openqa.selenium.By;
 
-import com.axonivy.ivy.supplements.engine.EngineUrl;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 import com.codeborne.selenide.Selenide;
 
 public class ProcessUtil

@@ -9,8 +9,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.ivy.supplements.engine.EngineUrl;
-
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 
 public class IntegrationTestSoapIgnorePolicy
 {
