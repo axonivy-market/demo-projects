@@ -4,12 +4,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import javax.inject.Named;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
 import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
+import ch.ivyteam.ivy.bpm.engine.client.UiMocker;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
+import ch.ivyteam.ivy.process.model.value.PID;
 import ch.ivyteam.ivy.security.IRole;
 import ch.ivyteam.ivy.security.ISession;
 import ch.ivyteam.ivy.security.IUser;
@@ -23,6 +26,12 @@ import ch.ivyteam.ivy.security.IUser;
 class TestStartProcessAs
 {
   private static final String PROCESS = "AgileBPM/FlowPatterns/start.ivp";
+  
+  @BeforeEach
+  void before(UiMocker ui)
+  {
+    ui.mock(new PID("152551002ABB8DFE-f5"));
+  }
   
   @Test
   void noAs(BpmClient client) throws Exception
