@@ -78,31 +78,7 @@
     <outputDirectory>target/classes</outputDirectory>
     <testOutputDirectory>target/test-classes</testOutputDirectory>
 
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.1.0</version>
-        <executions>
-          <execution>
-            <!-- hack until https://jira.axonivy.com/jira/browse/XIVY-2996 is solved -->
-            <id>share.compiled.classes.hack</id>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <phase>process-classes</phase>
-            <configuration>
-              <resources>
-                <resource>
-                  <directory>${project.build.outputDirectory}</directory>
-                  <include>**/*</include>
-                </resource>
-              </resources>
-              <outputDirectory>target/test-classes</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+    <plugins>      
       <plugin>
         <artifactId>maven-dependency-plugin</artifactId>
         <executions>
