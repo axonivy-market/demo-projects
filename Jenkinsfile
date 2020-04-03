@@ -30,12 +30,14 @@ pipeline {
           def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
           maven cmd: "-P deploy.repo.axonivy.com clean ${phase} -Dmaven.test.failure.ignore=true  " + 
                      "-Dengine.directory=${workspace}/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine " +
-                     "-Divy.engine.list.url=${params.engineListUrl} "
+                     "-Divy.engine.list.url=${params.engineListUrl} " +
+                     "| tee maven.log "
         }
         archiveArtifacts '**/target/*.iar,**/target/*.zip'
         archiveArtifacts artifacts: '**/target/selenide/reports/**/*', allowEmptyArchive: true
         recordIssues tools: [eclipse()], unstableTotalAll: 1
         recordIssues tools: [mavenConsole()], unstableNewAll: 1, qualityGates: [[threshold: 1, type: 'NEW', unstable: true]]
+        recordIssues tools: [groovyScript(parserId: 'maven-version-update-parser', pattern: 'maven.log')], unstableTotalAll: 1
         junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/surefire-reports/**/*.xml'          
       }
     }
