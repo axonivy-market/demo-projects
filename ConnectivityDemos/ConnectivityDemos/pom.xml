@@ -62,7 +62,9 @@
 					</compilerOptions>
 				</configuration>
 			</plugin>
-			
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
             <plugin>
                 <groupId>org.jsonschema2pojo</groupId>
                 <artifactId>jsonschema2pojo-maven-plugin</artifactId>
@@ -79,7 +81,8 @@
                         <configuration>
 		                    <targetPackage>com.typicode.jsonplaceholder</targetPackage>
 		                    <sourceDirectory>${basedir}/src/com/axonivy/connectivity/rest/sample/typicode</sourceDirectory>
-		                    <sourceType>json</sourceType>
+							<sourceType>json</sourceType>
+							<useCommonsLang3>true</useCommonsLang3>
                         </configuration>
                     </execution>
                     <execution>
