@@ -48,7 +48,7 @@ public class ApprovalService
     String appRelativeUri = "workflow/task/{id}";
     Link createdLink = Link.fromPath(appRelativeUri).rel("approvalTask").build(task.getId());
     return Response.status(Status.CREATED)
-            .location(UriBuilder.fromPath("{applicationName}/" + appRelativeUri)
+            .location(UriBuilder.fromPath(appRelativeUri)
                     .build(task.getApplication().getName(), task.getId()))
             .links(createdLink)
             .entity(new TaskMeta(task))
