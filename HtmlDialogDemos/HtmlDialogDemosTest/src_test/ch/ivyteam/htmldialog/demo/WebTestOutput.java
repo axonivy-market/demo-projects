@@ -14,13 +14,13 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
-import com.axonivy.ivy.supplements.IvySelenide;
-import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
-import com.axonivy.ivy.supplements.primeui.tester.widget.SelectManyCheckbox;
-import com.axonivy.ivy.supplements.primeui.tester.widget.SelectOneMenu;
-import com.axonivy.ivy.supplements.primeui.tester.widget.Table;
+import com.axonivy.ivy.webtest.IvyWebTest;
+import com.axonivy.ivy.webtest.primeui.PrimeUi;
+import com.axonivy.ivy.webtest.primeui.widget.SelectManyCheckbox;
+import com.axonivy.ivy.webtest.primeui.widget.SelectOneMenu;
+import com.axonivy.ivy.webtest.primeui.widget.Table;
 
-@IvySelenide
+@IvyWebTest
 public class WebTestOutput
 {
   @Test

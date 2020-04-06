@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
-import com.axonivy.ivy.supplements.IvySelenide;
-import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
+import com.axonivy.ivy.webtest.IvyWebTest;
+import com.axonivy.ivy.webtest.primeui.PrimeUi;
 
-@IvySelenide
+@IvyWebTest
 public class WebTestComponent
 {
   @Test
