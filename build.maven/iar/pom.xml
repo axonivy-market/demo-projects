@@ -14,7 +14,7 @@
 
 	<properties>
 		<antrun.version>1.7</antrun.version>
-		<project.build.plugin.version>8.0.4</project.build.plugin.version>
+		<project.build.plugin.version>8.0.5-SNAPSHOT</project.build.plugin.version>
 		<maven.dependency.plugin.version>3.0.2</maven.dependency.plugin.version>
 	</properties>
 
@@ -47,12 +47,6 @@
 								<directory>target/ivy</directory>
 								<includes>
 									<include>pom.xml</include><!-- include modified pom.xml (see antrun below) -->
-								</includes>
-							</iarFileSet>
-							<iarFileSet>
-								<includes>
-									<!-- yet target is default excluded unless explicitly whitelisted -->
-									<include>target/classes/**/*</include>
 								</includes>
 							</iarFileSet>
 						</iarFileSets>
@@ -101,6 +95,17 @@
 										<insert path="/:project/:build/:plugins/:plugin[:artifactId/text()='project-build-plugin']" >
 											<![CDATA[
 												<version>${project.build.plugin.version}</version>
+											]]>
+										</insert>
+										<insert path="/:project" >
+											<![CDATA[
+  <pluginRepositories>
+    <pluginRepository>
+      <id>sonatype</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <snapshots><updatePolicy>always</updatePolicy></snapshots>
+    </pluginRepository>
+  </pluginRepositories>
 											]]>
 										</insert>
 									</xmltask>
