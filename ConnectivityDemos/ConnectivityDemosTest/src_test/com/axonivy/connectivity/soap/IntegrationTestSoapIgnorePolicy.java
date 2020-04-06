@@ -9,8 +9,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.ivy.supplements.engine.EngineUrl;
-
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 
 public class IntegrationTestSoapIgnorePolicy
 {
@@ -19,8 +18,8 @@ public class IntegrationTestSoapIgnorePolicy
   @Test
   public void greetWithPolicyEnabled() throws Exception
   {
-    String url = EngineUrl.process() + "/ConnectivityDemosTest/" + PROCESS_ID
-            + "/greeterPoliciesNotDisabled.ivp";
+    String url = EngineUrl.createProcessUrl("/ConnectivityDemosTest/" + PROCESS_ID
+            + "/greeterPoliciesNotDisabled.ivp");
     CloseableHttpClient client = HttpClients.createDefault();
     CloseableHttpResponse response = client.execute(new HttpGet(url));
     String content = EntityUtils.toString(response.getEntity());
@@ -31,8 +30,8 @@ public class IntegrationTestSoapIgnorePolicy
   @Test
   public void greetWithPolicyDisabled() throws Exception
   {
-    String url = EngineUrl.process() + "/ConnectivityDemosTest/" + PROCESS_ID
-            + "/greeterPoliciesDisabled.ivp";
+    String url = EngineUrl.createProcessUrl("/ConnectivityDemosTest/" + PROCESS_ID
+            + "/greeterPoliciesDisabled.ivp");
     CloseableHttpClient client = HttpClients.createDefault();
     CloseableHttpResponse response = client.execute(new HttpGet(url));
     String content = EntityUtils.toString(response.getEntity());

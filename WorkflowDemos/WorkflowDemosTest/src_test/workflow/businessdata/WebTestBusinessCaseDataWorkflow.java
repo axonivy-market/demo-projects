@@ -17,10 +17,10 @@ import static test.web.ProcessUtil.startTestProcess;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.ivy.supplements.IvySelenide;
-import com.axonivy.ivy.supplements.engine.EngineUrl;
+import com.axonivy.ivy.webtest.IvyWebTest;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 
-@IvySelenide
+@IvyWebTest
 public class WebTestBusinessCaseDataWorkflow
 {
 
