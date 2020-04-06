@@ -11,7 +11,7 @@ import com.axonivy.connectivity.createorder.client.CreateOrderService;
 import com.axonivy.connectivity.createorder.client.Order;
 import com.axonivy.connectivity.createorder.client.Task;
 import com.axonivy.connectivity.createorder.client.WebServiceProcessTechnicalException;
-import com.axonivy.ivy.supplements.engine.EngineUrl;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 
 public class IntegrationTestSoapCreateOrderService
 {
@@ -58,7 +58,7 @@ public class IntegrationTestSoapCreateOrderService
 
   private static void routeToCurrentEngine(CreateOrder port)
   {
-    String url = EngineUrl.soap() + "/ConnectivityDemos/162492A1649E72DF";
+    String url = EngineUrl.createWebServiceUrl("/ConnectivityDemos/162492A1649E72DF");
     ((BindingProvider) port).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, url);
   }
 

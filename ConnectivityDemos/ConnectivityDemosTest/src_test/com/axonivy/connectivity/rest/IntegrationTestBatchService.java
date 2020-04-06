@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.ivy.supplements.engine.EngineUrl;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 /**
@@ -27,7 +27,7 @@ public class IntegrationTestBatchService
   public void async() throws Exception
   {
     WebTarget target = createAuthenticatedClient()
-            .target(EngineUrl.rest() + "/batch/async")
+            .target(EngineUrl.createRestUrl("/batch/async"))
             .queryParam("blockSeconds", 1);
     Future<Response> future = target.request().async().get();
     Response asyncResponse = future.get(10, TimeUnit.SECONDS);
