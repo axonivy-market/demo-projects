@@ -3,7 +3,7 @@ package test.web;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
 
-import com.axonivy.ivy.supplements.engine.EngineUrl;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 import com.codeborne.selenide.Selenide;
 
 public class ProcessUtil
@@ -11,12 +11,12 @@ public class ProcessUtil
 
   public static void startProcess(String pathToIvp)
   {
-    Selenide.open(EngineUrl.process() + "/WorkflowDemos/" + pathToIvp);
+    Selenide.open(EngineUrl.createProcessUrl("/WorkflowDemos/" + pathToIvp));
   }
   
   public static void startTestProcess(String pathToIvp)
   {
-    Selenide.open(EngineUrl.process() + "/WorkflowDemosTest/" + pathToIvp);
+    Selenide.open(EngineUrl.createProcessUrl("/WorkflowDemosTest/" + pathToIvp));
   }
   
   public static void checkEndPage()
