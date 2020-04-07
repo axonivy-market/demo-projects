@@ -31,6 +31,7 @@ pipeline {
           maven cmd: "-P deploy.repo.axonivy.com clean ${phase} -Dmaven.test.failure.ignore=true  " + 
                      "-Dengine.directory=${workspace}/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine " +
                      "-Divy.engine.list.url=${params.engineListUrl} "
+          checkVersions()
         }
         archiveArtifacts '**/target/*.iar,**/target/*.zip'
         archiveArtifacts artifacts: '**/target/selenide/reports/**/*', allowEmptyArchive: true
