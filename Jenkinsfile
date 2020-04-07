@@ -18,7 +18,7 @@ pipeline {
     string(
        name: 'engineListUrl',
        description: 'Engine to use for build',
-       defaultValue: 'https://jenkins.ivyteam.io/job/ivy-core_product/job/feature%252FXIVY-3765_remove-ivy-from-path/lastSuccessfulBuild/'
+       defaultValue: 'https://jenkins.ivyteam.io/job/ivy-core_product/job/master/lastSuccessfulBuild/'
     )
   }
 
