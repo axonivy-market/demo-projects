@@ -22,7 +22,7 @@ import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.Person;
-import com.axonivy.ivy.supplements.engine.EngineUrl;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 import com.fasterxml.jackson.databind.JsonNode;
 
 /**
@@ -109,7 +109,7 @@ public class IntegrationTestRestfulPersonService
 
   private static WebTarget getPersonsClient()
   {
-    return createAuthenticatedClient().target(EngineUrl.rest() + "/persons");
+    return createAuthenticatedClient().target(EngineUrl.createRestUrl("/persons"));
   }
 
   @SuppressWarnings("deprecation")

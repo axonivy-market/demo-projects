@@ -19,19 +19,19 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import com.axonivy.ivy.supplements.IvySelenide;
+import com.axonivy.ivy.webtest.IvyWebTest;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.FileDownloadMode;
 import com.codeborne.selenide.Selenide;
 
-@IvySelenide
+@IvyWebTest
 public class WebTestInputDownload
 {
   
   @BeforeAll
   public static void setUp()
   {
-    Selenide.close();
+    Selenide.closeWebDriver();
     Configuration.proxyEnabled = true;
     Configuration.fileDownload = FileDownloadMode.PROXY;
     Selenide.open();

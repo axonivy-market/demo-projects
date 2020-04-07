@@ -15,12 +15,12 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import com.axonivy.ivy.supplements.IvySelenide;
-import com.axonivy.ivy.supplements.engine.EngineUrl;
+import com.axonivy.ivy.webtest.IvyWebTest;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 
-@IvySelenide
+@IvyWebTest
 public class WebTestTwitterRestClient
 {
 
@@ -35,7 +35,7 @@ public class WebTestTwitterRestClient
   @Test
   public void readTwitterTweetsViaRest()
   {
-    Selenide.open(EngineUrl.process() + "/ConnectivityDemos/1547634C396BBB3A/userTimeline.ivp");
+    Selenide.open(EngineUrl.createProcessUrl("/ConnectivityDemos/1547634C396BBB3A/userTimeline.ivp"));
 
     if (Selenide.title().equals("TwitterAuthorization"))
     {

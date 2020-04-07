@@ -12,12 +12,12 @@ import static test.web.ProcessUtil.startTestProcess;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import com.axonivy.ivy.supplements.IvySelenide;
-import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
-import com.axonivy.ivy.supplements.primeui.tester.widget.Table;
+import com.axonivy.ivy.webtest.IvyWebTest;
+import com.axonivy.ivy.webtest.primeui.PrimeUi;
+import com.axonivy.ivy.webtest.primeui.widget.Table;
 import com.codeborne.selenide.Selenide;
 
-@IvySelenide
+@IvyWebTest
 public class WebTestBusinessData
 {
   private static final String BROWSE_DOSSIERS_LINK = "155BB4328F79B2D5/browse.ivp";
