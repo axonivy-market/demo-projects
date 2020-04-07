@@ -80,7 +80,7 @@ public class IntegrationTestSecureService
 
   public IntegrationTestSecureService()
   {
-    this.adminServiceUri = EngineUrl.rest() + "/admin";
+    this.adminServiceUri = EngineUrl.createRestUrl("/admin");
   }
 
   public static final String REST_USER = "restUser";

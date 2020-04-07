@@ -127,8 +127,8 @@ public class IntegrationTestChatService
   private void createTestUsers(int clientCount) throws IOException, ClientProtocolException
   {
     String createUsers = "1675F33D16FB90A4";
-    String url = EngineUrl.process() + "/ConnectivityDemosTest/" + createUsers +
-            "/createTestUsers.ivp?prefix=test&amount=" + clientCount;
+    String url = EngineUrl.createProcessUrl("/ConnectivityDemosTest/" + createUsers +
+            "/createTestUsers.ivp?prefix=test&amount=" + clientCount);
     CloseableHttpClient client = HttpClients.createDefault();
     client.execute(new HttpGet(url));
   }
@@ -168,7 +168,7 @@ public class IntegrationTestChatService
     return clients;
   }
 
-  private final String chatResource = EngineUrl.rest() + "/chatdemo";
+  private final String chatResource = EngineUrl.createRestUrl("/chatdemo");
 
   public static final String REST_USER = "restUser";
 

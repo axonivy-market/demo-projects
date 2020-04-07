@@ -35,7 +35,7 @@ public class WebTestTwitterRestClient
   @Test
   public void readTwitterTweetsViaRest()
   {
-    Selenide.open(EngineUrl.process() + "/ConnectivityDemos/1547634C396BBB3A/userTimeline.ivp");
+    Selenide.open(EngineUrl.createProcessUrl("/ConnectivityDemos/1547634C396BBB3A/userTimeline.ivp"));
 
     if (Selenide.title().equals("TwitterAuthorization"))
     {

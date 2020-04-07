@@ -109,7 +109,7 @@ public class IntegrationTestRestfulPersonService
 
   private static WebTarget getPersonsClient()
   {
-    return createAuthenticatedClient().target(EngineUrl.rest() + "/persons");
+    return createAuthenticatedClient().target(EngineUrl.createRestUrl("/persons"));
   }
 
   @SuppressWarnings("deprecation")

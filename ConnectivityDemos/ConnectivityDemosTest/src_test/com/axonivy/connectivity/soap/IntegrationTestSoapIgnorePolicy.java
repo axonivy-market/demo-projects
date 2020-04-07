@@ -18,8 +18,8 @@ public class IntegrationTestSoapIgnorePolicy
   @Test
   public void greetWithPolicyEnabled() throws Exception
   {
-    String url = EngineUrl.process() + "/ConnectivityDemosTest/" + PROCESS_ID
-            + "/greeterPoliciesNotDisabled.ivp";
+    String url = EngineUrl.createProcessUrl("/ConnectivityDemosTest/" + PROCESS_ID
+            + "/greeterPoliciesNotDisabled.ivp");
     CloseableHttpClient client = HttpClients.createDefault();
     CloseableHttpResponse response = client.execute(new HttpGet(url));
     String content = EntityUtils.toString(response.getEntity());
@@ -30,8 +30,8 @@ public class IntegrationTestSoapIgnorePolicy
   @Test
   public void greetWithPolicyDisabled() throws Exception
   {
-    String url = EngineUrl.process() + "/ConnectivityDemosTest/" + PROCESS_ID
-            + "/greeterPoliciesDisabled.ivp";
+    String url = EngineUrl.createProcessUrl("/ConnectivityDemosTest/" + PROCESS_ID
+            + "/greeterPoliciesDisabled.ivp");
     CloseableHttpClient client = HttpClients.createDefault();
     CloseableHttpResponse response = client.execute(new HttpGet(url));
     String content = EntityUtils.toString(response.getEntity());
