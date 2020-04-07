@@ -34,9 +34,9 @@ import com.axonivy.connectivity.Person;
  * <p>
  * <b>URL</b><br/>
  * The simplest external URL of this service will be: <br/>
- * - designer: <code>http://localhost:8081/ivy/api/designer/persons</code><br/>
+ * - designer: <code>http://localhost:8081/designer/api/persons</code><br/>
  * - engine:
- * <code>http://localhost:8081/ivy/api/myApplicationName/persons</code>
+ * <code>http://localhost:8081/myApplicationName/api/persons</code>
  * </p>
  * 
  * <p>

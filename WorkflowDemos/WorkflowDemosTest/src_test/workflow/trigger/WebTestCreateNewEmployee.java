@@ -8,11 +8,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import com.axonivy.ivy.supplements.IvySelenide;
-import com.axonivy.ivy.supplements.engine.EngineUrl;
+import com.axonivy.ivy.webtest.IvyWebTest;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 import com.codeborne.selenide.Selenide;
 
-@IvySelenide
+@IvyWebTest
 public class WebTestCreateNewEmployee
 {
 
@@ -23,7 +23,7 @@ public class WebTestCreateNewEmployee
     $(By.linkText("InitializeTestEnvironment/start.ivp")).shouldBe(visible);
     assertThat(Selenide.title().contains("ivy"));
     $(By.linkText("InitializeTestEnvironment/start.ivp")).click();
-    open(EngineUrl.process() + "/WorkflowDemos/15254CF1CE56AE72/start.ivp");
+    open(EngineUrl.createProcessUrl("/WorkflowDemos/15254CF1CE56AE72/start.ivp"));
     $("#form\\:employeeName").sendKeys("Charlie");
     $("#form\\:email").sendKeys("charlie@xyz.com");
     $("#form\\:employeeDateOfBirth_input").sendKeys("26.12.1985");

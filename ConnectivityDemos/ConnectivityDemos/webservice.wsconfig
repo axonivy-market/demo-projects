@@ -3,7 +3,7 @@
     <webServiceConfig>
         <name>personService</name>
         <id>16150E44A158D09C</id>
-        <wsdlUrl>http://127.0.0.1:8081/ivy/ws/designer/ConnectivityDemos/16150E1D07E8CA18?WSDL</wsdlUrl>
+        <wsdlUrl>http://127.0.0.1:8081/designer/ws/ConnectivityDemos/16150E1D07E8CA18?WSDL</wsdlUrl>
         <wsCallLibrary>CXF</wsCallLibrary>
         <property>
             <name>username</name>
@@ -23,7 +23,7 @@
             <port>
                 <name>PersonServicePort</name>
                 <portType>PersonService</portType>
-                <locationUri>&lt;%=in.context.uri%&gt;/ivy/ws/&lt;%=in.context.app%&gt;/ConnectivityDemos/16150E1D07E8CA18</locationUri>
+                <locationUri>&lt;%=in.context.uri%&gt;/&lt;%=in.context.app%&gt;/ws/ConnectivityDemos/16150E1D07E8CA18</locationUri>
             </port>
             <portType>
                 <name>PersonService</name>
@@ -66,14 +66,14 @@
     <webServiceConfig>
         <name>technicalBackend</name>
         <id>162B962523BAAB85</id>
-        <wsdlUrl>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/162B95BB70C3178E?WSDL</wsdlUrl>
+        <wsdlUrl>http://localhost:8081/designer/ws/ConnectivityDemos/162B95BB70C3178E?WSDL</wsdlUrl>
         <wsCallLibrary>CXF</wsCallLibrary>
         <service>
             <serviceClass>com.axonivy.connectivity.backend.technical.client.TechnicalBackendServiceService</serviceClass>
             <port>
                 <name>TechnicalBackendServicePort</name>
                 <portType>technicalBackendService</portType>
-                <locationUri>&lt;%=in.context.uri%&gt;/ivy/ws/&lt;%=in.context.app%&gt;/ConnectivityDemos/162B95BB70C3178E</locationUri>
+                <locationUri>&lt;%=in.context.uri%&gt;/&lt;%=in.context.app%&gt;/ws/ConnectivityDemos/162B95BB70C3178E</locationUri>
             </port>
             <portType>
                 <name>technicalBackendService</name>
@@ -182,14 +182,14 @@
     <webServiceConfig>
         <name>interceptedService</name>
         <id>16D2A643A3A25C52</id>
-        <wsdlUrl>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/16D29AE50A7A6E34?WSDL</wsdlUrl>
+        <wsdlUrl>http://localhost:8081/designer/ws/ConnectivityDemos/16D29AE50A7A6E34?WSDL</wsdlUrl>
         <wsCallLibrary>CXF</wsCallLibrary>
         <service>
             <serviceClass>com.axonivy.connectivity.soap.interceptor.client.ServiceWithExceptionService</serviceClass>
             <port>
                 <name>ServiceWithExceptionPort</name>
                 <portType>serviceWithException</portType>
-                <locationUri>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/16D29AE50A7A6E34</locationUri>
+                <locationUri>http://localhost:8081/designer/ws/ConnectivityDemos/16D29AE50A7A6E34</locationUri>
             </port>
             <portType>
                 <name>serviceWithException</name>

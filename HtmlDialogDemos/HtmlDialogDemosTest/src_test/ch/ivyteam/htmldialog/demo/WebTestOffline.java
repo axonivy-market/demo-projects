@@ -8,11 +8,11 @@ import static com.codeborne.selenide.Selenide.$;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import com.axonivy.ivy.supplements.IvySelenide;
+import com.axonivy.ivy.webtest.IvyWebTest;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 
-@IvySelenide
+@IvyWebTest
 public class WebTestOffline
 {
   @Test

@@ -17,10 +17,10 @@ import static test.web.ProcessUtil.startTestProcess;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.ivy.supplements.IvySelenide;
-import com.axonivy.ivy.supplements.engine.EngineUrl;
+import com.axonivy.ivy.webtest.IvyWebTest;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 
-@IvySelenide
+@IvyWebTest
 public class WebTestBusinessCaseDataWorkflow
 {
 
@@ -62,9 +62,9 @@ public class WebTestBusinessCaseDataWorkflow
 
   private void login()
   {
-    if (!EngineUrl.applicationName().equals("designer"))
+    if (!EngineUrl.isDesigner())
     {
-      open(EngineUrl.base() + "wf/" + EngineUrl.applicationName() + "/login");
+      open(EngineUrl.create().path("wf/login").toUrl());
       $("#loginForm\\:userName").shouldBe(visible).sendKeys("hb");
       $("#loginForm\\:password").sendKeys("hb");
       $("#loginForm\\:login").click();
