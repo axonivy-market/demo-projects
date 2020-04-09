@@ -52,13 +52,14 @@ out.dataOkManager=result.dataOk;
 Pt0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Verify Request</name>
-        <nameStyle>14,7
+        <name>Verify Request&#13;
+by Manager</name>
+        <nameStyle>26,5
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f6 360 402 112 44 -39 -8 #rect
+Pt0 f6 360 402 112 44 -39 -16 #rect
 Pt0 f6 @|UserDialogIcon #fIcon
 Pt0 f0 outLink start.ivp #txt
 Pt0 f0 inParamDecl '<> param;' #txt
@@ -173,13 +174,14 @@ out.dataOkTeamLeader=result.dataOk;
 Pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Verify Request</name>
-        <nameStyle>14,7
+        <name>Verify Request&#13;
+by Team Leader</name>
+        <nameStyle>30,5
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f5 360 282 112 44 -39 -8 #rect
+Pt0 f5 352 282 128 44 -42 -16 #rect
 Pt0 f5 @|UserDialogIcon #fIcon
 Pt0 f8 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/yourRequestHasBeen\\"")%> <%=(in.accepted ? ivy.cms.co(\\""/Emails/accepted\\"") : ivy.cms.co(\\""/Emails/declined\\""))%>: <%=in.amount%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/piecesOf\\"")%>  \\''<%=in.description%>\\'' <%=ivy.cms.co(\\""/Dialogs/procurementRequest/forTotal\\"")%> <%=in.totalPrice%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/currencySymbol\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.requester.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage "" <html> \\n\\t<style type=\\""text/css\\"">\\n     \\t\\t<%=ivy.cms.co(\\""/Styles/Classic\\"")%>\\n\\t</style>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Images/Logo\\"")%>\\n\\n\\t<%=ivy.cms.co(\\""/Emails/procurementRequestNotification\\"")%>\\n</html>""/emailAttachments * }"' #txt
 Pt0 f8 type workflow.humantask.ProcurementRequest #txt
@@ -206,7 +208,7 @@ Pt0 f9 1 312 184 #addKink
 Pt0 f9 1 0.06965079247016907 0 0 #arcLabel
 Pt0 f10 expr data #txt
 Pt0 f10 outCond ivp=="TaskA.ivp" #txt
-Pt0 f10 328 304 360 304 #arcP
+Pt0 f10 328 304 352 304 #arcP
 Pt0 f10 0 0.5752865296136699 0 0 #arcLabel
 Pt0 f11 expr data #txt
 Pt0 f11 outCond ivp=="TaskB.ivp" #txt
@@ -272,7 +274,7 @@ Pt0 f21 0 0.7380952380952381 9 0 #arcLabel
 Pt0 f12 expr out #txt
 Pt0 f12 type workflow.humantask.ProcurementRequest #txt
 Pt0 f12 var in1 #txt
-Pt0 f12 472 304 512 304 #arcP
+Pt0 f12 480 304 512 304 #arcP
 Pt0 f13 expr out #txt
 Pt0 f13 type workflow.humantask.ProcurementRequest #txt
 Pt0 f13 var in2 #txt

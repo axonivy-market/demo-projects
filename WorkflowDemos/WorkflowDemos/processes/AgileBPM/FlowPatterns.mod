@@ -179,8 +179,7 @@ To0 f0 showInStartList 0 #txt
 To0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name> 
-start.ivp</name>
+        <name>start.ivp</name>
     </language>
 </elementInfo>
 ' #txt
