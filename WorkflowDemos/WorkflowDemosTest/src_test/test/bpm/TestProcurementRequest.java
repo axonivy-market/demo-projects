@@ -52,7 +52,7 @@ class TestProcurementRequest
    * Manager and Team Leader do not verify
    */
   @Test
-  void approvalTask_notVerified_byBoth(BpmClient bpmClient) throws Exception
+  void approvalTask_notVerified_byBoth(BpmClient bpmClient)
   {
     List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
     
@@ -72,7 +72,7 @@ class TestProcurementRequest
    * Manager does not and Team Leader does verify
    */
   @Test
-  void approvalTask_notVerified_byManager(BpmClient bpmClient) throws Exception
+  void approvalTask_notVerified_byManager(BpmClient bpmClient)
   {
     List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
 
@@ -92,7 +92,7 @@ class TestProcurementRequest
    * Manager does and Team Leader does not verify
    */
   @Test
-  void approvalTask_notVerified_byTeamLeader(BpmClient bpmClient) throws Exception
+  void approvalTask_notVerified_byTeamLeader(BpmClient bpmClient)
   {
     List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
 
@@ -112,7 +112,7 @@ class TestProcurementRequest
   * Manager and Team Leader do verify but Executive Manager does not accept 
   */
   @Test
-  void approvalTask_verified_notAccepted(BpmClient bpmClient) throws Exception
+  void approvalTask_verified_notAccepted(BpmClient bpmClient)
   {
     List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
 
@@ -136,7 +136,7 @@ class TestProcurementRequest
    * Manager and Team Leader do verify and Executive Manager does accept 
    */
    @Test
-   void approvalTask_verified_accepted(BpmClient bpmClient) throws Exception
+   void approvalTask_verified_accepted(BpmClient bpmClient)
    {
      List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
 
@@ -156,7 +156,7 @@ class TestProcurementRequest
      assertThat(caze.getState()).isEqualTo(CaseState.DONE);
    }
 
-  private List<ITask> createProcurrementRequest(BpmClient bpmClient) throws Exception
+  private List<ITask> createProcurrementRequest(BpmClient bpmClient)
   {
     var testData = new ProcurementRequest();
     testData.setDescription("PC");
@@ -182,7 +182,7 @@ class TestProcurementRequest
     return tasks;
   }
 
-  private void verifyRequest(BpmClient bpmClient, ITask verifyTask, String role) throws Exception
+  private void verifyRequest(BpmClient bpmClient, ITask verifyTask, String role)
   {     
     ExecutionResult result = bpmClient
         .start().resumableTask(verifyTask)
@@ -191,7 +191,7 @@ class TestProcurementRequest
     assertThat(result.getRequestedTask().getState()).isIn(TaskState.DONE, TaskState.READY_FOR_JOIN);
   }
   
-  private ProcurementRequest acceptRequest(BpmClient bpmClient, ITask acceptRequestTask) throws Exception
+  private ProcurementRequest acceptRequest(BpmClient bpmClient, ITask acceptRequestTask)
   {
     ExecutionResult result = bpmClient.start().resumableTask(acceptRequestTask).as().role("Executive Manager").execute();
     assertThat(result.getRequestedTask().getState()).isIn(TaskState.DONE);

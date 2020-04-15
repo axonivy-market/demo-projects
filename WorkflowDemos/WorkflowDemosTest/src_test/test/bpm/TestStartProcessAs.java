@@ -36,7 +36,7 @@ class TestStartProcessAs
   }
   
   @Test
-  void noAs(BpmClient client) throws Exception
+  void noAs(BpmClient client)
   {
     ExecutionResult result = client
         .start().process(START)
@@ -48,7 +48,7 @@ class TestStartProcessAs
   }
 
   @Test
-  void asAnonymous(BpmClient client) throws Exception
+  void asAnonymous(BpmClient client)
   {
     ExecutionResult result = client
         .start().process(START)
@@ -61,7 +61,7 @@ class TestStartProcessAs
   }
   
   @Test
-  void asEverybody(BpmClient client, IRole everybody) throws Exception
+  void asEverybody(BpmClient client, IRole everybody)
   {
     ExecutionResult result = client
         .start().process(START)
@@ -76,7 +76,7 @@ class TestStartProcessAs
   }
 
   @Test
-  void asRoleName(BpmClient client, @Named("HR Manager") IRole hrManager) throws Exception
+  void asRoleName(BpmClient client, @Named("HR Manager") IRole hrManager)
   {
     ExecutionResult result = client
         .start().process(START)
@@ -91,7 +91,7 @@ class TestStartProcessAs
   }
 
   @Test
-  void asRole(BpmClient client, @Named("HR Manager") IRole hrManager) throws Exception
+  void asRole(BpmClient client, @Named("HR Manager") IRole hrManager)
   {
     ExecutionResult result = client
         .start().process(START)
@@ -106,7 +106,7 @@ class TestStartProcessAs
   }
 
   @Test
-  void asUserName(BpmClient client, @Named("jb") IUser jamesBond) throws Exception
+  void asUserName(BpmClient client, @Named("jb") IUser jamesBond)
   {
     ExecutionResult result = client
         .start().process(START)
@@ -120,7 +120,7 @@ class TestStartProcessAs
   }
 
   @Test
-  void asUser(BpmClient client, @Named("jb") IUser jamesBond) throws Exception
+  void asUser(BpmClient client, @Named("jb") IUser jamesBond)
   {
     ExecutionResult result = client
         .start().process(START)
@@ -134,7 +134,7 @@ class TestStartProcessAs
   }
 
   @Test
-  void asSystemUser(BpmClient client, IApplication app) throws Exception
+  void asSystemUser(BpmClient client, IApplication app)
   {
     ExecutionResult result = client
         .start().process(START)
@@ -148,7 +148,7 @@ class TestStartProcessAs
   }
 
   @Test
-  void asSession(BpmClient client, ISession session, @Named("jb") IUser jamesBond) throws Exception
+  void asSession(BpmClient client, ISession session, @Named("jb") IUser jamesBond)
   {
     session.authenticateSessionUser(jamesBond, "testing");
     
