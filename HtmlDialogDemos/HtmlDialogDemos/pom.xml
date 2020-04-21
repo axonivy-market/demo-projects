@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ch.ivyteam.ivy.project.demo</groupId>
+	<groupId>ch.ivyteam.demo</groupId>
 	<artifactId>html-dialog-demos</artifactId>
-	<version>8.0.4-SNAPSHOT</version>
+	<version>8.0.5-SNAPSHOT</version>
 	<packaging>iar</packaging>
 	<description>Demo Project for the Html Dialog Features</description>
 	<organization>
@@ -21,9 +21,9 @@
 		</plugins>
 	</build>
 	<parent>
-		<groupId>ch.ivyteam.ivy.project</groupId>
-		<artifactId>build.maven.iar</artifactId>
-		<version>8.0.4-SNAPSHOT</version>
+		<groupId>ch.ivyteam.demo</groupId>
+		<artifactId>build-maven-iar</artifactId>
+		<version>8.0.5-SNAPSHOT</version>
 		<relativePath>../../build.maven/iar</relativePath>
 	</parent>
 </project>

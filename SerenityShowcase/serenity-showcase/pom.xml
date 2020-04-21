@@ -4,15 +4,15 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>ch.ivyteam.ivy.project</groupId>
-		<artifactId>build.maven.iar</artifactId>
-		<version>8.0.4-SNAPSHOT</version>
+    <groupId>ch.ivyteam.demo</groupId>
+		<artifactId>build-maven-iar</artifactId>
+		<version>8.0.5-SNAPSHOT</version>
 		<relativePath>../../build.maven/iar</relativePath>
   </parent>
 
   <groupId>ch.ivyteam.primefaces</groupId>
   <artifactId>serenity-showcase</artifactId>
-  <version>8.0.4-SNAPSHOT</version>
+  <version>8.0.5-SNAPSHOT</version>
   <packaging>iar</packaging>
 
   <build>
