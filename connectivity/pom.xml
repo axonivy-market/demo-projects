@@ -2,15 +2,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.demo</groupId>
-	<artifactId>html-dialog-demos-modules</artifactId>
+	<artifactId>connectivity-modules</artifactId>
 	<version>8.0.5-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>html-dialog-demos</module>
-		<module>html-dialog-demos-test</module>
+		<module>connectivity-demos</module>
+		<module>connectivity-demos-test</module>
 	</modules>
-
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -23,5 +23,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	
 </project>
