@@ -48,7 +48,7 @@ public class WebTestRestProcessStarts
 
   private void checkProcess(String process)
   {
-    String path = "ConnectivityDemos/" + process;
+    String path = "connectivity-demos/" + process;
     open(createProcessUrl(path));
     if (EngineUrl.isDesigner())
     {

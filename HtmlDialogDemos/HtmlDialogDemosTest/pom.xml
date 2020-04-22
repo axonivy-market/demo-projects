@@ -1,22 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ch.ivyteam.ivy.project.demo</groupId>
+	<groupId>ch.ivyteam.demo</groupId>
 	<artifactId>html-dialog-demos-test</artifactId>
 	<version>9.1.0-SNAPSHOT</version>
 	<packaging>iar</packaging>
 	<parent>
-		<groupId>ch.ivyteam.ivy.project</groupId>
-		<artifactId>build.maven.iar.web.test</artifactId>
+		<groupId>ch.ivyteam.demo</groupId>
+		<artifactId>build-maven-iar-web-test</artifactId>
 		<version>9.1.0-SNAPSHOT</version>
 		<relativePath>../../build.maven/iar/web.test</relativePath>
 	</parent>
 
 	<dependencies>
 		<dependency>
-			<groupId>ch.ivyteam.ivy.project.demo</groupId>
+			<groupId>ch.ivyteam.demo</groupId>
 			<artifactId>html-dialog-demos</artifactId>
 			<!-- avoid conflict with old version from 6.0 which was 6000000.0.0-SNAPSHOT -->
 			<version>${project.version}</version>
@@ -39,7 +37,7 @@
 						</goals>
 						<phase>pre-integration-test</phase>
 						<configuration>
-							<deployFile>${ch.ivyteam.ivy.project.demo:html-dialog-demos:iar}</deployFile>
+							<deployFile>${ch.ivyteam.demo:html-dialog-demos:iar}</deployFile>
 							<deployTargetFileFormat>EXPANDED</deployTargetFileFormat>
 						</configuration>
 					</execution>
@@ -50,7 +48,7 @@
 						</goals>
 						<phase>pre-integration-test</phase>
 						<configuration>
-							<deployFile>${ch.ivyteam.ivy.project.demo:html-dialog-demos-test:iar}</deployFile>
+							<deployFile>${ch.ivyteam.demo:html-dialog-demos-test:iar}</deployFile>
 						</configuration>
 					</execution>
 				</executions>

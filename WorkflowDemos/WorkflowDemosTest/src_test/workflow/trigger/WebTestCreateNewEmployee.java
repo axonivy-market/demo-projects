@@ -23,7 +23,7 @@ public class WebTestCreateNewEmployee
     $(By.linkText("InitializeTestEnvironment/start.ivp")).shouldBe(visible);
     assertThat(Selenide.title().contains("ivy"));
     $(By.linkText("InitializeTestEnvironment/start.ivp")).click();
-    open(EngineUrl.createProcessUrl("/WorkflowDemos/15254CF1CE56AE72/start.ivp"));
+    open(EngineUrl.createProcessUrl("/workflow-demos/15254CF1CE56AE72/start.ivp"));
     $("#form\\:employeeName").sendKeys("Charlie");
     $("#form\\:email").sendKeys("charlie@xyz.com");
     $("#form\\:employeeDateOfBirth_input").sendKeys("26.12.1985");

@@ -10,11 +10,11 @@
     "processes" : [ {
       "id" : "collect_personal_data",
       "name" : "Collect personal data",
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:workflow-demos:15A5AC9A4F755A3B/start.ivp"
+      "processToExecute" : "ch.ivyteam.demo:workflow-demos:15A5AC9A4F755A3B/start.ivp"
     }, {
       "id" : "verify_personal_data",
       "name" : "Verify personal data",
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:workflow-demos:15A849250AA78F65/start.ivp"
+      "processToExecute" : "ch.ivyteam.demo:workflow-demos:15A849250AA78F65/start.ivp"
     } ]
   }, {
     "id" : "credit_rating",
@@ -23,16 +23,16 @@
     "processes" : [ {
       "id" : "check_company_register",
       "name" : "Check company register",
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:workflow-demos:15A8492F526C14B3/start.ivp"
+      "processToExecute" : "ch.ivyteam.demo:workflow-demos:15A8492F526C14B3/start.ivp"
     }, {
       "id" : "internal_solvency_check",
       "name" : "Internal solvency check",
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:workflow-demos:15A89953E2D3784F/start.ivp"
+      "processToExecute" : "ch.ivyteam.demo:workflow-demos:15A89953E2D3784F/start.ivp"
     } ],
     "sidesteps" : [ {
       "id" : "external_solvency_service",
       "name" : "External solvency service",
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:workflow-demos:15A8995AA29B442B/start.ivp"
+      "processToExecute" : "ch.ivyteam.demo:workflow-demos:15A8995AA29B442B/start.ivp"
     } ]
   }, {
     "id" : "approval",
@@ -42,7 +42,7 @@
     "processes" : [ {
       "id" : "approve_level_1",
       "name" : "Approve Level 1",
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:workflow-demos:15A852737BAA2982/start.ivp",
+      "processToExecute" : "ch.ivyteam.demo:workflow-demos:15A852737BAA2982/start.ivp",
       "preCondition" : {
         "script" : "creditDossier.decision.needsLevel1Approval",
         "label" : "Needs approval level 1?"
@@ -50,7 +50,7 @@
     }, {
       "id" : "approve_level_2",
       "name" : "Approve Level 2",
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:workflow-demos:15A89963C015F70D/start.ivp",
+      "processToExecute" : "ch.ivyteam.demo:workflow-demos:15A89963C015F70D/start.ivp",
       "preCondition" : {
         "script" : "creditDossier.decision.needsLevel2Approval",
         "label" : "Needs approval level 2?"
@@ -58,7 +58,7 @@
     }, {
       "id" : "contract_creation",
       "name" : "Contract creation",
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:workflow-demos:15A89966729CE3FC/start.ivp",
+      "processToExecute" : "ch.ivyteam.demo:workflow-demos:15A89966729CE3FC/start.ivp",
       "preCondition" : {
         "script" : "(!creditDossier.decision.needsLevel1Approval || (creditDossier.decision.needsLevel1Approval && creditDossier.decision.level1Approved ))\n&&\n(!creditDossier.decision.needsLevel2Approval || (creditDossier.decision.needsLevel2Approval && creditDossier.decision.level2Approved ))",
         "label" : "Is approved?"
