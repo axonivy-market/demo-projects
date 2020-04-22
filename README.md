@@ -2,13 +2,13 @@
 
 This repository contains multiple demos how to use the Axon.ivy platform.
 
-- **ConnectivityDemos**: How to build and consume Rest or Soap services
-- **ErrorHandlingDemos**: How to handle errors 
-- **HtmlDialogDemos**: How to build dialogs and use [PrimeFaces](https://www.primefaces.org) widgets
-- **WorkflowDemos**: How to build complexer workflow processes
+- **connectivity-demos**: How to build and consume Rest or Soap services
+- **error-handling-demos**: How to handle errors 
+- **html-dialog-demos**: How to build dialogs and use [PrimeFaces](https://www.primefaces.org) widgets
+- **workflow-demos**: How to build complexer workflow processes
 
-- **QuickStartTutorial**: Quick jump in our platform
-- **DemosApp**: Collects all Demos to one deployable app
+- **quick-start-tutorial**: Quick jump in our platform
+- **demos-app**: Collects all Demos to one deployable app
 
 
 ## Test
