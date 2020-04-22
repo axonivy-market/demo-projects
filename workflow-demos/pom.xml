@@ -2,26 +2,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.demo</groupId>
-	<artifactId>ivy-project-modules</artifactId>
+	<artifactId>workflow-demos-modules</artifactId>
 	<version>8.0.5-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<description>Contains all ivyProjects as module dependency</description>
 
 	<modules>
-		<module>html-dialog-demos</module>
-		<module>error-handling-demos</module>
-		<module>quick-start-tutorial</module>
 		<module>workflow-demos</module>
-		<module>connectivity-demos</module>
-		<module>demos-app</module>
-		<module>serenity-showcase</module>
-
-		<!-- parent config poms: -->
-		<module>build.maven</module>
-		<module>build.maven/iar</module>
-		<module>build.maven/iar/web.test</module>
+		<module>workflow-demos-test</module>
 	</modules>
-
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -34,5 +23,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	
 </project>
