@@ -27,7 +27,7 @@ import workflow.humantask.ProcurementRequest;
  * In order to improve until the release 9.1
  *
  * Tests the ProcurementRequest:
- * <code>WorkflowDemos/processes/Humantask/ProcurementRequestParallel.mod</code>
+ * <code>workflow-demos/processes/Humantask/ProcurementRequestParallel.mod</code>
  * 
  * @author rew
  * @author rwei

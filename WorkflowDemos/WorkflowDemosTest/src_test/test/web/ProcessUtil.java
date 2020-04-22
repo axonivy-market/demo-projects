@@ -11,12 +11,12 @@ public class ProcessUtil
 
   public static void startProcess(String pathToIvp)
   {
-    Selenide.open(EngineUrl.createProcessUrl("/WorkflowDemos/" + pathToIvp));
+    Selenide.open(EngineUrl.createProcessUrl("/workflow-demos/" + pathToIvp));
   }
   
   public static void startTestProcess(String pathToIvp)
   {
-    Selenide.open(EngineUrl.createProcessUrl("/WorkflowDemosTest/" + pathToIvp));
+    Selenide.open(EngineUrl.createProcessUrl("/workflow-demos-test/" + pathToIvp));
   }
   
   public static void checkEndPage()
