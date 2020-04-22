@@ -32,7 +32,7 @@
 				<extensions>true</extensions>
 				<executions>
 					<execution>
-						<id>deploy.workflowdemos.under.test.to.memory.engine</id>
+						<id>deploy.workflow-demos.under.test.to.memory.engine</id>
 						<goals>
 							<goal>deploy-to-engine</goal>
 						</goals>
@@ -42,7 +42,7 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>deploy.workflowdemos.test.to.memory.engine</id>
+						<id>deploy.workflow-demos.test.to.memory.engine</id>
 						<goals>
 							<goal>deploy-to-engine</goal>
 						</goals>

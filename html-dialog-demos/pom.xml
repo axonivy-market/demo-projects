@@ -7,8 +7,8 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>HtmlDialogDemos</module>
-		<module>HtmlDialogDemosTest</module>
+		<module>html-dialog-demos</module>
+		<module>html-dialog-demos-test</module>
 	</modules>
 
 	<build>
