@@ -58,7 +58,7 @@ public class IntegrationTestSoapCreateOrderService
 
   private static void routeToCurrentEngine(CreateOrder port)
   {
-    String url = EngineUrl.createWebServiceUrl("/ConnectivityDemos/162492A1649E72DF");
+    String url = EngineUrl.createWebServiceUrl("/connectivity-demos/162492A1649E72DF");
     ((BindingProvider) port).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, url);
   }
 

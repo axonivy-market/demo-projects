@@ -18,7 +18,7 @@ public class IntegrationTestSoapIgnorePolicy
   @Test
   public void greetWithPolicyEnabled() throws Exception
   {
-    String url = EngineUrl.createProcessUrl("/ConnectivityDemosTest/" + PROCESS_ID
+    String url = EngineUrl.createProcessUrl("/connectivity-demos-test/" + PROCESS_ID
             + "/greeterPoliciesNotDisabled.ivp");
     CloseableHttpClient client = HttpClients.createDefault();
     CloseableHttpResponse response = client.execute(new HttpGet(url));
@@ -30,7 +30,7 @@ public class IntegrationTestSoapIgnorePolicy
   @Test
   public void greetWithPolicyDisabled() throws Exception
   {
-    String url = EngineUrl.createProcessUrl("/ConnectivityDemosTest/" + PROCESS_ID
+    String url = EngineUrl.createProcessUrl("/connectivity-demos-test/" + PROCESS_ID
             + "/greeterPoliciesDisabled.ivp");
     CloseableHttpClient client = HttpClients.createDefault();
     CloseableHttpResponse response = client.execute(new HttpGet(url));
