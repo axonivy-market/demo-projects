@@ -31,7 +31,7 @@
 				<extensions>true</extensions>
 				<executions>
 					<execution>
-						<id>deploy.htmlDialogDemos.under.test.to.memory.engine</id>
+						<id>deploy.html-dialog-demos.under.test.to.memory.engine</id>
 						<goals>
 							<goal>deploy-to-engine</goal>
 						</goals>
@@ -42,7 +42,7 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>deploy.htmlDialogDemosTest.to.memory.engine</id>
+						<id>deploy.html-dialog-demos-test.to.memory.engine</id>
 						<goals>
 							<goal>deploy-to-engine</goal>
 						</goals>

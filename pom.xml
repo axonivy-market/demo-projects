@@ -8,13 +8,13 @@
 	<description>Contains all ivyProjects as module dependency</description>
 
 	<modules>
-		<module>HtmlDialogDemos</module>
-		<module>ErrorHandlingDemos</module>
-		<module>QuickStartTutorial</module>
-		<module>WorkflowDemos</module>
-		<module>ConnectivityDemos</module>
-		<module>DemosApp</module>
-		<module>SerenityShowcase</module>
+		<module>html-dialog-demos</module>
+		<module>error-handling-demos</module>
+		<module>quick-start-tutorial</module>
+		<module>workflow-demos</module>
+		<module>connectivity-demos</module>
+		<module>demos-app</module>
+		<module>serenity-showcase</module>
 
 		<!-- parent config poms: -->
 		<module>build.maven</module>

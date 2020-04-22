@@ -7,8 +7,8 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>WorkflowDemos</module>
-		<module>WorkflowDemosTest</module>
+		<module>workflow-demos</module>
+		<module>workflow-demos-test</module>
 	</modules>
 	
 	<build>

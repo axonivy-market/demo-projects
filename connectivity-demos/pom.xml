@@ -7,8 +7,8 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>ConnectivityDemos</module>
-		<module>ConnectivityDemosTest</module>
+		<module>connectivity-demos</module>
+		<module>connectivity-demos-test</module>
 	</modules>
 	
 	<build>
