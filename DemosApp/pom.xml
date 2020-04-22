@@ -45,7 +45,7 @@
 			<type>iar</type>
 		</dependency>
 		<dependency>
-			<groupId>ch.ivyteam.ivy.project.demo</groupId>
+			<groupId>ch.ivyteam.demo</groupId>
 			<artifactId>rule-engine-demos</artifactId>
 			<version>${ivyteam.rule.engine.demo.project.version}</version>
 			<type>iar</type>
