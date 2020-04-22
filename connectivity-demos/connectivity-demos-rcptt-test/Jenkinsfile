@@ -1,0 +1,39 @@
+pipeline {
+  agent {
+    docker {
+      image 'axonivy/build-container:rcptt-1.1'
+    }
+  }
+
+  parameters {
+    string(
+      name: 'designerListUrl',
+      description: 'Designer to use for build',
+      defaultValue: 'https://jenkins.ivyteam.io/job/ivy-core_product/job/master/lastSuccessfulBuild/'
+    )
+  }
+
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '20'))
+  }
+
+  triggers {
+    cron '@midnight'
+  }
+
+  stages {
+    stage('test') {
+      steps {
+        script {
+          dir('connectivity-demos/connectivity-demos-rcptt-test')
+          {
+            maven cmd: "clean verify -Dbuild.last.sucess.url=${designerListUrl}"
+            junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/surefire-reports/**/*.xml'
+            archiveArtifacts 'target/aut/logs/,' +
+                            'target/results/**'
+          }
+        }
+      }
+    }
+  }
+}
