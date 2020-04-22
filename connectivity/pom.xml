@@ -2,13 +2,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.demo</groupId>
-	<artifactId>workflow-demos-modules</artifactId>
+	<artifactId>connectivity-modules</artifactId>
 	<version>9.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>workflow-demos</module>
-		<module>workflow-demos-test</module>
+		<module>connectivity-demos</module>
+		<module>connectivity-demos-test</module>
 	</modules>
 	
 	<build>
