@@ -1,25 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ch.ivyteam.demo</groupId>
-	<artifactId>ivy-project-modules</artifactId>
+	<groupId>ch.ivyteam.primefaces</groupId>
+	<artifactId>serenity-modules</artifactId>
 	<version>8.0.5-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<description>Contains all ivyProjects as module dependency</description>
 
 	<modules>
-		<module>html-dialog</module>
-		<module>error-handling-demos</module>
-		<module>quick-start-tutorial</module>
-		<module>workflow</module>
-		<module>connectivity</module>
-		<module>demos-app</module>
-		<module>serenity</module>
-
-		<!-- parent config poms: -->
-		<module>build.maven</module>
-		<module>build.maven/iar</module>
-		<module>build.maven/iar/web.test</module>
+		<module>serenity-showcase</module>
 	</modules>
 
 	<build>

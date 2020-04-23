@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ch.ivyteam.demo</groupId>
+	<artifactId>connectivity-demos-rcptt-test</artifactId>
+	<packaging>rcpttTest</packaging>
+
+	<parent>
+		<groupId>ch.ivyteam.demo</groupId>
+		<artifactId>build-maven-rcptt</artifactId>
+		<version>8.0.5-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<rcptt.version>2.4.3</rcptt.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>zugpronexus.build</id>
+			<url>http://zugpronexus:8081/nexus/content/groups/build/</url>
+			<snapshots>
+			<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+</project>
