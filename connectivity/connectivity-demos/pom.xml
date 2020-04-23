@@ -76,6 +76,7 @@
 				<version>8.0.5-SNAPSHOT</version>
 				<extensions>true</extensions>
 				<configuration>
+					<ivyVersion>[8.0.0,]</ivyVersion>
 					<compilerOptions>
 						<!-- Suppress compiler warnings of generated resources -->
 					 	<compilerOption>-nowarn:[${project.basedir}/src_generated/io]</compilerOption>
