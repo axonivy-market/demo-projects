@@ -25,7 +25,7 @@ pipeline {
     stage('test') {
       steps {
         script {
-          dir('connectivity-demos/connectivity-demos-rcptt-test')
+          dir('connectivity/connectivity-demos-rcptt-test')
           {
             maven cmd: "clean verify -Dbuild.last.sucess.url=${designerListUrl}"
             junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/surefire-reports/**/*.xml'
