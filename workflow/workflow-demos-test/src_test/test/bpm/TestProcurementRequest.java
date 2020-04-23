@@ -195,7 +195,7 @@ class TestProcurementRequest
   {
     ExecutionResult result = bpmClient.start().resumableTask(acceptRequestTask).as().role("Executive Manager").execute();
     assertThat(result.getRequestedTask().getState()).isIn(TaskState.DONE);
-    return result.getData().last();
+    return result.data().last();
   }
   
   //TODO API Sugar: set locale to default cms language. Provide api to set other language
