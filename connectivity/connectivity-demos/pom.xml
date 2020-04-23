@@ -7,17 +7,36 @@
 	<artifactId>connectivity-demos</artifactId>
 	<version>8.0.5-SNAPSHOT</version>
 	<packaging>iar</packaging>
-
-	<parent>
-		<groupId>ch.ivyteam.demo</groupId>
-		<artifactId>build-maven-iar</artifactId>
-		<version>8.0.5-SNAPSHOT</version>
-		<relativePath>../../build.maven/iar</relativePath>
-	</parent>
+	<organization>
+		<name>AXON.IVY</name>
+		<url>http://www.axonivy.com</url>
+	</organization>
 	
 	<properties>
 		<jersey.version>2.29.1</jersey.version>
 	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>repo.axonivy.com</id>
+			<layout>default</layout>
+			<name>Public Build Integration Repository</name>
+			<url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
+		</repository>
+	</distributionManagement>
+
+	<pluginRepositories>
+		<pluginRepository>
+		<id>central.snapshots</id>
+		<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		<releases>
+			<enabled>false</enabled>
+		</releases>
+		<snapshots>
+			<updatePolicy>always</updatePolicy>
+		</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 
 	<dependencies>
 		<dependency>
@@ -54,6 +73,7 @@
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
+				<version>9.1.0-SNAPSHOT</version>
 				<extensions>true</extensions>
 				<configuration>
 					<compilerOptions>
@@ -63,7 +83,28 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.0.2</version>
+				<executions>
+					<execution>
+						<id>thirdparty.libs</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<overWriteReleases>false</overWriteReleases>
+					<overWriteSnapshots>false</overWriteSnapshots>
+					<overWriteIfNewer>false</overWriteIfNewer>
+					<stripVersion>false</stripVersion>
+					<excludeArtifactIds>${project.artifactId},${project.artifactId}.source</excludeArtifactIds>
+				</configuration>
 			</plugin>
             <plugin>
                 <groupId>org.jsonschema2pojo</groupId>
@@ -154,6 +195,19 @@
 											<runOnConfiguration>true</runOnConfiguration>
 										</execute>
 									</action>
+								</pluginExecution>
+								<pluginExecution>
+								  <pluginExecutionFilter>
+								    <groupId>org.apache.maven.plugins</groupId>
+								    <artifactId>maven-dependency-plugin</artifactId>
+								    <versionRange>[3.0.2,)</versionRange>
+								    <goals>
+								      <goal>copy-dependencies</goal>
+								    </goals>
+								  </pluginExecutionFilter>
+								  <action>
+								    <ignore></ignore>
+								  </action>
 								</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>

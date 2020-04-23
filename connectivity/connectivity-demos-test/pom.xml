@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>ch.ivyteam.demo</groupId>
-		<artifactId>build-maven-iar-web-test</artifactId>
+		<artifactId>build-maven-web</artifactId>
 		<version>8.0.5-SNAPSHOT</version>
-		<relativePath>../../build.maven/iar/web.test</relativePath>
+		<relativePath>../../build.maven/web</relativePath>
 	</parent>
 
 	<groupId>ch.ivyteam.demo</groupId>
