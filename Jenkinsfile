@@ -1,9 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'axonivy/build-container:web-1.0'
-    }
-  }
+  agent any
 
   triggers {
     pollSCM '@hourly'
@@ -26,19 +22,30 @@ pipeline {
     stage('build') {
       steps {
         script {
-          def workspace = pwd()
-          def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
-          maven cmd: "-P deploy.repo.axonivy.com clean ${phase} -Dmaven.test.failure.ignore=true  " + 
-                    "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
-                    "-Divy.engine.list.url=${params.engineListUrl} " + 
-                    "-DaltDeploymentRepository=repo.axonivy.com::https://repo.axonivy.com/artifactory/libs-snapshot-local"
-          checkVersions()
+          docker.image('axonivy/build-container:web-1.0').inside {
+            def workspace = pwd()
+            def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
+            maven cmd: "-P deploy.repo.axonivy.com clean ${phase} -Dmaven.test.failure.ignore=true  " + 
+                      "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
+                      "-Divy.engine.list.url=${params.engineListUrl} " + 
+                      "-DaltDeploymentRepository=repo.axonivy.com::https://repo.axonivy.com/artifactory/libs-snapshot-local"
+            checkVersions()
+            archiveArtifacts '**/target/*.iar,**/target/*.zip'
+            archiveArtifacts artifacts: '**/target/selenide/reports/**/*', allowEmptyArchive: true
+            recordIssues tools: [eclipse()], unstableTotalAll: 1
+            recordIssues tools: [mavenConsole()], unstableNewAll: 1, qualityGates: [[threshold: 1, type: 'NEW', unstable: true]]
+            junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/surefire-reports/**/*.xml'          
+          }
         }
-        archiveArtifacts '**/target/*.iar,**/target/*.zip'
-        archiveArtifacts artifacts: '**/target/selenide/reports/**/*', allowEmptyArchive: true
-        recordIssues tools: [eclipse()], unstableTotalAll: 1
-        recordIssues tools: [mavenConsole()], unstableNewAll: 1, qualityGates: [[threshold: 1, type: 'NEW', unstable: true]]
-        junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/surefire-reports/**/*.xml'          
+      }
+    }
+    stage('check editorconfig') {
+      steps {
+        script {
+          docker.image('mstruebing/editorconfig-checker').inside {
+            sh 'ec -no-color'
+          }
+        }
       }
     }
   }
