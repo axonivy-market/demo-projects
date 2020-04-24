@@ -23,7 +23,7 @@ public class TestDataMapping
     ExecutionResult result = bpmClient.start().process("rest/odata/readById.ivp").execute();
     assertThat(result).isNotNull();
     
-    OData data = result.getData().last();
+    OData data = result.data().last();
     assertThat(data.getUsers()).isNotEmpty();
     
     User first = data.getUsers().get(0);
@@ -38,7 +38,7 @@ public class TestDataMapping
     ExecutionResult result = bpmClient.start().process("rest/odata/readCollection.ivp").execute();
     assertThat(result).isNotNull();
     
-    OData data = result.getData().last();
+    OData data = result.data().last();
     assertThat(data.getUsers()).hasSize(20);
   }
   
@@ -48,7 +48,7 @@ public class TestDataMapping
     ExecutionResult result = bpmClient.start().process("rest/openapi/listPets.ivp").execute();
     assertThat(result).isNotNull();
     
-    OpenApiData data = result.getData().last();
+    OpenApiData data = result.data().last();
     assertThat(data.getPets()).isNotEmpty();
     assertThat(data.getPets().get(0).getName()).isNotEmpty();
   }

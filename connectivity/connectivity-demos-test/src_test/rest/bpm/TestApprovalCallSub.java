@@ -20,7 +20,7 @@ public class TestApprovalCallSub
       .process("rest/testApprovalCreation/test.ivp")
       .as().user("restUser")
       .execute();
-    CreateApprovalData data = result.getData().last();
+    CreateApprovalData data = result.data().last();
     assertThat(data.getCreatedTask().getName())
       .isEqualTo("Approve request from restUser");
   }
