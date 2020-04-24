@@ -56,7 +56,7 @@ public class PersonService
 
   public PersonService()
   {
-    addNewPerson("Bruno", "B�tler");
+    addNewPerson("Bruno", "Bütler");
     addNewPerson("Reto", "Weiss");
     addNewPerson("Renato", "Stalder");
     addNewPerson("Reguel", "Wermelinger");

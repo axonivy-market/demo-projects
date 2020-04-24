@@ -33,7 +33,7 @@ public class PersonRepository
 
   private PersonRepository()
   {
-    persons.add(createPerson("Bruno", "B�tler"));
+    persons.add(createPerson("Bruno", "Bütler"));
     persons.add(createPerson("Reto", "Weiss"));
     persons.add(createPerson("Renato", "Stalder"));
     persons.add(createPerson("Markus", "Binzegger"));

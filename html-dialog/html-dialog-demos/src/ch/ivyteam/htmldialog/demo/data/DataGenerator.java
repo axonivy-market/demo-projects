@@ -16,10 +16,10 @@ public class DataGenerator
       "Raphael", "Regina", "Silvan", "Svenja", "Theresia", "Thorsten", "Ulrike", "Urs",
       "Valentina", "Viktor", "Wendy", "Walter", "Xenia", "Xaver", "Ylenia", "Yves",
       "Zora", "Zacharias"};
-  private static final String[] lastNames = {"M�ller", "Meier", "Huber", "Moser", "Frei", "Fink", "Meyer",
+  private static final String[] lastNames = {"Müller", "Meier", "Huber", "Moser", "Frei", "Fink", "Meyer",
       "Berger", "Tanner",
       "Simpson", "Richter", "Dettling", "Arquint", "Frisch", "Johnson", "Thaler", "Smith",
-      "Schmid", "Keller", "Miller", "Jackson", "Abeggler", "K�nzi", "Held", "Jung", "Zimmermann",
+      "Schmid", "Keller", "Miller", "Jackson", "Abeggler", "Künzi", "Held", "Jung", "Zimmermann",
       "Lustig", "Muster", "Lang"};
 
   public static List<Person> generatePersons(int count)
