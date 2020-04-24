@@ -34,15 +34,6 @@
     </plugins>
   </build>
 
-  <distributionManagement>
-		<repository>
-			<id>repo.axonivy.com</id>
-			<layout>default</layout>
-			<name>Public Build Integration Repository</name>
-			<url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
-		</repository>
-	</distributionManagement>
-
   <pluginRepositories>
     <pluginRepository>
       <id>central.snapshots</id>

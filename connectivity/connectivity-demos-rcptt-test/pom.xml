@@ -12,14 +12,4 @@
 		<relativePath>../../build.maven/rcptt</relativePath>
 	</parent>
 
-	<repositories>
-		<repository>
-			<id>zugpronexus.build</id>
-			<url>http://zugpronexus:8081/nexus/content/groups/build/</url>
-			<snapshots>
-			<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-
 </project>
