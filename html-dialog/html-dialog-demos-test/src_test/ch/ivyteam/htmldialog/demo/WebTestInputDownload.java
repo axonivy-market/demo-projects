@@ -27,7 +27,7 @@ import com.codeborne.selenide.Selenide;
 @IvyWebTest
 public class WebTestInputDownload
 {
-  
+
   @BeforeAll
   public static void setUp()
   {
@@ -70,5 +70,5 @@ public class WebTestInputDownload
     $(By.id("pictureGalleryForm:fileUpload_input")).shouldBe(exist).sendKeys(tempImage.getAbsolutePath());
     $(By.id("pictureGalleryForm:pictureGallery")).findAll(".ui-galleria-filmstrip li").shouldHave(size(4));
   }
-  
+
 }

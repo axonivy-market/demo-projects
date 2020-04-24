@@ -1,5 +1,7 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:p="http://primefaces.org/ui">
+
 <body>
   <ui:composition template="/layouts/HtmlDemo.xhtml">
     <ui:param name="centerHeader" value="OrderList Demo" />
@@ -10,11 +12,11 @@
         <h:panelGroup layout="block" id="persons">
           <p>This demo explains how a List can be used as data for an order list widget.</p>
           <!--
-          Shows a list that can be reordered. 
-          Use the ivy.ListItem converter to convert the list items (person) to a string (list index) an vice versa. 
+          Shows a list that can be reordered.
+          Use the ivy.ListItem converter to convert the list items (person) to a string (list index) an vice versa.
          -->
-          <p:orderList value="#{data.persons}" var="person" responsive="true" style="width:400px" itemValue="#{person}" converter="ivy.ListItem"
-            id="personsList" controlsLocation="right">
+          <p:orderList value="#{data.persons}" var="person" responsive="true" style="width:400px" itemValue="#{person}"
+            converter="ivy.ListItem" id="personsList" controlsLocation="right">
             <f:facet name="caption">Persons</f:facet>
             <p:column>
               <b>#{person.name}</b> #{person.firstname}</p:column>
@@ -32,4 +34,5 @@
 
   </ui:composition>
 </body>
+
 </html>

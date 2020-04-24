@@ -27,14 +27,14 @@ import ch.ivyteam.ivy.environment.Ivy;
 
 /**
  * Demonstrates asynchronous REST communication:
- * 
+ *
  * <ul>
  * <li>Users that join the chat fire an asynchronous (@GET) request and wait for
  * new messages.</li>
  * <li>New messages are sent synchronous (@Post) and will be distributed to
  * asynchronous listeners.</li>
  * </ul>
- * 
+ *
  * @author rew
  * @since 7.3.0
  */

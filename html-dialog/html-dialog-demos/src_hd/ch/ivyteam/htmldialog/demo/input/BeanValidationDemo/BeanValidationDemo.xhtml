@@ -1,5 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:p="http://primefaces.org/ui">
 <h:body>
   <ui:composition template="/layouts/HtmlDemo.xhtml">
     <ui:param name="centerHeader" value="Bean Validation (JSR 303) Demo" />
@@ -8,13 +9,16 @@
     <ui:define name="content">
       <h:panelGroup layout="block" id="panel">
         <p>This demo explains how the bean validation (JSR 303) could be used.</p>
-        <p>The fields of a java class (bean) can be annotated with validation information. The validation information will then be considered by
+        <p>The fields of a java class (bean) can be annotated with validation information. The validation information
+          will then be considered by
           Html Dialogs when the field of the class is bound to a widget.</p>
         <p style="margin-top: 10px;">
           The java class
           <code>ch.ivyteam.htmlDialog.demo.input.beanValidation.Person</code>
-          defines fields annotated with such validation information. The fields of the java class are bound to the widgets in the form bellow. There
-          are no validation information given in the *.xhtml file of the Html Dialog itself. However, the Html Dialog uses the information given on
+          defines fields annotated with such validation information. The fields of the java class are bound to the
+          widgets in the form bellow. There
+          are no validation information given in the *.xhtml file of the Html Dialog itself. However, the Html Dialog
+          uses the information given on
           the annotations of the fields to validate the user input.
         </p>
 
@@ -39,7 +43,8 @@
           <h:outputText value="restricts a date to the dates in the past" />
         </p:panelGrid>
         <p style="margin-bottom: 20px;">
-          There will always be validation requirements, for which these standard annotation won't suffice. For these cases it is possible to create
+          There will always be validation requirements, for which these standard annotation won't suffice. For these
+          cases it is possible to create
           your own annotations. See the
           <code>@ch.ivyteam.htmldialog.demo.input.beanValidation.LicensePlate</code>
           annotation for an example.
@@ -72,4 +77,5 @@
 
   </ui:composition>
 </h:body>
+
 </html>

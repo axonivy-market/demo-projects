@@ -21,14 +21,14 @@ import ch.ivyteam.ivy.workflow.TaskState;
 import workflow.humantask.ProcurementRequest;
 
 /**
- * Early preview of {@link BpmClient} testing API usage. 
- * 
+ * Early preview of {@link BpmClient} testing API usage.
+ *
  * Here to expose difficulties when working with workflow centered processes.
  * In order to improve until the release 9.1
  *
  * Tests the ProcurementRequest:
  * <code>workflow-demos/processes/Humantask/ProcurementRequestParallel.mod</code>
- * 
+ *
  * @author rew
  * @author rwei
  * @since Mar 3, 2020
@@ -38,7 +38,7 @@ class TestProcurementRequest
 {
   /** Processes under test */
   private static final BpmProcess PROCUREMENT_PROCESS = BpmProcess.name("ProcurementRequestParallel");
-  
+
   /** HTML Dialogs under test */
   public static interface HtmlDialog
   {
@@ -46,8 +46,8 @@ class TestProcurementRequest
     BpmElement VERIFY_REQUEST_TEAM_LEADER = PROCUREMENT_PROCESS.element().name().contains("by Team Leader");
     BpmElement VERIFY_REQUEST_MANAGER = PROCUREMENT_PROCESS.element().name().contains("by Manager");
     BpmElement ACCEPT_REQUEST = PROCUREMENT_PROCESS.elementName("Accept Request");
-  }  
-  
+  }
+
   /**
    * Manager and Team Leader do not verify
    */
@@ -55,16 +55,16 @@ class TestProcurementRequest
   void approvalTask_notVerified_byBoth(BpmClient bpmClient)
   {
     List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
-    
+
     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_TEAM_LEADER).with(ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(false));
     verifyRequest(bpmClient, verifyTasks.get(0), "Teamleader");
 
     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_MANAGER).with(ProcurementRequest.class, (in, out) -> out.setDataOkManager(false));
     verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
-    
+
     ICase caze = verifyTasks.get(0).getCase();
-    waitUntilSystemTaskHasBeenExecuted(caze); 
-    
+    waitUntilSystemTaskHasBeenExecuted(caze);
+
     assertThat(caze.getState()).isEqualTo(CaseState.DONE);
   }
 
@@ -81,10 +81,10 @@ class TestProcurementRequest
 
     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_MANAGER).with(ProcurementRequest.class, (in, out) -> out.setDataOkManager(false));
     verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
-    
+
     ICase caze = verifyTasks.get(0).getCase();
-    waitUntilSystemTaskHasBeenExecuted(caze); 
-    
+    waitUntilSystemTaskHasBeenExecuted(caze);
+
     assertThat(caze.getState()).isEqualTo(CaseState.DONE);
   }
 
@@ -98,18 +98,18 @@ class TestProcurementRequest
 
     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_TEAM_LEADER).with(ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(false));
     verifyRequest(bpmClient, verifyTasks.get(0), "Teamleader");
-    
+
     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_MANAGER).with(ProcurementRequest.class, (in, out) -> out.setDataOkManager(true));
     verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
-    
+
     ICase caze = verifyTasks.get(0).getCase();
-    waitUntilSystemTaskHasBeenExecuted(caze); 
-    
+    waitUntilSystemTaskHasBeenExecuted(caze);
+
     assertThat(caze.getState()).isEqualTo(CaseState.DONE);
   }
 
  /**
-  * Manager and Team Leader do verify but Executive Manager does not accept 
+  * Manager and Team Leader do verify but Executive Manager does not accept
   */
   @Test
   void approvalTask_verified_notAccepted(BpmClient bpmClient)
@@ -121,19 +121,19 @@ class TestProcurementRequest
 
     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_MANAGER).with(ProcurementRequest.class, (in, out) -> out.setDataOkManager(true));
     verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
-    
+
     ICase caze = verifyTasks.get(0).getCase();
     waitUntilAcceptRequestTaskIsAvailable(caze);
-    
+
     bpmClient.mock().element(HtmlDialog.ACCEPT_REQUEST).withNoAction();
     ProcurementRequest request = acceptRequest(bpmClient, getAcceptRequestTask(caze));
-    
+
     assertThat(request.getAccepted()).isFalse();
     assertThat(caze.getState()).isEqualTo(CaseState.DONE);
   }
-  
+
   /**
-   * Manager and Team Leader do verify and Executive Manager does accept 
+   * Manager and Team Leader do verify and Executive Manager does accept
    */
    @Test
    void approvalTask_verified_accepted(BpmClient bpmClient)
@@ -148,10 +148,10 @@ class TestProcurementRequest
 
      ICase caze = verifyTasks.get(0).getCase();
      waitUntilAcceptRequestTaskIsAvailable(caze);
-     
+
      bpmClient.mock().element(HtmlDialog.ACCEPT_REQUEST).with(ProcurementRequest.class, (in, out) -> out.setAccepted(true));
      ProcurementRequest request = acceptRequest(bpmClient, getAcceptRequestTask(caze));
-     
+
      assertThat(request.getAccepted()).isTrue();
      assertThat(caze.getState()).isEqualTo(CaseState.DONE);
    }
@@ -183,21 +183,21 @@ class TestProcurementRequest
   }
 
   private void verifyRequest(BpmClient bpmClient, ITask verifyTask, String role)
-  {     
+  {
     ExecutionResult result = bpmClient
         .start().resumableTask(verifyTask)
-        .as().role(role)        
+        .as().role(role)
         .execute();
     assertThat(result.getRequestedTask().getState()).isIn(TaskState.DONE, TaskState.READY_FOR_JOIN);
   }
-  
+
   private ProcurementRequest acceptRequest(BpmClient bpmClient, ITask acceptRequestTask)
   {
     ExecutionResult result = bpmClient.start().resumableTask(acceptRequestTask).as().role("Executive Manager").execute();
     assertThat(result.getRequestedTask().getState()).isIn(TaskState.DONE);
     return result.data().last();
   }
-  
+
   //TODO API Sugar: set locale to default cms language. Provide api to set other language
   private ITask getAcceptRequestTask(ICase caze)
   {
@@ -206,12 +206,12 @@ class TestProcurementRequest
     return caze
         .getActiveTasks()
         .stream()
-        .filter(task -> task.getName().contains(taskName))  
+        .filter(task -> task.getName().contains(taskName))
         .findAny()
         .orElse(null);
   }
-  
-  // TODO API Sugar: Provide method to wait until system task has been executed 
+
+  // TODO API Sugar: Provide method to wait until system task has been executed
   private void waitUntilSystemTaskHasBeenExecuted(ICase caze)
   {
     Awaitility.await().until(()-> Sudo.exec(() -> caze.getState() == CaseState.DONE));

@@ -1,5 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
   <ui:composition template="/layouts/basic.xhtml">
@@ -8,7 +9,8 @@
       <h3>Async backend call</h3>
       <p>Demonstrates a RESTful remote method call without any JSF client-server roundtrip but with JavaScript.</p>
       <p>
-        Legacy aware: this demo was written with classic JavaScript that also work on Internet Explorer.<br /> If not, please disable the
+        Legacy aware: this demo was written with classic JavaScript that also work on Internet Explorer.<br /> If not,
+        please disable the
         'compatibility' mode for local intranet sites in your IE.
       </p>
 
@@ -17,7 +19,7 @@
         function restCall(uri, callback) {
           var xhr = new XMLHttpRequest();
           xhr.open("GET", uri, true);
-          xhr.onload = function(e) {
+          xhr.onload = function (e) {
             if (xhr.readyState === 4) {
               if (xhr.status === 200) {
                 callback(xhr.responseText);
@@ -27,19 +29,19 @@
               }
             }
           };
-          xhr.onerror = function(e) {
+          xhr.onerror = function (e) {
             console.error(xhr.statusText);
           };
           xhr.send(null);
           return;
         }
-        
+
         function show(state) {
           var uiResult = document
             .getElementById("uiResult");
           uiResult.innerHTML = state;
         }
-        
+
         function invokeAsync() {
           var resource = new IvyUri().rest()
             + "/batch/async?blockSeconds="
@@ -73,4 +75,5 @@
     </ui:define>
   </ui:composition>
 </h:body>
+
 </html>

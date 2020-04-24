@@ -7,7 +7,7 @@ function uploadFileJS(file) {
   var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://"+window.location.hostname+":"+window.location.port+"/designer/api/file",
+    "url": "http://" + window.location.hostname + ":" + window.location.port + "/designer/api/file",
     "method": "PUT",
     "headers": { "X-Requested-By": "ivy" },
     "processData": false,
@@ -19,7 +19,7 @@ function uploadFileJS(file) {
   return $.ajax(settings).done(function (response) {
     console.log(response);
     addToTable(filename);
-  
+
     jsf.ajax.request(this, event, {
       render: 'form:dataTable ',
       'CLIENT_BEHAVIOR_RENDERING_MODE': 'UNOBSTRUSIVE'

@@ -12,7 +12,7 @@ import com.axonivy.connectivity.Person;
 /**
  * Helper class to simulate a storage for Web Service Process
  * <code>Process/soap/service/personService</code>
- * 
+ *
  * @since 7.1
  */
 public class PersonRepository
@@ -33,7 +33,7 @@ public class PersonRepository
 
   private PersonRepository()
   {
-    persons.add(createPerson("Bruno", "Bütler"));
+    persons.add(createPerson("Bruno", "BÃ¼tler"));
     persons.add(createPerson("Reto", "Weiss"));
     persons.add(createPerson("Renato", "Stalder"));
     persons.add(createPerson("Markus", "Binzegger"));

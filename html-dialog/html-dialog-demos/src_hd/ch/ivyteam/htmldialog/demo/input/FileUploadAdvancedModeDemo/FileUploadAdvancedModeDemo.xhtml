@@ -1,5 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
   <ui:composition template="/layouts/HtmlDemo.xhtml">
@@ -11,17 +12,17 @@
         <p>This demo explains how images from the CMS (Content Management System) can be uploaded and displayed.</p>
         <h:form id="pictureGalleryForm" enctype="multipart/form-data">
           <p:messages id="messages" />
-          <p:galleria id="pictureGallery" value="#{data.images}" var="imagename" panelWidth="500" panelHeight="313" showCaption="true"
-            autoPlay="false">
-            <p:graphicImage library="ivy-cms" name="ch.ivyteam.htmldialog.demo/fileUploadImages/#{imagename}" alt="Image Description for #{imagename}"
-              width="500" title="#{imagename}" />
+          <p:galleria id="pictureGallery" value="#{data.images}" var="imagename" panelWidth="500" panelHeight="313"
+            showCaption="true" autoPlay="false">
+            <p:graphicImage library="ivy-cms" name="ch.ivyteam.htmldialog.demo/fileUploadImages/#{imagename}"
+              alt="Image Description for #{imagename}" width="500" title="#{imagename}" />
           </p:galleria>
           <br />
           <br />
           <h:outputText value="Add an image to the gallery. Allowed image types are gif, jpg or png." />
           <br />
-          <p:fileUpload id="fileUpload" fileUploadListener="#{logic.uploadFile}" allowTypes="/(\.|\/)(gif|jpe?g|png)$/i" auto="true" mode="advanced"
-            label="Add Image" update="pictureGalleryForm" />
+          <p:fileUpload id="fileUpload" fileUploadListener="#{logic.uploadFile}" allowTypes="/(\.|\/)(gif|jpe?g|png)$/i"
+            auto="true" mode="advanced" label="Add Image" update="pictureGalleryForm" />
           <br />
         </h:form>
       </h:panelGroup>
@@ -29,4 +30,5 @@
 
   </ui:composition>
 </h:body>
+
 </html>

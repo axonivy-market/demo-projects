@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * The message being sent over the wire by the {@link ChatService}.
- * 
+ *
  * @since 7.3.0
  */
 public class ChatMessage

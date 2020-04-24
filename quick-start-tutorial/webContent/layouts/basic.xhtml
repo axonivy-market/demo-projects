@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component"
   xmlns:p="http://primefaces.org/ui">
 
 <h:head>
   <f:attribute name="primefaces.THEME" value="serenity-ivy" />
-  <title><ui:insert name="title">Ivy Html Dialog</ui:insert></title>
+  <title>
+    <ui:insert name="title">Ivy Html Dialog</ui:insert>
+  </title>
   <link rel="shortcut icon" href="#{resource['ivy-webcontent:layouts/images/ivy_favicon_48.png']}" />
   <h:outputStylesheet name="css/layout-ivy.css" library="serenity-layout" />
   <h:outputStylesheet name="layouts/styles/ivy-common-8.css" />
@@ -15,7 +18,8 @@
     <div class="navbar navbar-top">
       <div class="container" id="headerdiv">
         <div class="navbar-header">
-          <a class="ivy-logo" href="https://developer.axonivy.com"> <h:graphicImage name="layouts/images/axon_ivy_logo.svg" alt="Axon.ivy" />
+          <a class="ivy-logo" href="https://developer.axonivy.com">
+            <h:graphicImage name="layouts/images/axon_ivy_logo.svg" alt="Axon.ivy" />
           </a>
         </div>
       </div>
@@ -24,8 +28,8 @@
 
   <div id="content" class="container">
     <ui:insert name="content">
-        default content
-      </ui:insert>
+      default content
+    </ui:insert>
 
     <ui:insert name="footer">
       <hr />
@@ -39,4 +43,5 @@
     </ui:insert>
   </div>
 </h:body>
+
 </html>

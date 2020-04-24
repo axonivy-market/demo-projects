@@ -1,5 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:p="http://primefaces.org/ui">
 <h:body>
   <ui:composition template="/layouts/HtmlDemo.xhtml">
 
@@ -10,8 +11,8 @@
       <h:form id="form">
         <h:panelGroup id="persons" layout="block">
           <p>This demo explains how a Recordset can be used as data for an editable table widget.</p>
-          <p:dataTable var="person" value="#{data.recordset}" sortBy="#{person.name}" sortOrder="descending" editable="true" id="personTable"
-            style="width:900px">
+          <p:dataTable var="person" value="#{data.recordset}" sortBy="#{person.name}" sortOrder="descending"
+            editable="true" id="personTable" style="width:900px">
             <p:column headerText="Name" sortBy="#{person.name}">
               <p:cellEditor>
                 <f:facet name="output">
@@ -34,13 +35,15 @@
             </p:column>
             <p:column headerText="Controls" style="width:5em;">
               <p:rowEditor id="rowEditor" />
-              <p:commandLink actionListener="#{logic.delete(person)}" update=":form:persons" title="Delete" id="deleteButton">
+              <p:commandLink actionListener="#{logic.delete(person)}" update=":form:persons" title="Delete"
+                id="deleteButton">
                 <span class="ui-icon ui-icon-trash" />
               </p:commandLink>
             </p:column>
             <f:facet name="footer">
               <p:outputLabel value="footer" style="color:transparent" />
-              <p:commandLink title="Add" actionListener="#{logic.add}" update=":form:persons" style="float:right" id="addButton">
+              <p:commandLink title="Add" actionListener="#{logic.add}" update=":form:persons" style="float:right"
+                id="addButton">
                 <span class="ui-icon ui-icon-plusthick" />
               </p:commandLink>
             </f:facet>
@@ -57,4 +60,5 @@
 
   </ui:composition>
 </h:body>
+
 </html>

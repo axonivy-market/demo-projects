@@ -15,7 +15,7 @@ public class ProcessUtil
     Selenide.open(EngineUrl.createProcessUrl("/html-dialog-demos/" + pathToIvp));
     $(By.id("menuform")).shouldBe(visible);
   }
-  
+
   public static void startOfflineProcess()
   {
     Selenide.open(EngineUrl.createProcessUrl("/html-dialog-demos/150425B095B4FB54/ClientSideValidationDemo.ivp"));

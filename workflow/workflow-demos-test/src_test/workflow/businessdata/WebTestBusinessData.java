@@ -34,10 +34,10 @@ public class WebTestBusinessData
   {
     cleanAndOpenBrowseDossier();
     dossierTable().containsNot("Bernoulli");
-    
+
     startProcess("155BB4328F79B2D5/create.ivp");
     createPersonDossier("Bernoulli");
-    
+
     $("#infoGrowl_container").shouldBe(visible, text("Search index might not be immediately up-to-date"));
     Selenide.sleep(1000); //wait for elasic search
     $$("button").find(text("Search")).shouldBe(visible, enabled).click();

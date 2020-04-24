@@ -94,5 +94,5 @@ public class WebTestInput
     $(By.id("myForm:panel")).shouldHave(text("Payment - Summary"));
     $(By.id("myForm:outputSummary")).shouldHave(text(firstName + " " + name));
   }
-  
+
 }

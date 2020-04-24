@@ -34,7 +34,7 @@ public class WebTestOutput
     clearInput(By.id("form:theTable:globalFilter"));
 
     SelectOneMenu menu = PrimeUi.selectOne(By.id("form:theTable:nameFilter"));
-    menu.selectItemByLabel("Achmed"); 
+    menu.selectItemByLabel("Achmed");
     table.firstRowContains("Achmed");
     menu.selectItemByLabel("All");
 
@@ -42,7 +42,7 @@ public class WebTestOutput
     table.firstRowContains("Birgit");
     clearInput(By.id("form:theTable:scorePointFilter:filter"));
     $(By.id("form:theTable:scorePointFilter:filter")).sendKeys(Keys.ENTER);
-    
+
     $(By.id("form:theTable:6:colName")).shouldBe(visible);
     $(By.id("form:theTable_data")).find(".ui-row-toggler").click();
     clearInput(By.id("form:theTable:0:name"));
@@ -111,7 +111,7 @@ public class WebTestOutput
     $(By.id("form:personTable:" + rowPosition + ":inputFirstName")).sendKeys(firstName);
     $(By.id("form:personTable:" + rowPosition + ":rowEditor")).find("a", confirm).click();
   }
-  
+
   @Test
   public void testPickList() throws Exception
   {
@@ -119,16 +119,16 @@ public class WebTestOutput
 
     $(By.id("personListForm:pickList")).find(".ui-picklist-source").find("li", 0).shouldBe(visible).click();
     $(".ui-picklist-button-add").shouldBe(visible, enabled).click();
-    
+
     $(By.id("personListForm:pickList")).find(".ui-picklist-source").shouldNotHave(text("Renato"));
     $(By.id("personListForm:pickList")).find(".ui-picklist-target").shouldHave(text("Renato"));
     $(By.id("personListForm:pickList_target")).findAll("option").shouldHave(size(1));
-    
+
     $(By.id("personListForm:sendButton")).shouldBe(visible).click();
     $(By.id("personListForm:resultPanel")).find("tr", 0).shouldNotHave(text("Renato"));
     $(By.id("personListForm:resultPanel")).find("tr", 1).shouldHave(text("Renato"));
   }
-  
+
   @Test
   public void testOrderList()
   {
@@ -169,10 +169,10 @@ public class WebTestOutput
   {
     startProcess("145D180807C60B4B/AutoCompleteDemo.ivp");
     searchAndExpect("xzyt", "xzyt69", "xzyz99");
-    
+
     startProcess("145D180807C60B4B/AutoCompleteDemo.ivp");
     searchAndExpect("xzyz", "xzyz99", "xzyt69");
-    
+
     startProcess("145D180807C60B4B/AutoCompleteDemo.ivp");
     searchAndExpect("yt69", "xzyt69", "xzyz98");
   }
@@ -201,7 +201,7 @@ public class WebTestOutput
     $(By.id("form:comboChart")).shouldBe(visible);
     $(By.id("form:pieChart")).shouldBe(visible);
   }
-  
+
   private void clearInput(By inputLocator)
   {
     $(inputLocator).shouldBe(visible).clear();

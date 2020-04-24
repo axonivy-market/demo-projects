@@ -1,5 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
   <ui:composition template="/layouts/basic.xhtml">
@@ -14,7 +15,8 @@
           </f:facet>
 
           <p:outputLabel for="zip" value="Zip" />
-          <p:inputNumber id="zip" value="#{data.address.zip}" maxValue="99999" minValue="0000" thousandSeparator="" required="true" style="width:20px" />
+          <p:inputNumber id="zip" value="#{data.address.zip}" maxValue="99999" minValue="0000" thousandSeparator=""
+            required="true" style="width:20px" />
 
           <p:outputLabel for="city" value="City" />
           <p:inputText id="city" value="#{data.address.city}" required="true" />
@@ -30,4 +32,5 @@
     </ui:define>
   </ui:composition>
 </h:body>
+
 </html>

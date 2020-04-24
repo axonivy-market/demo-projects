@@ -5,7 +5,7 @@ import javax.faces.bean.ManagedBean;
 
 /**
  * This simple bean is accessible in all views of the project.
- * 
+ *
  * <h4>Naming</h4>
  * <p>
  * A declared ManagedBean can be bound to a view value with the uncapitalized
@@ -16,7 +16,7 @@ import javax.faces.bean.ManagedBean;
  * E.g. <br/>
  * <code>@java.faces.ManagedBean(name="myCustomName")</code>
  * </p>
- * 
+ *
  * <h4>Scopes</h4> MangedBeans can be annotated with a scope. The scope defines
  * the lifecycle of a ManageBean. Currently three scopes for ivy project beans
  * are supported:

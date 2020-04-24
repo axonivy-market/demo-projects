@@ -1,6 +1,8 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:jsf="http://xmlns.jcp.org/jsf"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:p="http://primefaces.org/ui" xmlns:jsf="http://xmlns.jcp.org/jsf"
   xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
 <body>
   <ui:composition template="/layouts/HtmlDemo.xhtml">
     <ui:param name="centerHeader" value="Html 5 / JSF 2.2 Demo" />
@@ -11,7 +13,8 @@
       <p>This demo shows how to use Html 5 features with passthrough attributes.</p>
       <h3>Add Html 5 attributes to JSF components</h3>
       <p>
-        It is possible to set Html 5 attributes to tags which are not available as JSF attributes.<br /> As example we set the Html 5 <i>placeholder</i>
+        It is possible to set Html 5 attributes to tags which are not available as JSF attributes.<br /> As example we
+        set the Html 5 <i>placeholder</i>
         attribute to a <i>&lt;h:inputText&gt;</i> tag:
       </p>
 
@@ -60,7 +63,8 @@
           </div>
           <div class="col-sm-11">
             <!-- Normal html input tag enhanced with JSF features (see jsf:value or jsf:required and JSF namespace import in the header) -->
-            <input type="text" jsf:id="name" jsf:value="#{data.userName}" placeholder="Enter your name" jsf:required="true" />
+            <input type="text" jsf:id="name" jsf:value="#{data.userName}" placeholder="Enter your name"
+              jsf:required="true" />
           </div>
         </div>
         <div class="form-group">
@@ -76,4 +80,5 @@
 
   </ui:composition>
 </body>
+
 </html>

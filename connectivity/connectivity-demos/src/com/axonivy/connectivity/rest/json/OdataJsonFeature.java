@@ -17,32 +17,32 @@ import ch.ivyteam.ivy.rest.client.mapper.JsonFeature;
  * field problems while consuming OData services.<br/>
  * There is no intention that this mapper completely covers all OData
  * specifications.
- * 
+ *
  * <p>
  * Sample JSON input:
  * </p>
- * 
+ *
  * <pre>
  *  {
  *   "@odata.context":"http://services.odata.org/TripPinRESTierService/(S(5jklwgt1fhflbw1mxbymqdqe))/$metadata#People",
  *   "value":[{"UserName":"russellwhyte","FirstName":"Russell,...},{...}]
  * }"
  * </pre>
- * 
+ *
  * <p>
  * Sample JSON output:
  * </p>
- * 
+ *
  * <pre>
  * [{"UserName":"russellwhyte","FirstName":"Russell,...},{...}]
  * </pre>
- * 
+ *
  * <p>
  * Sample service:
  * http://services.odata.org/TripPinRESTierService/(S(5jklwgt1fhflbw1mxbymqdqe))/People
  * </p>
  * @see "http://www.odata.org/"
- * 
+ *
  * @since 6.7.1
  */
 public class OdataJsonFeature extends JsonFeature

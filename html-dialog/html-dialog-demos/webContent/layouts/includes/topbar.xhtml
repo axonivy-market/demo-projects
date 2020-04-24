@@ -1,10 +1,6 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pa="http://primefaces.org/serenity"
-	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+  xmlns:pa="http://primefaces.org/serenity" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
   <div class="layout-topbar">
     <a href="#" class="menu-btn">
@@ -22,16 +18,18 @@
           <h:form id="themeswitcher">
             <h:panelGrid columns="2">
               <!-- See Designer Documentation about Themes or the PublicAPI of IvyPrimefacesThemeResolver for more information -->
-              <p:outputLabel value="Theme" style="font-weight:bold; color: #000;"/>
-              <p:themeSwitcher id="basic" value="#{guestPreferences.theme}" style="width: 160px;margin-right:20px;color:#000">
-                <f:selectItems value="#{guestPreferences.themes}" var="theme" itemLabel="#{theme}" itemValue="#{theme}" />
-                <p:ajax oncomplete="window.location.reload()"/>
+              <p:outputLabel value="Theme" style="font-weight:bold; color: #000;" />
+              <p:themeSwitcher id="basic" value="#{guestPreferences.theme}"
+                style="width: 160px;margin-right:20px;color:#000">
+                <f:selectItems value="#{guestPreferences.themes}" var="theme" itemLabel="#{theme}"
+                  itemValue="#{theme}" />
+                <p:ajax oncomplete="window.location.reload()" />
               </p:themeSwitcher>
             </h:panelGrid>
             <style>
-            .ui-selectonemenu-item {
-              color: black;
-            }
+              .ui-selectonemenu-item {
+                color: black;
+              }
             </style>
           </h:form>
         </div>

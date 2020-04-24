@@ -1,5 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
   <ui:composition template="/layouts/HtmlDemo.xhtml">
@@ -15,14 +16,16 @@
               <p:messages></p:messages>
             </f:facet>
 
-            <p:dataTable id="theTable" widgetVar="theTable" value="#{data.lazyModel}" var="person" rows="10" rowKey="#{person.id}"
-              draggableColumns="true" draggableRows="true" style="width:900px" paginator="true" rowsPerPageTemplate="10, 20, 50" lazy="true"
+            <p:dataTable id="theTable" widgetVar="theTable" value="#{data.lazyModel}" var="person" rows="10"
+              rowKey="#{person.id}" draggableColumns="true" draggableRows="true" style="width:900px" paginator="true"
+              rowsPerPageTemplate="10, 20, 50" lazy="true"
               paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
 
               <f:facet name="header">
                 <p:outputPanel style="height:16px; padding-bottom:15px; text-align:right">
                   <h:outputText value="Find: " style="font-size:10pt;" />
-                  <p:inputText id="globalFilter" onkeyup="PF('theTable').filter()" style="width:150px" placeholder="Enter keyword" />
+                  <p:inputText id="globalFilter" onkeyup="PF('theTable').filter()" style="width:150px"
+                    placeholder="Enter keyword" />
                 </p:outputPanel>
               </f:facet>
 
@@ -30,18 +33,18 @@
                 <p:outputLabel value="#{person.id}" />
               </p:column>
 
-              <p:column headerText="First name" filterMatchMode="startsWith" filterBy="#{person.firstname}" sortBy="#{person.firstname}"
-                styleClass="filterColumn" style="width:200px">
+              <p:column headerText="First name" filterMatchMode="startsWith" filterBy="#{person.firstname}"
+                sortBy="#{person.firstname}" styleClass="filterColumn" style="width:200px">
                 <p:outputLabel value="#{person.firstname}"></p:outputLabel>
               </p:column>
 
-              <p:column headerText="Name" filterMatchMode="startsWith" filterBy="#{person.name}" sortBy="#{person.name}" styleClass="filterColumn"
-                style="width:200px">
+              <p:column headerText="Name" filterMatchMode="startsWith" filterBy="#{person.name}" sortBy="#{person.name}"
+                styleClass="filterColumn" style="width:200px">
                 <p:outputLabel value="#{person.name}"></p:outputLabel>
               </p:column>
 
-              <p:column headerText="Year of birth" filterBy="#{person.birthYear}" filterMatchMode="startsWith" sortBy="#{person.birthYear}"
-                styleClass="filterColumn" style="width:200px">
+              <p:column headerText="Year of birth" filterBy="#{person.birthYear}" filterMatchMode="startsWith"
+                sortBy="#{person.birthYear}" styleClass="filterColumn" style="width:200px">
                 <p:outputLabel value="#{person.birthYear}"></p:outputLabel>
               </p:column>
             </p:dataTable>
@@ -50,13 +53,14 @@
       </h:form>
 
       <style type="text/css">
-      .filterColumn span {
-        float: left;
-        padding-top: 5%;
-      }
+        .filterColumn span {
+          float: left;
+          padding-top: 5%;
+        }
       </style>
 
     </ui:define>
   </ui:composition>
 </h:body>
+
 </html>

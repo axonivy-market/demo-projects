@@ -22,12 +22,12 @@ import com.google.gson.GsonBuilder;
 
 /**
  * Transforms JSON into Java objects and vice versa.
- * 
+ *
  * <p>
  * It uses {@link Gson} as serialization layer and is a good alternative, when
  * the {@link JacksonJsonProvider} is not able to serialize a complex response.
  * </p>
- * 
+ *
  * <p>
  * Copied from
  * http://eclipsesource.com/blogs/2012/11/02/integrating-gson-into-a-jax-rs-based-application/

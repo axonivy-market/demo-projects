@@ -22,32 +22,32 @@ public class TestDataMapping
   {
     ExecutionResult result = bpmClient.start().process("rest/odata/readById.ivp").execute();
     assertThat(result).isNotNull();
-    
+
     OData data = result.data().last();
     assertThat(data.getUsers()).isNotEmpty();
-    
+
     User first = data.getUsers().get(0);
     Assertions.assertEquals("Russell", first.getFirstName());
     Assertions.assertEquals("Whyte", first.getLastName());
     Assertions.assertEquals("Male", first.getGender());
   }
-  
+
   @Test
   public void odataJsonMapping_collection(BpmClient bpmClient)
   {
     ExecutionResult result = bpmClient.start().process("rest/odata/readCollection.ivp").execute();
     assertThat(result).isNotNull();
-    
+
     OData data = result.data().last();
     assertThat(data.getUsers()).hasSize(20);
   }
-  
+
   @Test
   public void openApiPetListing(BpmClient bpmClient)
   {
     ExecutionResult result = bpmClient.start().process("rest/openapi/listPets.ivp").execute();
     assertThat(result).isNotNull();
-    
+
     OpenApiData data = result.data().last();
     assertThat(data.getPets()).isNotEmpty();
     assertThat(data.getPets().get(0).getName()).isNotEmpty();

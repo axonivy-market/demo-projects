@@ -16,7 +16,7 @@ import ch.ivyteam.ivy.security.IUser;
 
 /**
  * Implements the OAuth Authentication for the twitter API.
- * 
+ *
  * Adapted from jersey-example on github:
  * https://github.com/jersey/jersey/blob/master/examples/oauth-client-twitter/src/main/java/org/glassfish/jersey/examples/oauth/twitterclient/App.java
  */

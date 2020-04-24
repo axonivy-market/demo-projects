@@ -15,7 +15,7 @@ import ch.ivyteam.ivy.rest.client.GenericTypes;
 /**
  * Shows how pre-configured REST Services can be called by using the
  * {@link Ivy#rest} API.
- * 
+ *
  * @since 6.1.1
  */
 public class PersonClient

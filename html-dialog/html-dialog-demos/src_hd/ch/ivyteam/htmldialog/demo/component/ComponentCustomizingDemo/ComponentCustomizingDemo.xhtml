@@ -1,5 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui">
 <h:body>
   <ui:composition template="/layouts/HtmlDemo.xhtml">
     <ui:param name="centerHeader" value="Composite Component Customizing Demo" />
@@ -13,7 +14,8 @@
             <!--
             Here the Address Component is included for the home address.
             -->
-            <ic:ch.ivyteam.htmldialog.demo.component.AddressComponent address="#{data.homeAddress}" label="Home Address">
+            <ic:ch.ivyteam.htmldialog.demo.component.AddressComponent address="#{data.homeAddress}"
+              label="Home Address">
 
               <!-- We add an input for the title and name to the Address Component. -->
               <p:outputLabel value="Title" for="title" />
@@ -29,7 +31,8 @@
             <!--
             Here the Address Component is included for the corporate address.
             -->
-            <ic:ch.ivyteam.htmldialog.demo.component.AddressComponent startMethod="start" address="#{data.corporateAddress}" label="Corporate Address">
+            <ic:ch.ivyteam.htmldialog.demo.component.AddressComponent startMethod="start"
+              address="#{data.corporateAddress}" label="Corporate Address">
 
               <!-- We add an input for the company name to the Address Component. -->
               <p:outputLabel value="Company" for="company" />
@@ -69,4 +72,5 @@
     </ui:define>
   </ui:composition>
 </h:body>
+
 </html>

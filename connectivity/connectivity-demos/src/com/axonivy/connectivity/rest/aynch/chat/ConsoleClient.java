@@ -12,10 +12,10 @@ import ch.ivyteam.ivy.rest.client.mapper.JsonFeature;
 
 /**
  * Simple console client for {@link ChatService} messages received.
- * 
+ *
  * Immediately starts a new asynchronous listeners for the service if a message
  * is received.
- * 
+ *
  * @since 7.3.0
  */
 public class ConsoleClient implements InvocationCallback<List<ChatMessage>>

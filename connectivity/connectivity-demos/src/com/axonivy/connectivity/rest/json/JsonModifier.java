@@ -19,7 +19,7 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 /**
  * JSON to POJO mapper designed apply JSON structure changes before processing
  * as usual.
- * 
+ *
  * @since 8.0.0
  */
 public class JsonModifier extends JacksonJsonProvider

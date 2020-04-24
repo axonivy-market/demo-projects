@@ -13,12 +13,12 @@ public class ProcessUtil
   {
     Selenide.open(EngineUrl.createProcessUrl("/workflow-demos/" + pathToIvp));
   }
-  
+
   public static void startTestProcess(String pathToIvp)
   {
     Selenide.open(EngineUrl.createProcessUrl("/workflow-demos-test/" + pathToIvp));
   }
-  
+
   public static void checkEndPage()
   {
     if (EngineUrl.applicationName().equals("designer"))
@@ -30,7 +30,7 @@ public class ProcessUtil
       $("h3").waitUntil(exactText("Task End"), 15000);
     }
   }
-  
+
   public static void checkTaskList()
   {
     if (EngineUrl.applicationName().equals("designer"))

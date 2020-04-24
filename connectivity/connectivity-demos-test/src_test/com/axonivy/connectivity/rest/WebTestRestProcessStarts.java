@@ -14,7 +14,7 @@ import com.axonivy.ivy.webtest.engine.EngineUrl;
 @IvyWebTest
 public class WebTestRestProcessStarts
 {
-  
+
   @Test
   void checkAllSimpleRestCalls()
   {
@@ -35,7 +35,7 @@ public class WebTestRestProcessStarts
     checkProcess("15DEF1BE5B9E5A42/readById.ivp");
     checkProcess("16F375741231763F/listPets.ivp");
   }
-  
+
   @Test
   void checkAllSimpleSoapCalls()
   {

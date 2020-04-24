@@ -30,32 +30,32 @@ public class WebTestBusinessCaseDataWorkflow
     startTestProcess("1537FF3C3382D47F/clearDemoDossiers.ivp");
     checkEndPage();
   }
-  
+
   @Test
   void testInterview()
   {
     login();
-    
+
     startProcess("16EF567002B146F2/create.ivp");
     $("#form\\:interviewFirstName").shouldBe(visible).sendKeys("Hans");
     $("#form\\:interviewLastName").sendKeys("Muster");
 
     $("#form\\:saveAndPark").click();
     checkTaskList();
-    
+
     $$("table tr a").find(text("6.1: Save BusinessCaseData When Park Task")).click();
     $("#form\\:interviewFirstName").shouldBe(visible, exactValue("Hans"));
     $("#form\\:interviewLastName").shouldBe(exactValue("Muster")).sendKeys("mann");
     $("#form\\:interviewConversation").sendKeys("This is an interview");
     $("#form\\:interviewDate_input").sendKeys("13.12.2025");
-    
+
     $("#form\\:proceed").click();
-    
+
     startProcess("16EF567002B146F2/browse.ivp");
     sleep(1000); //wait for elasic search
     $$("button").find(text("Search")).shouldBe(visible, enabled).click();
-    $$("#interviewTable tbody tr").first().shouldHave(text("Hans"), 
-            text("Mustermann"), 
+    $$("#interviewTable tbody tr").first().shouldHave(text("Hans"),
+            text("Mustermann"),
             text("This is an interview"),
             text("13.12.2025"));
   }
@@ -71,6 +71,6 @@ public class WebTestBusinessCaseDataWorkflow
       $("h3").shouldBe(exactText("Home"));
     }
   }
-  
-  
+
+
 }

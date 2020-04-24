@@ -16,7 +16,7 @@ import ch.ivyteam.ivy.workflow.ITask;
 /**
  * RESTful Service that demonstrates how to interact with the ivy environment
  * such as processes.
- * 
+ *
  * <p>
  * A sample request can be fired with the process start:
  * <b>approval/createApprovalViaREST.ivp</b>
@@ -28,7 +28,7 @@ public class ApprovalService
 
   /**
    * Runs a callable SubProcess to create new Task for a boss.
-   * 
+   *
    * @param title
    * @param description
    * @return created approval task
