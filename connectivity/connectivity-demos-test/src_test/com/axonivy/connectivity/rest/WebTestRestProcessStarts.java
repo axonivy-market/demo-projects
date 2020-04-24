@@ -21,15 +21,6 @@ public class WebTestRestProcessStarts
     checkProcess("154616078A1D629D/listPersons.ivp");
     checkProcess("154616078A1D629D/listServiceOptions.ivp");
     checkProcess("16764B07C0329FC8/callBatchAsync.ivp");
-    checkProcess("15A60076034F7437/rawJSON.ivp");
-    checkProcess("15A60076034F7437/formData.ivp");
-    checkProcess("15A60076034F7437/complexObject.ivp");
-    checkProcess("15A60076034F7437/readPartialObject.ivp");
-    checkProcess("15A60076034F7437/readGenerated.ivp");
-    checkProcess("15A60076034F7437/readJsonNode.ivp");
-    checkProcess("15A60076034F7437/queryParameters.ivp");
-    checkProcess("15A60076034F7437/pathParameters.ivp");
-    checkProcess("15A60076034F7437/acceptType.ivp");
     checkProcess("169B3B7F5EF38D8F/callFileUpload.ivp");
     checkProcess("15DEF1BE5B9E5A42/readCollection.ivp");
     checkProcess("15DEF1BE5B9E5A42/readById.ivp");
