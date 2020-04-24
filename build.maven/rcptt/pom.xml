@@ -7,8 +7,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<rcptt.version>2.5.0-SNAPSHOT</rcptt.version>
-		<nexus.root.url>http://zugpronexus:8081/nexus</nexus.root.url>		
+		<rcptt.version>2.5.1</rcptt.version>
 		<designer.os.arch>Windows_x64</designer.os.arch>
 		<deploy.skip>true</deploy.skip>
 	</properties>
@@ -16,9 +15,8 @@
 	<pluginRepositories>
 		<!-- Used to install RCPTT plugins -->
 		<pluginRepository>
-			<id>zugpronexus.build-public</id>
-			<name>Internal Plugin Build Integration Repository</name>
-			<url>${nexus.root.url}/content/groups/public/</url>
+			<id>repo.eclipse.org.rcptt</id>
+			<url>https://repo.eclipse.org/content/repositories/rcptt/</url>
 			<snapshots>
 				<updatePolicy>always</updatePolicy>
 			</snapshots>
@@ -74,7 +72,7 @@
 							<exportAntProperties>true</exportAntProperties>
 							<target>
 								<property name="job.html" value="${project.build.directory}/lastSuccess.html"/>
-								<get src="${ivy.engine.list.url}" dest="${job.html}"/>
+								<get src="${build.last.sucess.url}" dest="${job.html}"/>
 								<loadfile srcFile="${job.html}" property="designer.zip">
 									<filterchain>
 										<linecontainsregexp>
@@ -86,14 +84,57 @@
 										</tokenfilter>
 									</filterchain>
 								</loadfile>
-								<property name="aut.url">${ivy.engine.list.url}artifact/workspace/ch.ivyteam.ivy.designer.product/target/products/${designer.zip}</property>
+								<property name="aut.url">${build.last.sucess.url}artifact/workspace/ch.ivyteam.ivy.designer.product/target/products/${designer.zip}</property>
 								<echo>target AUT = '${aut.url}'</echo>
 							</target>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-			
 		</plugins>
+    
+    <pluginManagement>
+      <plugins>
+        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <versionRange>1.8</versionRange>
+                    <goals>
+                      <goal>run</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.eclipse.rcptt</groupId>
+                    <artifactId>rcptt-maven-plugin</artifactId>
+                    <versionRange>[2.4.3,)</versionRange>
+                    <goals>
+                      <goal>execute</goal>
+                      <goal>resources</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore></ignore>
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
 	</build>
 </project>

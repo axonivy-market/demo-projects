@@ -15,11 +15,6 @@
 		<module>connectivity</module>
 		<module>demos-app</module>
 		<module>serenity</module>
-
-		<!-- parent config poms: -->
-		<module>build.maven</module>
-		<module>build.maven/iar</module>
-		<module>build.maven/iar/web.test</module>
 	</modules>
 
 	<build>
