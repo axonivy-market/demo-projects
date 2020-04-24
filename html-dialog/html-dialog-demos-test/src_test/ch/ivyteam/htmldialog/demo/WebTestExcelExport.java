@@ -25,7 +25,7 @@ import com.codeborne.selenide.Selenide;
 @IvyWebTest
 public class WebTestExcelExport
 {
-  
+
   @BeforeAll
   public static void setUp()
   {

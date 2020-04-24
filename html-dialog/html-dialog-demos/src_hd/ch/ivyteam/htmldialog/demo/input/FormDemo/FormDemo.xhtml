@@ -1,5 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:p="http://primefaces.org/ui">
 
 <h:body>
   <ui:composition template="/layouts/HtmlDemo.xhtml">
@@ -21,20 +22,22 @@
           <h:panelGrid columns="3" cellpadding="5" columnClasses="label-top" id="Person">
 
             <p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Name')}" for="Name" />
-            <!-- 
-            Use #{data.name} to map the name HtmlDialog data attribute to the UI widget text and vice versa 
+            <!--
+            Use #{data.name} to map the name HtmlDialog data attribute to the UI widget text and vice versa
             -->
             <p:inputText value="#{data.name}" id="Name" required="true" />
             <p:message for="Name" display="icon" />
 
-            <p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/FirstName')}" for="Firstname" />
+            <p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/FirstName')}"
+              for="Firstname" />
             <p:inputText value="#{data.firstname}" id="Firstname" required="true" />
             <p:message for="Firstname" display="icon" />
 
-            <p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Birthday')}" for="Birthday" />
+            <p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Birthday')}"
+              for="Birthday" />
             <p:calendar id="Birthday" value="#{data.birthday}" navigator="true" required="true" pattern="dd.MM.yyyy">
-              <!-- 
-              Use the following tag to convert date, time, datetime types to a string that is displayed and vice versa  
+              <!--
+              Use the following tag to convert date, time, datetime types to a string that is displayed and vice versa
               -->
               <f:convertDateTime pattern="dd.MM.yyyy" />
             </p:calendar>
@@ -42,7 +45,7 @@
 
             <p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/EMail')}" for="Mail" />
             <p:inputText id="Mail" value="#{data.email}" required="true">
-              <!-- 
+              <!--
               The referenced Mail Validator demonstrates how custom validators can be written in within the ivy project.
               See the java class ch.ivyteam.htmldialog.demo.input.facesValidation.CustomMailValidator for quick reference.
               -->
@@ -50,22 +53,24 @@
             </p:inputText>
             <p:message for="Mail" display="icon" id="MailMessage" />
 
-            <p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/PhoneNumber')}" for="PhoneNumber" />
+            <p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/PhoneNumber')}"
+              for="PhoneNumber" />
             <p:inputMask value="#{data.phone}" id="PhoneNumber" mask="+99 (0)99 999 99 99" required="true" />
             <p:message for="PhoneNumber" display="icon" />
 
-            <p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Address')}" for="Address" style="vertical-align:top" />
+            <p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Address')}" for="Address"
+              style="vertical-align:top" />
             <p:inputTextarea value="#{data.address}" rows="2" id="Address" required="true" />
             <p:message for="Address" display="icon" />
 
             <p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/ZipCode')}" for="ZipCode" />
             <p:inputText value="#{data.zipCode}" id="ZipCode" required="true">
-              <!-- 
-              Use the following tag to convert a number type to a string that is displayed and vice versa  
+              <!--
+              Use the following tag to convert a number type to a string that is displayed and vice versa
               -->
               <f:convertNumber integerOnly="true" groupingUsed="false" />
-              <!-- 
-              Use the following tag to validate that the entered number is between 4 and 5 characters long 
+              <!--
+              Use the following tag to validate that the entered number is between 4 and 5 characters long
               -->
               <f:validateLength minimum="4" maximum="5" />
             </p:inputText>
@@ -76,14 +81,15 @@
             <p:message for="City" display="icon" />
 
             <p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Country')}" for="Country" />
-            <!-- 
-            Use #{logic.completeCountry} to call the method process of the method CompleteCountry. The signature of the method must 
-            match the signature expected by the UI widget.    
+            <!--
+            Use #{logic.completeCountry} to call the method process of the method CompleteCountry. The signature of the method must
+            match the signature expected by the UI widget.
             -->
-            <p:autoComplete value="#{data.country}" id="Country" completeMethod="#{logic.completeCountry}" queryDelay="500" required="true" />
+            <p:autoComplete value="#{data.country}" id="Country" completeMethod="#{logic.completeCountry}"
+              queryDelay="500" required="true" />
             <p:message for="Country" display="icon" />
-            <!-- 
-            Use #{logic.send} to call the event process with the name send. 
+            <!--
+            Use #{logic.send} to call the event process with the name send.
             -->
 
           </h:panelGrid>
@@ -93,16 +99,19 @@
 
           <br />
           <br />
-          <span id="outputData"><h:outputText>Data: #{data}</h:outputText></span>
+          <span id="outputData">
+            <h:outputText>Data: #{data}</h:outputText>
+          </span>
 
         </h:panelGroup>
         <br />
-        <!-- 
-        Use #{logic.close} to call the event process with the name close. 
+        <!--
+        Use #{logic.close} to call the event process with the name close.
         -->
       </h:form>
     </ui:define>
 
   </ui:composition>
 </h:body>
+
 </html>

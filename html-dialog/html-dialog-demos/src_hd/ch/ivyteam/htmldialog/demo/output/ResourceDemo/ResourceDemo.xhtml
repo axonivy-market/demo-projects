@@ -1,5 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:p="http://primefaces.org/ui">
 <h:body>
   <ui:composition template="/layouts/HtmlDemo.xhtml">
     <ui:param name="centerHeader" value="Resources Demo" />
@@ -7,7 +8,8 @@
 
     <ui:define name="content">
       <h:panelGroup layout="block" id="resources">
-        <p>This demo explains how Resources from the dialog resources folder, the webContent folder or the CMS can be used.</p>
+        <p>This demo explains how Resources from the dialog resources folder, the webContent folder or the CMS can be
+          used.</p>
         <h4>For using resources use the following code:</h4>
         <p:panelGrid columns="2" id="resourcesResultPanel">
           <h:outputText>&lt;h:outputStylesheet name="folder/style.css"/></h:outputText>
@@ -37,8 +39,9 @@
             <p:column>
               <h:graphicImage name="images/dialog.png" alt="Dialog" />
             </p:column>
-            <p:column rowspan="3">If no library is defined then a resource is first searched within the dialog resources folder. If not found there then it is searched within the webcontent folder.
-            <p>Folder structure:</p>
+            <p:column rowspan="3">If no library is defined then a resource is first searched within the dialog resources
+              folder. If not found there then it is searched within the webcontent folder.
+              <p>Folder structure:</p>
               <pre>
 /ch.ivyteam.htmldialog.demo.ResourceDemo
   /resources
@@ -69,14 +72,16 @@
             <p:column>
               <h:graphicImage library="ivy-dialog" name="images/image.png" alt="Dialog" />
             </p:column>
-            <p:column>With library <strong>ivy-dialog</strong> the resource is always loaded from the Html Dialog resources folder.</p:column>
+            <p:column>With library <strong>ivy-dialog</strong> the resource is always loaded from the Html Dialog
+              resources folder.</p:column>
           </p:row>
           <p:row>
             <p:column>&lt;h:graphicImage library="ivy-webcontent" name="images/image.png"/></p:column>
             <p:column>
               <h:graphicImage library="ivy-webcontent" name="images/image.png" alt="Webcontent" />
             </p:column>
-            <p:column>With library <strong>ivy-webcontent</strong> the resource is always loaded form the webcontent folder.</p:column>
+            <p:column>With library <strong>ivy-webcontent</strong> the resource is always loaded form the webcontent
+              folder.</p:column>
           </p:row>
           <p:row>
             <p:column>&lt;h:graphicImage library="ivy-cms" name="images/image"/></p:column>
@@ -86,19 +91,23 @@
             <p:column>With library <strong>ivy-cms</strong> the resource is always loaded form the CMS.</p:column>
           </p:row>
           <p:row>
-            <p:column>&lt;h:outputLink value="\#{resource['ivy-cms:images/image']}"> Link to Image &lt;/h:outputLink></p:column>
+            <p:column>&lt;h:outputLink value="\#{resource['ivy-cms:images/image']}"> Link to Image &lt;/h:outputLink>
+            </p:column>
             <p:column>
               <h:outputLink value="#{resource['ivy-cms:images/image']}">Link to Image</h:outputLink>
             </p:column>
-            <p:column>The expression #{resource['library:path']} can be used to get the URL of a resource (can also be used in resources like css files e.g. to reference images).</p:column>
+            <p:column>The expression #{resource['library:path']} can be used to get the URL of a resource (can also be
+              used in resources like css files e.g. to reference images).</p:column>
           </p:row>
           <p:row>
             <p:column>&lt;p:graphicImage value="\#{logic.streamedImage}"/></p:column>
             <p:column>
               <p:graphicImage value="#{logic.streamedImage}" />
             </p:column>
-            <p:column>The expression \#{logic.streamedImage} must evaluate to an org.primefaces.model.StreamedContent. See also GraphicImage in the <p:link
-                value="Primefaces showcase" href="http://www.primefaces.org/showcase/ui/multimedia/graphicImage.xhtml" />.</p:column>
+            <p:column>The expression \#{logic.streamedImage} must evaluate to an org.primefaces.model.StreamedContent.
+              See also GraphicImage in the
+              <p:link value="Primefaces showcase"
+                href="http://www.primefaces.org/showcase/ui/multimedia/graphicImage.xhtml" />.</p:column>
           </p:row>
         </p:panelGrid>
       </h:panelGroup>
@@ -106,4 +115,5 @@
 
   </ui:composition>
 </h:body>
+
 </html>

@@ -1,18 +1,19 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
   <ui:composition template="/layouts/basic.xhtml">
     <ui:define name="title">BusinessDataDossierBrowser</ui:define>
     <ui:define name="content">
       <style>
-      body .ui-panelgrid tbody tr.ui-widget-content {
-        border: none;
-      }
-      
-      .ui-panelgrid .ui-panelgrid-cell {
-        border: none;
-      }
+        body .ui-panelgrid tbody tr.ui-widget-content {
+          border: none;
+        }
+
+        .ui-panelgrid .ui-panelgrid-cell {
+          border: none;
+        }
       </style>
 
       <h3>Browse Dossiers</h3>
@@ -31,22 +32,25 @@
               rendered="#{data.searchType=='FullText' || data.searchType=='LastName' || data.searchType=='Equals'}" />
             <p:panelGrid columns="4" id="DateRange" rendered="#{data.searchType=='BirthDate'}">
               <p:outputLabel value="From:" for="fromDate" />
-              <p:calendar id="fromDate" value="#{data.searchFromDate}" navigator="true" yearRange="c-50:c+10" pattern="dd.MM.yyyy">
+              <p:calendar id="fromDate" value="#{data.searchFromDate}" navigator="true" yearRange="c-50:c+10"
+                pattern="dd.MM.yyyy">
                 <p:ajax event="dateSelect" listener="#{logic.updateSearchToDate}" update="toDate" />
                 <f:convertDateTime pattern="dd.MM.yyyy" />
               </p:calendar>
               <p:outputLabel value="To:" for="toDate" />
-              <p:calendar id="toDate" value="#{data.searchToDate}" mindate="#{data.searchFromDate.toJavaDate()}" navigator="true"
-                yearRange="c-50:c+10" pattern="dd.MM.yyyy">
+              <p:calendar id="toDate" value="#{data.searchToDate}" mindate="#{data.searchFromDate.toJavaDate()}"
+                navigator="true" yearRange="c-50:c+10" pattern="dd.MM.yyyy">
                 <f:convertDateTime pattern="dd.MM.yyyy" />
               </p:calendar>
             </p:panelGrid>
-            <p:commandButton icon="ui-icon-search" value="Search" actionListener="#{logic.search}" update=":dossierTable :resultCount" />
+            <p:commandButton icon="ui-icon-search" value="Search" actionListener="#{logic.search}"
+              update=":dossierTable :resultCount" />
             <p:commandButton icon="ui-icon-help" value="Help" onclick="PF('help#{data.searchType}').show();" />
           </p:panelGrid>
         </p:panelGrid>
         <p:dialog header="Help" widgetVar="helpFullText" minHeight="80">
-          <h:outputText value="Shows dossiers that contain any of the words in the search box. Dossiers are ordered by relevance (score)." />
+          <h:outputText
+            value="Shows dossiers that contain any of the words in the search box. Dossiers are ordered by relevance (score)." />
           <br />
           <h:outputText value="Query Syntax:" />
           <table>
@@ -82,7 +86,8 @@
             </tr>
             <tr>
               <td>~N</td>
-              <td>The value should contain the word. Also misspelled words are matched.<br />The number defines how many characters can be
+              <td>The value should contain the word. Also misspelled words are matched.<br />The number defines how many
+                characters can be
                 misspelled.
               </td>
               <td><code>Levelace~1</code></td>
@@ -95,10 +100,12 @@
           </table>
         </p:dialog>
         <p:dialog header="Help" widgetVar="helpLastName" minHeight="80">
-          <h:outputText value="Shows dossiers with the given prefix in the last name. Dossiers are ordered by dossier name." />
+          <h:outputText
+            value="Shows dossiers with the given prefix in the last name. Dossiers are ordered by dossier name." />
         </p:dialog>
         <p:dialog header="Help" widgetVar="helpBirthDate" minHeight="80">
-          <h:outputText value="Shows dossiers with the birthdate between the given dates. Dossiers are ordered by dossier name." />
+          <h:outputText
+            value="Shows dossiers with the birthdate between the given dates. Dossiers are ordered by dossier name." />
         </p:dialog>
         <p:dialog header="Help" widgetVar="helpEquals" minHeight="80">
           <h:outputText value="Shows dossiers with the given dossier name. Dossiers are ordered by dossier name." />
@@ -114,7 +121,7 @@
           <h:outputText value="#{dossier.person.firstName} " />
           <h:outputText value="#{dossier.person.lastName}" />
           <br />
-					* <h:outputText value="#{dossier.person.birthDate}">
+          * <h:outputText value="#{dossier.person.birthDate}">
             <f:convertDateTime type="date" pattern="dd.MM.yyyy" />
           </h:outputText>
         </p:column>
@@ -127,9 +134,11 @@
         <p:column headerText="Operations">
           <p:link value="edit" href="#{ivy.html.startref('155BB4328F79B2D5/edit.ivp')}?id=#{ivy.repo.getId(dossier)}" />
           <br />
-          <p:link value="delete" href="#{ivy.html.startref('155BB4328F79B2D5/delete.ivp')}?id=#{ivy.repo.getId(dossier)}" />
+          <p:link value="delete"
+            href="#{ivy.html.startref('155BB4328F79B2D5/delete.ivp')}?id=#{ivy.repo.getId(dossier)}" />
           <br />
-          <p:link value="verification process" href="#{ivy.html.startref('156E5D9AA7D41BAA/verifyDossier.ivp')}?id=#{ivy.repo.getId(dossier)}" />
+          <p:link value="verification process"
+            href="#{ivy.html.startref('156E5D9AA7D41BAA/verifyDossier.ivp')}?id=#{ivy.repo.getId(dossier)}" />
         </p:column>
 
       </p:dataTable>
@@ -139,14 +148,20 @@
 
       <table style="width: 100%;">
         <tr>
-          <td style="width: 33%;"><p:link value="+ Create new Dossier" href="#{ivy.html.startref('155BB4328F79B2D5/create.ivp')}" /></td>
-          <td style="text-align: center; width: 33%; color: #a5a5a5;"><h:outputText id="resultCount"
-              value="Displaying #{data.searchResult.count()} of #{data.searchResult.totalCount()} hits." /></td>
-          <td style="text-align: right; width: 33%;"><p:link value="Show all dossiers"
-              href="#{ivy.html.startref('155BB4328F79B2D5/browse.ivp')}?showAll=true" /></td>
+          <td style="width: 33%;">
+            <p:link value="+ Create new Dossier" href="#{ivy.html.startref('155BB4328F79B2D5/create.ivp')}" />
+          </td>
+          <td style="text-align: center; width: 33%; color: #a5a5a5;">
+            <h:outputText id="resultCount"
+              value="Displaying #{data.searchResult.count()} of #{data.searchResult.totalCount()} hits." />
+          </td>
+          <td style="text-align: right; width: 33%;">
+            <p:link value="Show all dossiers" href="#{ivy.html.startref('155BB4328F79B2D5/browse.ivp')}?showAll=true" />
+          </td>
         </tr>
       </table>
     </ui:define>
   </ui:composition>
 </h:body>
+
 </html>

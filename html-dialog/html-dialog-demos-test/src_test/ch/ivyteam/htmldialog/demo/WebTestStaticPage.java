@@ -11,7 +11,7 @@ import com.axonivy.ivy.webtest.IvyWebTest;
 
 @IvyWebTest
 public class WebTestStaticPage {
-	
+
   @Test
   void testStaticPage()
   {

@@ -30,7 +30,7 @@ import com.axonivy.connectivity.Person;
 /**
  * Simple RESTful service. The REST interface is defined by the JAX-RS
  * annotations on the methods and its path.<br/>
- * 
+ *
  * <p>
  * <b>URL</b><br/>
  * The simplest external URL of this service will be: <br/>
@@ -38,13 +38,13 @@ import com.axonivy.connectivity.Person;
  * - engine:
  * <code>http://localhost:8081/myApplicationName/api/persons</code>
  * </p>
- * 
+ *
  * <p>
  * <b>Authentication</b><br/>
  * - Consumers of this service must be authenticated with HTTP-BASIC. In the
  * Designer any 'Test User' of the application is valid.
  * </p>
- * 
+ *
  * @since 6.1.1
  */
 @Singleton
@@ -56,7 +56,7 @@ public class PersonService
 
   public PersonService()
   {
-    addNewPerson("Bruno", "Bütler");
+    addNewPerson("Bruno", "Bï¿½tler");
     addNewPerson("Reto", "Weiss");
     addNewPerson("Renato", "Stalder");
     addNewPerson("Reguel", "Wermelinger");

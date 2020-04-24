@@ -8,7 +8,7 @@ import ch.ivyteam.ivy.request.IHttpProcessModelVersionRequest;
 
 /**
  * Helper class to dynamically determine the current url of the ivy engine.
- * 
+ *
  * This will be used to dynamically set the url of the web service
  * (personService) from the web service client.
  */

@@ -23,7 +23,7 @@ import javax.ws.rs.core.Response.Status;
 /**
  * Demonstrates a service which protects it's methods with
  * <code>javax.security</code> annotations.
- * 
+ *
  * <p>
  * By default an ivy REST service requires clients to be authenticated with
  * username and password via HTTP-BASIC. This behaviour can be adjusted with the
@@ -37,11 +37,11 @@ import javax.ws.rs.core.Response.Status;
  * <li>{@link javax.annotation.security.DenyAll}: nobody is allowed to invoke
  * this service</li>
  * </ul>
- * 
+ *
  * All these annotations can be set either on the service class or on a specific
  * method. Service class annotations are considered for all methods. But an
  * annotation on a method always override the service class annotation.
- * 
+ *
  * @since 6.4.0
  */
 @Singleton

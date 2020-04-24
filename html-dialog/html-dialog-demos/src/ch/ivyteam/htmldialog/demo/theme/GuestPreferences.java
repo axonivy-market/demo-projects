@@ -33,7 +33,7 @@ public class GuestPreferences implements Serializable {
     private static final long serialVersionUID = -64663298861770279L;
     private String theme = "serenity-ivy";
     private List<String> themes;
-    
+
     public GuestPreferences()
     {
       IvyPrimefacesThemeResolver themeResolver = new IvyPrimefacesThemeResolver();
@@ -41,25 +41,25 @@ public class GuestPreferences implements Serializable {
       themes.add(theme);
       themes.addAll(themeResolver.getPrimefacesAdditionalThemes());
     }
-    
+
     public List<String> getThemes()
     {
       return themes;
     }
-    
-    public String getTheme() 
-    {		
+
+    public String getTheme()
+    {
       return theme;
     }
-    
-    public void setTheme(String theme) 
+
+    public void setTheme(String theme)
     {
       this.theme = theme;
     }
-    
+
     public String getLayout()
     {
       return StringUtils.removeStart(theme, "serenity-");
     }
-    
+
 }

@@ -1,5 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
   <ui:composition template="/layouts/basic.xhtml">
@@ -18,11 +19,12 @@
             <p:outputLabel value="#{person.lastname}"></p:outputLabel>
           </p:column>
           <p:column headerText="Controls" style="width:5em;">
-            <p:commandLink actionListener="#{logic.edit(person)}" style="display:inline" oncomplete="PF('editDlg').show();" update=":form:editor">
+            <p:commandLink actionListener="#{logic.edit(person)}" style="display:inline"
+              oncomplete="PF('editDlg').show();" update=":form:editor">
               <span class="ui-icon ui-icon-pencil" />
             </p:commandLink>
-            <p:commandLink actionListener="#{logic.delete(person.id)}" style="display:inline" update=":form:persons, :form:notify"
-              oncomplete="PF('status').show();">
+            <p:commandLink actionListener="#{logic.delete(person.id)}" style="display:inline"
+              update=":form:persons, :form:notify" oncomplete="PF('status').show();">
               <span class="ui-icon ui-icon-trash" />
             </p:commandLink>
           </p:column>
@@ -42,7 +44,8 @@
           <br />
           <p:outputLabel value="Lastname" for="last" />
           <p:inputText value="#{data.lastName}" id="last" />
-          <p:commandButton actionListener="#{logic.add}" value="Add" update="persons, notify" oncomplete="PF('status').show();" icon="ui-icon-plus" />
+          <p:commandButton actionListener="#{logic.add}" value="Add" update="persons, notify"
+            oncomplete="PF('status').show();" icon="ui-icon-plus" />
         </h:panelGrid>
 
         <br />
@@ -58,4 +61,5 @@
     </ui:define>
   </ui:composition>
 </h:body>
+
 </html>

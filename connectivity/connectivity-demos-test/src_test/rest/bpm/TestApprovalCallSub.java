@@ -11,7 +11,7 @@ import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 
 @IvyProcessTest
-public class TestApprovalCallSub 
+public class TestApprovalCallSub
 {
   @Test
   public void callSub(BpmClient bpmClient)

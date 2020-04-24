@@ -1,5 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:cc="http://xmlns.jcp.org/jsf/composite" xmlns:ic="http://ivyteam.ch/jsf/component"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:cc="http://xmlns.jcp.org/jsf/composite" xmlns:ic="http://ivyteam.ch/jsf/component"
   xmlns:p="http://primefaces.org/ui">
 <cc:interface componentType="IvyComponent">
 </cc:interface>
@@ -15,15 +16,15 @@
       Here the Address Component is included for the delivery address.
       Attributes of the composite component interface like the 'label' parameter are also specified here.
       -->
-      <ic:ch.ivyteam.htmldialog.demo.component.AddressComponent address="#{data.person.deliveryAddress}" label="Delivery Address"
-        id="deliveryAddressComponent" />
+      <ic:ch.ivyteam.htmldialog.demo.component.AddressComponent address="#{data.person.deliveryAddress}"
+        label="Delivery Address" id="deliveryAddressComponent" />
 
       <!--
       Here the Address Component is included for the billing address.
-      Attributes of the composite component interface like the 'label' parameter are also specified here. 
+      Attributes of the composite component interface like the 'label' parameter are also specified here.
       -->
-      <ic:ch.ivyteam.htmldialog.demo.component.AddressComponent startMethod="start" address="#{data.person.billingAddress}" label="Billing Address"
-        id="billingAddressComponent" />
+      <ic:ch.ivyteam.htmldialog.demo.component.AddressComponent startMethod="start"
+        address="#{data.person.billingAddress}" label="Billing Address" id="billingAddressComponent" />
     </h:panelGrid>
     <h:panelGrid>
       <p:commandButton value="Submit" ajax="false" />

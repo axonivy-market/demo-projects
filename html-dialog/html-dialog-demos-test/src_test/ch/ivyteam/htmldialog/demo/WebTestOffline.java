@@ -23,7 +23,7 @@ public class WebTestOffline
     $(By.id("form:personName")).sendKeys("Else");
     $(By.id("form:personDateOfBirth")).sendKeys("1990-01-01");
     $(By.id("form:addressZip")).sendKeys("8000");
-    $(By.id("form:addressCity")).sendKeys("Zürich");
+    $(By.id("form:addressCity")).sendKeys("Zï¿½rich");
     $(By.id("form:addressCountry")).sendKeys("CH");
     $(By.id("form:email")).sendKeys("someone.else@admin.ch");
     $(By.id("form:timeOfArrival")).sendKeys("13:15");
@@ -39,7 +39,7 @@ public class WebTestOffline
     $(By.id("form:personName")).sendKeys("El");
     $(By.id("form:personDateOfBirth")).sendKeys("1990-01-01");
     $(By.id("form:addressZip")).sendKeys("999");
-    $(By.id("form:addressCity")).sendKeys("Zürich");
+    $(By.id("form:addressCity")).sendKeys("Zï¿½rich");
     $(By.id("form:addressCountry")).sendKeys("CH");
     $(By.id("form:email")).sendKeys("someone.else@admin.ch");
     $(By.id("form:timeOfArrival")).sendKeys("13:15");
@@ -48,5 +48,5 @@ public class WebTestOffline
     Selenide.$$(".ui-message-error").find(Condition.attribute("data-target", "form:addressZip"))
             .shouldHave(text("Specified attribute is not between the expected values of 1000 and 9999."));
   }
-  
+
 }

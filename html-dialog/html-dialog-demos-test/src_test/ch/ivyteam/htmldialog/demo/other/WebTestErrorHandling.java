@@ -24,8 +24,8 @@ public class WebTestErrorHandling
     $(By.id("ajaxExceptionDialog_title")).shouldHave(text("Error"));
     String text = $(By.id("ajaxExceptionDialog_content")).getText();
     assertThat(text)
-        .contains("ivy:error:script") 
-        .contains("Error id") 
+        .contains("ivy:error:script")
+        .contains("Error id")
         .contains("Process")
         .contains("ErrorHandlingProcess")
         .contains("Element")
@@ -55,7 +55,7 @@ public class WebTestErrorHandling
         .contains("Stack-Trace")
         .doesNotContain("?");
   }
-  
+
   @Test
   public void non_ajax_error_dialog()
   {
@@ -65,8 +65,8 @@ public class WebTestErrorHandling
     $("h1").shouldHave(text("ivy:error:script"));
     String text = $(By.id("content")).getText();
     assertThat(text)
-        .contains("ivy:error:script") 
-        .contains("Error id") 
+        .contains("ivy:error:script")
+        .contains("Error id")
         .contains("Process")
         .contains("ErrorHandlingProcess")
         .contains("Element")
@@ -103,7 +103,7 @@ public class WebTestErrorHandling
     startProcess("145D1862CF17F2C9/ErrorHandlingDemo.ivp");
     $(By.id("form:expireSession")).shouldBe(visible).click();
     $(By.id("form:ajaxWithExpiredSession")).shouldBe(visible).click();
-    
+
     $(By.id("viewExpiredExceptionDialog_title")).shouldHave(text("View or Session Expired"));
     String text = $(By.id("viewExpiredExceptionDialog_content")).getText();
     assertThat(text)

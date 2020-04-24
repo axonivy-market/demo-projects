@@ -17,7 +17,7 @@ import ch.ivyteam.ivy.environment.Ivy;
 
 /**
  * Simulates a slow remote service that takes seconds to deliver a result.
- * 
+ *
  * <p>
  * See <b>Processes/rest/batchService</b> for usage samples
  * </p>
@@ -39,7 +39,7 @@ public class BatchService
    * Non blocking batch processing. <br/>
    * Clients can continue immediately and react on the response when it is
    * available.
-   * 
+   *
    * @param secondsToBlock simulates slow processing time
    * @param asyncResponse asynchronous client request
    * @since 7.3.0

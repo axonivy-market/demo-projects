@@ -9,16 +9,16 @@ import ch.ivyteam.util.threadcontext.IvyAsyncRunner;
 /**
  * Fires a signal to the BPM Engine when the result of an asynchronous REST
  * request is available.
- * 
+ *
  * <p>
  * Async callback methods use the {@link IvyAsyncRunner} to avoid
  * {@link ch.ivyteam.ivy.environment.EnvironmentNotAvailableException}s.
  * </p>
- * 
+ *
  * <p>
  * See <b>Processes/rest/batchService/async.ivp</b> for a demo
  * </p>
- * 
+ *
  * @since 7.3.0
  */
 public class SignalInvoker implements InvocationCallback<String>

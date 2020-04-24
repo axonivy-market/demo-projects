@@ -1,5 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
   <ui:composition template="/layouts/HtmlDemo.xhtml">
@@ -14,17 +15,19 @@
         <h:form id="form">
           <h4>HTTP Request</h4>
           <p>
-            If an exception occurs in a <i>non-ajax</i> HTTP request, the user will be redirected to the specified error page. The customization of
+            If an exception occurs in a <i>non-ajax</i> HTTP request, the user will be redirected to the specified error
+            page. The customization of
             these error pages are described in the engine guide.
           </p>
           <h:panelGrid>
-            <p:commandButton actionListener="#{logic.exception}" value="Execute non-ajax HTTP Request" update="form" icon="ui-icon-check" ajax="false"
-              id="nonAjax" />
+            <p:commandButton actionListener="#{logic.exception}" value="Execute non-ajax HTTP Request" update="form"
+              icon="ui-icon-check" ajax="false" id="nonAjax" />
           </h:panelGrid>
 
           <h4>AJAX Request</h4>
           <p>
-            If an exception occurs in an <i>ajax-based</i> HTTP request, the registered ajax exception handler comes into play. The ajax exception
+            If an exception occurs in an <i>ajax-based</i> HTTP request, the registered ajax exception handler comes
+            into play. The ajax exception
             handler is defined in
             <code>webContent/layouts/includes/exception.xhtml</code>
             as
@@ -32,12 +35,14 @@
             .
           </p>
           <h:panelGrid>
-            <p:commandButton actionListener="#{logic.exception}" value="Execute ajax-based HTTP Request" update="form" icon="ui-icon-check" id="ajax" />
+            <p:commandButton actionListener="#{logic.exception}" value="Execute ajax-based HTTP Request" update="form"
+              icon="ui-icon-check" id="ajax" />
           </h:panelGrid>
 
           <h4>View Expired Exception</h4>
           <p>
-            If the view or the session of an user expires, there is a possibility to catch that exception with an ajax exception handler. In
+            If the view or the session of an user expires, there is a possibility to catch that exception with an ajax
+            exception handler. In
             <code>webContent/layouts/includes/exception.xhtml</code>
             &#160;is a second&#160;
             <code>p:ajaxExceptionHandler</code>
@@ -46,9 +51,10 @@
             .<br />
           </p>
           <h:panelGrid columns="2">
-            <p:commandButton actionListener="#{logic.expireMySession}" value="Expire my session" update="form" icon="ui-icon-check" id="expireSession" />
-            <p:commandButton actionListener="#{logic.executeSomething}" value="Execute ajax-based HTTP Request" update="form" icon="ui-icon-check"
-              id="ajaxWithExpiredSession" />
+            <p:commandButton actionListener="#{logic.expireMySession}" value="Expire my session" update="form"
+              icon="ui-icon-check" id="expireSession" />
+            <p:commandButton actionListener="#{logic.executeSomething}" value="Execute ajax-based HTTP Request"
+              update="form" icon="ui-icon-check" id="ajaxWithExpiredSession" />
           </h:panelGrid>
         </h:form>
       </h:panelGroup>
@@ -57,4 +63,5 @@
   </ui:composition>
 
 </h:body>
+
 </html>
