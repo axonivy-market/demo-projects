@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.demo</groupId>
 	<artifactId>html-dialog-demos</artifactId>
@@ -9,21 +7,34 @@
 	<packaging>iar</packaging>
 	<description>Demo Project for the Html Dialog Features</description>
 	<organization>
-		<name>AXON Ivy AG</name>
+		<name>AXON.IVY</name>
+		<url>http://www.axonivy.com</url>
 	</organization>
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
+				<version>8.0.5-SNAPSHOT</version>
 				<extensions>true</extensions>
+				<configuration>
+					<ivyVersion>[8.0.0,]</ivyVersion>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-	<parent>
-		<groupId>ch.ivyteam.demo</groupId>
-		<artifactId>build-maven-iar</artifactId>
-		<version>8.0.5-SNAPSHOT</version>
-		<relativePath>../../build.maven/iar</relativePath>
-	</parent>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central.snapshots</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 </project>

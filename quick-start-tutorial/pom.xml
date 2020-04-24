@@ -5,19 +5,35 @@
   <artifactId>quick-start-tutorial</artifactId>
   <version>8.0.5-SNAPSHOT</version>
   <packaging>iar</packaging>
+  <organization>
+		<name>AXON.IVY</name>
+		<url>http://www.axonivy.com</url>
+	</organization>
+
   <build>
     <plugins>
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
+        <version>8.0.5-SNAPSHOT</version>
         <extensions>true</extensions>
+        <configuration>
+          <ivyVersion>[8.0.0,]</ivyVersion>
+        </configuration>
       </plugin>
     </plugins>
   </build>
-  <parent>
-  	<groupId>ch.ivyteam.demo</groupId>
-  	<artifactId>build-maven-iar</artifactId>
-  	<version>8.0.5-SNAPSHOT</version>
-  	<relativePath>../build.maven/iar</relativePath>
-  </parent>
+  
+  <pluginRepositories>
+    <pluginRepository>
+      <id>central.snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
 </project>

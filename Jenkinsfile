@@ -30,7 +30,8 @@ pipeline {
           def phase = env.BRANCH_NAME == 'release/8.0' ? 'deploy' : 'verify'
           maven cmd: "-P deploy.repo.axonivy.com clean ${phase} -Dmaven.test.failure.ignore=true  " + 
                      "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
-                     "-Divy.engine.list.url=${params.engineListUrl} "
+                     "-Divy.engine.list.url=${params.engineListUrl} " + 
+                     "-DaltDeploymentRepository=repo.axonivy.com::https://repo.axonivy.com/artifactory/libs-snapshot-local"
           checkVersions onlyProjectBuildPluginWithVersion: "8", additionalVersionArgs: "-DallowSnapshots=true"
         }
         archiveArtifacts '**/target/*.iar,**/target/*.zip'
