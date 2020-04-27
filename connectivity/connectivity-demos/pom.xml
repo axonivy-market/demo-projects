@@ -77,7 +77,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.1.2</version>
 				<executions>
 					<execution>
 						<id>thirdparty.libs</id>
@@ -192,7 +191,7 @@
 								  <pluginExecutionFilter>
 								    <groupId>org.apache.maven.plugins</groupId>
 								    <artifactId>maven-dependency-plugin</artifactId>
-								    <versionRange>[3.0.2,)</versionRange>
+								    <versionRange>[2.8,)</versionRange>
 								    <goals>
 								      <goal>copy-dependencies</goal>
 								    </goals>
