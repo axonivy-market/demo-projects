@@ -6,13 +6,13 @@ Element-Type: context
 Element-Version: 2.0
 Id: _uTeBUD3gEeadqZIC2MODiA
 Runtime-Version: 2.5.0.202001211718
-Save-Time: 4/27/20, 7:58 AM
+Save-Time: 4/27/20, 8:22 AM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
 Entry-Name: .ecl.context
 
-proc "importArchive" [val -name "section" -value "Samples"] [val -name "projectName" -value "connectivity-demos"]
+proc "importArchive" [val -name "section" -value "Samples"] [val -name "projectName" -value "ConnectivityDemos"]
 {
 	try
 	{
