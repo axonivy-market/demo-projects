@@ -5,14 +5,14 @@ Element-Name: ProjectUtils
 Element-Type: context
 Element-Version: 2.0
 Id: _uTeBUD3gEeadqZIC2MODiA
-Runtime-Version: 2.4.2.201904290004
-Save-Time: 5/15/19 9:06 AM
+Runtime-Version: 2.5.0.202001211718
+Save-Time: 4/27/20, 7:58 AM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
 Entry-Name: .ecl.context
 
-proc "importArchive" [val section] [val projectName]
+proc "importArchive" [val -name "section" -value "Samples"] [val -name "projectName" -value "connectivity-demos"]
 {
 	try
 	{
