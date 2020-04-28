@@ -171,7 +171,7 @@ class TestProcurementRequest
         .as().user("ldv")
         .execute();
     assertThat(result).isNotNull();
-    List<ITask> tasks = result.workflow().technicalCase().getActiveTasks();
+    List<ITask> tasks = result.workflow().nextTasks();
     assertThat(tasks).hasSize(2);
     ITask verifyTask1 = tasks.get(0);
     assertThat(verifyTask1.getName()).startsWith("Verify Request:");
