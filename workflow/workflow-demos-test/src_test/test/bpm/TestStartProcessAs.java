@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
-import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
+import ch.ivyteam.ivy.bpm.engine.client.IExecutionResult;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmElement;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
@@ -38,112 +38,112 @@ class TestStartProcessAs
   @Test
   void noAs(BpmClient client)
   {
-    ExecutionResult result = client
+    IExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .execute();
 
-    assertThat(result.getRequestedCase().getCreatorUser())
+    assertThat(result.workflow().technicalCase().getCreatorUser())
         .isNull();
   }
 
   @Test
   void asAnonymous(BpmClient client)
   {
-    ExecutionResult result = client
+    IExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().anonymous()
         .execute();
 
-    assertThat(result.getRequestedCase().getCreatorUser())
+    assertThat(result.workflow().technicalCase().getCreatorUser())
         .isNull();
   }
 
   @Test
   void asEverybody(BpmClient client, IRole everybody)
   {
-    ExecutionResult result = client
+    IExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().everybody()
         .execute();
 
-    assertThat(result.getRequestedCase().getCreatorUser())
-        .isEqualTo(result.getWorkflowSession().getSessionUser());
-    assertThat(result.getWorkflowSession().hasRole(everybody, false))
+    assertThat(result.workflow().technicalCase().getCreatorUser())
+        .isEqualTo(result.workflow().session().getSessionUser());
+    assertThat(result.workflow().session().hasRole(everybody, false))
         .isTrue();
   }
 
   @Test
   void asRoleName(BpmClient client, @Named("HR Manager") IRole hrManager)
   {
-    ExecutionResult result = client
+    IExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().role("HR Manager")
         .execute();
 
-    assertThat(result.getRequestedCase().getCreatorUser())
-        .isEqualTo(result.getWorkflowSession().getSessionUser());
-    assertThat(result.getWorkflowSession().hasRole(hrManager, false))
+    assertThat(result.workflow().technicalCase().getCreatorUser())
+        .isEqualTo(result.workflow().session().getSessionUser());
+    assertThat(result.workflow().session().hasRole(hrManager, false))
         .isTrue();
   }
 
   @Test
   void asRole(BpmClient client, @Named("HR Manager") IRole hrManager)
   {
-    ExecutionResult result = client
+    IExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().role(hrManager)
         .execute();
 
-    assertThat(result.getRequestedCase().getCreatorUser())
-        .isEqualTo(result.getWorkflowSession().getSessionUser());
-    assertThat(result.getWorkflowSession().hasRole(hrManager, false))
+    assertThat(result.workflow().technicalCase().getCreatorUser())
+        .isEqualTo(result.workflow().session().getSessionUser());
+    assertThat(result.workflow().session().hasRole(hrManager, false))
         .isTrue();
   }
 
   @Test
   void asUserName(BpmClient client, @Named("jb") IUser jamesBond)
   {
-    ExecutionResult result = client
+    IExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().user("jb")
         .execute();
 
-    assertThat(result.getRequestedCase().getCreatorUser())
-        .isEqualTo(result.getWorkflowSession().getSessionUser())
+    assertThat(result.workflow().technicalCase().getCreatorUser())
+        .isEqualTo(result.workflow().session().getSessionUser())
         .isEqualTo(jamesBond);
   }
 
   @Test
   void asUser(BpmClient client, @Named("jb") IUser jamesBond)
   {
-    ExecutionResult result = client
+    IExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().user(jamesBond)
         .execute();
 
-    assertThat(result.getRequestedCase().getCreatorUser())
-        .isEqualTo(result.getWorkflowSession().getSessionUser())
+    assertThat(result.workflow().technicalCase().getCreatorUser())
+        .isEqualTo(result.workflow().session().getSessionUser())
         .isEqualTo(jamesBond);
   }
 
   @Test
   void asSystemUser(BpmClient client, IApplication app)
   {
-    ExecutionResult result = client
+    IExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().systemUser()
         .execute();
 
-    assertThat(result.getRequestedCase().getCreatorUser())
-        .isEqualTo(result.getWorkflowSession().getSessionUser())
+    assertThat(result.workflow().technicalCase().getCreatorUser())
+        .isEqualTo(result.workflow().session().getSessionUser())
         .isEqualTo(app.getSecurityContext().getSystemUser());
   }
 
@@ -152,17 +152,17 @@ class TestStartProcessAs
   {
     session.authenticateSessionUser(jamesBond, "testing");
 
-    ExecutionResult result = client
+    IExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().session(session)
         .execute();
 
-    assertThat(result.getWorkflowSession())
+    assertThat(result.workflow().session())
         .isSameAs(session);
 
-    assertThat(result.getRequestedCase().getCreatorUser())
-        .isEqualTo(result.getWorkflowSession().getSessionUser())
+    assertThat(result.workflow().technicalCase().getCreatorUser())
+        .isEqualTo(result.workflow().session().getSessionUser())
         .isEqualTo(jamesBond);
   }
 }

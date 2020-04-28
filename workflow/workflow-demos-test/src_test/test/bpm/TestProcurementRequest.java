@@ -9,7 +9,7 @@ import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;
 
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
-import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
+import ch.ivyteam.ivy.bpm.engine.client.IExecutionResult;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmElement;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
@@ -166,12 +166,12 @@ class TestProcurementRequest
 
     bpmClient.mock().element(HtmlDialog.ENTER_REQUEST).with(in -> testData);
 
-    ExecutionResult result = bpmClient
+    IExecutionResult result = bpmClient
         .start().process(PROCUREMENT_PROCESS)
         .as().user("ldv")
         .execute();
     assertThat(result).isNotNull();
-    List<ITask> tasks = result.getRequestedCase().getActiveTasks();
+    List<ITask> tasks = result.workflow().technicalCase().getActiveTasks();
     assertThat(tasks).hasSize(2);
     ITask verifyTask1 = tasks.get(0);
     assertThat(verifyTask1.getName()).startsWith("Verify Request:");
@@ -184,17 +184,17 @@ class TestProcurementRequest
 
   private void verifyRequest(BpmClient bpmClient, ITask verifyTask, String role)
   {
-    ExecutionResult result = bpmClient
+    IExecutionResult result = bpmClient
         .start().resumableTask(verifyTask)
         .as().role(role)
         .execute();
-    assertThat(result.getRequestedTask().getState()).isIn(TaskState.DONE, TaskState.READY_FOR_JOIN);
+    assertThat(result.workflow().task().getState()).isIn(TaskState.DONE, TaskState.READY_FOR_JOIN);
   }
 
   private ProcurementRequest acceptRequest(BpmClient bpmClient, ITask acceptRequestTask)
   {
-    ExecutionResult result = bpmClient.start().resumableTask(acceptRequestTask).as().role("Executive Manager").execute();
-    assertThat(result.getRequestedTask().getState()).isIn(TaskState.DONE);
+    IExecutionResult result = bpmClient.start().resumableTask(acceptRequestTask).as().role("Executive Manager").execute();
+    assertThat(result.workflow().task().getState()).isIn(TaskState.DONE);
     return result.data().last();
   }
 
