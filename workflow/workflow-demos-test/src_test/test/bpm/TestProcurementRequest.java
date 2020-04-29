@@ -125,7 +125,7 @@ class TestProcurementRequest
     ICase caze = verifyTasks.get(0).getCase();
     waitUntilAcceptRequestTaskIsAvailable(caze);
 
-    bpmClient.mock().element(HtmlDialog.ACCEPT_REQUEST).withNoAction();
+    bpmClient.mock().element(HtmlDialog.ACCEPT_REQUEST).with(ProcurementRequest.class, (in, out) -> out.setAccepted(false));
     ProcurementRequest request = acceptRequest(bpmClient, getAcceptRequestTask(caze));
 
     assertThat(request.getAccepted()).isFalse();
@@ -171,7 +171,7 @@ class TestProcurementRequest
         .as().user("ldv")
         .execute();
     assertThat(result).isNotNull();
-    List<ITask> tasks = result.getRequestedCase().getActiveTasks();
+    List<ITask> tasks = result.workflow().nextTasks();
     assertThat(tasks).hasSize(2);
     ITask verifyTask1 = tasks.get(0);
     assertThat(verifyTask1.getName()).startsWith("Verify Request:");
@@ -188,13 +188,13 @@ class TestProcurementRequest
         .start().resumableTask(verifyTask)
         .as().role(role)
         .execute();
-    assertThat(result.getRequestedTask().getState()).isIn(TaskState.DONE, TaskState.READY_FOR_JOIN);
+    assertThat(result.workflow().task().getState()).isIn(TaskState.DONE, TaskState.READY_FOR_JOIN);
   }
 
   private ProcurementRequest acceptRequest(BpmClient bpmClient, ITask acceptRequestTask)
   {
     ExecutionResult result = bpmClient.start().resumableTask(acceptRequestTask).as().role("Executive Manager").execute();
-    assertThat(result.getRequestedTask().getState()).isIn(TaskState.DONE);
+    assertThat(result.workflow().task().getState()).isIn(TaskState.DONE);
     return result.data().last();
   }
 
