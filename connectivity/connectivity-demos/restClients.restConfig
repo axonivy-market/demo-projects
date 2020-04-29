@@ -182,8 +182,28 @@ To run this service locally:
                 <value>false</value>
                 <password>false</password>
             </property>
+            <property>
+                <name>jersey.config.client.followRedirects</name>
+                <value></value>
+                <password>false</password>
+            </property>
             <feature>
                 <class>com.axonivy.connectivity.rest.json.OdataJsonFeature</class>
+            </feature>
+        </configuration>
+    </restClient>
+    <restClient>
+        <uuid>265b33a0-ac87-411a-b6f6-3b71d4a6e9a9</uuid>
+        <name>uiPathAuth</name>
+        <configuration>
+            <uri>https://account.uipath.com/oauth/token</uri>
+            <property>
+                <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
+                <value>false</value>
+                <password>false</password>
+            </property>
+            <feature>
+                <class>ch.ivyteam.ivy.rest.client.mapper.JsonFeature</class>
             </feature>
         </configuration>
     </restClient>
