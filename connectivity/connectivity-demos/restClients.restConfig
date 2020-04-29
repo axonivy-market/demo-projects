@@ -172,4 +172,19 @@ To run this service locally:
             </feature>
         </configuration>
     </restClient>
+    <restClient>
+        <uuid>699e715f-63b1-4355-a974-ee3cac26985e</uuid>
+        <name>uiPathOrchestrator</name>
+        <configuration>
+            <uri>https://platform.uipath.com/AXONPRESALES/AXONPRESALES</uri>
+            <property>
+                <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
+                <value>false</value>
+                <password>false</password>
+            </property>
+            <feature>
+                <class>com.axonivy.connectivity.rest.json.OdataJsonFeature</class>
+            </feature>
+        </configuration>
+    </restClient>
 </restClients>
