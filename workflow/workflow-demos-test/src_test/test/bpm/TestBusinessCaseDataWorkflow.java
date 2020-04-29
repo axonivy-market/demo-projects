@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
-import ch.ivyteam.ivy.bpm.engine.client.IExecutionResult;
+import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmElement;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
@@ -26,7 +26,7 @@ public class TestBusinessCaseDataWorkflow
   {
     bpmClient.mock().element(HD_INTERVIEW_1).withNoAction();
     bpmClient.mock().element(HD_INTERVIEW_2).withNoAction();
-    IExecutionResult result = bpmClient.start().process(CREATE_START).executeAndIgnoreBpmError();
+    ExecutionResult result = bpmClient.start().process(CREATE_START).executeAndIgnoreBpmError();
     assertThat(result.bpmError().getErrorCode()).isEqualTo("ivy:security:forbidden");
   }
   
@@ -35,7 +35,7 @@ public class TestBusinessCaseDataWorkflow
   {
     bpmClient.mock().element(HD_INTERVIEW_1).withNoAction();
     bpmClient.mock().element(HD_INTERVIEW_2).withNoAction();
-    IExecutionResult result = bpmClient.start().process(CREATE_START).as().everybody().execute();
+    ExecutionResult result = bpmClient.start().process(CREATE_START).as().everybody().execute();
     assertThat(result.history().elements()).containsExactly(CREATE_START, HD_INTERVIEW_1, TASK_SWITCH);
     assertThat(result.workflow().nextTask()).isPresent();
     result = bpmClient.start().resumableTask(result.workflow().nextTask().get()).as().everybody().execute();

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
-import ch.ivyteam.ivy.bpm.engine.client.IExecutionResult;
+import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmElement;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
@@ -38,7 +38,7 @@ class TestStartProcessAs
   @Test
   void noAs(BpmClient client)
   {
-    IExecutionResult result = client
+    ExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .execute();
@@ -50,7 +50,7 @@ class TestStartProcessAs
   @Test
   void asAnonymous(BpmClient client)
   {
-    IExecutionResult result = client
+    ExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().anonymous()
@@ -63,7 +63,7 @@ class TestStartProcessAs
   @Test
   void asEverybody(BpmClient client, IRole everybody)
   {
-    IExecutionResult result = client
+    ExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().everybody()
@@ -78,7 +78,7 @@ class TestStartProcessAs
   @Test
   void asRoleName(BpmClient client, @Named("HR Manager") IRole hrManager)
   {
-    IExecutionResult result = client
+    ExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().role("HR Manager")
@@ -93,7 +93,7 @@ class TestStartProcessAs
   @Test
   void asRole(BpmClient client, @Named("HR Manager") IRole hrManager)
   {
-    IExecutionResult result = client
+    ExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().role(hrManager)
@@ -108,7 +108,7 @@ class TestStartProcessAs
   @Test
   void asUserName(BpmClient client, @Named("jb") IUser jamesBond)
   {
-    IExecutionResult result = client
+    ExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().user("jb")
@@ -122,7 +122,7 @@ class TestStartProcessAs
   @Test
   void asUser(BpmClient client, @Named("jb") IUser jamesBond)
   {
-    IExecutionResult result = client
+    ExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().user(jamesBond)
@@ -136,7 +136,7 @@ class TestStartProcessAs
   @Test
   void asSystemUser(BpmClient client, IApplication app)
   {
-    IExecutionResult result = client
+    ExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().systemUser()
@@ -152,7 +152,7 @@ class TestStartProcessAs
   {
     session.authenticateSessionUser(jamesBond, "testing");
 
-    IExecutionResult result = client
+    ExecutionResult result = client
         .start().process(START)
         .usingHttp()
         .as().session(session)

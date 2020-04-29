@@ -9,7 +9,7 @@ import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;
 
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
-import ch.ivyteam.ivy.bpm.engine.client.IExecutionResult;
+import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmElement;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
@@ -166,7 +166,7 @@ class TestProcurementRequest
 
     bpmClient.mock().element(HtmlDialog.ENTER_REQUEST).with(in -> testData);
 
-    IExecutionResult result = bpmClient
+    ExecutionResult result = bpmClient
         .start().process(PROCUREMENT_PROCESS)
         .as().user("ldv")
         .execute();
@@ -184,7 +184,7 @@ class TestProcurementRequest
 
   private void verifyRequest(BpmClient bpmClient, ITask verifyTask, String role)
   {
-    IExecutionResult result = bpmClient
+    ExecutionResult result = bpmClient
         .start().resumableTask(verifyTask)
         .as().role(role)
         .execute();
@@ -193,7 +193,7 @@ class TestProcurementRequest
 
   private ProcurementRequest acceptRequest(BpmClient bpmClient, ITask acceptRequestTask)
   {
-    IExecutionResult result = bpmClient.start().resumableTask(acceptRequestTask).as().role("Executive Manager").execute();
+    ExecutionResult result = bpmClient.start().resumableTask(acceptRequestTask).as().role("Executive Manager").execute();
     assertThat(result.workflow().task().getState()).isIn(TaskState.DONE);
     return result.data().last();
   }
