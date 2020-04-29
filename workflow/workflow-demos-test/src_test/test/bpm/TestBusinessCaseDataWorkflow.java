@@ -27,6 +27,7 @@ public class TestBusinessCaseDataWorkflow
     bpmClient.mock().element(HD_INTERVIEW_1).withNoAction();
     bpmClient.mock().element(HD_INTERVIEW_2).withNoAction();
     ExecutionResult result = bpmClient.start().process(CREATE_START).executeAndIgnoreBpmError();
+    assertThat(result.bpmError()).isNotNull();
     assertThat(result.bpmError().getErrorCode()).isEqualTo("ivy:security:forbidden");
   }
   
