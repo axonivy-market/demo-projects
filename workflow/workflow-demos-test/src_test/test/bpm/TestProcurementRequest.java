@@ -125,7 +125,7 @@ class TestProcurementRequest
     ICase caze = verifyTasks.get(0).getCase();
     waitUntilAcceptRequestTaskIsAvailable(caze);
 
-    bpmClient.mock().element(HtmlDialog.ACCEPT_REQUEST).withNoAction();
+    bpmClient.mock().element(HtmlDialog.ACCEPT_REQUEST).with(ProcurementRequest.class, (in, out) -> out.setAccepted(false));
     ProcurementRequest request = acceptRequest(bpmClient, getAcceptRequestTask(caze));
 
     assertThat(request.getAccepted()).isFalse();
