@@ -184,11 +184,14 @@ To run this service locally:
             </property>
             <property>
                 <name>jersey.config.client.followRedirects</name>
-                <value></value>
+                <value>false</value>
                 <password>false</password>
             </property>
             <feature>
                 <class>com.axonivy.connectivity.rest.json.OdataJsonFeature</class>
+            </feature>
+            <feature>
+                <class>com.axonivy.connectivity.rest.client.auth.OAuth2Feature</class>
             </feature>
         </configuration>
     </restClient>

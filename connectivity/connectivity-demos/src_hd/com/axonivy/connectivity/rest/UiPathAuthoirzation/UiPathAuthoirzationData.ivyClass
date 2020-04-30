@@ -1,0 +1,4 @@
+UiPathAuthoirzationData #class
+com.axonivy.connectivity.rest.UiPathAuthoirzation #namespace
+request com.axonivy.connectivity.rest.sample.uipath.ApiRequest #field
+request PERSISTENT #fieldModifier
