@@ -139,7 +139,8 @@
 					    <phase>generate-sources</phase>
 					    <goals><goal>generate</goal></goals>
 					    <configuration>
-						    <inputSpec>https://platform.uipath.com/AXONPRESALES/AXONPRESALES:443/swagger/docs/V2</inputSpec>
+						    <inputSpec>${basedir}/src/com/axonivy/connectivity/rest/sample/uipath/openapi.json</inputSpec>
+						    <!-- <inputSpec>https://platform.uipath.com/AXONPRESALES/AXONPRESALES:443/swagger/docs/V2</inputSpec> -->
 						    <modelPackage>io.swagger.uipath.openapi</modelPackage>
 					    </configuration>
 				    </execution>
