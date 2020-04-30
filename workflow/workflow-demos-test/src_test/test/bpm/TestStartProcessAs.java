@@ -40,7 +40,6 @@ class TestStartProcessAs
   {
     ExecutionResult result = client
         .start().process(START)
-        .usingHttp()
         .execute();
 
     assertThat(result.workflow().technicalCase().getCreatorUser())
@@ -52,7 +51,6 @@ class TestStartProcessAs
   {
     ExecutionResult result = client
         .start().process(START)
-        .usingHttp()
         .as().anonymous()
         .execute();
 
@@ -65,7 +63,6 @@ class TestStartProcessAs
   {
     ExecutionResult result = client
         .start().process(START)
-        .usingHttp()
         .as().everybody()
         .execute();
 
@@ -80,7 +77,6 @@ class TestStartProcessAs
   {
     ExecutionResult result = client
         .start().process(START)
-        .usingHttp()
         .as().role("HR Manager")
         .execute();
 
@@ -95,7 +91,6 @@ class TestStartProcessAs
   {
     ExecutionResult result = client
         .start().process(START)
-        .usingHttp()
         .as().role(hrManager)
         .execute();
 
@@ -110,7 +105,6 @@ class TestStartProcessAs
   {
     ExecutionResult result = client
         .start().process(START)
-        .usingHttp()
         .as().user("jb")
         .execute();
 
@@ -124,7 +118,6 @@ class TestStartProcessAs
   {
     ExecutionResult result = client
         .start().process(START)
-        .usingHttp()
         .as().user(jamesBond)
         .execute();
 
@@ -138,7 +131,6 @@ class TestStartProcessAs
   {
     ExecutionResult result = client
         .start().process(START)
-        .usingHttp()
         .as().systemUser()
         .execute();
 
@@ -154,7 +146,6 @@ class TestStartProcessAs
 
     ExecutionResult result = client
         .start().process(START)
-        .usingHttp()
         .as().session(session)
         .execute();
 
