@@ -3,9 +3,7 @@ package test.bpm;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
-import java.util.Locale;
 
-import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;
 
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
@@ -13,7 +11,6 @@ import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmElement;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
-import ch.ivyteam.ivy.security.exec.Sudo;
 import ch.ivyteam.ivy.workflow.CaseState;
 import ch.ivyteam.ivy.workflow.ICase;
 import ch.ivyteam.ivy.workflow.ITask;
@@ -63,7 +60,7 @@ class TestProcurementRequest
     verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
 
     ICase caze = verifyTasks.get(0).getCase();
-    waitUntilSystemTaskHasBeenExecuted(caze);
+    executeSystemTask(bpmClient, caze);
 
     assertThat(caze.getState()).isEqualTo(CaseState.DONE);
   }
@@ -83,7 +80,7 @@ class TestProcurementRequest
     verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
 
     ICase caze = verifyTasks.get(0).getCase();
-    waitUntilSystemTaskHasBeenExecuted(caze);
+    executeSystemTask(bpmClient, caze);
 
     assertThat(caze.getState()).isEqualTo(CaseState.DONE);
   }
@@ -103,7 +100,7 @@ class TestProcurementRequest
     verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
 
     ICase caze = verifyTasks.get(0).getCase();
-    waitUntilSystemTaskHasBeenExecuted(caze);
+    executeSystemTask(bpmClient, caze);
 
     assertThat(caze.getState()).isEqualTo(CaseState.DONE);
   }
@@ -123,8 +120,8 @@ class TestProcurementRequest
     verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
 
     ICase caze = verifyTasks.get(0).getCase();
-    waitUntilAcceptRequestTaskIsAvailable(caze);
-
+    executeSystemTask(bpmClient, caze);
+   
     bpmClient.mock().element(HtmlDialog.ACCEPT_REQUEST).with(ProcurementRequest.class, (in, out) -> out.setAccepted(false));
     ProcurementRequest request = acceptRequest(bpmClient, getAcceptRequestTask(caze));
 
@@ -147,7 +144,7 @@ class TestProcurementRequest
      verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
 
      ICase caze = verifyTasks.get(0).getCase();
-     waitUntilAcceptRequestTaskIsAvailable(caze);
+     executeSystemTask(bpmClient, caze);
 
      bpmClient.mock().element(HtmlDialog.ACCEPT_REQUEST).with(ProcurementRequest.class, (in, out) -> out.setAccepted(true));
      ProcurementRequest request = acceptRequest(bpmClient, getAcceptRequestTask(caze));
@@ -198,11 +195,9 @@ class TestProcurementRequest
     return result.data().last();
   }
 
-  //TODO API Sugar: set locale to default cms language. Provide api to set other language
   private ITask getAcceptRequestTask(ICase caze)
   {
-    // Locale of system user session seems to be the default locale of the os
-    String taskName = Locale.ENGLISH.getLanguage().equals(Locale.getDefault().getLanguage()) ? "Accept Request:" : "Antrag annehmen:";
+    String taskName =  "Accept Request:";
     return caze
         .getActiveTasks()
         .stream()
@@ -211,14 +206,12 @@ class TestProcurementRequest
         .orElse(null);
   }
 
-  // TODO API Sugar: Provide method to wait until system task has been executed
-  private void waitUntilSystemTaskHasBeenExecuted(ICase caze)
+  private void executeSystemTask(BpmClient client, ICase caze)
   {
-    Awaitility.await().until(()-> Sudo.exec(() -> caze.getState() == CaseState.DONE));
-  }
-
-  private void waitUntilAcceptRequestTaskIsAvailable(ICase caze)
-  {
-    Awaitility.await().until(()-> Sudo.exec(() -> getAcceptRequestTask(caze) != null));
+    List<ITask> tasks = caze.getActiveTasks();
+    assertThat(tasks).hasSize(1);
+    ITask systemTask = tasks.get(0);
+    assertThat(systemTask.getActivatorName()).isEqualTo("#SYSTEM");
+    client.start().resumableTask(systemTask).as().systemUser().execute();
   }
 }
