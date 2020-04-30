@@ -188,10 +188,10 @@ To run this service locally:
                 <password>false</password>
             </property>
             <feature>
-                <class>com.axonivy.connectivity.rest.json.OdataJsonFeature</class>
+                <class>com.axonivy.connectivity.rest.client.auth.OAuth2Feature</class>
             </feature>
             <feature>
-                <class>com.axonivy.connectivity.rest.client.auth.OAuth2Feature</class>
+                <class>com.axonivy.connectivity.rest.sample.uipath.OdataJsonFeature</class>
             </feature>
         </configuration>
     </restClient>
