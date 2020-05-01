@@ -199,10 +199,10 @@ https://platform.uipath.com/AXONPRESALES/AXONPRESALES/swagger
                 <class>com.axonivy.connectivity.rest.client.auth.OAuth2Feature</class>
             </feature>
             <feature>
-                <class>com.axonivy.connectivity.rest.sample.uipath.OdataJsonFeature</class>
+                <class>com.axonivy.connectivity.rest.sample.uipath.TenantHeaderFeature</class>
             </feature>
             <feature>
-                <class>com.axonivy.connectivity.rest.sample.uipath.TenantHeaderFeature</class>
+                <class>com.axonivy.connectivity.rest.sample.uipath.UiPathJsonFeature</class>
             </feature>
         </configuration>
     </restClient>
