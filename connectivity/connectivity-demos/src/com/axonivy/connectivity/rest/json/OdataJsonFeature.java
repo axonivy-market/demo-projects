@@ -56,7 +56,7 @@ public class OdataJsonFeature extends JsonFeature
     return true;
   }
 
-  private static class ODataMapperProvider extends JsonModifier
+  public static class ODataMapperProvider extends JsonModifier
   {
     @Override
     public ObjectMapper locateMapper(Class<?> type, MediaType mediaType)
