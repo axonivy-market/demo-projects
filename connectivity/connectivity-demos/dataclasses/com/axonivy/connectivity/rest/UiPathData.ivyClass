@@ -1,3 +1,5 @@
 UiPathData #class
 com.axonivy.connectivity.rest #namespace
 license io.swagger.uipath.openapi.LicenseDto #field
+jobs java.util.List<io.swagger.uipath.openapi.JobDto> #field
+robots java.util.List<io.swagger.uipath.openapi.RobotDto> #field
