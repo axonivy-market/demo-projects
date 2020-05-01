@@ -209,6 +209,7 @@ https://platform.uipath.com/AXONPRESALES/AXONPRESALES/swagger
     <restClient>
         <uuid>265b33a0-ac87-411a-b6f6-3b71d4a6e9a9</uuid>
         <name>uiPathAuth</name>
+        <description>https://docs.uipath.com/orchestrator/reference/consuming-cloud-api</description>
         <configuration>
             <uri>https://account.uipath.com/oauth/token</uri>
             <property>
