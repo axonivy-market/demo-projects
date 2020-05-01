@@ -1,0 +1,3 @@
+UiPathData #class
+com.axonivy.connectivity.rest #namespace
+license io.swagger.uipath.openapi.LicenseDto #field
