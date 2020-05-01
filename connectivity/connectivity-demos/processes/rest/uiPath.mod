@@ -21,6 +21,7 @@ uh0 @PushWFArc f6 '' #zField
 uh0 @RestClientCall f0 '' #zField
 uh0 @PushWFArc f2 '' #zField
 uh0 @PushWFArc f4 '' #zField
+uh0 @InfoButton f7 '' #zField
 >Proto uh0 uh0 uiPath #zField
 uh0 f1 457 233 30 30 0 15 #rect
 uh0 f1 @|EndIcon #fIcon
@@ -50,6 +51,7 @@ uh0 f9 inParamDecl '<> param;' #txt
 uh0 f9 requestEnabled true #txt
 uh0 f9 triggerEnabled false #txt
 uh0 f9 callSignature startRPA() #txt
+uh0 f9 startName '8.2 RPA integration with UIPath' #txt
 uh0 f9 caseData businessCase.attach=true #txt
 uh0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -133,6 +135,20 @@ uh0 f0 408 122 128 44 -40 -15 #rect
 uh0 f0 @|UserDialogIcon #fIcon
 uh0 f2 472 86 472 122 #arcP
 uh0 f4 472 166 472 233 #arcP
+uh0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Robotics Process Automation (RPA)
+use OpenAPI calls to interact with robots 
+on the UIPath orchestration platform</name>
+        <nameStyle>33,5,0
+80,5
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+uh0 f7 72 226 272 60 -129 -22 #rect
+uh0 f7 @|IBIcon #fIcon
 >Proto uh0 .type com.axonivy.connectivity.rest.UiPathData #txt
 >Proto uh0 .processKind NORMAL #txt
 >Proto uh0 0 0 32 24 18 0 #rect
