@@ -24,9 +24,6 @@ uh0 f1 561 49 30 30 0 15 #rect
 uh0 f1 @|EndIcon #fIcon
 uh0 f3 clientId 699e715f-63b1-4355-a974-ee3cac26985e #txt
 uh0 f3 path odata/Settings/UiPath.Server.Configuration.OData.GetLicense #txt
-uh0 f3 headers 'Accept=*/*;
-X-UIPATH-TenantName="AXONPRESALES";
-' #txt
 uh0 f3 resultType io.swagger.uipath.openapi.LicenseDto #txt
 uh0 f3 responseCode 'out.license = result;' #txt
 uh0 f3 clientErrorCode ivy:error:rest:client #txt
