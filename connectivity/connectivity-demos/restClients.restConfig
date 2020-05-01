@@ -179,7 +179,7 @@ To run this service locally:
 https://platform.uipath.com/AXONPRESALES/AXONPRESALES/swagger
 </description>
         <configuration>
-            <uri>https://platform.uipath.com/AXONPRESALES/AXONPRESALES</uri>
+            <uri>https://platform.uipath.com/</uri>
             <property>
                 <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
                 <value>false</value>
@@ -188,6 +188,11 @@ https://platform.uipath.com/AXONPRESALES/AXONPRESALES/swagger
             <property>
                 <name>jersey.config.client.followRedirects</name>
                 <value>false</value>
+                <password>false</password>
+            </property>
+            <property>
+                <name>tenant</name>
+                <value>AXONPRESALES</value>
                 <password>false</password>
             </property>
             <feature>
