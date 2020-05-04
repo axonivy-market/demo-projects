@@ -72,7 +72,7 @@ com.axonivy.connectivity.rest.client.auth.OAuthErrorHandler.isAuthError(error);'
 uh0 f11 attachedToRef 171C62230757992F-f3 #txt
 uh0 f11 337 81 30 30 0 15 #rect
 uh0 f11 @|ErrorBoundaryEventIcon #fIcon
-uh0 f13 dialogId com.axonivy.connectivity.rest.UiPathAuthoirzation #txt
+uh0 f13 dialogId com.axonivy.connectivity.rest.UiPathAuthorization #txt
 uh0 f13 startMethod start() #txt
 uh0 f13 requestActionDecl '<> param;' #txt
 uh0 f13 responseMappingAction 'out=in;
