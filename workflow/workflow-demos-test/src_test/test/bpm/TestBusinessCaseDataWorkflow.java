@@ -38,10 +38,10 @@ public class TestBusinessCaseDataWorkflow
     bpmClient.mock().element(HD_INTERVIEW_2).withNoAction();
     ExecutionResult result = bpmClient.start().process(CREATE_START).as().everybody().execute();
     assertThat(result.history().elements()).containsExactly(CREATE_START, HD_INTERVIEW_1, TASK_SWITCH);
-    assertThat(result.workflow().nextTask()).isPresent();
-    result = bpmClient.start().resumableTask(result.workflow().nextTask().get()).as().everybody().execute();
+    assertThat(result.workflow().anyNextTask()).isPresent();
+    result = bpmClient.start().resumableTask(result.workflow().anyNextTask().get()).as().everybody().execute();
     assertThat(result.history().elements()).containsExactly(TASK_SWITCH, HD_INTERVIEW_2, END_TASK);
-    assertThat(result.workflow().nextTask()).isEmpty();
+    assertThat(result.workflow().anyNextTask()).isEmpty();
   }
   
 }

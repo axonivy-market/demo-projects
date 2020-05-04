@@ -2,18 +2,15 @@ package test.bpm;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
 import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
+import ch.ivyteam.ivy.bpm.engine.client.TaskSelector;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmElement;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 import ch.ivyteam.ivy.workflow.CaseState;
-import ch.ivyteam.ivy.workflow.ICase;
-import ch.ivyteam.ivy.workflow.ITask;
 import ch.ivyteam.ivy.workflow.TaskState;
 import workflow.humantask.ProcurementRequest;
 
@@ -35,7 +32,7 @@ class TestProcurementRequest
 {
   /** Processes under test */
   private static final BpmProcess PROCUREMENT_PROCESS = BpmProcess.name("ProcurementRequestParallel");
-
+  
   /** HTML Dialogs under test */
   public static interface HtmlDialog
   {
@@ -44,6 +41,10 @@ class TestProcurementRequest
     BpmElement VERIFY_REQUEST_MANAGER = PROCUREMENT_PROCESS.element().name().contains("by Manager");
     BpmElement ACCEPT_REQUEST = PROCUREMENT_PROCESS.elementName("Accept Request");
   }
+  
+  private static final String MANAGER = "Manager";
+  private static final String TEAMLEADER = "Teamleader";
+  private static final String EXECUTIVE_MANAGER = "Executive Manager";
 
   /**
    * Manager and Team Leader do not verify
@@ -51,18 +52,16 @@ class TestProcurementRequest
   @Test
   void approvalTask_notVerified_byBoth(BpmClient bpmClient)
   {
-    List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
+    ExecutionResult result = createProcurrementRequest(bpmClient);
 
     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_TEAM_LEADER).with(ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(false));
-    verifyRequest(bpmClient, verifyTasks.get(0), "Teamleader");
+    verifyRequest(bpmClient, result, TEAMLEADER);
 
     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_MANAGER).with(ProcurementRequest.class, (in, out) -> out.setDataOkManager(false));
-    verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
+    ExecutionResult verifyResult = verifyRequest(bpmClient, result, MANAGER);
 
-    ICase caze = verifyTasks.get(0).getCase();
-    executeSystemTask(bpmClient, caze);
-
-    assertThat(caze.getState()).isEqualTo(CaseState.DONE);
+    executeSystemTask(bpmClient, verifyResult);
+    assertThat(verifyResult.workflow().technicalCase().getState()).isEqualTo(CaseState.DONE);
   }
 
   /**
@@ -71,18 +70,16 @@ class TestProcurementRequest
   @Test
   void approvalTask_notVerified_byManager(BpmClient bpmClient)
   {
-    List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
+    ExecutionResult result = createProcurrementRequest(bpmClient);
 
     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_TEAM_LEADER).with(ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(true));
-    verifyRequest(bpmClient, verifyTasks.get(0), "Teamleader");
+    verifyRequest(bpmClient, result, TEAMLEADER);
 
     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_MANAGER).with(ProcurementRequest.class, (in, out) -> out.setDataOkManager(false));
-    verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
+    ExecutionResult verifyResult = verifyRequest(bpmClient, result, MANAGER);
 
-    ICase caze = verifyTasks.get(0).getCase();
-    executeSystemTask(bpmClient, caze);
-
-    assertThat(caze.getState()).isEqualTo(CaseState.DONE);
+    executeSystemTask(bpmClient, verifyResult);
+    assertThat(verifyResult.workflow().technicalCase().getState()).isEqualTo(CaseState.DONE);
   }
 
   /**
@@ -91,18 +88,16 @@ class TestProcurementRequest
   @Test
   void approvalTask_notVerified_byTeamLeader(BpmClient bpmClient)
   {
-    List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
+    ExecutionResult result = createProcurrementRequest(bpmClient);
 
     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_TEAM_LEADER).with(ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(false));
-    verifyRequest(bpmClient, verifyTasks.get(0), "Teamleader");
+    verifyRequest(bpmClient, result, TEAMLEADER);
 
     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_MANAGER).with(ProcurementRequest.class, (in, out) -> out.setDataOkManager(true));
-    verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
+    ExecutionResult verifyResult = verifyRequest(bpmClient, result, MANAGER);
 
-    ICase caze = verifyTasks.get(0).getCase();
-    executeSystemTask(bpmClient, caze);
-
-    assertThat(caze.getState()).isEqualTo(CaseState.DONE);
+    executeSystemTask(bpmClient, verifyResult);
+    assertThat(verifyResult.workflow().technicalCase().getState()).isEqualTo(CaseState.DONE);
   }
 
  /**
@@ -111,49 +106,47 @@ class TestProcurementRequest
   @Test
   void approvalTask_verified_notAccepted(BpmClient bpmClient)
   {
-    List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
+    ExecutionResult result = createProcurrementRequest(bpmClient);
 
     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_TEAM_LEADER).with(ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(true));
-    verifyRequest(bpmClient, verifyTasks.get(0), "Teamleader");
+    verifyRequest(bpmClient, result, TEAMLEADER);
 
     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_MANAGER).with(ProcurementRequest.class, (in, out) -> out.setDataOkManager(true));
-    verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
+    ExecutionResult verifyResult = verifyRequest(bpmClient, result, MANAGER);
 
-    ICase caze = verifyTasks.get(0).getCase();
-    executeSystemTask(bpmClient, caze);
+    executeSystemTask(bpmClient, verifyResult);
    
     bpmClient.mock().element(HtmlDialog.ACCEPT_REQUEST).with(ProcurementRequest.class, (in, out) -> out.setAccepted(false));
-    ProcurementRequest request = acceptRequest(bpmClient, getAcceptRequestTask(caze));
+    ProcurementRequest request = acceptRequest(bpmClient, verifyResult);
 
     assertThat(request.getAccepted()).isFalse();
-    assertThat(caze.getState()).isEqualTo(CaseState.DONE);
+    assertThat(verifyResult.workflow().technicalCase().getState()).isEqualTo(CaseState.DONE);
   }
 
   /**
    * Manager and Team Leader do verify and Executive Manager does accept
    */
-   @Test
-   void approvalTask_verified_accepted(BpmClient bpmClient)
-   {
-     List<ITask> verifyTasks = createProcurrementRequest(bpmClient);
+  @Test
+  void approvalTask_verified_accepted(BpmClient bpmClient)
+  {
+    ExecutionResult result = createProcurrementRequest(bpmClient);
+    
+    bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_TEAM_LEADER).with(ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(true));
+    verifyRequest(bpmClient, result, TEAMLEADER);
+    
+    bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_MANAGER).with(ProcurementRequest.class, (in, out) -> out.setDataOkManager(true));
+    ExecutionResult verifyResult = verifyRequest(bpmClient, result, MANAGER);
+    
+    executeSystemTask(bpmClient, verifyResult);
+    
+    bpmClient.mock().element(HtmlDialog.ACCEPT_REQUEST).with(ProcurementRequest.class, (in, out) -> out.setAccepted(true));
+    ProcurementRequest request = acceptRequest(bpmClient, verifyResult);
+    
+    assertThat(request.getAccepted()).isTrue();
+    assertThat(verifyResult.workflow().technicalCase().getState()).isEqualTo(CaseState.DONE);
+  }
 
-     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_TEAM_LEADER).with(ProcurementRequest.class, (in, out) -> out.setDataOkTeamLeader(true));
-     verifyRequest(bpmClient, verifyTasks.get(0), "Teamleader");
-
-     bpmClient.mock().element(HtmlDialog.VERIFY_REQUEST_MANAGER).with(ProcurementRequest.class, (in, out) -> out.setDataOkManager(true));
-     verifyRequest(bpmClient, verifyTasks.get(1), "Manager");
-
-     ICase caze = verifyTasks.get(0).getCase();
-     executeSystemTask(bpmClient, caze);
-
-     bpmClient.mock().element(HtmlDialog.ACCEPT_REQUEST).with(ProcurementRequest.class, (in, out) -> out.setAccepted(true));
-     ProcurementRequest request = acceptRequest(bpmClient, getAcceptRequestTask(caze));
-
-     assertThat(request.getAccepted()).isTrue();
-     assertThat(caze.getState()).isEqualTo(CaseState.DONE);
-   }
-
-  private List<ITask> createProcurrementRequest(BpmClient bpmClient)
+  private ExecutionResult createProcurrementRequest(BpmClient bpmClient)
   {
     var testData = new ProcurementRequest();
     testData.setDescription("PC");
@@ -168,50 +161,34 @@ class TestProcurementRequest
         .as().user("ldv")
         .execute();
     assertThat(result).isNotNull();
-    List<ITask> tasks = result.workflow().nextTasks();
-    assertThat(tasks).hasSize(2);
-    ITask verifyTask1 = tasks.get(0);
-    assertThat(verifyTask1.getName()).startsWith("Verify Request:");
-    assertThat(verifyTask1.getActivatorName()).isEqualTo("Teamleader");
-    ITask verifyTask2 = tasks.get(1);
-    assertThat(verifyTask2.getName()).startsWith("Verify Request:");
-    assertThat(verifyTask2.getActivatorName()).isEqualTo("Manager");
-    return tasks;
+    TaskSelector tasks = result.workflow().nextTask();
+    assertThat(result.workflow().nextTasks()).hasSize(2);
+    assertThat(tasks.activatorRole(TEAMLEADER).get().getName()).startsWith("Verify Request:");
+    assertThat(tasks.activatorRole(MANAGER).get().getName()).startsWith("Verify Request:");
+    return result;
   }
-
-  private void verifyRequest(BpmClient bpmClient, ITask verifyTask, String role)
+  
+  private ExecutionResult verifyRequest(BpmClient bpmClient, ExecutionResult previousResult, String role)
   {
-    ExecutionResult result = bpmClient
-        .start().resumableTask(verifyTask)
-        .as().role(role)
-        .execute();
+    ExecutionResult result = bpmClient.start()
+            .resumableTask(previousResult.workflow().nextTask().activatorRole(role).get())
+            .as().role(role).execute();
     assertThat(result.workflow().task().getState()).isIn(TaskState.DONE, TaskState.READY_FOR_JOIN);
+    return result;
   }
 
-  private ProcurementRequest acceptRequest(BpmClient bpmClient, ITask acceptRequestTask)
+  private ProcurementRequest acceptRequest(BpmClient bpmClient, ExecutionResult previousResult)
   {
-    ExecutionResult result = bpmClient.start().resumableTask(acceptRequestTask).as().role("Executive Manager").execute();
+    ExecutionResult result = bpmClient.start()
+            .resumableTask(previousResult.workflow().nextTask().name().contains("Accept Request:").get())
+            .as().role(EXECUTIVE_MANAGER).execute();
     assertThat(result.workflow().task().getState()).isIn(TaskState.DONE);
     return result.data().last();
   }
 
-  private ITask getAcceptRequestTask(ICase caze)
+  private void executeSystemTask(BpmClient client, ExecutionResult previousResult)
   {
-    String taskName =  "Accept Request:";
-    return caze
-        .getActiveTasks()
-        .stream()
-        .filter(task -> task.getName().contains(taskName))
-        .findAny()
-        .orElse(null);
-  }
-
-  private void executeSystemTask(BpmClient client, ICase caze)
-  {
-    List<ITask> tasks = caze.getActiveTasks();
-    assertThat(tasks).hasSize(1);
-    ITask systemTask = tasks.get(0);
-    assertThat(systemTask.getActivatorName()).isEqualTo("#SYSTEM");
-    client.start().resumableTask(systemTask).as().systemUser().execute();
+    client.start().resumableTask(previousResult.workflow().nextTask().system().get())
+            .as().systemUser().execute();
   }
 }
