@@ -1,0 +1,141 @@
+{
+  "@odata.context": "string",
+  "value": [
+    {
+      "Key": "string",
+      "StartTime": "2020-05-04T09:21:38.489Z",
+      "EndTime": "2020-05-04T09:21:38.489Z",
+      "State": "Pending",
+      "JobPriority": "Low",
+      "Robot": {
+        "LicenseKey": "string",
+        "MachineName": "string",
+        "MachineId": 0,
+        "Name": "string",
+        "Username": "string",
+        "ExternalName": "string",
+        "Description": "string",
+        "Version": "string",
+        "Type": "NonProduction",
+        "HostingType": "Standard",
+        "ProvisionType": "Manual",
+        "Password": "string",
+        "CredentialStoreId": 0,
+        "UserId": 0,
+        "CredentialType": "Default",
+        "Environments": [
+          {
+            "Name": "string",
+            "Description": "string",
+            "Robots": [
+              {}
+            ],
+            "Type": "Dev",
+            "Id": 0
+          }
+        ],
+        "RobotEnvironments": "string",
+        "ExecutionSettings": {},
+        "IsExternalLicensed": true,
+        "Id": 0
+      },
+      "Release": {
+        "Key": "string",
+        "ProcessKey": "string",
+        "ProcessVersion": "string",
+        "IsLatestVersion": true,
+        "IsProcessDeleted": true,
+        "Description": "string",
+        "Name": "string",
+        "EnvironmentId": 0,
+        "EnvironmentName": "string",
+        "Environment": {
+          "Name": "string",
+          "Description": "string",
+          "Robots": [
+            {
+              "LicenseKey": "string",
+              "MachineName": "string",
+              "MachineId": 0,
+              "Name": "string",
+              "Username": "string",
+              "ExternalName": "string",
+              "Description": "string",
+              "Version": "string",
+              "Type": "NonProduction",
+              "HostingType": "Standard",
+              "ProvisionType": "Manual",
+              "Password": "string",
+              "CredentialStoreId": 0,
+              "UserId": 0,
+              "CredentialType": "Default",
+              "Environments": [
+                {}
+              ],
+              "RobotEnvironments": "string",
+              "ExecutionSettings": {},
+              "IsExternalLicensed": true,
+              "Id": 0
+            }
+          ],
+          "Type": "Dev",
+          "Id": 0
+        },
+        "InputArguments": "string",
+        "ProcessType": "Process",
+        "SupportsMultipleEntryPoints": true,
+        "RequiresUserInteraction": true,
+        "CurrentVersion": {
+          "ReleaseId": 0,
+          "VersionNumber": "string",
+          "CreationTime": "2020-05-04T09:21:38.490Z",
+          "ReleaseName": "string",
+          "Id": 0
+        },
+        "ReleaseVersions": [
+          {
+            "ReleaseId": 0,
+            "VersionNumber": "string",
+            "CreationTime": "2020-05-04T09:21:38.490Z",
+            "ReleaseName": "string",
+            "Id": 0
+          }
+        ],
+        "Arguments": {
+          "Input": "string",
+          "Output": "string"
+        },
+        "ProcessSettings": {
+          "errorRecordingEnabled": true,
+          "duration": 0,
+          "frequency": 0,
+          "quality": 0,
+          "autoStartProcess": true
+        },
+        "AutoUpdate": true,
+        "JobPriority": "Low",
+        "Id": 0
+      },
+      "Source": "string",
+      "SourceType": "Manual",
+      "BatchExecutionKey": "string",
+      "Info": "string",
+      "CreationTime": "2020-05-04T09:21:38.490Z",
+      "StartingScheduleId": 0,
+      "ReleaseName": "string",
+      "Type": "Unattended",
+      "InputArguments": "string",
+      "OutputArguments": "string",
+      "HostMachineName": "string",
+      "HasMediaRecorded": true,
+      "PersistenceId": "string",
+      "ResumeVersion": 0,
+      "StopStrategy": "SoftStop",
+      "RuntimeType": "NonProduction",
+      "RequiresUserInteraction": true,
+      "ReleaseVersionId": 0,
+      "EntryPointPath": "string",
+      "Id": 0
+    }
+  ]
+}
