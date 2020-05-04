@@ -119,7 +119,7 @@ class TestProcurementRequest
     executeSystemTask(bpmClient, workflow);
    
     bpmClient.mock().element(HtmlDialog.ACCEPT_REQUEST).with(ProcurementRequest.class, (in, out) -> out.setAccepted(false));
-    ProcurementRequest request = acceptRequest(bpmClient, workflow.nextTask().name().contains("Accept Request:"));
+    ProcurementRequest request = acceptRequest(bpmClient, workflow);
 
     assertThat(request.getAccepted()).isFalse();
     assertThat(workflow.technicalCase().getState()).isEqualTo(CaseState.DONE);
@@ -142,7 +142,7 @@ class TestProcurementRequest
     executeSystemTask(bpmClient, workflow);
     
     bpmClient.mock().element(HtmlDialog.ACCEPT_REQUEST).with(ProcurementRequest.class, (in, out) -> out.setAccepted(true));
-    ProcurementRequest request = acceptRequest(bpmClient, workflow.nextTask().name().contains("Accept Request:"));
+    ProcurementRequest request = acceptRequest(bpmClient, workflow);
     
     assertThat(request.getAccepted()).isTrue();
     assertThat(workflow.technicalCase().getState()).isEqualTo(CaseState.DONE);
@@ -165,30 +165,32 @@ class TestProcurementRequest
     assertThat(result).isNotNull();
     TaskSelector tasks = result.workflow().nextTask();
     assertThat(result.workflow().nextTasks()).hasSize(2);
-    assertThat(tasks.activatorRole(TEAMLEADER).getName()).startsWith("Verify Request:");
-    assertThat(tasks.activatorRole(MANAGER).getName()).startsWith("Verify Request:");
+    assertThat(tasks.activatorRole(TEAMLEADER)).map(ITask::getName).contains("Verify Request:");
+    assertThat(tasks.activatorRole(MANAGER)).map(ITask::getName).contains("Verify Request:");
     return tasks;
   }
   
   private ExecutionResult verifyRequest(BpmClient bpmClient, TaskSelector tasks, String role)
   {
-    ExecutionResult result = bpmClient
-            .start().resumableTask(tasks.activatorRole(role))
-            .as().role(role)
-            .execute();
+    ExecutionResult result = bpmClient.start()
+            .resumableTask(tasks.activatorRole(role).get())
+            .as().role(role).execute();
     assertThat(result.workflow().task().getState()).isIn(TaskState.DONE, TaskState.READY_FOR_JOIN);
     return result;
   }
 
-  private ProcurementRequest acceptRequest(BpmClient bpmClient, ITask acceptRequestTask)
+  private ProcurementRequest acceptRequest(BpmClient bpmClient, Workflow workflow)
   {
-    ExecutionResult result = bpmClient.start().resumableTask(acceptRequestTask).as().role(EXECUTIVE_MANAGER).execute();
+    ExecutionResult result = bpmClient.start()
+            .resumableTask(workflow.nextTask().name().contains("Accept Request:").get())
+            .as().role(EXECUTIVE_MANAGER).execute();
     assertThat(result.workflow().task().getState()).isIn(TaskState.DONE);
     return result.data().last();
   }
 
   private void executeSystemTask(BpmClient client, Workflow workflow)
   {
-    client.start().resumableTask(workflow.nextTask().activatorUser("SYSTEM")).as().systemUser().execute();
+    client.start().resumableTask(workflow.nextTask().system().get())
+            .as().systemUser().execute();
   }
 }
