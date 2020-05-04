@@ -1,7 +1,7 @@
 [Ivy]
 171CB5CB2AFB22D8 7.5.0 #module
 >Proto >Proto Collection #zClass
-Us0 UiPathAuthoirzationProcess Big #zClass
+Us0 UiPathAuthorizationProcess Big #zClass
 Us0 RD #cInfo
 Us0 #process
 Us0 @TextInP .type .type #zField
@@ -16,7 +16,7 @@ Us0 @UdExitEnd f4 '' #zField
 Us0 @RestClientCall f9 '' #zField
 Us0 @PushWFArc f5 '' #zField
 Us0 @PushWFArc f6 '' #zField
->Proto Us0 Us0 UiPathAuthoirzationProcess #zField
+>Proto Us0 Us0 UiPathAuthorizationProcess #zField
 Us0 f0 guid 171CB5CB2D45A96B #txt
 Us0 f0 method start() #txt
 Us0 f0 inParameterDecl '<> param;' #txt
@@ -92,7 +92,7 @@ Us0 f9 160 138 112 44 -25 -7 #rect
 Us0 f9 @|RestClientCallIcon #fIcon
 Us0 f5 109 160 160 160 #arcP
 Us0 f6 272 160 339 160 #arcP
->Proto Us0 .type com.axonivy.connectivity.rest.UiPathAuthoirzation.UiPathAuthoirzationData #txt
+>Proto Us0 .type com.axonivy.connectivity.rest.UiPathAuthorization.UiPathAuthorizationData #txt
 >Proto Us0 .processKind HTML_DIALOG #txt
 >Proto Us0 -8 -8 16 16 16 26 #rect
 >Proto Us0 '' #fIcon
