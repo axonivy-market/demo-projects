@@ -12,7 +12,6 @@ import ch.ivyteam.ivy.bpm.engine.client.element.BpmElement;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 import ch.ivyteam.ivy.workflow.CaseState;
-import ch.ivyteam.ivy.workflow.ITask;
 import ch.ivyteam.ivy.workflow.TaskState;
 import workflow.humantask.ProcurementRequest;
 
@@ -165,8 +164,8 @@ class TestProcurementRequest
     assertThat(result).isNotNull();
     TaskSelector tasks = result.workflow().nextTask();
     assertThat(result.workflow().nextTasks()).hasSize(2);
-    assertThat(tasks.activatorRole(TEAMLEADER)).map(ITask::getName).contains("Verify Request:");
-    assertThat(tasks.activatorRole(MANAGER)).map(ITask::getName).contains("Verify Request:");
+    assertThat(tasks.activatorRole(TEAMLEADER).get().getName()).startsWith("Verify Request:");
+    assertThat(tasks.activatorRole(MANAGER).get().getName()).startsWith("Verify Request:");
     return tasks;
   }
   
