@@ -205,6 +205,36 @@ https://platform.uipath.com/AXONPRESALES/AXONPRESALES/swagger
                 <class>com.axonivy.connectivity.rest.sample.uipath.UiPathJsonFeature</class>
             </feature>
         </configuration>
+        <environmentConfigurations>
+            <environment>dev-axonivy</environment>
+            <configuration>
+                <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.request.application}/api/rpaMock</uri>
+                <property>
+                    <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
+                    <value>false</value>
+                    <password>false</password>
+                </property>
+                <property>
+                    <name>jersey.config.client.followRedirects</name>
+                    <value>false</value>
+                    <password>false</password>
+                </property>
+                <property>
+                    <name>tenant</name>
+                    <value>AXONPRESALES</value>
+                    <password>false</password>
+                </property>
+                <feature>
+                    <class>com.axonivy.connectivity.rest.client.auth.OAuth2Feature</class>
+                </feature>
+                <feature>
+                    <class>com.axonivy.connectivity.rest.sample.uipath.TenantHeaderFeature</class>
+                </feature>
+                <feature>
+                    <class>com.axonivy.connectivity.rest.sample.uipath.UiPathJsonFeature</class>
+                </feature>
+            </configuration>
+        </environmentConfigurations>
     </restClient>
     <restClient>
         <uuid>265b33a0-ac87-411a-b6f6-3b71d4a6e9a9</uuid>

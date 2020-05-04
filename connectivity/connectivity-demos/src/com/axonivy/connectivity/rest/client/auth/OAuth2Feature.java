@@ -15,11 +15,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 import ch.ivyteam.ivy.bpm.error.BpmError;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.security.ISession;
+import ch.ivyteam.log.Logger;
 
 public class OAuth2Feature implements Feature
 {
   public static final String TOKEN_MISSING = "rest:client:token:missing";
-
+  public static final String SERVICE_ID = "serviceId";
+  
   @Override
   public boolean configure(FeatureContext context)
   {
@@ -30,19 +32,25 @@ public class OAuth2Feature implements Feature
   @Provider
   private static class AuthorizationFilter implements javax.ws.rs.client.ClientRequestFilter
   {
-    private TokenStore store;
+    private ISession session;
+    private Logger logger;
 
     public AuthorizationFilter(ISession session, ch.ivyteam.log.Logger logger)
     {
-      store = new TokenStore(session, "platform.uipath.com", logger);
+      this.session = session;
+      this.logger = logger;
     }
 
     @Override
     public void filter(ClientRequestContext context) throws IOException {
+      String service = context.getUri().getHost();
+      TokenStore store = new TokenStore(session, service, logger);
       JsonNode token = store.getToken();
       if (token == null)
       {
-        throw BpmError.create(TOKEN_MISSING).build();
+        throw BpmError.create(TOKEN_MISSING)
+          .withAttribute(SERVICE_ID, service)
+          .build();
       }
       String accessToken = token.get("access_token").asText();
       if (StringUtils.isEmpty(accessToken))

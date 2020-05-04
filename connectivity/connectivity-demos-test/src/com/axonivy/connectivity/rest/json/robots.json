@@ -1,0 +1,60 @@
+{
+  "@odata.context": "string",
+  "value": [
+    {
+      "LicenseKey": "string",
+      "MachineName": "string",
+      "MachineId": 0,
+      "Name": "string",
+      "Username": "string",
+      "ExternalName": "string",
+      "Description": "string",
+      "Version": "string",
+      "Type": "NonProduction",
+      "HostingType": "Standard",
+      "ProvisionType": "Manual",
+      "Password": "string",
+      "CredentialStoreId": 0,
+      "UserId": 0,
+      "CredentialType": "Default",
+      "Environments": [
+        {
+          "Name": "string",
+          "Description": "string",
+          "Robots": [
+            {
+              "LicenseKey": "string",
+              "MachineName": "string",
+              "MachineId": 0,
+              "Name": "string",
+              "Username": "string",
+              "ExternalName": "string",
+              "Description": "string",
+              "Version": "string",
+              "Type": "NonProduction",
+              "HostingType": "Standard",
+              "ProvisionType": "Manual",
+              "Password": "string",
+              "CredentialStoreId": 0,
+              "UserId": 0,
+              "CredentialType": "Default",
+              "Environments": [
+                {}
+              ],
+              "RobotEnvironments": "string",
+              "ExecutionSettings": {},
+              "IsExternalLicensed": true,
+              "Id": 0
+            }
+          ],
+          "Type": "Dev",
+          "Id": 0
+        }
+      ],
+      "RobotEnvironments": "string",
+      "ExecutionSettings": {},
+      "IsExternalLicensed": true,
+      "Id": 0
+    }
+  ]
+}
