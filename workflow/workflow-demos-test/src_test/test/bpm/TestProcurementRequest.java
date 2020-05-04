@@ -168,27 +168,27 @@ class TestProcurementRequest
     return result;
   }
   
-  private ExecutionResult verifyRequest(BpmClient bpmClient, ExecutionResult oldResult, String role)
+  private ExecutionResult verifyRequest(BpmClient bpmClient, ExecutionResult previousResult, String role)
   {
     ExecutionResult result = bpmClient.start()
-            .resumableTask(oldResult.workflow().nextTask().activatorRole(role).get())
+            .resumableTask(previousResult.workflow().nextTask().activatorRole(role).get())
             .as().role(role).execute();
     assertThat(result.workflow().task().getState()).isIn(TaskState.DONE, TaskState.READY_FOR_JOIN);
     return result;
   }
 
-  private ProcurementRequest acceptRequest(BpmClient bpmClient, ExecutionResult oldResult)
+  private ProcurementRequest acceptRequest(BpmClient bpmClient, ExecutionResult previousResult)
   {
     ExecutionResult result = bpmClient.start()
-            .resumableTask(oldResult.workflow().nextTask().name().contains("Accept Request:").get())
+            .resumableTask(previousResult.workflow().nextTask().name().contains("Accept Request:").get())
             .as().role(EXECUTIVE_MANAGER).execute();
     assertThat(result.workflow().task().getState()).isIn(TaskState.DONE);
     return result.data().last();
   }
 
-  private void executeSystemTask(BpmClient client, ExecutionResult oldResult)
+  private void executeSystemTask(BpmClient client, ExecutionResult previousResult)
   {
-    client.start().resumableTask(oldResult.workflow().nextTask().system().get())
+    client.start().resumableTask(previousResult.workflow().nextTask().system().get())
             .as().systemUser().execute();
   }
 }
