@@ -171,7 +171,7 @@ class TestProcurementRequest
   private ExecutionResult verifyRequest(BpmClient bpmClient, ExecutionResult previousResult, String role)
   {
     ExecutionResult result = bpmClient.start()
-            .resumableTask(previousResult.workflow().nextTask().activatorRole(role).get())
+            .task(previousResult.workflow().nextTask().activatorRole(role))
             .as().role(role).execute();
     assertThat(result.workflow().task().getState()).isIn(TaskState.DONE, TaskState.READY_FOR_JOIN);
     return result;
@@ -180,7 +180,7 @@ class TestProcurementRequest
   private ProcurementRequest acceptRequest(BpmClient bpmClient, ExecutionResult previousResult)
   {
     ExecutionResult result = bpmClient.start()
-            .resumableTask(previousResult.workflow().nextTask().name().contains("Accept Request:").get())
+            .task(previousResult.workflow().nextTask().name().contains("Accept Request:"))
             .as().role(EXECUTIVE_MANAGER).execute();
     assertThat(result.workflow().task().getState()).isIn(TaskState.DONE);
     return result.data().last();
@@ -188,7 +188,7 @@ class TestProcurementRequest
 
   private void executeSystemTask(BpmClient client, ExecutionResult previousResult)
   {
-    client.start().resumableTask(previousResult.workflow().nextTask().system().get())
+    client.start().task(previousResult.workflow().nextTask().system())
             .as().systemUser().execute();
   }
 }
