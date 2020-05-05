@@ -45,7 +45,7 @@ Read License</name>
 </elementInfo>
 ' #txt
 uh0 f3 248 42 128 44 -40 -15 #rect
-uh0 f3 @|UserDialogIcon #fIcon
+uh0 f3 @|RestClientCallIcon #fIcon
 uh0 f9 outLink startRPA.ivp #txt
 uh0 f9 inParamDecl '<> param;' #txt
 uh0 f9 requestEnabled true #txt
@@ -111,7 +111,7 @@ Read Jobs</name>
 </elementInfo>
 ' #txt
 uh0 f5 408 42 128 44 -40 -15 #rect
-uh0 f5 @|UserDialogIcon #fIcon
+uh0 f5 @|RestClientCallIcon #fIcon
 uh0 f6 376 64 408 64 #arcP
 uh0 f0 clientId 699e715f-63b1-4355-a974-ee3cac26985e #txt
 uh0 f0 path odata/Robots #txt
@@ -132,7 +132,7 @@ Read Robots</name>
 </elementInfo>
 ' #txt
 uh0 f0 408 122 128 44 -40 -15 #rect
-uh0 f0 @|UserDialogIcon #fIcon
+uh0 f0 @|RestClientCallIcon #fIcon
 uh0 f2 472 86 472 122 #arcP
 uh0 f4 472 166 472 233 #arcP
 uh0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
