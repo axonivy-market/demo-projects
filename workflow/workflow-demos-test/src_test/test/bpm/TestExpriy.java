@@ -32,8 +32,8 @@ public class TestExpriy
   void runProcessWithoutExpire(BpmClient bpmClient)
   {
     ExecutionResult result = startProcess(bpmClient, EXPIRY_HIGHER_PRIO);
-    
-    startNextTask(bpmClient, getNextTask(result));
+    bpmClient.start().anyNextTask(result).execute();
+    assertCaseIsDone(result);
   }
   
   @Test
@@ -42,23 +42,24 @@ public class TestExpriy
     ExecutionResult result = startProcess(bpmClient, EXPIRY_HIGHER_PRIO);
     
     ITask nextTask = getNextTask(result);
-    nextTask.setExpiryTimestamp(Date.from(Instant.now().minus(1, ChronoUnit.DAYS)));
+    expireTask(nextTask);
     assertThat(nextTask.getPriority()).isEqualTo(WorkflowPriority.HIGH);
     
-    startNextTask(bpmClient, nextTask);
+    bpmClient.start().task(nextTask).as().everybody().execute();
+    assertCaseIsDone(result);
   }
-  
+
   @Test
   void expriyWithOtherRole(BpmClient bpmClient)
   {
     ExecutionResult result = startProcess(bpmClient, EXPIRY_OTHER_ROLE);
     
     ITask nextTask = getNextTask(result);
-    nextTask.setExpiryTimestamp(Date.from(Instant.now().minus(1, ChronoUnit.DAYS)));
+    expireTask(nextTask);
     assertThat(nextTask.getPriority()).isEqualTo(WorkflowPriority.HIGH);
     
-    assertThatThrownBy(() -> startNextTask(bpmClient, nextTask)).isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("is not permitted");
+    assertThatThrownBy(() -> bpmClient.start().task(nextTask).as().everybody().execute())
+            .isInstanceOf(IllegalArgumentException.class).hasMessageContaining("is not permitted");
     
     bpmClient.start().task(nextTask).as().role("Manager").execute();
     assertCaseIsDone(result);
@@ -70,26 +71,15 @@ public class TestExpriy
     ExecutionResult result = startProcess(bpmClient, EXPIRY_ERROR_TASK);
     
     ITask nextTask = getNextTask(result);
-    nextTask.setExpiryTimestamp(Date.from(Instant.now().minus(1, ChronoUnit.DAYS)));
+    expireTask(nextTask);
     assertThat(nextTask.getState()).isEqualTo(TaskState.DESTROYED);
     
     ITask errorTask = getNextTask(result);
-    assertThatThrownBy(() -> startNextTask(bpmClient, errorTask)).isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("is not permitted");
+    assertThatThrownBy(() -> bpmClient.start().task(nextTask).as().everybody().execute())
+            .isInstanceOf(IllegalArgumentException.class).hasMessageContaining("is not permitted");
     
     bpmClient.start().task(errorTask).as().systemUser().execute();
     assertCaseIsDone(result);
-  }
-  
-  private void startNextTask(BpmClient bpmClient, ITask nextTask)
-  {
-    ExecutionResult result = bpmClient.start().task(nextTask).as().everybody().execute();
-    assertCaseIsDone(result);
-  }
-
-  private void assertCaseIsDone(ExecutionResult result)
-  {
-    assertThat(result.workflow().technicalCase().getState()).isEqualTo(CaseState.DONE);
   }
   
   private ExecutionResult startProcess(BpmClient bpmClient, BpmElement startElement)
@@ -103,5 +93,15 @@ public class TestExpriy
     ITask nextTask = result.workflow().anyNextTask().get();
     assertThat(nextTask.getPriority()).isEqualTo(WorkflowPriority.NORMAL);
     return nextTask;
+  }
+  
+  private void expireTask(ITask nextTask)
+  {
+    nextTask.setExpiryTimestamp(Date.from(Instant.now().minus(1, ChronoUnit.DAYS)));
+  }
+  
+  private void assertCaseIsDone(ExecutionResult result)
+  {
+    assertThat(result.workflow().technicalCase().getState()).isEqualTo(CaseState.DONE);
   }
 }
