@@ -75,7 +75,7 @@ public class TestExpriy
     assertThat(nextTask.getState()).isEqualTo(TaskState.DESTROYED);
     
     ITask errorTask = getNextTask(result);
-    assertThatThrownBy(() -> bpmClient.start().task(nextTask).as().everybody().execute())
+    assertThatThrownBy(() -> bpmClient.start().task(errorTask).as().everybody().execute())
             .isInstanceOf(IllegalArgumentException.class).hasMessageContaining("is not permitted");
     
     bpmClient.start().task(errorTask).as().systemUser().execute();
