@@ -25,6 +25,9 @@ Ey0 @EndTask f12 '' #zField
 Ey0 @StartRequest f14 '' #zField
 Ey0 @PushWFArc f15 '' #zField
 Ey0 @TkArc f16 '' #zField
+Ey0 @InfoButton f17 '' #zField
+Ey0 @InfoButton f18 '' #zField
+Ey0 @InfoButton f19 '' #zField
 >Proto Ey0 Ey0 Expiry #zField
 Ey0 f0 outLink createExpriyErrorTask.ivp #txt
 Ey0 f0 inParamDecl '<> param;' #txt
@@ -122,6 +125,43 @@ Ey0 f14 81 49 30 30 -85 32 #rect
 Ey0 f14 @|StartRequestIcon #fIcon
 Ey0 f15 239 64 337 64 #arcP
 Ey0 f16 111 64 209 64 #arcP
+Ey0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>This example shows how you can set an expiry on a task.
+After the time is over a new task with a higher priority is created for everyone.</name>
+        <nameStyle>137,5
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ey0 f17 416 40 528 48 -244 -15 #rect
+Ey0 f17 @|IBIcon #fIcon
+Ey0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>This example shows how you can set an expiry on a task.
+After the time is over a new task with a higher priority and for the role "Manager" is created.</name>
+        <nameStyle>151,5
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ey0 f18 416 200 608 48 -288 -15 #rect
+Ey0 f18 @|IBIcon #fIcon
+Ey0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>This example shows how you can set an expiry on a task.
+After the time is over the next task will be destroyed.
+Instead a new error task for the system is created.</name>
+        <nameStyle>163,5
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ey0 f19 412 352 392 64 -178 -22 #rect
+Ey0 f19 @|IBIcon #fIcon
 >Proto Ey0 .type workflow.humantask.Data #txt
 >Proto Ey0 .processKind NORMAL #txt
 >Proto Ey0 0 0 32 24 18 0 #rect
