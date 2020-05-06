@@ -1,9 +1,5 @@
 language: java
-services:
-  - docker
-before_install:
-  - docker pull axonivy/build-container:web-1.0
-  - docker run -it -d --name build axonivy/build-container:web-1.0 bash
-  - docker exec build git clone https://github.com/ivy-samples/ivy-project-demos.git
+jdk:
+  - openjdk11
 script:
-  - docker exec build mvn clean verify
+  - mvn clean verify
