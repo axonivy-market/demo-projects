@@ -12,7 +12,7 @@ import ch.ivyteam.util.threadcontext.IvyAsyncRunner;
  *
  * <p>
  * Async callback methods use the {@link IvyAsyncRunner} to avoid
- * {@link ch.ivyteam.ivy.environment.EnvironmentNotAvailableException}s.
+ * environment not available exceptions.
  * </p>
  *
  * <p>
