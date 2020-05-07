@@ -11,20 +11,18 @@
 	<properties>
 		<ivy.root.relative>/../../..</ivy.root.relative>
 		<ivy.root.dir>${basedir}${ivy.root.relative}</ivy.root.dir>
-		<nexus.root.url>http://zugpronexus:8081/nexus</nexus.root.url>
 	</properties>
 
-	<pluginRepositories>
-		<!-- Used to install ivy maven plugins -->
-		<pluginRepository>
-			<id>zugpronexus.build-plugins</id>
-			<name>Internal Plugin Build Integration Repository</name>
-			<url>${nexus.root.url}/content/groups/build-plugins/</url>
-			<snapshots>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
+	  <pluginRepositories>
+    <!-- Used to install ivy maven plugins -->
+    <pluginRepository>
+      <id>nexus.ivyteam.io</id>
+      <url>https://nexus.ivyteam.io/repository/maven-8/</url>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
 	
 	<build>
 		<plugins>
@@ -58,9 +56,9 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>ch.ivyteam</groupId>
+				<groupId>ch.ivyteam.maven</groupId>
 				<artifactId>maven-version-plugin</artifactId>
-				<version>2.0.2-SNAPSHOT</version>
+				<version>2.0.4-SNAPSHOT</version>
 				<configuration>
 					<version>${new.ivy.version}-SNAPSHOT</version>
 				</configuration>
