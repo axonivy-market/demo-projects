@@ -3,4 +3,5 @@ jdk:
   - openjdk11
 install: skip
 script:
+  - cp .travis.settings.xml $HOME/.m2/settings.xml
   - mvn clean verify -Dmaven.test.skip=true -Divy.engine.download.url=https://developer.axonivy.com/permalink/nightly/axonivy-engine.zip
