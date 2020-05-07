@@ -61,7 +61,7 @@ class TestProcurementRequest
     ExecutionResult verifyResult = verifyRequest(bpmClient, result, MANAGER);
 
     executeSystemTask(bpmClient, verifyResult);
-    assertThat(verifyResult.workflow().technicalCase().getState()).isEqualTo(CaseState.DONE);
+    assertThat(verifyResult.workflow().activeCase().getState()).isEqualTo(CaseState.DONE);
   }
 
   /**
@@ -79,7 +79,7 @@ class TestProcurementRequest
     ExecutionResult verifyResult = verifyRequest(bpmClient, result, MANAGER);
 
     executeSystemTask(bpmClient, verifyResult);
-    assertThat(verifyResult.workflow().technicalCase().getState()).isEqualTo(CaseState.DONE);
+    assertThat(verifyResult.workflow().activeCase().getState()).isEqualTo(CaseState.DONE);
   }
 
   /**
@@ -97,7 +97,7 @@ class TestProcurementRequest
     ExecutionResult verifyResult = verifyRequest(bpmClient, result, MANAGER);
 
     executeSystemTask(bpmClient, verifyResult);
-    assertThat(verifyResult.workflow().technicalCase().getState()).isEqualTo(CaseState.DONE);
+    assertThat(verifyResult.workflow().activeCase().getState()).isEqualTo(CaseState.DONE);
   }
 
  /**
@@ -120,7 +120,7 @@ class TestProcurementRequest
     ProcurementRequest request = acceptRequest(bpmClient, verifyResult);
 
     assertThat(request.getAccepted()).isFalse();
-    assertThat(verifyResult.workflow().technicalCase().getState()).isEqualTo(CaseState.DONE);
+    assertThat(verifyResult.workflow().activeCase().getState()).isEqualTo(CaseState.DONE);
   }
 
   /**
@@ -143,7 +143,7 @@ class TestProcurementRequest
     ProcurementRequest request = acceptRequest(bpmClient, verifyResult);
     
     assertThat(request.getAccepted()).isTrue();
-    assertThat(verifyResult.workflow().technicalCase().getState()).isEqualTo(CaseState.DONE);
+    assertThat(verifyResult.workflow().activeCase().getState()).isEqualTo(CaseState.DONE);
   }
 
   private ExecutionResult createProcurrementRequest(BpmClient bpmClient)
@@ -161,8 +161,8 @@ class TestProcurementRequest
         .as().user("ldv")
         .execute();
     assertThat(result).isNotNull();
-    TaskSelector tasks = result.workflow().nextTask();
-    assertThat(result.workflow().nextTasks()).hasSize(2);
+    TaskSelector tasks = result.workflow().activeTask();
+    assertThat(result.workflow().activeTasks()).hasSize(2);
     assertThat(tasks.activatorRole(TEAMLEADER).get().getName()).startsWith("Verify Request:");
     assertThat(tasks.activatorRole(MANAGER).get().getName()).startsWith("Verify Request:");
     return result;
@@ -171,24 +171,24 @@ class TestProcurementRequest
   private ExecutionResult verifyRequest(BpmClient bpmClient, ExecutionResult previousResult, String role)
   {
     ExecutionResult result = bpmClient.start()
-            .task(previousResult.workflow().nextTask().activatorRole(role))
+            .task(previousResult.workflow().activeTask().activatorRole(role))
             .as().role(role).execute();
-    assertThat(result.workflow().task().getState()).isIn(TaskState.DONE, TaskState.READY_FOR_JOIN);
+    assertThat(result.workflow().executedTask().getState()).isIn(TaskState.DONE, TaskState.READY_FOR_JOIN);
     return result;
   }
 
   private ProcurementRequest acceptRequest(BpmClient bpmClient, ExecutionResult previousResult)
   {
     ExecutionResult result = bpmClient.start()
-            .task(previousResult.workflow().nextTask().name().contains("Accept Request:"))
+            .task(previousResult.workflow().activeTask().name().contains("Accept Request:"))
             .as().role(EXECUTIVE_MANAGER).execute();
-    assertThat(result.workflow().task().getState()).isIn(TaskState.DONE);
+    assertThat(result.workflow().executedTask().getState()).isIn(TaskState.DONE);
     return result.data().last();
   }
 
   private void executeSystemTask(BpmClient client, ExecutionResult previousResult)
   {
-    client.start().task(previousResult.workflow().nextTask().system())
+    client.start().task(previousResult.workflow().activeTask().system())
             .as().systemUser().execute();
   }
 }
