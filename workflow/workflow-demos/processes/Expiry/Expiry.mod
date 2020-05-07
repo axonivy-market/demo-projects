@@ -62,7 +62,7 @@ Ey0 f5 actionTable 'out=in;
 Ey0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>tasExpired</name>
+        <name>taskExpired</name>
     </language>
 </elementInfo>
 ' #txt
@@ -90,7 +90,7 @@ Ey0 f9 @|EndIcon #fIcon
 Ey0 f10 actionTable 'out=in1;
 ' #txt
 Ey0 f10 taskData 'TaskA.EXP=''1m''
-TaskA.EXPRI=1
+TaskA.EXPRI=2
 TaskA.EXROL=Manager
 TaskA.EXTYPE=0' #txt
 Ey0 f10 209 209 30 30 0 16 #rect
@@ -129,38 +129,38 @@ Ey0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>This example shows how you can set an expiry on a task.
-After the time is over a new task with a higher priority is created for everyone.</name>
-        <nameStyle>137,5
+After the expire the task has a higher priority.</name>
+        <nameStyle>104,5
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ey0 f17 416 40 528 48 -244 -15 #rect
+Ey0 f17 424 42 368 44 -178 -15 #rect
 Ey0 f17 @|IBIcon #fIcon
 Ey0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>This example shows how you can set an expiry on a task.
-After the time is over a new task with a higher priority and for the role "Manager" is created.</name>
-        <nameStyle>151,5
+After the expiry the task is reassigned to the role "Manager".</name>
+        <nameStyle>118,5
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ey0 f18 416 200 608 48 -288 -15 #rect
+Ey0 f18 424 202 400 44 -191 -15 #rect
 Ey0 f18 @|IBIcon #fIcon
 Ey0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>This example shows how you can set an expiry on a task.
-After the time is over the next task will be destroyed.
-Instead a new error task for the system is created.</name>
-        <nameStyle>163,5
+After the expiry the task is destroyed. 
+Instead a new system task is created starting at the error start ''taskExpired''.</name>
+        <nameStyle>176,5
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ey0 f19 412 352 392 64 -178 -22 #rect
+Ey0 f19 424 354 496 60 -242 -22 #rect
 Ey0 f19 @|IBIcon #fIcon
 >Proto Ey0 .type workflow.humantask.Data #txt
 >Proto Ey0 .processKind NORMAL #txt

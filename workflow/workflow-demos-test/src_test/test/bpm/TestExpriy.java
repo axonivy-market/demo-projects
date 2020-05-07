@@ -22,6 +22,8 @@ import ch.ivyteam.ivy.workflow.WorkflowPriority;
 @IvyProcessTest
 public class TestExpriy
 {
+  private static final Date YESTERDAY = Date.from(Instant.now().minus(1, ChronoUnit.DAYS));
+
   private static final BpmProcess PROCUREMENT_PROCESS = BpmProcess.name("Expiry");
   
   private static final BpmElement EXPIRY_HIGHER_PRIO = PROCUREMENT_PROCESS.elementName("createExpriyTaskHigherPrio.ivp");
@@ -32,7 +34,7 @@ public class TestExpriy
   void runProcessWithoutExpire(BpmClient bpmClient)
   {
     ExecutionResult result = startProcess(bpmClient, EXPIRY_HIGHER_PRIO);
-    bpmClient.start().anyNextTask(result).execute();
+    bpmClient.start().anyActiveTask(result).execute();
     assertCaseIsDone(result);
   }
   
@@ -42,7 +44,8 @@ public class TestExpriy
     ExecutionResult result = startProcess(bpmClient, EXPIRY_HIGHER_PRIO);
     
     ITask nextTask = getNextTask(result);
-    expireTask(nextTask);
+    assertThat(nextTask.getPriority()).isEqualTo(WorkflowPriority.NORMAL);
+    nextTask.setExpiryTimestamp(YESTERDAY);
     assertThat(nextTask.getPriority()).isEqualTo(WorkflowPriority.HIGH);
     
     bpmClient.start().task(nextTask).as().everybody().execute();
@@ -55,8 +58,9 @@ public class TestExpriy
     ExecutionResult result = startProcess(bpmClient, EXPIRY_OTHER_ROLE);
     
     ITask nextTask = getNextTask(result);
-    expireTask(nextTask);
-    assertThat(nextTask.getPriority()).isEqualTo(WorkflowPriority.HIGH);
+    assertThat(nextTask.getActivatorName()).isEqualTo("Everybody");
+    nextTask.setExpiryTimestamp(YESTERDAY);
+    assertThat(nextTask.getActivatorName()).isEqualTo("Manager");
     
     assertThatThrownBy(() -> bpmClient.start().task(nextTask).as().everybody().execute())
             .isInstanceOf(IllegalArgumentException.class).hasMessageContaining("is not permitted");
@@ -71,7 +75,7 @@ public class TestExpriy
     ExecutionResult result = startProcess(bpmClient, EXPIRY_ERROR_TASK);
     
     ITask nextTask = getNextTask(result);
-    expireTask(nextTask);
+    nextTask.setExpiryTimestamp(YESTERDAY);
     assertThat(nextTask.getState()).isEqualTo(TaskState.DESTROYED);
     
     ITask errorTask = getNextTask(result);
@@ -90,18 +94,13 @@ public class TestExpriy
 
   private ITask getNextTask(ExecutionResult result)
   {
-    ITask nextTask = result.workflow().anyNextTask().get();
+    ITask nextTask = result.workflow().anyActiveTask().get();
     assertThat(nextTask.getPriority()).isEqualTo(WorkflowPriority.NORMAL);
     return nextTask;
   }
   
-  private void expireTask(ITask nextTask)
-  {
-    nextTask.setExpiryTimestamp(Date.from(Instant.now().minus(1, ChronoUnit.DAYS)));
-  }
-  
   private void assertCaseIsDone(ExecutionResult result)
   {
-    assertThat(result.workflow().technicalCase().getState()).isEqualTo(CaseState.DONE);
+    assertThat(result.workflow().activeCase().getState()).isEqualTo(CaseState.DONE);
   }
 }
