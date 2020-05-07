@@ -1,3 +1,5 @@
+[![demos travis build][0]][1]
+
 # Ivy demo projects
 
 This repository contains multiple demos how to use the Axon.ivy platform.
@@ -29,3 +31,7 @@ If you want to know more about testing checkout our documentation chapter: [Test
 ## increase version
 
 [Increase version job](build.maven/job/update-version/README.md)
+
+
+[0]: https://api.travis-ci.org/ivy-samples/ivy-project-demos.svg?branch=master
+[1]: https://travis-ci.org/github/ivy-samples/ivy-project-demos
