@@ -42,7 +42,7 @@ class TestStartProcessAs
         .start().process(START)
         .execute();
 
-    assertThat(result.workflow().technicalCase().getCreatorUser())
+    assertThat(result.workflow().activeCase().getCreatorUser())
         .isNull();
   }
 
@@ -54,7 +54,7 @@ class TestStartProcessAs
         .as().anonymous()
         .execute();
 
-    assertThat(result.workflow().technicalCase().getCreatorUser())
+    assertThat(result.workflow().activeCase().getCreatorUser())
         .isNull();
   }
 
@@ -66,7 +66,7 @@ class TestStartProcessAs
         .as().everybody()
         .execute();
 
-    assertThat(result.workflow().technicalCase().getCreatorUser())
+    assertThat(result.workflow().activeCase().getCreatorUser())
         .isEqualTo(result.workflow().session().getSessionUser());
     assertThat(result.workflow().session().hasRole(everybody, false))
         .isTrue();
@@ -80,7 +80,7 @@ class TestStartProcessAs
         .as().role("HR Manager")
         .execute();
 
-    assertThat(result.workflow().technicalCase().getCreatorUser())
+    assertThat(result.workflow().activeCase().getCreatorUser())
         .isEqualTo(result.workflow().session().getSessionUser());
     assertThat(result.workflow().session().hasRole(hrManager, false))
         .isTrue();
@@ -94,7 +94,7 @@ class TestStartProcessAs
         .as().role(hrManager)
         .execute();
 
-    assertThat(result.workflow().technicalCase().getCreatorUser())
+    assertThat(result.workflow().activeCase().getCreatorUser())
         .isEqualTo(result.workflow().session().getSessionUser());
     assertThat(result.workflow().session().hasRole(hrManager, false))
         .isTrue();
@@ -108,7 +108,7 @@ class TestStartProcessAs
         .as().user("jb")
         .execute();
 
-    assertThat(result.workflow().technicalCase().getCreatorUser())
+    assertThat(result.workflow().activeCase().getCreatorUser())
         .isEqualTo(result.workflow().session().getSessionUser())
         .isEqualTo(jamesBond);
   }
@@ -121,7 +121,7 @@ class TestStartProcessAs
         .as().user(jamesBond)
         .execute();
 
-    assertThat(result.workflow().technicalCase().getCreatorUser())
+    assertThat(result.workflow().activeCase().getCreatorUser())
         .isEqualTo(result.workflow().session().getSessionUser())
         .isEqualTo(jamesBond);
   }
@@ -134,7 +134,7 @@ class TestStartProcessAs
         .as().systemUser()
         .execute();
 
-    assertThat(result.workflow().technicalCase().getCreatorUser())
+    assertThat(result.workflow().activeCase().getCreatorUser())
         .isEqualTo(result.workflow().session().getSessionUser())
         .isEqualTo(app.getSecurityContext().getSystemUser());
   }
@@ -152,7 +152,7 @@ class TestStartProcessAs
     assertThat(result.workflow().session())
         .isSameAs(session);
 
-    assertThat(result.workflow().technicalCase().getCreatorUser())
+    assertThat(result.workflow().activeCase().getCreatorUser())
         .isEqualTo(result.workflow().session().getSessionUser())
         .isEqualTo(jamesBond);
   }
