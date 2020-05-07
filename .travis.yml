@@ -1,5 +1,6 @@
 language: java
 jdk:
   - openjdk11
+install: skip
 script:
   - mvn clean verify -Dmaven.test.skip=true -Divy.engine.download.url=https://developer.axonivy.com/permalink/nightly/axonivy-engine.zip
