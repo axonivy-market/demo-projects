@@ -3,14 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.ivyteam.demo</groupId>
   <artifactId>ivy-demos-app</artifactId>
+  <version>9.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <parent>
-    <!-- here to inherit dependencyManagement in order to verify its actuality -->
-    <groupId>ch.ivyteam.ivy</groupId>
-    <version>9.1.0-SNAPSHOT</version>
-    <artifactId>maven-config-dependencies</artifactId>
-  </parent>
+  <properties>
+    <ivyteam.rule.engine.demo.project.version>9.1.0-SNAPSHOT</ivyteam.rule.engine.demo.project.version>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -57,16 +55,6 @@
       <url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
       <snapshots>
         <enabled>true</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>nexus.ivyteam.io</id>
-      <url>https://nexus.ivyteam.io/repository/maven/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
       </snapshots>
     </repository>
   </repositories>
