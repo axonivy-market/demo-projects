@@ -13,7 +13,7 @@
   </parent>
 
   <properties>
-    <maven.surefire.version>3.0.0-M3</maven.surefire.version>
+    <maven.surefire.version>2.22.2</maven.surefire.version>
     <test.application>Portal</test.application>
     <deploy.skip>true</deploy.skip>
   </properties>
