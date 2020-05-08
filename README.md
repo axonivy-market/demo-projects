@@ -1,3 +1,5 @@
+![CI-8](https://github.com/ivy-samples/ivy-project-demos/workflows/CI-8/badge.svg?branch=release%2F8.0)
+
 # Ivy demo projects
 
 This repository contains multiple demos how to use the Axon.ivy platform.
