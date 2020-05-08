@@ -1,0 +1,21 @@
+@charset "ISO-8859-1";
+
+.dt-amount-content {
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid;
+}
+
+.dt-type-content {
+  text-align: center;
+  border: 1px solid;
+}
+
+.dt-discount-content {
+  text-align: center;
+  border: 1px solid;
+}
+
+.dt-label {
+  border: 1px solid;
+}

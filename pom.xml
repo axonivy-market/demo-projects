@@ -11,6 +11,7 @@
     <module>html-dialog</module>
     <module>error-handling-demos</module>
     <module>quick-start-tutorial</module>
+    <module>rule-engine-demos</module>
     <module>workflow</module>
     <module>connectivity</module>
     <module>demos-app</module>
