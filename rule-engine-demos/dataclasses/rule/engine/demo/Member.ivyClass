@@ -1,0 +1,8 @@
+Member #class
+rule.engine.demo #namespace
+purchaseAmount Number #field
+purchaseAmount PERSISTENT #fieldModifier
+memberType rule.engine.demo.enums.MemberType #field
+memberType PERSISTENT #fieldModifier
+discount Number #field
+discount PERSISTENT #fieldModifier

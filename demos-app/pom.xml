@@ -7,13 +7,6 @@
 	<version>8.0.5-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
- 	<parent>
- 		<!-- here to inherit dependencyManagement in order to verify its actuality -->
-		<groupId>ch.ivyteam.ivy</groupId>
-		<artifactId>maven-config-dependencies</artifactId>
-		<version>8.0.5-SNAPSHOT</version>
-	</parent>
-
 	<dependencies>
 		<dependency>
 			<groupId>ch.ivyteam.demo</groupId>
@@ -46,9 +39,9 @@
 			<type>iar</type>
 		</dependency>
 		<dependency>
-			<groupId>ch.ivyteam.ivy.project.demo</groupId>
+			<groupId>ch.ivyteam.demo</groupId>
 			<artifactId>rule-engine-demos</artifactId>
-			<version>${ivyteam.rule.engine.demo.project.version}</version>
+			<version>${project.version}</version>
 			<type>iar</type>
 		</dependency>
 	</dependencies>

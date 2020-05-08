@@ -1,0 +1,90 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">DiscountCalc</ui:define>
+		<ui:define name="content">
+			<h:outputStylesheet library="ivy-dialog" name="discount-calculator-style.css"></h:outputStylesheet>
+			<h:form id="form">
+				<h3>Discount Calculator</h3>
+				<p>
+				This demo explains how to use the Rule Engine to execute the rules from DRL files or decision tables. <br />
+				- If you click on the "Apply DRL Rules" button, Rule Engine will load the rules in the DRL files.<br />
+				- If you click on the "Apply Decision Table Rules" button, Rule Engine will load the rules in the decision tables.
+				</p>
+				<hr />
+				<h4>The rules for this demo:</h4>
+				<table style="width: 80%;border-collapse:collapse;">
+					<tr>
+						<td class="dt-label"><b>Purchase Amount</b></td>
+						<td class="dt-amount-content">&gt; $0</td>
+						<td class="dt-amount-content" colspan="2">&lt; $500</td>
+						<td class="dt-amount-content" colspan="2">&gt;= $500 &amp;&amp; &lt; $2000</td>
+						<td class="dt-amount-content" colspan="2">>= $2000</td>
+					</tr>
+					<tr>
+						<td class="dt-label"><b>Member Type</b></td>
+						<td class="dt-type-content">None</td>
+						<td class="dt-type-content">Silver</td>
+						<td class="dt-type-content">Gold</td>
+						<td class="dt-type-content">Silver</td>
+						<td class="dt-type-content">Gold</td>
+						<td class="dt-type-content">Silver</td>
+						<td class="dt-type-content">Gold</td>
+					</tr>
+					<tr>
+						<td class="dt-label"><b>Discount</b></td>
+						<td class="dt-discount-content">0%</td>
+						<td class="dt-discount-content">0%</td>
+						<td class="dt-discount-content">2%</td>
+						<td class="dt-discount-content">3%</td>
+						<td class="dt-discount-content">8%</td>
+						<td class="dt-discount-content">5%</td>
+						<td class="dt-discount-content">10%</td>
+					</tr>
+				</table>
+				<h5>
+					<b>* Note:</b> Read the <a
+						href="http://docs.jboss.org/drools/release/6.3.0.Final/drools-docs/html_single/index.html">Drools
+						Documentation</a> to get more knowledge about the Rule Engine.
+				</h5>
+				<hr />
+				<h:panelGrid columns="3">
+					<f:facet name="header">
+						<p:messages></p:messages>
+					</f:facet>
+					<p:outputLabel for="memberPurchaseAmount" value="Purchase Amount" />
+					<p:inputText id="memberPurchaseAmount" required="true"
+						requiredMessage="Please enter Purchase Amount"
+						value="#{data.member.purchaseAmount}"></p:inputText>
+					<p:outputLabel value="$" />
+
+					<p:outputLabel value="Member Type" for="memberType" />
+					<p:selectOneRadio value="#{data.member.memberType}" id="memberType">
+						<f:selectItem itemLabel="Silver" itemValue="Silver" />
+						<f:selectItem itemLabel="Gold" itemValue="Gold" />
+					</p:selectOneRadio>
+					<p:spacer width="24" height="16" />
+
+					<p:outputLabel for="memberDiscount" value="Discount" />
+					<p:inputText id="memberDiscount" value="#{data.member.discount}"></p:inputText>
+					<p:outputLabel value="%" />
+					<p:commandButton id="applyDRL" actionListener="#{logic.applyRulesFromDRL}"
+						style="margin-top:10px" value="Apply DRL Rules" update="form"
+						icon="fa fa-file-text-o" />
+					<p:commandButton id="applyDecisionTable" style="margin-top:10px"
+						actionListener="#{logic.applyRulesFromDecisionTable}"
+						value="Apply Decision Table Rules" update="form"
+						icon="fa fa-table" />
+					<br/>
+				</h:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
