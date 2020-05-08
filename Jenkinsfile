@@ -25,7 +25,7 @@ pipeline {
           docker.image('axonivy/build-container:web-1.0').inside {
             def workspace = pwd()
             def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
-            maven cmd: "-P deploy.repo.axonivy.com clean ${phase} -Dmaven.test.failure.ignore=true  " + 
+            maven cmd: "clean ${phase} -Dmaven.test.failure.ignore=true  " + 
                       "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
                       "-Divy.engine.list.url=${params.engineListUrl} " + 
                       "-DaltDeploymentRepository=repo.axonivy.com::https://repo.axonivy.com/artifactory/libs-snapshot-local"

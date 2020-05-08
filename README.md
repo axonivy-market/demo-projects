@@ -1,3 +1,5 @@
+![CI](https://github.com/ivy-samples/ivy-project-demos/workflows/CI/badge.svg?branch=feature%2Ftry-github-actions)
+
 # Ivy demo projects
 
 This repository contains multiple demos how to use the Axon.ivy platform.
