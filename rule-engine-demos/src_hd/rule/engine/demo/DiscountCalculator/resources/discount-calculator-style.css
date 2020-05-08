@@ -1,4 +1,4 @@
-@CHARSET "ISO-8859-1";
+@charset "ISO-8859-1";
 
 .dt-amount-content {
   text-align: center;
@@ -11,7 +11,7 @@
   border: 1px solid;
 }
 
-.dt-discount-content{
+.dt-discount-content {
   text-align: center;
   border: 1px solid;
 }
