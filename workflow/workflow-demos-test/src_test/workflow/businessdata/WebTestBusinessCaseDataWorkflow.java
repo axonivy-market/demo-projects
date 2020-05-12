@@ -64,7 +64,7 @@ public class WebTestBusinessCaseDataWorkflow
   {
     if (!EngineUrl.isDesigner())
     {
-      open(EngineUrl.create().path("wf/login").toUrl());
+      open(EngineUrl.create().path("login").toUrl());
       $("#loginForm\\:userName").shouldBe(visible).sendKeys("hb");
       $("#loginForm\\:password").sendKeys("hb");
       $("#loginForm\\:login").click();
