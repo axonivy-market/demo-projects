@@ -27,7 +27,7 @@ pipeline {
         script {
           dir('connectivity/connectivity-demos-rcptt-test')
           {
-            maven cmd: "clean verify -Dbuild.last.sucess.url=${designerListUrl}"
+            maven cmd: "clean test -Dmaven.test.failure.ignore=true -Dbuild.last.sucess.url=${designerListUrl}"
             junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/surefire-reports/**/*.xml'
             archiveArtifacts 'target/aut/logs/,' +
                             'target/results/**'
