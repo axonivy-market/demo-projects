@@ -7,7 +7,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _ZJY28D3lEeadqZIC2MODiA
 Runtime-Version: 2.5.0.202001211718
-Save-Time: 4/27/20, 7:59 AM
+Save-Time: 5/15/20, 7:58 AM
 Testcase-Type: ecl
 Verifications: _SbgVwD39EeadqZIC2MODiA
 
@@ -37,20 +37,8 @@ let [val project "connectivity-demos"]
 		startBpmProcess -projectName $project -ivpPath "rest\\/callOwnPersonRestService\\/listPersons.ivp"
 		assertRuntimeLogMsg "firstname=Bruno,lastname=B"
 	
-		startMappingProcess "rawJSON.ivp"
-		assertRuntimeLogMsg "new ID = 101"
-	
-		startMappingProcess "formData.ivp"
-		assertRuntimeLogMsg "new ID = 101"
-	
-		startMappingProcess "complexObject.ivp"
-		assertRuntimeLogMsg "new ID = 101"
-	
 		startMappingProcess "readPartialObject.ivp"
 		assertRuntimeLogMsg "got user = User(name=Leanne Graham, email=Sincere@april.biz, phone=1-770-736-8031 x56442)"
-	
-		startMappingProcess "queryParameters.ivp"
-		assertRuntimeLogMsg "resolved 10 posts from user with id"
 	
 		startMappingProcess "pathParameters.ivp"
 		assertRuntimeLogMsg "JSON:{\"id\":"
