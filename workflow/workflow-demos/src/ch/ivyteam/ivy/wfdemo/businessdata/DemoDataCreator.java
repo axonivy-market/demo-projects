@@ -12,7 +12,7 @@ public class DemoDataCreator
 
   public static void createDemoDataIfNotExist()
   {
-    BusinessDataRepository repo = BusinessDataRepository.get();
+    BusinessDataRepository repo = BusinessDataRepository.current();
     long dossierCount = countDossier(repo);
 
     if (dossierCount == 0)
