@@ -12,7 +12,7 @@ public class DemoDataCreator
 
   public static void createDemoDataIfNotExist()
   {
-    BusinessDataRepository repo = BusinessDataRepository.get();
+    BusinessDataRepository repo = BusinessDataRepository.current();
     long dossierCount = countDossier(repo);
 
     if (dossierCount == 0)
@@ -84,13 +84,13 @@ public class DemoDataCreator
     person.setAddress(address);
     dossier.setPerson(person);
 
-    BusinessDataRepository repo = BusinessDataRepository.get();
+    BusinessDataRepository repo = BusinessDataRepository.current();
     repo.save(dossier);
   }
 
   public static void clearDemoData()
   {
-    BusinessDataRepository repo = BusinessDataRepository.get();
+    BusinessDataRepository repo = BusinessDataRepository.current();
     for (Dossier info : getDossiers(repo).getAll())
     {
       repo.delete(info);
