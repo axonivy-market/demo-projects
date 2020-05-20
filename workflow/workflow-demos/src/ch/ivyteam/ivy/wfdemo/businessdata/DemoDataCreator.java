@@ -10,10 +10,11 @@ import workflow.businessdata.Person;
 public class DemoDataCreator
 {
 
+  private static BusinessDataRepository repo = BusinessDataRepository.current();
+
   public static void createDemoDataIfNotExist()
   {
-    BusinessDataRepository repo = BusinessDataRepository.get();
-    long dossierCount = countDossier(repo);
+    long dossierCount = countDossier();
 
     if (dossierCount == 0)
     {
@@ -34,14 +35,16 @@ public class DemoDataCreator
       createDemoDossier("VOLTA IT", "Alessandro", "Volta", new Date(1745, 02, 18), "22100", "Como", "Italy");
       createDemoDossier("NEUMANN HU", "John", "von Neumann", new Date(1903, 12, 28), "1011", "Budapest",
               "Hungary");
-      waitForDossierCount(repo, 10);
+      createDemoDossier("NEUMANN HU2", "John", "von Neumann", new Date(1903, 12, 28), "1011", "Budapest",
+              "Hungary");
+      waitForDossierCount(11);
     }
   }
 
-  private static void waitForDossierCount(BusinessDataRepository repo, int count)
+  private static void waitForDossierCount(int count)
   {
     long dossierCount;
-    dossierCount = countDossier(repo);
+    dossierCount = countDossier();
     while (dossierCount < count)
     {
       try
@@ -51,21 +54,21 @@ public class DemoDataCreator
       catch (InterruptedException e)
       {
       }
-      dossierCount = countDossier(repo);
+      dossierCount = countDossier();
     }
   }
 
-  private static long countDossier(BusinessDataRepository repo)
+  private static long countDossier()
   {
-    return getDossiers(repo).count();
+    return getDossiers().count();
   }
 
-  private static Result<Dossier> getDossiers(BusinessDataRepository repo)
+  public static Result<Dossier> getDossiers()
   {
     return repo.search(Dossier.class).execute();
   }
 
-  private static void createDemoDossier(String dossierName, String firstName, String lastName, Date birthdate,
+  public static void createDemoDossier(String dossierName, String firstName, String lastName, Date birthdate,
           String zip, String city, String country)
   {
     Dossier dossier = new Dossier();
@@ -84,17 +87,15 @@ public class DemoDataCreator
     person.setAddress(address);
     dossier.setPerson(person);
 
-    BusinessDataRepository repo = BusinessDataRepository.get();
     repo.save(dossier);
   }
 
   public static void clearDemoData()
   {
-    BusinessDataRepository repo = BusinessDataRepository.get();
-    for (Dossier info : getDossiers(repo).getAll())
+    for (Dossier info : getDossiers().getAll())
     {
       repo.delete(info);
     }
-    waitForDossierCount(repo, 0);
+    waitForDossierCount(0);
   }
 }
