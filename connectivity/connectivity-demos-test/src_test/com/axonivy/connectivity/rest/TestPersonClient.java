@@ -9,8 +9,13 @@ import org.junit.jupiter.api.Test;
 import com.axonivy.connectivity.Person;
 import com.axonivy.connectivity.rest.client.PersonClient;
 
+import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.environment.IvyTest;
 
+/**
+ * This test tests the functionality of the {@link PersonClient} class.
+ * As this class uses {@link Ivy#rest}, this test class have to be annotated with {@literal @IvyTest}.
+ */
 @IvyTest
 public class TestPersonClient
 {
