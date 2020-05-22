@@ -1,6 +1,7 @@
 package com.axonivy.connectivity.rest.client;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MultivaluedHashMap;
@@ -39,7 +40,7 @@ public class PersonClient
     formData.add("firstname", firstName);
     formData.add("lastname", lastName);
     return Ivy.rest().client("personService")
-            .request().put(Entity.form(formData));
+            .request().header("X-Requested-By", "ivy").put(Entity.form(formData));
   }
 
   /**
@@ -48,18 +49,18 @@ public class PersonClient
   public static Response update(Person person)
   {
     return Ivy.rest().client("personService")
-            .path(String.valueOf(person.getId()))
-            .request().post(Entity.json(person));
+            .path(person.getId().toString())
+            .request().header("X-Requested-By", "ivy").post(Entity.json(person));
   }
 
   /**
    * DELETE request: defines the person to delete with its path
    */
-  public static Response delete(int personId)
+  public static Response delete(UUID personId)
   {
     return Ivy.rest().client("personService")
-            .path(String.valueOf(personId))
-            .request().delete();
+            .path(personId.toString())
+            .request().header("X-Requested-By", "ivy").delete();
   }
 
 }
