@@ -97,6 +97,13 @@ dg0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 dg0 f0 @C|.responsibility Everybody #txt
 dg0 f0 80 137 30 30 -36 17 #rect
 dg0 f0 @|StartRequestIcon #fIcon
+dg0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name></name>
+    </language>
+</elementInfo>
+' #txt
 dg0 f1 527 137 30 30 0 15 #rect
 dg0 f1 @|EndIcon #fIcon
 dg0 f3 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
