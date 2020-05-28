@@ -61,7 +61,7 @@
           <h:inputText id="sendMsg"></h:inputText>
         </div>
         <br />
-        <p:commandButton actionListener="#{logic.close}" style="margin-top:100px;" value="Leave" update="form"
+        <p:commandButton onclick="chat.aborter.abort()" actionListener="#{logic.close}" style="margin-top:100px;" value="Leave" update="form"
           icon="fa fa-close" />
       </h:form>
 

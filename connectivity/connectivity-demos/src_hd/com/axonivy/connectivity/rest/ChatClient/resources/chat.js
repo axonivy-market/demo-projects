@@ -1,6 +1,7 @@
 function Chat(uri) {
   // current service uri: e.g. "http://localhost:8081/designer/api/chatdemo"
   this.uri = uri;
+  this.aborter = new AbortController();
 
   this.users = async function (callback) {
     const response = await fetch(uri + "/users");
@@ -10,7 +11,10 @@ function Chat(uri) {
   }
 
   this.listen = async function (callback) {
-    const response = await fetch(uri);
+	let abortSignal =  this.aborter.signal;
+    const response = await fetch(uri, {
+      signal: abortSignal
+    });
     const messages = await response.json();
     this.listen(callback); // wait for next update
     callback(messages); // update UI
