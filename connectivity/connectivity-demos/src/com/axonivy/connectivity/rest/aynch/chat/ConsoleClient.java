@@ -2,10 +2,14 @@ package com.axonivy.connectivity.rest.aynch.chat;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Scanner;
+import java.util.function.Consumer;
 
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.InvocationCallback;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
 
 import ch.ivyteam.ivy.rest.client.authentication.HttpBasicOrDigestAuthenticationFeature;
 import ch.ivyteam.ivy.rest.client.mapper.JsonFeature;
@@ -23,10 +27,19 @@ public class ConsoleClient implements InvocationCallback<List<ChatMessage>>
   public static void main(String[] args)
   {
     WebTarget target = createJaxRsChatClient();
-    target.request().async().get(new ConsoleClient(target));
+    ConsoleClient client = new ConsoleClient(target);
+    target.request().async().get(client);
     System.out.println("chat client is listening");
+    
+    readConsole(input -> {
+      if ("!exit".equals(input))
+      {
+        System.exit(0);
+      }
+      client.sendMessage(input);
+    });
   }
-
+  
   /**
    * @return instantiated REST client with plain JAX-RS API. As we are not
    *         running an IvyEnvironment here.
@@ -38,8 +51,8 @@ public class ConsoleClient implements InvocationCallback<List<ChatMessage>>
             .target("http://localhost:" + port + "/designer/api/chatdemo")
             .register(HttpBasicOrDigestAuthenticationFeature.class)
             .register(JsonFeature.class)
-            .property("username", "theWorker")
-            .property("password", "theWorker");
+            .property("username", "theBoss")
+            .property("password", "theBoss");
   }
 
   private final WebTarget target;
@@ -75,5 +88,23 @@ public class ConsoleClient implements InvocationCallback<List<ChatMessage>>
   {
     System.err.println("error in chat" + t);
     t.printStackTrace();
+  }
+  
+  public Response sendMessage(String text)
+  {
+    return target.request()
+      .header("X-Requested-By", "ivy.cli")
+      .post(Entity.entity(text, "text/plain"));
+  }
+  
+  private static void readConsole(Consumer<String> actor)
+  {
+    try (Scanner scanner = new Scanner(System.in))
+    {
+      while (true)
+      {
+        actor.accept(scanner.nextLine());
+      }
+    }
   }
 }
