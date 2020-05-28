@@ -3,6 +3,7 @@ package rest.bpm;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.rest.DataMappingData;
@@ -15,11 +16,19 @@ import com.typicode.jsonplaceholder.Address;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
 import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
+import ch.ivyteam.ivy.environment.AppFixture;
 
 
 @IvyProcessTest
 public class TestDataMapping
 {
+  @BeforeAll
+  static void setUp(AppFixture fixture)
+  {
+    fixture.var("jsonPlaceholder", "localhost");
+    fixture.var("jsonPlaceholderProtocol", "http");
+  }
+  
   @Test
   public void odataJsonMapping_single(BpmClient bpmClient)
   {
@@ -64,7 +73,6 @@ public class TestDataMapping
     
     DataMappingData data = result.data().last();
     Post post = data.getMyPost();
-    assertThat(post.getId()).isEqualTo(101);
     assertThat(post.getName()).isEqualTo("The sailor");
     assertThat(post.getBody()).isEqualTo("Freedom of speech");
     assertThat(post.getEmail()).contains("@ivy-community.com");
@@ -78,7 +86,6 @@ public class TestDataMapping
     
     DataMappingData data = result.data().last();
     Post post = data.getMyPost();
-    assertThat(post.getId()).isEqualTo(101);
     assertThat(post.getName()).isEqualTo("Mr. Smith");
     assertThat(post.getBody()).isEqualTo("I have something to say");
     assertThat(post.getEmail()).contains("@ivy-community.com");
@@ -92,7 +99,6 @@ public class TestDataMapping
     
     DataMappingData data = result.data().last();
     Post post = data.getMyPost();
-    assertThat(post.getId()).isEqualTo(101);
     assertThat(post.getName()).isEqualTo("Mr. Smith");
     assertThat(post.getBody()).isEqualTo("I have something to say");
     assertThat(post.getEmail()).contains("@ivy-community.com");

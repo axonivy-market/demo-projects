@@ -107,7 +107,7 @@ To run this service locally:
 2. download 'https://raw.githubusercontent.com/typicode/jsonplaceholder/master/data.json'
 3. start in cmd 'gson-server data.json'</description>
         <configuration>
-            <uri>https://jsonplaceholder.typicode.com/</uri>
+            <uri>{json.placeholder.protocol}://{json.placeholder.host}/</uri>
             <property>
                 <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
                 <value>false</value>
