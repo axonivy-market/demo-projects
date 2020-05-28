@@ -25,12 +25,9 @@
           chat.users(view.renderUsers);
           chat.listen(view.renderMessages);
 
-          async
-          function send() {
-            var text = document
-              .getElementById('form:sendMsg');
-            var users = document
-              .getElementById('users');
+          async function send() {
+            var text = document.getElementById('form:sendMsg');
+            var users = document.getElementById('users');
             var receiver = users.options[users.selectedIndex].value;
 
             if (receiver == "@ALL") {
