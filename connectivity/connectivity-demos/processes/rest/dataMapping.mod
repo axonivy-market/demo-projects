@@ -97,21 +97,10 @@ dg0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 dg0 f0 @C|.responsibility Everybody #txt
 dg0 f0 80 137 30 30 -36 17 #rect
 dg0 f0 @|StartRequestIcon #fIcon
-dg0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name></name>
-    </language>
-</elementInfo>
-' #txt
 dg0 f1 527 137 30 30 0 15 #rect
 dg0 f1 @|EndIcon #fIcon
 dg0 f3 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f3 path posts #txt
-dg0 f3 templateParams 'json.placeholder.host=ivy.var.jsonPlaceholderHost;
-json.placeholder.protocol=ivy.var.jsonPlaceholderProtocol;
-json.placeholder.port=ivy.var.jsonPlaceholderPort;
-' #txt
 dg0 f3 method POST #txt
 dg0 f3 bodyInputType RAW #txt
 dg0 f3 bodyRaw '{
@@ -211,10 +200,6 @@ dg0 f9 527 305 30 30 0 15 #rect
 dg0 f9 @|EndIcon #fIcon
 dg0 f10 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f10 path posts #txt
-dg0 f10 templateParams 'json.placeholder.host=ivy.var.jsonPlaceholderHost;
-json.placeholder.protocol=ivy.var.jsonPlaceholderProtocol;
-json.placeholder.port=ivy.var.jsonPlaceholderPort;
-' #txt
 dg0 f10 method POST #txt
 dg0 f10 bodyInputType ENTITY #txt
 dg0 f10 bodyRaw '{
@@ -248,10 +233,6 @@ dg0 f13 280 320 332 320 #arcP
 dg0 f14 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f14 path posts #txt
 dg0 f14 queryParams 'userId=in.userId;
-' #txt
-dg0 f14 templateParams 'json.placeholder.host=ivy.var.jsonPlaceholderHost;
-json.placeholder.protocol=ivy.var.jsonPlaceholderProtocol;
-json.placeholder.port=ivy.var.jsonPlaceholderPort;
 ' #txt
 dg0 f14 method GET #txt
 dg0 f14 bodyInputType ENTITY #txt
@@ -445,10 +426,6 @@ dg0 f28 80 225 30 30 -39 17 #rect
 dg0 f28 @|StartRequestIcon #fIcon
 dg0 f29 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f29 path posts #txt
-dg0 f29 templateParams 'json.placeholder.host=ivy.var.jsonPlaceholderHost;
-json.placeholder.protocol=ivy.var.jsonPlaceholderProtocol;
-json.placeholder.port=ivy.var.jsonPlaceholderPort;
-' #txt
 dg0 f29 method POST #txt
 dg0 f29 bodyInputType FORM #txt
 dg0 f29 bodyRaw '{
@@ -519,10 +496,6 @@ dg0 f35 128 26 320 44 -156 -15 #rect
 dg0 f35 @|IBIcon #fIcon
 dg0 f36 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f36 path users/1 #txt
-dg0 f36 templateParams 'json.placeholder.host=ivy.var.jsonPlaceholderHost;
-json.placeholder.protocol=ivy.var.jsonPlaceholderProtocol;
-json.placeholder.port=ivy.var.jsonPlaceholderPort;
-' #txt
 dg0 f36 method GET #txt
 dg0 f36 bodyInputType ENTITY #txt
 dg0 f36 bodyRaw '{
@@ -714,10 +687,6 @@ dg0 f49 527 497 30 30 0 15 #rect
 dg0 f49 @|EndIcon #fIcon
 dg0 f51 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f51 path users/1 #txt
-dg0 f51 templateParams 'json.placeholder.host=ivy.var.jsonPlaceholderHost;
-json.placeholder.protocol=ivy.var.jsonPlaceholderProtocol;
-json.placeholder.port=ivy.var.jsonPlaceholderPort;
-' #txt
 dg0 f51 method GET #txt
 dg0 f51 bodyInputType ENTITY #txt
 dg0 f51 bodyRaw '{
@@ -775,10 +744,6 @@ dg0 f52 110 512 351 512 #arcP
 dg0 f50 479 512 527 512 #arcP
 dg0 f53 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f53 path users/1 #txt
-dg0 f53 templateParams 'json.placeholder.host=ivy.var.jsonPlaceholderHost;
-json.placeholder.protocol=ivy.var.jsonPlaceholderProtocol;
-json.placeholder.port=ivy.var.jsonPlaceholderPort;
-' #txt
 dg0 f53 method GET #txt
 dg0 f53 bodyInputType ENTITY #txt
 dg0 f53 bodyRaw '{

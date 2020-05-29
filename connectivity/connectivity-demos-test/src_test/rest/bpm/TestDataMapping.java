@@ -25,9 +25,7 @@ public class TestDataMapping
   @BeforeAll
   static void setUp(AppFixture fixture)
   {
-    fixture.var("jsonPlaceholderProtocol", "http");
-    fixture.var("jsonPlaceholderHost", "localhost");
-    fixture.var("jsonPlaceholderPort", "3000");
+    fixture.environment("dev-axonivy");
   }
   
   @Test
