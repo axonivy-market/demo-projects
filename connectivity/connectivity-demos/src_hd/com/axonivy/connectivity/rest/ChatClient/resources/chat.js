@@ -11,7 +11,7 @@ function Chat(uri) {
   }
 
   this.listen = async function (callback) {
-	let abortSignal =  this.aborter.signal;
+    let abortSignal = this.aborter.signal;
     const response = await fetch(uri, {
       signal: abortSignal
     });
