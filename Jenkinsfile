@@ -23,7 +23,7 @@ pipeline {
       steps {
         script {
 
-          docker.build("jsonplaceholder", "./connectivity/jsonplaceholder").withRun('-d --network host') { c ->
+          docker.build("jsonplaceholder", "./connectivity/jsonplaceholder").withRun('--network host') { c ->
 
             docker.image('axonivy/build-container:web-1.0').inside('--network host') {
               def workspace = pwd()
