@@ -44,8 +44,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/oauth1-client-2.30.1.jar"/>
-	<classpathentry kind="lib" path="lib/oauth1-signature-2.30.1.jar"/>
+	<classpathentry kind="lib" path="lib/oauth1-client-2.31.jar"/>
+	<classpathentry kind="lib" path="lib/oauth1-signature-2.31.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_16150E44A158D09C.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_162B962523BAAB85.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_162B97C859B22CA3.jar"/>
