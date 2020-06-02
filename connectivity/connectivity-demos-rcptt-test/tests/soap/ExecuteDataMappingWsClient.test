@@ -32,9 +32,6 @@ let [val project "connectivity-demos"]
 	startEngines
 	simulationSelected false
 
-	startMappingProcess "resolveToCache.ivp"
-	assertRuntimeLogMsg "the time on the remote system is 20" // e.g. 2018-MM-DD ...
-
 	startMappingProcess "mapComplexData.ivp"
 	assertRuntimeLogMsg "created person with id " // UUID
 	simulationSelected true
