@@ -6,11 +6,13 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.engine.EngineUrl;
+import com.codeborne.selenide.WebDriverRunner;
 
 @IvyWebTest
 public class WebTestErrorHandling
@@ -63,14 +65,13 @@ public class WebTestErrorHandling
     $(By.id("form:nonAjax")).shouldBe(visible).click();
 
     $("h1").shouldHave(text("ivy:error:script"));
-    String text = $(By.id("content")).getText();
-    assertThat(text)
+    assertThat(StringUtils.substringAfter(WebDriverRunner.source(), "exception-panel"))
         .contains("ivy:error:script")
         .contains("Error id")
         .contains("Process")
         .contains("ErrorHandlingProcess")
         .contains("Element")
-        .contains("throw exception <15E519280889B152-f9>")
+        .contains("throw exception &lt;15E519280889B152-f9&gt;")
         .contains("Technical cause")
         .contains("IvyScriptRuntimeException: IvyScript Runtime Exception in")
         .contains("Instruction:")
