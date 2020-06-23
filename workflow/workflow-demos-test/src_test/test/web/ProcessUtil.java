@@ -39,7 +39,7 @@ public class ProcessUtil
     }
     else
     {
-      $("h3").waitUntil(exactText("Task List"), 15000);
+      $("h1").waitUntil(exactText("Task List"), 15000);
     }
   }
 
