@@ -1,7 +1,6 @@
 package workflow.businessdata;
 
 import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.exactValue;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -68,7 +67,7 @@ public class WebTestBusinessCaseDataWorkflow
       $("#loginForm\\:userName").shouldBe(visible).sendKeys("hb");
       $("#loginForm\\:password").sendKeys("hb");
       $("#loginForm\\:login").click();
-      $("h3").shouldBe(exactText("Home"));
+      $("h1").shouldBe(text("Application: " + EngineUrl.applicationName()));
     }
   }
 

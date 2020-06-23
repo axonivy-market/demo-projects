@@ -1,6 +1,7 @@
 package test.web;
 
 import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 import com.axonivy.ivy.webtest.engine.EngineUrl;
@@ -39,7 +40,7 @@ public class ProcessUtil
     }
     else
     {
-      $("h3").waitUntil(exactText("Task List"), 15000);
+      $("h1").waitUntil(text("Task List"), 15000);
     }
   }
 
