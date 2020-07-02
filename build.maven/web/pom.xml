@@ -62,99 +62,11 @@
         <artifactId>project-build-plugin</artifactId>
         <version>9.1.0-SNAPSHOT</version>
         <extensions>true</extensions>
-        <executions>
-          <execution>
-            <id>start.test.engine</id>
-            <goals>
-              <goal>start-test-engine</goal>
-            </goals>
-            <phase>pre-integration-test</phase>
-          </execution>
-          <execution>
-            <id>stop.test.engine</id>
-            <goals>
-              <goal>stop-test-engine</goal>
-            </goals>
-            <phase>post-integration-test</phase>
-          </execution>
-        </executions>
         <configuration>
           <deployToEngineApplication>${test.application}</deployToEngineApplication>
           <additionalVmOptions>-Divy.Errors.ShowDetailsToEndUser=true</additionalVmOptions>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${maven.surefire.version}</version>
-        <executions>
-          <execution>
-            <id>selenium.web.tests</id>
-            <phase>integration-test</phase>
-            <goals>
-              <goal>test</goal>
-            </goals>
-            <configuration>
-              <includes>
-                <include>**/WebTest*.java</include>
-              </includes>
-            </configuration>
-          </execution>
-        </executions>
-        <configuration>
-          <argLine> -Dtest.engine.url=${test.engine.url} -Dtest.engine.app=${test.application}
-          </argLine>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>3.1.2</version>
-        <executions>
-          <execution>
-            <id>share.dependencies.as.property.for.iar.deployment</id>
-            <goals>
-              <goal>properties</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>thirdparty.libs</id>
-            <configuration>
-              <skip>true</skip>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
-
-    <pluginManagement>
-      <plugins>
-        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <versionRange>[3.0.2,)</versionRange>
-                    <goals>
-                      <goal>properties</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore></ignore>
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
 </project>

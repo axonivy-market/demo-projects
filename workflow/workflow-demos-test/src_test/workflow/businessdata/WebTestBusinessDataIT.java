@@ -18,7 +18,7 @@ import com.axonivy.ivy.webtest.primeui.widget.Table;
 import com.codeborne.selenide.Selenide;
 
 @IvyWebTest
-public class WebTestBusinessData
+public class WebTestBusinessDataIT
 {
   private static final String BROWSE_DOSSIERS_LINK = "155BB4328F79B2D5/browse.ivp";
 

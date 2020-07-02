@@ -4,7 +4,7 @@
   <groupId>ch.ivyteam.demo</groupId>
   <artifactId>html-dialog-demos-test</artifactId>
   <version>9.1.0-SNAPSHOT</version>
-  <packaging>iar</packaging>
+  <packaging>iar-integration-test</packaging>
   <parent>
     <groupId>ch.ivyteam.demo</groupId>
     <artifactId>build-maven-web</artifactId>
@@ -16,77 +16,33 @@
     <dependency>
       <groupId>ch.ivyteam.demo</groupId>
       <artifactId>html-dialog-demos</artifactId>
-      <!-- avoid conflict with old version from 6.0 which was 6000000.0.0-SNAPSHOT -->
       <version>${project.version}</version>
       <type>iar</type>
     </dependency>
   </dependencies>
+  
   <build>
     <sourceDirectory>src</sourceDirectory>
-
     <plugins>
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
         <extensions>true</extensions>
-        <executions>
-          <execution>
-            <id>deploy.html-dialog-demos.under.test.to.memory.engine</id>
-            <goals>
-              <goal>deploy-to-engine</goal>
-            </goals>
-            <phase>pre-integration-test</phase>
-            <configuration>
-              <deployFile>${ch.ivyteam.demo:html-dialog-demos:iar}</deployFile>
-              <deployTargetFileFormat>EXPANDED</deployTargetFileFormat>
-            </configuration>
-          </execution>
-          <execution>
-            <id>deploy.html-dialog-demos-test.to.memory.engine</id>
-            <goals>
-              <goal>deploy-to-engine</goal>
-            </goals>
-            <phase>pre-integration-test</phase>
-            <configuration>
-              <deployFile>${ch.ivyteam.demo:html-dialog-demos-test:iar}</deployFile>
-            </configuration>
-          </execution>
-        </executions>
+        <configuration>
+          <deployTargetFileFormat>EXPANDED</deployTargetFileFormat>
+        </configuration>
       </plugin>
     </plugins>
-
     <pluginManagement>
       <plugins>
-        <!--This plugin's configuration is used to store Eclipse m2e settings 
-          only. It has no influence on the Maven build itself. -->
         <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>3.0.0-M5</version>
           <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>
-                      com.axonivy.ivy.ci
-                    </groupId>
-                    <artifactId>
-                      project-build-plugin
-                    </artifactId>
-                    <versionRange>
-                      [6.2.0,)
-                    </versionRange>
-                    <goals>
-                      <goal>installEngine</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore></ignore>
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
+            <includes>
+              <include>**/WebTest*</include>
+            </includes>
           </configuration>
         </plugin>
       </plugins>
