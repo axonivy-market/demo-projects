@@ -10,7 +10,7 @@ import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.engine.EngineUrl;
 
 @IvyWebTest
-public class WebTestCreateNewEmployee
+public class WebTestCreateNewEmployeeIT
 {
 
   @Test

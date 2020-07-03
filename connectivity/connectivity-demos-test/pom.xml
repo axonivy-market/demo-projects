@@ -11,7 +11,7 @@
   <groupId>ch.ivyteam.demo</groupId>
   <artifactId>connectivity-demos-test</artifactId>
   <version>9.1.0-SNAPSHOT</version>
-  <packaging>iar</packaging>
+  <packaging>iar-integration-test</packaging>
 
   <properties>
     <wss4j.version>2.2.4</wss4j.version>
@@ -87,60 +87,31 @@
 
     <plugins>
       <plugin>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <executions>
-          <execution>
-            <!-- blows up our test project for nothing... -->
-            <id>thirdparty.libs</id>
-            <phase>never</phase>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${maven.surefire.version}</version>
-        <executions>
-          <execution>
-            <id>integration.test</id>
-            <phase>integration-test</phase>
-            <goals>
-              <goal>test</goal>
-            </goals>
-            <configuration>
-              <includes>
-                <include>**/IntegrationTest*.java</include>
-              </includes>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
         <extensions>true</extensions>
-        <executions>
-          <execution>
-            <id>deploy.project.under.test</id>
-            <goals>
-              <goal>deploy-to-engine</goal>
-            </goals>
-            <phase>pre-integration-test</phase>
-            <configuration>
-              <deployFile>${ch.ivyteam.demo:connectivity-demos:iar}</deployFile>
-            </configuration>
-          </execution>
-          <execution>
-            <id>deploy.myself</id>
-            <goals>
-              <goal>deploy-to-engine</goal>
-            </goals>
-            <phase>pre-integration-test</phase>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
+    
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>default-integration-test</id>
+              <configuration>
+                <includes>
+                  <include>**/IntegrationTest*</include>
+                  <include>**/WebTest*</include>
+                </includes>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 
 
