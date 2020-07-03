@@ -11,7 +11,7 @@
   <groupId>ch.ivyteam.demo</groupId>
   <artifactId>connectivity-demos-test</artifactId>
   <version>9.1.0-SNAPSHOT</version>
-  <packaging>iar</packaging>
+  <packaging>iar-integration-test</packaging>
 
   <properties>
     <wss4j.version>2.2.4</wss4j.version>
