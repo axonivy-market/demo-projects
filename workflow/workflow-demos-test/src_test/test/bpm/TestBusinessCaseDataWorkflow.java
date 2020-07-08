@@ -22,7 +22,7 @@ public class TestBusinessCaseDataWorkflow
 
 
   @Test
-  void create_anonymus(BpmClient bpmClient)
+  void create_anonymous(BpmClient bpmClient)
   {
     bpmClient.mock().element(HD_INTERVIEW_1).withNoAction();
     bpmClient.mock().element(HD_INTERVIEW_2).withNoAction();
