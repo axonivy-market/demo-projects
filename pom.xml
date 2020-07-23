@@ -16,11 +16,6 @@
     <module>connectivity</module>
     <module>demos-app</module>
     <module>serenity</module>
-
-    <!-- needs to here that raising version works -->
-    <module>build.maven</module>
-    <module>build.maven/rcptt</module>
-    <module>build.maven/web</module>
   </modules>
 
   <build>
