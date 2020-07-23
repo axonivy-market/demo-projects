@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ch.ivyteam.demo</groupId>
+  <artifactId>update-ivy-projects-version</artifactId>
+  <version>9.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>nexus.ivyteam.io</id>
+      <url>https://nexus.ivyteam.io/repository/maven/</url>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <build>
+    <plugins>      
+      <plugin>
+        <groupId>ch.ivyteam.maven</groupId>
+        <artifactId>maven-version-plugin</artifactId>
+        <version>9.1.4-SNAPSHOT</version>
+        <configuration>
+          <version>${new-version}-SNAPSHOT</version>
+        </configuration>
+        <executions>
+          <execution>            
+            <phase>process-resources</phase>
+            <goals>
+              <goal>setMavenAndEclipseVersion</goal>
+            </goals>
+            <configuration>
+              <pomsToUpdate combine.children="append">
+                <fileset>
+                  <directory>${basedir}/../../..</directory>
+                  <includes>
+                    <include>**/pom.xml</include>
+                  </includes>
+                </fileset>
+              </pomsToUpdate>
+            </configuration>
+          </execution>         
+        </executions>
+      </plugin>
+    </plugins>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <configuration>
+            <skip>true</skip>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
