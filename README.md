@@ -31,5 +31,5 @@ If you want to know more about testing checkout our documentation chapter: [Test
 
 ## Raise version
 
-1. Execute `mvn versions:set versions:commit -DnewVersion=9.2.0-SNAPSHOT -DprocessAllModules`
+1. Execute `mvn -f build.maven/raise-version/pom.xml versions:set versions:commit -DnewVersion=9.2.0-SNAPSHOT -DprocessAllModules`
 2. Raise version in core repository
