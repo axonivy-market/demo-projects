@@ -29,6 +29,7 @@ mvn clean verify
 
 If you want to know more about testing checkout our documentation chapter: [Testing](https://developer.axonivy.com/doc/dev/concepts/testing.html)
 
-## increase version
+## Raise version
 
-[Increase version job](build.maven/job/update-version/README.md)
+1. Execute `mvn -f build.maven/raise-version/pom.xml versions:set versions:commit -DnewVersion=9.2.0-SNAPSHOT -DprocessAllModules`
+2. Raise version in core repository
