@@ -6,7 +6,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 import javax.annotation.security.PermitAll;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -49,6 +51,32 @@ public class UiPathMock
   public String getRobots()
   {
     return load("json/robots.json");
+  }
+  
+  @GET
+  @Produces(MediaType.APPLICATION_JSON)
+  @Path("odata/Releases")
+  public String getReleases()
+  {
+    return load("json/releases.json");
+  }
+  
+  @POST
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.APPLICATION_JSON)
+  @Path("oauth/token")
+  public String getToken(String tokenRequest)
+  {
+    return load("json/token.json");
+  }
+  
+  @POST
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.APPLICATION_JSON)
+  @Path("odata/Jobs/UiPath.Server.Configuration.OData.StartJobs")
+  public String startJob(String tokenRequest)
+  {
+    return load("json/startJob.json");
   }
   
   private static String load(String path)
