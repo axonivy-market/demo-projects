@@ -190,7 +190,6 @@ out.newJob.jobsCount =0;
 out.newJob.noOfRobots = 0;
 out.newJob.source = SourceEnum.MANUAL;
 out.newJob.jobPriority = JobPriorityEnum.NORMAL;
-out.newJob.runtimeType = RuntimeTypeEnum.UNATTENDED; // do not serialize!
 out.newJob.inputArguments = ""; // not null!' #txt
 uh0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -226,21 +225,8 @@ uh0 f19 472 246 472 282 #arcP
 uh0 f24 clientId 699e715f-63b1-4355-a974-ee3cac26985e #txt
 uh0 f24 path odata/Jobs/UiPath.Server.Configuration.OData.StartJobs #txt
 uh0 f24 method POST #txt
-uh0 f24 bodyInputType RAW #txt
-uh0 f24 bodyRaw ' {
-  "startInfo": {
-    "ReleaseKey": "<%=in.newJob.releaseKey%>",
-    "Strategy": "<%=in.newJob.strategy.getValue()%>",
-    "RobotIds": [
-      <%=in.newJob.robotIds.get(0)%>
-    ],
-    "NoOfRobots": 0,
-    "JobsCount": 0,
-    "Source": "<%=in.newJob.source.getValue()%>",
-    "JobPriority": "<%=in.newJob.jobPriority.getValue()%>",
-    "InputArguments":""
-  }
-}' #txt
+uh0 f24 bodyInputType ENTITY #txt
+uh0 f24 bodyEntity 'new io.swagger.uipath.openapi.Body24().setStartInfo(in.newJob);' #txt
 uh0 f24 clientCode 'import io.swagger.uipath.openapi.Body24;
 import io.swagger.uipath.openapi.JobDto;
 import io.swagger.uipath.openapi.JobDto;
