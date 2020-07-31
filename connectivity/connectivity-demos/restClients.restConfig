@@ -242,10 +242,10 @@ https://platform.uipath.com/AXONPRESALES/AXONPRESALES/swagger
                     <class>com.axonivy.connectivity.rest.client.auth.OAuth2Feature</class>
                 </feature>
                 <feature>
-                    <class>com.axonivy.connectivity.rest.sample.uipath.TenantHeaderFeature</class>
+                    <class>com.axonivy.connectivity.rest.sample.uipath.UiPathJsonFeature</class>
                 </feature>
                 <feature>
-                    <class>com.axonivy.connectivity.rest.sample.uipath.UiPathJsonFeature</class>
+                    <class>com.axonivy.connectivity.rest.sample.uipath.IvyXcsrfHeaderFeature</class>
                 </feature>
             </configuration>
         </environmentConfigurations>
@@ -265,5 +265,22 @@ https://platform.uipath.com/AXONPRESALES/AXONPRESALES/swagger
                 <class>ch.ivyteam.ivy.rest.client.mapper.JsonFeature</class>
             </feature>
         </configuration>
+        <environmentConfigurations>
+            <environment>dev-axonivy</environment>
+            <configuration>
+                <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.request.application}/api/rpaMock/oauth/token</uri>
+                <property>
+                    <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
+                    <value>false</value>
+                    <password>false</password>
+                </property>
+                <feature>
+                    <class>ch.ivyteam.ivy.rest.client.mapper.JsonFeature</class>
+                </feature>
+                <feature>
+                    <class>com.axonivy.connectivity.rest.sample.uipath.IvyXcsrfHeaderFeature</class>
+                </feature>
+            </configuration>
+        </environmentConfigurations>
     </restClient>
 </restClients>

@@ -1,60 +1,48 @@
 {
-  "@odata.context": "string",
-  "value": [
-    {
-      "LicenseKey": "string",
-      "MachineName": "string",
-      "MachineId": 0,
-      "Name": "string",
-      "Username": "string",
-      "ExternalName": "string",
-      "Description": "string",
-      "Version": "string",
-      "Type": "NonProduction",
-      "HostingType": "Standard",
-      "ProvisionType": "Manual",
-      "Password": "string",
-      "CredentialStoreId": 0,
-      "UserId": 0,
-      "CredentialType": "Default",
-      "Environments": [
+    "@odata.context": "https://platform.uipath.com/odata/$metadata#Robots",
+    "@odata.count": 2,
+    "value": [
         {
-          "Name": "string",
-          "Description": "string",
-          "Robots": [
-            {
-              "LicenseKey": "string",
-              "MachineName": "string",
-              "MachineId": 0,
-              "Name": "string",
-              "Username": "string",
-              "ExternalName": "string",
-              "Description": "string",
-              "Version": "string",
-              "Type": "NonProduction",
-              "HostingType": "Standard",
-              "ProvisionType": "Manual",
-              "Password": "string",
-              "CredentialStoreId": 0,
-              "UserId": 0,
-              "CredentialType": "Default",
-              "Environments": [
-                {}
-              ],
-              "RobotEnvironments": "string",
-              "ExecutionSettings": {},
-              "IsExternalLicensed": true,
-              "Id": 0
-            }
-          ],
-          "Type": "Dev",
-          "Id": 0
+            "LicenseKey": null,
+            "MachineName": "cls",
+            "MachineId": 63176,
+            "Name": "cls",
+            "Username": "cls\\cschiller",
+            "ExternalName": null,
+            "Description": null,
+            "Version": "18.4.0.6",
+            "Type": "Development",
+            "HostingType": "Standard",
+            "ProvisionType": "Manual",
+            "Password": null,
+            "CredentialStoreId": null,
+            "UserId": 127948,
+            "CredentialType": null,
+            "RobotEnvironments": "",
+            "IsExternalLicensed": false,
+            "Id": 76878,
+            "ExecutionSettings": null
+        },
+        {
+            "LicenseKey": null,
+            "MachineName": "mrclprglaxonivy",
+            "MachineId": 136650,
+            "Name": "socialBot",
+            "Username": "mrclprglaxonivy\\mepru",
+            "ExternalName": null,
+            "Description": null,
+            "Version": "18.4.0.6",
+            "Type": "Unattended",
+            "HostingType": "Standard",
+            "ProvisionType": "Manual",
+            "Password": null,
+            "CredentialStoreId": null,
+            "UserId": 244664,
+            "CredentialType": null,
+            "RobotEnvironments": "sandboxOne",
+            "IsExternalLicensed": false,
+            "Id": 151640,
+            "ExecutionSettings": null
         }
-      ],
-      "RobotEnvironments": "string",
-      "ExecutionSettings": {},
-      "IsExternalLicensed": true,
-      "Id": 0
-    }
-  ]
+    ]
 }
