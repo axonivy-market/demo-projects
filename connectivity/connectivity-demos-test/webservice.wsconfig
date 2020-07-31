@@ -31,14 +31,14 @@
     <webServiceConfig>
         <name>policyGreeter</name>
         <id>162AF1AE2B935160</id>
-        <wsdlUrl>http://zugtstweb:8080/country-service/webservices/greet-policy-wss?wsdl</wsdlUrl>
+        <wsdlUrl>http://test-webservices.ivyteam.io:8080/country-service/webservices/greet-policy-wss?wsdl</wsdlUrl>
         <wsCallLibrary>CXF</wsCallLibrary>
         <service>
             <serviceClass>ch.ivyteam.testservice.policy.greeter.client.SecureGreetPolicyServiceService</serviceClass>
             <port>
                 <name>SecureGreetPolicyServicePort</name>
                 <portType>SecureGreetPolicyService</portType>
-                <locationUri>http://zugtstweb:8080/country-service/webservices/greet-policy-wss</locationUri>
+                <locationUri>http://test-webservices.ivyteam.io:8080/country-service/webservices/greet-policy-wss</locationUri>
             </port>
             <portType>
                 <name>SecureGreetPolicyService</name>
@@ -70,7 +70,7 @@
                 <port>
                     <name>SecureGreetPolicyServicePort</name>
                     <portType>SecureGreetPolicyService</portType>
-                    <locationUri>http://zugtstweb:8080/country-service/webservices/greet-policy-wss</locationUri>
+                    <locationUri>http://test-webservices.ivyteam.io:8080/country-service/webservices/greet-policy-wss</locationUri>
                 </port>
             </service>
         </environmentConfigurations>
