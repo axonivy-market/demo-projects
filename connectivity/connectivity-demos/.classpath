@@ -25,10 +25,11 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src_generated">
+	<classpathentry kind="src" output="target/classes" path="src_generated">
 		<attributes>
 			<attribute name="ignore_optional_problems" value="true"/>
 			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="IVY_CONTAINER">
