@@ -1,4 +1,4 @@
-package ch.ivyteam.demo;
+package ch.ivyteam.rule.engine.demo;
 
 import static com.codeborne.selenide.Condition.empty;
 import static com.codeborne.selenide.Condition.exactText;
