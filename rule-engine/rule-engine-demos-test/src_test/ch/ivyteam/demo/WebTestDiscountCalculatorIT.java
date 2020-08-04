@@ -19,7 +19,7 @@ import com.axonivy.ivy.webtest.primeui.PrimeUi;
 import com.codeborne.selenide.Selenide;
 
 @IvyWebTest
-public class SampleWebIT
+public class WebTestDiscountCalculatorIT
 {
   
   private static final String MEMBER_PURCHASE_AMOUNT_MESSAGE = "form:memberPurchaseAmountMessage";
