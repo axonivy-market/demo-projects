@@ -103,9 +103,11 @@ import java.nio.file.Files;
 
 java.io.File tempFile = Files.createTempFile("test", ".txt").toFile();
 
-Response response = FileUpload.upload(client, tempFile);
+String response = FileUpload.upload(client, tempFile)
+	.readEntity(String.class).toString();
 
-ivy.log.info(response.readEntity(String.class));
+ivy.log.info(response);
+out.result = response;
 
 
 

@@ -2,3 +2,5 @@ Data #class
 com.axonivy.connectivity #namespace
 persons java.util.List<com.axonivy.connectivity.Person> #field
 persons PERSISTENT #fieldModifier
+result String #field
+result PERSISTENT #fieldModifier
