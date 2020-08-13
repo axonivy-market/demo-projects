@@ -120,7 +120,7 @@ To run this service locally:
         <environmentConfigurations>
             <environment>dev-axonivy</environment>
             <configuration>
-                <uri>http://localhost:3000/</uri>
+                <uri>http://test-webservices.ivyteam.io:8091/</uri>
                 <property>
                     <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
                     <value>false</value>
@@ -185,6 +185,20 @@ To run this service locally:
                 <class>ch.ivyteam.ivy.rest.client.mapper.JsonFeature</class>
             </feature>
         </configuration>
+        <environmentConfigurations>
+            <environment>dev-axonivy</environment>
+            <configuration>
+                <uri>http://test-webservices.ivyteam.io:8090/api/v3</uri>
+                <property>
+                    <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
+                    <value>false</value>
+                    <password>false</password>
+                </property>
+                <feature>
+                    <class>ch.ivyteam.ivy.rest.client.mapper.JsonFeature</class>
+                </feature>
+            </configuration>
+        </environmentConfigurations>
     </restClient>
     <restClient>
         <uuid>699e715f-63b1-4355-a974-ee3cac26985e</uuid>

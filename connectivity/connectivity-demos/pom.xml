@@ -144,52 +144,6 @@
           </execution>
         </executions>
       </plugin>
-
-      <plugin>
-        <groupId>io.swagger.codegen.v3</groupId>
-        <artifactId>swagger-codegen-maven-plugin</artifactId>
-        <version>3.0.21</version>
-        <executions>
-          <execution>
-            <id>generate.uipath.openapi</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <configuration>
-              <inputSpec>${basedir}/src/com/axonivy/connectivity/rest/sample/uipath/openapi.json</inputSpec>
-              <!-- <inputSpec>https://platform.uipath.com/AXONPRESALES/AXONPRESALES:443/swagger/docs/V2</inputSpec> -->
-              <modelPackage>io.swagger.uipath.openapi</modelPackage>
-            </configuration>
-          </execution>
-          <execution>
-            <id>generate.petjob.pojos.from.openapi</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <configuration>
-              <inputSpec>${basedir}/src/com/axonivy/connectivity/rest/sample/petstore/swagger.json</inputSpec>
-              <modelPackage>io.swagger.petstore.openapi</modelPackage>
-            </configuration>
-          </execution>
-        </executions>
-        <configuration>
-          <configOptions>
-            <sourceFolder>src_generated</sourceFolder>
-            <dateLibrary>java8</dateLibrary>
-          </configOptions>
-          <language>java</language>
-          <library>jersey2</library>
-          <output>${basedir}</output>
-          <generateApis>false</generateApis>
-          <generateApiTests>false</generateApiTests>
-          <generateApiDocumentation>false</generateApiDocumentation>
-          <generateSupportingFiles>false</generateSupportingFiles>
-          <generateModelTests>false</generateModelTests>
-          <generateModelDocumentation>false</generateModelDocumentation>
-        </configuration>
-      </plugin>
     </plugins>
     <pluginManagement>
       <plugins>

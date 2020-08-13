@@ -24,7 +24,6 @@ public class WebTestRestProcessStarts
     checkProcess("169B3B7F5EF38D8F/callFileUpload.ivp");
     checkProcess("15DEF1BE5B9E5A42/readCollection.ivp");
     checkProcess("15DEF1BE5B9E5A42/readById.ivp");
-    checkProcess("16F375741231763F/listPets.ivp");
   }
 
   @Test
