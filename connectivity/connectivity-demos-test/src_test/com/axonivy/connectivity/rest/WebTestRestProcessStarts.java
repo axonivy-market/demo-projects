@@ -18,12 +18,8 @@ public class WebTestRestProcessStarts
   @Test
   void checkAllSimpleRestCalls()
   {
-    checkProcess("154616078A1D629D/listPersons.ivp");
-    checkProcess("154616078A1D629D/listServiceOptions.ivp");
     checkProcess("16764B07C0329FC8/callBatchAsync.ivp");
     checkProcess("169B3B7F5EF38D8F/callFileUpload.ivp");
-    checkProcess("15DEF1BE5B9E5A42/readCollection.ivp");
-    checkProcess("15DEF1BE5B9E5A42/readById.ivp");
   }
 
   @Test

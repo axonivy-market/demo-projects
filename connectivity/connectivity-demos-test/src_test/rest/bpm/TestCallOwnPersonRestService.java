@@ -28,5 +28,16 @@ public class TestCallOwnPersonRestService
     assertThat(persons).hasSize(4);
     assertThat(persons).extracting("firstname").contains("Renato", "Bruno", "Reguel", "Reto");
   }
+  
+  @Test
+  void listServiceOptions(BpmClient bpmClient)
+  {
+    ExecutionResult result = bpmClient.start().process("rest/callOwnPersonRestService/listServiceOptions.ivp").execute();
+    assertThat(result).isNotNull();
+    
+    Data data = result.data().last();
+    String response = data.getResult();
+    assertThat(response).isNotBlank().contains("<resource path=\"persons\">");
+  }
 
 }
