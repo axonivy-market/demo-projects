@@ -121,6 +121,8 @@ uh0 f5 @|RestClientCallIcon #fIcon
 uh0 f6 376 64 408 64 #arcP
 uh0 f0 clientId 699e715f-63b1-4355-a974-ee3cac26985e #txt
 uh0 f0 path odata/Robots #txt
+uh0 f0 queryParams '$$filter="Type eq ''UNATTENDED''";
+' #txt
 uh0 f0 method GET #txt
 uh0 f0 clientCode 'import javax.ws.rs.core.GenericEntity;
 import io.swagger.uipath.openapi.RobotDto;
@@ -181,10 +183,8 @@ for(ReleaseDto rel : in.releases){
   }
 }
 for(RobotDto robo : in.robots){
-  if (robo.type == TypeEnum.UNATTENDED){
-  	ivy.log.info("robot in use "+robo);
-    out.newJob.robotIds.add(robo.id);
-  }
+  ivy.log.info("robot in use "+robo);
+  out.newJob.robotIds.add(robo.id);
 }
 out.newJob.jobsCount =0;
 out.newJob.noOfRobots = 0;
@@ -203,6 +203,8 @@ uh0 f17 408 282 128 44 -43 -15 #rect
 uh0 f17 @|StepIcon #fIcon
 uh0 f22 clientId 699e715f-63b1-4355-a974-ee3cac26985e #txt
 uh0 f22 path odata/Releases #txt
+uh0 f22 queryParams '$$filter="contains(ProcessKey, ''order'')";
+' #txt
 uh0 f22 resultType java.util.List<io.swagger.uipath.openapi.ReleaseDto> #txt
 uh0 f22 responseCode 'ivy.log.info("found "+result.size()+" Process releases");
 out.releases = result;' #txt
