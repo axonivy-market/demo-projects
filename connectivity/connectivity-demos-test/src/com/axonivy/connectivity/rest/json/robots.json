@@ -1,28 +1,7 @@
 {
     "@odata.context": "https://platform.uipath.com/odata/$metadata#Robots",
-    "@odata.count": 2,
+    "@odata.count": 1,
     "value": [
-        {
-            "LicenseKey": null,
-            "MachineName": "cls",
-            "MachineId": 63176,
-            "Name": "cls",
-            "Username": "cls\\cschiller",
-            "ExternalName": null,
-            "Description": null,
-            "Version": "18.4.0.6",
-            "Type": "Development",
-            "HostingType": "Standard",
-            "ProvisionType": "Manual",
-            "Password": null,
-            "CredentialStoreId": null,
-            "UserId": 127948,
-            "CredentialType": null,
-            "RobotEnvironments": "",
-            "IsExternalLicensed": false,
-            "Id": 76878,
-            "ExecutionSettings": null
-        },
         {
             "LicenseKey": null,
             "MachineName": "mrclprglaxonivy",
