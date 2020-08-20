@@ -87,7 +87,10 @@
           <p:commandButton id="applyDecisionTable" style="margin-left:10px"
             actionListener="#{logic.applyRulesFromDecisionTable}" value="Apply Decision Table Rules" update="form"
             icon="fa fa-table" />
-        </div>
+					<p:commandButton id="applyDMN" style="margin-left:10px"
+						actionListener="#{logic.applyRulesFromDMN}"
+						value="Apply DMN Rules" update="form" icon="fa fa-tasks" />
+				</div>
       </h:form>
     </ui:define>
   </ui:composition>

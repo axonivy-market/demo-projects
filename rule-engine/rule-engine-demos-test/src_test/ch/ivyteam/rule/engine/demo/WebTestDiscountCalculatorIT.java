@@ -28,7 +28,8 @@ public class WebTestDiscountCalculatorIT
   private static final String MEMBER_TYPE = "form:memberType";
   private static final String APPLY_DECISION_TABLE = "form:applyDecisionTable";
   private static final String APPLY_DRL = "form:applyDRL";
-
+  private static final String APPLY_DMN = "form:applyDMN";
+  
   @BeforeEach
   public void openRuleDemo() 
   {
@@ -46,10 +47,15 @@ public class WebTestDiscountCalculatorIT
     $(By.id(MEMBER_PURCHASE_AMOUNT_MESSAGE)).shouldBe(empty);
     $(By.id(APPLY_DECISION_TABLE)).shouldBe(visible).click();
     $(By.id(MEMBER_PURCHASE_AMOUNT_MESSAGE)).shouldBe(text("Please enter Purchase Amount"));
+    Selenide.refresh();
+    
+    $(By.id(MEMBER_PURCHASE_AMOUNT_MESSAGE)).shouldBe(empty);
+    $(By.id(APPLY_DMN)).shouldBe(visible).click();
+    $(By.id(MEMBER_PURCHASE_AMOUNT_MESSAGE)).shouldBe(text("Please enter Purchase Amount"));  
   }
   
   @ParameterizedTest
-  @ValueSource(strings = { APPLY_DRL, APPLY_DECISION_TABLE })
+  @ValueSource(strings = { APPLY_DRL, APPLY_DECISION_TABLE, APPLY_DMN })
   public void applyNone(String calcBtn)
   {
     assertDiscountForAmount(calcBtn, 200, 0);
@@ -57,7 +63,7 @@ public class WebTestDiscountCalculatorIT
   }
 
   @ParameterizedTest
-  @ValueSource(strings = { APPLY_DRL, APPLY_DECISION_TABLE })
+  @ValueSource(strings = { APPLY_DRL, APPLY_DECISION_TABLE, APPLY_DMN })
   public void applyGold(String calcBtn) 
   {
     PrimeUi.selectOneRadio(By.id(MEMBER_TYPE)).selectItemByValue("Gold");
@@ -67,7 +73,7 @@ public class WebTestDiscountCalculatorIT
   }
   
   @ParameterizedTest
-  @ValueSource(strings = { APPLY_DRL, APPLY_DECISION_TABLE })
+  @ValueSource(strings = { APPLY_DRL, APPLY_DECISION_TABLE, APPLY_DMN  })
   public void applySilver(String calcBtn) 
   {
     PrimeUi.selectOneRadio(By.id(MEMBER_TYPE)).selectItemByValue("Silver");

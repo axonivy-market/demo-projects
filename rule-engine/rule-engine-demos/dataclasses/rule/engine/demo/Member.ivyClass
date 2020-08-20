@@ -6,3 +6,5 @@ memberType rule.engine.demo.enums.MemberType #field
 memberType PERSISTENT #fieldModifier
 discount Number #field
 discount PERSISTENT #fieldModifier
+type String #field
+type PERSISTENT #fieldModifier
