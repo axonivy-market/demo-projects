@@ -26,6 +26,12 @@ Ds0 @UdProcessEnd f4 '' #zField
 Ds0 @GridStep f5 '' #zField
 Ds0 @PushWFArc f8 '' #zField
 Ds0 @PushWFArc f9 '' #zField
+Ds0 @UdMethod f15 '' #zField
+Ds0 @UdProcessEnd f16 '' #zField
+Ds0 @GridStep f18 '' #zField
+Ds0 @PushWFArc f19 '' #zField
+Ds0 @PushWFArc f17 '' #zField
+Ds0 @InfoButton f20 '' #zField
 >Proto Ds0 Ds0 DiscountCalculatorProcess #zField
 Ds0 f0 guid 153E9EE0238C8F41 #txt
 Ds0 f0 method start(rule.engine.demo.Member) #txt
@@ -163,6 +169,64 @@ Ds0 f8 expr out #txt
 Ds0 f8 109 280 216 280 #arcP
 Ds0 f9 expr out #txt
 Ds0 f9 408 280 499 280 #arcP
+Ds0 f15 guid 1740BA3DD7672D96 #txt
+Ds0 f15 method applyRulesFromDMN() #txt
+Ds0 f15 inParameterDecl '<> param;' #txt
+Ds0 f15 outParameterDecl '<> result;' #txt
+Ds0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>applyRulesFromDMN()</name>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f15 83 403 26 26 -63 15 #rect
+Ds0 f15 @|UdMethodIcon #fIcon
+Ds0 f16 499 403 26 26 0 12 #rect
+Ds0 f16 @|UdProcessEndIcon #fIcon
+Ds0 f18 actionTable 'out=in;
+' #txt
+Ds0 f18 actionCode 'import ch.ivyteam.ivy.rule.engine.api.runtime.IStatelessRuleSession;
+import ch.ivyteam.ivy.rule.engine.api.IRuleBase;
+import java.util.HashMap;
+import java.util.Map;
+
+		IRuleBase ruleBase = Rules.engine().createRuleBase();
+		ruleBase.loadRulesFromNamespace("rule.engine.dmn");
+		IStatelessRuleSession session = ruleBase.createSession();
+
+		//HashMap with input data
+		HashMap input = new HashMap();
+		in.member.type= in.member.#memberType == null ? "" : in.member.memberType.name();  //get string value of Enumeration for DMN
+		input.put("member", in.member);
+		ivy.log.info("member {0}",in.member);
+		
+		Map result = session.executeDMN(input);
+		
+		//Map returned values
+		out.member.discount = result.get("member.discount").toNumber();
+		ivy.log.info("result {0}",result);	' #txt
+Ds0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Apply Rules from DMN</name>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f18 256 394 128 44 -61 -8 #rect
+Ds0 f18 @|StepIcon #fIcon
+Ds0 f19 109 416 256 416 #arcP
+Ds0 f17 384 416 499 416 #arcP
+Ds0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>.dmn file can be edited with online editor. e.g. :&#13;
+https://kiegroup.github.io/kogito-online/#/</name>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f20 592 394 256 44 -125 -16 #rect
+Ds0 f20 @|IBIcon #fIcon
 >Proto Ds0 .type rule.engine.demo.DiscountCalculator.DiscountCalculatorData #txt
 >Proto Ds0 .processKind HTML_DIALOG #txt
 >Proto Ds0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -171,17 +235,22 @@ Ds0 f9 408 280 499 280 #arcP
         <swimlaneLabel></swimlaneLabel>
         <swimlaneLabel></swimlaneLabel>
         <swimlaneLabel></swimlaneLabel>
+        <swimlaneLabel></swimlaneLabel>
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
     <swimlaneSize>112</swimlaneSize>
     <swimlaneSize>112</swimlaneSize>
     <swimlaneSize>120</swimlaneSize>
+    <swimlaneSize>136</swimlaneSize>
     <swimlaneColor gradient="false">-3342388</swimlaneColor>
     <swimlaneColor gradient="false">-13108</swimlaneColor>
     <swimlaneColor gradient="false">-3355393</swimlaneColor>
+    <swimlaneColor gradient="false">-3342337</swimlaneColor>
     <swimlaneType>LANE</swimlaneType>
     <swimlaneType>LANE</swimlaneType>
     <swimlaneType>LANE</swimlaneType>
+    <swimlaneType>LANE</swimlaneType>
+    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
     <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
     <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
     <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
@@ -201,3 +270,7 @@ Ds0 f3 mainOut f8 tail #connect
 Ds0 f8 head f5 mainIn #connect
 Ds0 f5 mainOut f9 tail #connect
 Ds0 f9 head f4 mainIn #connect
+Ds0 f15 mainOut f19 tail #connect
+Ds0 f19 head f18 mainIn #connect
+Ds0 f18 mainOut f17 tail #connect
+Ds0 f17 head f16 mainIn #connect
