@@ -202,7 +202,9 @@ ce0 f17 headers 'Accept=application/vnd.sun.wadl+xml;
 ' #txt
 ce0 f17 method OPTIONS #txt
 ce0 f17 resultType java.lang.String #txt
-ce0 f17 responseCode ivy.log.info(result); #txt
+ce0 f17 responseCode 'ivy.log.info(result);
+
+out.result = result;' #txt
 ce0 f17 clientErrorCode ivy:error:rest:client #txt
 ce0 f17 statusErrorCode ivy:error:rest:client #txt
 ce0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

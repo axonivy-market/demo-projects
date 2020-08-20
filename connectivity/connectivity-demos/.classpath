@@ -25,10 +25,11 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src_generated">
+	<classpathentry kind="src" output="target/classes" path="src_generated">
 		<attributes>
 			<attribute name="ignore_optional_problems" value="true"/>
 			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="IVY_CONTAINER">
@@ -57,5 +58,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_16D2A643A3A25C52.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib_generated/client/jaxRsClient_699e715f-63b1-4355-a974-ee3cac26985e.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib_generated/client/jaxRsClient_ae69ba01-79b7-4dce-9049-900f8f420907.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

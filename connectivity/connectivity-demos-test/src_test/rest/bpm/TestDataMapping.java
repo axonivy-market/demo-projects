@@ -25,7 +25,7 @@ public class TestDataMapping
   @BeforeAll
   static void setUp(AppFixture fixture)
   {
-    fixture.environment("dev-axonivy");
+    fixture.environment(System.getProperty("test.environment", "Default"));
   }
   
   @Test

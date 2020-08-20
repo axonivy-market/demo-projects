@@ -3,8 +3,7 @@ package com.axonivy.connectivity.soap.client;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import ch.ivyteam.ivy.environment.Ivy;
-import ch.ivyteam.ivy.request.IHttpProcessModelVersionRequest;
+import ch.ivyteam.ivy.request.EngineUriResolver;
 
 /**
  * Helper class to dynamically determine the current url of the ivy engine.
@@ -45,9 +44,7 @@ public class ServerUriHelper
 
   private static URL getFullRequestUrl() throws MalformedURLException
   {
-    IHttpProcessModelVersionRequest request = (IHttpProcessModelVersionRequest) Ivy.request();
-    String fullRequestURL = request.getHttpServletRequest().getRequestURL().toString();
-    return new URL(fullRequestURL);
+    return EngineUriResolver.instance().external().toURL();
   }
 
 }

@@ -5,6 +5,7 @@ import javax.ws.rs.core.FeatureContext;
 import javax.ws.rs.core.MediaType;
 
 import com.axonivy.connectivity.rest.json.OdataJsonFeature.ODataMapperProvider;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
@@ -29,6 +30,9 @@ public class UiPathJsonFeature extends JsonFeature
       ObjectMapper mapper = super.locateMapper(type, mediaType);
       // generated beans from (swagger-codegen-plugin) generate java8 time attributes.
       mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+      // jobs api (Jobs/UiPath.Server.Configuration.OData.StartJobs) fails if 'runtimeType' is set 
+      // to any value and also for null ... but not sending this optional value seems to be valid.
+      mapper.setSerializationInclusion(Include.NON_NULL);
       return mapper;
     }
   }

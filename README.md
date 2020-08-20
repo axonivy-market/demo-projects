@@ -28,7 +28,3 @@ mvn clean verify
 ```
 
 If you want to know more about testing checkout our documentation chapter: [Testing](https://developer.axonivy.com/doc/dev/concepts/testing.html)
-
-## increase version
-
-[Increase version job](build.maven/job/update-version/README.md)

@@ -69,7 +69,8 @@ Us0 f9 clientCode 'import javax.ws.rs.client.Entity;
 client.request().post(Entity.json(null));' #txt
 Us0 f9 resultType com.fasterxml.jackson.databind.JsonNode #txt
 Us0 f9 responseCode 'import com.axonivy.connectivity.rest.client.auth.TokenStore;
-TokenStore.get("platform.uipath.com").setToken(result);' #txt
+TokenStore.get("platform.uipath.com").setToken(result);
+TokenStore.get("localhost").setToken(result); // for-test (see env axonivy-dev)' #txt
 Us0 f9 clientErrorCode ivy:error:rest:client #txt
 Us0 f9 statusErrorCode ivy:error:rest:client #txt
 Us0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

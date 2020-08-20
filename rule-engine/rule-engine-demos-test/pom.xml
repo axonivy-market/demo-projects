@@ -1,0 +1,41 @@
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>ch.ivyteam.demo</groupId>
+    <artifactId>build-maven-web</artifactId>
+    <version>9.2.0-SNAPSHOT</version>
+    <relativePath>../../build.maven/web</relativePath>
+  </parent>
+
+  <groupId>ch.ivyteam.demo</groupId>
+  <artifactId>rule-engine-demos-test</artifactId>
+  <version>9.2.0-SNAPSHOT</version>
+  <packaging>iar-integration-test</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>ch.ivyteam.demo</groupId>
+      <artifactId>rule-engine-demos</artifactId>
+      <version>${project.version}</version>
+      <type>iar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <version>5.6.0</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <testSourceDirectory>src_test</testSourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>com.axonivy.ivy.ci</groupId>
+        <artifactId>project-build-plugin</artifactId>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
