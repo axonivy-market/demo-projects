@@ -72,18 +72,12 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <!-- downgrade to M4: avoid reflection warnings until 9.1.1 project-build-plugin is public available. -->
         <version>3.0.0-M4</version>
-        <configuration>
-          <useModulePath>false</useModulePath><!-- avoid reflection warnings when executing @IvyProcessTest or @IvyTest -->
-        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
         <!-- downgrade to M4: avoid reflection warnings until 9.1.1 project-build-plugin is public available. -->
         <version>3.0.0-M4</version>
-        <configuration>
-          <useModulePath>false</useModulePath><!-- avoid reflection warnings when executing @IvyProcessTest or @IvyTest -->
-        </configuration>
       </plugin>
     </plugins>
   </build>
