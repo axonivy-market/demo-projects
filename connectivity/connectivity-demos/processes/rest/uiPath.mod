@@ -21,20 +21,19 @@ uh0 @PushWFArc f6 '' #zField
 uh0 @RestClientCall f0 '' #zField
 uh0 @PushWFArc f2 '' #zField
 uh0 @InfoButton f7 '' #zField
-uh0 @GridStep f17 '' #zField
 uh0 @RestClientCall f22 '' #zField
-uh0 @PushWFArc f19 '' #zField
 uh0 @RestClientCall f24 '' #zField
 uh0 @PushWFArc f16 '' #zField
 uh0 @PushWFArc f4 '' #zField
-uh0 @PushWFArc f14 '' #zField
+uh0 @PushWFArc f8 '' #zField
 >Proto uh0 uh0 uiPath #zField
-uh0 f1 593 369 30 30 0 15 #rect
+uh0 f1 593 289 30 30 0 15 #rect
 uh0 f1 @|EndIcon #fIcon
 uh0 f3 clientId 699e715f-63b1-4355-a974-ee3cac26985e #txt
 uh0 f3 path odata/Settings/UiPath.Server.Configuration.OData.GetLicense #txt
 uh0 f3 resultType io.swagger.uipath.openapi.LicenseDto #txt
-uh0 f3 responseCode 'out.license = result;' #txt
+uh0 f3 responseMapping 'out.license=result;
+' #txt
 uh0 f3 clientErrorCode ivy:error:rest:client #txt
 uh0 f3 statusErrorCode ivy:error:rest:client #txt
 uh0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -102,8 +101,9 @@ uh0 f18 1 0.11528174423122502 0 0 #arcLabel
 uh0 f5 clientId 699e715f-63b1-4355-a974-ee3cac26985e #txt
 uh0 f5 path odata/Jobs #txt
 uh0 f5 resultType java.util.List<io.swagger.uipath.openapi.JobDto> #txt
-uh0 f5 responseCode 'ivy.log.info("found "+result.size()+" RPA jobs");
-out.jobs = result;' #txt
+uh0 f5 responseMapping 'out.jobs=result;
+' #txt
+uh0 f5 responseCode 'ivy.log.info("found "+result.size()+" RPA jobs");' #txt
 uh0 f5 clientErrorCode ivy:error:rest:client #txt
 uh0 f5 statusErrorCode ivy:error:rest:client #txt
 uh0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -132,8 +132,9 @@ filters.add("Type eq ''Unattended''");
 
 ivy.log.info("filtered:::: "+client.queryParam("$$filter", filters).request().get(String.class));' #txt
 uh0 f0 resultType java.util.List<io.swagger.uipath.openapi.RobotDto> #txt
-uh0 f0 responseCode 'ivy.log.info("found "+result.size()+" RPA robots");
-out.robots = result;' #txt
+uh0 f0 responseMapping 'out.robots=result;
+' #txt
+uh0 f0 responseCode 'ivy.log.info("found "+result.size()+" RPA robots");' #txt
 uh0 f0 clientErrorCode ivy:error:rest:client #txt
 uh0 f0 statusErrorCode ivy:error:rest:client #txt
 uh0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -164,50 +165,14 @@ on the UIPath orchestration platform</name>
 ' #txt
 uh0 f7 72 226 272 60 -129 -22 #rect
 uh0 f7 @|IBIcon #fIcon
-uh0 f17 actionTable 'out=in;
-' #txt
-uh0 f17 actionCode 'import io.swagger.uipath.openapi.ReleaseDto;
-import io.swagger.uipath.openapi.StartProcessDto.JobPriorityEnum;
-import io.swagger.uipath.openapi.RobotDto.TypeEnum;
-import io.swagger.uipath.openapi.RobotDto;
-import io.swagger.uipath.openapi.StartProcessDto.RuntimeTypeEnum;
-import io.swagger.uipath.openapi.StartProcessDto.SourceEnum;
-import io.swagger.uipath.openapi.StartProcessDto.StrategyEnum;
-
-out.newJob.strategy = StrategyEnum.SPECIFIC;
-
-for(ReleaseDto rel : in.releases){
-  if (rel.processKey == "getOrders"){
-    ivy.log.info("release in use "+rel);
-    out.newJob.releaseKey = rel.key;
-  }
-}
-for(RobotDto robo : in.robots){
-  ivy.log.info("robot in use "+robo);
-  out.newJob.robotIds.add(robo.id);
-}
-out.newJob.jobsCount =0;
-out.newJob.noOfRobots = 0;
-out.newJob.source = SourceEnum.MANUAL;
-out.newJob.jobPriority = JobPriorityEnum.NORMAL;
-out.newJob.inputArguments = ""; // not null!' #txt
-uh0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>define new job:
-&gt; getOrders</name>
-    </language>
-</elementInfo>
-' #txt
-uh0 f17 408 282 128 44 -43 -15 #rect
-uh0 f17 @|StepIcon #fIcon
 uh0 f22 clientId 699e715f-63b1-4355-a974-ee3cac26985e #txt
 uh0 f22 path odata/Releases #txt
 uh0 f22 queryParams '$$filter="contains(ProcessKey, ''order'')";
 ' #txt
 uh0 f22 resultType java.util.List<io.swagger.uipath.openapi.ReleaseDto> #txt
-uh0 f22 responseCode 'ivy.log.info("found "+result.size()+" Process releases");
-out.releases = result;' #txt
+uh0 f22 responseMapping 'out.releases=result;
+' #txt
+uh0 f22 responseCode 'ivy.log.info("found "+result.size()+" Process releases");' #txt
 uh0 f22 clientErrorCode ivy:error:rest:client #txt
 uh0 f22 statusErrorCode ivy:error:rest:client #txt
 uh0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -223,22 +188,26 @@ Read Releases</name>
 ' #txt
 uh0 f22 408 202 128 44 -43 -15 #rect
 uh0 f22 @|RestClientCallIcon #fIcon
-uh0 f19 472 246 472 282 #arcP
 uh0 f24 clientId 699e715f-63b1-4355-a974-ee3cac26985e #txt
 uh0 f24 path odata/Jobs/UiPath.Server.Configuration.OData.StartJobs #txt
 uh0 f24 method POST #txt
-uh0 f24 clientCode 'import io.swagger.uipath.openapi.Body24;
-import io.swagger.uipath.openapi.JobDto;
-import io.swagger.uipath.openapi.JobDto;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.client.Entity;
-
-Body24 param;
-param.setStartInfo(in.newJob);
-Entity payload = Entity.entity(param, MediaType.APPLICATION_JSON);
-client.request().post(payload);' #txt
 uh0 f24 bodyInputType ENTITY #txt
-uh0 f24 bodyObjectCode 'param = new io.swagger.uipath.openapi.Body24().setStartInfo(in.newJob);' #txt
+uh0 f24 bodyObjectType io.swagger.uipath.openapi.Body24 #txt
+uh0 f24 bodyObjectMapping 'param.startInfo.inputArguments="";
+param.startInfo.jobPriority=StartProcessDto.JobPriorityEnum.NORMAL;
+param.startInfo.jobsCount=0;
+param.startInfo.noOfRobots=0;
+param.startInfo.releaseKey=in.releases.get(0).key;
+param.startInfo.robotIds=[in.robots.get(0).id];
+param.startInfo.source=StartProcessDto.SourceEnum.MANUAL;
+param.startInfo.strategy=StartProcessDto.StrategyEnum.SPECIFIC;
+' #txt
+uh0 f24 bodyObjectCode 'for(io.swagger.uipath.openapi.ReleaseDto rel : in.releases){
+  if (rel.processKey == "getOrders"){
+    ivy.log.info("release in use "+rel);
+    param.startInfo.releaseKey = rel.key;
+  }
+}' #txt
 uh0 f24 resultType java.lang.String #txt
 uh0 f24 responseCode 'ivy.log.info("started "+result);' #txt
 uh0 f24 clientErrorCode ivy:error:rest:client #txt
@@ -254,12 +223,12 @@ Start Job</name>
     </language>
 </elementInfo>
 ' #txt
-uh0 f24 408 362 128 44 -40 -15 #rect
+uh0 f24 408 282 128 44 -40 -15 #rect
 uh0 f24 @|RestClientCallIcon #fIcon
-uh0 f16 536 384 593 384 #arcP
+uh0 f16 536 304 593 304 #arcP
 uh0 f16 0 0.14267180925666198 0 0 #arcLabel
 uh0 f4 472 166 472 202 #arcP
-uh0 f14 472 326 472 362 #arcP
+uh0 f8 472 246 472 282 #arcP
 >Proto uh0 .type com.axonivy.connectivity.rest.UiPathData #txt
 >Proto uh0 .processKind NORMAL #txt
 >Proto uh0 0 0 32 24 18 0 #rect
@@ -274,11 +243,9 @@ uh0 f3 mainOut f6 tail #connect
 uh0 f6 head f5 mainIn #connect
 uh0 f5 mainOut f2 tail #connect
 uh0 f2 head f0 mainIn #connect
-uh0 f22 mainOut f19 tail #connect
-uh0 f19 head f17 mainIn #connect
 uh0 f24 mainOut f16 tail #connect
 uh0 f16 head f1 mainIn #connect
 uh0 f0 mainOut f4 tail #connect
 uh0 f4 head f22 mainIn #connect
-uh0 f17 mainOut f14 tail #connect
-uh0 f14 head f24 mainIn #connect
+uh0 f22 mainOut f8 tail #connect
+uh0 f8 head f24 mainIn #connect

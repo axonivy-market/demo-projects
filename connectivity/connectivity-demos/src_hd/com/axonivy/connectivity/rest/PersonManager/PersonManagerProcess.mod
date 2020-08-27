@@ -174,7 +174,8 @@ Ps0 f25 bodyInputType FORM #txt
 Ps0 f25 bodyForm 'firstname=in.firstName;
 lastname=in.lastName;
 ' #txt
-Ps0 f25 responseCode 'out.response = response;' #txt
+Ps0 f25 responseMapping 'out.response=response;
+' #txt
 Ps0 f25 clientErrorCode ivy:error:rest:client #txt
 Ps0 f25 statusErrorCode ivy:error:rest:client #txt
 Ps0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -191,7 +192,8 @@ Ps0 f26 109 352 152 352 #arcP
 Ps0 f13 296 352 339 352 #arcP
 Ps0 f11 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 Ps0 f11 resultType java.util.List<com.axonivy.connectivity.Person> #txt
-Ps0 f11 responseCode 'out.persons = result;' #txt
+Ps0 f11 responseMapping 'out.persons=result;
+' #txt
 Ps0 f11 clientErrorCode ivy:error:rest:client #txt
 Ps0 f11 statusErrorCode ivy:error:rest:client #txt
 Ps0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -215,8 +217,11 @@ X-Requested-By="ivy";
 ' #txt
 Ps0 f27 method POST #txt
 Ps0 f27 bodyInputType ENTITY #txt
-Ps0 f27 bodyObjectCode 'param = in.editPerson;' #txt
-Ps0 f27 responseCode 'out.response = response;' #txt
+Ps0 f27 bodyObjectType com.axonivy.connectivity.Person #txt
+Ps0 f27 bodyObjectMapping 'param=in.editPerson;
+' #txt
+Ps0 f27 responseMapping 'out.response=response;
+' #txt
 Ps0 f27 clientErrorCode ivy:error:rest:client #txt
 Ps0 f27 statusErrorCode ivy:error:rest:client #txt
 Ps0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -241,7 +246,8 @@ X-Requested-By="ivy";
 Ps0 f17 method DELETE #txt
 Ps0 f17 bodyInputType ENTITY #txt
 Ps0 f17 bodyObjectCode 'param = in.editPerson;' #txt
-Ps0 f17 responseCode 'out.response = response;' #txt
+Ps0 f17 responseMapping 'out.response=response;
+' #txt
 Ps0 f17 clientErrorCode ivy:error:rest:client #txt
 Ps0 f17 statusErrorCode ivy:error:rest:client #txt
 Ps0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

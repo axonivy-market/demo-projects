@@ -147,9 +147,10 @@ ce0 f14 headers 'Accept=application/json;
 ' #txt
 ce0 f14 method GET #txt
 ce0 f14 resultType java.util.List<com.axonivy.connectivity.Person> #txt
+ce0 f14 responseMapping 'out.persons=result;
+' #txt
 ce0 f14 responseCode 'ivy.log.info(result);
-
-out.persons = result;' #txt
+' #txt
 ce0 f14 clientErrorCode ivy:error:rest:client #txt
 ce0 f14 statusErrorCode ivy:error:rest:client #txt
 ce0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
