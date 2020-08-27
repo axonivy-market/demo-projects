@@ -4,4 +4,3 @@ license io.swagger.uipath.openapi.LicenseDto #field
 jobs java.util.List<io.swagger.uipath.openapi.JobDto> #field
 robots java.util.List<io.swagger.uipath.openapi.RobotDto> #field
 releases List<io.swagger.uipath.openapi.ReleaseDto> #field
-newJob io.swagger.uipath.openapi.StartProcessDto #field

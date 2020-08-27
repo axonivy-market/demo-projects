@@ -141,8 +141,11 @@ ct0 f13 headers 'Accept=application/json;
 ' #txt
 ct0 f13 method GET #txt
 ct0 f13 resultType java.util.List<com.twitter.status.gson.UserTimeline> #txt
-ct0 f13 responseCode 'ivy.log.info(response);
-out.userTimelines = result;' #txt
+ct0 f13 responseMapping 'out.userTimelines=result;
+' #txt
+ct0 f13 responseCode ivy.log.info(response); #txt
+ct0 f13 clientErrorCode ivy:error:rest:client #txt
+ct0 f13 statusErrorCode ivy:error:rest:client #txt
 ct0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

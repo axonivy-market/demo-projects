@@ -39,9 +39,9 @@ oi0 f3 path pet/findByStatus #txt
 oi0 f3 queryParams 'status="available";
 ' #txt
 oi0 f3 resultType java.util.List<io.swagger.petstore.openapi.Pet> #txt
-oi0 f3 responseCode 'out.pets = result;
-
-ivy.log.info("some pets are available: "+out.pets.size());' #txt
+oi0 f3 responseMapping 'out.pets=result;
+' #txt
+oi0 f3 responseCode 'ivy.log.info("some pets are available: "+out.pets.size());' #txt
 oi0 f3 clientErrorCode ivy:error:rest:client #txt
 oi0 f3 statusErrorCode ivy:error:rest:client #txt
 oi0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

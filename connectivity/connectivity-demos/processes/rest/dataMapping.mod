@@ -1,5 +1,5 @@
 [Ivy]
-15A60076034F7437 7.5.0 #module
+15A60076034F7437 9.2.0 #module
 >Proto >Proto Collection #zClass
 dg0 dataMapping Big #zClass
 dg0 B #cInfo
@@ -207,11 +207,13 @@ dg0 f10 bodyRaw '{
   "email": "<%= in.myPost.email %>",
   "body": "this is my test comment"
 }' #txt
-dg0 f10 bodyEntity in.myPost #txt
+dg0 f10 bodyObjectType com.axonivy.connectivity.rest.Post #txt
+dg0 f10 bodyObjectMapping 'param=in.myPost;
+' #txt
 dg0 f10 resultType com.axonivy.connectivity.rest.Post #txt
-dg0 f10 responseCode 'out.myPost = result;
-out.posts.add(result);
-
+dg0 f10 responseMapping 'out.myPost=result;
+' #txt
+dg0 f10 responseCode 'out.posts.add(result);
 ivy.log.info("new ID = "+result.id);' #txt
 dg0 f10 clientErrorCode ivy:error:rest:client #txt
 dg0 f10 statusErrorCode ivy:error:rest:client #txt
@@ -241,7 +243,7 @@ dg0 f14 bodyRaw '{
   "email": "<%= in.myPost.email %>",
   "body": "this is my test comment"
 }' #txt
-dg0 f14 bodyEntity in.myPost #txt
+dg0 f14 bodyObjectCode 'param = in.myPost;' #txt
 dg0 f14 resultType java.util.List<com.axonivy.connectivity.rest.Post> #txt
 dg0 f14 responseCode 'out.posts = result;
 
@@ -321,7 +323,7 @@ dg0 f21 bodyRaw '{
   "email": "<%= in.myPost.email %>",
   "body": "this is my test comment"
 }' #txt
-dg0 f21 bodyEntity in.myPost #txt
+dg0 f21 bodyObjectCode 'param = in.myPost;' #txt
 dg0 f21 resultType java.lang.String #txt
 dg0 f21 responseCode ivy.log.info("JSON:"+result); #txt
 dg0 f21 clientErrorCode ivy:error:rest:client #txt
@@ -380,7 +382,7 @@ dg0 f25 bodyRaw '{
   "email": "<%= in.myPost.email %>",
   "body": "this is my test comment"
 }' #txt
-dg0 f25 bodyEntity in.myPost #txt
+dg0 f25 bodyObjectCode 'param = in.myPost;' #txt
 dg0 f25 resultType java.lang.String #txt
 dg0 f25 responseCode ivy.log.info("XML:"+result); #txt
 dg0 f25 clientErrorCode ivy:error:rest:client #txt
@@ -436,7 +438,7 @@ dg0 f29 bodyRaw '{
 dg0 f29 bodyForm 'firstname="John";
 lastname=in.myPost.name;
 ' #txt
-dg0 f29 bodyEntity in.myPost #txt
+dg0 f29 bodyObjectCode 'param = in.myPost;' #txt
 dg0 f29 resultType com.fasterxml.jackson.databind.JsonNode #txt
 dg0 f29 responseCode 'int newId = result.get("id").asInt();
 
@@ -503,11 +505,11 @@ dg0 f36 bodyRaw '{
   "email": "<%= in.myPost.email %>",
   "body": "this is my test comment"
 }' #txt
-dg0 f36 bodyEntity in.myPost #txt
+dg0 f36 bodyObjectCode 'param = in.myPost;' #txt
 dg0 f36 resultType com.axonivy.connectivity.rest.User #txt
-dg0 f36 responseCode 'out.user = result;
-
-ivy.log.info("got user = "+out.user);' #txt
+dg0 f36 responseMapping 'out.user=result;
+' #txt
+dg0 f36 responseCode 'ivy.log.info("got user = "+out.user);' #txt
 dg0 f36 clientErrorCode ivy:error:rest:client #txt
 dg0 f36 statusErrorCode ivy:error:rest:client #txt
 dg0 f36 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -593,7 +595,7 @@ dg0 f43 bodyRaw '{
   "email": "<%= in.myPost.email %>",
   "body": "this is my test comment"
 }' #txt
-dg0 f43 bodyEntity in.myPost #txt
+dg0 f43 bodyObjectCode 'param = in.myPost;' #txt
 dg0 f43 resultType java.lang.String #txt
 dg0 f43 responseCode ivy.log.info("JSON:"+result); #txt
 dg0 f43 clientErrorCode ivy:error:rest:client #txt
@@ -694,11 +696,11 @@ dg0 f51 bodyRaw '{
   "email": "<%= in.myPost.email %>",
   "body": "this is my test comment"
 }' #txt
-dg0 f51 bodyEntity in.myPost #txt
+dg0 f51 bodyObjectCode 'param = in.myPost;' #txt
 dg0 f51 resultType com.typicode.jsonplaceholder.User #txt
-dg0 f51 responseCode 'out.userGenerated = result;
-
-ivy.log.info("got user = "+result);' #txt
+dg0 f51 responseMapping 'out.userGenerated=result;
+' #txt
+dg0 f51 responseCode 'ivy.log.info("got user = "+result);' #txt
 dg0 f51 clientErrorCode ivy:error:rest:client #txt
 dg0 f51 statusErrorCode ivy:error:rest:client #txt
 dg0 f51 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -751,7 +753,7 @@ dg0 f53 bodyRaw '{
   "email": "<%= in.myPost.email %>",
   "body": "this is my test comment"
 }' #txt
-dg0 f53 bodyEntity in.myPost #txt
+dg0 f53 bodyObjectCode 'param = in.myPost;' #txt
 dg0 f53 resultType com.fasterxml.jackson.databind.JsonNode #txt
 dg0 f53 responseCode 'out.user.name = result.get("name").asText();
 out.user.phone = result.get("phone").asText();
