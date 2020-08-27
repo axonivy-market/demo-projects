@@ -1,5 +1,5 @@
 [Ivy]
-171C62230757992F 7.5.0 #module
+171C62230757992F 9.2.0 #module
 >Proto >Proto Collection #zClass
 uh0 uiPath Big #zClass
 uh0 B #cInfo
@@ -227,8 +227,6 @@ uh0 f19 472 246 472 282 #arcP
 uh0 f24 clientId 699e715f-63b1-4355-a974-ee3cac26985e #txt
 uh0 f24 path odata/Jobs/UiPath.Server.Configuration.OData.StartJobs #txt
 uh0 f24 method POST #txt
-uh0 f24 bodyInputType ENTITY #txt
-uh0 f24 bodyEntity 'new io.swagger.uipath.openapi.Body24().setStartInfo(in.newJob);' #txt
 uh0 f24 clientCode 'import io.swagger.uipath.openapi.Body24;
 import io.swagger.uipath.openapi.JobDto;
 import io.swagger.uipath.openapi.JobDto;
@@ -239,6 +237,8 @@ Body24 param;
 param.setStartInfo(in.newJob);
 Entity payload = Entity.entity(param, MediaType.APPLICATION_JSON);
 client.request().post(payload);' #txt
+uh0 f24 bodyInputType ENTITY #txt
+uh0 f24 bodyObjectCode 'param = new io.swagger.uipath.openapi.Body24().setStartInfo(in.newJob);' #txt
 uh0 f24 resultType java.lang.String #txt
 uh0 f24 responseCode 'ivy.log.info("started "+result);' #txt
 uh0 f24 clientErrorCode ivy:error:rest:client #txt

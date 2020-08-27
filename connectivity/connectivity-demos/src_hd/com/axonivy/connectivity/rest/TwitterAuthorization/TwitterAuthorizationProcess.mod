@@ -1,5 +1,5 @@
 [Ivy]
-154763536E1136A3 7.5.0 #module
+154763536E1136A3 9.2.0 #module
 >Proto >Proto Collection #zClass
 Ts0 TwitterAuthorizationProcess Big #zClass
 Ts0 RD #cInfo

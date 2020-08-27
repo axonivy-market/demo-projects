@@ -1,5 +1,5 @@
 [Ivy]
-15470DE765DF45FC 7.5.0 #module
+15470DE765DF45FC 9.2.0 #module
 >Proto >Proto Collection #zClass
 Ps0 PersonManagerProcess Big #zClass
 Ps0 RD #cInfo
@@ -215,7 +215,7 @@ X-Requested-By="ivy";
 ' #txt
 Ps0 f27 method POST #txt
 Ps0 f27 bodyInputType ENTITY #txt
-Ps0 f27 bodyEntity in.editPerson #txt
+Ps0 f27 bodyObjectCode 'param = in.editPerson;' #txt
 Ps0 f27 responseCode 'out.response = response;' #txt
 Ps0 f27 clientErrorCode ivy:error:rest:client #txt
 Ps0 f27 statusErrorCode ivy:error:rest:client #txt
@@ -240,7 +240,7 @@ X-Requested-By="ivy";
 ' #txt
 Ps0 f17 method DELETE #txt
 Ps0 f17 bodyInputType ENTITY #txt
-Ps0 f17 bodyEntity in.editPerson #txt
+Ps0 f17 bodyObjectCode 'param = in.editPerson;' #txt
 Ps0 f17 responseCode 'out.response = response;' #txt
 Ps0 f17 clientErrorCode ivy:error:rest:client #txt
 Ps0 f17 statusErrorCode ivy:error:rest:client #txt

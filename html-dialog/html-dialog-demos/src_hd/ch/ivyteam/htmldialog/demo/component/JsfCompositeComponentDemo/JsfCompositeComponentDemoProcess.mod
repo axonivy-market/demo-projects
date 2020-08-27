@@ -1,5 +1,5 @@
 [Ivy]
-14377E60D299F34F 7.5.0 #module
+14377E60D299F34F 9.2.0 #module
 >Proto >Proto Collection #zClass
 Es0 JsfCompositeComponentDemoProcess Big #zClass
 Es0 RD #cInfo

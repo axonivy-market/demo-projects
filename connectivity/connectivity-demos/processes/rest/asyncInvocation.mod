@@ -1,5 +1,5 @@
 [Ivy]
-16764B07C0329FC8 7.5.0 #module
+16764B07C0329FC8 9.2.0 #module
 >Proto >Proto Collection #zClass
 cc0 asyncInvocation Big #zClass
 cc0 B #cInfo

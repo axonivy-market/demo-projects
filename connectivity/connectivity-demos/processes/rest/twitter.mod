@@ -1,5 +1,5 @@
 [Ivy]
-1547634C396BBB3A 7.5.0 #module
+1547634C396BBB3A 9.2.0 #module
 >Proto >Proto Collection #zClass
 ct0 twitter Big #zClass
 ct0 B #cInfo

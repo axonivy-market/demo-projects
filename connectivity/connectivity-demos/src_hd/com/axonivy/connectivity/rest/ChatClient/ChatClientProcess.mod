@@ -1,5 +1,5 @@
 [Ivy]
-16764B1AE13CC212 7.5.0 #module
+16764B1AE13CC212 9.2.0 #module
 >Proto >Proto Collection #zClass
 Cs0 ChatClientProcess Big #zClass
 Cs0 RD #cInfo
