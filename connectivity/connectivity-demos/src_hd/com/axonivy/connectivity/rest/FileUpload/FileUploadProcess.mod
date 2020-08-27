@@ -1,5 +1,5 @@
 [Ivy]
-169B3B8EB21D10D8 7.5.0 #module
+169B3B8EB21D10D8 9.2.0 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadProcess Big #zClass
 Fs0 RD #cInfo
@@ -85,8 +85,6 @@ Fs0 f13 307 155 26 26 0 12 #rect
 Fs0 f13 @|UdProcessEndIcon #fIcon
 Fs0 f20 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 Fs0 f20 method JAX_RS #txt
-Fs0 f20 bodyInputType FORM #txt
-Fs0 f20 bodyMediaType multipart/form-data #txt
 Fs0 f20 clientCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
 import org.eclipse.core.resources.IFile;
 import javax.ws.rs.client.Entity;
@@ -112,6 +110,8 @@ in.downloadName = jaxrsresponse.getHeaderString("uploadedFile");
 in.listFile.add(jaxrsresponse.getHeaderString("uploadedFile"));
 
 ' #txt
+Fs0 f20 bodyInputType FORM #txt
+Fs0 f20 bodyMediaType multipart/form-data #txt
 Fs0 f20 clientErrorCode ivy:error:rest:client #txt
 Fs0 f20 statusErrorCode ivy:error:rest:client #txt
 Fs0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -137,8 +137,6 @@ Fs0 f15 344 153 496 30 -241 -7 #rect
 Fs0 f15 @|IBIcon #fIcon
 Fs0 f23 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 Fs0 f23 method JAX_RS #txt
-Fs0 f23 bodyInputType FORM #txt
-Fs0 f23 bodyMediaType multipart/form-data #txt
 Fs0 f23 clientCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
 import org.eclipse.core.resources.IFile;
 import javax.ws.rs.core.Response;
@@ -152,6 +150,8 @@ in.listFile.add(in.downloadName);
 
 
 ' #txt
+Fs0 f23 bodyInputType FORM #txt
+Fs0 f23 bodyMediaType multipart/form-data #txt
 Fs0 f23 clientErrorCode ivy:error:rest:client #txt
 Fs0 f23 statusErrorCode ivy:error:rest:client #txt
 Fs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

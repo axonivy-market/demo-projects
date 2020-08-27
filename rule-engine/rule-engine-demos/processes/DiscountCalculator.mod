@@ -1,5 +1,5 @@
 [Ivy]
-153EAAA7649F85DA 7.5.0 #module
+153EAAA7649F85DA 9.2.0 #module
 >Proto >Proto Collection #zClass
 Dr0 DiscountCalculator Big #zClass
 Dr0 B #cInfo

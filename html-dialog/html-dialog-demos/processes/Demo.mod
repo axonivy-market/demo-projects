@@ -1,5 +1,5 @@
 [Ivy]
-139D3A4CEEEDAA4B 7.5.0 #module
+139D3A4CEEEDAA4B 9.2.0 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
 Do0 B #cInfo

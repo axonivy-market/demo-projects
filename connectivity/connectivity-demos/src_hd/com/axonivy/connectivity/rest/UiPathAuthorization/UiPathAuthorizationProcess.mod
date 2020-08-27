@@ -1,5 +1,5 @@
 [Ivy]
-171CB5CB2AFB22D8 7.5.0 #module
+171CB5CB2AFB22D8 9.2.0 #module
 >Proto >Proto Collection #zClass
 Us0 UiPathAuthorizationProcess Big #zClass
 Us0 RD #cInfo
@@ -57,16 +57,16 @@ Us0 f9 headers 'Accept=application/json;
 X-UIPATH-TenantName=in.request.tenant;
 ' #txt
 Us0 f9 method POST #txt
+Us0 f9 clientCode 'import javax.ws.rs.client.Entity;
+
+client.request().post(Entity.json(null));' #txt
 Us0 f9 bodyInputType RAW #txt
 Us0 f9 bodyRaw '{
     "grant_type": "refresh_token",
     "client_id": "<%=in.request.clientId%>",
     "refresh_token": "<%=in.request.userKey%>"
 }' #txt
-Us0 f9 bodyEntity in.login #txt
-Us0 f9 clientCode 'import javax.ws.rs.client.Entity;
-
-client.request().post(Entity.json(null));' #txt
+Us0 f9 bodyObjectCode 'param = in.login;' #txt
 Us0 f9 resultType com.fasterxml.jackson.databind.JsonNode #txt
 Us0 f9 responseCode 'import com.axonivy.connectivity.rest.client.auth.TokenStore;
 TokenStore.get("platform.uipath.com").setToken(result);
