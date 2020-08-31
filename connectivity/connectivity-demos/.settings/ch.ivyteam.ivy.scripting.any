@@ -1,5 +1,5 @@
 {
   /imports {
-    "io.swagger.uipath.openapi.StartProcessDto"
+    "com.uipath.platform.client.StartProcessDto"
   }
 }
