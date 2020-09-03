@@ -123,7 +123,7 @@ uh0 f0 clientId 699e715f-63b1-4355-a974-ee3cac26985e #txt
 uh0 f0 path /odata/Robots #txt
 uh0 f0 queryParams '$$filter="Type eq ''UNATTENDED''";
 ' #txt
-uh0 f0 method JAX_RS #txt
+uh0 f0 method GET #txt
 uh0 f0 clientCode 'import com.uipath.platform.client.RobotDto;
 import javax.ws.rs.core.GenericEntity;
 
