@@ -137,7 +137,7 @@ To run this service locally:
         <name>odataService</name>
         <description>The OData demo service</description>
         <configuration>
-            <uri>http://services.odata.org/TripPinRESTierService/(S(5jklwgt1fhflbw1mxbymqdqe))</uri>
+            <uri>https://services.odata.org/V4/(S(cnbm44wtbc1v5bgrlek5lpcc))/TripPinServiceRW</uri>
             <property>
                 <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
                 <value>false</value>
