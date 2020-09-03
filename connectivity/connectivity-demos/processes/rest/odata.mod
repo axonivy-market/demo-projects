@@ -110,7 +110,9 @@ oa0 f5 @|StartRequestIcon #fIcon
 oa0 f6 337 273 30 30 0 15 #rect
 oa0 f6 @|EndIcon #fIcon
 oa0 f8 clientId 65f8e5a4-768d-4a68-813a-e6d569cda522 #txt
-oa0 f8 path 'People(''russellwhyte'')' #txt
+oa0 f8 path '/People(''{UserName}'')' #txt
+oa0 f8 templateParams 'UserName="russellwhyte";
+' #txt
 oa0 f8 resultType com.axonivy.connectivity.rest.odata.User #txt
 oa0 f8 responseMapping 'out.users=[result];
 ' #txt
