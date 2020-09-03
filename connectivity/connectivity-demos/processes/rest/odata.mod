@@ -57,11 +57,11 @@ oa0 f0 @|StartRequestIcon #fIcon
 oa0 f1 337 177 30 30 0 15 #rect
 oa0 f1 @|EndIcon #fIcon
 oa0 f3 clientId 65f8e5a4-768d-4a68-813a-e6d569cda522 #txt
-oa0 f3 path People #txt
-oa0 f3 resultType java.util.List<com.axonivy.connectivity.rest.odata.User> #txt
-oa0 f3 responseMapping 'out.users=result;
+oa0 f3 path /People #txt
+oa0 f3 resultType org.odata.trippin.client.CollectionOfPerson #txt
+oa0 f3 responseMapping 'out.users=result.value;
 ' #txt
-oa0 f3 responseCode 'ivy.log.info("got "+result.size()+" users");' #txt
+oa0 f3 responseCode 'ivy.log.info("got "+result.atOdataCount+" users");' #txt
 oa0 f3 clientErrorCode ivy:error:rest:client #txt
 oa0 f3 statusErrorCode ivy:error:rest:client #txt
 oa0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -113,7 +113,7 @@ oa0 f8 clientId 65f8e5a4-768d-4a68-813a-e6d569cda522 #txt
 oa0 f8 path '/People(''{UserName}'')' #txt
 oa0 f8 templateParams 'UserName="russellwhyte";
 ' #txt
-oa0 f8 resultType com.axonivy.connectivity.rest.odata.User #txt
+oa0 f8 resultType org.odata.trippin.client.MicrosoftODataSampleServiceModelsTripPinPerson #txt
 oa0 f8 responseMapping 'out.users=[result];
 ' #txt
 oa0 f8 responseCode 'ivy.log.info("found "+result);' #txt

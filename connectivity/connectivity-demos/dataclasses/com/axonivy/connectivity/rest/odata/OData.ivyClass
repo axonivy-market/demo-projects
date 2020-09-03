@@ -1,4 +1,3 @@
 OData #class
 com.axonivy.connectivity.rest.odata #namespace
-users java.util.List<com.axonivy.connectivity.rest.odata.User> #field
-users PERSISTENT #fieldModifier
+users java.util.List<org.odata.trippin.client.MicrosoftODataSampleServiceModelsTripPinPerson> #field
