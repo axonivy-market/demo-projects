@@ -175,7 +175,7 @@ To run this service locally:
         <uuid>ae69ba01-79b7-4dce-9049-900f8f420907</uuid>
         <name>openApiService</name>
         <configuration>
-            <uri>https://petstore.swagger.io/v2</uri>
+            <uri>https://petstore3.swagger.io/api/v3</uri>
             <property>
                 <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
                 <value>false</value>

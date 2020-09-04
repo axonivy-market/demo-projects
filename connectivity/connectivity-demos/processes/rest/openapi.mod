@@ -35,10 +35,10 @@ oi0 f0 @|StartRequestIcon #fIcon
 oi0 f1 305 177 30 30 0 15 #rect
 oi0 f1 @|EndIcon #fIcon
 oi0 f3 clientId ae69ba01-79b7-4dce-9049-900f8f420907 #txt
-oi0 f3 path pet/findByStatus #txt
+oi0 f3 path /pet/findByStatus #txt
 oi0 f3 queryParams 'status="available";
 ' #txt
-oi0 f3 resultType java.util.List<io.swagger.petstore.openapi.Pet> #txt
+oi0 f3 resultType java.util.List<io.swagger.petstore3.client.Pet> #txt
 oi0 f3 responseMapping 'out.pets=result;
 ' #txt
 oi0 f3 responseCode 'ivy.log.info("some pets are available: "+out.pets.size());' #txt
