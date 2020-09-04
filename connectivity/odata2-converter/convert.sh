@@ -10,7 +10,7 @@ if [ ! -f "$xml" ]; then
 fi
 
 echo "converting $xml ...this may takes some time!"
-docker run -v $(pwd):/tmp/schema -it odata-conv-trans /opt/node-v4.2.2-linux-x64/bin/odata-openapi "/tmp/schema/$xml"
+docker run -v $(pwd):/tmp/schema -it odata2-conv /opt/node-v4.2.2-linux-x64/bin/odata-openapi "/tmp/schema/$xml"
 
 name=$(basename -s .xml "$xml")
 cat $name.openapi.json
