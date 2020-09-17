@@ -15,7 +15,7 @@ import ch.ivyteam.ivy.workflow.TaskState;
 import workflow.humantask.ProcurementRequest;
 
 /**
- * Tests the ProcurementRequest using the {@link BpmClient} testing API :
+ * Tests the ProcurementRequest using the {@link BpmClient} testing API and mocking elements:
  * <code>workflow-demos/processes/Humantask/ProcurementRequestParallel.mod</code>
  *
  * @author rew
