@@ -67,7 +67,7 @@ class TestProcurementRequestUserTask
     var result = createProcurrementRequest(bpmClient);
 
     bpmClient.mock().uiOf(HtmlDialog.VERIFY_REQUEST)
-    	.with((params, results) -> results.set("dataOk", true));
+      .with((params, results) -> results.set("dataOk", true));
     var verifyResult = verifyRequest(bpmClient, result, Role.MANAGER);
 
     bpmClient.mock().uiOf(HtmlDialog.ACCEPT_REQUEST)
@@ -84,15 +84,15 @@ class TestProcurementRequestUserTask
   @Test
   void approvalTask_verified_accepted(BpmClient bpmClient)
   {
-	    var result = createProcurrementRequest(bpmClient);
+      var result = createProcurrementRequest(bpmClient);
 
-	    bpmClient.mock().uiOf(HtmlDialog.VERIFY_REQUEST)
-	    	.with((params, results) -> results.set("dataOk", true));
-	    var verifyResult = verifyRequest(bpmClient, result, Role.MANAGER);
+      bpmClient.mock().uiOf(HtmlDialog.VERIFY_REQUEST)
+        .with((params, results) -> results.set("dataOk", true));
+      var verifyResult = verifyRequest(bpmClient, result, Role.MANAGER);
 
-	    bpmClient.mock().uiOf(HtmlDialog.ACCEPT_REQUEST)
-	      .with((params, results) -> results.set("accepted", true));
-	    ProcurementRequest request = acceptRequest(bpmClient, verifyResult);
+      bpmClient.mock().uiOf(HtmlDialog.ACCEPT_REQUEST)
+        .with((params, results) -> results.set("accepted", true));
+      ProcurementRequest request = acceptRequest(bpmClient, verifyResult);
     
     assertThat(request.getAccepted()).isTrue();
     assertThat(verifyResult.workflow().activeCase().getState()).isEqualTo(CaseState.DONE);
