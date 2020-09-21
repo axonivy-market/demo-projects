@@ -144,7 +144,7 @@ To run this service locally:
                 <password>false</password>
             </property>
             <feature>
-                <class>com.axonivy.connectivity.rest.json.OdataJsonFeature</class>
+                <class>com.axonivy.connectivity.rest.json.OpenApiJsonFeature</class>
             </feature>
         </configuration>
     </restClient>
@@ -230,7 +230,7 @@ https://platform.uipath.com/AXONPRESALES/AXONPRESALES/swagger
                 <class>com.axonivy.connectivity.rest.sample.uipath.TenantHeaderFeature</class>
             </feature>
             <feature>
-                <class>com.axonivy.connectivity.rest.sample.uipath.UiPathJsonFeature</class>
+                <class>com.axonivy.connectivity.rest.json.OpenApiJsonFeature</class>
             </feature>
         </configuration>
         <environmentConfigurations>
@@ -256,10 +256,10 @@ https://platform.uipath.com/AXONPRESALES/AXONPRESALES/swagger
                     <class>com.axonivy.connectivity.rest.client.auth.OAuth2Feature</class>
                 </feature>
                 <feature>
-                    <class>com.axonivy.connectivity.rest.sample.uipath.UiPathJsonFeature</class>
+                    <class>com.axonivy.connectivity.rest.sample.uipath.IvyXcsrfHeaderFeature</class>
                 </feature>
                 <feature>
-                    <class>com.axonivy.connectivity.rest.sample.uipath.IvyXcsrfHeaderFeature</class>
+                    <class>com.axonivy.connectivity.rest.json.OpenApiJsonFeature</class>
                 </feature>
             </configuration>
         </environmentConfigurations>
