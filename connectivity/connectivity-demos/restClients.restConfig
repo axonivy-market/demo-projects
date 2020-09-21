@@ -144,7 +144,7 @@ To run this service locally:
                 <password>false</password>
             </property>
             <feature>
-                <class>com.axonivy.connectivity.rest.json.OpenApiJsonFeature</class>
+                <class>com.axonivy.connectivity.rest.sample.odata.TripPinJsonFeature</class>
             </feature>
         </configuration>
     </restClient>
