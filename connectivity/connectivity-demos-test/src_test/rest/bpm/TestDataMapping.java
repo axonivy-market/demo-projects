@@ -10,7 +10,6 @@ import com.axonivy.connectivity.rest.DataMappingData;
 import com.axonivy.connectivity.rest.OpenApiData;
 import com.axonivy.connectivity.rest.Post;
 import com.axonivy.connectivity.rest.odata.OData;
-import com.axonivy.connectivity.rest.odata.User;
 import com.typicode.jsonplaceholder.Address;
 
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
@@ -31,13 +30,13 @@ public class TestDataMapping
   @Test
   public void odataJsonMapping_single(BpmClient bpmClient)
   {
-    ExecutionResult result = bpmClient.start().process("rest/odata/readById.ivp").execute();
+    ExecutionResult result = bpmClient.start().process("rest/openapi_odata/readById.ivp").execute();
     assertThat(result).isNotNull();
 
     OData data = result.data().last();
     assertThat(data.getUsers()).isNotEmpty();
 
-    User first = data.getUsers().get(0);
+    var first = data.getUsers().get(0);
     Assertions.assertEquals("Russell", first.getFirstName());
     Assertions.assertEquals("Whyte", first.getLastName());
     Assertions.assertEquals("Male", first.getGender());
@@ -46,7 +45,7 @@ public class TestDataMapping
   @Test
   public void odataJsonMapping_collection(BpmClient bpmClient)
   {
-    ExecutionResult result = bpmClient.start().process("rest/odata/readCollection.ivp").execute();
+    ExecutionResult result = bpmClient.start().process("rest/openapi_odata/readCollection.ivp").execute();
     assertThat(result).isNotNull();
 
     OData data = result.data().last();
