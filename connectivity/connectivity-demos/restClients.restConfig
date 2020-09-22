@@ -137,14 +137,14 @@ To run this service locally:
         <name>odataService</name>
         <description>The OData demo service</description>
         <configuration>
-            <uri>http://services.odata.org/TripPinRESTierService/(S(5jklwgt1fhflbw1mxbymqdqe))</uri>
+            <uri>https://services.odata.org/V4/(S(cnbm44wtbc1v5bgrlek5lpcc))/TripPinServiceRW</uri>
             <property>
                 <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
                 <value>false</value>
                 <password>false</password>
             </property>
             <feature>
-                <class>com.axonivy.connectivity.rest.json.OdataJsonFeature</class>
+                <class>com.axonivy.connectivity.rest.sample.odata.TripPinJsonFeature</class>
             </feature>
         </configuration>
     </restClient>
@@ -230,7 +230,7 @@ https://platform.uipath.com/AXONPRESALES/AXONPRESALES/swagger
                 <class>com.axonivy.connectivity.rest.sample.uipath.TenantHeaderFeature</class>
             </feature>
             <feature>
-                <class>com.axonivy.connectivity.rest.sample.uipath.UiPathJsonFeature</class>
+                <class>com.axonivy.connectivity.rest.json.OpenApiJsonFeature</class>
             </feature>
         </configuration>
         <environmentConfigurations>
@@ -256,10 +256,10 @@ https://platform.uipath.com/AXONPRESALES/AXONPRESALES/swagger
                     <class>com.axonivy.connectivity.rest.client.auth.OAuth2Feature</class>
                 </feature>
                 <feature>
-                    <class>com.axonivy.connectivity.rest.sample.uipath.UiPathJsonFeature</class>
+                    <class>com.axonivy.connectivity.rest.sample.uipath.IvyXcsrfHeaderFeature</class>
                 </feature>
                 <feature>
-                    <class>com.axonivy.connectivity.rest.sample.uipath.IvyXcsrfHeaderFeature</class>
+                    <class>com.axonivy.connectivity.rest.json.OpenApiJsonFeature</class>
                 </feature>
             </configuration>
         </environmentConfigurations>

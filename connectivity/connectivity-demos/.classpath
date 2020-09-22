@@ -59,5 +59,6 @@
 	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_16D2A643A3A25C52.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_generated/client/jaxRsClient_699e715f-63b1-4355-a974-ee3cac26985e.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_generated/client/jaxRsClient_ae69ba01-79b7-4dce-9049-900f8f420907.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib_generated/client/jaxRsClient_65f8e5a4-768d-4a68-813a-e6d569cda522.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

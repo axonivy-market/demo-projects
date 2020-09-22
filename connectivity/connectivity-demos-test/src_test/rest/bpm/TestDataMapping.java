@@ -10,7 +10,6 @@ import com.axonivy.connectivity.rest.DataMappingData;
 import com.axonivy.connectivity.rest.OpenApiData;
 import com.axonivy.connectivity.rest.Post;
 import com.axonivy.connectivity.rest.odata.OData;
-import com.axonivy.connectivity.rest.odata.User;
 import com.typicode.jsonplaceholder.Address;
 
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
@@ -31,30 +30,30 @@ public class TestDataMapping
   @Test
   public void odataJsonMapping_single(BpmClient bpmClient)
   {
-    ExecutionResult result = bpmClient.start().process("rest/odata/readById.ivp").execute();
+    ExecutionResult result = bpmClient.start().process("rest/openapi_odata/readById.ivp").execute();
     assertThat(result).isNotNull();
 
     OData data = result.data().last();
     assertThat(data.getUsers()).isNotEmpty();
 
-    User first = data.getUsers().get(0);
+    var first = data.getUsers().get(0);
     Assertions.assertEquals("Russell", first.getFirstName());
     Assertions.assertEquals("Whyte", first.getLastName());
-    Assertions.assertEquals("Male", first.getGender());
+    Assertions.assertEquals("Male", first.getGender().toString());
   }
 
   @Test
   public void odataJsonMapping_collection(BpmClient bpmClient)
   {
-    ExecutionResult result = bpmClient.start().process("rest/odata/readCollection.ivp").execute();
+    ExecutionResult result = bpmClient.start().process("rest/openapi_odata/readCollection.ivp").execute();
     assertThat(result).isNotNull();
 
     OData data = result.data().last();
-    assertThat(data.getUsers()).hasSize(20);
+    assertThat(data.getUsers()).hasSize(8);
   }
 
   @Test
-  public void openApiPetListing(BpmClient bpmClient)
+  public void openApi_petListing(BpmClient bpmClient)
   {
     ExecutionResult result = bpmClient.start().process("rest/openapi/listPets.ivp").execute();
     assertThat(result).isNotNull();
@@ -62,6 +61,16 @@ public class TestDataMapping
     OpenApiData data = result.data().last();
     assertThat(data.getPets()).isNotEmpty();
     assertThat(data.getPets().get(0).getName()).isNotEmpty();
+  }
+  
+  @Test
+  public void openApi_petQuery(BpmClient bpmClient)
+  {
+    ExecutionResult result = bpmClient.start().process("rest/openapi/login.ivp").execute();
+    assertThat(result).isNotNull();
+
+    long sessionId = Long.parseLong((String)result.workflow().session().getAttribute("pet.session.id"));
+    assertThat(sessionId).as("got session ID from pet store api login").isGreaterThan(1);
   }
   
   @Test

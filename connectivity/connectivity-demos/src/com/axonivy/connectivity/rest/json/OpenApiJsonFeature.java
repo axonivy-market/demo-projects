@@ -1,4 +1,4 @@
-package com.axonivy.connectivity.rest.sample.uipath;
+package com.axonivy.connectivity.rest.json;
 
 import javax.ws.rs.Priorities;
 import javax.ws.rs.core.FeatureContext;
@@ -11,29 +11,33 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 import ch.ivyteam.ivy.rest.client.mapper.JsonFeature;
 
-public class UiPathJsonFeature extends JsonFeature
+/**
+ * JSON object mapper that complies with generated JAX-RS client pojos.
+ * 
+ * @since 9.2
+ */
+public class OpenApiJsonFeature extends JsonFeature
 {
   @Override
   public boolean configure(FeatureContext context)
   {
-    JacksonJsonProvider provider = new UiPathOData();
+    JacksonJsonProvider provider = new JaxRsClientJson();
     configure(provider, context.getConfiguration());
     context.register(provider, Priorities.ENTITY_CODER); 
     return true;
   }
 
-  private static class UiPathOData extends JacksonJsonProvider
+  public static class JaxRsClientJson extends JacksonJsonProvider
   {
     @Override
     public ObjectMapper locateMapper(Class<?> type, MediaType mediaType)
     {
       ObjectMapper mapper = super.locateMapper(type, mediaType);
-      // generated beans from (swagger-codegen-plugin) generate java8 time attributes.
+      // match our generated jax-rs client beans: that contain JSR310 data types
       mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
-      // odata provides fields starting with an upper case character!
+      // allow fields starting with an upper case character (e.g. in ODATA specs)!
       mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
-      // jobs api (Jobs/UiPath.Server.Configuration.OData.StartJobs) fails if 'runtimeType' is set 
-      // to any value and also for null ... but not sending this optional value seems to be valid.
+      // not sending this optional value seems to be lass prone to errors for some remote services.
       mapper.setSerializationInclusion(Include.NON_NULL);
       return mapper;
     }

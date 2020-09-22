@@ -1,7 +1,7 @@
 [Ivy]
 15DEF1BE5B9E5A42 9.2.0 #module
 >Proto >Proto Collection #zClass
-oa0 odata Big #zClass
+oa0 openapi_odata Big #zClass
 oa0 B #cInfo
 oa0 #process
 oa0 @TextInP .type .type #zField
@@ -22,7 +22,7 @@ oa0 @RestClientCall f8 '' #zField
 oa0 @PushWFArc f9 '' #zField
 oa0 @PushWFArc f7 '' #zField
 oa0 @InfoButton f10 '' #zField
->Proto oa0 oa0 odata #zField
+>Proto oa0 oa0 openapi_odata #zField
 oa0 f0 outLink readCollection.ivp #txt
 oa0 f0 inParamDecl '<> param;' #txt
 oa0 f0 requestEnabled true #txt
@@ -52,16 +52,16 @@ oa0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 oa0 f0 @C|.responsibility Everybody #txt
-oa0 f0 81 177 30 30 -55 17 #rect
+oa0 f0 81 145 30 30 -55 17 #rect
 oa0 f0 @|StartRequestIcon #fIcon
-oa0 f1 337 177 30 30 0 15 #rect
+oa0 f1 337 145 30 30 0 15 #rect
 oa0 f1 @|EndIcon #fIcon
 oa0 f3 clientId 65f8e5a4-768d-4a68-813a-e6d569cda522 #txt
-oa0 f3 path People #txt
-oa0 f3 resultType java.util.List<com.axonivy.connectivity.rest.odata.User> #txt
-oa0 f3 responseMapping 'out.users=result;
+oa0 f3 path /People #txt
+oa0 f3 resultType org.odata.trippin.client.CollectionOfPerson #txt
+oa0 f3 responseMapping 'out.users=result.value;
 ' #txt
-oa0 f3 responseCode 'ivy.log.info("got "+result.size()+" users");' #txt
+oa0 f3 responseCode 'ivy.log.info("got "+result.atOdataCount+" users");' #txt
 oa0 f3 clientErrorCode ivy:error:rest:client #txt
 oa0 f3 statusErrorCode ivy:error:rest:client #txt
 oa0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -71,11 +71,11 @@ oa0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-oa0 f3 168 170 112 44 -38 -7 #rect
+oa0 f3 168 138 112 44 -38 -7 #rect
 oa0 f3 @|RestClientCallIcon #fIcon
 oa0 f4 expr out #txt
-oa0 f4 111 192 168 192 #arcP
-oa0 f2 280 192 337 192 #arcP
+oa0 f4 111 160 168 160 #arcP
+oa0 f2 280 160 337 160 #arcP
 oa0 f5 outLink readById.ivp #txt
 oa0 f5 inParamDecl '<> param;' #txt
 oa0 f5 requestEnabled true #txt
@@ -105,13 +105,15 @@ oa0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 oa0 f5 @C|.responsibility Everybody #txt
-oa0 f5 81 273 30 30 -37 17 #rect
+oa0 f5 81 241 30 30 -37 17 #rect
 oa0 f5 @|StartRequestIcon #fIcon
-oa0 f6 337 273 30 30 0 15 #rect
+oa0 f6 337 241 30 30 0 15 #rect
 oa0 f6 @|EndIcon #fIcon
 oa0 f8 clientId 65f8e5a4-768d-4a68-813a-e6d569cda522 #txt
-oa0 f8 path 'People(''russellwhyte'')' #txt
-oa0 f8 resultType com.axonivy.connectivity.rest.odata.User #txt
+oa0 f8 path '/People(''{UserName}'')' #txt
+oa0 f8 templateParams 'UserName="russellwhyte";
+' #txt
+oa0 f8 resultType org.odata.trippin.client.MicrosoftODataSampleServiceModelsTripPinPerson #txt
 oa0 f8 responseMapping 'out.users=[result];
 ' #txt
 oa0 f8 responseCode 'ivy.log.info("found "+result);' #txt
@@ -124,31 +126,27 @@ oa0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-oa0 f8 168 266 112 44 -31 -7 #rect
+oa0 f8 168 234 112 44 -31 -7 #rect
 oa0 f8 @|RestClientCallIcon #fIcon
 oa0 f9 expr out #txt
-oa0 f9 111 288 168 288 #arcP
-oa0 f7 280 288 337 288 #arcP
+oa0 f9 111 256 168 256 #arcP
+oa0 f7 280 256 337 256 #arcP
 oa0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Demonstrates how to interact with OData services:
-- OData is a simple REST protocol that is widely adopted by Microsoft services. 
-- The magic happens in a special JSON serializer implementation: 
-See com.axonivy.connectivity.rest.json.OdataJsonFeature
-http://www.odata.org</name>
-        <nameStyle>49,0,5,7
-1,5,7
-147,5,7
-4,5,7
-51,3,7
-1,5,7
-20,5,7
+- OData is a simple REST protocol that is widely adopted by Microsoft services. http://www.odata.org
+- By converting the Odata$metadata service specification to an Open API 3.0 compatible form, these
+services can be called and data sent to an fro without the need to consult the technical specialities of ODATA.</name>
+        <nameStyle>49,5,0
+1,5
+80,5
+231,5
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-oa0 f10 56 26 448 92 -215 -40 #rect
+oa0 f10 24 34 704 60 -346 -30 #rect
 oa0 f10 @|IBIcon #fIcon
 >Proto oa0 .type com.axonivy.connectivity.rest.odata.OData #txt
 >Proto oa0 .processKind NORMAL #txt

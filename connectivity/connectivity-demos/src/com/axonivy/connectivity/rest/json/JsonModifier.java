@@ -21,7 +21,12 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
  * as usual.
  *
  * @since 8.0.0
+ * @deprecated since 9.2, where such manual JSON transformations are no longer necessary. 
+ * Instead of applying payload transformations, one can convert ODATA$metadata to Open API 3.0 
+ * and use it directly with full type support on Rest Client call elements.
+ * https://github.com/ivy-samples/ivy-project-demos/blob/playground/odataConvert/connectivity/odata-converter/convert.sh
  */
+@Deprecated
 public class JsonModifier extends JacksonJsonProvider
 {
   private static final ObjectMapper ROOT_MAPPER = new ObjectMapper();

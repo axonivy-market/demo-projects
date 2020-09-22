@@ -42,9 +42,14 @@ import ch.ivyteam.ivy.rest.client.mapper.JsonFeature;
  * http://services.odata.org/TripPinRESTierService/(S(5jklwgt1fhflbw1mxbymqdqe))/People
  * </p>
  * @see "http://www.odata.org/"
- *
+ * 
  * @since 6.7.1
+ * @deprecated since 9.2, where such manual JSON transformations are no longer necessary. 
+ * Instead of applying payload transformations, one can convert ODATA$metadata to Open API 3.0 
+ * and use it directly with full type support on Rest Client call elements.
+ * https://github.com/ivy-samples/ivy-project-demos/blob/playground/odataConvert/connectivity/odata-converter/convert.sh
  */
+@Deprecated
 public class OdataJsonFeature extends JsonFeature
 {
   @Override
