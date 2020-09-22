@@ -14,13 +14,18 @@ oi0 @RestClientCall f3 '' #zField
 oi0 @PushWFArc f4 '' #zField
 oi0 @PushWFArc f2 '' #zField
 oi0 @InfoButton f5 '' #zField
+oi0 @RestClientCall f6 '' #zField
+oi0 @StartRequest f7 '' #zField
+oi0 @EndTask f8 '' #zField
+oi0 @PushWFArc f10 '' #zField
+oi0 @PushWFArc f9 '' #zField
 >Proto oi0 oi0 openapi #zField
 oi0 f0 outLink listPets.ivp #txt
 oi0 f0 inParamDecl '<> param;' #txt
 oi0 f0 requestEnabled true #txt
 oi0 f0 triggerEnabled false #txt
 oi0 f0 callSignature listPets() #txt
-oi0 f0 startName '8.1 open api read collection' #txt
+oi0 f0 startName '8.1.1 open api read collection' #txt
 oi0 f0 caseData businessCase.attach=true #txt
 oi0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -30,9 +35,9 @@ oi0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 oi0 f0 @C|.responsibility Everybody #txt
-oi0 f0 49 177 30 30 -25 17 #rect
+oi0 f0 49 145 30 30 -25 17 #rect
 oi0 f0 @|StartRequestIcon #fIcon
-oi0 f1 305 177 30 30 0 15 #rect
+oi0 f1 305 145 30 30 0 15 #rect
 oi0 f1 @|EndIcon #fIcon
 oi0 f3 clientId ae69ba01-79b7-4dce-9049-900f8f420907 #txt
 oi0 f3 path /pet/findByStatus #txt
@@ -52,27 +57,67 @@ PETs</name>
     </language>
 </elementInfo>
 ' #txt
-oi0 f3 136 170 112 44 -27 -15 #rect
+oi0 f3 136 138 112 44 -27 -15 #rect
 oi0 f3 @|RestClientCallIcon #fIcon
-oi0 f4 79 192 136 192 #arcP
-oi0 f2 248 192 305 192 #arcP
+oi0 f4 79 160 136 160 #arcP
+oi0 f2 248 160 305 160 #arcP
 oi0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Open API client sample
 Rest services written in openapi compatible manor expose their 
-resources and datas in a standard schema which allows clients
-to generate service data classes automatically. 
-
-See Definitions/Deployment (pom.xml) to explore the generator setup.</name>
+resources and datas in a standard schema.</name>
         <nameStyle>22,5,0
-245,5
+106,5
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-oi0 f5 40 26 448 92 -220 -45 #rect
+oi0 f5 32 34 416 60 -201 -22 #rect
 oi0 f5 @|IBIcon #fIcon
+oi0 f6 clientId ae69ba01-79b7-4dce-9049-900f8f420907 #txt
+oi0 f6 path /user/login #txt
+oi0 f6 queryParams 'username="IvyPowerUser";
+password=ivy.session.getAttribute("pet.secret") as String;
+' #txt
+oi0 f6 resultType java.lang.String #txt
+oi0 f6 responseCode 'import org.apache.commons.lang.StringUtils;
+String id = StringUtils.substringAfterLast(result, "session: ");
+ivy.session.setAttribute("pet.session.id", id);' #txt
+oi0 f6 clientErrorCode ivy:error:rest:client #txt
+oi0 f6 statusErrorCode ivy:error:rest:client #txt
+oi0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>    Login User
+(query params)</name>
+    </language>
+</elementInfo>
+' #txt
+oi0 f6 136 234 112 44 -44 -15 #rect
+oi0 f6 @|RestClientCallIcon #fIcon
+oi0 f7 outLink login.ivp #txt
+oi0 f7 inParamDecl '<> param;' #txt
+oi0 f7 requestEnabled true #txt
+oi0 f7 triggerEnabled false #txt
+oi0 f7 callSignature login() #txt
+oi0 f7 startName '8.1.2 open api query' #txt
+oi0 f7 caseData businessCase.attach=true #txt
+oi0 f7 showInStartList 1 #txt
+oi0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>login.ivp</name>
+    </language>
+</elementInfo>
+' #txt
+oi0 f7 @C|.responsibility Everybody #txt
+oi0 f7 49 241 30 30 -25 17 #rect
+oi0 f7 @|StartRequestIcon #fIcon
+oi0 f8 305 241 30 30 0 15 #rect
+oi0 f8 @|EndIcon #fIcon
+oi0 f10 248 256 305 256 #arcP
+oi0 f9 79 256 136 256 #arcP
 >Proto oi0 .type com.axonivy.connectivity.rest.OpenApiData #txt
 >Proto oi0 .processKind NORMAL #txt
 >Proto oi0 0 0 32 24 18 0 #rect
@@ -81,3 +126,7 @@ oi0 f0 mainOut f4 tail #connect
 oi0 f4 head f3 mainIn #connect
 oi0 f3 mainOut f2 tail #connect
 oi0 f2 head f1 mainIn #connect
+oi0 f6 mainOut f10 tail #connect
+oi0 f10 head f8 mainIn #connect
+oi0 f7 mainOut f9 tail #connect
+oi0 f9 head f6 mainIn #connect
