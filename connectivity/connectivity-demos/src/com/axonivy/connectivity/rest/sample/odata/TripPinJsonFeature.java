@@ -49,9 +49,9 @@ public class TripPinJsonFeature extends OpenApiJsonFeature
   
   private static class TripPinTypeCustomizations extends SimpleModule
   {
-	private static final long serialVersionUID = 4552540562745977391L;
+    private static final long serialVersionUID = 4552540562745977391L;
 
-	public TripPinTypeCustomizations()
+    public TripPinTypeCustomizations()
     {
       nullify(AnyOfMicrosoftODataSampleServiceModelsTripPinPersonConcurrency.class); // ignore 'Concurrency' field.
       addDeserializer(AnyOfMicrosoftODataSampleServiceModelsTripPinPersonGender.class, new GenderDeserializer());
@@ -66,9 +66,9 @@ public class TripPinJsonFeature extends OpenApiJsonFeature
   
   private static class GenderDeserializer extends StdDeserializer<AnyOfMicrosoftODataSampleServiceModelsTripPinPersonGender>
   {
-	private static final long serialVersionUID = 8173333520337377195L;
+    private static final long serialVersionUID = 8173333520337377195L;
 
-	public GenderDeserializer()
+    public GenderDeserializer()
     {
       super(AnyOfMicrosoftODataSampleServiceModelsTripPinPersonGender.class);
     }
