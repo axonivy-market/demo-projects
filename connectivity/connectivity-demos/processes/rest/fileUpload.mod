@@ -156,8 +156,6 @@ fd0 f12 templateParams 'fileName=in.file.getName();
 ' #txt
 fd0 f12 method JAX_RS #txt
 fd0 f12 clientCode 'import javax.ws.rs.core.Response;
-import com.axonivy.connectivity.rest.client.file.FileUpload;
-import io.swagger.petstore3.client.Pet;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.client.Entity;
 
