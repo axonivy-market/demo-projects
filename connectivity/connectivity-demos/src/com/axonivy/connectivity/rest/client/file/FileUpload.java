@@ -97,5 +97,11 @@ public class FileUpload
     }
     return resource;
   }
+  
+  public static File getIvyLogo() throws IOException
+  {
+    IFile ivyLogoResource = getHdResource("com.axonivy.connectivity.rest.FileUpload", "resources/ivy_favicon_48.png");
+    return toTempIoFile(ivyLogoResource);
+  }
 
 }
