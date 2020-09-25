@@ -22,11 +22,13 @@ fd0 @EndTask f7 '' #zField
 fd0 @RestClientCall f8 '' #zField
 fd0 @PushWFArc f9 '' #zField
 fd0 @PushWFArc f10 '' #zField
-fd0 @StartRequest f11 '' #zField
-fd0 @RestClientCall f12 '' #zField
-fd0 @EndTask f13 '' #zField
-fd0 @PushWFArc f14 '' #zField
-fd0 @PushWFArc f15 '' #zField
+fd0 @StartRequest f16 '' #zField
+fd0 @RestClientCall f17 '' #zField
+fd0 @EndTask f18 '' #zField
+fd0 @PushWFArc f19 '' #zField
+fd0 @RestClientCall f21 '' #zField
+fd0 @PushWFArc f23 '' #zField
+fd0 @PushWFArc f20 '' #zField
 >Proto fd0 fd0 fileUpload #zField
 fd0 f0 outLink fileClient.ivp #txt
 fd0 f0 inParamDecl '<> param;' #txt
@@ -131,31 +133,34 @@ fd0 f8 @|RestClientCallIcon #fIcon
 fd0 f9 expr out #txt
 fd0 f9 111 224 168 224 #arcP
 fd0 f10 280 224 337 224 #arcP
-fd0 f11 outLink uploadStream.ivp #txt
-fd0 f11 inParamDecl '<> param;' #txt
-fd0 f11 actionCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
+fd0 f16 outLink upAndDown.ivp #txt
+fd0 f16 inParamDecl '<> param;' #txt
+fd0 f16 actionCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
 out.file = FileUpload.getIvyLogo();' #txt
-fd0 f11 requestEnabled true #txt
-fd0 f11 triggerEnabled false #txt
-fd0 f11 callSignature uploadStream() #txt
-fd0 f11 startName '6.4.2 Upload file octet' #txt
-fd0 f11 caseData businessCase.attach=true #txt
-fd0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+fd0 f16 requestEnabled true #txt
+fd0 f16 triggerEnabled false #txt
+fd0 f16 callSignature upAndDown() #txt
+fd0 f16 startName '6.4.2 Upload and Download file octet-stream' #txt
+fd0 f16 caseData businessCase.attach=true #txt
+fd0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>uploadStream.ivp</name>
+        <name>upAndDown.ivp</name>
     </language>
 </elementInfo>
 ' #txt
-fd0 f11 @C|.responsibility Everybody #txt
-fd0 f11 81 305 30 30 -42 17 #rect
-fd0 f11 @|StartRequestIcon #fIcon
-fd0 f12 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
-fd0 f12 path {fileName} #txt
-fd0 f12 templateParams 'fileName=in.file.getName();
+fd0 f16 @C|.responsibility Everybody #txt
+fd0 f16 81 305 30 30 -42 17 #rect
+fd0 f16 @|StartRequestIcon #fIcon
+fd0 f17 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
+fd0 f17 path /file/{fileName} #txt
+fd0 f17 templateParams 'fileName=in.file.getName();
 ' #txt
-fd0 f12 method JAX_RS #txt
-fd0 f12 clientCode 'import javax.ws.rs.core.Response;
+fd0 f17 headers 'Accept=*/*;
+X-Requested-By="ivy";
+' #txt
+fd0 f17 method POST #txt
+fd0 f17 clientCode 'import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.client.Entity;
 
@@ -168,7 +173,17 @@ ivy.session.setAttribute("lastUpload", uploaded);
 
 ivy.log.info("Result: "+response.readEntity(String.class));
 ' #txt
-fd0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+fd0 f17 bodyInputType ENTITY #txt
+fd0 f17 bodyMediaType application/octet-stream #txt
+fd0 f17 bodyObjectType java.io.File #txt
+fd0 f17 bodyObjectMapping 'param=in.file;
+' #txt
+fd0 f17 resultType '[B' #txt
+fd0 f17 responseMapping 'out.result=response.getHeaderString("uploadedFile");
+' #txt
+fd0 f17 clientErrorCode ivy:error:rest:client #txt
+fd0 f17 statusErrorCode ivy:error:rest:client #txt
+fd0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>  Upload File
@@ -176,12 +191,31 @@ fd0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-fd0 f12 168 296 112 48 -42 -15 #rect
-fd0 f12 @|RestClientCallIcon #fIcon
-fd0 f13 337 305 30 30 0 15 #rect
-fd0 f13 @|EndIcon #fIcon
-fd0 f14 111 320 168 320 #arcP
-fd0 f15 280 320 337 320 #arcP
+fd0 f17 168 296 112 48 -42 -15 #rect
+fd0 f17 @|RestClientCallIcon #fIcon
+fd0 f18 497 305 30 30 0 15 #rect
+fd0 f18 @|EndIcon #fIcon
+fd0 f19 111 320 168 320 #arcP
+fd0 f21 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
+fd0 f21 path /file/{fileName} #txt
+fd0 f21 templateParams 'fileName=in.result;
+' #txt
+fd0 f21 resultType java.io.File #txt
+fd0 f21 responseCode 'ivy.log.info("got file: "+result);' #txt
+fd0 f21 clientErrorCode ivy:error:rest:client #txt
+fd0 f21 statusErrorCode ivy:error:rest:client #txt
+fd0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Download File
+(octet stream)</name>
+    </language>
+</elementInfo>
+' #txt
+fd0 f21 320 298 128 44 -42 -15 #rect
+fd0 f21 @|RestClientCallIcon #fIcon
+fd0 f23 280 320 320 320 #arcP
+fd0 f20 448 320 497 320 #arcP
 >Proto fd0 .type com.axonivy.connectivity.Data #txt
 >Proto fd0 .processKind NORMAL #txt
 >Proto fd0 0 0 32 24 18 0 #rect
@@ -194,7 +228,9 @@ fd0 f6 mainOut f9 tail #connect
 fd0 f9 head f8 mainIn #connect
 fd0 f8 mainOut f10 tail #connect
 fd0 f10 head f7 mainIn #connect
-fd0 f11 mainOut f14 tail #connect
-fd0 f14 head f12 mainIn #connect
-fd0 f12 mainOut f15 tail #connect
-fd0 f15 head f13 mainIn #connect
+fd0 f16 mainOut f19 tail #connect
+fd0 f19 head f17 mainIn #connect
+fd0 f17 mainOut f23 tail #connect
+fd0 f23 head f21 mainIn #connect
+fd0 f21 mainOut f20 tail #connect
+fd0 f20 head f18 mainIn #connect
