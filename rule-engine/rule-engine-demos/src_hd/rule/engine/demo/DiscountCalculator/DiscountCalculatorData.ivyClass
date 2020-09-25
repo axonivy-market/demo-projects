@@ -2,7 +2,3 @@ DiscountCalculatorData #class
 rule.engine.demo.DiscountCalculator #namespace
 member rule.engine.demo.Member #field
 member PERSISTENT #fieldModifier
-ruleBaseForDRL ch.ivyteam.ivy.rule.engine.api.IRuleBase #field
-ruleBaseForDRL PERSISTENT #fieldModifier
-ruleBaseForDecisionTable ch.ivyteam.ivy.rule.engine.api.IRuleBase #field
-ruleBaseForDecisionTable PERSISTENT #fieldModifier
