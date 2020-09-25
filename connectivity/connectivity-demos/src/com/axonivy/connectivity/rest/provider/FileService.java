@@ -1,5 +1,6 @@
 package com.axonivy.connectivity.rest.provider;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -33,6 +35,14 @@ import ch.ivyteam.ivy.scripting.objects.File;
 @Path("file")
 public class FileService
 {
+  /**
+   * Adds documents to the workflow application through a multi-part form interface.
+   * 
+   * @param fileUploadStream the stream containing binary data
+   * @param fileUploadDetail informations on the file being sent das binary
+   * @return upload message
+   * @throws IOException
+   */
   @PUT
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.MULTIPART_FORM_DATA)
@@ -76,7 +86,7 @@ public class FileService
     }
   }
 
-  public static List<String> whitelistedExtensions = Arrays.asList("pdf", "txt", "jpg", "jpeg");
+  public static List<String> whitelistedExtensions = Arrays.asList("pdf", "txt", "jpg", "jpeg", "png");
 
   private static boolean checkIfStringContainsList(String extension)
   {
@@ -96,5 +106,33 @@ public class FileService
             .build();
 
   }
+  
+  /**
+   * Adds documents to the workflow application <b>without using multi-part forms</b>.
+   * 
+   * <p>Pure MediaType#APPLICATION_OCTET_STREAM based APIs can be an easier easier to use for some clients.</p>
+   * 
+   * @param fileName as mandatory path parameter: since the payload does not declare the name.
+   * @param payload the binary input representing a file.
+   * @return upload message
+   * @throws IOException
+   */
+  @POST
+  @Path("/{fileName}")
+  @Consumes(MediaType.APPLICATION_OCTET_STREAM)
+  public Response addDocument(@PathParam("fileName") String fileName, byte[] payload) throws IOException
+  {
+    checkExtension(fileName);
+    try(InputStream is = new ByteArrayInputStream(payload))
+    {
+      File newFile = createIvyFile(is, fileName);
+      String result = "File was uploaded succesfully to: " + newFile.getAbsolutePath();
+      return Response.status(201)
+        .header("uploadedFile", fileName)
+        .entity(result)
+        .build();
+    }
+  }
+  
 
 }

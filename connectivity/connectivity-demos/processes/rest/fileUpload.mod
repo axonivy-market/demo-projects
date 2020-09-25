@@ -22,6 +22,11 @@ fd0 @EndTask f7 '' #zField
 fd0 @RestClientCall f8 '' #zField
 fd0 @PushWFArc f9 '' #zField
 fd0 @PushWFArc f10 '' #zField
+fd0 @StartRequest f11 '' #zField
+fd0 @RestClientCall f12 '' #zField
+fd0 @EndTask f13 '' #zField
+fd0 @PushWFArc f14 '' #zField
+fd0 @PushWFArc f15 '' #zField
 >Proto fd0 fd0 fileUpload #zField
 fd0 f0 outLink fileClient.ivp #txt
 fd0 f0 inParamDecl '<> param;' #txt
@@ -29,7 +34,7 @@ fd0 f0 requestEnabled true #txt
 fd0 f0 triggerEnabled false #txt
 fd0 f0 callSignature fileClient() #txt
 fd0 f0 persist false #txt
-fd0 f0 startName '6.4.2 Upload file UI' #txt
+fd0 f0 startName '6.4.0 Upload file UI' #txt
 fd0 f0 caseData businessCase.attach=true #txt
 fd0 f0 showInStartList 1 #txt
 fd0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -79,7 +84,7 @@ fd0 f6 requestEnabled true #txt
 fd0 f6 triggerEnabled false #txt
 fd0 f6 callSignature callFileUpload() #txt
 fd0 f6 persist false #txt
-fd0 f6 startName '6.4.1 Upload file simple ' #txt
+fd0 f6 startName '6.4.1 Upload file multipart' #txt
 fd0 f6 caseData businessCase.attach=true #txt
 fd0 f6 showInStartList 1 #txt
 fd0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -116,15 +121,67 @@ out.result = response;
 fd0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Upload File</name>
+        <name>Upload File
+(multi/part)</name>
     </language>
 </elementInfo>
 ' #txt
-fd0 f8 168 202 112 44 -34 -7 #rect
+fd0 f8 168 202 112 44 -35 -15 #rect
 fd0 f8 @|RestClientCallIcon #fIcon
 fd0 f9 expr out #txt
 fd0 f9 111 224 168 224 #arcP
 fd0 f10 280 224 337 224 #arcP
+fd0 f11 outLink uploadStream.ivp #txt
+fd0 f11 inParamDecl '<> param;' #txt
+fd0 f11 actionCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
+out.file = FileUpload.getIvyLogo();' #txt
+fd0 f11 requestEnabled true #txt
+fd0 f11 triggerEnabled false #txt
+fd0 f11 callSignature uploadStream() #txt
+fd0 f11 startName '6.4.2 Upload file octet' #txt
+fd0 f11 caseData businessCase.attach=true #txt
+fd0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>uploadStream.ivp</name>
+    </language>
+</elementInfo>
+' #txt
+fd0 f11 @C|.responsibility Everybody #txt
+fd0 f11 81 305 30 30 -42 17 #rect
+fd0 f11 @|StartRequestIcon #fIcon
+fd0 f12 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
+fd0 f12 path {fileName} #txt
+fd0 f12 templateParams 'fileName=in.file.getName();
+' #txt
+fd0 f12 method JAX_RS #txt
+fd0 f12 clientCode 'import javax.ws.rs.core.Response;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.client.Entity;
+
+Response response = client.request()
+	.header("X-Requested-By", "ivy")
+	.post(Entity.entity(in.file, MediaType.APPLICATION_OCTET_STREAM_TYPE));
+
+String uploaded = response.getHeaderString("uploadedFile");
+ivy.session.setAttribute("lastUpload", uploaded);
+
+ivy.log.info("Result: "+response.readEntity(String.class));
+' #txt
+fd0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>  Upload File
+(octet stream)</name>
+    </language>
+</elementInfo>
+' #txt
+fd0 f12 168 296 112 48 -42 -15 #rect
+fd0 f12 @|RestClientCallIcon #fIcon
+fd0 f13 337 305 30 30 0 15 #rect
+fd0 f13 @|EndIcon #fIcon
+fd0 f14 111 320 168 320 #arcP
+fd0 f15 280 320 337 320 #arcP
 >Proto fd0 .type com.axonivy.connectivity.Data #txt
 >Proto fd0 .processKind NORMAL #txt
 >Proto fd0 0 0 32 24 18 0 #rect
@@ -137,3 +194,7 @@ fd0 f6 mainOut f9 tail #connect
 fd0 f9 head f8 mainIn #connect
 fd0 f8 mainOut f10 tail #connect
 fd0 f10 head f7 mainIn #connect
+fd0 f11 mainOut f14 tail #connect
+fd0 f14 head f12 mainIn #connect
+fd0 f12 mainOut f15 tail #connect
+fd0 f15 head f13 mainIn #connect
