@@ -11,11 +11,6 @@ Ds0 @MessageFlowInP-0n messageIn messageIn #zField
 Ds0 @MessageFlowOutP-0n messageOut messageOut #zField
 Ds0 @TextInP .xml .xml #zField
 Ds0 @TextInP .responsibility .responsibility #zField
-Ds0 @UdInit f0 '' #zField
-Ds0 @UdProcessEnd f1 '' #zField
-Ds0 @GridStep f6 '' #zField
-Ds0 @PushWFArc f7 '' #zField
-Ds0 @PushWFArc f2 '' #zField
 Ds0 @UdMethod f10 '' #zField
 Ds0 @UdProcessEnd f11 '' #zField
 Ds0 @GridStep f13 '' #zField
@@ -32,61 +27,10 @@ Ds0 @GridStep f18 '' #zField
 Ds0 @PushWFArc f19 '' #zField
 Ds0 @PushWFArc f17 '' #zField
 Ds0 @InfoButton f20 '' #zField
+Ds0 @UdInit f0 '' #zField
+Ds0 @UdProcessEnd f1 '' #zField
+Ds0 @PushWFArc f2 '' #zField
 >Proto Ds0 Ds0 DiscountCalculatorProcess #zField
-Ds0 f0 guid 153E9EE0238C8F41 #txt
-Ds0 f0 method start(rule.engine.demo.Member) #txt
-Ds0 f0 inParameterDecl '<rule.engine.demo.Member member> param;' #txt
-Ds0 f0 inParameterMapAction 'out.member=param.member;
-' #txt
-Ds0 f0 outParameterDecl '<rule.engine.demo.Member member> result;' #txt
-Ds0 f0 outParameterMapAction 'result.member=in.member;
-' #txt
-Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(Member)</name>
-    </language>
-</elementInfo>
-' #txt
-Ds0 f0 83 43 26 26 -38 15 #rect
-Ds0 f0 @|UdInitIcon #fIcon
-Ds0 f1 499 43 26 26 0 12 #rect
-Ds0 f1 @|UdProcessEndIcon #fIcon
-Ds0 f6 actionTable 'out=in;
-' #txt
-Ds0 f6 actionCode '/* 
- * Create rule bases to store the rule resources.
- * "ruleBaseForDRL" will store the drl files.
- * "ruleBaseForDecisionTable" will store the decision tables.
- *
- * Current official supported rule resource types are decision table (*.xls)
- * and native rule language (*.drl) from Drools.
- */
-in.ruleBaseForDRL = ivy.rules.engine.createRuleBase();
-in.ruleBaseForDecisionTable = ivy.rules.engine.createRuleBase();
-
-/* 
- * Add all rules in the namespace into the rule base. 
- * The namespace is the folder hierarchy that contains rule resources 
- * and inside the root rules folder of the Ivy project. 
- */
-in.ruleBaseForDRL.loadRulesFromNamespace("rule.engine.drl");
-in.ruleBaseForDecisionTable.loadRulesFromNamespace("rule.engine.decisiontable");' #txt
-Ds0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Init Rule Bases</name>
-        <nameStyle>15,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ds0 f6 254 34 112 44 -42 -8 #rect
-Ds0 f6 @|StepIcon #fIcon
-Ds0 f7 expr out #txt
-Ds0 f7 109 56 254 56 #arcP
-Ds0 f2 expr out #txt
-Ds0 f2 366 56 499 56 #arcP
 Ds0 f10 guid 153EA7B7991C970A #txt
 Ds0 f10 method applyRulesFromDRL() #txt
 Ds0 f10 inParameterDecl '<> param;' #txt
@@ -107,12 +51,14 @@ Ds0 f11 @|UdProcessEndIcon #fIcon
 Ds0 f13 actionTable 'out=in;
 ' #txt
 Ds0 f13 actionCode '/*
- * We need to create a rule session to execute the rules.
- * 
  * ''out.member'' is the input object that stores the information of a member.
  * This object will be modified during the rule execution.
  */
-in.ruleBaseForDRL.createSession().execute(out.member);' #txt
+ivy.rules.create()
+	.namespace("rule.engine.drl")
+	.executor()
+	.execute(out.member);
+' #txt
 Ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -148,12 +94,14 @@ Ds0 f4 @|UdProcessEndIcon #fIcon
 Ds0 f5 actionTable 'out=in;
 ' #txt
 Ds0 f5 actionCode '/*
- * We need to create a rule session to execute the rules.
- * 
  * ''out.member'' is the input object that stores the information of a member.
  * This object will be modified during the rule execution.
  */
-in.ruleBaseForDecisionTable.createSession().execute(out.member);' #txt
+ivy.rules.create()
+	.namespace("rule.engine.decisiontable")
+	.executor()
+	.execute(out.member);
+' #txt
 Ds0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -186,26 +134,20 @@ Ds0 f16 499 403 26 26 0 12 #rect
 Ds0 f16 @|UdProcessEndIcon #fIcon
 Ds0 f18 actionTable 'out=in;
 ' #txt
-Ds0 f18 actionCode 'import ch.ivyteam.ivy.rule.engine.api.runtime.IStatelessRuleSession;
-import ch.ivyteam.ivy.rule.engine.api.IRuleBase;
-import java.util.HashMap;
+Ds0 f18 actionCode 'import java.util.HashMap;
 import java.util.Map;
 
-		IRuleBase ruleBase = Rules.engine().createRuleBase();
-		ruleBase.loadRulesFromNamespace("rule.engine.dmn");
-		IStatelessRuleSession session = ruleBase.createSession();
+HashMap input = new HashMap();
+in.member.type= in.member.#memberType == null ? "" : in.member.memberType.name();  //get string value of Enumeration for DMN
+input.put("member", in.member);
 
-		//HashMap with input data
-		HashMap input = new HashMap();
-		in.member.type= in.member.#memberType == null ? "" : in.member.memberType.name();  //get string value of Enumeration for DMN
-		input.put("member", in.member);
-		ivy.log.info("member {0}",in.member);
-		
-		Map result = session.executeDMN(input);
-		
-		//Map returned values
-		out.member.discount = result.get("member.discount").toNumber();
-		ivy.log.info("result {0}",result);	' #txt
+Map result = ivy.rules.create()
+	.namespace("rule.engine.dmn")
+	.executor()
+	.executeDMN(input);
+
+out.member.discount = result.get("member.discount").toNumber();
+' #txt
 Ds0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -227,6 +169,26 @@ https://kiegroup.github.io/kogito-online/#/</name>
 ' #txt
 Ds0 f20 592 394 256 44 -125 -16 #rect
 Ds0 f20 @|IBIcon #fIcon
+Ds0 f0 guid 153E9EE0238C8F41 #txt
+Ds0 f0 method start(rule.engine.demo.Member) #txt
+Ds0 f0 inParameterDecl '<rule.engine.demo.Member member> param;' #txt
+Ds0 f0 inParameterMapAction 'out.member=param.member;
+' #txt
+Ds0 f0 outParameterDecl '<rule.engine.demo.Member member> result;' #txt
+Ds0 f0 outParameterMapAction 'result.member=in.member;
+' #txt
+Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(Member)</name>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f0 83 43 26 26 -38 15 #rect
+Ds0 f0 @|UdInitIcon #fIcon
+Ds0 f1 499 43 26 26 0 12 #rect
+Ds0 f1 @|UdProcessEndIcon #fIcon
+Ds0 f2 109 56 499 56 #arcP
 >Proto Ds0 .type rule.engine.demo.DiscountCalculator.DiscountCalculatorData #txt
 >Proto Ds0 .processKind HTML_DIALOG #txt
 >Proto Ds0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -258,10 +220,6 @@ Ds0 f20 @|IBIcon #fIcon
 ' #txt
 >Proto Ds0 -8 -8 16 16 16 26 #rect
 >Proto Ds0 '' #fIcon
-Ds0 f0 mainOut f7 tail #connect
-Ds0 f7 head f6 mainIn #connect
-Ds0 f6 mainOut f2 tail #connect
-Ds0 f2 head f1 mainIn #connect
 Ds0 f10 mainOut f14 tail #connect
 Ds0 f14 head f13 mainIn #connect
 Ds0 f13 mainOut f12 tail #connect
@@ -274,3 +232,5 @@ Ds0 f15 mainOut f19 tail #connect
 Ds0 f19 head f18 mainIn #connect
 Ds0 f18 mainOut f17 tail #connect
 Ds0 f17 head f16 mainIn #connect
+Ds0 f0 mainOut f2 tail #connect
+Ds0 f2 head f1 mainIn #connect
