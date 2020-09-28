@@ -56,7 +56,7 @@ Ds0 f13 actionCode '/*
  */
 ivy.rules.create()
 	.namespace("rule.engine.drl")
-	.toRuleExecutor()
+	.executor()
 	.execute(out.member);
 ' #txt
 Ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -99,7 +99,7 @@ Ds0 f5 actionCode '/*
  */
 ivy.rules.create()
 	.namespace("rule.engine.decisiontable")
-	.toRuleExecutor()
+	.executor()
 	.execute(out.member);
 ' #txt
 Ds0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -143,7 +143,7 @@ input.put("member", in.member);
 
 Map result = ivy.rules.create()
 	.namespace("rule.engine.dmn")
-	.toRuleExecutor()
+	.executor()
 	.executeDMN(input);
 
 out.member.discount = result.get("member.discount").toNumber();
