@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import com.axonivy.connectivity.Data;
+
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
 import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
@@ -25,10 +27,10 @@ public class TestFileUpload
   @Test
   public void fileUpload_octetStream(BpmClient bpmClient)
   {
-    ExecutionResult result = bpmClient.start().process("rest/fileUpload/uploadStream.ivp").execute();
+    ExecutionResult result = bpmClient.start().process("rest/fileUpload/upAndDown.ivp").execute();
     assertThat(result).isNotNull();
     
-    String uploaded = (String) result.workflow().session().getAttribute("lastUpload");
-    assertThat(uploaded).endsWith(".png");
+    Data data = result.data().last();
+    assertThat(data.getResult()).endsWith(".png");
   }
 }

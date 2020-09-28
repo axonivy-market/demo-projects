@@ -152,7 +152,7 @@ To run this service locally:
         <uuid>4d9a8b09-9968-4476-a8ac-b71a94d25e94</uuid>
         <name>file</name>
         <configuration>
-            <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.request.application}/api/file</uri>
+            <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.request.application}/api</uri>
             <property>
                 <name>username</name>
                 <value>theWorker</value>
