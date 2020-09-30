@@ -102,6 +102,7 @@ fd0 f6 @|StartRequestIcon #fIcon
 fd0 f7 337 209 30 30 0 15 #rect
 fd0 f7 @|EndIcon #fIcon
 fd0 f8 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
+fd0 f8 path file #txt
 fd0 f8 method JAX_RS #txt
 fd0 f8 clientCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
 import javax.ws.rs.core.Response;
