@@ -19,7 +19,6 @@ oi0 @StartRequest f7 '' #zField
 oi0 @EndTask f8 '' #zField
 oi0 @PushWFArc f10 '' #zField
 oi0 @PushWFArc f9 '' #zField
-oi0 @RestClientCall f12 '' #zField
 oi0 @StartRequest f11 '' #zField
 oi0 @EndTask f13 '' #zField
 oi0 @RestClientCall f14 '' #zField
@@ -124,11 +123,6 @@ oi0 f8 305 241 30 30 0 15 #rect
 oi0 f8 @|EndIcon #fIcon
 oi0 f10 248 256 305 256 #arcP
 oi0 f9 79 256 136 256 #arcP
-oi0 f12 clientId ae69ba01-79b7-4dce-9049-900f8f420907 #txt
-oi0 f12 path /store/order/{orderId} #txt
-oi0 f12 method DELETE #txt
-oi0 f12 552 234 112 44 0 -7 #rect
-oi0 f12 @|RestClientCallIcon #fIcon
 oi0 f11 outLink upload.ivp #txt
 oi0 f11 inParamDecl '<> param;' #txt
 oi0 f11 requestEnabled true #txt
