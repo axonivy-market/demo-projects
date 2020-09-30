@@ -84,6 +84,7 @@ Fs0 f12 @|UdEventIcon #fIcon
 Fs0 f13 307 155 26 26 0 12 #rect
 Fs0 f13 @|UdProcessEndIcon #fIcon
 Fs0 f20 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
+Fs0 f20 path file #txt
 Fs0 f20 method JAX_RS #txt
 Fs0 f20 clientCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
 import org.eclipse.core.resources.IFile;
@@ -136,6 +137,7 @@ Fs0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Fs0 f15 344 153 496 30 -241 -7 #rect
 Fs0 f15 @|IBIcon #fIcon
 Fs0 f23 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
+Fs0 f23 path file #txt
 Fs0 f23 method JAX_RS #txt
 Fs0 f23 clientCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
 import org.eclipse.core.resources.IFile;
@@ -178,16 +180,17 @@ Fs0 f26 83 179 26 26 -35 17 #rect
 Fs0 f26 @|UdEventIcon #fIcon
 Fs0 f21 264 320 307 320 #arcP
 Fs0 f19 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
-Fs0 f19 path /{in.downloadName} #txt
-Fs0 f19 templateParams 'in.downloadName=in.downloadName;
+Fs0 f19 path /file/{fileName} #txt
+Fs0 f19 templateParams 'fileName=in.downloadName;
 ' #txt
 Fs0 f19 headers 'Accept=application/octet-stream;
 ' #txt
 Fs0 f19 method GET #txt
-Fs0 f19 resultType java.io.InputStream #txt
-Fs0 f19 responseCode 'import org.primefaces.model.DefaultStreamedContent;
+Fs0 f19 resultType '[B' #txt
+Fs0 f19 responseCode 'import java.io.ByteArrayInputStream;
+import org.primefaces.model.DefaultStreamedContent;
 
-out.fileDownload = new DefaultStreamedContent(result, "text/plain", in.downloadName);
+out.fileDownload = new DefaultStreamedContent(new ByteArrayInputStream(result), "text/plain", in.downloadName);
 
 
 ' #txt
