@@ -202,7 +202,7 @@ To run this service locally:
     </restClient>
     <restClient>
         <uuid>699e715f-63b1-4355-a974-ee3cac26985e</uuid>
-        <name>uiPathOrchestrator</name>
+        <name>uiPathOrchestrator (UiPath.WebApi 11.0)</name>
         <description>API DOCS: 
 https://platform.uipath.com/AXONPRESALES/AXONPRESALES/swagger
 </description>
