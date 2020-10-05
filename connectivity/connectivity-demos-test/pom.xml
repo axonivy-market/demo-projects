@@ -3,9 +3,9 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>ch.ivyteam.demo</groupId>
-    <artifactId>build-maven-web</artifactId>
+    <artifactId>build-maven-test</artifactId>
     <version>9.2.0-SNAPSHOT</version>
-    <relativePath>../../build.maven/web</relativePath>
+    <relativePath>../../build.maven/test</relativePath>
   </parent>
 
   <groupId>ch.ivyteam.demo</groupId>
