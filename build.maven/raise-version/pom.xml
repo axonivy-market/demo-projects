@@ -13,9 +13,8 @@
     <module>../../connectivity/connectivity-demos-rcptt-test</module>
 
     <!-- config poms -->
-    <module>../</module>
     <module>../rcptt</module>
-    <module>../web</module>
+    <module>../test</module>
   </modules>
 
   <build>

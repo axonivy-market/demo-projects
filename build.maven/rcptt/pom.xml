@@ -9,11 +9,9 @@
   <properties>
     <rcptt.version>2.5.1</rcptt.version>
     <designer.os.arch>Windows_x64</designer.os.arch>
-    <deploy.skip>true</deploy.skip>
   </properties>
 
   <pluginRepositories>
-    <!-- Used to install RCPTT plugins -->
     <pluginRepository>
       <id>repo.eclipse.org.rcptt</id>
       <url>https://repo.eclipse.org/content/repositories/rcptt/</url>
@@ -96,8 +94,7 @@
     </plugins>
 
     <pluginManagement>
-      <plugins>
-        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+      <plugins>        
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
           <artifactId>lifecycle-mapping</artifactId>
