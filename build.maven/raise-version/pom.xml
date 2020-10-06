@@ -14,7 +14,6 @@
 
     <!-- config poms -->
     <module>../rcptt</module>
-    <module>../test</module>
   </modules>
 
   <build>
