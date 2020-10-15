@@ -238,12 +238,11 @@ fd0 f12 clientCode '
 ' #txt
 fd0 f12 bodyInputType FORM #txt
 fd0 f12 bodyMediaType multipart/form-data #txt
-fd0 f12 bodyForm 'files=in.file;
+fd0 f12 bodyForm 'files=[in.file, com.axonivy.connectivity.rest.client.file.FileUpload.getIvyLogo()];
 description="some logos";
 ownerId=ivy.session.getSessionUser().getId();
-files=com.axonivy.connectivity.rest.client.file.FileUpload.getIvyLogo();
 ' #txt
-fd0 f12 bodyObjectType ivy.local.client.Body2 #txt
+fd0 f12 bodyObjectType ivy.local.client.Body3 #txt
 fd0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
