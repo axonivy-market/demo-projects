@@ -29,6 +29,11 @@ fd0 @PushWFArc f19 '' #zField
 fd0 @RestClientCall f21 '' #zField
 fd0 @PushWFArc f23 '' #zField
 fd0 @PushWFArc f20 '' #zField
+fd0 @EndTask f11 '' #zField
+fd0 @RestClientCall f12 '' #zField
+fd0 @StartRequest f13 '' #zField
+fd0 @PushWFArc f14 '' #zField
+fd0 @PushWFArc f15 '' #zField
 >Proto fd0 fd0 fileUpload #zField
 fd0 f0 outLink fileClient.ivp #txt
 fd0 f0 inParamDecl '<> param;' #txt
@@ -99,9 +104,9 @@ fd0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fd0 f6 @C|.responsibility Everybody #txt
-fd0 f6 81 209 30 30 -38 17 #rect
+fd0 f6 81 305 30 30 -38 17 #rect
 fd0 f6 @|StartRequestIcon #fIcon
-fd0 f7 337 209 30 30 0 15 #rect
+fd0 f7 337 305 30 30 0 15 #rect
 fd0 f7 @|EndIcon #fIcon
 fd0 f8 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 fd0 f8 path /file #txt
@@ -119,6 +124,7 @@ fd0 f8 bodyMediaType multipart/form-data #txt
 fd0 f8 bodyForm 'file=in.file;
 description=;
 ownerId=;
+file=com.axonivy.connectivity.rest.client.file.FileUpload.getIvyLogo();
 ' #txt
 fd0 f8 bodyObjectType ivy.local.client.Body2 #txt
 fd0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -129,11 +135,11 @@ fd0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-fd0 f8 168 202 112 44 -35 -15 #rect
+fd0 f8 168 298 112 44 -35 -15 #rect
 fd0 f8 @|RestClientCallIcon #fIcon
 fd0 f9 expr out #txt
-fd0 f9 111 224 168 224 #arcP
-fd0 f10 280 224 337 224 #arcP
+fd0 f9 111 320 168 320 #arcP
+fd0 f10 280 320 337 320 #arcP
 fd0 f16 outLink upAndDown.ivp #txt
 fd0 f16 inParamDecl '<> param;' #txt
 fd0 f16 actionCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
@@ -151,7 +157,7 @@ fd0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fd0 f16 @C|.responsibility Everybody #txt
-fd0 f16 81 305 30 30 -42 17 #rect
+fd0 f16 81 209 30 30 -42 17 #rect
 fd0 f16 @|StartRequestIcon #fIcon
 fd0 f17 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 fd0 f17 path /file/{fileName} #txt
@@ -192,11 +198,11 @@ fd0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-fd0 f17 168 296 112 48 -42 -15 #rect
+fd0 f17 168 200 112 48 -42 -15 #rect
 fd0 f17 @|RestClientCallIcon #fIcon
-fd0 f18 497 305 30 30 0 15 #rect
+fd0 f18 497 209 30 30 0 15 #rect
 fd0 f18 @|EndIcon #fIcon
-fd0 f19 111 320 168 320 #arcP
+fd0 f19 111 224 168 224 #arcP
 fd0 f21 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 fd0 f21 path /file/{fileName} #txt
 fd0 f21 templateParams 'fileName=in.result;
@@ -213,10 +219,65 @@ fd0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-fd0 f21 320 298 128 44 -42 -15 #rect
+fd0 f21 320 202 128 44 -42 -15 #rect
 fd0 f21 @|RestClientCallIcon #fIcon
-fd0 f23 280 320 320 320 #arcP
-fd0 f20 448 320 497 320 #arcP
+fd0 f23 280 224 320 224 #arcP
+fd0 f20 448 224 497 224 #arcP
+fd0 f11 337 401 30 30 0 15 #rect
+fd0 f11 @|EndIcon #fIcon
+fd0 f12 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
+fd0 f12 path /file/multi #txt
+fd0 f12 headers 'Accept=*/*;
+X-Requested-By="ivy";
+' #txt
+fd0 f12 method PUT #txt
+fd0 f12 clientCode '
+
+
+
+' #txt
+fd0 f12 bodyInputType FORM #txt
+fd0 f12 bodyMediaType multipart/form-data #txt
+fd0 f12 bodyForm 'files=in.file;
+description="some logos";
+ownerId=ivy.session.getSessionUser().getId();
+files=com.axonivy.connectivity.rest.client.file.FileUpload.getIvyLogo();
+' #txt
+fd0 f12 bodyObjectType ivy.local.client.Body2 #txt
+fd0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Upload Files
+(multi/part)</name>
+    </language>
+</elementInfo>
+' #txt
+fd0 f12 168 394 112 44 -38 -15 #rect
+fd0 f12 @|RestClientCallIcon #fIcon
+fd0 f13 outLink multipleFiles.ivp #txt
+fd0 f13 inParamDecl '<> param;' #txt
+fd0 f13 actionCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
+out.file = FileUpload.getIvyLogo();' #txt
+fd0 f13 requestEnabled true #txt
+fd0 f13 triggerEnabled false #txt
+fd0 f13 callSignature multipleFiles() #txt
+fd0 f13 persist false #txt
+fd0 f13 startName '6.4.2 Upload many files at once' #txt
+fd0 f13 caseData businessCase.attach=true #txt
+fd0 f13 showInStartList 1 #txt
+fd0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>multipleFiles.ivp</name>
+    </language>
+</elementInfo>
+' #txt
+fd0 f13 @C|.responsibility Everybody #txt
+fd0 f13 81 401 30 30 -38 17 #rect
+fd0 f13 @|StartRequestIcon #fIcon
+fd0 f14 280 416 337 416 #arcP
+fd0 f15 expr out #txt
+fd0 f15 111 416 168 416 #arcP
 >Proto fd0 .type com.axonivy.connectivity.Data #txt
 >Proto fd0 .processKind NORMAL #txt
 >Proto fd0 0 0 32 24 18 0 #rect
@@ -235,3 +296,7 @@ fd0 f17 mainOut f23 tail #connect
 fd0 f23 head f21 mainIn #connect
 fd0 f21 mainOut f20 tail #connect
 fd0 f20 head f18 mainIn #connect
+fd0 f13 mainOut f15 tail #connect
+fd0 f15 head f12 mainIn #connect
+fd0 f12 mainOut f14 tail #connect
+fd0 f14 head f11 mainIn #connect
