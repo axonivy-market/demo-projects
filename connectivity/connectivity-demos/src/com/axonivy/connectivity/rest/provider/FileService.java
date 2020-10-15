@@ -47,7 +47,9 @@ public class FileService
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.MULTIPART_FORM_DATA)
   public Response uploadFile(@FormDataParam("file") InputStream fileUploadStream,
-          @FormDataParam("file") FormDataContentDisposition fileUploadDetail) throws IOException
+          @FormDataParam("file") FormDataContentDisposition fileUploadDetail,
+          @FormDataParam("description") String description,
+          @FormDataParam("ownerId") Long ownerId) throws IOException
   {
     String fileName = fileUploadDetail.getFileName();
     checkExtension(fileName);
@@ -56,6 +58,8 @@ public class FileService
     String result = "File was uploaded succesfully to: " + ivyFile.getAbsolutePath();
     return Response.status(201)
             .header("uploadedFile", fileName)
+            .header("description", description)
+            .header("ownerId", ownerId)
             .entity(result)
             .build();
   }
