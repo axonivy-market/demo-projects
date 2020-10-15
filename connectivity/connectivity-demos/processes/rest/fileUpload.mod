@@ -80,11 +80,13 @@ fd0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 fd0 f5 56 17 336 30 -159 -7 #rect
 fd0 f5 @|IBIcon #fIcon
-fd0 f6 outLink callFileUpload.ivp #txt
+fd0 f6 outLink fileMultipart.ivp #txt
 fd0 f6 inParamDecl '<> param;' #txt
+fd0 f6 actionCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
+out.file = FileUpload.getIvyLogo();' #txt
 fd0 f6 requestEnabled true #txt
 fd0 f6 triggerEnabled false #txt
-fd0 f6 callSignature callFileUpload() #txt
+fd0 f6 callSignature fileMultipart() #txt
 fd0 f6 persist false #txt
 fd0 f6 startName '6.4.1 Upload file multipart' #txt
 fd0 f6 caseData businessCase.attach=true #txt
@@ -92,7 +94,7 @@ fd0 f6 showInStartList 1 #txt
 fd0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>callFileUpload.ivp</name>
+        <name>fileMultipart.ivp</name>
     </language>
 </elementInfo>
 ' #txt
@@ -102,25 +104,23 @@ fd0 f6 @|StartRequestIcon #fIcon
 fd0 f7 337 209 30 30 0 15 #rect
 fd0 f7 @|EndIcon #fIcon
 fd0 f8 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
-fd0 f8 path file #txt
-fd0 f8 method JAX_RS #txt
-fd0 f8 clientCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
-import javax.ws.rs.core.Response;
-import java.net.URL;
-import java.nio.file.Files;
-
-java.io.File tempFile = Files.createTempFile("test", ".txt").toFile();
-
-String response = FileUpload.upload(client, tempFile)
-	.readEntity(String.class).toString();
-
-ivy.log.info(response);
-out.result = response;
-
+fd0 f8 path /file #txt
+fd0 f8 headers 'Accept=*/*;
+X-Requested-By="ivy";
+' #txt
+fd0 f8 method PUT #txt
+fd0 f8 clientCode '
 
 
 
 ' #txt
+fd0 f8 bodyInputType FORM #txt
+fd0 f8 bodyMediaType multipart/form-data #txt
+fd0 f8 bodyForm 'file=in.file;
+description=;
+ownerId=;
+' #txt
+fd0 f8 bodyObjectType ivy.local.client.Body2 #txt
 fd0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

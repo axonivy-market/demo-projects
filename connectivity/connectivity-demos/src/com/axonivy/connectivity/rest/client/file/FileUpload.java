@@ -44,9 +44,9 @@ public class FileUpload
     MediaType contentType = MediaType.MULTIPART_FORM_DATA_TYPE;
     contentType = Boundary.addBoundary(contentType);
 
-    Response response = target.request().header("X-Requested-By", "ivy")
-            .header("MIME-Version", "1.0")
-            .put(Entity.entity(multipart, contentType));
+    Response response = target.request()
+      .header("X-Requested-By", "ivy")
+      .put(Entity.entity(multipart, contentType));
     return response;
   }
 
