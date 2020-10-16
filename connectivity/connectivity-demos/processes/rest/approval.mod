@@ -141,7 +141,8 @@ al0 f12 @|IBIcon #fIcon
 al0 f13 224 62 128 113 #arcP
 al0 f13 1 128 88 #addKink
 al0 f13 0 0.6265821825077568 0 0 #arcLabel
-al0 f14 clientId e61c6d1f-106e-46ea-8327-fe18e4c1d912 #txt
+al0 f14 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
+al0 f14 path /approve #txt
 al0 f14 headers 'Accept=application/json;
 X-Requested-By="ivy";
 ' #txt
@@ -151,8 +152,11 @@ al0 f14 bodyMediaType application/x-www-form-urlencoded #txt
 al0 f14 bodyForm 'title="I need a new car";
 description="really, I''m sick of my old Fiat Punto";
 ' #txt
+al0 f14 bodyObjectType ivy.local.client.Body1 #txt
 al0 f14 resultType com.fasterxml.jackson.databind.JsonNode #txt
 al0 f14 responseCode ivy.log.info(result); #txt
+al0 f14 clientErrorCode ivy:error:rest:client #txt
+al0 f14 statusErrorCode ivy:error:rest:client #txt
 al0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
