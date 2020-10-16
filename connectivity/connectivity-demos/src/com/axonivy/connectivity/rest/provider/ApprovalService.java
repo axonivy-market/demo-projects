@@ -1,5 +1,6 @@
 package com.axonivy.connectivity.rest.provider;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -35,6 +36,7 @@ public class ApprovalService
    */
   @PUT
   @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
   public Response create(
           @FormParam("title") String title,
           @FormParam("description") String description)

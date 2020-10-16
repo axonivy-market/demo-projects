@@ -112,6 +112,7 @@ public class PersonService
 
   @PUT
   @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
   public Response add(@FormParam("firstname") String firstname, @FormParam("lastname") String lastname)
   {
     Person person = addNewPerson(firstname, lastname);
