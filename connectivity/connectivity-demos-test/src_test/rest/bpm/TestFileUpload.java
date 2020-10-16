@@ -3,7 +3,6 @@ package rest.bpm;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.Data;
@@ -15,7 +14,6 @@ import ch.ivyteam.ivy.environment.AppFixture;
 
 
 @IvyProcessTest
-@Disabled("blocked by XIVY-4592 : can't yet test local file backend services.")
 public class TestFileUpload
 {
   @BeforeAll
