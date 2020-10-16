@@ -147,6 +147,7 @@ X-Requested-By="ivy";
 ' #txt
 al0 f14 method PUT #txt
 al0 f14 bodyInputType FORM #txt
+al0 f14 bodyMediaType application/x-www-form-urlencoded #txt
 al0 f14 bodyForm 'title="I need a new car";
 description="really, I''m sick of my old Fiat Punto";
 ' #txt
