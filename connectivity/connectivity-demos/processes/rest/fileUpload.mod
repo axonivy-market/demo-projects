@@ -127,6 +127,9 @@ ownerId=;
 file=com.axonivy.connectivity.rest.client.file.FileUpload.getIvyLogo();
 ' #txt
 fd0 f8 bodyObjectType ivy.local.client.Body2 #txt
+fd0 f8 responseCode ivy.log.info(response.readEntity(String.class)); #txt
+fd0 f8 clientErrorCode ivy:error:rest:client #txt
+fd0 f8 statusErrorCode ivy:error:rest:client #txt
 fd0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

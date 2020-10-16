@@ -22,7 +22,7 @@ let [val project "connectivity-demos"]
 	startEngines
 	simulationSelected false
 	
-	startBpmProcess -projectName $project -ivpPath "rest\\/fileUpload\\/callFileUpload.ivp"
+	startBpmProcess -projectName $project -ivpPath "rest\\/fileUpload\\/fileMultipart.ivp"
 
 	assertRuntimeLogMsg "File was uploaded succesfully"
 
