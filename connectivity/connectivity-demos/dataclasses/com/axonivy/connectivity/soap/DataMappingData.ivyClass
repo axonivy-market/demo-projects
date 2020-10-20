@@ -4,5 +4,3 @@ time DateTime #field
 time PERSISTENT #fieldModifier
 person com.axonivy.connectivity.soap.service.client.Person #field
 person PERSISTENT #fieldModifier
-context com.axonivy.connectivity.soap.client.ServiceContext #field
-context PERSISTENT #fieldModifier
