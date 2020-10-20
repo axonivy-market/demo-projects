@@ -30,8 +30,6 @@ pt0 @InfoButton f15 '' #zField
 >Proto pt0 pt0 personClient #zField
 pt0 f0 outLink read.ivp #txt
 pt0 f0 inParamDecl '<> param;' #txt
-pt0 f0 inParamTable 'out.context=com.axonivy.connectivity.soap.client.ServiceContext.create();
-' #txt
 pt0 f0 requestEnabled true #txt
 pt0 f0 triggerEnabled false #txt
 pt0 f0 callSignature read() #txt
@@ -100,8 +98,6 @@ pt0 f4 600 152 657 152 #arcP
 pt0 f4 0 0.558359006007981 0 0 #arcLabel
 pt0 f7 outLink delete.ivp #txt
 pt0 f7 inParamDecl '<> param;' #txt
-pt0 f7 inParamTable 'out.context=com.axonivy.connectivity.soap.client.ServiceContext.create();
-' #txt
 pt0 f7 requestEnabled true #txt
 pt0 f7 triggerEnabled false #txt
 pt0 f7 callSignature delete() #txt
@@ -156,8 +152,6 @@ pt0 f10 133 344 176 344 #arcP
 pt0 f10 0 0.48020749781656163 0 0 #arcLabel
 pt0 f11 outLink add.ivp #txt
 pt0 f11 inParamDecl '<> param;' #txt
-pt0 f11 inParamTable 'out.context=com.axonivy.connectivity.soap.client.ServiceContext.create();
-' #txt
 pt0 f11 requestEnabled true #txt
 pt0 f11 triggerEnabled false #txt
 pt0 f11 callSignature add() #txt

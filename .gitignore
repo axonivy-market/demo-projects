@@ -1,6 +1,7 @@
 **/classes/
 **/src_dataClasses/
 **/src_wsproc/
+**/src_generated/
 **/target/
 **/drivers/
 **/lib/

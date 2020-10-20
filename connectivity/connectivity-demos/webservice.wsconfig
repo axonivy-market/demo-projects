@@ -23,7 +23,7 @@
             <port>
                 <name>PersonServicePort</name>
                 <portType>PersonService</portType>
-                <locationUri>&lt;%=in.context.uri%&gt;/&lt;%=in.context.app%&gt;/ws/connectivity-demos/16150E1D07E8CA18</locationUri>
+                <locationUri>{ivy.engine.baseurl}/ws/connectivity-demos/16150E1D07E8CA18</locationUri>
             </port>
             <portType>
                 <name>PersonService</name>
@@ -73,7 +73,7 @@
             <port>
                 <name>TechnicalBackendServicePort</name>
                 <portType>technicalBackendService</portType>
-                <locationUri>&lt;%=in.context.uri%&gt;/&lt;%=in.context.app%&gt;/ws/connectivity-demos/162B95BB70C3178E</locationUri>
+                <locationUri>{ivy.engine.baseurl}/ws/connectivity-demos/162B95BB70C3178E</locationUri>
             </port>
             <portType>
                 <name>technicalBackendService</name>
@@ -189,7 +189,7 @@
             <port>
                 <name>ServiceWithExceptionPort</name>
                 <portType>serviceWithException</portType>
-                <locationUri>http://localhost:8081/designer/ws/connectivity-demos/16D29AE50A7A6E34</locationUri>
+                <locationUri>{ivy.engine.baseurl}/ws/connectivity-demos/16D29AE50A7A6E34</locationUri>
             </port>
             <portType>
                 <name>serviceWithException</name>
