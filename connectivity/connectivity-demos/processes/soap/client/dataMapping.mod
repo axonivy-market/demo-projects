@@ -97,8 +97,6 @@ dg0 f2 expr out #txt
 dg0 f2 440 64 497 64 #arcP
 dg0 f7 outLink mapComplexData.ivp #txt
 dg0 f7 inParamDecl '<> param;' #txt
-dg0 f7 inParamTable 'out.context=com.axonivy.connectivity.soap.client.ServiceContext.create();
-' #txt
 dg0 f7 requestEnabled true #txt
 dg0 f7 triggerEnabled false #txt
 dg0 f7 callSignature mapComplexData() #txt
