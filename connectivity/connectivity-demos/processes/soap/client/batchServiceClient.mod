@@ -52,6 +52,7 @@ be0 f0 @|StartRequestIcon #fIcon
 be0 f1 449 65 30 30 0 15 #rect
 be0 f1 @|EndIcon #fIcon
 be0 f3 actionTable 'out=in;
+out.message=wsResponse;
 ' #txt
 be0 f3 actionCode ivy.log.info(wsResponse); #txt
 be0 f3 clientId 162B962523BAAB85 #txt
