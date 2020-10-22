@@ -69,7 +69,7 @@
         <wsdlUrl>http://localhost:8081/designer/ws/connectivity-demos/162B95BB70C3178E?WSDL</wsdlUrl>
         <wsCallLibrary>CXF</wsCallLibrary>
         <service>
-            <serviceClass>com.axonivy.connectivity.backend.technical.client.TechnicalBackendServiceService</serviceClass>
+            <serviceClass>com.axonivy.connectivity.client.TechnicalBackendServiceService</serviceClass>
             <port>
                 <name>TechnicalBackendServicePort</name>
                 <portType>technicalBackendService</portType>
@@ -81,11 +81,11 @@
                     <name>longRunningBatchOperation</name>
                     <returnParameter>
                         <name>parameters</name>
-                        <type>com.axonivy.connectivity.backend.technical.client.LongRunningBatchOperationResponse</type>
+                        <type>com.axonivy.connectivity.client.LongRunningBatchOperationResponse</type>
                     </returnParameter>
                     <inputParameter>
                         <name>parameters</name>
-                        <type>com.axonivy.connectivity.backend.technical.client.LongRunningBatchOperation</type>
+                        <type>com.axonivy.connectivity.client.LongRunningBatchOperation</type>
                     </inputParameter>
                 </operation>
             </portType>

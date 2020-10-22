@@ -24,38 +24,44 @@ te0 @AnnotationArc f1 '' #zField
 >Proto te0 te0 technicalBackendService #zField
 te0 f15 actionTable 'out=in;
 ' #txt
-te0 f15 actionCode 'try {
+te0 f15 actionCode 'import java.util.concurrent.TimeUnit;
+try {
   // simulate hard work!
-	Thread.sleep(65000);
+	Thread.sleep(TimeUnit.SECONDS.toMillis(in.blockSeconds));
 } catch (Exception ex) {
 	ex.printStackTrace();
 }' #txt
 te0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>long running batch operation (65 seconds)</name>
+        <name>long running batch operation 
+(65 seconds)</name>
     </language>
 </elementInfo>
 ' #txt
-te0 f15 227 76 240 44 -116 -8 #rect
+te0 f15 243 76 208 44 -86 -15 #rect
 te0 f15 @|StepIcon #fIcon
-te0 f14 inParamTable 'out.startTimeMillis=System.currentTimeMillis();
+te0 f14 inParamDecl '<Integer blockSeconds> param;' #txt
+te0 f14 inParamTable 'out.blockSeconds=param.blockSeconds;
+out.startTimeMillis=System.currentTimeMillis();
 ' #txt
+te0 f14 inParamCode 'if (out.blockSeconds <= 0)
+{
+  out.blockSeconds = 65;
+}' #txt
 te0 f14 outParamDecl '<String message> result;' #txt
 te0 f14 outParamTable 'result.message="batch processed in "+(System.currentTimeMillis()-in.startTimeMillis)+ " [ms]";
 ' #txt
 te0 f14 actionDecl 'com.axonivy.connectivity.soap.service.TechnicalBackendServiceData out;
 ' #txt
-te0 f14 callSignature longRunningBatchOperation() #txt
+te0 f14 callSignature longRunningBatchOperation(Integer) #txt
 te0 f14 useUserDefinedException false #txt
 te0 f14 taskData TaskTriggered.PRI=2 #txt
 te0 f14 type com.axonivy.connectivity.soap.service.TechnicalBackendServiceData #txt
 te0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>longRunningBatchOperation()</name>
-        <nameStyle>27,5,7
-</nameStyle>
+        <name>longRunningBatchOperation(Integer)</name>
     </language>
 </elementInfo>
 ' #txt
@@ -65,9 +71,9 @@ te0 f14 @|StartWSIcon #fIcon
 te0 f17 492 83 30 30 0 15 #rect
 te0 f17 @|EndWSIcon #fIcon
 te0 f16 expr out #txt
-te0 f16 146 98 227 98 #arcP
+te0 f16 146 98 243 98 #arcP
 te0 f18 expr out #txt
-te0 f18 467 98 492 98 #arcP
+te0 f18 451 98 492 98 #arcP
 te0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

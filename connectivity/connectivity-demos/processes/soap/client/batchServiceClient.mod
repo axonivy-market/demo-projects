@@ -20,10 +20,12 @@ be0 @InfoButton f5 '' #zField
 be0 @AnnotationArc f6 '' #zField
 >Proto be0 be0 batchServiceClient #zField
 be0 f0 outLink callLongRunningBatchOperation.ivp #txt
-be0 f0 inParamDecl '<> param;' #txt
+be0 f0 inParamDecl '<Integer blockSeconds> param;' #txt
+be0 f0 inParamTable 'out.blockSeconds=param.blockSeconds;
+' #txt
 be0 f0 requestEnabled true #txt
 be0 f0 triggerEnabled false #txt
-be0 f0 callSignature callLongRunningBatchOperation() #txt
+be0 f0 callSignature callLongRunningBatchOperation(Integer) #txt
 be0 f0 persist false #txt
 be0 f0 startName '9.3 Increase timeout properties for long running requests ' #txt
 be0 f0 taskData 'TaskTriggered.EXPRI=2
@@ -57,6 +59,8 @@ be0 f3 port TechnicalBackendServicePort #txt
 be0 f3 operation longRunningBatchOperation #txt
 be0 f3 properties 'javax.xml.ws.client.connectionTimeout=1000;
 javax.xml.ws.client.receiveTimeout=70000;
+' #txt
+be0 f3 inputParams 'parameters.blockSeconds=in.blockSeconds;
 ' #txt
 be0 f3 beanConfig "" #txt
 be0 f3 timeout 0 #txt
@@ -101,7 +105,7 @@ be0 f5 104 162 400 140 -197 -67 #rect
 be0 f5 @|IBIcon #fIcon
 be0 f6 304 162 304 102 #arcP
 be0 f6 0 0.37994037265054 0 0 #arcLabel
->Proto be0 .type com.axonivy.connectivity.soap.PersonClientData #txt
+>Proto be0 .type com.axonivy.connectivity.soap.BatchServiceClientData #txt
 >Proto be0 .processKind NORMAL #txt
 >Proto be0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
