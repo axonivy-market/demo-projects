@@ -430,6 +430,7 @@ dg0 f29 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f29 path posts #txt
 dg0 f29 method POST #txt
 dg0 f29 bodyInputType FORM #txt
+dg0 f29 bodyMediaType application/x-www-form-urlencoded #txt
 dg0 f29 bodyRaw '{
   "name": "hey there",
   "email": "<%= in.myPost.email %>",
