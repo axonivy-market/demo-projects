@@ -1,0 +1,4 @@
+BatchServiceClientData #class
+com.axonivy.connectivity.soap #namespace
+blockSeconds Integer #field
+message String #field
