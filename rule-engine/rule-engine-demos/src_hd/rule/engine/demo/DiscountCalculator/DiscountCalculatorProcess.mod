@@ -13,9 +13,6 @@ Ds0 @TextInP .xml .xml #zField
 Ds0 @TextInP .responsibility .responsibility #zField
 Ds0 @UdMethod f10 '' #zField
 Ds0 @UdProcessEnd f11 '' #zField
-Ds0 @GridStep f13 '' #zField
-Ds0 @PushWFArc f14 '' #zField
-Ds0 @PushWFArc f12 '' #zField
 Ds0 @UdMethod f3 '' #zField
 Ds0 @UdProcessEnd f4 '' #zField
 Ds0 @GridStep f5 '' #zField
@@ -30,6 +27,10 @@ Ds0 @InfoButton f20 '' #zField
 Ds0 @UdInit f0 '' #zField
 Ds0 @UdProcessEnd f1 '' #zField
 Ds0 @PushWFArc f2 '' #zField
+Ds0 @RuleActivity f6 '' #zField
+Ds0 @InfoButton f7 '' #zField
+Ds0 @PushWFArc f12 '' #zField
+Ds0 @PushWFArc f13 '' #zField
 >Proto Ds0 Ds0 DiscountCalculatorProcess #zField
 Ds0 f10 guid 153EA7B7991C970A #txt
 Ds0 f10 method applyRulesFromDRL() #txt
@@ -48,32 +49,6 @@ Ds0 f10 83 155 26 26 -62 15 #rect
 Ds0 f10 @|UdMethodIcon #fIcon
 Ds0 f11 499 155 26 26 0 12 #rect
 Ds0 f11 @|UdProcessEndIcon #fIcon
-Ds0 f13 actionTable 'out=in;
-' #txt
-Ds0 f13 actionCode '/*
- * ''out.member'' is the input object that stores the information of a member.
- * This object will be modified during the rule execution.
- */
-ivy.rules.create()
-	.namespace("rule.engine.drl")
-	.executor()
-	.execute(out.member);
-' #txt
-Ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Apply Rules From DRL</name>
-        <nameStyle>20,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ds0 f13 240 146 144 44 -62 -8 #rect
-Ds0 f13 @|StepIcon #fIcon
-Ds0 f14 expr out #txt
-Ds0 f14 109 168 240 168 #arcP
-Ds0 f12 expr out #txt
-Ds0 f12 384 168 499 168 #arcP
 Ds0 f3 guid 153EA7D0A9692E67 #txt
 Ds0 f3 method applyRulesFromDecisionTable() #txt
 Ds0 f3 inParameterDecl '<> param;' #txt
@@ -189,6 +164,34 @@ Ds0 f0 @|UdInitIcon #fIcon
 Ds0 f1 499 43 26 26 0 12 #rect
 Ds0 f1 @|UdProcessEndIcon #fIcon
 Ds0 f2 109 56 499 56 #arcP
+Ds0 f6 @AbstractThirdPartyProgramInterface|type rule.engine.demo.DiscountCalculator.DiscountCalculatorData #txt
+Ds0 f6 @AbstractThirdPartyProgramInterface|timeout 0 #txt
+Ds0 f6 @AbstractThirdPartyProgramInterface|beanConfig "{""namespace"":""rule.engine.drl"",""dataObject"":""in.member""}" #txt
+Ds0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Apply Rules From DRL</name>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f6 248 146 128 44 -61 -8 #rect
+Ds0 f6 @|RuleActivity #fIcon
+Ds0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>For multiple namespace support, you can use the Java API:&#13;
+  ivy.rules.create()&#13;
+    .namespace("rule.engine.drl")&#13;
+    .namespace("rule.engine.otherdrl")&#13;
+    .executor()&#13;
+    .execute(in.member);</name>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f7 592 114 336 108 -160 -48 #rect
+Ds0 f7 @|IBIcon #fIcon
+Ds0 f12 109 168 248 168 #arcP
+Ds0 f13 376 168 499 168 #arcP
 >Proto Ds0 .type rule.engine.demo.DiscountCalculator.DiscountCalculatorData #txt
 >Proto Ds0 .processKind HTML_DIALOG #txt
 >Proto Ds0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -220,10 +223,6 @@ Ds0 f2 109 56 499 56 #arcP
 ' #txt
 >Proto Ds0 -8 -8 16 16 16 26 #rect
 >Proto Ds0 '' #fIcon
-Ds0 f10 mainOut f14 tail #connect
-Ds0 f14 head f13 mainIn #connect
-Ds0 f13 mainOut f12 tail #connect
-Ds0 f12 head f11 mainIn #connect
 Ds0 f3 mainOut f8 tail #connect
 Ds0 f8 head f5 mainIn #connect
 Ds0 f5 mainOut f9 tail #connect
@@ -234,3 +233,7 @@ Ds0 f18 mainOut f17 tail #connect
 Ds0 f17 head f16 mainIn #connect
 Ds0 f0 mainOut f2 tail #connect
 Ds0 f2 head f1 mainIn #connect
+Ds0 f10 mainOut f12 tail #connect
+Ds0 f12 head f6 @AbstractThirdPartyProgramInterface|mainIn #connect
+Ds0 f6 @AbstractThirdPartyProgramInterface|mainOut f13 tail #connect
+Ds0 f13 head f11 mainIn #connect
