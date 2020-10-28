@@ -27,6 +27,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.axonivy.connectivity.Person;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+
 /**
  * Simple RESTful service. The REST interface is defined by the JAX-RS
  * annotations on the methods and its path.<br/>
@@ -64,18 +67,17 @@ public class PersonService
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  public List<Person> getPersons(@QueryParam("name") String name)
+  @Operation(description = "lists persons which are well known in the ivy-core society.")
+  public List<Person> getPersons(
+  	@QueryParam("name") 
+  	@Parameter(description = "filters persons which contain the given name part in first or lastname.")
+  	String name)
   {
-    List<Person> result;
     if (StringUtils.isBlank(name))
     {
-      result = new ArrayList<>(persons.values());
+      return new ArrayList<>(persons.values());
     }
-    else
-    {
-      result = findPersons(name);
-    }
-    return result;
+    return findPersons(name);
   }
 
   private List<Person> findPersons(String name)
@@ -113,7 +115,9 @@ public class PersonService
   @PUT
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-  public Response add(@FormParam("firstname") String firstname, @FormParam("lastname") String lastname)
+  public Response add(
+    @Parameter(required = true) @FormParam("firstname") String firstname,
+    @Parameter(required = true) @FormParam("lastname") String lastname)
   {
     Person person = addNewPerson(firstname, lastname);
     Link createdLink = Link.fromPath("persons/{id}").rel("createdPerson").build(person.getId());
@@ -139,6 +143,7 @@ public class PersonService
   @DELETE
   @Path("/{personId}")
   @Produces(MediaType.APPLICATION_JSON)
+  @Operation(description = "remove a person from the ivy-core universe.")
   public Response deletePerson(@PathParam("personId") UUID personId)
   {
     try
