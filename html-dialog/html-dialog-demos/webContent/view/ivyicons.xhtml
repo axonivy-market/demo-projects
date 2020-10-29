@@ -1,0 +1,110 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+  <ui:composition template="../layouts/HtmlDemo.xhtml">
+
+    <ui:param name="centerHeader" value="Icon Showcase" />
+    <ui:define name="breadcrumb">Primefaces/Icon Showcase</ui:define>
+
+    <ui:define name="title">Icon Showcase</ui:define>
+    <ui:define name="content">
+      
+      <p>With the serenity themes you have several possibilities to insert an icon into your page.</p>
+      <ul>
+        <li><a href="https://fontawesome.com/v4.7.0/">FontAwesome 4.7</a></li>
+        <li><a href="https://material.io/resources/icons/?style=baseline">Material Icons</a></li>
+        <li>IvyIcons</li>
+      </ul>
+      
+      <p>IvyIcons are based on <a href="https://streamlineicons.com/">Streamline Icons</a> and are only available with the <b>serenity-ivy</b> theme.
+        You can use them for example as follows:
+      </p>
+      <pre>
+        <code>
+<i class="icon ivyicon-house-1"></i> &lt;i class="icon ivyicon-house-1">&lt;/i>  
+
+<p:commandButton icon="icon ivyicon-cog" value="Settings" /> &lt;p:commandButton icon="icon ivyicon-cog" value="Settings" />
+        </code>
+      </pre>
+
+      <div id="search">
+        <p:inputText onkeyup="search()" placeholder="Search for an icon" />
+      </div>
+    
+      <div id="icons" class="p-grid">
+        <p>Please us a modern browser like Chrome, Firefox or Edge to browse the IvyIcons!</p>
+      </div>
+      
+      <style>
+        pre code .icon {
+          font-size: 24px;
+          position: relative;
+          top: 7px;
+        }
+        pre code .ui-button.ui-button-text-icon-left {
+          width: 100px;
+        }
+
+        #search {
+          margin-bottom: 1rem;
+        }
+      
+        .p-grid {
+          gap: 1em;
+        }
+        .p-col {
+          text-align: center;
+          border-radius: 5px;
+          background-color: #e4f7fa;
+        }
+        .p-col p {
+          width: 10rem;
+          margin: 1em auto 0 auto;
+        }
+        .icon {
+          font-size: 2em;
+        }
+      </style>
+      
+      <script>
+        var ivyLayoutStylesheet = Object.values(document.styleSheets).filter(sheet => sheet.href?.includes("layout-ivy.css"))[0];
+        var ivyicons = Object.values(ivyLayoutStylesheet.rules).filter(rule => rule.selectorText?.startsWith(".ivyicon-"));
+
+        var element = document.getElementById("icons");
+        element.innerHTML = '';
+
+        ivyicons.forEach(icon => {
+          var iconClass = icon.selectorText.substring(1, icon.selectorText.length - 8);
+
+          var iconImage = document.createElement("i");
+          iconImage.className = "icon " + iconClass;
+
+          var iconTitle = document.createElement("p");
+          iconTitle.appendChild(document.createTextNode("icon " + iconClass));
+          
+          var iconDiv = document.createElement("div");
+          iconDiv.className = "p-col";
+          iconDiv.appendChild(iconImage)
+          iconDiv.appendChild(iconTitle);
+          element.appendChild(iconDiv);
+        });
+        
+        function search() {
+          var filter = document.querySelector("#search input").value;
+          console.log(filter)
+          document.querySelectorAll(".p-col").forEach(i => {
+            if (i.querySelector("p").textContent.includes(filter)) {
+              i.style.display = "block";
+            }
+            else {
+              i.style.display = "none";
+            }
+          });
+        }
+      </script>
+    </ui:define>
+  </ui:composition>
+</h:body>
+</html>
