@@ -69,9 +69,9 @@ public class PersonService
   @Produces(MediaType.APPLICATION_JSON)
   @Operation(description = "lists persons which are well known in the ivy-core society.")
   public List<Person> getPersons(
-  	@QueryParam("name") 
-  	@Parameter(description = "filters persons which contain the given name part in first or lastname.")
-  	String name)
+    @QueryParam("name") 
+    @Parameter(description = "filters persons which contain the given name part in first or lastname.") 
+    String name)
   {
     if (StringUtils.isBlank(name))
     {
