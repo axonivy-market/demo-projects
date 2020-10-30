@@ -1,0 +1,30 @@
+.icon, .fa, .material-icons {
+  font-size: 24px;
+}
+.ui-button.ui-button-text-icon-left {
+  width: 100px;
+}
+
+#search {
+  margin: 2rem 0 1rem 0;
+}
+
+.p-grid {
+  gap: 1em;
+}
+.icon-usage-block {
+  background-color: hsl(0, 0%, 90%);
+  min-width: 300px;
+}
+.icon-block{
+  text-align: center;
+  border-radius: 5px;
+  background-color: #e4f7fa;
+}
+.icon-block p {
+  width: 10rem;
+  margin: 1em auto 0 auto;
+}
+.icon-block .icon {
+  font-size: 2em;
+}
