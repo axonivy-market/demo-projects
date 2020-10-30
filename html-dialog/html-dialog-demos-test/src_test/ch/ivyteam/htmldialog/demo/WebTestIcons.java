@@ -19,11 +19,11 @@ public class WebTestIcons
   void testIcons()
   {
     startProcess("145D18869AFC8A9A/IconsShowcase.ivp");
-    $$(".p-col").filter(visible).shouldHave(sizeGreaterThan(150));
+    $$(".icon-block").filter(visible).shouldHave(sizeGreaterThan(150));
     $("#search input").sendKeys("adver");
-    $$(".p-col").filter(visible).shouldHave(sizeLessThan(5));
+    $$(".icon-block").filter(visible).shouldHave(sizeLessThan(5));
     $("#search input").clear();
     $("#search input").sendKeys(Keys.BACK_SPACE);
-    $$(".p-col").filter(visible).shouldHave(sizeGreaterThan(150));
+    $$(".icon-block").filter(visible).shouldHave(sizeGreaterThan(150));
   }
 }

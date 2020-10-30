@@ -15,95 +15,52 @@
       <ul>
         <li><a href="https://fontawesome.com/v4.7.0/">FontAwesome 4.7</a></li>
         <li><a href="https://material.io/resources/icons/?style=baseline">Material Icons</a></li>
-        <li>IvyIcons</li>
+        <li>IvyIcons based on <a href="https://streamlineicons.com/">Streamline Icons</a></li>
       </ul>
       
-      <p>IvyIcons are based on <a href="https://streamlineicons.com/">Streamline Icons</a> and are only available with the <b>serenity-ivy</b> theme.
-        You can use them for example as follows:
-      </p>
-      <pre>
-        <code>
-<i class="icon ivyicon-house-1"></i> &lt;i class="icon ivyicon-house-1">&lt;/i>  
-
-<p:commandButton icon="icon ivyicon-cog" value="Settings" /> &lt;p:commandButton icon="icon ivyicon-cog" value="Settings" />
-        </code>
-      </pre>
+      <p>You can use them for example as follows:</p>
+      
+      <div class="p-grid">
+        <div class="p-col icon-usage-block">
+          <h4>FontAwesome</h4>
+          <code>
+            <i class="fa fa-home"></i><br />
+            &lt;i class="icon ivyicon-house-1">&lt;/i><br />
+            <br />
+            <p:commandButton icon="fa fa-cog" value="Settings" /><br />
+            &lt;p:commandButton icon="icon ivyicon-cog" value="Settings" />
+          </code>
+        </div>
+        <div class="p-col icon-usage-block">
+          <h4>Material Icons</h4>
+          <code>
+            <i class="material-icons">home</i><br />
+            &lt;i class="icon ivyicon-house-1">&lt;/i><br />
+            <br />
+            <p:commandButton icon="ui-icon-settings" value="Settings" /><br />
+            &lt;p:commandButton icon="icon ivyicon-cog" value="Settings" />
+          </code>
+        </div>
+        <div class="p-col icon-usage-block">
+          <h4>IvyIcons</h4>
+          <code><i class="icon ivyicon-house-1"></i><br />
+          &lt;i class="icon ivyicon-house-1">&lt;/i><br />
+          <br />
+          <p:commandButton icon="icon ivyicon-cog" value="Settings" /><br />
+          &lt;p:commandButton icon="icon ivyicon-cog" value="Settings" /></code>
+        </div>
+      </div>
 
       <div id="search">
-        <p:inputText onkeyup="search()" placeholder="Search for an icon" />
+        <p:inputText onkeyup="search()" placeholder="Search for an IvyIcon" />
       </div>
     
       <div id="icons" class="p-grid">
         <p>Please us a modern browser like Chrome, Firefox or Edge to browse the IvyIcons!</p>
       </div>
       
-      <style>
-        pre code .icon {
-          font-size: 24px;
-          position: relative;
-          top: 7px;
-        }
-        pre code .ui-button.ui-button-text-icon-left {
-          width: 100px;
-        }
-
-        #search {
-          margin-bottom: 1rem;
-        }
-      
-        .p-grid {
-          gap: 1em;
-        }
-        .p-col {
-          text-align: center;
-          border-radius: 5px;
-          background-color: #e4f7fa;
-        }
-        .p-col p {
-          width: 10rem;
-          margin: 1em auto 0 auto;
-        }
-        .icon {
-          font-size: 2em;
-        }
-      </style>
-      
-      <script>
-        var ivyLayoutStylesheet = Object.values(document.styleSheets).filter(sheet => sheet.href?.includes("layout-ivy.css"))[0];
-        var ivyicons = Object.values(ivyLayoutStylesheet.rules).filter(rule => rule.selectorText?.startsWith(".ivyicon-"));
-
-        var element = document.getElementById("icons");
-        element.innerHTML = '';
-
-        ivyicons.forEach(icon => {
-          var iconClass = icon.selectorText.substring(1, icon.selectorText.length - 8);
-
-          var iconImage = document.createElement("i");
-          iconImage.className = "icon " + iconClass;
-
-          var iconTitle = document.createElement("p");
-          iconTitle.appendChild(document.createTextNode("icon " + iconClass));
-          
-          var iconDiv = document.createElement("div");
-          iconDiv.className = "p-col";
-          iconDiv.appendChild(iconImage)
-          iconDiv.appendChild(iconTitle);
-          element.appendChild(iconDiv);
-        });
-        
-        function search() {
-          var filter = document.querySelector("#search input").value;
-          console.log(filter)
-          document.querySelectorAll(".p-col").forEach(i => {
-            if (i.querySelector("p").textContent.includes(filter)) {
-              i.style.display = "block";
-            }
-            else {
-              i.style.display = "none";
-            }
-          });
-        }
-      </script>
+      <h:outputScript name="js/ivyicons-showcase.js"/>
+      <h:outputStylesheet name="layouts/styles/ivyicons-showcase.css" />
     </ui:define>
   </ui:composition>
 </h:body>
