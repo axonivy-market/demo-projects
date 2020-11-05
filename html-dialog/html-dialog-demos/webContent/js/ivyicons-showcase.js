@@ -1,5 +1,6 @@
 var ivyLayoutStylesheet = Object.values(document.styleSheets).filter(sheet => sheet.href?.includes("ivyicons.css"))[0];
 var ivyicons = Object.values(ivyLayoutStylesheet.rules).filter(rule => rule.selectorText?.startsWith(".ivyicon-"));
+ivyicons.sort((a, b) => (a.selectorText > b.selectorText) ? 1 : -1);
 
 var element = document.getElementById("icons");
 element.innerHTML = '';
