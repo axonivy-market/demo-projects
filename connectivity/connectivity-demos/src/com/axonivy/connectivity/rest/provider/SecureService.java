@@ -20,6 +20,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 /**
  * Demonstrates a service which protects it's methods with
  * <code>javax.security</code> annotations.
@@ -46,6 +48,7 @@ import javax.ws.rs.core.Response.Status;
  */
 @Singleton
 @Path("admin")
+@Tag(name = ApiConstants.DEMO_TAG)
 public class SecureService
 {
 

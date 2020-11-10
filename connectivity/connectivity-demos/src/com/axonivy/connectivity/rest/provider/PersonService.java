@@ -29,6 +29,7 @@ import com.axonivy.connectivity.Person;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 /**
  * Simple RESTful service. The REST interface is defined by the JAX-RS
@@ -52,6 +53,7 @@ import io.swagger.v3.oas.annotations.Parameter;
  */
 @Singleton
 @Path("persons")
+@Tag(name = ApiConstants.DEMO_TAG)
 public class PersonService
 {
 
