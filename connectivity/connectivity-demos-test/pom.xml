@@ -110,6 +110,20 @@
             </execution>
           </executions>
         </plugin>
+        <plugin>
+          <groupId>com.axonivy.ivy.ci</groupId>
+          <artifactId>project-build-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>default-start-test-engine</id>
+              <configuration>
+                <deployToEngineApplication>Portal</deployToEngineApplication>
+                <!-- enable Mobile.WF.ui -->
+                <additionalVmOptions>-Divy.Errors.ShowDetailsToEndUser=true -Divy.REST.Servlet.MobileWorkflow.API=true</additionalVmOptions>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
