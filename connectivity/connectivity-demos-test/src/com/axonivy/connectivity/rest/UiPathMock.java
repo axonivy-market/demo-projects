@@ -16,12 +16,15 @@ import javax.ws.rs.core.MediaType;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import io.swagger.v3.oas.annotations.Hidden;
+
 /**
  * Mocks parts of the UI Path RPA API which has been used in the demo: <code>ConnectivityDemos/rest/uiPath</code>
  * <p>docs<br/>https://platform.uipath.com/AXONPRESALES/AXONPRESALES/swagger/ui</p>
  */
 @Path("rpaMock")
 @PermitAll
+@Hidden
 public class UiPathMock
 {
   @GET
@@ -65,7 +68,7 @@ public class UiPathMock
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   @Path("oauth/token")
-  public String getToken(String tokenRequest)
+  public String getToken(@SuppressWarnings("unused") String tokenRequest)
   {
     return load("json/token.json");
   }
@@ -74,7 +77,7 @@ public class UiPathMock
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   @Path("odata/Jobs/UiPath.Server.Configuration.OData.StartJobs")
-  public String startJob(String tokenRequest)
+  public String startJob(@SuppressWarnings("unused") String tokenRequest)
   {
     return load("json/startJob.json");
   }

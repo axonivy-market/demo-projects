@@ -32,6 +32,7 @@ import org.glassfish.jersey.media.multipart.FormDataParam;
 import ch.ivyteam.api.API;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.scripting.objects.File;
+import io.swagger.v3.oas.annotations.Parameter;
 
 /**
  * URI for file upload: http://localhost:8081/designer/api/file
@@ -92,8 +93,9 @@ public class FileService
   @PUT
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.MULTIPART_FORM_DATA)
-  public Response uploadFile(@FormDataParam("file") InputStream fileUploadStream,
-          @FormDataParam("file") FormDataContentDisposition fileUploadDetail,
+  public Response uploadFile(
+          @FormDataParam("file") InputStream fileUploadStream,
+          @Parameter(required = true) @FormDataParam("file") FormDataContentDisposition fileUploadDetail,
           @FormDataParam("description") String description,
           @FormDataParam("ownerId") Long ownerId) throws IOException
   {
