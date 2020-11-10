@@ -46,8 +46,9 @@ public class IntegrationTestRestfulApprovalService
     Client bossClient = ClientBuilder.newClient();
     bossClient.register(JacksonJsonProvider.class);
     bossClient.register(HttpAuthenticationFeature.basic("theBoss", "theBoss"));
-    JsonNode fullTaskNode = bossClient.target(taskLink).request()
-            .get().readEntity(JsonNode.class);
+    Response mobileWfTask = bossClient.target(taskLink).request().get();
+    assertThat(mobileWfTask.getStatus()).as("can read mobile WF task "+mobileWfTask).isEqualTo(200);
+    JsonNode fullTaskNode = mobileWfTask.readEntity(JsonNode.class);
     assertThat(TaskState.valueOf(fullTaskNode.get("state").asInt()))
             .isEqualTo(TaskState.SUSPENDED);
   }
