@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response;
 import org.glassfish.jersey.server.ManagedAsync;
 
 import ch.ivyteam.ivy.environment.Ivy;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 /**
  * Simulates a slow remote service that takes seconds to deliver a result.
@@ -23,6 +24,7 @@ import ch.ivyteam.ivy.environment.Ivy;
  * </p>
  */
 @Path("batch")
+@Tag(name = ApiConstants.DEMO_TAG)
 public class BatchService
 {
 

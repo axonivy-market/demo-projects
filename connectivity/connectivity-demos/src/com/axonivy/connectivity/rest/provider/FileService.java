@@ -33,12 +33,14 @@ import ch.ivyteam.api.API;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.scripting.objects.File;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 /**
  * URI for file upload: http://localhost:8081/designer/api/file
  * @since 7.3.0
  */
 @Path("file")
+@Tag(name = ApiConstants.DEMO_TAG)
 public class FileService
 {
   @GET

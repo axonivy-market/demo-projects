@@ -23,7 +23,10 @@ import javax.ws.rs.container.AsyncResponse;
 import javax.ws.rs.container.Suspended;
 import javax.ws.rs.core.MediaType;
 
+import com.axonivy.connectivity.rest.provider.ApiConstants;
+
 import ch.ivyteam.ivy.environment.Ivy;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 /**
  * Demonstrates asynchronous REST communication:
@@ -38,8 +41,9 @@ import ch.ivyteam.ivy.environment.Ivy;
  * @author rew
  * @since 7.3.0
  */
-@Path("chatdemo")
 @Singleton
+@Path("chatdemo")
+@Tag(name = ApiConstants.DEMO_TAG)
 public class ChatService
 {
 

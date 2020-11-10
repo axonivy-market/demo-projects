@@ -13,6 +13,7 @@ import javax.ws.rs.core.UriBuilder;
 
 import ch.ivyteam.ivy.process.call.SubProcessCall;
 import ch.ivyteam.ivy.workflow.ITask;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 /**
  * RESTful Service that demonstrates how to interact with the ivy environment
@@ -24,6 +25,7 @@ import ch.ivyteam.ivy.workflow.ITask;
  * </p>
  */
 @Path("approve")
+@Tag(name = ApiConstants.DEMO_TAG)
 public class ApprovalService
 {
 
