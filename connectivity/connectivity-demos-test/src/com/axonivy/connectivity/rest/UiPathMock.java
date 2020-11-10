@@ -68,8 +68,9 @@ public class UiPathMock
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   @Path("oauth/token")
-  public String getToken(@SuppressWarnings("unused") String tokenRequest)
+  public String getToken(String tokenRequest)
   {
+    System.out.println("simulating request for token "+tokenRequest);
     return load("json/token.json");
   }
   
@@ -77,8 +78,9 @@ public class UiPathMock
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   @Path("odata/Jobs/UiPath.Server.Configuration.OData.StartJobs")
-  public String startJob(@SuppressWarnings("unused") String tokenRequest)
+  public String startJob(String tokenRequest)
   {
+    System.out.println("simulating request for token "+tokenRequest);
     return load("json/startJob.json");
   }
   
