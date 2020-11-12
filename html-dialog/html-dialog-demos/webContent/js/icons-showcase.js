@@ -1,18 +1,18 @@
-var ivyLayoutStylesheet = Object.values(document.styleSheets).filter(sheet => sheet.href?.includes("ivyicons.css"))[0];
-var ivyicons = Object.values(ivyLayoutStylesheet.rules).filter(rule => rule.selectorText?.startsWith(".ivyicon-"));
-ivyicons.sort((a, b) => (a.selectorText > b.selectorText) ? 1 : -1);
+var iconsStylesheet = Object.values(document.styleSheets).filter(sheet => sheet.href?.includes("streamlineicons.css"))[0];
+var icons = Object.values(iconsStylesheet.rules).filter(rule => rule.selectorText?.startsWith(".si-"));
+icons.sort((a, b) => (a.selectorText > b.selectorText) ? 1 : -1);
 
 var element = document.getElementById("icons");
 element.innerHTML = '';
 
-ivyicons.forEach(icon => {
+icons.forEach(icon => {
   var iconClass = icon.selectorText.substring(1, icon.selectorText.length - 8);
 
   var iconImage = document.createElement("i");
-  iconImage.className = "icon " + iconClass;
+  iconImage.className = "si " + iconClass;
 
   var iconTitle = document.createElement("p");
-  iconTitle.appendChild(document.createTextNode("icon " + iconClass));
+  iconTitle.appendChild(document.createTextNode("si " + iconClass));
   
   var iconDiv = document.createElement("div");
   iconDiv.className = "p-col icon-block";
