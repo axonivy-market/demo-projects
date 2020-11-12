@@ -64,7 +64,7 @@ Ps0 f75 expr out #txt
 Ps0 f75 143 64 248 64 #arcP
 Ps0 f76 expr out #txt
 Ps0 f76 360 64 465 64 #arcP
-Ps0 f3 template "view/ivyicons.xhtml" #txt
+Ps0 f3 template "view/icons.xhtml" #txt
 Ps0 f3 369 145 30 30 0 15 #rect
 Ps0 f3 @|EndRequestIcon #fIcon
 Ps0 f0 outLink IconsShowcase.ivp #txt
