@@ -1,0 +1,93 @@
+package ch.ivyteam.rule.engine.demo;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.openqa.selenium.By;
+
+import com.axonivy.ivy.webtest.IvyWebTest;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
+import com.axonivy.ivy.webtest.primeui.PrimeUi;
+import com.codeborne.selenide.Selenide;
+
+@IvyWebTest
+public class WebTestAdjustableDiscountCalculatorIT
+{
+  private static final String MAIN_MESSAGE = "form:mainMessage";  
+  private static final String MEMBER_PURCHASE_AMOUNT_MESSAGE = "form:memberPurchaseAmountMessage";
+  private static final String MEMBER_PURCHASE_AMOUNT = "form:memberPurchaseAmount";
+  private static final String MEMBER_DISCOUNT = "form:memberDiscount";
+  private static final String MEMBER_TYPE = "form:memberType";
+  private static final String APPLY_DRL = "form:applyDRL";
+  private static final String RULETABLE_SAVE_BUTTON = "tableform:save";  
+  private static final String RULETABLE_ROW2_DISCOUNT = "tableform:j_id_i:2:j_id_z";
+  private static final String RULETABLE_ROW2_DISCOUNT_EDIT = "tableform:j_id_i:2:j_id_11"; 
+  
+  @BeforeEach
+  public void openRuleDemo() 
+  {
+    open(EngineUrl.createProcessUrl("rule-engine-demos/153EAAA7649F85DA/start2.ivp"));
+  }
+ 
+  @Test
+  public void noAmount() 
+  {
+    $(By.id(MEMBER_PURCHASE_AMOUNT_MESSAGE)).shouldBe(empty);
+    $(By.id(APPLY_DRL)).shouldBe(visible).click();
+    $(By.id(MAIN_MESSAGE)).shouldBe(text("Please enter Purchase Amount"));
+    Selenide.refresh();
+  }
+  
+  @Test
+  public void amountTooBig() 
+  {
+	  setMemberType("Silver");
+	  setPurchaseAmount(10000);
+	  $(By.id(APPLY_DRL)).shouldBe(visible).click();
+	  $(By.id(MAIN_MESSAGE)).shouldBe(text("Discount NOT defined"));	  
+	  
+	  setMemberType("Gold");
+	  $(By.id(APPLY_DRL)).shouldBe(visible).click();
+	  $(By.id(MAIN_MESSAGE)).shouldBe(text("Discount NOT defined"));
+  } 
+  
+  @Test
+  public void changedRule() 
+  {
+	  setMemberType("Silver");
+	  assertDiscountForAmount(900, 5);	  
+	  
+	  $(By.id(RULETABLE_ROW2_DISCOUNT)).shouldBe(visible).click();
+	  $(By.id(RULETABLE_ROW2_DISCOUNT_EDIT)).sendKeys("7");
+	  $(By.id(RULETABLE_ROW2_DISCOUNT_EDIT)).pressEnter();
+	  
+	  $(By.id(RULETABLE_SAVE_BUTTON)).shouldBe(visible).click();
+	  assertDiscountForAmount(900, 7);	  
+  }   
+ 
+  
+  private void assertDiscountForAmount(int amount, int discount)
+  {
+    setPurchaseAmount(amount);
+    $(By.id(APPLY_DRL)).shouldBe(visible).click();
+    $(By.id(MEMBER_DISCOUNT)).shouldBe(exactText(String.valueOf(discount)));
+  }
+
+  private void setPurchaseAmount(int value)
+  {
+    $(By.id(MEMBER_PURCHASE_AMOUNT)).shouldBe(visible).clear();
+    $(By.id(MEMBER_PURCHASE_AMOUNT)).sendKeys(String.valueOf(value));
+  }
+  private void setMemberType(String type)
+  {
+	  PrimeUi.selectOneRadio(By.id(MEMBER_TYPE)).selectItemByValue(type);
+  }
+}

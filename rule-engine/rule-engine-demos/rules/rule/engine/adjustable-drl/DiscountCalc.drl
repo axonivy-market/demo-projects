@@ -1,0 +1,68 @@
+package rule.engine.demo
+import rule.engine.demo.enums.MemberType
+ 
+dialect "mvel"
+
+rule "0"
+	when		
+		$data: RuleData(member.purchaseAmount >= rules.get(0).lowerLimit 
+			&& member.purchaseAmount < rules.get(0).upperLimit 
+			&& member.memberType == rules.get(0).memberType)
+	then
+		$data.member.discount = $data.rules.get(0).discount
+end
+ 
+rule "1"
+	when		
+		$data: RuleData(member.purchaseAmount >= rules.get(1).lowerLimit 
+			&& member.purchaseAmount < rules.get(1).upperLimit 
+			&& member.memberType == rules.get(1).memberType)
+	then
+		$data.member.discount = $data.rules.get(1).discount
+end
+
+rule "2"
+	when		
+		$data: RuleData(member.purchaseAmount >= rules.get(2).lowerLimit 
+			&& member.purchaseAmount < rules.get(2).upperLimit 
+			&& member.memberType == rules.get(2).memberType)
+	then
+		$data.member.discount = $data.rules.get(2).discount
+end
+
+rule "3"
+	when		
+		$data: RuleData(member.purchaseAmount >= rules.get(3).lowerLimit 
+			&& member.purchaseAmount < rules.get(3).upperLimit 
+			&& member.memberType == rules.get(3).memberType)
+	then
+		$data.member.discount = $data.rules.get(3).discount
+end
+
+rule "4"
+	when		
+		$data: RuleData(member.purchaseAmount >= rules.get(4).lowerLimit 
+			&& member.purchaseAmount < rules.get(4).upperLimit 
+			&& member.memberType == rules.get(4).memberType)
+	then
+		$data.member.discount = $data.rules.get(4).discount
+end
+
+rule "5"
+	when		
+		$data: RuleData(member.purchaseAmount >= rules.get(5).lowerLimit 
+			&& member.purchaseAmount < rules.get(5).upperLimit 
+			&& member.memberType == rules.get(5).memberType)
+	then
+		$data.member.discount = $data.rules.get(5).discount
+end
+
+rule "6"
+	when		
+		$data: RuleData(member.purchaseAmount >= rules.get(6).lowerLimit 
+			&& member.purchaseAmount < rules.get(6).upperLimit 
+			&& member.memberType == rules.get(6).memberType)
+	then
+		$data.member.discount = $data.rules.get(6).discount
+end
+
