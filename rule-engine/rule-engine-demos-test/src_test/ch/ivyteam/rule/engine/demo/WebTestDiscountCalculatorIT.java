@@ -33,7 +33,7 @@ public class WebTestDiscountCalculatorIT
   @BeforeEach
   public void openRuleDemo() 
   {
-    open(EngineUrl.createProcessUrl("rule-engine-demos/153EAAA7649F85DA/start.ivp"));
+    open(EngineUrl.createProcessUrl("rule-engine-demos/153EAAA7649F85DA/start1.ivp"));
   }
 
   @Test
