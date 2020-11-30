@@ -1,5 +1,6 @@
 package rule.engine.demo.enums;
 
-public enum MemberType {
+public enum MemberType
+{
   Silver, Gold
 }
