@@ -22,8 +22,10 @@ oi0 @PushWFArc f9 '' #zField
 oi0 @StartRequest f11 '' #zField
 oi0 @EndTask f13 '' #zField
 oi0 @RestClientCall f14 '' #zField
-oi0 @PushWFArc f15 '' #zField
 oi0 @PushWFArc f16 '' #zField
+oi0 @RestClientCall f12 '' #zField
+oi0 @PushWFArc f17 '' #zField
+oi0 @PushWFArc f15 '' #zField
 >Proto oi0 oi0 openapi #zField
 oi0 f0 outLink listPets.ivp #txt
 oi0 f0 inParamDecl '<> param;' #txt
@@ -141,13 +143,13 @@ oi0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 oi0 f11 @C|.responsibility Everybody #txt
 oi0 f11 49 337 30 30 -25 17 #rect
 oi0 f11 @|StartRequestIcon #fIcon
-oi0 f13 305 337 30 30 0 15 #rect
+oi0 f13 465 337 30 30 0 15 #rect
 oi0 f13 @|EndIcon #fIcon
 oi0 f14 clientId ae69ba01-79b7-4dce-9049-900f8f420907 #txt
 oi0 f14 path /pet/{petId}/uploadImage #txt
 oi0 f14 queryParams 'additionalMetadata="Ivy is everywhere";
 ' #txt
-oi0 f14 templateParams 'petId=1;
+oi0 f14 templateParams 'petId=in.pets.get(0).getId();
 ' #txt
 oi0 f14 method JAX_RS #txt
 oi0 f14 clientCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
@@ -176,10 +178,29 @@ This is usefull during prototyping or to overcome technical boundaries caused by
     </language>
 </elementInfo>
 ' #txt
-oi0 f14 136 328 112 48 -44 -15 #rect
+oi0 f14 296 328 112 48 -44 -15 #rect
 oi0 f14 @|RestClientCallIcon #fIcon
-oi0 f15 79 352 136 352 #arcP
-oi0 f16 248 352 305 352 #arcP
+oi0 f16 408 352 465 352 #arcP
+oi0 f12 clientId ae69ba01-79b7-4dce-9049-900f8f420907 #txt
+oi0 f12 path /pet/findByStatus #txt
+oi0 f12 queryParams 'status="available";
+' #txt
+oi0 f12 resultType java.util.List<io.swagger.petstore3.client.Pet> #txt
+oi0 f12 responseMapping 'out.pets=result;
+' #txt
+oi0 f12 clientErrorCode ivy:error:rest:client #txt
+oi0 f12 statusErrorCode ivy:error:rest:client #txt
+oi0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>read Pets</name>
+    </language>
+</elementInfo>
+' #txt
+oi0 f12 136 330 112 44 -30 -7 #rect
+oi0 f12 @|RestClientCallIcon #fIcon
+oi0 f17 79 352 136 352 #arcP
+oi0 f15 248 352 296 352 #arcP
 >Proto oi0 .type com.axonivy.connectivity.rest.OpenApiData #txt
 >Proto oi0 .processKind NORMAL #txt
 >Proto oi0 0 0 32 24 18 0 #rect
@@ -192,7 +213,9 @@ oi0 f6 mainOut f10 tail #connect
 oi0 f10 head f8 mainIn #connect
 oi0 f7 mainOut f9 tail #connect
 oi0 f9 head f6 mainIn #connect
-oi0 f11 mainOut f15 tail #connect
-oi0 f15 head f14 mainIn #connect
 oi0 f14 mainOut f16 tail #connect
 oi0 f16 head f13 mainIn #connect
+oi0 f11 mainOut f17 tail #connect
+oi0 f17 head f12 mainIn #connect
+oi0 f12 mainOut f15 tail #connect
+oi0 f15 head f14 mainIn #connect
