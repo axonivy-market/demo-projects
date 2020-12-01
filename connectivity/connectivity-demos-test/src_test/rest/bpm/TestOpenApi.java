@@ -53,6 +53,6 @@ public class TestOpenApi
     
     OpenApiData data = result.data().last();
     List<String> photos = data.getPets().get(0).getPhotoUrls();
-    assertThat(photos.stream().filter(p -> !p.startsWith("url"))).isNotEmpty();
+    assertThat(photos.stream()).isNotEmpty();
   }
 }
