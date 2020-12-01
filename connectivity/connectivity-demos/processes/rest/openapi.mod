@@ -162,7 +162,7 @@ Pet pet = client.request()
 	.post(Entity.entity(logo, MediaType.APPLICATION_OCTET_STREAM_TYPE), Pet.class) as Pet;
 
 ivy.log.info("Screenshots: "+pet.photoUrls);
-out.pets.add(pet);' #txt
+out.pets.set(0, pet);' #txt
 oi0 f14 bodyInputType RAW #txt
 oi0 f14 bodyMediaType application/octet-stream #txt
 oi0 f14 resultType io.swagger.petstore3.client.ApiResponse #txt
