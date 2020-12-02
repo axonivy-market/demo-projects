@@ -22,21 +22,23 @@ pipeline {
     stage('build') {
       steps {
         script {
-          docker.image('axonivy/build-container:web-1.0').inside {
-            def workspace = pwd()
-            def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
-            maven cmd: "clean ${phase} -Dmaven.test.failure.ignore=true  " + 
-                      "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
-                      "-Divy.engine.version='[9.2.0,]' " +
-                      "-Divy.engine.list.url=${params.engineListUrl} " + 
-                      "-Dtest.environemnt=dev-axonivy " +
-                      "-DaltDeploymentRepository=repo.axonivy.com::https://repo.axonivy.com/artifactory/libs-snapshot-local"
-            checkVersions()
-            archiveArtifacts '**/target/*.iar,**/target/*.zip'
-            archiveArtifacts artifacts: '**/target/selenide/reports/**/*', allowEmptyArchive: true
-            recordIssues tools: [eclipse()], unstableTotalAll: 1
-            recordIssues tools: [mavenConsole()], unstableNewAll: 1, qualityGates: [[threshold: 1, type: 'NEW', unstable: true]]
-            junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/*-reports/**/*.xml'          
+          docker.withRegistry('', 'docker.io') {
+            docker.image('axonivy/build-container:web-1.0').inside {
+              def workspace = pwd()
+              def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
+              maven cmd: "clean ${phase} -Dmaven.test.failure.ignore=true  " + 
+                        "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
+                        "-Divy.engine.version='[9.2.0,]' " +
+                        "-Divy.engine.list.url=${params.engineListUrl} " + 
+                        "-Dtest.environemnt=dev-axonivy " +
+                        "-DaltDeploymentRepository=repo.axonivy.com::https://repo.axonivy.com/artifactory/libs-snapshot-local"
+              checkVersions()
+              archiveArtifacts '**/target/*.iar,**/target/*.zip'
+              archiveArtifacts artifacts: '**/target/selenide/reports/**/*', allowEmptyArchive: true
+              recordIssues tools: [eclipse()], unstableTotalAll: 1
+              recordIssues tools: [mavenConsole()], unstableNewAll: 1, qualityGates: [[threshold: 1, type: 'NEW', unstable: true]]
+              junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/*-reports/**/*.xml'          
+            }
           }
         }
       }
@@ -44,8 +46,10 @@ pipeline {
     stage('check editorconfig') {
       steps {
         script {
-          docker.image('mstruebing/editorconfig-checker').inside {
-            sh 'ec -no-color'
+          docker.withRegistry('', 'docker.io') {
+            docker.image('mstruebing/editorconfig-checker').inside {
+              sh 'ec -no-color'
+            }
           }
         }
       }
