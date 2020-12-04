@@ -1,6 +1,0 @@
-UiPathData #class
-com.axonivy.connectivity.rest #namespace
-license com.uipath.platform.client.LicenseDto #field
-jobs java.util.List<com.uipath.platform.client.JobDto> #field
-robots java.util.List<com.uipath.platform.client.RobotDto> #field
-releases List<com.uipath.platform.client.ReleaseDto> #field
