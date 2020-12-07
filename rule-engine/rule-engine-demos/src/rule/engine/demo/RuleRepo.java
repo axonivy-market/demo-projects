@@ -10,7 +10,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
 import ch.ivyteam.ivy.environment.Ivy;
-import ch.ivyteam.ivy.scripting.objects.Date;
 import ch.ivyteam.ivy.scripting.objects.DateTime;
 import ch.ivyteam.ivy.scripting.objects.File;
 import rule.engine.demo.enums.MemberType;
@@ -23,7 +22,7 @@ public class RuleRepo
   public static List<Rule> loadRules(String filename) throws IOException
   {
     String csvFile = CSV_PATH+filename;
-	List<String> lines;
+    List<String> lines;
     File ivyFile = new File(csvFile);
 
     if (ivyFile.exists())

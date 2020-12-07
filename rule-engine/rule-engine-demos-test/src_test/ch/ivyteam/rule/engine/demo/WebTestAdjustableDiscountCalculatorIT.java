@@ -15,7 +15,6 @@ import org.openqa.selenium.Keys;
 import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.engine.EngineUrl;
 import com.axonivy.ivy.webtest.primeui.PrimeUi;
-import com.codeborne.selenide.Selenide;
 
 @IvyWebTest
 public class WebTestAdjustableDiscountCalculatorIT
