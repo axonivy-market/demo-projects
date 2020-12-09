@@ -10,26 +10,28 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
 import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.scripting.objects.DateTime;
 import ch.ivyteam.ivy.scripting.objects.File;
 import rule.engine.demo.enums.MemberType;
 
 public class RuleRepo
 {
 
-  static String CSV_PATH = "resources/rulerepo.csv";
+  static String CSV_PATH = "resources/";
 
-  public static List<Rule> loadRules() throws IOException
+  public static List<Rule> loadRules(String filename) throws IOException
   {
+    String csvFile = CSV_PATH+filename;
     List<String> lines;
-    File ivyFile = new File(CSV_PATH);
+    File ivyFile = new File(csvFile);
 
     if (ivyFile.exists())
     {
-      lines = FileUtils.readLines(new File(CSV_PATH).getJavaFile(), StandardCharsets.UTF_8);
+      lines = FileUtils.readLines(new File(csvFile).getJavaFile(), StandardCharsets.UTF_8);
     }
     else
     {
-      try(var input = RuleRepo.class.getClassLoader().getResourceAsStream(CSV_PATH))
+      try(var input = RuleRepo.class.getClassLoader().getResourceAsStream(csvFile))
       {
         lines = IOUtils.readLines(input, StandardCharsets.UTF_8);
       }
@@ -44,17 +46,18 @@ public class RuleRepo
             .collect(Collectors.toList());
   }
 
-  public static void saveRules(List<Rule> rules) throws IOException
+  public static String saveRules(List<Rule> rules) throws IOException
   {
     String content = rules.stream()
             .map(RuleRepo::convertRulesToLines)
             .collect(Collectors.joining("\n"));
-    File ivyFile = new File(CSV_PATH);
-    ivyFile.forceDelete();
+    String csvFile = (CSV_PATH +(new DateTime()) + ".csv").replaceAll(":", "-");
+    File ivyFile = new File(csvFile);
     ivyFile.createNewFile();
     ivyFile.write(content);
+    return ivyFile.getName();
   }
-  
+ 
   private static Rule convertLineToRule(String line)
   {
     String[] data = line.split(",");

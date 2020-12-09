@@ -28,8 +28,13 @@ Ds0 @PushWFArc f9 '' #zField
 Ds0 @GridStep f15 '' #zField
 Ds0 @PushWFArc f16 '' #zField
 Ds0 @PushWFArc f13 '' #zField
+Ds0 @UdEvent f17 '' #zField
+Ds0 @UdProcessEnd f18 '' #zField
+Ds0 @GridStep f20 '' #zField
+Ds0 @PushWFArc f21 '' #zField
+Ds0 @PushWFArc f19 '' #zField
 >Proto Ds0 Ds0 AdjustableDiscountCalculatorProcess #zField
-Ds0 f11 563 307 26 26 0 12 #rect
+Ds0 f11 563 371 26 26 0 12 #rect
 Ds0 f11 @|UdProcessEndIcon #fIcon
 Ds0 f0 guid 153E9EE0238C8F41 #txt
 Ds0 f0 method start() #txt
@@ -58,7 +63,7 @@ This object will be modified during the rule execution.</desc>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f6 216 298 128 44 -60 -8 #rect
+Ds0 f6 216 362 128 44 -60 -8 #rect
 Ds0 f6 @|RuleActivity #fIcon
 Ds0 f5 guid 175F9C1813FE7E35 #txt
 Ds0 f5 actionTable 'out=in;
@@ -70,9 +75,9 @@ Ds0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f5 83 179 26 26 -29 15 #rect
+Ds0 f5 83 243 26 26 -29 15 #rect
 Ds0 f5 @|UdEventIcon #fIcon
-Ds0 f7 499 179 26 26 0 12 #rect
+Ds0 f7 499 243 26 26 0 12 #rect
 Ds0 f7 @|UdProcessEndIcon #fIcon
 Ds0 f3 guid 175FA45130F2A6CE #txt
 Ds0 f3 actionTable 'out=in;
@@ -85,13 +90,21 @@ Ds0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f3 83 307 26 26 -31 15 #rect
+Ds0 f3 83 371 26 26 -31 15 #rect
 Ds0 f3 @|UdEventIcon #fIcon
-Ds0 f14 109 320 216 320 #arcP
+Ds0 f14 109 384 216 384 #arcP
 Ds0 f4 actionTable 'out=in;
 ' #txt
 Ds0 f4 actionCode 'import rule.engine.demo.RuleRepo;
-out.ruleData.rules = RuleRepo.loadRules();
+// initial .csv resource
+out.filename = "rulerepo.csv";
+out.files.add(out.filename);
+
+out.ruleData.rules = RuleRepo.loadRules(out.filename);
+
+
+
+
 
 ' #txt
 Ds0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -109,12 +122,16 @@ Ds0 f2 368 64 499 64 #arcP
 Ds0 f10 actionTable 'out=in;
 ' #txt
 Ds0 f10 actionCode 'import rule.engine.demo.RuleRepo;
-RuleRepo.saveRules(in.ruleData.rules);
 
-// initial call to init rulebase
-ivy.rules.create().namespace("rule.engine.adjustable-drl").executor().execute(in);
+out.filename = RuleRepo.saveRules(in.ruleData.rules);
+out.files.add(out.filename);
 
-' #txt
+// make a call to force the rule engine to initialize rulebase
+out.ruleData.member.purchaseAmount = 0;
+ivy.rules.create()
+   .namespace("rule.engine.adjustable-drl")
+  .executor()
+  .execute(in.ruleData);' #txt
 Ds0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -123,10 +140,10 @@ Ds0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f10 216 170 128 44 -45 -16 #rect
+Ds0 f10 216 234 128 44 -45 -16 #rect
 Ds0 f10 @|StepIcon #fIcon
-Ds0 f12 109 192 216 192 #arcP
-Ds0 f9 344 192 499 192 #arcP
+Ds0 f12 109 256 216 256 #arcP
+Ds0 f9 344 256 499 256 #arcP
 Ds0 f15 actionTable 'out=in;
 ' #txt
 Ds0 f15 actionCode 'import javax.faces.application.FacesMessage;
@@ -143,10 +160,45 @@ Ds0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f15 392 298 112 44 -39 -8 #rect
+Ds0 f15 392 362 112 44 -39 -8 #rect
 Ds0 f15 @|StepIcon #fIcon
-Ds0 f16 344 320 392 320 #arcP
-Ds0 f13 504 320 563 320 #arcP
+Ds0 f16 344 384 392 384 #arcP
+Ds0 f13 504 384 563 384 #arcP
+Ds0 f17 guid 1762968775DA744B #txt
+Ds0 f17 actionTable 'out=in;
+' #txt
+Ds0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>loadRules</name>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f17 83 179 26 26 -28 15 #rect
+Ds0 f17 @|UdEventIcon #fIcon
+Ds0 f18 499 179 26 26 0 12 #rect
+Ds0 f18 @|UdProcessEndIcon #fIcon
+Ds0 f20 actionTable 'out=in;
+' #txt
+Ds0 f20 actionCode 'import rule.engine.demo.RuleRepo;
+
+out.ruleData.rules = RuleRepo.loadRules(out.filename);
+
+
+
+' #txt
+Ds0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Load rules from DB&#13;
+(csv resource in this demo)</name>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f20 200 170 176 44 -69 -16 #rect
+Ds0 f20 @|StepIcon #fIcon
+Ds0 f21 109 192 200 192 #arcP
+Ds0 f19 376 192 499 192 #arcP
 >Proto Ds0 .type rule.engine.demo.AdjustableDiscountCalculator.AdjustableDiscountCalculatorData #txt
 >Proto Ds0 .processKind HTML_DIALOG #txt
 >Proto Ds0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -158,7 +210,7 @@ Ds0 f13 504 320 563 320 #arcP
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
     <swimlaneSize>128</swimlaneSize>
-    <swimlaneSize>128</swimlaneSize>
+    <swimlaneSize>192</swimlaneSize>
     <swimlaneSize>128</swimlaneSize>
     <swimlaneColor gradient="false">-3342388</swimlaneColor>
     <swimlaneColor gradient="false">-13108</swimlaneColor>
@@ -187,3 +239,7 @@ Ds0 f6 @AbstractThirdPartyProgramInterface|mainOut f16 tail #connect
 Ds0 f16 head f15 mainIn #connect
 Ds0 f15 mainOut f13 tail #connect
 Ds0 f13 head f11 mainIn #connect
+Ds0 f17 mainOut f21 tail #connect
+Ds0 f21 head f20 mainIn #connect
+Ds0 f20 mainOut f19 tail #connect
+Ds0 f19 head f18 mainIn #connect

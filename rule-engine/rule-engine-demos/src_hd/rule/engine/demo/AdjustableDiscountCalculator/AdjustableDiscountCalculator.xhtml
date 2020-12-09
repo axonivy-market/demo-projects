@@ -13,12 +13,25 @@
         name="discount-calculator-style.css"></h:outputStylesheet>
       <h:form id="tableform">
         <h3>Adjustable Discount Calculator</h3>
-        <p>This demo shows the discount calculator with adjustable
-          rules. An administrator user can vary the rules according to the
-          current needs. <br />The rule configuration is stored in a DB (in a csv for this demo project). &#160; &#160;</p><hr />
-        <h4>Adjust and save the rules:</h4>
+        <p>
+          This demo shows the discount calculator with adjustable rules.
+          An administrator user can vary the rules according to the
+          current needs. <br />The rule configuration is stored in a DB
+          (in a csv for this demo project). &#160; &#160;
+        </p>
+        <hr />
+        <h4>
+          Adjust rules:
+          <p:selectOneMenu value="#{data.filename}">
+            <f:selectItems value="#{data.files}" var="file"
+              itemLabel="#{file}" itemValue="#{file}" />
+            <p:ajax listener="#{logic.loadRules}" update="@form"></p:ajax>
+          </p:selectOneMenu>
+        </h4>
         <p:dataTable value="#{data.ruleData.rules}" var="rule"
-          editable="true" editMode="cell">
+          editable="true">
+          <f:facet name="header">
+          </f:facet>
           <p:column headerText="Rule">
             <p:outputLabel value="#{rule.name}" />
           </p:column>
@@ -29,7 +42,8 @@
               </f:facet>
               <f:facet name="input">
                 <p:inputText value="#{rule.lowerLimit}">
-                  <f:convertNumber integerOnly="true" groupingUsed="false"></f:convertNumber>
+                  <f:convertNumber integerOnly="true"
+                    groupingUsed="false"></f:convertNumber>
                 </p:inputText>
               </f:facet>
             </p:cellEditor>
@@ -41,7 +55,8 @@
               </f:facet>
               <f:facet name="input">
                 <p:inputText value="#{rule.upperLimit}">
-                  <f:convertNumber integerOnly="true" groupingUsed="false"></f:convertNumber>
+                  <f:convertNumber integerOnly="true"
+                    groupingUsed="false"></f:convertNumber>
                 </p:inputText>
               </f:facet>
             </p:cellEditor>
@@ -65,27 +80,37 @@
               </f:facet>
               <f:facet name="input">
                 <p:inputText value="#{rule.discount}">
-                  <f:convertNumber integerOnly="true" groupingUsed="false"></f:convertNumber>
+                  <f:convertNumber integerOnly="true"
+                    groupingUsed="false"></f:convertNumber>
                 </p:inputText>
               </f:facet>
             </p:cellEditor>
           </p:column>
+          <p:column style="width:35px">
+            <p:rowEditor />
+          </p:column>
         </p:dataTable>
 
-        <p:commandButton id="save" value="Save the rules" icon="fa fa-check"
-          actionListener="#{logic.saveRules}" update="@form" />
+        <p:commandButton id="save" value="Save the rules"
+          icon="fa fa-check" actionListener="#{logic.saveRules}"
+          update="@form" />
+        <p:outputLabel id="saved_msg"
+          value=" Saved as: #{data.filename}"
+          rendered="#{data.filename.length() gt 12}"></p:outputLabel>
+
         <hr />
       </h:form>
       <h4>Apply rules:</h4>
       <h:form id="form">
-      <p:messages id="mainMessage"></p:messages>
+        <p:messages id="mainMessage"></p:messages>
         <p:panelGrid columns="2" layout="grid"
           styleClass="ui-panelgrid-blank"
           columnClasses="ui-g-12 ui-md-3 ui-lg-2, 
             ui-g-12 ui-md-9 ui-lg-4, 
             ui-g-12 ui-md-3 ui-lg-2, 
             ui-g-12 ui-md-9 ui-lg-4">
-          <p:outputLabel for="memberPurchaseAmount" value="Purchase Amount" />
+          <p:outputLabel for="memberPurchaseAmount"
+            value="Purchase Amount" />
           <h:panelGroup styleClass="md-inputfield">
             <p:inputText id="memberPurchaseAmount" required="true"
               requiredMessage="Please enter Purchase Amount"
@@ -102,7 +127,7 @@
             <f:selectItems value="#{memberTypeBean.memberTypes}" />
           </p:selectOneRadio>
 
-          <p:outputLabel for="memberDiscount" value="Discount:"/>
+          <p:outputLabel for="memberDiscount" value="Discount:" />
           <h:panelGroup>
             <h:outputText id="memberDiscount"
               value="#{data.ruleData.member.discount}" />
@@ -111,8 +136,10 @@
         </p:panelGrid>
 
         <div class="command-btns" style="margin-top: 10px">
-          <p:commandButton id="applyDRL" actionListener="#{logic.applyRules}" process="@form"
-            value="Apply the rules" update="@form" icon="fa fa-file-text-o" />
+          <p:commandButton id="applyDRL"
+            actionListener="#{logic.applyRules}" process="@form"
+            value="Apply the rules" update="@form"
+            icon="fa fa-file-text-o" />
         </div>
       </h:form>
     </ui:define>

@@ -3,7 +3,7 @@ import rule.engine.demo.enums.MemberType
  
 dialect "mvel"
 
-rule "0"
+rule "no discount"
 	when		
 		$data: RuleData(member.purchaseAmount >= rules.get(0).lowerLimit 
 			&& member.purchaseAmount < rules.get(0).upperLimit 
@@ -12,7 +12,7 @@ rule "0"
 		$data.member.discount = $data.rules.get(0).discount
 end
  
-rule "1"
+rule "low discount"
 	when		
 		$data: RuleData(member.purchaseAmount >= rules.get(1).lowerLimit 
 			&& member.purchaseAmount < rules.get(1).upperLimit 
@@ -21,7 +21,7 @@ rule "1"
 		$data.member.discount = $data.rules.get(1).discount
 end
 
-rule "2"
+rule "low-medium discount"
 	when		
 		$data: RuleData(member.purchaseAmount >= rules.get(2).lowerLimit 
 			&& member.purchaseAmount < rules.get(2).upperLimit 
@@ -30,7 +30,7 @@ rule "2"
 		$data.member.discount = $data.rules.get(2).discount
 end
 
-rule "3"
+rule "high-medium discount"
 	when		
 		$data: RuleData(member.purchaseAmount >= rules.get(3).lowerLimit 
 			&& member.purchaseAmount < rules.get(3).upperLimit 
@@ -39,7 +39,7 @@ rule "3"
 		$data.member.discount = $data.rules.get(3).discount
 end
 
-rule "4"
+rule "high discount"
 	when		
 		$data: RuleData(member.purchaseAmount >= rules.get(4).lowerLimit 
 			&& member.purchaseAmount < rules.get(4).upperLimit 
@@ -48,7 +48,7 @@ rule "4"
 		$data.member.discount = $data.rules.get(4).discount
 end
 
-rule "5"
+rule "advanced discount"
 	when		
 		$data: RuleData(member.purchaseAmount >= rules.get(5).lowerLimit 
 			&& member.purchaseAmount < rules.get(5).upperLimit 
@@ -57,7 +57,7 @@ rule "5"
 		$data.member.discount = $data.rules.get(5).discount
 end
 
-rule "6"
+rule "max discount"
 	when		
 		$data: RuleData(member.purchaseAmount >= rules.get(6).lowerLimit 
 			&& member.purchaseAmount < rules.get(6).upperLimit 

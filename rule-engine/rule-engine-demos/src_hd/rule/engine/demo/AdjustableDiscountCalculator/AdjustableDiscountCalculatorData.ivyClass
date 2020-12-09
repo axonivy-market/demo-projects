@@ -4,3 +4,7 @@ ruleData rule.engine.demo.RuleData #field
 ruleData PERSISTENT #fieldModifier
 memberTypes List<String> #field
 memberTypes PERSISTENT #fieldModifier
+files List<String> #field
+files PERSISTENT #fieldModifier
+filename String #field
+filename PERSISTENT #fieldModifier

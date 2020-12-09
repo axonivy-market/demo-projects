@@ -10,11 +10,11 @@ import static com.codeborne.selenide.Selenide.open;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.engine.EngineUrl;
 import com.axonivy.ivy.webtest.primeui.PrimeUi;
-import com.codeborne.selenide.Selenide;
 
 @IvyWebTest
 public class WebTestAdjustableDiscountCalculatorIT
@@ -26,9 +26,10 @@ public class WebTestAdjustableDiscountCalculatorIT
   private static final String MEMBER_TYPE = "form:memberType";
   private static final String APPLY_DRL = "form:applyDRL";
   private static final String RULETABLE_SAVE_BUTTON = "tableform:save";
-  private static final String RULETABLE_ROW2_DISCOUNT = "tableform:j_id_i:2:j_id_z";
-  private static final String RULETABLE_ROW2_DISCOUNT_EDIT = "tableform:j_id_i:2:j_id_11";
-
+  private static final String RULETABLE_ROW2_EDIT = "tableform:j_id_l:2:j_id_16";
+  private static final String RULETABLE_ROW2_DISCOUNT_EDIT = "tableform:j_id_l:2:j_id_14";
+  private static final String RULETABLE_SAVED_MSG = "tableform:saved_msg";
+  
   @BeforeEach
   public void openRuleDemo()
   {
@@ -40,8 +41,23 @@ public class WebTestAdjustableDiscountCalculatorIT
   {
     $(By.id(MEMBER_PURCHASE_AMOUNT_MESSAGE)).shouldBe(empty);
     $(By.id(APPLY_DRL)).shouldBe(visible).click();
-    $(By.id(MAIN_MESSAGE)).shouldBe(text("Please enter Purchase Amount"));
-    Selenide.refresh();
+    $(By.id(MAIN_MESSAGE)).shouldBe(text("Value is required"));
+  }
+
+  @Test
+  public void changedRule()
+  {
+    setMemberType("Silver");
+    assertDiscountForAmount(900, 5);
+
+    $(By.id(RULETABLE_ROW2_EDIT)).shouldBe(visible).click();
+    $(By.id(RULETABLE_ROW2_DISCOUNT_EDIT)).sendKeys(Keys.BACK_SPACE);
+    $(By.id(RULETABLE_ROW2_DISCOUNT_EDIT)).sendKeys("7");
+    $(By.id(RULETABLE_ROW2_EDIT)).shouldBe(visible).click();    
+    $(By.id(RULETABLE_SAVE_BUTTON)).shouldBe(visible).click();
+    $(By.id(RULETABLE_SAVED_MSG)).shouldBe(visible);
+       
+    assertDiscountForAmount(900, 7);
   }
 
   @Test
@@ -56,21 +72,7 @@ public class WebTestAdjustableDiscountCalculatorIT
     $(By.id(APPLY_DRL)).shouldBe(visible).click();
     $(By.id(MAIN_MESSAGE)).shouldBe(text("Discount NOT defined"));
   }
-
-  @Test
-  public void changedRule()
-  {
-    setMemberType("Silver");
-    assertDiscountForAmount(900, 5);
-
-    $(By.id(RULETABLE_ROW2_DISCOUNT)).shouldBe(visible).click();
-    $(By.id(RULETABLE_ROW2_DISCOUNT_EDIT)).sendKeys("7");
-    $(By.id(RULETABLE_ROW2_DISCOUNT_EDIT)).pressEnter();
-
-    $(By.id(RULETABLE_SAVE_BUTTON)).shouldBe(visible).click();
-    assertDiscountForAmount(900, 7);
-  }
-
+  
   private void assertDiscountForAmount(int amount, int discount)
   {
     setPurchaseAmount(amount);
