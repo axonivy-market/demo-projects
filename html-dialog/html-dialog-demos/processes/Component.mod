@@ -52,6 +52,7 @@ Ct0 f20 triggerEnabled false #txt
 Ct0 f20 callSignature PartialUpdateDemo() #txt
 Ct0 f20 persist false #txt
 Ct0 f20 startName 'Partial Update Demo' #txt
+Ct0 f20 startCategory component #txt
 Ct0 f20 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -82,6 +83,7 @@ Ct0 f47 triggerEnabled false #txt
 Ct0 f47 callSignature ComponentDemo() #txt
 Ct0 f47 persist false #txt
 Ct0 f47 startName 'Component Demo' #txt
+Ct0 f47 startCategory component #txt
 Ct0 f47 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -107,6 +109,7 @@ Ct0 f82 triggerEnabled false #txt
 Ct0 f82 callSignature ComponentEventListenerDemo() #txt
 Ct0 f82 persist false #txt
 Ct0 f82 startName 'Component Callback Demo' #txt
+Ct0 f82 startCategory component #txt
 Ct0 f82 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -191,6 +194,7 @@ Ct0 f57 triggerEnabled false #txt
 Ct0 f57 callSignature ComponentCustomizingDemo() #txt
 Ct0 f57 persist false #txt
 Ct0 f57 startName 'Component Customizing Demo' #txt
+Ct0 f57 startCategory component #txt
 Ct0 f57 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -222,6 +226,7 @@ Ct0 f97 triggerEnabled false #txt
 Ct0 f97 callSignature JsfCompositeComponent() #txt
 Ct0 f97 persist false #txt
 Ct0 f97 startName 'Jsf Composite Component Demo' #txt
+Ct0 f97 startCategory component #txt
 Ct0 f97 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -269,6 +274,7 @@ Ct0 f0 triggerEnabled false #txt
 Ct0 f0 callSignature lazyLoadComponent() #txt
 Ct0 f0 persist false #txt
 Ct0 f0 startName 'Lazy loaded UI parts' #txt
+Ct0 f0 startCategory component #txt
 Ct0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0

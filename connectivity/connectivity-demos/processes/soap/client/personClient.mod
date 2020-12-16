@@ -35,6 +35,7 @@ pt0 f0 triggerEnabled false #txt
 pt0 f0 callSignature read() #txt
 pt0 f0 persist false #txt
 pt0 f0 startName '9.2.1 read data' #txt
+pt0 f0 startCategory soap #txt
 pt0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -103,6 +104,7 @@ pt0 f7 triggerEnabled false #txt
 pt0 f7 callSignature delete() #txt
 pt0 f7 persist false #txt
 pt0 f7 startName '9.2.3 delete data' #txt
+pt0 f7 startCategory soap #txt
 pt0 f7 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -157,6 +159,7 @@ pt0 f11 triggerEnabled false #txt
 pt0 f11 callSignature add() #txt
 pt0 f11 persist false #txt
 pt0 f11 startName '9.2.2 add data' #txt
+pt0 f11 startCategory soap #txt
 pt0 f11 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0

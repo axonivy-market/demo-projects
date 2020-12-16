@@ -34,6 +34,8 @@ Ey0 f0 inParamDecl '<> param;' #txt
 Ey0 f0 requestEnabled true #txt
 Ey0 f0 triggerEnabled false #txt
 Ey0 f0 callSignature createExpriyErrorTask() #txt
+Ey0 f0 startName '7.3 Create an exception task on expiry' #txt
+Ey0 f0 startCategory expiry #txt
 Ey0 f0 caseData businessCase.attach=true #txt
 Ey0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -74,6 +76,8 @@ Ey0 f8 inParamDecl '<> param;' #txt
 Ey0 f8 requestEnabled true #txt
 Ey0 f8 triggerEnabled false #txt
 Ey0 f8 callSignature createExpiryTaskOtherRole() #txt
+Ey0 f8 startName '7.2 Assign task to another role on expiry' #txt
+Ey0 f8 startCategory expiry #txt
 Ey0 f8 caseData businessCase.attach=true #txt
 Ey0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -112,6 +116,8 @@ Ey0 f14 inParamDecl '<> param;' #txt
 Ey0 f14 requestEnabled true #txt
 Ey0 f14 triggerEnabled false #txt
 Ey0 f14 callSignature createExpriyTaskHigherPrio() #txt
+Ey0 f14 startName '7.1 Set higher task priority on expiry' #txt
+Ey0 f14 startCategory expiry #txt
 Ey0 f14 caseData businessCase.attach=true #txt
 Ey0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

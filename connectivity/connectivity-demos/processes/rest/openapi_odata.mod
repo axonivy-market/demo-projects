@@ -30,6 +30,7 @@ oa0 f0 triggerEnabled false #txt
 oa0 f0 callSignature readCollection() #txt
 oa0 f0 persist false #txt
 oa0 f0 startName '7.1 OData read collection' #txt
+oa0 f0 startCategory rest/openapi/odata #txt
 oa0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -83,6 +84,7 @@ oa0 f5 triggerEnabled false #txt
 oa0 f5 callSignature readById() #txt
 oa0 f5 persist false #txt
 oa0 f5 startName '7.2 OData read single object' #txt
+oa0 f5 startCategory rest/openapi/odata #txt
 oa0 f5 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0

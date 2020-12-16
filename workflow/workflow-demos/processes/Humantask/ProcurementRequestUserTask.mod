@@ -37,6 +37,7 @@ Pt0 f0 callSignature start() #txt
 Pt0 f0 persist false #txt
 Pt0 f0 startName '2.1: <%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%> (<%=ivy.cms.co("/ProcessDescriptions/userTaskExample")%>)' #txt
 Pt0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/procurementRequestUserTaskDescription")%> #txt
+Pt0 f0 startCategory human #txt
 Pt0 f0 taskData 'TaskTriggered.CATEGORY=Input/Procurement
 TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody

@@ -121,6 +121,7 @@ Vn0 f19 triggerEnabled false #txt
 Vn0 f19 callSignature verifyDossier(String) #txt
 Vn0 f19 persist false #txt
 Vn0 f19 startName 'Verify Dossier Process' #txt
+Vn0 f19 startCategory business/data #txt
 Vn0 f19 taskData 'TaskTriggered.CATEGORY=Review/Dossier
 TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody

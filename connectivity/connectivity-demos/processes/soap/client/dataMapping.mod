@@ -34,6 +34,7 @@ dg0 f0 callSignature resolveToCache() #txt
 dg0 f0 persist false #txt
 dg0 f0 startName '9.1.1 read remote result to cache' #txt
 dg0 f0 startDescription 'Caches the result of a WebService invocation as the we do not expect the value to change.' #txt
+dg0 f0 startCategory soap #txt
 dg0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -102,6 +103,7 @@ dg0 f7 triggerEnabled false #txt
 dg0 f7 callSignature mapComplexData() #txt
 dg0 f7 persist false #txt
 dg0 f7 startName '9.1.2 map complex data' #txt
+dg0 f7 startCategory soap #txt
 dg0 f7 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
