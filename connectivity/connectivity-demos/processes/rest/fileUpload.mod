@@ -42,6 +42,7 @@ fd0 f0 triggerEnabled false #txt
 fd0 f0 callSignature fileClient() #txt
 fd0 f0 persist false #txt
 fd0 f0 startName '6.4.0 Upload file UI' #txt
+fd0 f0 startCategory rest/mapping/file #txt
 fd0 f0 caseData businessCase.attach=true #txt
 fd0 f0 showInStartList 1 #txt
 fd0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -94,6 +95,7 @@ fd0 f6 triggerEnabled false #txt
 fd0 f6 callSignature fileMultipart() #txt
 fd0 f6 persist false #txt
 fd0 f6 startName '6.4.1 Upload file multipart' #txt
+fd0 f6 startCategory rest/mapping/file #txt
 fd0 f6 caseData businessCase.attach=true #txt
 fd0 f6 showInStartList 1 #txt
 fd0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -153,6 +155,7 @@ fd0 f16 requestEnabled true #txt
 fd0 f16 triggerEnabled false #txt
 fd0 f16 callSignature upAndDown() #txt
 fd0 f16 startName '6.4.2 Upload and Download file octet-stream' #txt
+fd0 f16 startCategory rest/mapping/file #txt
 fd0 f16 caseData businessCase.attach=true #txt
 fd0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -267,6 +270,7 @@ fd0 f13 triggerEnabled false #txt
 fd0 f13 callSignature multipleFiles() #txt
 fd0 f13 persist false #txt
 fd0 f13 startName '6.4.2 Upload many files at once' #txt
+fd0 f13 startCategory rest/mapping/file #txt
 fd0 f13 caseData businessCase.attach=true #txt
 fd0 f13 showInStartList 1 #txt
 fd0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

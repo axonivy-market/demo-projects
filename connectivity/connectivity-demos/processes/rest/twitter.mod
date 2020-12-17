@@ -34,6 +34,7 @@ ct0 f0 triggerEnabled false #txt
 ct0 f0 callSignature userTimeline() #txt
 ct0 f0 persist false #txt
 ct0 f0 startName '4. Uses twitter REST api to display tweets' #txt
+ct0 f0 startCategory rest/twitter #txt
 ct0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0

@@ -28,6 +28,7 @@ Ma0 f0 persist false #txt
 Ma0 f0 startName '5.3 Migrate BusinessData format' #txt
 Ma0 f0 startDescription 'Starts the migration of the internal Business Data JSON format. 
 This is an administrative tasks, that should not be made accessible to worklow users.' #txt
+Ma0 f0 startCategory business/data #txt
 Ma0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
