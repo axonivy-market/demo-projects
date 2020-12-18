@@ -27,31 +27,6 @@
     </pluginRepository>
   </pluginRepositories>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.glassfish.jersey.security</groupId>
-      <artifactId>oauth1-client</artifactId>
-      <version>${jersey.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>*</groupId>
-          <artifactId>*</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish.jersey.security</groupId>
-      <artifactId>oauth1-signature</artifactId>
-      <version>${jersey.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>*</groupId>
-          <artifactId>*</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-  </dependencies>
-
   <build>
     <plugins>
       <plugin>
@@ -66,30 +41,6 @@
           </compilerOptions>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>thirdparty.libs</id>
-            <phase>process-resources</phase>
-            <goals>
-              <goal>copy-dependencies</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>lib</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-        <configuration>
-          <overWriteReleases>false</overWriteReleases>
-          <overWriteSnapshots>false</overWriteSnapshots>
-          <overWriteIfNewer>false</overWriteIfNewer>
-          <stripVersion>false</stripVersion>
-          <excludeArtifactIds>${project.artifactId},${project.artifactId}.source</excludeArtifactIds>
-        </configuration>
-      </plugin>
-
       <plugin>
         <groupId>org.jsonschema2pojo</groupId>
         <artifactId>jsonschema2pojo-maven-plugin</artifactId>
@@ -109,20 +60,6 @@
               <targetPackage>com.typicode.jsonplaceholder</targetPackage>
               <sourceDirectory>${basedir}/src/com/axonivy/connectivity/rest/sample/typicode</sourceDirectory>
               <sourceType>json</sourceType>
-            </configuration>
-          </execution>
-          <execution>
-            <id>generate.twitter.service.pojos.from.json</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <configuration>
-              <targetPackage>com.twitter.status.gson</targetPackage>
-              <sourceDirectory>${basedir}/src/com/axonivy/connectivity/rest/sample/twitter</sourceDirectory>
-              <sourceType>json</sourceType>
-              <annotationStyle>gson</annotationStyle>
-              <useLongIntegers>true</useLongIntegers>
             </configuration>
           </execution>
         </executions>

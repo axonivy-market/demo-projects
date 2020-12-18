@@ -1,4 +1,0 @@
-TwitterData #class
-com.axonivy.connectivity.rest #namespace
-authorizationFlow org.glassfish.jersey.client.oauth1.OAuth1AuthorizationFlow #field
-userTimelines java.util.List<com.twitter.status.gson.UserTimeline> #field

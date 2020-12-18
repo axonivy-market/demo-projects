@@ -1,4 +1,0 @@
-TwitterUserTimelineData #class
-com.axonivy.connectivity.rest.TwitterUserTimeline #namespace
-userTimelines List<com.twitter.status.gson.UserTimeline> #field
-userTimelines PERSISTENT #fieldModifier
