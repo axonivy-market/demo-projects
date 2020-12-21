@@ -1,5 +1,3 @@
 {
-  /imports {
-    "com.uipath.platform.client.StartProcessDto"
-  }
+  /imports *
 }
