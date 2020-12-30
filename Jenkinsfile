@@ -21,8 +21,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        script {
-          docker.withRegistry('', 'docker.io') {
+        script {          
             docker.image('axonivy/build-container:web-1.0').inside {
               def workspace = pwd()
               def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
@@ -38,19 +37,16 @@ pipeline {
               recordIssues tools: [eclipse()], unstableTotalAll: 1
               recordIssues tools: [mavenConsole()], unstableNewAll: 1, qualityGates: [[threshold: 1, type: 'NEW', unstable: true]]
               junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/*-reports/**/*.xml'          
-            }
-          }
+            }          
         }
       }
     }
     stage('check editorconfig') {
       steps {
-        script {
-          docker.withRegistry('', 'docker.io') {
+        script {          
             docker.image('mstruebing/editorconfig-checker').inside {
               sh 'ec -no-color'
-            }
-          }
+            }          
         }
       }
     }
