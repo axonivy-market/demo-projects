@@ -31,6 +31,7 @@ qr0 f0 persist false #txt
 qr0 f0 startName '3.2: <%=ivy.cms.co("/ProcessDescriptions/quitUserProcess")%> (<%=ivy.cms.co("/ProcessDescriptions/signalExample")%>)' #txt
 qr0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/SignalQuitUserDescription")%> #txt
 qr0 f0 startCategory signal #txt
+qr0 f0 startCustomFields 'cssIcon=fa fa-user-times' #txt
 qr0 f0 taskData 'TaskTriggered.CATEGORY=Leave/Employee
 TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody

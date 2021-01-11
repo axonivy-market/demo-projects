@@ -92,6 +92,7 @@ oi0 f7 triggerEnabled false #txt
 oi0 f7 callSignature login() #txt
 oi0 f7 startName '8.1.2 open api query' #txt
 oi0 f7 startCategory rest/openapi #txt
+oi0 f7 startCustomFields 'cssIcon=fa fa-sign-in' #txt
 oi0 f7 caseData businessCase.attach=true #txt
 oi0 f7 showInStartList 1 #txt
 oi0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -116,6 +117,7 @@ oi0 f11 callSignature upload() #txt
 oi0 f11 startName 8.1.3 #txt
 oi0 f11 startDescription 'Use any undocummented feature' #txt
 oi0 f11 startCategory rest/openapi #txt
+oi0 f11 startCustomFields 'cssIcon=fa fa-upload' #txt
 oi0 f11 caseData businessCase.attach=true #txt
 oi0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -193,6 +195,7 @@ oi0 f0 triggerEnabled false #txt
 oi0 f0 callSignature listPets() #txt
 oi0 f0 startName '8.1.1 open api read collection' #txt
 oi0 f0 startCategory rest/openapi #txt
+oi0 f0 startCustomFields 'cssIcon=fa fa-paw' #txt
 oi0 f0 caseData businessCase.attach=true #txt
 oi0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

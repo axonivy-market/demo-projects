@@ -47,6 +47,7 @@ cc0 f0 callSignature chatAsync() #txt
 cc0 f0 persist false #txt
 cc0 f0 startName '5.3 chat async with JS client for REST' #txt
 cc0 f0 startCategory rest/async #txt
+cc0 f0 startCustomFields 'cssIcon=fa fa-comments-o' #txt
 cc0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -183,6 +184,7 @@ cc0 f7 callSignature callBatchAsync() #txt
 cc0 f7 persist false #txt
 cc0 f7 startName '5.1 call long running operation async' #txt
 cc0 f7 startCategory rest/async #txt
+cc0 f7 startCustomFields 'cssIcon=fa fa-hourglass-end' #txt
 cc0 f7 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -229,6 +231,7 @@ cc0 f5 callSignature restCallback() #txt
 cc0 f5 persist false #txt
 cc0 f5 startName '5.2 invoke async with JS callback' #txt
 cc0 f5 startCategory rest/async #txt
+cc0 f5 startCustomFields 'cssIcon=fa fa-reply' #txt
 cc0 f5 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0

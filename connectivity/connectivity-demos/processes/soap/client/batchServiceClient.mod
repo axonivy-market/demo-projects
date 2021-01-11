@@ -29,6 +29,7 @@ be0 f0 callSignature callLongRunningBatchOperation(Integer) #txt
 be0 f0 persist false #txt
 be0 f0 startName '9.3 Increase timeout properties for long running requests ' #txt
 be0 f0 startCategory soap #txt
+be0 f0 startCustomFields 'cssIcon=fa fa-clock-o' #txt
 be0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0

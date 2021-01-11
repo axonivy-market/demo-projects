@@ -80,6 +80,7 @@ al0 f5 callSignature createApprovalViaREST() #txt
 al0 f5 persist false #txt
 al0 f5 startName '3. Calls a BPM process from REST service' #txt
 al0 f5 startCategory rest/approval #txt
+al0 f5 startCustomFields 'cssIcon=si si-check-2' #txt
 al0 f5 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0

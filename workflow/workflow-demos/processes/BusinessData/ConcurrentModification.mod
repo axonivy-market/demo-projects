@@ -44,6 +44,7 @@ Cn0 f0 startName '5.2: Concurrent Modification (Business Data)' #txt
 Cn0 f0 startDescription 'This use case handles the problematic of concurrent modification
 of the same business data values.' #txt
 Cn0 f0 startCategory business/data #txt
+Cn0 f0 startCustomFields 'cssIcon=fa fa-pencil-square-o' #txt
 Cn0 f0 taskData 'TaskTriggered.CATEGORY=Input/Address
 TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody

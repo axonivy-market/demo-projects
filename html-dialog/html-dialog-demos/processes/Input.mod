@@ -65,6 +65,7 @@ It0 f52 callSignature BeanValidationDemo() #txt
 It0 f52 persist false #txt
 It0 f52 startName 'Bean Validation Demo' #txt
 It0 f52 startCategory input #txt
+It0 f52 startCustomFields 'cssIcon=fa fa-check' #txt
 It0 f52 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -127,6 +128,7 @@ It0 f67 callSignature MultiViewDemo() #txt
 It0 f67 persist false #txt
 It0 f67 startName 'Multi View Demo' #txt
 It0 f67 startCategory input #txt
+It0 f67 startCustomFields 'cssIcon=fa fa-object-group' #txt
 It0 f67 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -161,6 +163,7 @@ It0 f79 callSignature FileUploadAdvancedModeDemo() #txt
 It0 f79 persist false #txt
 It0 f79 startName 'File upload demo' #txt
 It0 f79 startCategory input #txt
+It0 f79 startCustomFields 'cssIcon=fa fa-upload' #txt
 It0 f79 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -187,6 +190,7 @@ It0 f15 callSignature FormDemo() #txt
 It0 f15 persist false #txt
 It0 f15 startName FormDemo #txt
 It0 f15 startCategory input #txt
+It0 f15 startCustomFields 'cssIcon=fa fa-id-card-o' #txt
 It0 f15 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -231,6 +235,7 @@ It0 f62 callSignature FileUploadSimpleModeDemo() #txt
 It0 f62 persist false #txt
 It0 f62 startName 'File upload demo' #txt
 It0 f62 startCategory input #txt
+It0 f62 startCustomFields 'cssIcon=fa fa-upload' #txt
 It0 f62 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0

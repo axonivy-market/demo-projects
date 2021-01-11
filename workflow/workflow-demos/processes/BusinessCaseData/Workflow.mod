@@ -47,6 +47,7 @@ Ww0 f0 persist true #txt
 Ww0 f0 startName '6.1: Save BusinessCaseData When Park Task ' #txt
 Ww0 f0 startDescription 'BusinessCaseData Worlflow Demo. Use BusinessCaseData in workflow with save and park task.' #txt
 Ww0 f0 startCategory business/data/case #txt
+Ww0 f0 startCustomFields 'cssIcon=fa fa-id-badge' #txt
 Ww0 f0 caseData businessCase.attach=true #txt
 Ww0 f0 wfuser 1 #txt
 Ww0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -94,6 +95,7 @@ Ww0 f9 callSignature browse() #txt
 Ww0 f9 startName '6.2: Browse BusinessCaseData Created By 6.1' #txt
 Ww0 f9 startDescription 'BusinessCaseData Worlflow Demo. Browse Interviews created by BusinessCaseData/Workflow/create.ivp' #txt
 Ww0 f9 startCategory business/data/case #txt
+Ww0 f9 startCustomFields 'cssIcon=fa fa-newspaper-o' #txt
 Ww0 f9 caseData businessCase.attach=true #txt
 Ww0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

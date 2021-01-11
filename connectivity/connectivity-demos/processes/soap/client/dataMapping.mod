@@ -104,6 +104,7 @@ dg0 f7 callSignature mapComplexData() #txt
 dg0 f7 persist false #txt
 dg0 f7 startName '9.1.2 map complex data' #txt
 dg0 f7 startCategory soap #txt
+dg0 f7 startCustomFields 'cssIcon=fa fa-object-group' #txt
 dg0 f7 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0

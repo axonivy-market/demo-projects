@@ -36,6 +36,7 @@ Tr0 f0 persist false #txt
 Tr0 f0 startName '4: <%=ivy.cms.co("/ProcessDescriptions/newEmployee")%> (<%=ivy.cms.co("/ProcessDescriptions/triggerExample")%>)' #txt
 Tr0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/triggerDescription")%> #txt
 Tr0 f0 startCategory trigger #txt
+Tr0 f0 startCustomFields 'cssIcon=fa fa-bolt' #txt
 Tr0 f0 taskData 'TaskTriggered.CATEGORY=Input/Employee
 TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
