@@ -22,7 +22,7 @@ pipeline {
     stage('build') {
       steps {
         script {          
-            docker.image('axonivy/build-container:web-1.0').inside {
+            docker.build('maven-selenium').inside {
               def workspace = pwd()
               def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
               maven cmd: "clean ${phase} -Dmaven.test.failure.ignore=true  " + 
