@@ -100,6 +100,7 @@ Ba0 f7 callSignature edit(String) #txt
 Ba0 f7 persist false #txt
 Ba0 f7 startName 'Edit Dossier' #txt
 Ba0 f7 startCategory business/data #txt
+Ba0 f7 startCustomFields 'cssIcon=fa fa-pencil-square-o' #txt
 Ba0 f7 taskData 'TaskTriggered.CATEGORY=Modification/Dossier
 TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
@@ -133,6 +134,7 @@ Ba0 f10 persist false #txt
 Ba0 f10 startName '5.1: Browse Dossiers (Business Data)' #txt
 Ba0 f10 startDescription 'Business Data Store Demo. Manage dossier objects in the Business Data Repository' #txt
 Ba0 f10 startCategory business/data #txt
+Ba0 f10 startCustomFields 'cssIcon=fa fa-th-list' #txt
 Ba0 f10 taskData 'TaskTriggered.CATEGORY=View/Dossier
 TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
@@ -310,6 +312,7 @@ Ba0 f17 persist false #txt
 Ba0 f17 startName '5.1: Browse Dossiers (Business Data)' #txt
 Ba0 f17 startDescription 'Business Data Store Demo. Manage dossier objects in the Business Data Repository' #txt
 Ba0 f17 startCategory business/data #txt
+Ba0 f17 startCustomFields 'cssIcon=fa fa-list' #txt
 Ba0 f17 taskData 'TaskTriggered.CATEGORY=View/Dossier
 TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody

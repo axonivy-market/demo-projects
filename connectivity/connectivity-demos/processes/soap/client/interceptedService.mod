@@ -23,6 +23,7 @@ ie0 f0 triggerEnabled false #txt
 ie0 f0 callSignature interceptException() #txt
 ie0 f0 startName '9.4 Intercept webservice response' #txt
 ie0 f0 startCategory soap #txt
+ie0 f0 startCustomFields 'cssIcon=fa fa-exclamation-triangle' #txt
 ie0 f0 caseData businessCase.attach=true #txt
 ie0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

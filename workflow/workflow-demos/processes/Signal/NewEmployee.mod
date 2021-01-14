@@ -339,6 +339,7 @@ cr0 f0 persist false #txt
 cr0 f0 startName '3.1: <%=ivy.cms.co("/ProcessDescriptions/createUserProcess")%> (<%=ivy.cms.co("/ProcessDescriptions/signalExample")%>)' #txt
 cr0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/signalCreateUserDescription")%> #txt
 cr0 f0 startCategory signal #txt
+cr0 f0 startCustomFields 'cssIcon=fa fa-user-plus' #txt
 cr0 f0 taskData 'TaskTriggered.CATEGORY=Input/Employee
 TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody

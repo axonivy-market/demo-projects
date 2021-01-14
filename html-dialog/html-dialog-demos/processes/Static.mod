@@ -23,6 +23,7 @@ Sc0 f0 callSignature StaticEndPage() #txt
 Sc0 f0 persist false #txt
 Sc0 f0 startName StaticEndPage #txt
 Sc0 f0 startCategory static #txt
+Sc0 f0 startCustomFields 'cssIcon=fa fa-file-o' #txt
 Sc0 f0 caseData businessCase.attach=true #txt
 Sc0 f0 showInStartList 1 #txt
 Sc0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

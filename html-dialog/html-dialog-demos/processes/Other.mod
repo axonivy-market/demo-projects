@@ -72,6 +72,7 @@ Or0 f109 callSignature Html5BootstrapDemo() #txt
 Or0 f109 persist false #txt
 Or0 f109 startName 'Html 5 Bootstrap Demo' #txt
 Or0 f109 startCategory other #txt
+Or0 f109 startCustomFields 'cssIcon=fa fa-drivers-license-o' #txt
 Or0 f109 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -116,6 +117,7 @@ Or0 f106 callSignature Html5Demo() #txt
 Or0 f106 persist false #txt
 Or0 f106 startName 'Html 5 Demo' #txt
 Or0 f106 startCategory other #txt
+Or0 f106 startCustomFields 'cssIcon=fa fa-html5' #txt
 Or0 f106 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -144,6 +146,7 @@ Or0 f42 callSignature ManagedBeanDemo() #txt
 Or0 f42 persist false #txt
 Or0 f42 startName 'ManagedBean Demo' #txt
 Or0 f42 startCategory other #txt
+Or0 f42 startCustomFields 'cssIcon=fa fa-code' #txt
 Or0 f42 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -199,6 +202,7 @@ Or0 f39 callSignature MethodCallWithAjaxDemo() #txt
 Or0 f39 persist false #txt
 Or0 f39 startName 'Method call with Ajax' #txt
 Or0 f39 startCategory other #txt
+Or0 f39 startCustomFields 'cssIcon=fa  fa-spinner' #txt
 Or0 f39 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -245,6 +249,7 @@ Or0 f0 callSignature ErrorHandlingDemo() #txt
 Or0 f0 persist false #txt
 Or0 f0 startName ErrorHandlingDemo #txt
 Or0 f0 startCategory other #txt
+Or0 f0 startCustomFields 'cssIcon=fa fa-exclamation-triangle' #txt
 Or0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -288,6 +293,7 @@ Or0 f5 triggerEnabled false #txt
 Or0 f5 callSignature ResponsiveGridDemo() #txt
 Or0 f5 startName 'Responsive Grid Demo' #txt
 Or0 f5 startCategory other #txt
+Or0 f5 startCustomFields 'cssIcon=fa fa-th' #txt
 Or0 f5 caseData businessCase.attach=true #txt
 Or0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

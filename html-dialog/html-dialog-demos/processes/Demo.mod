@@ -23,6 +23,7 @@ Do0 f0 callSignature start() #txt
 Do0 f0 persist false #txt
 Do0 f0 startName 'All HtmlDialog Demos' #txt
 Do0 f0 startCategory demo #txt
+Do0 f0 startCustomFields 'cssIcon=fa fa-desktop' #txt
 Do0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0

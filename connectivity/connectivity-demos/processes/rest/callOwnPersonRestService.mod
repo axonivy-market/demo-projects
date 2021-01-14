@@ -41,6 +41,7 @@ ce0 f0 callSignature listPersons() #txt
 ce0 f0 persist false #txt
 ce0 f0 startName '1.1 List REST result in the runtime log' #txt
 ce0 f0 startCategory rest/person #txt
+ce0 f0 startCustomFields 'cssIcon=fa fa-users' #txt
 ce0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -71,6 +72,7 @@ ce0 f5 callSignature personManager() #txt
 ce0 f5 persist false #txt
 ce0 f5 startName '1.2 Accesses own REST service' #txt
 ce0 f5 startCategory rest/person #txt
+ce0 f5 startCustomFields 'cssIcon=fa fa-address-book-o' #txt
 ce0 f5 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -179,6 +181,7 @@ ce0 f2 callSignature listServiceOptions() #txt
 ce0 f2 persist false #txt
 ce0 f2 startName '1.3 Print REST service options' #txt
 ce0 f2 startCategory rest/person #txt
+ce0 f2 startCustomFields 'cssIcon=fa fa-rss' #txt
 ce0 f2 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0

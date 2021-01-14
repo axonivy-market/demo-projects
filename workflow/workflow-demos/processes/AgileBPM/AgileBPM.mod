@@ -111,6 +111,7 @@ AF0 f0 persist false #txt
 AF0 f0 startName '1: <%=ivy.cms.co("/ProcessDescriptions/SelfServiceBPM")%> (<%=ivy.cms.co("/ProcessDescriptions/AdHocName")%>)' #txt
 AF0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/AdHocDescription")%> #txt
 AF0 f0 startCategory agile #txt
+AF0 f0 startCustomFields 'cssIcon=fa fa-map-signs' #txt
 AF0 f0 taskData 'TaskTriggered.CATEGORY=Input/Adhoc
 TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody

@@ -78,6 +78,7 @@ dg0 f0 callSignature rawJSON() #txt
 dg0 f0 persist false #txt
 dg0 f0 startName '6.1.1 send raw JSON' #txt
 dg0 f0 startCategory rest/mapping #txt
+dg0 f0 startCustomFields 'cssIcon=fa fa-code' #txt
 dg0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -178,6 +179,7 @@ dg0 f8 callSignature complexObject() #txt
 dg0 f8 persist false #txt
 dg0 f8 startName '6.1.3 send complex Object' #txt
 dg0 f8 startCategory rest/mapping #txt
+dg0 f8 startCustomFields 'cssIcon=fa fa-object-group' #txt
 dg0 f8 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -270,6 +272,7 @@ dg0 f15 callSignature queryParameters() #txt
 dg0 f15 persist false #txt
 dg0 f15 startName '6.3.1 query parameters' #txt
 dg0 f15 startCategory rest/mapping #txt
+dg0 f15 startCustomFields 'cssIcon=fa fa-question' #txt
 dg0 f15 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -351,6 +354,7 @@ dg0 f22 callSignature acceptType() #txt
 dg0 f22 persist false #txt
 dg0 f22 startName '6.3.3 accept type header' #txt
 dg0 f22 startCategory rest/mapping #txt
+dg0 f22 startCustomFields 'cssIcon=fa fa-file-code-o' #txt
 dg0 f22 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -411,6 +415,7 @@ dg0 f28 callSignature formData() #txt
 dg0 f28 persist false #txt
 dg0 f28 startName '6.1.2 send form data' #txt
 dg0 f28 startCategory rest/mapping #txt
+dg0 f28 startCustomFields 'cssIcon=fa fa-id-card-o' #txt
 dg0 f28 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -564,6 +569,7 @@ dg0 f38 callSignature readPartialObject() #txt
 dg0 f38 persist false #txt
 dg0 f38 startName '6.2.1 read complex object partially to DataClass' #txt
 dg0 f38 startCategory rest/mapping #txt
+dg0 f38 startCustomFields 'cssIcon=fa fa-book' #txt
 dg0 f38 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -625,6 +631,7 @@ dg0 f44 callSignature pathParameters() #txt
 dg0 f44 persist false #txt
 dg0 f44 startName '6.3.2 path parameters' #txt
 dg0 f44 startCategory rest/mapping #txt
+dg0 f44 startCustomFields 'cssIcon=fa fa-code-fork' #txt
 dg0 f44 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -674,6 +681,7 @@ dg0 f47 callSignature readGenerated() #txt
 dg0 f47 persist false #txt
 dg0 f47 startName '6.2.2 read complex object to GeneratedClass' #txt
 dg0 f47 startCategory rest/mapping #txt
+dg0 f47 startCustomFields 'cssIcon=fa fa-plus-circle' #txt
 dg0 f47 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -815,6 +823,7 @@ dg0 f54 callSignature readJsonNode() #txt
 dg0 f54 persist false #txt
 dg0 f54 startName '6.2.3 read complex object partially as JsonNode' #txt
 dg0 f54 startCategory rest/mapping #txt
+dg0 f54 startCustomFields 'cssIcon=fa fa-sitemap' #txt
 dg0 f54 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
