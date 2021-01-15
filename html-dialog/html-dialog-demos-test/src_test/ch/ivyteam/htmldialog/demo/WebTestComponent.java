@@ -11,7 +11,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
-import com.axonivy.ivy.webtest.primeui.PrimeUi;
 
 @IvyWebTest
 public class WebTestComponent
@@ -23,7 +22,7 @@ public class WebTestComponent
 
     $(By.id("demoForm:personComponent:firstname")).shouldBe(visible).sendKeys("testFirstName");
     $(By.id("demoForm:personComponent:lastname")).sendKeys("testName" + Keys.ENTER);
-    PrimeUi.table(By.id("demoForm:result")).contains("test");
+    $(By.id("demoForm:result")).shouldHave(text("testFirstName"), text("testName"));
 
     fillAddressComponent("delivery");
     fillAddressComponent("billing");
@@ -35,7 +34,7 @@ public class WebTestComponent
             prefix + "Street");
     $(By.id("demoForm:personComponent:" + prefix + "AddressComponent:country")).sendKeys(
             prefix + "Country" + Keys.ENTER);
-    PrimeUi.table(By.id("demoForm:result")).contains(prefix);
+    $(By.id("demoForm:result")).shouldHave(text(prefix + "Street"), text(prefix + "Country"));
   }
 
   @Test
