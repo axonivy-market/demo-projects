@@ -10,12 +10,16 @@
     <url>https://www.axonivy.com</url>
   </organization>
 
+  <properties>
+    <project.build.plugin.version>9.1.0</project.build.plugin.version>
+  </properties>
+
   <build>
     <plugins>
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
-        <version>9.1.1-SNAPSHOT</version>
+        <version>${project.build.plugin.version}</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

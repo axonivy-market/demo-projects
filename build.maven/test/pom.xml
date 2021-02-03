@@ -15,6 +15,7 @@
     <maven.surefire.version>3.0.0-M3</maven.surefire.version>
     <test.application>Portal</test.application>
     <engine.directory>${java.io.tmpdir}/ivyEngine</engine.directory>
+    <project.build.plugin.version>9.1.0</project.build.plugin.version>
   </properties>
 
   <repositories>
@@ -72,7 +73,7 @@
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
-        <version>9.1.1-SNAPSHOT</version>
+        <version>${project.build.plugin.version}</version>
         <extensions>true</extensions>
         <configuration>
           <deployToEngineApplication>${test.application}</deployToEngineApplication>
