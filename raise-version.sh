@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mvn versions:set versions:commit -DnewVersion=${1} -DprocessAllModules
+mvn --batch-mode versions:set versions:commit -DnewVersion=${1} -DprocessAllModules
