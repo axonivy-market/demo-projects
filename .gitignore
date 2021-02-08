@@ -4,7 +4,7 @@
 **/src_generated/
 **/target/
 **/drivers/
-**/lib/
+**/lib/*.jar
 **/deploy/
 **/logs/
 **/src_ws/
