@@ -111,6 +111,15 @@
           </executions>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+            <systemPropertyVariables>
+              <test.environment>dev-axonivy</test.environment>
+            </systemPropertyVariables>
+          </configuration>
+        </plugin>
+        <plugin>
           <groupId>com.axonivy.ivy.ci</groupId>
           <artifactId>project-build-plugin</artifactId>
           <executions>
