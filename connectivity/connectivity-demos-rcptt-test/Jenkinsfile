@@ -1,7 +1,7 @@
 pipeline {
   agent {
-    docker {
-      image 'axonivy/build-container:rcptt-1.1'
+    dockerfile {
+      dir 'connectivity/connectivity-demos-rcptt-test'
     }
   }
 
@@ -25,12 +25,10 @@ pipeline {
     stage('test') {
       steps {
         script {
-          dir('connectivity/connectivity-demos-rcptt-test')
-          {
+          dir('connectivity/connectivity-demos-rcptt-test') {
             maven cmd: "clean test -Dmaven.test.failure.ignore=true -Dbuild.last.sucess.url=${designerListUrl}"
             junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/surefire-reports/**/*.xml'
-            archiveArtifacts 'target/aut/logs/,' +
-                            'target/results/**'
+            archiveArtifacts 'target/aut/logs/,target/results/**'
           }
         }
       }
