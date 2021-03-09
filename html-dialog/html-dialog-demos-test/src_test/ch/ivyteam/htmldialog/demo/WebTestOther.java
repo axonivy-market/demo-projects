@@ -58,7 +58,7 @@ public class WebTestOther
     $(By.id("result")).shouldHave(text("Welcome World"));
 
     $(By.id("closeDialog")).click();
-    $(By.id("welcomeText")).shouldHave(text("Welcome to Axon.ivy Html Dialog Demos"));
+    $(By.id("welcomeText")).shouldHave(text("Welcome to Axon Ivy Html Dialog Demos"));
   }
 
   @Test

@@ -28,7 +28,7 @@ public class WebTestOffline
     $(By.id("form:email")).sendKeys("someone.else@admin.ch");
     $(By.id("form:timeOfArrival")).sendKeys("13:15");
     $(By.id("form:proceed")).click();
-    $(By.id("welcomeText")).shouldHave(text("Welcome to Axon.ivy Html Dialog Demos"));
+    $(By.id("welcomeText")).shouldHave(text("Welcome to Axon Ivy Html Dialog Demos"));
   }
 
   @Test
