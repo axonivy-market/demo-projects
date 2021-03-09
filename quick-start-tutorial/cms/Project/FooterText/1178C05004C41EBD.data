@@ -1,3 +1,3 @@
 <P>
-Powered by <%=ch.ivyteam.ivy.Advisor.getAdvisor().getApplicationName()%> <%=ch.ivyteam.ivy.Advisor.getAdvisor().getVersion()%>. Copyright © 2001 - <%=(new Date()).getYear().toString()%> <A href="https://developer.axonivy.com/">AXON Ivy</A>
+Powered by <%=ch.ivyteam.ivy.Advisor.getAdvisor().getApplicationName()%> <%=ch.ivyteam.ivy.Advisor.getAdvisor().getVersion()%>. Copyright © 2001 - <%=(new Date()).getYear().toString()%> <A href="https://developer.axonivy.com/">Axon Ivy</A>
 </P>

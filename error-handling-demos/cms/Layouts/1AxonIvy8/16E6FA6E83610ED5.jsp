@@ -24,7 +24,7 @@
 <div class="navbar navbar-top" role="navigation">
   <div class="container" id="headerdiv">
 	  <a class="ivy-logo" href="<%=ivy.html.applicationHomeRef()%>">
-        <img src="../../../shared/images/axon_ivy_logo.png" alt="Axon.ivy">
+        <img src="../../../shared/images/axon_ivy_logo.png" alt="Axon Ivy">
       </a>
   </div>
 </div>

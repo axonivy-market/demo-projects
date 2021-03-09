@@ -76,7 +76,7 @@ Ma0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Migrates the stored Business Data values to the latest format.
-This is only required for Business Data written with an engine before Axon.ivy 6.7.0.</name>
+This is only required for Business Data written with an engine before Axon Ivy 6.7.0.</name>
         <nameStyle>71
 76,0,12
 1

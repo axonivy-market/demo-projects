@@ -2,7 +2,7 @@
 
 # Ivy demo projects
 
-This repository contains multiple demos how to use the Axon.ivy platform.
+This repository contains multiple demos how to use the Axon Ivy platform.
 
 - **connectivity-demos**: How to build and consume Rest or Soap services
 - **error-handling-demos**: How to handle errors
@@ -20,7 +20,7 @@ Requirements _(web integration tests)_:
 - Firefox
 - Maven _(terminal)_
 
-To run the tests import a project into your Axon.ivy Designer or open a terminal,
+To run the tests import a project into your Axon Ivy Designer or open a terminal,
 navigate to a project and run:
 
 ```console
