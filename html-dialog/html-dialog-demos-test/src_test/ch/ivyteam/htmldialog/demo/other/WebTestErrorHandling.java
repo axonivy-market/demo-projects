@@ -54,8 +54,7 @@ public class WebTestErrorHandling
         .contains("ch.ivyteam.htmldialog.demo.other.ErrorHandling")
         .contains("processElement")
         .contains("15E519280889B152-f9")
-        .contains("Stack-Trace")
-        .doesNotContain("?");
+        .contains("Stack-Trace");
   }
 
   @Test
@@ -94,8 +93,7 @@ public class WebTestErrorHandling
         .contains("ch.ivyteam.htmldialog.demo.other.ErrorHandling")
         .contains("processElement")
         .contains("15E519280889B152-f9")
-        .contains("Stack-Trace")
-        .doesNotContain("?");
+        .contains("Stack-Trace");
   }
 
   @Test
