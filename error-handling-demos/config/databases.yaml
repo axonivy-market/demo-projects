@@ -1,0 +1,10 @@
+Databases:
+  stock:
+    Url: jdbc:hsqldb:mem:StockDb
+    Driver: org.hsqldb.jdbcDriver
+  invalidDB:
+    Url: jdbc:postgresql://null/InvalidDB
+    Driver: org.postgresql.Driver
+    UserName: ''
+    Properties:
+      This DB is invalid on purpose: so it can be used to throw an error
