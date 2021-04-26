@@ -1,5 +1,5 @@
 [Ivy]
-162B95BB70C3178E 9.2.0 #module
+162B95BB70C3178E 9.3.0 #module
 >Proto >Proto Collection #zClass
 te0 technicalBackendService Big #zClass
 te0 WS #cInfo
@@ -40,7 +40,6 @@ te0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 te0 f15 243 76 208 44 -86 -15 #rect
-te0 f15 @|StepIcon #fIcon
 te0 f14 inParamDecl '<Integer blockSeconds> param;' #txt
 te0 f14 inParamTable 'out.blockSeconds=param.blockSeconds;
 out.startTimeMillis=System.currentTimeMillis();
@@ -67,9 +66,7 @@ te0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 te0 f14 @C|.responsibility Everybody #txt
 te0 f14 116 83 30 30 -80 -40 #rect
-te0 f14 @|StartWSIcon #fIcon
 te0 f17 492 83 30 30 0 15 #rect
-te0 f17 @|EndWSIcon #fIcon
 te0 f16 expr out #txt
 te0 f16 146 98 243 98 #arcP
 te0 f18 expr out #txt
@@ -84,7 +81,6 @@ te0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 te0 f0 176 177 336 30 -161 -7 #rect
-te0 f0 @|IBIcon #fIcon
 te0 f1 176 192 131 113 #arcP
 te0 f1 1 131 192 #addKink
 te0 f1 0 0.889103248784782 0 0 #arcLabel
@@ -98,7 +94,6 @@ te0 f1 0 0.889103248784782 0 0 #arcLabel
 </elementInfo>
 ' #txt
 >Proto te0 -8 -8 16 16 16 26 #rect
->Proto te0 '' #fIcon
 te0 f14 mainOut f16 tail #connect
 te0 f16 head f15 mainIn #connect
 te0 f15 mainOut f18 tail #connect

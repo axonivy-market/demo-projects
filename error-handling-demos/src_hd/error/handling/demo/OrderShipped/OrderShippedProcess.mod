@@ -1,5 +1,5 @@
 [Ivy]
-14ECFF3E4576898B 9.2.0 #module
+14ECFF3E4576898B 9.3.0 #module
 >Proto >Proto Collection #zClass
 Os0 OrderShippedProcess Big #zClass
 Os0 RD #cInfo
@@ -32,9 +32,7 @@ Os0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Os0 f0 83 51 26 26 -31 15 #rect
-Os0 f0 @|UdInitIcon #fIcon
 Os0 f1 211 51 26 26 0 12 #rect
-Os0 f1 @|UdProcessEndIcon #fIcon
 Os0 f2 expr out #txt
 Os0 f2 109 64 211 64 #arcP
 Os0 f3 guid 14ECFF3E48487C2E #txt
@@ -46,15 +44,12 @@ Os0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Os0 f3 83 147 26 26 -15 12 #rect
-Os0 f3 @|UdEventIcon #fIcon
 Os0 f4 211 147 26 26 0 12 #rect
-Os0 f4 @|UdExitEndIcon #fIcon
 Os0 f5 expr out #txt
 Os0 f5 109 160 211 160 #arcP
 >Proto Os0 .type error.handling.demo.OrderShipped.OrderShippedData #txt
 >Proto Os0 .processKind HTML_DIALOG #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect
->Proto Os0 '' #fIcon
 Os0 f0 mainOut f2 tail #connect
 Os0 f2 head f1 mainIn #connect
 Os0 f3 mainOut f5 tail #connect

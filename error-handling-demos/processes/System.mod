@@ -1,5 +1,5 @@
 [Ivy]
-150149331438F9EA 9.2.0 #module
+150149331438F9EA 9.3.0 #module
 >Proto >Proto Collection #zClass
 tl0 System Big #zClass
 tl0 B #cInfo
@@ -43,9 +43,7 @@ tl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 tl0 f0 @C|.responsibility Everybody #txt
 tl0 f0 81 177 30 30 -61 17 #rect
-tl0 f0 @|StartRequestIcon #fIcon
 tl0 f1 433 177 30 30 0 15 #rect
-tl0 f1 @|EndIcon #fIcon
 tl0 f3 actionDecl 'error.handling.demo.technicalData out;
 ' #txt
 tl0 f3 actionTable 'out=in;
@@ -68,7 +66,6 @@ tl0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 tl0 f3 208 170 128 44 -56 -8 #rect
-tl0 f3 @|DBStepIcon #fIcon
 tl0 f4 expr out #txt
 tl0 f4 111 192 208 192 #arcP
 tl0 f2 expr out #txt
@@ -100,7 +97,6 @@ a Global Error Process (ErrorHandler)</name>
 </elementInfo>
 ' #txt
 tl0 f5 48 26 336 76 -160 -35 #rect
-tl0 f5 @|IBIcon #fIcon
 tl0 f5 -1|-1|-65536 #nodeStyle
 >Proto tl0 .type error.handling.demo.technicalData #txt
 >Proto tl0 .processKind NORMAL #txt

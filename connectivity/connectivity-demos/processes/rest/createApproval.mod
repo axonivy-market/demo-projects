@@ -1,5 +1,5 @@
 [Ivy]
-1549FEEB682EF158 9.2.0 #module
+1549FEEB682EF158 9.3.0 #module
 >Proto >Proto Collection #zClass
 cl0 createApproval Big #zClass
 cl0 B #cInfo
@@ -38,9 +38,7 @@ cl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 cl0 f0 113 81 30 30 -47 17 #rect
-cl0 f0 @|StartSubIcon #fIcon
 cl0 f1 369 81 30 30 0 15 #rect
-cl0 f1 @|EndSubIcon #fIcon
 cl0 f3 processCall rest/approval:approve(com.axonivy.connectivity.rest.Approval) #txt
 cl0 f3 requestActionDecl '<com.axonivy.connectivity.rest.Approval approval> param;' #txt
 cl0 f3 requestMappingAction 'param.approval=in.approval;
@@ -61,7 +59,6 @@ boss</name>
 </elementInfo>
 ' #txt
 cl0 f3 200 74 112 44 -34 -15 #rect
-cl0 f3 @|TriggerIcon #fIcon
 cl0 f4 expr out #txt
 cl0 f4 143 96 200 96 #arcP
 cl0 f2 expr out #txt
@@ -78,7 +75,6 @@ so we can finish the running REST request.</name>
 </elementInfo>
 ' #txt
 cl0 f5 360 146 256 44 -118 -16 #rect
-cl0 f5 @|IBIcon #fIcon
 cl0 f6 360 168 256 118 #arcP
 cl0 f6 1 272 168 #addKink
 cl0 f6 0 0.7543172312258071 0 0 #arcLabel

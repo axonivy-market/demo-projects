@@ -1,5 +1,5 @@
 [Ivy]
-15FB50542D237D38 9.2.0 #module
+15FB50542D237D38 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ls0 LazyLoadedModalDialogProcess Big #zClass
 Ls0 RD #cInfo
@@ -33,9 +33,7 @@ Ls0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ls0 f0 83 51 26 26 -20 15 #rect
-Ls0 f0 @|UdInitIcon #fIcon
 Ls0 f1 211 51 26 26 0 12 #rect
-Ls0 f1 @|UdProcessEndIcon #fIcon
 Ls0 f2 expr out #txt
 Ls0 f2 109 64 211 64 #arcP
 Ls0 f3 guid 15FB505430A95F65 #txt
@@ -49,9 +47,7 @@ Ls0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ls0 f3 83 147 26 26 -16 12 #rect
-Ls0 f3 @|UdEventIcon #fIcon
 Ls0 f4 211 147 26 26 0 12 #rect
-Ls0 f4 @|UdExitEndIcon #fIcon
 Ls0 f5 expr out #txt
 Ls0 f5 109 160 211 160 #arcP
 Ls0 f6 guid 15FB5D7D51549A5F #txt
@@ -70,15 +66,12 @@ Ls0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ls0 f6 83 243 26 26 -41 15 #rect
-Ls0 f6 @|UdMethodIcon #fIcon
 Ls0 f8 expr out #txt
 Ls0 f8 109 256 211 256 #arcP
 Ls0 f7 211 243 26 26 0 12 #rect
-Ls0 f7 @|UdProcessEndIcon #fIcon
 >Proto Ls0 .type ch.ivyteam.htmldialog.demo.component.LazyLoadedModalDialog.LazyLoadedModalDialogData #txt
 >Proto Ls0 .processKind HTML_DIALOG #txt
 >Proto Ls0 -8 -8 16 16 16 26 #rect
->Proto Ls0 '' #fIcon
 Ls0 f0 mainOut f2 tail #connect
 Ls0 f2 head f1 mainIn #connect
 Ls0 f3 mainOut f5 tail #connect

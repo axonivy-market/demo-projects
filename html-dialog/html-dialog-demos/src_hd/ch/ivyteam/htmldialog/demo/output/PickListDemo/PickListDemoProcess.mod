@@ -1,5 +1,5 @@
 [Ivy]
-139E3427D3640FBC 9.2.0 #module
+139E3427D3640FBC 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ps0 PickListDemoProcess Big #zClass
 Ps0 RD #cInfo
@@ -30,10 +30,8 @@ Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ps0 f0 83 83 26 26 -16 12 #rect
-Ps0 f0 @|UdInitIcon #fIcon
 Ps0 f0 -1|-1|-9671572 #nodeStyle
 Ps0 f1 403 83 26 26 0 12 #rect
-Ps0 f1 @|UdProcessEndIcon #fIcon
 Ps0 f1 -1|-1|-9671572 #nodeStyle
 Ps0 f3 processCall 'Functional Processes/InitPersons:initPerson()' #txt
 Ps0 f3 requestActionDecl '<> param;' #txt
@@ -52,7 +50,6 @@ Ps0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ps0 f3 200 74 112 44 -32 -8 #rect
-Ps0 f3 @|CallSubIcon #fIcon
 Ps0 f3 -1|-1|-9671572 #nodeStyle
 Ps0 f4 expr out #txt
 Ps0 f4 109 96 200 96 #arcP
@@ -70,10 +67,8 @@ Ps0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ps0 f7 83 275 26 26 -14 12 #rect
-Ps0 f7 @|UdEventIcon #fIcon
 Ps0 f7 -1|-1|-9671572 #nodeStyle
 Ps0 f8 211 275 26 26 0 12 #rect
-Ps0 f8 @|UdProcessEndIcon #fIcon
 Ps0 f8 -1|-1|-9671572 #nodeStyle
 Ps0 f10 expr out #txt
 Ps0 f10 109 288 211 288 #arcP
@@ -96,7 +91,6 @@ Ps0 f2 312 96 403 96 #arcP
 </elementInfo>
 ' #txt
 >Proto Ps0 -8 -8 16 16 16 26 #rect
->Proto Ps0 '' #fIcon
 Ps0 f0 mainOut f4 tail #connect
 Ps0 f4 head f3 mainIn #connect
 Ps0 f7 mainOut f10 tail #connect

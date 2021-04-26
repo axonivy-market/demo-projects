@@ -1,5 +1,5 @@
 [Ivy]
-15254CF47A16DEA1 9.2.0 #module
+15254CF47A16DEA1 9.3.0 #module
 >Proto >Proto Collection #zClass
 Pn0 ParkingLotReservation Big #zClass
 Pn0 B #cInfo
@@ -51,9 +51,7 @@ Pn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Pn0 f0 @C|.responsibility Everybody #txt
 Pn0 f0 97 249 30 30 -69 17 #rect
-Pn0 f0 @|StartRequestIcon #fIcon
 Pn0 f1 553 249 30 30 0 15 #rect
-Pn0 f1 @|EndIcon #fIcon
 Pn0 f3 dialogId workflow.trigger.ReserveParkingLot #txt
 Pn0 f3 startMethod start(workflow.trigger.NewEmployeeData) #txt
 Pn0 f3 requestActionDecl '<workflow.trigger.NewEmployeeData employee> param;' #txt
@@ -73,7 +71,6 @@ Pn0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pn0 f3 184 242 112 44 -53 -8 #rect
-Pn0 f3 @|UserDialogIcon #fIcon
 Pn0 f4 expr out #txt
 Pn0 f4 127 264 184 264 #arcP
 Pn0 f5 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/parkingLotReservationHeader\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage "" <html> \\n\\t<style type=\\""text/css\\"">\\n     \\t\\t<%=ivy.cms.co(\\""/Styles/Classic\\"")%>\\n\\t</style>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Images/Logo\\"")%>\\n\\n\\t<%=ivy.cms.co(\\""/Emails/confirmParkingLot\\"")%>\\n</html>""/emailAttachments * }"' #txt
@@ -90,7 +87,6 @@ Pn0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pn0 f5 376 242 112 44 -46 -8 #rect
-Pn0 f5 @|EMailIcon #fIcon
 Pn0 f6 expr out #txt
 Pn0 f6 296 264 376 264 #arcP
 Pn0 f2 expr out #txt
@@ -106,7 +102,6 @@ startable by a trigger step.</name>
 </elementInfo>
 ' #txt
 Pn0 f7 104 130 208 44 -96 -16 #rect
-Pn0 f7 @|IBIcon #fIcon
 Pn0 f8 208 174 110 249 #arcP
 Pn0 f8 0 0.5346056776585273 0 0 #arcLabel
 Pn0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -119,7 +114,6 @@ Pn0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pn0 f9 72 33 448 30 -217 -8 #rect
-Pn0 f9 @|IBIcon #fIcon
 >Proto Pn0 .type workflow.trigger.NewEmployeeData #txt
 >Proto Pn0 .processKind NORMAL #txt
 >Proto Pn0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

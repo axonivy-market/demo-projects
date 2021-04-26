@@ -1,5 +1,5 @@
 [Ivy]
-153EAAA7649F85DA 9.2.0 #module
+153EAAA7649F85DA 9.3.0 #module
 >Proto >Proto Collection #zClass
 Dr0 DiscountCalculator Big #zClass
 Dr0 B #cInfo
@@ -38,7 +38,6 @@ Dr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Dr0 f0 @C|.responsibility Everybody #txt
 Dr0 f0 65 137 30 30 -21 17 #rect
-Dr0 f0 @|StartRequestIcon #fIcon
 Dr0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -49,7 +48,6 @@ Dr0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Dr0 f1 321 137 30 30 -10 17 #rect
-Dr0 f1 @|EndIcon #fIcon
 Dr0 f3 dialogId rule.engine.demo.DiscountCalculator #txt
 Dr0 f3 startMethod start(rule.engine.demo.Member) #txt
 Dr0 f3 requestActionDecl '<rule.engine.demo.Member member> param;' #txt
@@ -67,7 +65,6 @@ Dr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Dr0 f3 152 130 112 44 -53 -8 #rect
-Dr0 f3 @|UserDialogIcon #fIcon
 Dr0 f4 expr out #txt
 Dr0 f4 95 152 152 152 #arcP
 Dr0 f2 expr out #txt
@@ -82,7 +79,6 @@ Dr0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Dr0 f5 321 265 30 30 -10 17 #rect
-Dr0 f5 @|EndIcon #fIcon
 Dr0 f6 outLink start2.ivp #txt
 Dr0 f6 inParamDecl '<> param;' #txt
 Dr0 f6 requestEnabled true #txt
@@ -98,7 +94,6 @@ Dr0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Dr0 f6 @C|.responsibility Everybody #txt
 Dr0 f6 65 265 30 30 -24 17 #rect
-Dr0 f6 @|StartRequestIcon #fIcon
 Dr0 f7 dialogId rule.engine.demo.AdjustableDiscountCalculator #txt
 Dr0 f7 startMethod start() #txt
 Dr0 f7 requestActionDecl '<> param;' #txt
@@ -118,7 +113,6 @@ Discount Calculator</name>
 </elementInfo>
 ' #txt
 Dr0 f7 144 258 128 44 -46 -16 #rect
-Dr0 f7 @|UserDialogIcon #fIcon
 Dr0 f8 expr out #txt
 Dr0 f8 272 280 321 280 #arcP
 Dr0 f9 expr out #txt
@@ -131,7 +125,6 @@ Dr0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Dr0 f10 48 41 688 30 -339 -8 #rect
-Dr0 f10 @|IBIcon #fIcon
 >Proto Dr0 .type rule.engine.demo.Data #txt
 >Proto Dr0 .processKind NORMAL #txt
 >Proto Dr0 0 0 32 24 18 0 #rect

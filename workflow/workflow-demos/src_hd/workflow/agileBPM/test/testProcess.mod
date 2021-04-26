@@ -1,5 +1,5 @@
 [Ivy]
-1525511ED79C649A 9.2.0 #module
+1525511ED79C649A 9.3.0 #module
 >Proto >Proto Collection #zClass
 ts0 testProcess Big #zClass
 ts0 RD #cInfo
@@ -34,9 +34,7 @@ ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ts0 f0 83 51 26 26 -32 15 #rect
-ts0 f0 @|UdInitIcon #fIcon
 ts0 f1 211 51 26 26 0 12 #rect
-ts0 f1 @|UdProcessEndIcon #fIcon
 ts0 f2 expr out #txt
 ts0 f2 109 64 211 64 #arcP
 ts0 f3 guid 151338266FE6ECF5 #txt
@@ -50,15 +48,12 @@ ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ts0 f3 83 147 26 26 -15 12 #rect
-ts0 f3 @|UdEventIcon #fIcon
 ts0 f4 211 147 26 26 0 12 #rect
-ts0 f4 @|UdExitEndIcon #fIcon
 ts0 f5 expr out #txt
 ts0 f5 109 160 211 160 #arcP
 >Proto ts0 .type workflow.agileBPM.test.testData #txt
 >Proto ts0 .processKind HTML_DIALOG #txt
 >Proto ts0 -8 -8 16 16 16 26 #rect
->Proto ts0 '' #fIcon
 ts0 f0 mainOut f2 tail #connect
 ts0 f2 head f1 mainIn #connect
 ts0 f3 mainOut f5 tail #connect

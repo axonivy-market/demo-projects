@@ -1,5 +1,5 @@
 [Ivy]
-15A60076034F7437 9.2.0 #module
+15A60076034F7437 9.3.0 #module
 >Proto >Proto Collection #zClass
 dg0 dataMapping Big #zClass
 dg0 B #cInfo
@@ -98,9 +98,7 @@ dg0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 dg0 f0 @C|.responsibility Everybody #txt
 dg0 f0 80 137 30 30 -36 17 #rect
-dg0 f0 @|StartRequestIcon #fIcon
 dg0 f1 527 137 30 30 0 15 #rect
-dg0 f1 @|EndIcon #fIcon
 dg0 f3 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f3 path posts #txt
 dg0 f3 method POST #txt
@@ -129,7 +127,6 @@ RAW JSON</name>
 </elementInfo>
 ' #txt
 dg0 f3 332 128 152 48 -54 -15 #rect
-dg0 f3 @|RestClientCallIcon #fIcon
 dg0 f2 484 152 527 152 #arcP
 dg0 f5 actionTable 'out=in;
 ' #txt
@@ -147,7 +144,6 @@ dg0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 dg0 f5 168 130 112 44 -42 -7 #rect
-dg0 f5 @|StepIcon #fIcon
 dg0 f6 expr out #txt
 dg0 f6 110 152 168 152 #arcP
 dg0 f4 expr out #txt
@@ -170,7 +166,6 @@ dg0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 dg0 f7 168 298 112 44 -42 -7 #rect
-dg0 f7 @|StepIcon #fIcon
 dg0 f8 outLink complexObject.ivp #txt
 dg0 f8 inParamDecl '<> param;' #txt
 dg0 f8 requestEnabled true #txt
@@ -199,9 +194,7 @@ dg0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 dg0 f8 @C|.responsibility Everybody #txt
 dg0 f8 80 305 30 30 -56 17 #rect
-dg0 f8 @|StartRequestIcon #fIcon
 dg0 f9 527 305 30 30 0 15 #rect
-dg0 f9 @|EndIcon #fIcon
 dg0 f10 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f10 path posts #txt
 dg0 f10 method POST #txt
@@ -230,7 +223,6 @@ Java Object</name>
 </elementInfo>
 ' #txt
 dg0 f10 332 296 152 48 -54 -15 #rect
-dg0 f10 @|RestClientCallIcon #fIcon
 dg0 f11 484 320 527 320 #arcP
 dg0 f12 expr out #txt
 dg0 f12 110 320 168 320 #arcP
@@ -263,7 +255,6 @@ as query parameter</name>
 </elementInfo>
 ' #txt
 dg0 f14 332 704 152 48 -54 -15 #rect
-dg0 f14 @|RestClientCallIcon #fIcon
 dg0 f15 outLink queryParameters.ivp #txt
 dg0 f15 inParamDecl '<> param;' #txt
 dg0 f15 requestEnabled true #txt
@@ -292,9 +283,7 @@ dg0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 dg0 f15 @C|.responsibility Everybody #txt
 dg0 f15 80 713 30 30 -64 17 #rect
-dg0 f15 @|StartRequestIcon #fIcon
 dg0 f16 527 713 30 30 0 15 #rect
-dg0 f16 @|EndIcon #fIcon
 dg0 f18 484 728 527 728 #arcP
 dg0 f19 actionTable 'out=in;
 out.myPost.body="I have something to say";
@@ -313,7 +302,6 @@ dg0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 dg0 f19 168 706 112 44 -47 -7 #rect
-dg0 f19 @|StepIcon #fIcon
 dg0 f20 expr out #txt
 dg0 f20 110 728 168 728 #arcP
 dg0 f17 expr out #txt
@@ -343,7 +331,6 @@ as JSON</name>
 </elementInfo>
 ' #txt
 dg0 f21 168 866 112 44 -38 -15 #rect
-dg0 f21 @|RestClientCallIcon #fIcon
 dg0 f22 outLink acceptType.ivp #txt
 dg0 f22 inParamDecl '<> param;' #txt
 dg0 f22 inParamTable 'out.userId=1;
@@ -374,9 +361,7 @@ dg0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 dg0 f22 @C|.responsibility Everybody #txt
 dg0 f22 80 873 30 30 -46 17 #rect
-dg0 f22 @|StartRequestIcon #fIcon
 dg0 f23 527 873 30 30 0 15 #rect
-dg0 f23 @|EndIcon #fIcon
 dg0 f24 expr out #txt
 dg0 f24 110 888 168 888 #arcP
 dg0 f25 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
@@ -404,7 +389,6 @@ as XML</name>
 </elementInfo>
 ' #txt
 dg0 f25 352 866 112 44 -38 -15 #rect
-dg0 f25 @|RestClientCallIcon #fIcon
 dg0 f26 280 888 352 888 #arcP
 dg0 f27 464 888 527 888 #arcP
 dg0 f28 outLink formData.ivp #txt
@@ -435,7 +419,6 @@ dg0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 dg0 f28 @C|.responsibility Everybody #txt
 dg0 f28 80 225 30 30 -39 17 #rect
-dg0 f28 @|StartRequestIcon #fIcon
 dg0 f29 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f29 path posts #txt
 dg0 f29 method POST #txt
@@ -467,7 +450,6 @@ Form with Strings</name>
 </elementInfo>
 ' #txt
 dg0 f29 332 216 152 48 -46 -15 #rect
-dg0 f29 @|RestClientCallIcon #fIcon
 dg0 f30 actionTable 'out=in;
 out.myPost.body="I have something to say";
 out.myPost.name="Mr. Smith";
@@ -486,9 +468,7 @@ dg0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 dg0 f30 168 218 112 44 -42 -7 #rect
-dg0 f30 @|StepIcon #fIcon
 dg0 f31 527 225 30 30 0 15 #rect
-dg0 f31 @|EndIcon #fIcon
 dg0 f32 expr out #txt
 dg0 f32 110 240 168 240 #arcP
 dg0 f33 expr out #txt
@@ -506,7 +486,6 @@ data with REST services.</name>
 </elementInfo>
 ' #txt
 dg0 f35 128 26 320 44 -156 -15 #rect
-dg0 f35 @|IBIcon #fIcon
 dg0 f36 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f36 path users/1 #txt
 dg0 f36 method GET #txt
@@ -560,7 +539,6 @@ Sample JSON returned by the service:
 </elementInfo>
 ' #txt
 dg0 f36 347 412 128 44 -51 -15 #rect
-dg0 f36 @|RestClientCallIcon #fIcon
 dg0 f38 outLink readPartialObject.ivp #txt
 dg0 f38 inParamDecl '<> param;' #txt
 dg0 f38 requestEnabled true #txt
@@ -589,14 +567,11 @@ dg0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 dg0 f38 @C|.responsibility Everybody #txt
 dg0 f38 80 419 30 30 -65 17 #rect
-dg0 f38 @|StartRequestIcon #fIcon
 dg0 f41 527 419 30 30 0 15 #rect
-dg0 f41 @|EndIcon #fIcon
 dg0 f42 475 434 527 434 #arcP
 dg0 f37 expr out #txt
 dg0 f37 110 434 347 434 #arcP
 dg0 f39 527 793 30 30 0 15 #rect
-dg0 f39 @|EndIcon #fIcon
 dg0 f43 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 dg0 f43 path {in.userId} #txt
 dg0 f43 templateParams 'in.userId=in.userId;
@@ -622,7 +597,6 @@ as JSON</name>
 </elementInfo>
 ' #txt
 dg0 f43 352 786 112 44 -38 -15 #rect
-dg0 f43 @|RestClientCallIcon #fIcon
 dg0 f44 outLink pathParameters.ivp #txt
 dg0 f44 inParamDecl '<> param;' #txt
 dg0 f44 requestEnabled true #txt
@@ -651,7 +625,6 @@ dg0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 dg0 f44 @C|.responsibility Everybody #txt
 dg0 f44 80 793 30 30 -61 17 #rect
-dg0 f44 @|StartRequestIcon #fIcon
 dg0 f48 actionTable 'out=in;
 ' #txt
 dg0 f48 actionCode 'import org.apache.commons.lang3.RandomUtils;
@@ -667,7 +640,6 @@ dg0 f48 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 dg0 f48 168 786 112 44 -47 -7 #rect
-dg0 f48 @|StepIcon #fIcon
 dg0 f40 464 808 527 808 #arcP
 dg0 f45 expr out #txt
 dg0 f45 110 808 168 808 #arcP
@@ -701,9 +673,7 @@ dg0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 dg0 f47 @C|.responsibility Everybody #txt
 dg0 f47 80 497 30 30 -58 17 #rect
-dg0 f47 @|StartRequestIcon #fIcon
 dg0 f49 527 497 30 30 0 15 #rect
-dg0 f49 @|EndIcon #fIcon
 dg0 f51 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f51 path users/1 #txt
 dg0 f51 method GET #txt
@@ -757,7 +727,6 @@ Sample JSON returned by the service:
 </elementInfo>
 ' #txt
 dg0 f51 351 490 128 44 -45 -15 #rect
-dg0 f51 @|RestClientCallIcon #fIcon
 dg0 f52 expr out #txt
 dg0 f52 110 512 351 512 #arcP
 dg0 f50 479 512 527 512 #arcP
@@ -814,7 +783,6 @@ Sample JSON returned by the service:
 </elementInfo>
 ' #txt
 dg0 f53 349 568 128 44 -45 -15 #rect
-dg0 f53 @|RestClientCallIcon #fIcon
 dg0 f54 outLink readJsonNode.ivp #txt
 dg0 f54 inParamDecl '<> param;' #txt
 dg0 f54 requestEnabled true #txt
@@ -843,11 +811,9 @@ dg0 f54 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 dg0 f54 @C|.responsibility Everybody #txt
 dg0 f54 80 575 30 30 -54 17 #rect
-dg0 f54 @|StartRequestIcon #fIcon
 dg0 f55 expr out #txt
 dg0 f55 110 590 349 590 #arcP
 dg0 f56 527 575 30 30 0 15 #rect
-dg0 f56 @|EndIcon #fIcon
 dg0 f57 477 590 527 590 #arcP
 >Proto dg0 .type com.axonivy.connectivity.rest.DataMappingData #txt
 >Proto dg0 .processKind NORMAL #txt

@@ -1,5 +1,5 @@
 [Ivy]
-152EF97FE4494BDB 9.2.0 #module
+152EF97FE4494BDB 9.3.0 #module
 >Proto >Proto Collection #zClass
 Qs0 QuitSignalSentProcess Big #zClass
 Qs0 RD #cInfo
@@ -30,9 +30,7 @@ Qs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Qs0 f0 83 51 26 26 -16 15 #rect
-Qs0 f0 @|UdInitIcon #fIcon
 Qs0 f1 211 51 26 26 0 12 #rect
-Qs0 f1 @|UdProcessEndIcon #fIcon
 Qs0 f2 expr out #txt
 Qs0 f2 109 64 211 64 #arcP
 Qs0 f3 guid 152EF97FE84CCCF9 #txt
@@ -44,15 +42,12 @@ Qs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Qs0 f3 83 147 26 26 -15 12 #rect
-Qs0 f3 @|UdEventIcon #fIcon
 Qs0 f4 211 147 26 26 0 12 #rect
-Qs0 f4 @|UdExitEndIcon #fIcon
 Qs0 f5 expr out #txt
 Qs0 f5 109 160 211 160 #arcP
 >Proto Qs0 .type workflow.signal.QuitSignalSent.QuitSignalSentData #txt
 >Proto Qs0 .processKind HTML_DIALOG #txt
 >Proto Qs0 -8 -8 16 16 16 26 #rect
->Proto Qs0 '' #fIcon
 Qs0 f0 mainOut f2 tail #connect
 Qs0 f2 head f1 mainIn #connect
 Qs0 f3 mainOut f5 tail #connect

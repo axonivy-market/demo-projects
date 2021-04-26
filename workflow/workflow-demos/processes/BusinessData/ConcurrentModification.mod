@@ -1,5 +1,5 @@
 [Ivy]
-156DB84CCE78254F 9.2.0 #module
+156DB84CCE78254F 9.3.0 #module
 >Proto >Proto Collection #zClass
 Cn0 ConcurrentModification Big #zClass
 Cn0 B #cInfo
@@ -65,7 +65,6 @@ Cn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cn0 f0 @C|.responsibility Everybody #txt
 Cn0 f0 81 369 30 30 -23 17 #rect
-Cn0 f0 @|StartRequestIcon #fIcon
 Cn0 f2 actionTable 'out=in1;
 ' #txt
 Cn0 f2 outLinks "TaskA.ivp","TaskB.ivp" #txt
@@ -89,7 +88,6 @@ TaskB.SKIP_TASK_LIST=false
 TaskB.TYPE=0' #txt
 Cn0 f2 template "" #txt
 Cn0 f2 336 368 32 32 0 16 #rect
-Cn0 f2 @|TaskSwitchIcon #fIcon
 Cn0 f1 actionTable 'out=in1;
 ' #txt
 Cn0 f1 outLinks "TaskA.ivp" #txt
@@ -104,7 +102,6 @@ TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
 Cn0 f1 template "" #txt
 Cn0 f1 560 368 32 32 0 16 #rect
-Cn0 f1 @|TaskSwitchIcon #fIcon
 Cn0 f6 dialogId workflow.businessdata.ModifyCountry #txt
 Cn0 f6 startMethod start(String) #txt
 Cn0 f6 requestActionDecl '<String id> param;' #txt
@@ -125,7 +122,6 @@ of Address</name>
 </elementInfo>
 ' #txt
 Cn0 f6 400 298 128 44 -41 -16 #rect
-Cn0 f6 @|UserDialogIcon #fIcon
 Cn0 f7 dialogId workflow.businessdata.ModifyAddress #txt
 Cn0 f7 startMethod start(String) #txt
 Cn0 f7 requestActionDecl '<String id> param;' #txt
@@ -146,9 +142,7 @@ Address</name>
 </elementInfo>
 ' #txt
 Cn0 f7 408 426 112 44 -23 -16 #rect
-Cn0 f7 @|UserDialogIcon #fIcon
 Cn0 f8 785 369 30 30 0 15 #rect
-Cn0 f8 @|EndIcon #fIcon
 Cn0 f9 dialogId workflow.businessdata.ViewAddress #txt
 Cn0 f9 startMethod start(String) #txt
 Cn0 f9 requestActionDecl '<String id> param;' #txt
@@ -169,7 +163,6 @@ Data</name>
 </elementInfo>
 ' #txt
 Cn0 f9 632 362 112 44 -36 -16 #rect
-Cn0 f9 @|UserDialogIcon #fIcon
 Cn0 f10 expr data #txt
 Cn0 f10 outCond ivp=="TaskA.ivp" #txt
 Cn0 f10 352 368 400 320 #arcP
@@ -211,7 +204,6 @@ Finish the modify address task and see the isUpToDate check.</name>
 </elementInfo>
 ' #txt
 Cn0 f16 64 538 352 76 -171 -32 #rect
-Cn0 f16 @|IBIcon #fIcon
 Cn0 f18 dialogId workflow.businessdata.CreateAddress #txt
 Cn0 f18 startMethod start() #txt
 Cn0 f18 requestActionDecl '<> param;' #txt
@@ -230,7 +222,6 @@ Cn0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cn0 f18 168 362 112 44 -43 -8 #rect
-Cn0 f18 @|UserDialogIcon #fIcon
 Cn0 f4 expr out #txt
 Cn0 f4 111 384 168 384 #arcP
 Cn0 f5 expr out #txt
@@ -262,7 +253,6 @@ and re-apply the modifications. Other use cases are documented in the Public API
 </elementInfo>
 ' #txt
 Cn0 f3 64 18 480 204 -232 -96 #rect
-Cn0 f3 @|IBIcon #fIcon
 Cn0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -275,7 +265,6 @@ Cn0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cn0 f19 512 257 176 30 -85 -8 #rect
-Cn0 f19 @|IBIcon #fIcon
 Cn0 f20 512 272 464 298 #arcP
 Cn0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -288,7 +277,6 @@ Cn0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cn0 f21 496 489 224 30 -105 -8 #rect
-Cn0 f21 @|IBIcon #fIcon
 Cn0 f22 496 504 464 470 #arcP
 >Proto Cn0 .type workflow.businessdata.Data #txt
 >Proto Cn0 .processKind NORMAL #txt

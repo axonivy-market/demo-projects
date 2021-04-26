@@ -1,5 +1,5 @@
 [Ivy]
-14377E60D299F34F 9.2.0 #module
+14377E60D299F34F 9.3.0 #module
 >Proto >Proto Collection #zClass
 Es0 JsfCompositeComponentDemoProcess Big #zClass
 Es0 RD #cInfo
@@ -34,10 +34,8 @@ Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f0 83 51 26 26 -16 12 #rect
-Es0 f0 @|UdInitIcon #fIcon
 Es0 f0 -1|-1|-9671572 #nodeStyle
 Es0 f1 211 51 26 26 0 12 #rect
-Es0 f1 @|UdProcessEndIcon #fIcon
 Es0 f1 -1|-1|-9671572 #nodeStyle
 Es0 f2 expr out #txt
 Es0 f2 109 64 211 64 #arcP
@@ -52,6 +50,5 @@ Es0 f2 109 64 211 64 #arcP
 </elementInfo>
 ' #txt
 >Proto Es0 -8 -8 16 16 16 26 #rect
->Proto Es0 '' #fIcon
 Es0 f0 mainOut f2 tail #connect
 Es0 f2 head f1 mainIn #connect

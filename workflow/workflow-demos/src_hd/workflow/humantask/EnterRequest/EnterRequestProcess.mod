@@ -1,5 +1,5 @@
 [Ivy]
-15254DF5837F8B00 9.2.0 #module
+15254DF5837F8B00 9.3.0 #module
 >Proto >Proto Collection #zClass
 Es0 EnterRequestProcess Big #zClass
 Es0 RD #cInfo
@@ -39,9 +39,7 @@ Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f0 83 51 26 26 -16 15 #rect
-Es0 f0 @|UdInitIcon #fIcon
 Es0 f1 339 51 26 26 0 12 #rect
-Es0 f1 @|UdProcessEndIcon #fIcon
 Es0 f3 guid 14FADF4C908E8C33 #txt
 Es0 f3 actionTable 'out=in;
 ' #txt
@@ -55,9 +53,7 @@ Es0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f3 83 147 26 26 -15 15 #rect
-Es0 f3 @|UdEventIcon #fIcon
 Es0 f4 339 147 26 26 0 12 #rect
-Es0 f4 @|UdExitEndIcon #fIcon
 Es0 f6 actionTable 'out=in;
 out.procurementRequestData=new workflow.humantask.ProcurementRequest();
 out.procurementRequestData.requester.email=ivy.session.getSessionUser().eMailAddress;
@@ -79,7 +75,6 @@ Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f6 168 42 112 44 -21 -8 #rect
-Es0 f6 @|StepIcon #fIcon
 Es0 f7 expr out #txt
 Es0 f7 109 64 168 64 #arcP
 Es0 f2 expr out #txt
@@ -99,7 +94,6 @@ Es0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f8 168 138 112 44 -33 -8 #rect
-Es0 f8 @|StepIcon #fIcon
 Es0 f9 expr out #txt
 Es0 f9 109 160 168 160 #arcP
 Es0 f5 expr out #txt
@@ -107,7 +101,6 @@ Es0 f5 280 160 339 160 #arcP
 >Proto Es0 .type workflow.humantask.EnterRequest.EnterRequestData #txt
 >Proto Es0 .processKind HTML_DIALOG #txt
 >Proto Es0 -8 -8 16 16 16 26 #rect
->Proto Es0 '' #fIcon
 Es0 f0 mainOut f7 tail #connect
 Es0 f7 head f6 mainIn #connect
 Es0 f6 mainOut f2 tail #connect

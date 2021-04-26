@@ -1,5 +1,5 @@
 [Ivy]
-150850F930AF7EA6 9.2.0 #module
+150850F930AF7EA6 9.3.0 #module
 >Proto >Proto Collection #zClass
 Rs0 RequestApprovalProcess Big #zClass
 Rs0 RD #cInfo
@@ -35,13 +35,10 @@ Rs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Rs0 f0 83 51 26 26 -39 15 #rect
-Rs0 f0 @|UdInitIcon #fIcon
 Rs0 f1 211 51 26 26 0 12 #rect
-Rs0 f1 @|UdProcessEndIcon #fIcon
 Rs0 f2 expr out #txt
 Rs0 f2 109 64 211 64 #arcP
 Rs0 f4 211 147 26 26 0 12 #rect
-Rs0 f4 @|UdExitEndIcon #fIcon
 Rs0 f6 guid 1508510768ABBCDA #txt
 Rs0 f6 actionTable 'out=in;
 ' #txt
@@ -53,7 +50,6 @@ Rs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Rs0 f6 83 147 26 26 -22 12 #rect
-Rs0 f6 @|UdEventIcon #fIcon
 Rs0 f9 guid 15085107DFA259AD #txt
 Rs0 f9 actionTable 'out=in;
 ' #txt
@@ -65,7 +61,6 @@ Rs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Rs0 f9 83 243 26 26 -20 12 #rect
-Rs0 f9 @|UdEventIcon #fIcon
 Rs0 f12 expr out #txt
 Rs0 f12 109 160 211 160 #arcP
 Rs0 f5 actionCode error.setAttribute("declineReason",in.declineReason); #txt
@@ -80,13 +75,11 @@ Rs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Rs0 f5 211 243 26 26 -48 15 #rect
-Rs0 f5 @|ErrorEndIcon #fIcon
 Rs0 f8 expr out #txt
 Rs0 f8 109 256 211 256 #arcP
 >Proto Rs0 .type error.handling.demo.approval.RequestApproval.RequestApprovalData #txt
 >Proto Rs0 .processKind HTML_DIALOG #txt
 >Proto Rs0 -8 -8 16 16 16 26 #rect
->Proto Rs0 '' #fIcon
 Rs0 f0 mainOut f2 tail #connect
 Rs0 f2 head f1 mainIn #connect
 Rs0 f6 mainOut f12 tail #connect

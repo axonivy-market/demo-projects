@@ -1,5 +1,5 @@
 [Ivy]
-13B69F6612D62493 9.2.0 #module
+13B69F6612D62493 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ps0 PersonComponentProcess Big #zClass
 Ps0 RD #cInfo
@@ -29,16 +29,13 @@ Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ps0 f0 83 51 26 26 -36 12 #rect
-Ps0 f0 @|UdInitIcon #fIcon
 Ps0 f0 -1|-1|-9671572 #nodeStyle
 Ps0 f1 211 51 26 26 0 12 #rect
-Ps0 f1 @|UdProcessEndIcon #fIcon
 Ps0 f1 -1|-1|-9671572 #nodeStyle
 Ps0 f2 expr out #txt
 Ps0 f2 109 64 211 64 #arcP
 >Proto Ps0 .type ch.ivyteam.htmldialog.demo.component.PersonComponent.PersonComponentData #txt
 >Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 -8 -8 16 16 16 26 #rect
->Proto Ps0 '' #fIcon
 Ps0 f0 mainOut f2 tail #connect
 Ps0 f2 head f1 mainIn #connect

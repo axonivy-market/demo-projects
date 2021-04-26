@@ -1,5 +1,5 @@
 [Ivy]
-155BB4D0A6771B1B 9.2.0 #module
+155BB4D0A6771B1B 9.3.0 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierModifierProcess Big #zClass
 Bs0 RD #cInfo
@@ -29,7 +29,6 @@ Bs0 @UdInit f16 '' #zField
 Bs0 @PushWFArc f17 '' #zField
 >Proto Bs0 Bs0 BusinessDataDossierModifierProcess #zField
 Bs0 f1 435 83 26 26 0 12 #rect
-Bs0 f1 @|UdProcessEndIcon #fIcon
 Bs0 f3 guid 155BB4D0A93C5899 #txt
 Bs0 f3 actionTable 'out=in;
 ' #txt
@@ -41,9 +40,7 @@ Bs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bs0 f3 83 339 26 26 -16 12 #rect
-Bs0 f3 @|UdEventIcon #fIcon
 Bs0 f4 435 339 26 26 0 12 #rect
-Bs0 f4 @|UdExitEndIcon #fIcon
 Bs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -54,7 +51,6 @@ Bs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bs0 f6 176 80 32 32 -33 -36 #rect
-Bs0 f6 @|AlternativeIcon #fIcon
 Bs0 f8 actionTable 'out=in;
 ' #txt
 Bs0 f8 actionCode 'in.id = ivy.repo.save(in.dossier).getId();' #txt
@@ -68,7 +64,6 @@ Bs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bs0 f8 216 330 112 44 -13 -8 #rect
-Bs0 f8 @|StepIcon #fIcon
 Bs0 f9 expr out #txt
 Bs0 f9 109 352 216 352 #arcP
 Bs0 f5 expr out #txt
@@ -86,7 +81,6 @@ Bs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bs0 f7 264 74 112 44 -17 -8 #rect
-Bs0 f7 @|StepIcon #fIcon
 Bs0 f11 expr in #txt
 Bs0 f11 outCond in.id.isEmpty() #txt
 Bs0 f11 208 96 264 96 #arcP
@@ -112,9 +106,7 @@ Bs0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bs0 f12 264 170 112 44 -12 -8 #rect
-Bs0 f12 @|StepIcon #fIcon
 Bs0 f13 435 179 26 26 0 12 #rect
-Bs0 f13 @|UdProcessEndIcon #fIcon
 Bs0 f14 expr in #txt
 Bs0 f14 192 112 264 192 #arcP
 Bs0 f14 1 192 192 #addKink
@@ -140,14 +132,12 @@ Bs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bs0 f16 83 83 26 26 -49 15 #rect
-Bs0 f16 @|UdInitIcon #fIcon
 Bs0 f17 expr out #txt
 Bs0 f17 109 96 176 96 #arcP
 Bs0 f17 0 0.5386526882461282 0 0 #arcLabel
 >Proto Bs0 .type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
 >Proto Bs0 .processKind HTML_DIALOG #txt
 >Proto Bs0 -8 -8 16 16 16 26 #rect
->Proto Bs0 '' #fIcon
 Bs0 f3 mainOut f9 tail #connect
 Bs0 f9 head f8 mainIn #connect
 Bs0 f8 mainOut f5 tail #connect

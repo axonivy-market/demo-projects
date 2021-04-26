@@ -1,5 +1,5 @@
 [Ivy]
-155BB4328F79B2D5 9.2.0 #module
+155BB4328F79B2D5 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
 Ba0 B #cInfo
@@ -67,7 +67,6 @@ Ba0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ba0 f0 @C|.responsibility Everybody #txt
 Ba0 f0 81 241 30 30 -31 17 #rect
-Ba0 f0 @|StartRequestIcon #fIcon
 Ba0 f5 dialogId workflow.businessdata.BusinessDataDossierModifier #txt
 Ba0 f5 startMethod start(String,String) #txt
 Ba0 f5 requestActionDecl '<String businessDataId,String title> param;' #txt
@@ -89,7 +88,6 @@ Ba0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ba0 f5 248 266 112 44 -20 -7 #rect
-Ba0 f5 @|UserDialogIcon #fIcon
 Ba0 f7 outLink edit.ivp #txt
 Ba0 f7 inParamDecl '<String id> param;' #txt
 Ba0 f7 inParamTable 'out.id=param.id;
@@ -121,7 +119,6 @@ Ba0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ba0 f7 @C|.responsibility Everybody #txt
 Ba0 f7 81 306 30 30 -33 17 #rect
-Ba0 f7 @|StartRequestIcon #fIcon
 Ba0 f10 outLink browse.ivp #txt
 Ba0 f10 inParamDecl '<Boolean showAll> param;' #txt
 Ba0 f10 inParamTable 'out.id="";
@@ -155,7 +152,6 @@ Ba0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ba0 f10 @C|.responsibility Everybody #txt
 Ba0 f10 82 145 30 30 -33 17 #rect
-Ba0 f10 @|StartRequestIcon #fIcon
 Ba0 f11 dialogId workflow.businessdata.BusinessDataDossierBrowser #txt
 Ba0 f11 startMethod start(String,Boolean) #txt
 Ba0 f11 requestActionDecl '<String lastId,Boolean showAll> param;' #txt
@@ -176,9 +172,7 @@ Ba0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ba0 f11 360 138 112 44 -22 -7 #rect
-Ba0 f11 @|UserDialogIcon #fIcon
 Ba0 f12 529 145 30 30 0 15 #rect
-Ba0 f12 @|EndIcon #fIcon
 Ba0 f14 expr out #txt
 Ba0 f14 472 160 529 160 #arcP
 Ba0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -194,7 +188,6 @@ Ba0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ba0 f2 64 18 384 60 -187 -24 #rect
-Ba0 f2 @|IBIcon #fIcon
 Ba0 f3 actionTable 'out=in;
 ' #txt
 Ba0 f3 actionCode 'import workflow.businessdata.Dossier;
@@ -213,7 +206,6 @@ Ba0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ba0 f3 168 394 112 44 -20 -7 #rect
-Ba0 f3 @|StepIcon #fIcon
 Ba0 f6 expr out #txt
 Ba0 f6 110 416 168 416 #arcP
 Ba0 f25 actionTable 'out=in;
@@ -231,7 +223,6 @@ Ba0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ba0 f25 168 138 112 44 -42 -8 #rect
-Ba0 f25 @|StepIcon #fIcon
 Ba0 f26 expr out #txt
 Ba0 f26 112 160 168 160 #arcP
 Ba0 f13 expr out #txt
@@ -280,7 +271,6 @@ Ba0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ba0 f4 @C|.responsibility Everybody #txt
 Ba0 f4 81 402 30 30 -30 17 #rect
-Ba0 f4 @|StartRequestIcon #fIcon
 Ba0 f1 expr out #txt
 Ba0 f1 280 416 416 182 #arcP
 Ba0 f1 1 416 416 #addKink
@@ -302,7 +292,6 @@ Ba0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ba0 f8 364 490 112 44 -35 -7 #rect
-Ba0 f8 @|UserDialogIcon #fIcon
 Ba0 f17 outLink browseLazy.ivp #txt
 Ba0 f17 inParamDecl '<> param;' #txt
 Ba0 f17 requestEnabled true #txt
@@ -333,9 +322,7 @@ Ba0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ba0 f17 @C|.responsibility Everybody #txt
 Ba0 f17 86 497 30 30 -45 17 #rect
-Ba0 f17 @|StartRequestIcon #fIcon
 Ba0 f18 533 497 30 30 0 15 #rect
-Ba0 f18 @|EndIcon #fIcon
 Ba0 f19 actionTable 'out=in;
 ' #txt
 Ba0 f19 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.DemoDataCreator;
@@ -351,7 +338,6 @@ Ba0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ba0 f19 172 490 112 44 -42 -8 #rect
-Ba0 f19 @|StepIcon #fIcon
 Ba0 f20 expr out #txt
 Ba0 f20 116 512 172 512 #arcP
 Ba0 f21 expr out #txt

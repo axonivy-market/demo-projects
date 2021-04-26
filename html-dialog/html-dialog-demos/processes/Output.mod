@@ -1,5 +1,5 @@
 [Ivy]
-145D180807C60B4B 9.2.0 #module
+145D180807C60B4B 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ot0 Output Big #zClass
 Ot0 B #cInfo
@@ -94,7 +94,6 @@ Ot0 f94 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ot0 f94 @C|.responsibility Everybody #txt
 Ot0 f94 113 529 30 30 -75 15 #rect
-Ot0 f94 @|StartRequestIcon #fIcon
 Ot0 f94 -1|-1|-9671572 #nodeStyle
 Ot0 f87 outLink SelectOneMenuDemo.ivp #txt
 Ot0 f87 inParamDecl '<> param;' #txt
@@ -123,7 +122,6 @@ Ot0 f87 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ot0 f87 @C|.responsibility Everybody #txt
 Ot0 f87 113 433 30 30 -60 15 #rect
-Ot0 f87 @|StartRequestIcon #fIcon
 Ot0 f87 -1|-1|-9671572 #nodeStyle
 Ot0 f11 dialogId ch.ivyteam.htmldialog.demo.output.EditableTableDemo #txt
 Ot0 f11 startMethod start() #txt
@@ -133,10 +131,8 @@ Ot0 f11 responseActionDecl 'htmlDialogDemos.Data out;
 Ot0 f11 responseMappingAction 'out=in;
 ' #txt
 Ot0 f11 248 42 112 44 58 -2 #rect
-Ot0 f11 @|UserDialogIcon #fIcon
 Ot0 f11 -1|-1|-9671572 #nodeStyle
 Ot0 f26 465 337 30 30 0 15 #rect
-Ot0 f26 @|EndIcon #fIcon
 Ot0 f26 -1|-1|-9671572 #nodeStyle
 Ot0 f25 outLink PickListDemo.ivp #txt
 Ot0 f25 inParamDecl '<> param;' #txt
@@ -165,16 +161,12 @@ Ot0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ot0 f25 @C|.responsibility Everybody #txt
 Ot0 f25 113 337 30 30 -47 15 #rect
-Ot0 f25 @|StartRequestIcon #fIcon
 Ot0 f25 -1|-1|-9671572 #nodeStyle
 Ot0 f93 465 529 30 30 0 15 #rect
-Ot0 f93 @|EndIcon #fIcon
 Ot0 f93 -1|-1|-9671572 #nodeStyle
 Ot0 f31 465 145 30 30 0 15 #rect
-Ot0 f31 @|EndIcon #fIcon
 Ot0 f31 -1|-1|-9671572 #nodeStyle
 Ot0 f89 465 433 30 30 0 15 #rect
-Ot0 f89 @|EndIcon #fIcon
 Ot0 f89 -1|-1|-9671572 #nodeStyle
 Ot0 f88 dialogId ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo #txt
 Ot0 f88 startMethod start() #txt
@@ -184,10 +176,8 @@ Ot0 f88 responseActionDecl 'htmlDialogDemos.Data out;
 Ot0 f88 responseMappingAction 'out=in;
 ' #txt
 Ot0 f88 248 426 112 44 58 -2 #rect
-Ot0 f88 @|UserDialogIcon #fIcon
 Ot0 f88 -1|-1|-9671572 #nodeStyle
 Ot0 f13 465 49 30 30 0 15 #rect
-Ot0 f13 @|EndIcon #fIcon
 Ot0 f13 -1|-1|-9671572 #nodeStyle
 Ot0 f27 dialogId ch.ivyteam.htmldialog.demo.output.PickListDemo #txt
 Ot0 f27 startMethod start() #txt
@@ -197,7 +187,6 @@ Ot0 f27 responseActionDecl 'htmlDialogDemos.Data out;
 Ot0 f27 responseMappingAction 'out=in;
 ' #txt
 Ot0 f27 248 330 112 44 58 -2 #rect
-Ot0 f27 @|UserDialogIcon #fIcon
 Ot0 f27 -1|-1|-9671572 #nodeStyle
 Ot0 f32 dialogId ch.ivyteam.htmldialog.demo.output.ResourceDemo #txt
 Ot0 f32 startMethod start() #txt
@@ -207,7 +196,6 @@ Ot0 f32 responseActionDecl 'htmlDialogDemos.Data out;
 Ot0 f32 responseMappingAction 'out=in;
 ' #txt
 Ot0 f32 248 138 112 44 58 -2 #rect
-Ot0 f32 @|UserDialogIcon #fIcon
 Ot0 f32 -1|-1|-9671572 #nodeStyle
 Ot0 f5 outLink OrderListDemo.ivp #txt
 Ot0 f5 inParamDecl '<> param;' #txt
@@ -236,10 +224,8 @@ Ot0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ot0 f5 @C|.responsibility Everybody #txt
 Ot0 f5 113 241 30 30 -51 15 #rect
-Ot0 f5 @|StartRequestIcon #fIcon
 Ot0 f5 -1|-1|-9671572 #nodeStyle
 Ot0 f8 465 241 30 30 0 15 #rect
-Ot0 f8 @|EndIcon #fIcon
 Ot0 f8 -1|-1|-9671572 #nodeStyle
 Ot0 f30 outLink ResourceDemo.ivp #txt
 Ot0 f30 inParamDecl '<> param;' #txt
@@ -266,7 +252,6 @@ Ot0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ot0 f30 @C|.responsibility Everybody #txt
 Ot0 f30 113 145 30 30 -53 15 #rect
-Ot0 f30 @|StartRequestIcon #fIcon
 Ot0 f30 -1|-1|-9671572 #nodeStyle
 Ot0 f6 dialogId ch.ivyteam.htmldialog.demo.output.OrderListDemo #txt
 Ot0 f6 startMethod start() #txt
@@ -276,7 +261,6 @@ Ot0 f6 responseActionDecl 'htmlDialogDemos.Data out;
 Ot0 f6 responseMappingAction 'out=in;
 ' #txt
 Ot0 f6 248 234 112 44 58 -2 #rect
-Ot0 f6 @|UserDialogIcon #fIcon
 Ot0 f6 -1|-1|-9671572 #nodeStyle
 Ot0 f92 dialogId ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo #txt
 Ot0 f92 startMethod start() #txt
@@ -286,7 +270,6 @@ Ot0 f92 responseActionDecl 'htmlDialogDemos.Data out;
 Ot0 f92 responseMappingAction 'out=in;
 ' #txt
 Ot0 f92 248 522 112 44 58 -2 #rect
-Ot0 f92 @|UserDialogIcon #fIcon
 Ot0 f92 -1|-1|-9671572 #nodeStyle
 Ot0 f10 outLink EditableTableDemo.ivp #txt
 Ot0 f10 inParamDecl '<> param;' #txt
@@ -315,7 +298,6 @@ Ot0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ot0 f10 @C|.responsibility Everybody #txt
 Ot0 f10 113 49 30 30 -64 15 #rect
-Ot0 f10 @|StartRequestIcon #fIcon
 Ot0 f10 -1|-1|-9671572 #nodeStyle
 Ot0 f7 expr out #txt
 Ot0 f7 143 256 248 256 #arcP
@@ -342,7 +324,6 @@ Ot0 f95 143 544 248 544 #arcP
 Ot0 f96 expr out #txt
 Ot0 f96 360 544 465 544 #arcP
 Ot0 f1 465 625 30 30 0 15 #rect
-Ot0 f1 @|EndIcon #fIcon
 Ot0 f1 -1|-1|-9671572 #nodeStyle
 Ot0 f2 dialogId ch.ivyteam.htmldialog.demo.output.ChartDemo #txt
 Ot0 f2 startMethod start() #txt
@@ -352,7 +333,6 @@ Ot0 f2 responseActionDecl 'htmlDialogDemos.Data out;
 Ot0 f2 responseMappingAction 'out=in;
 ' #txt
 Ot0 f2 248 618 112 44 58 -2 #rect
-Ot0 f2 @|UserDialogIcon #fIcon
 Ot0 f2 -1|-1|-9671572 #nodeStyle
 Ot0 f4 expr out #txt
 Ot0 f4 360 640 465 640 #arcP
@@ -383,7 +363,6 @@ Ot0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ot0 f0 @C|.responsibility Everybody #txt
 Ot0 f0 113 625 30 30 -45 17 #rect
-Ot0 f0 @|StartRequestIcon #fIcon
 Ot0 f0 -1|-1|-9671572 #nodeStyle
 Ot0 f3 expr out #txt
 Ot0 f3 143 640 248 640 #arcP
@@ -414,7 +393,6 @@ Ot0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ot0 f20 @C|.responsibility Everybody #txt
 Ot0 f20 113 721 30 30 -65 17 #rect
-Ot0 f20 @|StartRequestIcon #fIcon
 Ot0 f20 -1|-1|-9671572 #nodeStyle
 Ot0 f21 dialogId ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo #txt
 Ot0 f21 startMethod start() #txt
@@ -424,17 +402,14 @@ Ot0 f21 responseActionDecl 'htmlDialogDemos.Data out;
 Ot0 f21 responseMappingAction 'out=in;
 ' #txt
 Ot0 f21 248 714 112 44 0 -8 #rect
-Ot0 f21 @|UserDialogIcon #fIcon
 Ot0 f21 -1|-1|-9671572 #nodeStyle
 Ot0 f22 465 721 30 30 0 15 #rect
-Ot0 f22 @|EndIcon #fIcon
 Ot0 f22 -1|-1|-9671572 #nodeStyle
 Ot0 f23 expr out #txt
 Ot0 f23 143 736 248 736 #arcP
 Ot0 f24 expr out #txt
 Ot0 f24 360 736 465 736 #arcP
 Ot0 f15 465 817 30 30 0 15 #rect
-Ot0 f15 @|EndIcon #fIcon
 Ot0 f15 -1|-1|-9671572 #nodeStyle
 Ot0 f16 dialogId ch.ivyteam.htmldialog.demo.output.DataTableDemo #txt
 Ot0 f16 startMethod start() #txt
@@ -444,7 +419,6 @@ Ot0 f16 responseActionDecl 'htmlDialogDemos.Data out;
 Ot0 f16 responseMappingAction 'out=in;
 ' #txt
 Ot0 f16 248 810 112 44 0 -8 #rect
-Ot0 f16 @|UserDialogIcon #fIcon
 Ot0 f16 -1|-1|-9671572 #nodeStyle
 Ot0 f17 outLink DataTableDemo.ivp #txt
 Ot0 f17 inParamDecl '<> param;' #txt
@@ -474,7 +448,6 @@ Ot0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ot0 f17 @C|.responsibility Everybody #txt
 Ot0 f17 113 817 30 30 -54 17 #rect
-Ot0 f17 @|StartRequestIcon #fIcon
 Ot0 f17 -1|-1|-9671572 #nodeStyle
 Ot0 f18 expr out #txt
 Ot0 f18 143 832 248 832 #arcP
@@ -508,7 +481,6 @@ Ot0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ot0 f35 @C|.responsibility Everybody #txt
 Ot0 f35 113 913 30 30 -60 17 #rect
-Ot0 f35 @|StartRequestIcon #fIcon
 Ot0 f36 dialogId ch.ivyteam.htmldialog.demo.output.LazyLoadingDemo #txt
 Ot0 f36 startMethod start() #txt
 Ot0 f36 requestActionDecl '<> param;' #txt
@@ -517,9 +489,7 @@ Ot0 f36 responseActionDecl 'htmlDialogDemos.Data out;
 Ot0 f36 responseMappingAction 'out=in;
 ' #txt
 Ot0 f36 248 906 112 44 0 -8 #rect
-Ot0 f36 @|UserDialogIcon #fIcon
 Ot0 f37 465 913 30 30 0 15 #rect
-Ot0 f37 @|EndIcon #fIcon
 Ot0 f38 expr out #txt
 Ot0 f38 143 928 248 928 #arcP
 Ot0 f39 expr out #txt
@@ -550,9 +520,7 @@ Ot0 f40 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ot0 f40 @C|.responsibility Everybody #txt
 Ot0 f40 113 1009 30 30 -60 17 #rect
-Ot0 f40 @|StartRequestIcon #fIcon
 Ot0 f41 465 1009 30 30 0 15 #rect
-Ot0 f41 @|EndIcon #fIcon
 Ot0 f42 dialogId ch.ivyteam.htmldialog.demo.output.ExportExcelDemo #txt
 Ot0 f42 startMethod start() #txt
 Ot0 f42 requestActionDecl '<> param;' #txt
@@ -561,7 +529,6 @@ Ot0 f42 responseActionDecl 'htmlDialogDemos.Data out;
 Ot0 f42 responseMappingAction 'out=in;
 ' #txt
 Ot0 f42 248 1002 112 44 0 -8 #rect
-Ot0 f42 @|UserDialogIcon #fIcon
 Ot0 f43 expr out #txt
 Ot0 f43 360 1024 465 1024 #arcP
 Ot0 f44 expr out #txt

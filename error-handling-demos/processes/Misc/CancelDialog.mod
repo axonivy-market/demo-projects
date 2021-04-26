@@ -1,5 +1,5 @@
 [Ivy]
-1508AE543CAEEEC1 9.2.0 #module
+1508AE543CAEEEC1 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ct0 CancelDialog Big #zClass
 Ct0 B #cInfo
@@ -50,9 +50,7 @@ Ct0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ct0 f0 @C|.responsibility Everybody #txt
 Ct0 f0 57 145 30 30 -23 17 #rect
-Ct0 f0 @|StartRequestIcon #fIcon
 Ct0 f1 505 145 30 30 0 15 #rect
-Ct0 f1 @|EndIcon #fIcon
 Ct0 f3 dialogId error.handling.demo.misc.CancelStart #txt
 Ct0 f3 startMethod start(String) #txt
 Ct0 f3 requestActionDecl '<String email> param;' #txt
@@ -73,11 +71,9 @@ Ct0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f3 144 138 112 44 -27 -7 #rect
-Ct0 f3 @|UserDialogIcon #fIcon
 Ct0 f4 expr out #txt
 Ct0 f4 87 160 144 160 #arcP
 Ct0 f5 505 241 30 30 0 15 #rect
-Ct0 f5 @|EndIcon #fIcon
 Ct0 Et0 actionTable 'out=in;
 ' #txt
 Ct0 Et0 errorCode start:cancelled #txt
@@ -90,7 +86,6 @@ Ct0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 Et0 217 177 30 30 19 8 #rect
-Ct0 Et0 @|ErrorBoundaryEventIcon #fIcon
 Ct0 f6 expr out #txt
 Ct0 f6 232 207 505 256 #arcP
 Ct0 f6 1 232 256 #addKink
@@ -105,7 +100,6 @@ Ct0 S10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 S10 320 138 112 44 -47 -8 #rect
-Ct0 S10 @|BpmnSendTaskIcon #fIcon
 Ct0 f7 expr out #txt
 Ct0 f7 256 160 320 160 #arcP
 Ct0 f2 432 160 505 160 #arcP
@@ -124,7 +118,6 @@ The process ends because of a start:cancelled  error</name>
 </elementInfo>
 ' #txt
 Ct0 f8 40 26 464 44 -225 -19 #rect
-Ct0 f8 @|IBIcon #fIcon
 Ct0 f8 -1|-1|-65536 #nodeStyle
 >Proto Ct0 .type misc.CancelStartData #txt
 >Proto Ct0 .processKind NORMAL #txt
@@ -136,9 +129,7 @@ Ct0 f8 -1|-1|-65536 #nodeStyle
 >Proto Ct0 0 0 32 24 18 0 #rect
 >Proto Ct0 @|BIcon #fIcon
 Bk1 g0 51 243 26 26 0 5 #rect
-Bk1 g0 @|MIGIcon #fIcon
 Bk1 g1 563 243 26 26 0 5 #rect
-Bk1 g1 @|MOGIcon #fIcon
 Bk1 f0 77 256 563 256 #arcP
 >Proto Bk0 0 0 32 24 18 0 #rect
 >Proto Bk0 @|BpmnSendTaskIcon #fIcon

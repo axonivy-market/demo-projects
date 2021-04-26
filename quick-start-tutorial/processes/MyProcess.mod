@@ -1,5 +1,5 @@
 [Ivy]
-148655DDB7BB6588 9.2.0 #module
+148655DDB7BB6588 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ms0 MyProcess Big #zClass
 Ms0 B #cInfo
@@ -35,9 +35,7 @@ Ms0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ms0 f0 @C|.responsibility Everybody #txt
 Ms0 f0 81 49 30 30 -21 17 #rect
-Ms0 f0 @|StartRequestIcon #fIcon
 Ms0 f1 497 49 30 30 0 15 #rect
-Ms0 f1 @|EndIcon #fIcon
 Ms0 f3 dialogId quickStartTutorial.EnterProduct #txt
 Ms0 f3 startMethod start(quickStartTutorial.Data) #txt
 Ms0 f3 requestActionDecl '<quickStartTutorial.Data data> param;' #txt
@@ -57,7 +55,6 @@ Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f3 168 42 112 44 -37 -8 #rect
-Ms0 f3 @|UserDialogIcon #fIcon
 Ms0 f4 expr out #txt
 Ms0 f4 111 64 168 64 #arcP
 Ms0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -70,7 +67,6 @@ Ms0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f5 336 48 32 32 -62 -34 #rect
-Ms0 f5 @|AlternativeIcon #fIcon
 Ms0 f6 expr out #txt
 Ms0 f6 280 64 336 64 #arcP
 Ms0 f2 expr in #txt
@@ -87,7 +83,6 @@ Ms0 f2 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ms0 f2 368 64 497 64 #arcP
 Ms0 f2 0 0.1937984496124031 0 -8 #arcLabel
 Ms0 f7 497 145 30 30 0 15 #rect
-Ms0 f7 @|EndIcon #fIcon
 Ms0 f8 expr in #txt
 Ms0 f8 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

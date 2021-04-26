@@ -1,5 +1,5 @@
 [Ivy]
-16D29C451A0AF7D5 9.2.0 #module
+16D29C451A0AF7D5 9.3.0 #module
 >Proto >Proto Collection #zClass
 ie0 interceptedService Big #zClass
 ie0 B #cInfo
@@ -34,9 +34,7 @@ ie0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ie0 f0 @C|.responsibility Everybody #txt
 ie0 f0 81 49 30 30 -57 19 #rect
-ie0 f0 @|StartRequestIcon #fIcon
 ie0 f1 337 49 30 30 0 15 #rect
-ie0 f1 @|EndIcon #fIcon
 ie0 f2 actionTable 'out=in;
 ' #txt
 ie0 f2 clientId 16D2A643A3A25C52 #txt
@@ -57,7 +55,6 @@ ie0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ie0 f2 168 42 112 44 0 -7 #rect
-ie0 f2 @|WebServiceIcon #fIcon
 ie0 f3 111 64 168 64 #arcP
 ie0 f4 280 64 337 64 #arcP
 ie0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -69,7 +66,6 @@ have a look at the service: Processes &gt; soap &gt; service &gt; serviceWithExc
 </elementInfo>
 ' #txt
 ie0 f5 80 122 512 44 -248 -15 #rect
-ie0 f5 @|IBIcon #fIcon
 ie0 f6 336 122 184 86 #arcP
 >Proto ie0 .type com.axonivy.connectivity.soap.service.ExceptionData #txt
 >Proto ie0 .processKind NORMAL #txt

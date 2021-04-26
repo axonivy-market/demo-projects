@@ -1,5 +1,5 @@
 [Ivy]
-15AEFE76879218F9 9.2.0 #module
+15AEFE76879218F9 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ds0 LazyLoadingDemoProcess Big #zClass
 Ds0 RD #cInfo
@@ -34,9 +34,7 @@ Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f0 83 51 26 26 -16 15 #rect
-Ds0 f0 @|UdInitIcon #fIcon
 Ds0 f1 339 51 26 26 0 12 #rect
-Ds0 f1 @|UdProcessEndIcon #fIcon
 Ds0 f3 guid 153D1CC0233591EA #txt
 Ds0 f3 actionTable 'out=in;
 ' #txt
@@ -48,9 +46,7 @@ Ds0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f3 83 147 26 26 -15 12 #rect
-Ds0 f3 @|UdEventIcon #fIcon
 Ds0 f4 211 147 26 26 0 12 #rect
-Ds0 f4 @|UdExitEndIcon #fIcon
 Ds0 f5 expr out #txt
 Ds0 f5 109 160 211 160 #arcP
 Ds0 f6 actionTable 'out=in;
@@ -71,7 +67,6 @@ Ds0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f6 168 42 112 44 -39 -8 #rect
-Ds0 f6 @|StepIcon #fIcon
 Ds0 f7 expr out #txt
 Ds0 f7 109 64 168 64 #arcP
 Ds0 f2 expr out #txt
@@ -79,7 +74,6 @@ Ds0 f2 280 64 339 64 #arcP
 >Proto Ds0 .type ch.ivyteam.htmldialog.demo.output.LazyLoadingDemo.LazyLoadingDemoData #txt
 >Proto Ds0 .processKind HTML_DIALOG #txt
 >Proto Ds0 -8 -8 16 16 16 26 #rect
->Proto Ds0 '' #fIcon
 Ds0 f3 mainOut f5 tail #connect
 Ds0 f5 head f4 mainIn #connect
 Ds0 f0 mainOut f7 tail #connect

@@ -1,5 +1,5 @@
 [Ivy]
-15A8995AA29B442B 9.2.0 #module
+15A8995AA29B442B 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ek0 ExternalSolvencyService Big #zClass
 Ek0 B #cInfo
@@ -41,9 +41,7 @@ Ek0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ek0 f0 @C|.responsibility Everybody #txt
 Ek0 f0 81 49 30 30 -21 17 #rect
-Ek0 f0 @|StartRequestIcon #fIcon
 Ek0 f1 337 49 30 30 0 15 #rect
-Ek0 f1 @|EndIcon #fIcon
 Ek0 f2 expr out #txt
 Ek0 f2 111 64 337 64 #arcP
 >Proto Ek0 .type workflow.humantask.Data #txt

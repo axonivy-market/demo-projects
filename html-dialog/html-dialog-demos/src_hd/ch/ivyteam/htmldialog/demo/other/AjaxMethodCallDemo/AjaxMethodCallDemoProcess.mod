@@ -1,5 +1,5 @@
 [Ivy]
-13A3F854E6D3A3F7 9.2.0 #module
+13A3F854E6D3A3F7 9.3.0 #module
 >Proto >Proto Collection #zClass
 As0 AjaxMethodCallDemoProcess Big #zClass
 As0 RD #cInfo
@@ -33,10 +33,8 @@ As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f0 83 51 26 26 -16 12 #rect
-As0 f0 @|UdInitIcon #fIcon
 As0 f0 -1|-1|-9671572 #nodeStyle
 As0 f1 211 51 26 26 0 12 #rect
-As0 f1 @|UdProcessEndIcon #fIcon
 As0 f1 -1|-1|-9671572 #nodeStyle
 As0 f2 expr out #txt
 As0 f2 109 64 211 64 #arcP
@@ -58,16 +56,13 @@ As0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f3 83 147 26 26 -49 12 #rect
-As0 f3 @|UdMethodIcon #fIcon
 As0 f3 -1|-1|-9671572 #nodeStyle
 As0 f5 371 147 26 26 0 12 #rect
-As0 f5 @|UdProcessEndIcon #fIcon
 As0 f5 -1|-1|-9671572 #nodeStyle
 As0 f4 actionTable 'out=in;
 out.welcomeMessage="Welcome "+in.name;
 ' #txt
 As0 f4 184 138 112 44 58 -2 #rect
-As0 f4 @|StepIcon #fIcon
 As0 f4 -1|-1|-9671572 #nodeStyle
 As0 f7 expr out #txt
 As0 f7 109 160 184 160 #arcP
@@ -85,17 +80,14 @@ As0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f8 83 243 26 26 -37 13 #rect
-As0 f8 @|UdMethodIcon #fIcon
 As0 f8 -1|-1|-9671572 #nodeStyle
 As0 f9 211 243 26 26 0 13 #rect
-As0 f9 @|UdExitEndIcon #fIcon
 As0 f9 -1|-1|-9671572 #nodeStyle
 As0 f10 expr out #txt
 As0 f10 109 256 211 256 #arcP
 >Proto As0 .type ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo.AjaxMethodCallDemoData #txt
 >Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
->Proto As0 '' #fIcon
 As0 f0 mainOut f2 tail #connect
 As0 f2 head f1 mainIn #connect
 As0 f3 mainOut f7 tail #connect

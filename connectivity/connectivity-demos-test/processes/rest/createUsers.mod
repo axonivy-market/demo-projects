@@ -1,5 +1,5 @@
 [Ivy]
-1675F33D16FB90A4 9.2.0 #module
+1675F33D16FB90A4 9.3.0 #module
 >Proto >Proto Collection #zClass
 cs0 createUsers Big #zClass
 cs0 B #cInfo
@@ -43,16 +43,13 @@ cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cs0 f0 @C|.responsibility Everybody #txt
 cs0 f0 81 49 30 30 -62 17 #rect
-cs0 f0 @|StartRequestIcon #fIcon
 cs0 f1 337 49 30 30 0 15 #rect
-cs0 f1 @|EndIcon #fIcon
 cs0 f3 actionTable 'out=in;
 ' #txt
 cs0 f3 actionCode 'import com.axonivy.connectivity.rest.UserCreator;
 UserCreator.createUsers(in.prefix, in.amount);' #txt
 cs0 f3 security system #txt
 cs0 f3 168 42 112 44 0 -7 #rect
-cs0 f3 @|StepIcon #fIcon
 cs0 f4 expr out #txt
 cs0 f4 111 64 168 64 #arcP
 cs0 f2 expr out #txt

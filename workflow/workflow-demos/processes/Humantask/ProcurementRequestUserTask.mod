@@ -1,5 +1,5 @@
 [Ivy]
-15254DCE818AD7A2 9.2.0 #module
+15254DCE818AD7A2 9.3.0 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
 Pt0 B #cInfo
@@ -59,9 +59,7 @@ Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Pt0 f0 @C|.responsibility Employee #txt
 Pt0 f0 81 177 30 30 -21 17 #rect
-Pt0 f0 @|StartRequestIcon #fIcon
 Pt0 f1 913 177 30 30 0 15 #rect
-Pt0 f1 @|EndIcon #fIcon
 Pt0 f3 dialogId workflow.humantask.EnterRequest #txt
 Pt0 f3 startMethod start() #txt
 Pt0 f3 requestActionDecl '<> param;' #txt
@@ -81,7 +79,6 @@ Pt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f3 168 170 112 44 -39 -8 #rect
-Pt0 f3 @|UserDialogIcon #fIcon
 Pt0 f4 expr out #txt
 Pt0 f4 111 192 168 192 #arcP
 Pt0 f5 dialogId workflow.humantask.VerifyRequest #txt
@@ -114,7 +111,6 @@ Pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f5 328 298 112 44 -39 -8 #rect
-Pt0 f5 @|UserTaskIcon #fIcon
 Pt0 f6 expr out #txt
 Pt0 f6 type workflow.humantask.ProcurementRequest #txt
 Pt0 f6 var in1 #txt
@@ -151,7 +147,6 @@ Pt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f7 584 418 112 44 -43 -8 #rect
-Pt0 f7 @|UserTaskIcon #fIcon
 Pt0 f9 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/yourRequestHasBeen\\"")%> <%=(in.accepted ? ivy.cms.co(\\""/Emails/accepted\\"") : ivy.cms.co(\\""/Emails/declined\\""))%>: <%=in.amount%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/piecesOf\\"")%> \\''<%=in.description%>\\'' <%=ivy.cms.co(\\""/Dialogs/procurementRequest/forTotal\\"")%> <%=in.totalPrice%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/currencySymbol\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.requester.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage "" <html> \\n\\t<style type=\\""text/css\\"">\\n     \\t\\t<%=ivy.cms.co(\\""/Styles/Classic\\"")%>\\n\\t</style>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Images/Logo\\"")%>\\n\\n\\t<%=ivy.cms.co(\\""/Emails/procurementRequestNotification\\"")%>\\n</html>""/emailAttachments * }"' #txt
 Pt0 f9 type workflow.humantask.ProcurementRequest #txt
 Pt0 f9 timeout 0 #txt
@@ -166,7 +161,6 @@ Pt0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f9 744 168 112 48 -45 -8 #rect
-Pt0 f9 @|EMailIcon #fIcon
 Pt0 f10 expr data #txt
 Pt0 f10 outCond ivp=="TaskA.ivp" #txt
 Pt0 f10 696 440 800 216 #arcP
@@ -184,7 +178,6 @@ Pt0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f11 496 304 32 32 27 -7 #rect
-Pt0 f11 @|AlternativeIcon #fIcon
 Pt0 f12 expr data #txt
 Pt0 f12 outCond ivp=="TaskA.ivp" #txt
 Pt0 f12 440 320 496 320 #arcP
@@ -228,7 +221,6 @@ and a User Dialog Step.</name>
 </elementInfo>
 ' #txt
 Pt0 f14 224 370 176 44 -85 -16 #rect
-Pt0 f14 @|IBIcon #fIcon
 Pt0 f15 312 370 335 342 #arcP
 Pt0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -242,7 +234,6 @@ The User Task step is used instead of a Task Switch and a User Dialog step.</nam
 </elementInfo>
 ' #txt
 Pt0 f16 64 18 576 60 -280 -24 #rect
-Pt0 f16 @|IBIcon #fIcon
 >Proto Pt0 .type workflow.humantask.ProcurementRequest #txt
 >Proto Pt0 .processKind NORMAL #txt
 >Proto Pt0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

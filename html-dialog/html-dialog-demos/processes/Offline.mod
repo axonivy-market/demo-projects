@@ -1,5 +1,5 @@
 [Ivy]
-150425B095B4FB54 9.2.0 #module
+150425B095B4FB54 9.3.0 #module
 >Proto >Proto Collection #zClass
 Oe0 Offline Big #zClass
 Oe0 B #cInfo
@@ -19,7 +19,6 @@ Oe0 @PushWFArc f6 '' #zField
 >Proto Oe0 Oe0 Offline #zField
 Oe0 f5 template "/ProcessPages/Other/RedirectToMainPage.ivc" #txt
 Oe0 f5 433 81 30 30 0 15 #rect
-Oe0 f5 @|EndRequestIcon #fIcon
 Oe0 f0 outLink ClientSideValidationDemo.ivp #txt
 Oe0 f0 inParamDecl '<> param;' #txt
 Oe0 f0 actionCode 'if (ivy.session.isSessionUserUnknown()) {
@@ -48,7 +47,6 @@ Oe0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Oe0 f0 @C|.responsibility Everybody #txt
 Oe0 f0 81 81 30 30 -90 17 #rect
-Oe0 f0 @|StartRequestIcon #fIcon
 Oe0 f3 dialogId ch.ivyteam.htmldialog.demo.offline.ClientSideValidation #txt
 Oe0 f3 startMethod start() #txt
 Oe0 f3 requestActionDecl '<> param;' #txt
@@ -66,7 +64,6 @@ TaskA.ROL=Everybody
 TaskA.SKIP_TASK_LIST=true
 TaskA.TYPE=0' #txt
 Oe0 f3 216 74 112 44 0 -7 #rect
-Oe0 f3 @|UserTaskIcon #fIcon
 Oe0 f4 expr out #txt
 Oe0 f4 type htmlDialogDemos.Data #txt
 Oe0 f4 var in1 #txt

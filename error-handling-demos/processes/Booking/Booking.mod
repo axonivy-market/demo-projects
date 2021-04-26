@@ -1,5 +1,5 @@
 [Ivy]
-150047A1589EB0D8 9.2.0 #module
+150047A1589EB0D8 9.3.0 #module
 >Proto >Proto Collection #zClass
 or0 Booking Big #zClass
 or0 B #cInfo
@@ -59,7 +59,6 @@ or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 or0 f0 @C|.responsibility Everybody #txt
 or0 f0 33 113 30 30 -21 17 #rect
-or0 f0 @|StartRequestIcon #fIcon
 or0 f3 dialogId error.handling.demo.SelectOptions #txt
 or0 f3 startMethod start(booking.Customer) #txt
 or0 f3 requestActionDecl '<booking.Customer customer> param;' #txt
@@ -83,7 +82,6 @@ flight &amp; car</name>
 </elementInfo>
 ' #txt
 or0 f3 112 106 112 44 -28 -16 #rect
-or0 f3 @|UserDialogIcon #fIcon
 or0 f4 expr out #txt
 or0 f4 63 128 112 128 #arcP
 or0 f5 processCall Booking/Service/Flight:bookFlight(booking.Flight,booking.Customer) #txt
@@ -102,7 +100,6 @@ or0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 f5 264 106 112 44 -28 -8 #rect
-or0 f5 @|CallSubIcon #fIcon
 or0 f6 expr out #txt
 or0 f6 224 128 264 128 #arcP
 or0 f7 processCall Booking/Service/Car:bookCar(String) #txt
@@ -121,7 +118,6 @@ or0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 f7 424 106 112 44 -23 -8 #rect
-or0 f7 @|CallSubIcon #fIcon
 or0 f8 expr out #txt
 or0 f8 376 128 424 128 #arcP
 or0 Et0 actionTable 'out=in;
@@ -138,7 +134,6 @@ or0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 Et0 337 145 30 30 19 0 #rect
-or0 Et0 @|ErrorBoundaryEventIcon #fIcon
 or0 Et1 actionTable 'out=in;
 ' #txt
 or0 Et1 errorCode booking:car:failed #txt
@@ -153,7 +148,6 @@ or0 Et1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 Et1 497 145 30 30 18 1 #rect
-or0 Et1 @|ErrorBoundaryEventIcon #fIcon
 or0 f9 template "/ProcessPages/Booking/Booking/bookingFail.ivc" #txt
 or0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -165,7 +159,6 @@ or0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 f9 737 273 30 30 -38 17 #rect
-or0 f9 @|EndRequestIcon #fIcon
 or0 f10 352 175 737 288 #arcP
 or0 f10 1 352 288 #addKink
 or0 f10 1 0.30904127690867544 0 0 #arcLabel
@@ -188,7 +181,6 @@ booking</name>
 </elementInfo>
 ' #txt
 or0 f11 456 210 112 44 -32 -20 #rect
-or0 f11 @|CallSubIcon #fIcon
 or0 f12 512 175 512 210 #arcP
 or0 f13 expr out #txt
 or0 f13 568 232 752 273 #arcP
@@ -209,7 +201,6 @@ mail</name>
 </elementInfo>
 ' #txt
 or0 f1 576 106 112 44 -34 -16 #rect
-or0 f1 @|EMailIcon #fIcon
 or0 f2 expr out #txt
 or0 f2 536 128 576 128 #arcP
 or0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -225,7 +216,6 @@ The Happy Path is interrupted and
 </elementInfo>
 ' #txt
 or0 f16 64 18 336 60 -158 -26 #rect
-or0 f16 @|IBIcon #fIcon
 or0 f16 -1|-1|-65536 #nodeStyle
 or0 f14 template "/ProcessPages/Booking/Booking/bookingSuccess.ivc" #txt
 or0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -239,7 +229,6 @@ successful</name>
 </elementInfo>
 ' #txt
 or0 f14 737 113 30 30 -26 18 #rect
-or0 f14 @|EndRequestIcon #fIcon
 or0 f15 expr out #txt
 or0 f15 688 128 737 128 #arcP
 >Proto or0 .type booking.BookingData #txt

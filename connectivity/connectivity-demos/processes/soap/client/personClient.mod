@@ -1,5 +1,5 @@
 [Ivy]
-16150E26E34D4339 9.2.0 #module
+16150E26E34D4339 9.3.0 #module
 >Proto >Proto Collection #zClass
 pt0 personClient Big #zClass
 pt0 B #cInfo
@@ -56,9 +56,7 @@ pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 pt0 f0 @C|.responsibility Everybody #txt
 pt0 f0 241 137 30 30 -21 17 #rect
-pt0 f0 @|StartRequestIcon #fIcon
 pt0 f1 657 137 30 30 0 15 #rect
-pt0 f1 @|EndIcon #fIcon
 pt0 f2 actionTable 'out=in;
 out.persons=wsResponse;
 ' #txt
@@ -74,7 +72,6 @@ pt0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 pt0 f2 328 130 112 44 -32 -8 #rect
-pt0 f2 @|WebServiceIcon #fIcon
 pt0 f3 expr out #txt
 pt0 f3 271 152 328 152 #arcP
 pt0 f5 actionTable 'out=in;
@@ -91,7 +88,6 @@ pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 pt0 f5 488 130 112 44 -8 -8 #rect
-pt0 f5 @|StepIcon #fIcon
 pt0 f6 expr out #txt
 pt0 f6 440 152 488 152 #arcP
 pt0 f6 0 0.558359006007981 0 0 #arcLabel
@@ -126,7 +122,6 @@ pt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 pt0 f7 @C|.responsibility Everybody #txt
 pt0 f7 103 329 30 30 -26 17 #rect
-pt0 f7 @|StartRequestIcon #fIcon
 pt0 f8 actionTable 'out=in;
 ' #txt
 pt0 f8 actionCode 'ivy.log.info("deleted "+wsResponse);
@@ -146,7 +141,6 @@ pt0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 pt0 f8 176 322 160 44 -72 -7 #rect
-pt0 f8 @|WebServiceIcon #fIcon
 pt0 f9 expr out #txt
 pt0 f9 336 344 384 174 #arcP
 pt0 f9 1 384 344 #addKink
@@ -182,7 +176,6 @@ pt0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 pt0 f11 @C|.responsibility Everybody #txt
 pt0 f11 105 241 30 30 -19 17 #rect
-pt0 f11 @|StartRequestIcon #fIcon
 pt0 f12 actionTable 'out=in;
 ' #txt
 pt0 f12 actionCode 'ivy.log.info("person added");' #txt
@@ -201,7 +194,6 @@ pt0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 pt0 f12 184 234 144 44 -64 -7 #rect
-pt0 f12 @|WebServiceIcon #fIcon
 pt0 f13 expr out #txt
 pt0 f13 135 256 184 256 #arcP
 pt0 f14 expr out #txt
@@ -220,7 +212,6 @@ The web service client is configured with HTTP_BASIC feature, because the person
 </elementInfo>
 ' #txt
 pt0 f15 56 44 672 56 -327 -24 #rect
-pt0 f15 @|IBIcon #fIcon
 >Proto pt0 .type com.axonivy.connectivity.soap.PersonClientData #txt
 >Proto pt0 .processKind NORMAL #txt
 >Proto pt0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

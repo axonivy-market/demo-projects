@@ -1,5 +1,5 @@
 [Ivy]
-16D29AE50A7A6E34 9.2.0 #module
+16D29AE50A7A6E34 9.3.0 #module
 >Proto >Proto Collection #zClass
 sn0 serviceWithException Big #zClass
 sn0 WS #cInfo
@@ -36,9 +36,7 @@ sn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 sn0 f0 @C|.responsibility Everybody #txt
 sn0 f0 81 49 30 30 -15 17 #rect
-sn0 f0 @|StartWSIcon #fIcon
 sn0 f1 337 49 30 30 0 15 #rect
-sn0 f1 @|EndWSIcon #fIcon
 sn0 f2 111 64 337 64 #arcP
 sn0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -51,12 +49,10 @@ sn0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 sn0 f5 80 116 832 88 -408 -30 #rect
-sn0 f5 @|IBIcon #fIcon
 >Proto sn0 .webServiceName com.axonivy.connectivity.soap.interceptor.serviceWithException #txt
 >Proto sn0 .authenticationType 'None or Container' #txt
 >Proto sn0 .type com.axonivy.connectivity.soap.service.ExceptionData #txt
 >Proto sn0 .processKind WEB_SERVICE #txt
 >Proto sn0 -8 -8 16 16 16 26 #rect
->Proto sn0 '' #fIcon
 sn0 f0 mainOut f2 tail #connect
 sn0 f2 head f1 mainIn #connect

@@ -1,5 +1,5 @@
 [Ivy]
-14ECFC90CDE278D0 9.2.0 #module
+14ECFC90CDE278D0 9.3.0 #module
 >Proto >Proto Collection #zClass
 or0 Order Big #zClass
 or0 B #cInfo
@@ -118,7 +118,6 @@ or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 or0 f0 @C|.responsibility Everybody #txt
 or0 f0 81 113 30 30 -21 17 #rect
-or0 f0 @|StartRequestIcon #fIcon
 or0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -129,7 +128,6 @@ or0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 f1 881 113 30 30 -24 17 #rect
-or0 f1 @|EndIcon #fIcon
 or0 f3 dialogId error.handling.demo.RegisterOrder #txt
 or0 f3 startMethod start() #txt
 or0 f3 requestActionDecl '<> param;' #txt
@@ -147,7 +145,6 @@ or0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 f3 344 106 112 44 -40 -8 #rect
-or0 f3 @|UserDialogIcon #fIcon
 or0 S10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -158,7 +155,6 @@ or0 S10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 S10 536 106 112 44 -40 -8 #rect
-or0 S10 @|BIcon #fIcon
 or0 S10 g2 -56 0 #fFoot
 or0 f5 expr out #txt
 or0 f5 456 128 536 128 #arcP
@@ -176,7 +172,6 @@ or0 Et1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 Et1 633 145 30 30 17 6 #rect
-or0 Et1 @|ErrorBoundaryEventIcon #fIcon
 or0 S20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -187,7 +182,6 @@ or0 S20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 S20 504 202 112 44 -40 -8 #rect
-or0 S20 @|BIcon #fIcon
 or0 S20 g0 56 1 #fFoot
 or0 S20 g1 -56 1 #fFoot
 or0 f12 648 175 616 225 #arcP
@@ -210,7 +204,6 @@ or0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 f2 720 106 112 44 -52 -8 #rect
-or0 f2 @|UserDialogIcon #fIcon
 or0 f6 648 128 720 128 #arcP
 or0 f7 expr out #txt
 or0 f7 832 128 881 128 #arcP
@@ -228,7 +221,6 @@ The process can not continue because of an out_of_stock  error</name>
 </elementInfo>
 ' #txt
 or0 f16 56 26 368 44 -181 -19 #rect
-or0 f16 @|IBIcon #fIcon
 or0 f16 -1|-1|-65536 #nodeStyle
 or0 S30 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -240,7 +232,6 @@ or0 S30 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 S30 184 106 112 44 -50 -7 #rect
-or0 S30 @|BpmnScriptTaskIcon #fIcon
 or0 f4 296 128 344 128 #arcP
 or0 f8 expr out #txt
 or0 f8 111 128 184 128 #arcP
@@ -253,11 +244,8 @@ or0 f10 1 0.6693044712359421 0 0 #arcLabel
 >Proto or0 0 0 32 24 18 0 #rect
 >Proto or0 @|BIcon #fIcon
 Ct0 g0 19 243 26 26 0 5 #rect
-Ct0 g0 @|MIGIcon #fIcon
 Ct0 g1 603 243 26 26 -91 25 #rect
-Ct0 g1 @|MOGIcon #fIcon
 Ct0 g2 19 307 26 26 -3 6 #rect
-Ct0 g2 @|MIGIcon #fIcon
 Ct0 f1 actionDecl 'error.handling.demo.Data out;
 ' #txt
 Ct0 f1 actionTable 'out=in;
@@ -282,7 +270,6 @@ Ct0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f1 128 234 128 44 -58 -8 #rect
-Ct0 f1 @|DBStepIcon #fIcon
 Ct0 f2 45 256 128 256 #arcP
 Ct0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -294,7 +281,6 @@ Ct0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f3 304 240 32 32 -55 -39 #rect
-Ct0 f3 @|AlternativeIcon #fIcon
 Ct0 f4 expr out #txt
 Ct0 f4 256 256 304 256 #arcP
 Ct0 f5 errorCode out_of_stock #txt
@@ -308,7 +294,6 @@ Ct0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f5 369 337 30 30 -35 17 #rect
-Ct0 f5 @|ErrorEndIcon #fIcon
 Ct0 f6 expr in #txt
 Ct0 f6 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -349,7 +334,6 @@ Ct0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f8 416 234 144 44 -63 -8 #rect
-Ct0 f8 @|DBStepIcon #fIcon
 Ct0 f9 expr in #txt
 Ct0 f9 outCond 'in.availableItems >= in.order.numberOfItems' #txt
 Ct0 f9 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -368,9 +352,7 @@ Ct0 f0 560 256 603 256 #arcP
 >Proto Ct0 0 0 32 24 18 0 #rect
 >Proto Ct0 @|BIcon #fIcon
 Ct1 g0 51 243 26 26 0 5 #rect
-Ct1 g0 @|MIGIcon #fIcon
 Ct1 g1 611 243 26 26 -63 7 #rect
-Ct1 g1 @|MOGIcon #fIcon
 Ct1 f1 actionDecl 'error.handling.demo.Data out;
 ' #txt
 Ct1 f1 actionTable 'out=in;
@@ -394,7 +376,6 @@ Ct1 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct1 f1 364 232 136 48 -50 -8 #rect
-Ct1 f1 @|DBStepIcon #fIcon
 Ct1 f0 expr out #txt
 Ct1 f0 500 256 611 256 #arcP
 Ct1 f0 0 0.485524775591399 0 0 #arcLabel
@@ -422,7 +403,6 @@ Ct1 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct1 f3 128 234 128 44 -58 -8 #rect
-Ct1 f3 @|DBStepIcon #fIcon
 Ct1 f4 77 256 128 256 #arcP
 Ct1 f4 0 0.5377269311866055 0 0 #arcLabel
 Ct1 f2 expr out #txt
@@ -430,9 +410,7 @@ Ct1 f2 256 256 364 256 #arcP
 >Proto Ct1 0 0 32 24 18 0 #rect
 >Proto Ct1 @|BIcon #fIcon
 Bk0 g0 51 243 26 26 0 5 #rect
-Bk0 g0 @|MIGIcon #fIcon
 Bk0 g1 979 243 26 26 0 5 #rect
-Bk0 g1 @|MOGIcon #fIcon
 Bk0 f3 actionDecl 'error.handling.demo.Data out;
 ' #txt
 Bk0 f3 actionTable 'out=in;
@@ -464,7 +442,6 @@ Bk0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bk0 f3 408 298 112 44 -35 -8 #rect
-Bk0 f3 @|DBStepIcon #fIcon
 Bk0 f5 actionDecl 'error.handling.demo.Data out;
 ' #txt
 Bk0 f5 actionTable 'out=in;
@@ -490,7 +467,6 @@ Bk0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bk0 f5 568 298 112 44 -27 -8 #rect
-Bk0 f5 @|DBStepIcon #fIcon
 Bk0 f7 actionDecl 'error.handling.demo.Data out;
 ' #txt
 Bk0 f7 actionTable 'out=in;
@@ -516,7 +492,6 @@ Bk0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bk0 f7 728 298 112 44 -27 -8 #rect
-Bk0 f7 @|DBStepIcon #fIcon
 Bk0 f6 expr out #txt
 Bk0 f6 520 320 568 320 #arcP
 Bk0 f8 expr out #txt
@@ -543,7 +518,6 @@ Bk0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bk0 f1 160 234 128 44 -60 -7 #rect
-Bk0 f1 @|DBStepIcon #fIcon
 Bk0 f2 77 256 160 256 #arcP
 Bk0 Et0 actionTable 'out=in;
 ' #txt
@@ -559,12 +533,10 @@ Bk0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bk0 Et0 249 273 30 30 21 -5 #rect
-Bk0 Et0 @|ErrorBoundaryEventIcon #fIcon
 Bk0 f0 264 303 408 320 #arcP
 Bk0 f0 1 264 320 #addKink
 Bk0 f0 1 0.3850489905746746 0 0 #arcLabel
 Bk0 f10 880 240 32 32 0 16 #rect
-Bk0 f10 @|AlternativeIcon #fIcon
 Bk0 f4 expr in #txt
 Bk0 f4 912 256 979 256 #arcP
 Bk0 f9 expr out #txt

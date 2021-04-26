@@ -1,5 +1,5 @@
 [Ivy]
-157B33AB7587F1F1 9.2.0 #module
+157B33AB7587F1F1 9.3.0 #module
 >Proto >Proto Collection #zClass
 be0 batchService Big #zClass
 be0 B #cInfo
@@ -47,9 +47,7 @@ be0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 be0 f0 @C|.responsibility Everybody #txt
 be0 f0 113 49 30 30 -71 17 #rect
-be0 f0 @|StartRequestIcon #fIcon
 be0 f1 369 49 30 30 0 15 #rect
-be0 f1 @|EndIcon #fIcon
 be0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -71,7 +69,6 @@ jersey.config.client.connectTimeout=1''000
 </elementInfo>
 ' #txt
 be0 f5 200 122 320 156 -155 -73 #rect
-be0 f5 @|IBIcon #fIcon
 be0 f6 clientId b0a5f371-e479-444d-b71c-af1fff4c084d #txt
 be0 f6 method GET #txt
 be0 f6 resultType java.lang.String #txt
@@ -86,7 +83,6 @@ be0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 be0 f6 200 42 112 44 -26 -8 #rect
-be0 f6 @|RestClientCallIcon #fIcon
 be0 f2 expr out #txt
 be0 f2 143 64 200 64 #arcP
 be0 f3 312 64 369 64 #arcP

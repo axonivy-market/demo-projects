@@ -1,5 +1,5 @@
 [Ivy]
-151CA1EFC1542D87 9.2.0 #module
+151CA1EFC1542D87 9.3.0 #module
 >Proto >Proto Collection #zClass
 qr0 QuitEmployee Big #zClass
 qr0 B #cInfo
@@ -52,9 +52,7 @@ qr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 qr0 f0 @C|.responsibility 'HR Manager' #txt
 qr0 f0 81 209 30 30 -21 17 #rect
-qr0 f0 @|StartRequestIcon #fIcon
 qr0 f1 657 209 30 30 0 15 #rect
-qr0 f1 @|EndIcon #fIcon
 qr0 f3 actionTable 'out=in;
 ' #txt
 qr0 f3 actionCode 'import com.google.gson.Gson;
@@ -81,7 +79,6 @@ qr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 qr0 f3 328 202 112 44 -46 -8 #rect
-qr0 f3 @|StepIcon #fIcon
 qr0 f5 dialogId workflow.signal.QuitUser #txt
 qr0 f5 startMethod start() #txt
 qr0 f5 requestActionDecl '<> param;' #txt
@@ -100,7 +97,6 @@ qr0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 qr0 f5 168 202 112 44 -32 -8 #rect
-qr0 f5 @|UserDialogIcon #fIcon
 qr0 f6 expr out #txt
 qr0 f6 111 224 168 224 #arcP
 qr0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -114,7 +110,6 @@ QuitUser sends a signal that will cancel User Tasks from a previously started Cr
 </elementInfo>
 ' #txt
 qr0 f8 64 26 592 44 -288 -16 #rect
-qr0 f8 @|IBIcon #fIcon
 qr0 f4 expr out #txt
 qr0 f4 280 224 328 224 #arcP
 qr0 f7 dialogId workflow.signal.QuitSignalSent #txt
@@ -135,7 +130,6 @@ Signal Sent</name>
 </elementInfo>
 ' #txt
 qr0 f7 480 202 128 44 -44 -16 #rect
-qr0 f7 @|UserDialogIcon #fIcon
 qr0 f9 expr out #txt
 qr0 f9 440 224 480 224 #arcP
 qr0 f2 expr out #txt

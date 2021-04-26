@@ -1,5 +1,5 @@
 [Ivy]
-1500417E1DADBB7C 9.2.0 #module
+1500417E1DADBB7C 9.3.0 #module
 >Proto >Proto Collection #zClass
 fy0 Production Big #zClass
 fy0 B #cInfo
@@ -40,9 +40,7 @@ fy0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fy0 f0 81 209 30 30 -44 17 #rect
-fy0 f0 @|StartSubIcon #fIcon
 fy0 f1 577 209 30 30 0 15 #rect
-fy0 f1 @|EndSubIcon #fIcon
 fy0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -66,7 +64,6 @@ fy0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fy0 f9 56 18 560 92 -274 -43 #rect
-fy0 f9 @|IBIcon #fIcon
 fy0 f9 -1|-1|-65536 #nodeStyle
 fy0 f7 actionDecl 'error.handling.demo.FactoryData out;
 ' #txt
@@ -87,7 +84,6 @@ fy0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fy0 f7 376 202 112 44 -31 -8 #rect
-fy0 f7 @|DBStepIcon #fIcon
 fy0 f3 actionTable 'out=in;
 out.newShoes=wsResponse.shoes;
 ' #txt
@@ -112,7 +108,6 @@ factory</name>
 </elementInfo>
 ' #txt
 fy0 f3 176 202 112 44 -30 -16 #rect
-fy0 f3 @|WebServiceIcon #fIcon
 fy0 f6 expr out #txt
 fy0 f6 256 271 337 320 #arcP
 fy0 f6 1 256 320 #addKink
@@ -134,7 +129,6 @@ fy0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fy0 Et0 241 241 30 30 19 -6 #rect
-fy0 Et0 @|ErrorBoundaryEventIcon #fIcon
 fy0 f5 errorExpr in.wsError #txt
 fy0 f5 errorCode factory:unavailable #txt
 fy0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -147,7 +141,6 @@ fy0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fy0 f5 337 305 30 30 -50 17 #rect
-fy0 f5 @|ErrorEndIcon #fIcon
 fy0 f4 expr out #txt
 fy0 f4 111 224 176 224 #arcP
 fy0 f2 expr out #txt

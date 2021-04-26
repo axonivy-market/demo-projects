@@ -1,5 +1,5 @@
 [Ivy]
-16764B07C0329FC8 9.2.0 #module
+16764B07C0329FC8 9.3.0 #module
 >Proto >Proto Collection #zClass
 cc0 asyncInvocation Big #zClass
 cc0 B #cInfo
@@ -65,9 +65,7 @@ cc0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cc0 f0 @C|.responsibility Everybody #txt
 cc0 f0 81 49 30 30 -42 17 #rect
-cc0 f0 @|StartRequestIcon #fIcon
 cc0 f1 353 49 30 30 0 15 #rect
-cc0 f1 @|EndIcon #fIcon
 cc0 f3 dialogId com.axonivy.connectivity.rest.ChatClient #txt
 cc0 f3 startMethod start() #txt
 cc0 f3 requestActionDecl '<> param;' #txt
@@ -84,7 +82,6 @@ with REST backend </name>
 </elementInfo>
 ' #txt
 cc0 f3 168 42 144 44 -54 -15 #rect
-cc0 f3 @|UserDialogIcon #fIcon
 cc0 f4 expr out #txt
 cc0 f4 111 64 168 64 #arcP
 cc0 f2 expr out #txt
@@ -109,7 +106,6 @@ operation</name>
 </elementInfo>
 ' #txt
 cc0 f10 256 346 128 44 -45 -15 #rect
-cc0 f10 @|RestClientCallIcon #fIcon
 cc0 f12 actionTable 'out.result=signal.getSignalData() as String;
 ' #txt
 cc0 f12 signalCode rest:batch:result:ok #txt
@@ -122,7 +118,6 @@ cc0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 cc0 f12 145 457 30 30 -62 17 #rect
-cc0 f12 @|SignalStartEventIcon #fIcon
 cc0 f17 signalCode ivy:error:rest:client #txt
 cc0 f17 attachToBusinessCase true #txt
 cc0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -133,7 +128,6 @@ cc0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 cc0 f17 289 553 30 30 -17 17 #rect
-cc0 f17 @|SignalStartEventIcon #fIcon
 cc0 f17 -1|-1|-65536 #nodeStyle
 cc0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -146,7 +140,6 @@ result is available!</name>
 </elementInfo>
 ' #txt
 cc0 f22 80 562 160 44 -76 -15 #rect
-cc0 f22 @|IBIcon #fIcon
 cc0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -159,9 +152,7 @@ takes up to 3 seconds</name>
 </elementInfo>
 ' #txt
 cc0 f18 296 258 256 60 -121 -22 #rect
-cc0 f18 @|IBIcon #fIcon
 cc0 f13 465 457 30 30 0 15 #rect
-cc0 f13 @|EndIcon #fIcon
 cc0 f14 actionTable 'out=in;
 ' #txt
 cc0 f14 actionCode 'ivy.log.info("result availble: "+in.result);' #txt
@@ -173,9 +164,7 @@ cc0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 cc0 f14 264 450 112 44 -45 -7 #rect
-cc0 f14 @|StepIcon #fIcon
 cc0 f8 465 353 30 30 0 15 #rect
-cc0 f8 @|EndIcon #fIcon
 cc0 f7 outLink callBatchAsync.ivp #txt
 cc0 f7 inParamDecl '<> param;' #txt
 cc0 f7 requestEnabled true #txt
@@ -202,7 +191,6 @@ cc0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cc0 f7 @C|.responsibility Everybody #txt
 cc0 f7 145 353 30 30 -57 17 #rect
-cc0 f7 @|StartRequestIcon #fIcon
 cc0 f16 expr out #txt
 cc0 f16 376 472 465 472 #arcP
 cc0 f20 expr out #txt
@@ -222,7 +210,6 @@ cc0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 cc0 f19 465 553 30 30 -31 17 #rect
-cc0 f19 @|ErrorEndIcon #fIcon
 cc0 f5 outLink restCallback.ivp #txt
 cc0 f5 inParamDecl '<> param;' #txt
 cc0 f5 requestEnabled true #txt
@@ -249,7 +236,6 @@ cc0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cc0 f5 @C|.responsibility Everybody #txt
 cc0 f5 81 145 30 30 -49 17 #rect
-cc0 f5 @|StartRequestIcon #fIcon
 cc0 f6 dialogId com.axonivy.connectivity.rest.AsyncUiInvoker #txt
 cc0 f6 startMethod start() #txt
 cc0 f6 requestActionDecl '<> param;' #txt
@@ -266,9 +252,7 @@ JavaScript callback</name>
 </elementInfo>
 ' #txt
 cc0 f6 168 138 144 44 -53 -15 #rect
-cc0 f6 @|UserDialogIcon #fIcon
 cc0 f21 353 145 30 30 0 15 #rect
-cc0 f21 @|EndIcon #fIcon
 cc0 f23 expr out #txt
 cc0 f23 111 160 168 160 #arcP
 cc0 f24 expr out #txt

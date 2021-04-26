@@ -1,5 +1,5 @@
 [Ivy]
-175F99FC96A78D96 9.2.0 #module
+175F99FC96A78D96 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ds0 AdjustableDiscountCalculatorProcess Big #zClass
 Ds0 RD #cInfo
@@ -35,7 +35,6 @@ Ds0 @PushWFArc f21 '' #zField
 Ds0 @PushWFArc f19 '' #zField
 >Proto Ds0 Ds0 AdjustableDiscountCalculatorProcess #zField
 Ds0 f11 563 371 26 26 0 12 #rect
-Ds0 f11 @|UdProcessEndIcon #fIcon
 Ds0 f0 guid 153E9EE0238C8F41 #txt
 Ds0 f0 method start() #txt
 Ds0 f0 inParameterDecl '<> param;' #txt
@@ -48,9 +47,7 @@ Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f0 83 51 26 26 -38 15 #rect
-Ds0 f0 @|UdInitIcon #fIcon
 Ds0 f1 499 51 26 26 0 12 #rect
-Ds0 f1 @|UdProcessEndIcon #fIcon
 Ds0 f6 @AbstractThirdPartyProgramInterface|type rule.engine.demo.AdjustableDiscountCalculator.AdjustableDiscountCalculatorData #txt
 Ds0 f6 @AbstractThirdPartyProgramInterface|timeout 0 #txt
 Ds0 f6 @AbstractThirdPartyProgramInterface|beanConfig "{""namespace"":""rule.engine.adjustable-drl"",""dataObject"":""in.ruleData""}" #txt
@@ -64,7 +61,6 @@ This object will be modified during the rule execution.</desc>
 </elementInfo>
 ' #txt
 Ds0 f6 216 362 128 44 -60 -8 #rect
-Ds0 f6 @|RuleActivity #fIcon
 Ds0 f5 guid 175F9C1813FE7E35 #txt
 Ds0 f5 actionTable 'out=in;
 ' #txt
@@ -76,9 +72,7 @@ Ds0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f5 83 243 26 26 -29 15 #rect
-Ds0 f5 @|UdEventIcon #fIcon
 Ds0 f7 499 243 26 26 0 12 #rect
-Ds0 f7 @|UdProcessEndIcon #fIcon
 Ds0 f3 guid 175FA45130F2A6CE #txt
 Ds0 f3 actionTable 'out=in;
 out.ruleData.member.discount=null;
@@ -91,7 +85,6 @@ Ds0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f3 83 371 26 26 -31 15 #rect
-Ds0 f3 @|UdEventIcon #fIcon
 Ds0 f14 109 384 216 384 #arcP
 Ds0 f4 actionTable 'out=in;
 ' #txt
@@ -116,7 +109,6 @@ Ds0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f4 192 42 176 44 -69 -16 #rect
-Ds0 f4 @|StepIcon #fIcon
 Ds0 f8 109 64 192 64 #arcP
 Ds0 f2 368 64 499 64 #arcP
 Ds0 f10 actionTable 'out=in;
@@ -141,7 +133,6 @@ Ds0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f10 216 234 128 44 -45 -16 #rect
-Ds0 f10 @|StepIcon #fIcon
 Ds0 f12 109 256 216 256 #arcP
 Ds0 f9 344 256 499 256 #arcP
 Ds0 f15 actionTable 'out=in;
@@ -161,7 +152,6 @@ Ds0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f15 392 362 112 44 -39 -8 #rect
-Ds0 f15 @|StepIcon #fIcon
 Ds0 f16 344 384 392 384 #arcP
 Ds0 f13 504 384 563 384 #arcP
 Ds0 f17 guid 1762968775DA744B #txt
@@ -175,9 +165,7 @@ Ds0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f17 83 179 26 26 -28 15 #rect
-Ds0 f17 @|UdEventIcon #fIcon
 Ds0 f18 499 179 26 26 0 12 #rect
-Ds0 f18 @|UdProcessEndIcon #fIcon
 Ds0 f20 actionTable 'out=in;
 ' #txt
 Ds0 f20 actionCode 'import rule.engine.demo.RuleRepo;
@@ -196,7 +184,6 @@ Ds0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f20 200 170 176 44 -69 -16 #rect
-Ds0 f20 @|StepIcon #fIcon
 Ds0 f21 109 192 200 192 #arcP
 Ds0 f19 376 192 499 192 #arcP
 >Proto Ds0 .type rule.engine.demo.AdjustableDiscountCalculator.AdjustableDiscountCalculatorData #txt
@@ -224,7 +211,6 @@ Ds0 f19 376 192 499 192 #arcP
 </elementInfo>
 ' #txt
 >Proto Ds0 -8 -8 16 16 16 26 #rect
->Proto Ds0 '' #fIcon
 Ds0 f3 mainOut f14 tail #connect
 Ds0 f14 head f6 @AbstractThirdPartyProgramInterface|mainIn #connect
 Ds0 f0 mainOut f8 tail #connect

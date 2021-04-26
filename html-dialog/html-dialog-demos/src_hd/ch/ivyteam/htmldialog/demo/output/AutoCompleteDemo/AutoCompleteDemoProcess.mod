@@ -1,5 +1,5 @@
 [Ivy]
-1468B144151F2C82 9.2.0 #module
+1468B144151F2C82 9.3.0 #module
 >Proto >Proto Collection #zClass
 As0 AutoCompleteDemoProcess Big #zClass
 As0 RD #cInfo
@@ -39,10 +39,8 @@ As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f0 83 51 26 26 -16 15 #rect
-As0 f0 @|UdInitIcon #fIcon
 As0 f0 -1|-1|-9671572 #nodeStyle
 As0 f1 211 51 26 26 0 12 #rect
-As0 f1 @|UdProcessEndIcon #fIcon
 As0 f1 -1|-1|-9671572 #nodeStyle
 As0 f2 expr out #txt
 As0 f2 109 64 211 64 #arcP
@@ -62,10 +60,8 @@ As0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f8 83 147 26 26 -56 15 #rect
-As0 f8 @|UdMethodIcon #fIcon
 As0 f8 -1|-1|-9671572 #nodeStyle
 As0 f9 339 147 26 26 0 12 #rect
-As0 f9 @|UdProcessEndIcon #fIcon
 As0 f9 -1|-1|-9671572 #nodeStyle
 As0 f11 actionTable 'out=in;
 ' #txt
@@ -92,14 +88,12 @@ As0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f11 168 138 112 44 -27 -8 #rect
-As0 f11 @|StepIcon #fIcon
 As0 f11 -1|-1|-9671572 #nodeStyle
 As0 f12 expr out #txt
 As0 f12 109 160 168 160 #arcP
 As0 f10 expr out #txt
 As0 f10 280 160 339 160 #arcP
 As0 f18 515 243 26 26 0 12 #rect
-As0 f18 @|UdProcessEndIcon #fIcon
 As0 f18 -1|-1|-9671572 #nodeStyle
 As0 f19 guid 1468B41F73969E32 #txt
 As0 f19 actionTable 'out=in;
@@ -114,7 +108,6 @@ As0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f19 83 243 26 26 -14 12 #rect
-As0 f19 @|UdEventIcon #fIcon
 As0 f19 -1|-1|-9671572 #nodeStyle
 As0 f13 actionTable 'out=in;
 ' #txt
@@ -149,7 +142,6 @@ selected users</name>
 </elementInfo>
 ' #txt
 As0 f13 336 234 128 44 -44 -16 #rect
-As0 f13 @|StepIcon #fIcon
 As0 f13 -1|-1|-9671572 #nodeStyle
 As0 f15 expr out #txt
 As0 f15 464 256 515 256 #arcP
@@ -171,7 +163,6 @@ selected user</name>
 </elementInfo>
 ' #txt
 As0 f16 168 234 112 44 -37 -16 #rect
-As0 f16 @|StepIcon #fIcon
 As0 f16 -1|-1|-9671572 #nodeStyle
 As0 f20 expr out #txt
 As0 f20 109 256 168 256 #arcP
@@ -180,7 +171,6 @@ As0 f14 280 256 336 256 #arcP
 >Proto As0 .type ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData #txt
 >Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
->Proto As0 '' #fIcon
 As0 f0 mainOut f2 tail #connect
 As0 f2 head f1 mainIn #connect
 As0 f8 mainOut f12 tail #connect

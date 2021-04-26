@@ -1,5 +1,5 @@
 [Ivy]
-145D18869AFC8A9A 9.2.0 #module
+145D18869AFC8A9A 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ps0 Primefaces Big #zClass
 Ps0 B #cInfo
@@ -47,7 +47,6 @@ Ps0 f72 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ps0 f72 @C|.responsibility Everybody #txt
 Ps0 f72 113 49 30 30 -40 15 #rect
-Ps0 f72 @|StartRequestIcon #fIcon
 Ps0 f72 -1|-1|-9671572 #nodeStyle
 Ps0 f73 dialogId ch.ivyteam.htmldialog.primefaces.Primefaces #txt
 Ps0 f73 startMethod start() #txt
@@ -57,10 +56,8 @@ Ps0 f73 responseActionDecl 'htmlDialogDemos.Data out;
 Ps0 f73 responseMappingAction 'out=in;
 ' #txt
 Ps0 f73 248 42 112 44 58 -2 #rect
-Ps0 f73 @|UserDialogIcon #fIcon
 Ps0 f73 -1|-1|-9671572 #nodeStyle
 Ps0 f74 465 49 30 30 0 15 #rect
-Ps0 f74 @|EndIcon #fIcon
 Ps0 f74 -1|-1|-9671572 #nodeStyle
 Ps0 f75 expr out #txt
 Ps0 f75 143 64 248 64 #arcP
@@ -68,7 +65,6 @@ Ps0 f76 expr out #txt
 Ps0 f76 360 64 465 64 #arcP
 Ps0 f3 template "view/icons.xhtml" #txt
 Ps0 f3 369 145 30 30 0 15 #rect
-Ps0 f3 @|EndRequestIcon #fIcon
 Ps0 f0 outLink IconsShowcase.ivp #txt
 Ps0 f0 inParamDecl '<> param;' #txt
 Ps0 f0 requestEnabled true #txt
@@ -87,7 +83,6 @@ Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ps0 f0 @C|.responsibility Everybody #txt
 Ps0 f0 113 145 30 30 -56 27 #rect
-Ps0 f0 @|StartRequestIcon #fIcon
 Ps0 f1 143 160 369 160 #arcP
 >Proto Ps0 .type htmlDialogDemos.Data #txt
 >Proto Ps0 .processKind NORMAL #txt
