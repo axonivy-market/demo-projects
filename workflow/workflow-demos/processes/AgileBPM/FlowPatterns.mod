@@ -1,5 +1,5 @@
 [Ivy]
-152551002ABB8DFE 9.2.0 #module
+152551002ABB8DFE 9.3.0 #module
 >Proto >Proto Collection #zClass
 To0 FlowPatterns Big #zClass
 To0 B #cInfo
@@ -161,7 +161,6 @@ ToDo task</name>
 </elementInfo>
 ' #txt
 To0 U31 304 194 112 44 -28 -16 #rect
-To0 U31 @|BpmnUserTaskIcon #fIcon
 To0 U31 -1|-1|-13016147 #nodeStyle
 To0 f0 outLink start.ivp #txt
 To0 f0 inParamDecl '<> param;' #txt
@@ -185,9 +184,7 @@ To0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 To0 f0 @C|.responsibility Everybody #txt
 To0 f0 81 193 30 30 -21 17 #rect
-To0 f0 @|StartRequestIcon #fIcon
 To0 f1 457 193 30 30 0 15 #rect
-To0 f1 @|EndIcon #fIcon
 To0 U10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -219,7 +216,6 @@ Request Form</name>
 </elementInfo>
 ' #txt
 To0 f5 152 186 112 44 -39 -16 #rect
-To0 f5 @|UserDialogIcon #fIcon
 To0 f6 expr out #txt
 To0 f6 111 208 152 208 #arcP
 To0 f3 expr out #txt
@@ -235,7 +231,6 @@ answer Question</name>
 </elementInfo>
 ' #txt
 To0 U20 320 426 128 44 -43 -16 #rect
-To0 U20 @|BpmnUserTaskIcon #fIcon
 To0 U20 g0 -9 -22 #fFoot
 To0 U20 -1|-1|-13016147 #nodeStyle
 To0 f4 outLink start2.ivp #txt
@@ -262,7 +257,6 @@ To0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 To0 f4 @C|.responsibility Everybody #txt
 To0 f4 81 425 30 30 -3 17 #rect
-To0 f4 @|StartRequestIcon #fIcon
 To0 U11 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -274,7 +268,6 @@ get response</name>
 </elementInfo>
 ' #txt
 To0 U11 496 418 112 44 -36 -16 #rect
-To0 U11 @|BpmnUserTaskIcon #fIcon
 To0 f7 dialogId workflow.agileBPM.test #txt
 To0 f7 startMethod start(String) #txt
 To0 f7 requestActionDecl '<String answer> param;' #txt
@@ -293,7 +286,6 @@ Question Form</name>
 </elementInfo>
 ' #txt
 To0 f7 152 418 128 44 -40 -16 #rect
-To0 f7 @|UserDialogIcon #fIcon
 To0 U21 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -305,7 +297,6 @@ answer question</name>
 </elementInfo>
 ' #txt
 To0 U21 312 418 128 44 -43 -16 #rect
-To0 U21 @|BpmnUserTaskIcon #fIcon
 To0 U21 -1|-1|-13016147 #nodeStyle
 To0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -317,7 +308,6 @@ To0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 To0 f8 721 425 30 30 -1 17 #rect
-To0 f8 @|EndIcon #fIcon
 To0 f9 440 440 496 440 #arcP
 To0 f11 expr out #txt
 To0 f11 111 440 152 440 #arcP
@@ -333,7 +323,6 @@ To0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 To0 f13 16 153 48 30 -14 -8 #rect
-To0 f13 @|IBIcon #fIcon
 To0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -344,7 +333,6 @@ To0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 To0 f14 16 385 112 30 -49 -8 #rect
-To0 f14 @|IBIcon #fIcon
 To0 U12 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -356,7 +344,6 @@ approve request</name>
 </elementInfo>
 ' #txt
 To0 U12 312 306 128 44 -42 -16 #rect
-To0 U12 @|BpmnUserTaskIcon #fIcon
 To0 U12 -1|-1|-13016147 #nodeStyle
 To0 U13 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -369,7 +356,6 @@ approve request</name>
 </elementInfo>
 ' #txt
 To0 U13 304 298 128 44 -42 -16 #rect
-To0 U13 @|BpmnUserTaskIcon #fIcon
 To0 U13 -1|-1|-13016147 #nodeStyle
 To0 f15 outLink start22.ivp #txt
 To0 f15 inParamDecl '<> param;' #txt
@@ -395,7 +381,6 @@ To0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 To0 f15 @C|.responsibility Everybody #txt
 To0 f15 81 305 30 30 -3 17 #rect
-To0 f15 @|StartRequestIcon #fIcon
 To0 f16 dialogId workflow.agileBPM.test #txt
 To0 f16 startMethod start(String) #txt
 To0 f16 requestActionDecl '<String answer> param;' #txt
@@ -414,7 +399,6 @@ Request Form</name>
 </elementInfo>
 ' #txt
 To0 f16 152 298 112 44 -39 -16 #rect
-To0 f16 @|UserDialogIcon #fIcon
 To0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -425,7 +409,6 @@ To0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 To0 f17 641 305 30 30 -1 17 #rect
-To0 f17 @|EndIcon #fIcon
 To0 f18 beanConfig '"{/emailSubject """"/emailFrom """"/emailReplyTo """"/emailTo """"/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage """"/emailAttachments * }"' #txt
 To0 f18 type workflow.agileBPM.Data #txt
 To0 f18 timeout 0 #txt
@@ -440,7 +423,6 @@ Notification Mail</name>
 </elementInfo>
 ' #txt
 To0 f18 472 298 128 44 -41 -16 #rect
-To0 f18 @|EMailIcon #fIcon
 To0 f19 432 320 472 320 #arcP
 To0 f20 expr out #txt
 To0 f20 600 320 641 320 #arcP
@@ -458,7 +440,6 @@ To0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 To0 f23 16 265 64 30 -25 -8 #rect
-To0 f23 @|IBIcon #fIcon
 To0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -469,7 +450,6 @@ To0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 To0 f24 640 424 32 32 -30 17 #rect
-To0 f24 @|AlternativeIcon #fIcon
 To0 f25 608 440 640 440 #arcP
 To0 f25 0 0.5347498877662558 0 0 #arcLabel
 To0 f10 expr in #txt
@@ -493,7 +473,6 @@ In Addition you can also create an Ad-Hoc Workflow from scratch.</name>
 </elementInfo>
 ' #txt
 To0 f27 64 26 512 44 -246 -16 #rect
-To0 f27 @|IBIcon #fIcon
 >Proto To0 .type workflow.agileBPM.Data #txt
 >Proto To0 .processKind NORMAL #txt
 >Proto To0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -525,9 +504,7 @@ Bk4 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Bk4 f0 @C|.responsibility Everybody #txt
 Bk4 f0 17 225 30 30 0 17 #rect
-Bk4 f0 @|StartRequestIcon #fIcon
 Bk4 f1 561 225 30 30 0 15 #rect
-Bk4 f1 @|EndIcon #fIcon
 Bk4 f2 expr out #txt
 Bk4 f2 47 240 561 240 #arcP
 Bk4 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -540,13 +517,10 @@ Bk4 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bk4 f3 24 161 128 30 -57 -8 #rect
-Bk4 f3 @|IBIcon #fIcon
 >Proto Bk0 0 0 32 24 18 0 #rect
 >Proto Bk0 @|BpmnUserTaskIcon #fIcon
 Bk0 g0 51 243 26 26 0 5 #rect
-Bk0 g0 @|MIGIcon #fIcon
 Bk0 g1 563 243 26 26 0 5 #rect
-Bk0 g1 @|MOGIcon #fIcon
 Bk0 f0 77 256 563 256 #arcP
 Bk0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -558,13 +532,9 @@ Bk0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bk0 f3 32 177 128 30 -57 -8 #rect
-Bk0 f3 @|IBIcon #fIcon
 >Proto Bk1 -8 -8 16 16 16 26 #rect
->Proto Bk1 '' #fIcon
 Bk1 g0 38 211 26 26 0 5 #rect
-Bk1 g0 @|MIGIcon #fIcon
 Bk1 f0 353 209 30 30 0 15 #rect
-Bk1 f0 @|EndIcon #fIcon
 Bk1 f1 64 224 353 224 #arcP
 Bk1 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -576,13 +546,10 @@ Bk1 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bk1 f3 40 161 128 30 -57 -8 #rect
-Bk1 f3 @|IBIcon #fIcon
 >Proto Bk2 0 0 32 24 18 0 #rect
 >Proto Bk2 @|BpmnUserTaskIcon #fIcon
 Bk2 g0 67 235 26 26 0 5 #rect
-Bk2 g0 @|MIGIcon #fIcon
 Bk2 g1 563 235 26 26 0 5 #rect
-Bk2 g1 @|MOGIcon #fIcon
 Bk2 f0 93 248 563 248 #arcP
 Bk2 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -594,17 +561,12 @@ Bk2 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bk2 f3 64 193 128 30 -57 -8 #rect
-Bk2 f3 @|IBIcon #fIcon
 >Proto Bk3 0 0 32 24 18 0 #rect
 >Proto Bk3 @|BpmnUserTaskIcon #fIcon
 Bk3 g0 51 243 26 26 0 5 #rect
-Bk3 g0 @|MIGIcon #fIcon
 Bk3 g1 563 243 26 26 0 5 #rect
-Bk3 g1 @|MOGIcon #fIcon
 Bk3 g2 339 147 26 26 -63 28 #rect
-Bk3 g2 @|MIGIcon #fIcon
 Bk3 f1 336 240 32 32 0 16 #rect
-Bk3 f1 @|AlternativeIcon #fIcon
 Bk3 f2 77 256 336 256 #arcP
 Bk3 f0 expr in #txt
 Bk3 f0 368 256 563 256 #arcP
@@ -619,11 +581,9 @@ Bk3 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bk3 f4 56 185 128 30 -57 -8 #rect
-Bk3 f4 @|IBIcon #fIcon
 >Proto Bk4 0 0 32 24 18 0 #rect
 >Proto Bk4 @|BpmnUserTaskIcon #fIcon
 Bk5 f1 569 273 30 30 0 15 #rect
-Bk5 f1 @|EndIcon #fIcon
 Bk5 f0 outLink dummy2.ivp #txt
 Bk5 f0 inParamDecl '<> param;' #txt
 Bk5 f0 requestEnabled false #txt
@@ -646,7 +606,6 @@ Bk5 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Bk5 f0 @C|.responsibility Everybody #txt
 Bk5 f0 25 273 30 30 0 17 #rect
-Bk5 f0 @|StartRequestIcon #fIcon
 Bk5 f2 expr out #txt
 Bk5 f2 55 288 569 288 #arcP
 Bk5 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -659,13 +618,10 @@ Bk5 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bk5 f3 24 193 128 30 -57 -8 #rect
-Bk5 f3 @|IBIcon #fIcon
 >Proto Bk5 0 0 32 24 18 0 #rect
 >Proto Bk5 @|BpmnUserTaskIcon #fIcon
 Bk6 g0 51 243 26 26 0 5 #rect
-Bk6 g0 @|MIGIcon #fIcon
 Bk6 g1 563 243 26 26 0 5 #rect
-Bk6 g1 @|MOGIcon #fIcon
 Bk6 f0 77 256 563 256 #arcP
 Bk6 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -677,7 +633,6 @@ Bk6 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bk6 f3 40 169 128 30 -57 -8 #rect
-Bk6 f3 @|IBIcon #fIcon
 >Proto Bk6 0 0 32 24 18 0 #rect
 >Proto Bk6 @|BpmnUserTaskIcon #fIcon
 To0 U10 g1 f2 tail #connect

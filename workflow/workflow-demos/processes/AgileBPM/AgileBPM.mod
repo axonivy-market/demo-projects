@@ -1,5 +1,5 @@
 [Ivy]
-15255056043EE914 9.2.0 #module
+15255056043EE914 9.3.0 #module
 >Proto >Proto Collection #zClass
 AF0 AgileBPM Big #zClass
 AF0 B #cInfo
@@ -101,7 +101,6 @@ AF0 1b0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 AF0 1b0 392 170 112 44 -40 -8 #rect
-AF0 1b0 @|BIcon #fIcon
 AF0 f0 outLink start.ivp #txt
 AF0 f0 inParamDecl '<> param;' #txt
 AF0 f0 requestEnabled true #txt
@@ -137,7 +136,6 @@ AF0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 AF0 f0 @C|.responsibility Employee #txt
 AF0 f0 83 179 26 26 -21 15 #rect
-AF0 f0 @|StartRequestIcon #fIcon
 AF0 f1 dialogId workflow.agileBPM.define_WF #txt
 AF0 f1 startMethod start() #txt
 AF0 f1 requestActionDecl '<> param;' #txt
@@ -156,7 +154,6 @@ AF0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 AF0 f1 168 170 112 44 -47 -8 #rect
-AF0 f1 @|UserDialogIcon #fIcon
 AF0 f2 expr out #txt
 AF0 f2 109 192 168 192 #arcP
 AF0 f2 0 0.5643877852180716 0 0 #arcLabel
@@ -170,7 +167,6 @@ AF0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 AF0 f5 322 178 28 28 -14 -34 #rect
-AF0 f5 @|AlternativeIcon #fIcon
 AF0 f6 expr out #txt
 AF0 f6 280 192 322 192 #arcP
 AF0 f4 expr in #txt
@@ -196,7 +192,6 @@ AF0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 AF0 f7 563 243 26 26 -21 21 #rect
-AF0 f7 @|EndIcon #fIcon
 AF0 f8 expr in #txt
 AF0 f8 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -220,7 +215,6 @@ AF0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 AF0 f9 563 179 26 26 -22 17 #rect
-AF0 f9 @|EndIcon #fIcon
 AF0 f3 504 192 563 192 #arcP
 AF0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -232,7 +226,6 @@ AF0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 AF0 f10 64 33 480 30 -233 -8 #rect
-AF0 f10 @|IBIcon #fIcon
 >Proto AF0 .type workflow.agileBPM.Data #txt
 >Proto AF0 .processKind NORMAL #txt
 >Proto AF0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -259,7 +252,6 @@ AF0 f10 @|IBIcon #fIcon
 </elementInfo>
 ' #txt
 1b1 S10 520 202 112 44 -28 -8 #rect
-1b1 S10 @|BIcon #fIcon
 1b1 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -270,7 +262,6 @@ AF0 f10 @|IBIcon #fIcon
 </elementInfo>
 ' #txt
 1b1 f6 114 210 28 28 2 19 #rect
-1b1 f6 @|AlternativeIcon #fIcon
 1b1 g0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -279,7 +270,6 @@ AF0 f10 @|IBIcon #fIcon
 </elementInfo>
 ' #txt
 1b1 g0 35 211 26 26 -13 18 #rect
-1b1 g0 @|MIGIcon #fIcon
 1b1 f0 61 224 114 224 #arcP
 1b1 g1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -289,7 +279,6 @@ AF0 f10 @|IBIcon #fIcon
 </elementInfo>
 ' #txt
 1b1 g1 243 403 26 26 -19 15 #rect
-1b1 g1 @|MOGIcon #fIcon
 1b1 f1 expr in #txt
 1b1 f1 outCond in.definedTasks.size()==0 #txt
 1b1 f1 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -322,7 +311,6 @@ out.nextTask.setSubject(in.caseInfo.subject);
 </elementInfo>
 ' #txt
 1b1 f5 220 204 104 40 -24 -8 #rect
-1b1 f5 @|StepIcon #fIcon
 1b1 f4 expr in #txt
 1b1 f4 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -348,7 +336,6 @@ out.nextTask.setSubject(in.caseInfo.subject);
 </elementInfo>
 ' #txt
 1b1 f3 680 298 112 44 -26 -8 #rect
-1b1 f3 @|EMailIcon #fIcon
 1b1 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -359,7 +346,6 @@ out.nextTask.setSubject(in.caseInfo.subject);
 </elementInfo>
 ' #txt
 1b1 f8 368 208 32 32 -65 -45 #rect
-1b1 f8 @|AlternativeIcon #fIcon
 1b1 f10 expr out #txt
 1b1 f10 324 224 368 224 #arcP
 1b1 f13 actionTable 'out=in1;
@@ -385,7 +371,6 @@ TaskA.TYPE=0' #txt
 </elementInfo>
 ' #txt
 1b1 f13 417 305 30 30 -23 17 #rect
-1b1 f13 @|TaskSwitchSimpleIcon #fIcon
 1b1 f14 expr in #txt
 1b1 f14 type workflow.agileBPM.Data #txt
 1b1 f14 var in1 #txt
@@ -434,7 +419,6 @@ ivy.log.debug("Email: {0}", ivy.case.getCreatorUser().getEMailAddress());' #txt
 </elementInfo>
 ' #txt
 1b1 f17 520 298 112 44 -28 -8 #rect
-1b1 f17 @|StepIcon #fIcon
 1b1 f18 expr data #txt
 1b1 f18 outCond ivp=="TaskA.ivp" #txt
 1b1 f18 447 320 520 320 #arcP
@@ -485,7 +469,6 @@ Ct0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f9 474 250 28 28 -17 20 #rect
-Ct0 f9 @|TaskSwitchSimpleIcon #fIcon
 Ct0 f11 dialogId workflow.agileBPM.task_Form #txt
 Ct0 f11 startMethod start(workflow.agileBPM.CaseDef,workflow.agileBPM.TaskDef,List<workflow.agileBPM.TaskDef>) #txt
 Ct0 f11 requestActionDecl '<workflow.agileBPM.CaseDef caseInfo,workflow.agileBPM.TaskDef nextTask,List<workflow.agileBPM.TaskDef> definedTasks> param;' #txt
@@ -508,7 +491,6 @@ Ct0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f11 544 242 112 44 -26 -8 #rect
-Ct0 f11 @|UserDialogIcon #fIcon
 Ct0 f12 expr data #txt
 Ct0 f12 outCond ivp=="TaskA.ivp" #txt
 Ct0 f12 502 264 544 264 #arcP
@@ -520,7 +502,6 @@ Ct0 g0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 g0 51 147 26 26 2 14 #rect
-Ct0 g0 @|MIGIcon #fIcon
 Ct0 g1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -529,7 +510,6 @@ Ct0 g1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 g1 979 147 26 26 -16 13 #rect
-Ct0 g1 @|MOGIcon #fIcon
 Ct0 f2 actionTable 'out=in1;
 ' #txt
 Ct0 f2 outLinks "TaskA.ivp","TaskB.ivp" #txt
@@ -562,7 +542,6 @@ Ct0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f2 336 144 32 32 9 -32 #rect
-Ct0 f2 @|TaskSwitchIcon #fIcon
 Ct0 f4 actionTable 'out=in1;
 out.definedTasks=in2.definedTasks;
 ' #txt
@@ -587,9 +566,7 @@ Ct0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f4 720 144 32 32 12 -29 #rect
-Ct0 f4 @|TaskSwitchIcon #fIcon
 Ct0 f6 264 144 32 32 0 16 #rect
-Ct0 f6 @|AlternativeIcon #fIcon
 Ct0 f3 expr in #txt
 Ct0 f3 type workflow.agileBPM.Data #txt
 Ct0 f3 var in1 #txt
@@ -604,7 +581,6 @@ Ct0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f8 472 144 32 32 -18 18 #rect
-Ct0 f8 @|AlternativeIcon #fIcon
 Ct0 f10 expr data #txt
 Ct0 f10 outCond ivp=="TaskA.ivp" #txt
 Ct0 f10 368 160 472 160 #arcP
@@ -616,7 +592,6 @@ Ct0 f0 352 176 474 264 #arcP
 Ct0 f0 1 352 264 #addKink
 Ct0 f0 1 0.19818879887184085 0 0 #arcLabel
 Ct0 f14 664 144 32 32 0 16 #rect
-Ct0 f14 @|AlternativeIcon #fIcon
 Ct0 f15 expr in #txt
 Ct0 f15 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -639,7 +614,6 @@ Ct0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f17 848 144 32 32 -18 18 #rect
-Ct0 f17 @|AlternativeIcon #fIcon
 Ct0 f18 expr data #txt
 Ct0 f18 outCond ivp=="TaskA.ivp" #txt
 Ct0 f18 752 160 848 160 #arcP
@@ -673,7 +647,6 @@ Ct0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f20 112 138 112 44 -8 -8 #rect
-Ct0 f20 @|StepIcon #fIcon
 Ct0 f7 expr out #txt
 Ct0 f7 224 160 264 160 #arcP
 Ct0 f22 actionTable 'out=in;
@@ -690,7 +663,6 @@ Ct0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f22 336 66 112 44 -9 -8 #rect
-Ct0 f22 @|StepIcon #fIcon
 Ct0 f23 expr in #txt
 Ct0 f23 outCond in.nextTask.n>1 #txt
 Ct0 f23 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -722,7 +694,6 @@ Ct0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f24 712 66 112 44 -10 -8 #rect
-Ct0 f24 @|StepIcon #fIcon
 Ct0 f25 expr in #txt
 Ct0 f25 outCond 'in.nextTask.n <in.nextTask.count' #txt
 Ct0 f25 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

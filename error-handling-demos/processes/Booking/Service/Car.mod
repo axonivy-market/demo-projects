@@ -1,5 +1,5 @@
 [Ivy]
-1500483191BD4791 9.2.0 #module
+1500483191BD4791 9.3.0 #module
 >Proto >Proto Collection #zClass
 hz0 Car Big #zClass
 hz0 B #cInfo
@@ -28,9 +28,7 @@ hz0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 hz0 f0 81 49 30 30 -43 17 #rect
-hz0 f0 @|StartSubIcon #fIcon
 hz0 f1 337 49 30 30 0 15 #rect
-hz0 f1 @|EndSubIcon #fIcon
 hz0 f3 actionTable 'out=in;
 ' #txt
 hz0 f3 actionCode 'import ch.ivyteam.ivy.bpm.error.BpmError;
@@ -46,7 +44,6 @@ hz0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 hz0 f3 168 42 112 44 -43 -8 #rect
-hz0 f3 @|WebServiceIcon #fIcon
 hz0 f4 expr out #txt
 hz0 f4 111 64 168 64 #arcP
 hz0 f2 expr out #txt

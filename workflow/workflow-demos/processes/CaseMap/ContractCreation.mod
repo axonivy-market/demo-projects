@@ -1,5 +1,5 @@
 [Ivy]
-15A89966729CE3FC 9.2.0 #module
+15A89966729CE3FC 9.3.0 #module
 >Proto >Proto Collection #zClass
 Cn0 ContractCreation Big #zClass
 Cn0 B #cInfo
@@ -43,9 +43,7 @@ Cn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cn0 f0 @C|.responsibility Everybody #txt
 Cn0 f0 81 49 30 30 -21 17 #rect
-Cn0 f0 @|StartRequestIcon #fIcon
 Cn0 f1 337 49 30 30 0 15 #rect
-Cn0 f1 @|EndIcon #fIcon
 Cn0 f2 expr out #txt
 Cn0 f2 111 64 337 64 #arcP
 >Proto Cn0 .type workflow.humantask.Data #txt

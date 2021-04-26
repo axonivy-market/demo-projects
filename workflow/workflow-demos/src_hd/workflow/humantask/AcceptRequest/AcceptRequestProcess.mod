@@ -1,5 +1,5 @@
 [Ivy]
-15254DF1CAEC5132 9.2.0 #module
+15254DF1CAEC5132 9.3.0 #module
 >Proto >Proto Collection #zClass
 As0 AcceptRequestProcess Big #zClass
 As0 RD #cInfo
@@ -44,11 +44,8 @@ As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f0 83 51 26 26 -16 15 #rect
-As0 f0 @|UdInitIcon #fIcon
 As0 f1 339 51 26 26 0 12 #rect
-As0 f1 @|UdProcessEndIcon #fIcon
 As0 f4 339 147 26 26 0 12 #rect
-As0 f4 @|UdExitEndIcon #fIcon
 As0 f2 expr out #txt
 As0 f2 109 64 339 64 #arcP
 As0 f6 actionTable 'out=in;
@@ -67,7 +64,6 @@ As0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f6 168 138 112 44 -33 -8 #rect
-As0 f6 @|StepIcon #fIcon
 As0 f5 expr out #txt
 As0 f5 280 160 339 160 #arcP
 As0 f8 guid 152A1ACC7D858AA0 #txt
@@ -84,7 +80,6 @@ As0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f8 83 147 26 26 -18 15 #rect
-As0 f8 @|UdEventIcon #fIcon
 As0 f14 guid 152A1ACDDE1813E7 #txt
 As0 f14 actionTable 'out=in;
 out.ok=false;
@@ -99,11 +94,9 @@ As0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f14 83 211 26 26 -20 15 #rect
-As0 f14 @|UdEventIcon #fIcon
 As0 f11 expr out #txt
 As0 f11 109 160 168 160 #arcP
 As0 f3 347 211 26 26 0 12 #rect
-As0 f3 @|UdExitEndIcon #fIcon
 As0 f10 actionTable 'out=in;
 out.logEntry.activity=ivy.cms.co("/Dialogs/procurementRequest/declinedBy");
 out.logEntry.timestamp=new DateTime();
@@ -120,7 +113,6 @@ As0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f10 168 202 112 44 -33 -8 #rect
-As0 f10 @|StepIcon #fIcon
 As0 f9 expr out #txt
 As0 f9 109 224 168 224 #arcP
 As0 f9 0 0.5706201187270097 0 0 #arcLabel
@@ -130,7 +122,6 @@ As0 f7 0 0.5706201187270097 0 0 #arcLabel
 >Proto As0 .type workflow.humantask.AcceptRequest.AcceptRequestData #txt
 >Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
->Proto As0 '' #fIcon
 As0 f0 mainOut f2 tail #connect
 As0 f2 head f1 mainIn #connect
 As0 f6 mainOut f5 tail #connect

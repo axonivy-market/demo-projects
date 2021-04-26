@@ -1,5 +1,5 @@
 [Ivy]
-16E59F2CEDC492A6 9.2.0 #module
+16E59F2CEDC492A6 9.3.0 #module
 >Proto >Proto Collection #zClass
 Rs0 ResponsiveGridDemoProcess Big #zClass
 Rs0 RD #cInfo
@@ -38,9 +38,7 @@ Rs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Rs0 f0 83 51 26 26 -29 15 #rect
-Rs0 f0 @|UdInitIcon #fIcon
 Rs0 f1 211 51 26 26 0 12 #rect
-Rs0 f1 @|UdProcessEndIcon #fIcon
 Rs0 f2 109 64 211 64 #arcP
 Rs0 f3 guid 16E59F2CEEAE96C7 #txt
 Rs0 f3 actionTable 'out=in;
@@ -53,9 +51,7 @@ Rs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Rs0 f3 83 147 26 26 -15 15 #rect
-Rs0 f3 @|UdEventIcon #fIcon
 Rs0 f4 211 147 26 26 0 12 #rect
-Rs0 f4 @|UdExitEndIcon #fIcon
 Rs0 f5 109 160 211 160 #arcP
 Rs0 f6 guid 16E5AB08F9E66297 #txt
 Rs0 f6 actionTable 'out=in;
@@ -68,14 +64,11 @@ Rs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Rs0 f6 83 243 26 26 -14 15 #rect
-Rs0 f6 @|UdEventIcon #fIcon
 Rs0 f7 211 243 26 26 0 12 #rect
-Rs0 f7 @|UdProcessEndIcon #fIcon
 Rs0 f8 109 256 211 256 #arcP
 >Proto Rs0 .type ch.ivyteam.htmldialog.demo.other.ResponsiveGridDemo.ResponsiveGridDemoData #txt
 >Proto Rs0 .processKind HTML_DIALOG #txt
 >Proto Rs0 -8 -8 16 16 16 26 #rect
->Proto Rs0 '' #fIcon
 Rs0 f0 mainOut f2 tail #connect
 Rs0 f2 head f1 mainIn #connect
 Rs0 f3 mainOut f5 tail #connect

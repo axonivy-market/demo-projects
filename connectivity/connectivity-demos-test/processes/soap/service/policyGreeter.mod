@@ -1,5 +1,5 @@
 [Ivy]
-162AFFB8ACCCB74C 9.2.0 #module
+162AFFB8ACCCB74C 9.3.0 #module
 >Proto >Proto Collection #zClass
 pr0 policyGreeter Big #zClass
 pr0 B #cInfo
@@ -50,7 +50,6 @@ pr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 pr0 f0 @C|.responsibility Everybody #txt
 pr0 f0 81 49 30 30 -75 17 #rect
-pr0 f0 @|StartRequestIcon #fIcon
 pr0 f18 actionTable 'out=in;
 ' #txt
 pr0 f18 actionCode ivy.session.setActiveEnvironment("dev-axonivy"); #txt
@@ -63,7 +62,6 @@ pr0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 pr0 f18 166 42 192 44 -75 -16 #rect
-pr0 f18 @|StepIcon #fIcon
 pr0 f3 expr out #txt
 pr0 f3 111 64 166 64 #arcP
 pr0 f2 actionTable 'out=in;
@@ -77,7 +75,6 @@ pr0 f2 inputParams 'parameters.greet="Hello Greeter!";
 pr0 f2 beanConfig "" #txt
 pr0 f2 timeout 0 #txt
 pr0 f2 424 42 112 44 0 -8 #rect
-pr0 f2 @|WebServiceIcon #fIcon
 pr0 f4 expr out #txt
 pr0 f4 358 64 424 64 #arcP
 pr0 f14 actionTable 'out=in;
@@ -91,7 +88,6 @@ pr0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 pr0 f14 584 42 112 44 -32 -7 #rect
-pr0 f14 @|StepIcon #fIcon
 pr0 f6 expr out #txt
 pr0 f6 536 64 584 64 #arcP
 pr0 f7 actionTable 'out=in;
@@ -99,7 +95,6 @@ out.error=error;
 ' #txt
 pr0 f7 attachedToRef 162AFFB8ACCCB74C-f2 #txt
 pr0 f7 497 81 30 30 0 15 #rect
-pr0 f7 @|ErrorBoundaryEventIcon #fIcon
 pr0 f8 526 92 584 64 #arcP
 pr0 f9 outLink greeterPoliciesNotDisabled.ivp #txt
 pr0 f9 inParamDecl '<> param;' #txt
@@ -126,7 +121,6 @@ pr0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 pr0 f9 @C|.responsibility Everybody #txt
 pr0 f9 81 145 30 30 -85 17 #rect
-pr0 f9 @|StartRequestIcon #fIcon
 pr0 f10 expr out #txt
 pr0 f10 111 160 480 86 #arcP
 pr0 f10 1 440 160 #addKink
@@ -145,7 +139,6 @@ pr0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 pr0 f11 760 42 128 44 -57 -8 #rect
-pr0 f11 @|StepIcon #fIcon
 pr0 f1 expr out #txt
 pr0 f1 696 64 760 64 #arcP
 >Proto pr0 .type com.axonivy.connectivity.test.GreeterPolicyData #txt

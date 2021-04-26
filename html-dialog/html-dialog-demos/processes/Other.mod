@@ -1,5 +1,5 @@
 [Ivy]
-145D1862CF17F2C9 9.2.0 #module
+145D1862CF17F2C9 9.3.0 #module
 >Proto >Proto Collection #zClass
 Or0 Other Big #zClass
 Or0 B #cInfo
@@ -52,7 +52,6 @@ Or0 f104 responseActionDecl 'htmlDialogDemos.Data out;
 Or0 f104 responseMappingAction 'out=in;
 ' #txt
 Or0 f104 248 42 112 44 58 -2 #rect
-Or0 f104 @|UserDialogIcon #fIcon
 Or0 f104 -1|-1|-9671572 #nodeStyle
 Or0 f44 dialogId ch.ivyteam.htmldialog.demo.other.ManagedBeanDemo #txt
 Or0 f44 startMethod start() #txt
@@ -62,7 +61,6 @@ Or0 f44 responseActionDecl 'htmlDialogDemos.Data out;
 Or0 f44 responseMappingAction 'out=in;
 ' #txt
 Or0 f44 248 330 112 44 58 -2 #rect
-Or0 f44 @|UserDialogIcon #fIcon
 Or0 f44 -1|-1|-9671572 #nodeStyle
 Or0 f109 outLink Html5BootstrapDemo.ivp #txt
 Or0 f109 inParamDecl '<> param;' #txt
@@ -91,7 +89,6 @@ Or0 f109 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Or0 f109 @C|.responsibility Everybody #txt
 Or0 f109 113 145 30 30 -69 15 #rect
-Or0 f109 @|StartRequestIcon #fIcon
 Or0 f109 -1|-1|-9671572 #nodeStyle
 Or0 f38 dialogId ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo #txt
 Or0 f38 startMethod start() #txt
@@ -101,13 +98,10 @@ Or0 f38 responseActionDecl 'htmlDialogDemos.Data out;
 Or0 f38 responseMappingAction 'out=in;
 ' #txt
 Or0 f38 248 234 112 44 58 -2 #rect
-Or0 f38 @|UserDialogIcon #fIcon
 Or0 f38 -1|-1|-9671572 #nodeStyle
 Or0 f105 465 49 30 30 0 15 #rect
-Or0 f105 @|EndIcon #fIcon
 Or0 f105 -1|-1|-9671572 #nodeStyle
 Or0 f37 697 241 30 30 0 15 #rect
-Or0 f37 @|EndIcon #fIcon
 Or0 f37 -1|-1|-9671572 #nodeStyle
 Or0 f106 outLink Html5Demo.ivp #txt
 Or0 f106 inParamDecl '<> param;' #txt
@@ -136,7 +130,6 @@ Or0 f106 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Or0 f106 @C|.responsibility Everybody #txt
 Or0 f106 113 49 30 30 -42 15 #rect
-Or0 f106 @|StartRequestIcon #fIcon
 Or0 f106 -1|-1|-9671572 #nodeStyle
 Or0 f42 outLink ManagedBeanDemo.ivp #txt
 Or0 f42 inParamDecl '<> param;' #txt
@@ -166,7 +159,6 @@ Or0 f42 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Or0 f42 @C|.responsibility Everybody #txt
 Or0 f42 113 337 30 30 -66 15 #rect
-Or0 f42 @|StartRequestIcon #fIcon
 Or0 f42 -1|-1|-9671572 #nodeStyle
 Or0 f102 dialogId ch.ivyteam.htmldialog.demo.Main #txt
 Or0 f102 startMethod start() #txt
@@ -176,13 +168,10 @@ Or0 f102 responseActionDecl 'htmlDialogDemos.Data out;
 Or0 f102 responseMappingAction 'out=in;
 ' #txt
 Or0 f102 472 234 112 44 58 -2 #rect
-Or0 f102 @|UserDialogIcon #fIcon
 Or0 f102 -1|-1|-9671572 #nodeStyle
 Or0 f110 465 145 30 30 0 15 #rect
-Or0 f110 @|EndIcon #fIcon
 Or0 f110 -1|-1|-9671572 #nodeStyle
 Or0 f43 465 337 30 30 0 15 #rect
-Or0 f43 @|EndIcon #fIcon
 Or0 f43 -1|-1|-9671572 #nodeStyle
 Or0 f112 dialogId ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo #txt
 Or0 f112 startMethod start() #txt
@@ -192,7 +181,6 @@ Or0 f112 responseActionDecl 'htmlDialogDemos.Data out;
 Or0 f112 responseMappingAction 'out=in;
 ' #txt
 Or0 f112 248 138 112 44 58 -2 #rect
-Or0 f112 @|UserDialogIcon #fIcon
 Or0 f112 -1|-1|-9671572 #nodeStyle
 Or0 f39 outLink MethodCallWithAjaxDemo.ivp #txt
 Or0 f39 inParamDecl '<> param;' #txt
@@ -221,7 +209,6 @@ Or0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Or0 f39 @C|.responsibility Everybody #txt
 Or0 f39 113 241 30 30 -80 15 #rect
-Or0 f39 @|StartRequestIcon #fIcon
 Or0 f39 -1|-1|-9671572 #nodeStyle
 Or0 f40 expr out #txt
 Or0 f40 143 256 248 256 #arcP
@@ -270,7 +257,6 @@ Or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Or0 f0 @C|.responsibility Everybody #txt
 Or0 f0 113 433 30 30 -64 17 #rect
-Or0 f0 @|StartRequestIcon #fIcon
 Or0 f1 dialogId ch.ivyteam.htmldialog.demo.other.ErrorHandling #txt
 Or0 f1 startMethod start() #txt
 Or0 f1 requestActionDecl '<> param;' #txt
@@ -279,9 +265,7 @@ Or0 f1 responseActionDecl 'htmlDialogDemos.Data out;
 Or0 f1 responseMappingAction 'out=in;
 ' #txt
 Or0 f1 248 426 112 44 0 -8 #rect
-Or0 f1 @|UserDialogIcon #fIcon
 Or0 f2 465 433 30 30 0 15 #rect
-Or0 f2 @|EndIcon #fIcon
 Or0 f3 expr out #txt
 Or0 f3 143 448 248 448 #arcP
 Or0 f4 expr out #txt
@@ -304,9 +288,7 @@ Or0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Or0 f5 @C|.responsibility Everybody #txt
 Or0 f5 113 529 30 30 -66 16 #rect
-Or0 f5 @|StartRequestIcon #fIcon
 Or0 f6 465 529 30 30 0 15 #rect
-Or0 f6 @|EndIcon #fIcon
 Or0 f8 dialogId ch.ivyteam.htmldialog.demo.other.ResponsiveGridDemo #txt
 Or0 f8 startMethod start() #txt
 Or0 f8 requestActionDecl '<> param;' #txt
@@ -320,7 +302,6 @@ Or0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Or0 f8 248 522 112 44 0 -8 #rect
-Or0 f8 @|UserDialogIcon #fIcon
 Or0 f9 143 544 248 544 #arcP
 Or0 f7 360 544 465 544 #arcP
 >Proto Or0 .type htmlDialogDemos.Data #txt

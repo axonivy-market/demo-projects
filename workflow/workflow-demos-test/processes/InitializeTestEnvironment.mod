@@ -1,5 +1,5 @@
 [Ivy]
-1537FF3C3382D47F 9.2.0 #module
+1537FF3C3382D47F 9.3.0 #module
 >Proto >Proto Collection #zClass
 LO0 InitializeTestEnvironment Big #zClass
 LO0 B #cInfo
@@ -36,9 +36,7 @@ LO0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 LO0 f0 @C|.responsibility Everybody #txt
 LO0 f0 81 49 30 30 -21 17 #rect
-LO0 f0 @|StartRequestIcon #fIcon
 LO0 f1 433 49 30 30 0 15 #rect
-LO0 f1 @|EndIcon #fIcon
 LO0 f3 actionCode 'import ch.ivyteam.ivy.security.*;
 
 ivy.session.loginSessionUser("admin","admin");
@@ -56,7 +54,6 @@ LO0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 LO0 f3 240 42 160 44 -71 -8 #rect
-LO0 f3 @|StepIcon #fIcon
 LO0 f2 expr out #txt
 LO0 f2 400 64 433 64 #arcP
 LO0 f4 expr out #txt
@@ -84,9 +81,7 @@ LO0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 LO0 f5 @C|.responsibility Everybody #txt
 LO0 f5 81 145 30 30 -71 17 #rect
-LO0 f5 @|StartRequestIcon #fIcon
 LO0 f6 433 145 30 30 0 15 #rect
-LO0 f6 @|EndIcon #fIcon
 LO0 f8 actionTable 'out=in;
 ' #txt
 LO0 f8 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.DemoDataCreator;
@@ -101,7 +96,6 @@ LO0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 LO0 f8 200 138 112 44 -32 -7 #rect
-LO0 f8 @|StepIcon #fIcon
 LO0 f9 expr out #txt
 LO0 f9 111 160 200 160 #arcP
 LO0 f7 expr out #txt

@@ -1,5 +1,5 @@
 [Ivy]
-139D97A1E15DE439 9.2.0 #module
+139D97A1E15DE439 9.3.0 #module
 >Proto >Proto Collection #zClass
 Is0 InitPersons Big #zClass
 Is0 B #cInfo
@@ -29,10 +29,8 @@ Is0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Is0 f0 81 49 30 30 -32 15 #rect
-Is0 f0 @|StartSubIcon #fIcon
 Is0 f0 -1|-1|-9671572 #nodeStyle
 Is0 f1 401 49 30 30 0 15 #rect
-Is0 f1 @|EndSubIcon #fIcon
 Is0 f1 -1|-1|-9671572 #nodeStyle
 Is0 f2 actionTable 'out=in;
 ' #txt
@@ -68,7 +66,6 @@ person.name = "Dänzer";
 person.firstname = "Michael";
 out.persons.add(person);' #txt
 Is0 f2 192 42 112 44 58 -2 #rect
-Is0 f2 @|StepIcon #fIcon
 Is0 f2 -1|-1|-9671572 #nodeStyle
 Is0 f3 expr out #txt
 Is0 f3 111 64 192 64 #arcP

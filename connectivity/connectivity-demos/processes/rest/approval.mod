@@ -1,5 +1,5 @@
 [Ivy]
-1549FE9E911A1812 9.2.0 #module
+1549FE9E911A1812 9.3.0 #module
 >Proto >Proto Collection #zClass
 al0 approval Big #zClass
 al0 B #cInfo
@@ -54,10 +54,8 @@ al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 al0 f0 @C|.responsibility Everybody #txt
 al0 f0 113 209 30 30 -49 17 #rect
-al0 f0 @|StartRequestIcon #fIcon
 al0 f0 -993312|-1|-16777216 #nodeStyle
 al0 f1 369 209 30 30 0 15 #rect
-al0 f1 @|EndIcon #fIcon
 al0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -68,7 +66,6 @@ al0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 al0 f3 168 265 160 30 -77 -8 #rect
-al0 f3 @|IBIcon #fIcon
 al0 f4 168 280 128 239 #arcP
 al0 f4 1 128 264 #addKink
 al0 f4 0 0.8379706169640114 0 0 #arcLabel
@@ -100,9 +97,7 @@ viaREST.ivp</name>
 ' #txt
 al0 f5 @C|.responsibility Everybody #txt
 al0 f5 113 113 30 30 -40 17 #rect
-al0 f5 @|StartRequestIcon #fIcon
 al0 f6 369 113 30 30 0 15 #rect
-al0 f6 @|EndIcon #fIcon
 al0 f10 dialogId com.axonivy.connectivity.rest.ApprovalDialog #txt
 al0 f10 startMethod start(com.axonivy.connectivity.rest.Approval) #txt
 al0 f10 requestActionDecl '<com.axonivy.connectivity.rest.Approval approval> param;' #txt
@@ -122,7 +117,6 @@ al0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 al0 f10 200 202 112 44 -42 -8 #rect
-al0 f10 @|UserDialogIcon #fIcon
 al0 f11 expr out #txt
 al0 f11 143 224 200 224 #arcP
 al0 f2 expr out #txt
@@ -139,7 +133,6 @@ run a functional SubProcess.</name>
 </elementInfo>
 ' #txt
 al0 f12 112 18 224 44 -106 -16 #rect
-al0 f12 @|IBIcon #fIcon
 al0 f13 224 62 128 113 #arcP
 al0 f13 1 128 88 #addKink
 al0 f13 0 0.6265821825077568 0 0 #arcLabel
@@ -170,7 +163,6 @@ create approval</name>
 </elementInfo>
 ' #txt
 al0 f14 192 106 128 44 -41 -16 #rect
-al0 f14 @|RestClientCallIcon #fIcon
 al0 f7 expr out #txt
 al0 f7 143 128 192 128 #arcP
 al0 f8 320 128 369 128 #arcP

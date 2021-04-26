@@ -1,5 +1,5 @@
 [Ivy]
-13EF083D130E971B 9.2.0 #module
+13EF083D130E971B 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ms0 MethodCallbackDialogProcess Big #zClass
 Ms0 RD #cInfo
@@ -35,13 +35,10 @@ Ms0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f0 83 51 26 26 -16 12 #rect
-Ms0 f0 @|UdInitIcon #fIcon
 Ms0 f0 -1|-1|-9671572 #nodeStyle
 Ms0 f1 411 51 26 26 0 12 #rect
-Ms0 f1 @|UdProcessEndIcon #fIcon
 Ms0 f1 -1|-1|-9671572 #nodeStyle
 Ms0 f4 211 147 26 26 0 12 #rect
-Ms0 f4 @|UdProcessEndIcon #fIcon
 Ms0 f4 -1|-1|-9671572 #nodeStyle
 Ms0 f6 actionTable 'out=in;
 ' #txt
@@ -77,7 +74,6 @@ create persons</name>
 </elementInfo>
 ' #txt
 Ms0 f6 200 42 128 44 -42 -16 #rect
-Ms0 f6 @|StepIcon #fIcon
 Ms0 f6 -1|-1|-9671572 #nodeStyle
 Ms0 f7 expr out #txt
 Ms0 f7 109 64 200 64 #arcP
@@ -107,10 +103,8 @@ Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f3 83 243 26 26 -69 12 #rect
-Ms0 f3 @|UdEventIcon #fIcon
 Ms0 f3 -1|-1|-9671572 #nodeStyle
 Ms0 f5 211 243 26 26 0 12 #rect
-Ms0 f5 @|UdProcessEndIcon #fIcon
 Ms0 f5 -1|-1|-9671572 #nodeStyle
 Ms0 f10 expr out #txt
 Ms0 f10 109 256 211 256 #arcP
@@ -142,13 +136,11 @@ Ms0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f8 83 147 26 26 -83 15 #rect
-Ms0 f8 @|UdEventIcon #fIcon
 Ms0 f9 expr out #txt
 Ms0 f9 109 160 211 160 #arcP
 >Proto Ms0 .type ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData #txt
 >Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
->Proto Ms0 '' #fIcon
 Ms0 f0 mainOut f7 tail #connect
 Ms0 f7 head f6 mainIn #connect
 Ms0 f6 mainOut f2 tail #connect

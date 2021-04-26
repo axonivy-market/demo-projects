@@ -1,5 +1,5 @@
 [Ivy]
-1698080EFEC9C585 9.2.0 #module
+1698080EFEC9C585 9.3.0 #module
 >Proto >Proto Collection #zClass
 Sc0 Static Big #zClass
 Sc0 B #cInfo
@@ -35,10 +35,8 @@ Sc0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Sc0 f0 @C|.responsibility Everybody #txt
 Sc0 f0 81 49 30 30 -25 17 #rect
-Sc0 f0 @|StartRequestIcon #fIcon
 Sc0 f1 template "view/static.xhtml" #txt
 Sc0 f1 305 49 30 30 0 15 #rect
-Sc0 f1 @|EndRequestIcon #fIcon
 Sc0 f2 expr out #txt
 Sc0 f2 111 64 305 64 #arcP
 >Proto Sc0 .type htmlDialogDemos.Data #txt

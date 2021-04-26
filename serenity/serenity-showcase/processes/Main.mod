@@ -1,5 +1,5 @@
 [Ivy]
-16FD6AB50245958F 9.2.0 #module
+16FD6AB50245958F 9.3.0 #module
 >Proto >Proto Collection #zClass
 Mn0 Main Big #zClass
 Mn0 B #cInfo
@@ -27,10 +27,8 @@ Mn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Mn0 f0 @C|.responsibility Everybody #txt
 Mn0 f0 81 49 30 30 -25 17 #rect
-Mn0 f0 @|StartRequestIcon #fIcon
 Mn0 f3 template "view/dashboard.xhtml" #txt
 Mn0 f3 337 49 30 30 0 15 #rect
-Mn0 f3 @|EndRequestIcon #fIcon
 Mn0 f1 111 64 337 64 #arcP
 >Proto Mn0 .type serenity.showcase.Data #txt
 >Proto Mn0 .processKind NORMAL #txt

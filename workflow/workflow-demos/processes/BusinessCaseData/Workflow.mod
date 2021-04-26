@@ -1,5 +1,5 @@
 [Ivy]
-16EF567002B146F2 9.2.0 #module
+16EF567002B146F2 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ww0 Workflow Big #zClass
 Ww0 B #cInfo
@@ -37,7 +37,6 @@ Ww0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ww0 f3 168 74 112 44 -43 -7 #rect
-Ww0 f3 @|UserDialogIcon #fIcon
 Ww0 f0 outLink create.ivp #txt
 Ww0 f0 inParamDecl '<> param;' #txt
 Ww0 f0 requestEnabled true #txt
@@ -60,9 +59,7 @@ Ww0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ww0 f0 @C|.responsibility Everybody #txt
 Ww0 f0 81 81 30 30 -25 17 #rect
-Ww0 f0 @|StartRequestIcon #fIcon
 Ww0 f1 593 81 30 30 0 15 #rect
-Ww0 f1 @|EndIcon #fIcon
 Ww0 f7 dialogId workflow.businesscasedata.InterviewForm #txt
 Ww0 f7 startMethod start() #txt
 Ww0 f7 requestActionDecl '<> param;' #txt
@@ -76,13 +73,11 @@ Ww0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ww0 f7 424 74 112 44 -43 -7 #rect
-Ww0 f7 @|UserDialogIcon #fIcon
 Ww0 f5 actionTable 'out=in1;
 ' #txt
 Ww0 f5 taskData 'TaskA.DESC=Review the data which was filled in by the first Html Dialog task.
 TaskA.NAM=Review Interview' #txt
 Ww0 f5 337 81 30 30 0 16 #rect
-Ww0 f5 @|TaskSwitchSimpleIcon #fIcon
 Ww0 f8 367 96 424 96 #arcP
 Ww0 f2 536 96 593 96 #arcP
 Ww0 f6 280 96 337 96 #arcP
@@ -106,9 +101,7 @@ Ww0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ww0 f9 @C|.responsibility Everybody #txt
 Ww0 f9 81 177 30 30 -25 17 #rect
-Ww0 f9 @|StartRequestIcon #fIcon
 Ww0 f10 593 177 30 30 0 15 #rect
-Ww0 f10 @|EndIcon #fIcon
 Ww0 f11 dialogId workflow.businesscasedata.InterviewLazyBrowser #txt
 Ww0 f11 startMethod start() #txt
 Ww0 f11 requestActionDecl '<> param;' #txt
@@ -122,7 +115,6 @@ Ww0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ww0 f11 280 170 144 44 -65 -7 #rect
-Ww0 f11 @|UserDialogIcon #fIcon
 Ww0 f12 111 192 280 192 #arcP
 Ww0 f13 424 192 593 192 #arcP
 Ww0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -145,7 +137,6 @@ Hints:
 </elementInfo>
 ' #txt
 Ww0 f14 112 242 832 204 -410 -97 #rect
-Ww0 f14 @|IBIcon #fIcon
 >Proto Ww0 .type workflow.businesscasedata.Data #txt
 >Proto Ww0 .processKind NORMAL #txt
 >Proto Ww0 0 0 32 24 18 0 #rect

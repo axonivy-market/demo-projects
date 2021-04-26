@@ -1,5 +1,5 @@
 [Ivy]
-1523FF963044280C 9.2.0 #module
+1523FF963044280C 9.3.0 #module
 >Proto >Proto Collection #zClass
 ft0 KeyCardDelivery Big #zClass
 ft0 B #cInfo
@@ -38,9 +38,7 @@ ft0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ft0 f19 336 274 112 44 -38 -8 #rect
-ft0 f19 @|StepIcon #fIcon
 ft0 f6 361 185 30 30 0 15 #rect
-ft0 f6 @|EndIcon #fIcon
 ft0 f28 actionTable 'out.user=signal.getSignalData() as workflow.signal.User;
 ' #txt
 ft0 f28 actionCode 'ivy.case.setBusinessObjectCode(out.user.userKey);
@@ -57,7 +55,6 @@ ft0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ft0 f28 105 185 30 30 -36 17 #rect
-ft0 f28 @|SignalStartEventIcon #fIcon
 ft0 f8 dialogId workflow.signal.TaskForm #txt
 ft0 f8 startMethod start(workflow.signal.User) #txt
 ft0 f8 requestActionDecl '<workflow.signal.User user> param;' #txt
@@ -88,9 +85,7 @@ ft0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ft0 f8 192 178 112 44 -45 -8 #rect
-ft0 f8 @|UserTaskIcon #fIcon
 ft0 f23 489 281 30 30 0 15 #rect
-ft0 f23 @|EndIcon #fIcon
 ft0 f7 expr data #txt
 ft0 f7 outCond ivp=="TaskA.ivp" #txt
 ft0 f7 304 200 361 200 #arcP
@@ -120,7 +115,6 @@ ft0 St0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ft0 St0 265 217 30 30 15 6 #rect
-ft0 St0 @|SignalBoundaryEventIcon #fIcon
 ft0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -134,7 +128,6 @@ As long as the projects are deployed into the same application.</name>
 </elementInfo>
 ' #txt
 ft0 f0 144 114 496 44 -238 -16 #rect
-ft0 f0 @|IBIcon #fIcon
 ft0 f1 144 136 125 185 #arcP
 ft0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -146,7 +139,6 @@ ft0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ft0 f2 60 33 592 30 -293 -8 #rect
-ft0 f2 @|IBIcon #fIcon
 >Proto ft0 .type workflow.signal.FacilityManagementData #txt
 >Proto ft0 .processKind NORMAL #txt
 >Proto ft0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

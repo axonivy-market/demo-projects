@@ -1,5 +1,5 @@
 [Ivy]
-156E5D9AA7D41BAA 9.2.0 #module
+156E5D9AA7D41BAA 9.3.0 #module
 >Proto >Proto Collection #zClass
 Vn0 VerificationProcess Big #zClass
 Vn0 B #cInfo
@@ -64,7 +64,6 @@ the Business Data from the process data is used, without loading it before:
 </elementInfo>
 ' #txt
 Vn0 f30 64 198 576 396 -279 -190 #rect
-Vn0 f30 @|IBIcon #fIcon
 Vn0 f21 dialogId workflow.businessdata.BusinessDataDossierModifier #txt
 Vn0 f21 startMethod start(String,String) #txt
 Vn0 f21 requestActionDecl '<String businessDataId,String title> param;' #txt
@@ -86,7 +85,6 @@ verification</name>
 </elementInfo>
 ' #txt
 Vn0 f21 232 106 112 44 -29 -16 #rect
-Vn0 f21 @|UserDialogIcon #fIcon
 Vn0 f31 actionTable 'out=in1;
 ' #txt
 Vn0 f31 outLinks "TaskA.ivp" #txt
@@ -109,9 +107,7 @@ Vn0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Vn0 f31 161 113 30 30 -43 -41 #rect
-Vn0 f31 @|TaskSwitchSimpleIcon #fIcon
 Vn0 f23 425 113 30 30 0 15 #rect
-Vn0 f23 @|EndIcon #fIcon
 Vn0 f19 outLink verifyDossier.ivp #txt
 Vn0 f19 inParamDecl '<String id> param;' #txt
 Vn0 f19 inParamTable 'out.id=param.id;
@@ -142,7 +138,6 @@ Vn0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Vn0 f19 @C|.responsibility Everybody #txt
 Vn0 f19 65 113 30 30 -44 17 #rect
-Vn0 f19 @|StartRequestIcon #fIcon
 Vn0 f34 expr data #txt
 Vn0 f34 outCond ivp=="TaskA.ivp" #txt
 Vn0 f34 191 128 232 128 #arcP
@@ -162,7 +157,6 @@ Vn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Vn0 f0 65 24 416 44 -205 -16 #rect
-Vn0 f0 @|IBIcon #fIcon
 Vn0 f2 expr out #txt
 Vn0 f2 344 128 425 128 #arcP
 >Proto Vn0 .type workflow.businessdata.Data #txt

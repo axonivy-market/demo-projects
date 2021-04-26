@@ -1,5 +1,5 @@
 [Ivy]
-169B3B7F5EF38D8F 9.2.0 #module
+169B3B7F5EF38D8F 9.3.0 #module
 >Proto >Proto Collection #zClass
 fd0 fileUpload Big #zClass
 fd0 B #cInfo
@@ -55,9 +55,7 @@ fd0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 fd0 f0 @C|.responsibility Everybody #txt
 fd0 f0 81 105 30 30 -25 17 #rect
-fd0 f0 @|StartRequestIcon #fIcon
 fd0 f1 337 105 30 30 0 15 #rect
-fd0 f1 @|EndIcon #fIcon
 fd0 f3 dialogId com.axonivy.connectivity.rest.FileUpload #txt
 fd0 f3 startMethod start(com.axonivy.connectivity.Data) #txt
 fd0 f3 requestActionDecl '<com.axonivy.connectivity.Data data> param;' #txt
@@ -73,7 +71,6 @@ fd0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fd0 f3 168 98 112 44 -52 -7 #rect
-fd0 f3 @|UserDialogIcon #fIcon
 fd0 f4 expr out #txt
 fd0 f4 111 120 168 120 #arcP
 fd0 f2 expr out #txt
@@ -86,7 +83,6 @@ fd0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fd0 f5 56 17 336 30 -159 -7 #rect
-fd0 f5 @|IBIcon #fIcon
 fd0 f6 outLink fileMultipart.ivp #txt
 fd0 f6 inParamDecl '<> param;' #txt
 fd0 f6 actionCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
@@ -109,9 +105,7 @@ fd0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 fd0 f6 @C|.responsibility Everybody #txt
 fd0 f6 81 305 30 30 -38 17 #rect
-fd0 f6 @|StartRequestIcon #fIcon
 fd0 f7 337 305 30 30 0 15 #rect
-fd0 f7 @|EndIcon #fIcon
 fd0 f8 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 fd0 f8 path /file #txt
 fd0 f8 headers 'Accept=*/*;
@@ -145,7 +139,6 @@ fd0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fd0 f8 168 298 112 44 -35 -15 #rect
-fd0 f8 @|RestClientCallIcon #fIcon
 fd0 f9 expr out #txt
 fd0 f9 111 320 168 320 #arcP
 fd0 f10 280 320 337 320 #arcP
@@ -169,7 +162,6 @@ fd0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 fd0 f16 @C|.responsibility Everybody #txt
 fd0 f16 81 209 30 30 -42 17 #rect
-fd0 f16 @|StartRequestIcon #fIcon
 fd0 f17 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 fd0 f17 path /file/{fileName} #txt
 fd0 f17 templateParams 'fileName=in.file.getName();
@@ -210,9 +202,7 @@ fd0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fd0 f17 168 200 112 48 -42 -15 #rect
-fd0 f17 @|RestClientCallIcon #fIcon
 fd0 f18 497 209 30 30 0 15 #rect
-fd0 f18 @|EndIcon #fIcon
 fd0 f19 111 224 168 224 #arcP
 fd0 f21 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 fd0 f21 path /file/{fileName} #txt
@@ -231,11 +221,9 @@ fd0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fd0 f21 320 202 128 44 -42 -15 #rect
-fd0 f21 @|RestClientCallIcon #fIcon
 fd0 f23 280 224 320 224 #arcP
 fd0 f20 448 224 497 224 #arcP
 fd0 f11 337 401 30 30 0 15 #rect
-fd0 f11 @|EndIcon #fIcon
 fd0 f12 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 fd0 f12 path /file/multi #txt
 fd0 f12 headers 'Accept=*/*;
@@ -263,7 +251,6 @@ fd0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fd0 f12 168 394 112 44 -38 -15 #rect
-fd0 f12 @|RestClientCallIcon #fIcon
 fd0 f13 outLink multipleFiles.ivp #txt
 fd0 f13 inParamDecl '<> param;' #txt
 fd0 f13 actionCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
@@ -286,7 +273,6 @@ fd0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 fd0 f13 @C|.responsibility Everybody #txt
 fd0 f13 81 401 30 30 -38 17 #rect
-fd0 f13 @|StartRequestIcon #fIcon
 fd0 f14 280 416 337 416 #arcP
 fd0 f15 expr out #txt
 fd0 f15 111 416 168 416 #arcP

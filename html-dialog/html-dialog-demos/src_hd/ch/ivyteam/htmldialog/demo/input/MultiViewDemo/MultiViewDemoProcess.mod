@@ -1,5 +1,5 @@
 [Ivy]
-13D0159BD5D40664 9.2.0 #module
+13D0159BD5D40664 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ms0 MultiViewDemoProcess Big #zClass
 Ms0 RD #cInfo
@@ -67,7 +67,6 @@ Ms0 S10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 S10 216 330 112 44 -30 -8 #rect
-Ms0 S10 @|BIcon #fIcon
 Ms0 S10 -1|-1|-9671572 #nodeStyle
 Ms0 f0 guid 13D0159BD8A52D62 #txt
 Ms0 f0 method start() #txt
@@ -86,10 +85,8 @@ Ms0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f0 83 51 26 26 -27 12 #rect
-Ms0 f0 @|UdInitIcon #fIcon
 Ms0 f0 -1|-1|-9671572 #nodeStyle
 Ms0 f1 211 51 26 26 0 12 #rect
-Ms0 f1 @|UdProcessEndIcon #fIcon
 Ms0 f1 -1|-1|-9671572 #nodeStyle
 Ms0 f2 expr out #txt
 Ms0 f2 109 64 211 64 #arcP
@@ -111,10 +108,8 @@ Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f3 83 339 26 26 -24 12 #rect
-Ms0 f3 @|UdMethodIcon #fIcon
 Ms0 f3 -1|-1|-9671572 #nodeStyle
 Ms0 f4 435 339 26 26 0 12 #rect
-Ms0 f4 @|UdProcessEndIcon #fIcon
 Ms0 f4 -1|-1|-9671572 #nodeStyle
 Ms0 f6 guid 13D0171B58AD5337 #txt
 Ms0 f6 actionTable 'out=in;
@@ -127,10 +122,8 @@ Ms0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f6 83 147 26 26 -15 12 #rect
-Ms0 f6 @|UdEventIcon #fIcon
 Ms0 f6 -1|-1|-9671572 #nodeStyle
 Ms0 f20 211 147 26 26 0 12 #rect
-Ms0 f20 @|UdExitEndIcon #fIcon
 Ms0 f20 -1|-1|-9671572 #nodeStyle
 Ms0 f7 expr out #txt
 Ms0 f7 109 160 211 160 #arcP
@@ -150,10 +143,8 @@ Ms0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f27 83 243 26 26 -43 12 #rect
-Ms0 f27 @|UdMethodIcon #fIcon
 Ms0 f27 -1|-1|-9671572 #nodeStyle
 Ms0 f28 211 243 26 26 0 12 #rect
-Ms0 f28 @|UdProcessEndIcon #fIcon
 Ms0 f28 -1|-1|-9671572 #nodeStyle
 Ms0 f29 109 256 211 256 #arcP
 Ms0 f31 expr out #txt
@@ -162,7 +153,6 @@ Ms0 f32 328 352 435 352 #arcP
 >Proto Ms0 .type ch.ivyteam.htmldialog.demo.input.MultiViewDemo.MultiViewDemoData #txt
 >Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
->Proto Ms0 '' #fIcon
 Ct0 f26 expr in #txt
 Ct0 f26 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -180,7 +170,6 @@ Ct0 f23 actionTable 'out=in;
 out.nextView="Summary";
 ' #txt
 Ct0 f23 232 250 112 44 58 -2 #rect
-Ct0 f23 @|StepIcon #fIcon
 Ct0 f23 -1|-1|-9671572 #nodeStyle
 Ct0 f19 expr in #txt
 Ct0 f19 outCond 'in.currentView == "Invoice"' #txt
@@ -201,7 +190,6 @@ Ct0 f21 actionTable 'out=in;
 out.nextView="CreditCardProcessing";
 ' #txt
 Ct0 f21 232 154 112 44 58 -2 #rect
-Ct0 f21 @|StepIcon #fIcon
 Ct0 f21 -1|-1|-9671572 #nodeStyle
 Ct0 f16 expr in #txt
 Ct0 f16 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -221,7 +209,6 @@ Ct0 f11 actionTable 'out=in;
 out.nextView="CreditCard";
 ' #txt
 Ct0 f11 360 474 112 44 58 -2 #rect
-Ct0 f11 @|StepIcon #fIcon
 Ct0 f11 -1|-1|-9671572 #nodeStyle
 Ct0 f15 expr in #txt
 Ct0 f15 outCond in.paymentKind=="Invoice" #txt
@@ -241,7 +228,6 @@ Ct0 f10 actionTable 'out=in;
 out.nextView="Invoice";
 ' #txt
 Ct0 f10 360 634 112 44 58 -2 #rect
-Ct0 f10 @|StepIcon #fIcon
 Ct0 f10 -1|-1|-9671572 #nodeStyle
 Ct0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -253,13 +239,11 @@ Ct0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f13 240 560 32 32 24 -9 #rect
-Ct0 f13 @|AlternativeIcon #fIcon
 Ct0 f13 -1|-1|-9671572 #nodeStyle
 Ct0 f12 actionTable 'out=in;
 out.nextView="Summary";
 ' #txt
 Ct0 f12 232 58 112 44 58 -2 #rect
-Ct0 f12 @|StepIcon #fIcon
 Ct0 f12 -1|-1|-9671572 #nodeStyle
 Ct0 f14 expr in #txt
 Ct0 f14 outCond 'in.currentView == "MultiViewDemo"' #txt
@@ -301,7 +285,6 @@ Ct0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f5 112 336 32 32 23 -8 #rect
-Ct0 f5 @|AlternativeIcon #fIcon
 Ct0 f5 -1|-1|-9671572 #nodeStyle
 Ct0 g0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -311,7 +294,6 @@ Ct0 g0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 g0 19 339 26 26 -16 19 #rect
-Ct0 g0 @|MIGIcon #fIcon
 Ct0 g0 -1|-1|-9671572 #nodeStyle
 Ct0 f0 45 352 112 352 #arcP
 Ct0 g1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -322,10 +304,8 @@ Ct0 g1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 g1 659 339 26 26 -15 15 #rect
-Ct0 g1 @|MOGIcon #fIcon
 Ct0 g1 -1|-1|-9671572 #nodeStyle
 Ct0 f9 560 336 32 32 0 16 #rect
-Ct0 f9 @|AlternativeIcon #fIcon
 Ct0 f9 -1|-1|-9671572 #nodeStyle
 Ct0 f1 expr in #txt
 Ct0 f1 592 352 659 352 #arcP

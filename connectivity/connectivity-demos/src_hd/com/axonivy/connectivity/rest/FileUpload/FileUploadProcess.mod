@@ -1,5 +1,5 @@
 [Ivy]
-169B3B8EB21D10D8 9.2.0 #module
+169B3B8EB21D10D8 9.3.0 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadProcess Big #zClass
 Fs0 RD #cInfo
@@ -48,9 +48,7 @@ Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fs0 f0 83 51 26 26 -35 15 #rect
-Fs0 f0 @|UdInitIcon #fIcon
 Fs0 f1 307 51 26 26 0 12 #rect
-Fs0 f1 @|UdProcessEndIcon #fIcon
 Fs0 f3 guid 169B3B8EB4542063 #txt
 Fs0 f3 actionTable 'out=in;
 ' #txt
@@ -62,13 +60,10 @@ Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fs0 f3 83 371 26 26 -16 12 #rect
-Fs0 f3 @|UdEventIcon #fIcon
 Fs0 f4 211 371 26 26 0 12 #rect
-Fs0 f4 @|UdExitEndIcon #fIcon
 Fs0 f5 expr out #txt
 Fs0 f5 109 384 211 384 #arcP
 Fs0 f14 307 307 26 26 0 12 #rect
-Fs0 f14 @|UdProcessEndIcon #fIcon
 Fs0 f12 guid 169BA65449CB5C7A #txt
 Fs0 f12 actionTable 'out=in;
 ' #txt
@@ -80,9 +75,7 @@ Fs0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fs0 f12 83 115 26 26 -44 13 #rect
-Fs0 f12 @|UdEventIcon #fIcon
 Fs0 f13 307 155 26 26 0 12 #rect
-Fs0 f13 @|UdProcessEndIcon #fIcon
 Fs0 f20 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 Fs0 f20 path file #txt
 Fs0 f20 method JAX_RS #txt
@@ -124,7 +117,6 @@ with ivy Script</name>
 </elementInfo>
 ' #txt
 Fs0 f20 144 106 128 44 -41 -15 #rect
-Fs0 f20 @|RestClientCallIcon #fIcon
 Fs0 f24 expr out #txt
 Fs0 f24 109 128 144 128 #arcP
 Fs0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -135,7 +127,6 @@ Fs0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fs0 f15 344 153 496 30 -241 -7 #rect
-Fs0 f15 @|IBIcon #fIcon
 Fs0 f23 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 Fs0 f23 path file #txt
 Fs0 f23 method JAX_RS #txt
@@ -165,7 +156,6 @@ with Java</name>
 </elementInfo>
 ' #txt
 Fs0 f23 152 170 112 44 -27 -15 #rect
-Fs0 f23 @|RestClientCallIcon #fIcon
 Fs0 f26 guid 169DD5240BB13E40 #txt
 Fs0 f26 actionTable 'out=in;
 ' #txt
@@ -177,7 +167,6 @@ Fs0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fs0 f26 83 179 26 26 -35 17 #rect
-Fs0 f26 @|UdEventIcon #fIcon
 Fs0 f21 264 320 307 320 #arcP
 Fs0 f19 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 Fs0 f19 path /file/{fileName} #txt
@@ -204,7 +193,6 @@ Fs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fs0 f19 152 300 112 40 -24 -7 #rect
-Fs0 f19 @|RestClientCallIcon #fIcon
 Fs0 f7 expr out #txt
 Fs0 f7 109 192 152 192 #arcP
 Fs0 f2 expr out #txt
@@ -223,7 +211,6 @@ Fs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fs0 f6 83 307 26 26 -53 15 #rect
-Fs0 f6 @|UdMethodIcon #fIcon
 Fs0 f8 264 192 307 170 #arcP
 Fs0 f8 0 0.5115946062226181 0 0 #arcLabel
 Fs0 f9 270 150 307 163 #arcP
@@ -252,9 +239,7 @@ Fs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fs0 f11 84 244 24 24 -34 16 #rect
-Fs0 f11 @|UdMethodIcon #fIcon
 Fs0 f18 307 243 26 26 0 12 #rect
-Fs0 f18 @|UdProcessEndIcon #fIcon
 Fs0 f16 expr out #txt
 Fs0 f16 108 256 307 256 #arcP
 Fs0 f10 expr out #txt
@@ -262,7 +247,6 @@ Fs0 f10 109 320 152 320 #arcP
 >Proto Fs0 .type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
 >Proto Fs0 .processKind HTML_DIALOG #txt
 >Proto Fs0 -8 -8 16 16 16 26 #rect
->Proto Fs0 '' #fIcon
 Fs0 f3 mainOut f5 tail #connect
 Fs0 f5 head f4 mainIn #connect
 Fs0 f19 mainOut f21 tail #connect

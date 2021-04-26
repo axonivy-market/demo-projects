@@ -1,5 +1,5 @@
 [Ivy]
-16ADE8E3AB9D5207 9.2.0 #module
+16ADE8E3AB9D5207 9.3.0 #module
 >Proto >Proto Collection #zClass
 Es0 ExportExcelDemoProcess Big #zClass
 Es0 RD #cInfo
@@ -29,10 +29,8 @@ Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f0 83 115 26 26 -16 12 #rect
-Es0 f0 @|UdInitIcon #fIcon
 Es0 f0 -1|-1|-9671572 #nodeStyle
 Es0 f1 555 115 26 26 0 12 #rect
-Es0 f1 @|UdProcessEndIcon #fIcon
 Es0 f1 -1|-1|-9671572 #nodeStyle
 Es0 f2 processCall 'Functional Processes/InitPersons:initPerson()' #txt
 Es0 f2 requestActionDecl '<> param;' #txt
@@ -49,7 +47,6 @@ Es0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f2 168 106 112 44 -32 -8 #rect
-Es0 f2 @|CallSubIcon #fIcon
 Es0 f2 -1|-1|-9671572 #nodeStyle
 Es0 f3 expr out #txt
 Es0 f3 109 128 168 128 #arcP
@@ -65,7 +62,6 @@ for (Person person : in.persons)
 	in.recordset.add([person.name, person.firstname]);
 }' #txt
 Es0 f11 360 106 112 44 58 -2 #rect
-Es0 f11 @|StepIcon #fIcon
 Es0 f11 -1|-1|-9671572 #nodeStyle
 Es0 f12 expr out #txt
 Es0 f12 280 128 360 128 #arcP
@@ -87,7 +83,6 @@ Es0 f4 472 128 555 128 #arcP
 </elementInfo>
 ' #txt
 >Proto Es0 -8 -8 16 16 16 26 #rect
->Proto Es0 '' #fIcon
 Es0 f0 mainOut f3 tail #connect
 Es0 f3 head f2 mainIn #connect
 Es0 f2 mainOut f12 tail #connect

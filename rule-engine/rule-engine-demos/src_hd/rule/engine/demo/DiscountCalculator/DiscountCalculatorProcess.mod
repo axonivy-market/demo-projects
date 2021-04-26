@@ -1,5 +1,5 @@
 [Ivy]
-153E9EE0223D1DF9 9.2.0 #module
+153E9EE0223D1DF9 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ds0 DiscountCalculatorProcess Big #zClass
 Ds0 RD #cInfo
@@ -47,9 +47,7 @@ Ds0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f10 83 307 26 26 -62 15 #rect
-Ds0 f10 @|UdMethodIcon #fIcon
 Ds0 f11 499 307 26 26 0 12 #rect
-Ds0 f11 @|UdProcessEndIcon #fIcon
 Ds0 f3 guid 153EA7D0A9692E67 #txt
 Ds0 f3 method applyRulesFromDecisionTable() #txt
 Ds0 f3 inParameterDecl '<> param;' #txt
@@ -64,9 +62,7 @@ Ds0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f3 83 179 26 26 -89 15 #rect
-Ds0 f3 @|UdMethodIcon #fIcon
 Ds0 f4 499 179 26 26 0 12 #rect
-Ds0 f4 @|UdProcessEndIcon #fIcon
 Ds0 f15 guid 1740BA3DD7672D96 #txt
 Ds0 f15 method applyRulesFromDMN() #txt
 Ds0 f15 inParameterDecl '<> param;' #txt
@@ -79,9 +75,7 @@ Ds0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f15 83 435 26 26 -63 15 #rect
-Ds0 f15 @|UdMethodIcon #fIcon
 Ds0 f16 499 435 26 26 0 12 #rect
-Ds0 f16 @|UdProcessEndIcon #fIcon
 Ds0 f18 actionTable 'out=in;
 ' #txt
 Ds0 f18 actionCode 'import java.util.HashMap;
@@ -108,7 +102,6 @@ Ds0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f18 248 426 128 44 -61 -8 #rect
-Ds0 f18 @|StepIcon #fIcon
 Ds0 f19 109 448 248 448 #arcP
 Ds0 f17 376 448 499 448 #arcP
 Ds0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -120,7 +113,6 @@ https://kiegroup.github.io/kogito-online/#/</name>
 </elementInfo>
 ' #txt
 Ds0 f20 608 426 256 44 -125 -16 #rect
-Ds0 f20 @|IBIcon #fIcon
 Ds0 f0 guid 153E9EE0238C8F41 #txt
 Ds0 f0 method start(rule.engine.demo.Member) #txt
 Ds0 f0 inParameterDecl '<rule.engine.demo.Member member> param;' #txt
@@ -137,9 +129,7 @@ Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f0 83 51 26 26 -38 15 #rect
-Ds0 f0 @|UdInitIcon #fIcon
 Ds0 f1 499 51 26 26 0 12 #rect
-Ds0 f1 @|UdProcessEndIcon #fIcon
 Ds0 f2 109 64 499 64 #arcP
 Ds0 f6 @AbstractThirdPartyProgramInterface|type rule.engine.demo.DiscountCalculator.DiscountCalculatorData #txt
 Ds0 f6 @AbstractThirdPartyProgramInterface|timeout 0 #txt
@@ -154,7 +144,6 @@ This object will be modified during the rule execution.</desc>
 </elementInfo>
 ' #txt
 Ds0 f6 248 298 128 44 -60 -8 #rect
-Ds0 f6 @|RuleActivity #fIcon
 Ds0 f13 376 320 499 320 #arcP
 Ds0 f12 109 320 248 320 #arcP
 Ds0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -170,7 +159,6 @@ ivy.rules.create()&#13;
 </elementInfo>
 ' #txt
 Ds0 f14 608 266 384 108 -182 -48 #rect
-Ds0 f14 @|IBIcon #fIcon
 Ds0 f21 @AbstractThirdPartyProgramInterface|type rule.engine.demo.DiscountCalculator.DiscountCalculatorData #txt
 Ds0 f21 @AbstractThirdPartyProgramInterface|timeout 0 #txt
 Ds0 f21 @AbstractThirdPartyProgramInterface|beanConfig "{""namespace"":""rule.engine.decisiontable"",""dataObject"":""in.member""}" #txt
@@ -183,7 +171,6 @@ Decision Table (xls)</name>
 </elementInfo>
 ' #txt
 Ds0 f21 240 170 144 44 -51 -16 #rect
-Ds0 f21 @|RuleActivity #fIcon
 Ds0 f22 expr out #txt
 Ds0 f22 109 192 240 192 #arcP
 Ds0 f8 384 192 499 192 #arcP
@@ -196,7 +183,6 @@ This object will be modified during the rule execution.</name>
 </elementInfo>
 ' #txt
 Ds0 f23 608 170 400 44 -192 -16 #rect
-Ds0 f23 @|IBIcon #fIcon
 >Proto Ds0 .type rule.engine.demo.DiscountCalculator.DiscountCalculatorData #txt
 >Proto Ds0 .processKind HTML_DIALOG #txt
 >Proto Ds0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -227,7 +213,6 @@ Ds0 f23 @|IBIcon #fIcon
 </elementInfo>
 ' #txt
 >Proto Ds0 -8 -8 16 16 16 26 #rect
->Proto Ds0 '' #fIcon
 Ds0 f15 mainOut f19 tail #connect
 Ds0 f19 head f18 mainIn #connect
 Ds0 f18 mainOut f17 tail #connect

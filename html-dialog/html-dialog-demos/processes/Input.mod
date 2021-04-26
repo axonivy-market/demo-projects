@@ -1,5 +1,5 @@
 [Ivy]
-145D18298A3E81CF 9.2.0 #module
+145D18298A3E81CF 9.3.0 #module
 >Proto >Proto Collection #zClass
 It0 Input Big #zClass
 It0 B #cInfo
@@ -45,7 +45,6 @@ It0 f69 requestActionDecl '<> param;' #txt
 It0 f69 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 It0 f69 248 426 112 44 58 -2 #rect
-It0 f69 @|UserDialogIcon #fIcon
 It0 f69 -1|-1|-9671572 #nodeStyle
 It0 f54 dialogId ch.ivyteam.htmldialog.demo.input.BeanValidationDemo #txt
 It0 f54 startMethod start() #txt
@@ -55,7 +54,6 @@ It0 f54 responseActionDecl 'htmlDialogDemos.Data out;
 It0 f54 responseMappingAction 'out=in;
 ' #txt
 It0 f54 248 138 112 44 58 -2 #rect
-It0 f54 @|UserDialogIcon #fIcon
 It0 f54 -1|-1|-9671572 #nodeStyle
 It0 f52 outLink BeanValidationDemo.ivp #txt
 It0 f52 inParamDecl '<> param;' #txt
@@ -84,7 +82,6 @@ It0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 It0 f52 @C|.responsibility Everybody #txt
 It0 f52 113 145 30 30 -67 15 #rect
-It0 f52 @|StartRequestIcon #fIcon
 It0 f52 -1|-1|-9671572 #nodeStyle
 It0 f17 dialogId ch.ivyteam.htmldialog.demo.input.FormDemo #txt
 It0 f17 startMethod start() #txt
@@ -94,7 +91,6 @@ It0 f17 responseActionDecl 'htmlDialogDemos.Data out;
 It0 f17 responseMappingAction 'out=in;
 ' #txt
 It0 f17 472 42 112 44 58 -2 #rect
-It0 f17 @|UserDialogIcon #fIcon
 It0 f17 -1|-1|-9671572 #nodeStyle
 It0 f35 actionTable 'out=in;
 ' #txt
@@ -118,7 +114,6 @@ for selenium test</name>
 </elementInfo>
 ' #txt
 It0 f35 232 42 144 44 -52 -16 #rect
-It0 f35 @|StepIcon #fIcon
 It0 f35 -1|-1|-9671572 #nodeStyle
 It0 f67 outLink MultiViewDemo.ivp #txt
 It0 f67 inParamDecl '<> param;' #txt
@@ -147,13 +142,10 @@ It0 f67 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 It0 f67 @C|.responsibility Everybody #txt
 It0 f67 113 433 30 30 -51 15 #rect
-It0 f67 @|StartRequestIcon #fIcon
 It0 f67 -1|-1|-9671572 #nodeStyle
 It0 f53 465 145 30 30 0 15 #rect
-It0 f53 @|EndIcon #fIcon
 It0 f53 -1|-1|-9671572 #nodeStyle
 It0 f16 689 49 30 30 0 15 #rect
-It0 f16 @|EndIcon #fIcon
 It0 f16 -1|-1|-9671572 #nodeStyle
 It0 f79 outLink FileUploadAdvancedModeDemo.ivp #txt
 It0 f79 inParamDecl '<> param;' #txt
@@ -180,7 +172,6 @@ It0 f79 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 It0 f79 @C|.responsibility Everybody #txt
 It0 f79 113 337 30 30 -97 15 #rect
-It0 f79 @|StartRequestIcon #fIcon
 It0 f79 -1|-1|-9671572 #nodeStyle
 It0 f15 outLink FormDemo.ivp #txt
 It0 f15 inParamDecl '<> param;' #txt
@@ -209,10 +200,8 @@ It0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 It0 f15 @C|.responsibility Everybody #txt
 It0 f15 113 49 30 30 -40 15 #rect
-It0 f15 @|StartRequestIcon #fIcon
 It0 f15 -1|-1|-9671572 #nodeStyle
 It0 f64 465 241 30 30 0 15 #rect
-It0 f64 @|EndIcon #fIcon
 It0 f64 -1|-1|-9671572 #nodeStyle
 It0 f63 dialogId ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo #txt
 It0 f63 startMethod start() #txt
@@ -222,10 +211,8 @@ It0 f63 responseActionDecl 'htmlDialogDemos.Data out;
 It0 f63 responseMappingAction 'out=in;
 ' #txt
 It0 f63 248 234 112 44 58 -2 #rect
-It0 f63 @|UserDialogIcon #fIcon
 It0 f63 -1|-1|-9671572 #nodeStyle
 It0 f78 465 337 30 30 0 15 #rect
-It0 f78 @|EndIcon #fIcon
 It0 f78 -1|-1|-9671572 #nodeStyle
 It0 f62 outLink FileUploadSimpleModeDemo.ivp #txt
 It0 f62 inParamDecl '<> param;' #txt
@@ -252,10 +239,8 @@ It0 f62 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 It0 f62 @C|.responsibility Everybody #txt
 It0 f62 113 241 30 30 -90 15 #rect
-It0 f62 @|StartRequestIcon #fIcon
 It0 f62 -1|-1|-9671572 #nodeStyle
 It0 f68 465 433 30 30 0 15 #rect
-It0 f68 @|EndIcon #fIcon
 It0 f68 -1|-1|-9671572 #nodeStyle
 It0 f77 dialogId ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo #txt
 It0 f77 startMethod start() #txt
@@ -265,7 +250,6 @@ It0 f77 responseActionDecl 'htmlDialogDemos.Data out;
 It0 f77 responseMappingAction 'out=in;
 ' #txt
 It0 f77 248 330 112 44 58 -2 #rect
-It0 f77 @|UserDialogIcon #fIcon
 It0 f77 -1|-1|-9671572 #nodeStyle
 It0 f19 expr out #txt
 It0 f19 584 64 689 64 #arcP

@@ -1,5 +1,5 @@
 [Ivy]
-15A852737BAA2982 9.2.0 #module
+15A852737BAA2982 9.3.0 #module
 >Proto >Proto Collection #zClass
 A10 ApproveLevel1 Big #zClass
 A10 B #cInfo
@@ -47,9 +47,7 @@ A10 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 A10 f0 @C|.responsibility Everybody #txt
 A10 f0 81 49 30 30 -21 17 #rect
-A10 f0 @|StartRequestIcon #fIcon
 A10 f1 505 49 30 30 0 15 #rect
-A10 f1 @|EndIcon #fIcon
 A10 f3 actionTable 'out=in;
 ' #txt
 A10 f3 actionCode 'ivy.log.info("Business Process is in Stage " + ivy.case.getBusinessCase().getStage().getName());' #txt
@@ -63,7 +61,6 @@ A10 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 A10 f3 328 42 112 44 -25 -8 #rect
-A10 f3 @|StepIcon #fIcon
 A10 f2 expr out #txt
 A10 f2 440 64 505 64 #arcP
 A10 f5 dialogId workflow.credit.ApproveLevel1 #txt
@@ -83,7 +80,6 @@ Level 1</name>
 </elementInfo>
 ' #txt
 A10 f5 168 42 112 44 -22 -16 #rect
-A10 f5 @|UserDialogIcon #fIcon
 A10 f6 expr out #txt
 A10 f6 111 64 168 64 #arcP
 A10 f6 0 0.7758833401611239 0 0 #arcLabel

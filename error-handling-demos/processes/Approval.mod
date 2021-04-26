@@ -1,5 +1,5 @@
 [Ivy]
-14ED397D47F3083D 9.2.0 #module
+14ED397D47F3083D 9.3.0 #module
 >Proto >Proto Collection #zClass
 al0 Approval Big #zClass
 al0 B #cInfo
@@ -53,11 +53,8 @@ al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 al0 f0 @C|.responsibility Team #txt
 al0 f0 81 177 30 30 -21 17 #rect
-al0 f0 @|StartRequestIcon #fIcon
 al0 f1 753 241 30 30 0 15 #rect
-al0 f1 @|EndIcon #fIcon
 al0 f6 753 177 30 30 0 15 #rect
-al0 f6 @|EndIcon #fIcon
 al0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -74,7 +71,6 @@ The error approval:declined  initiates an alternative flow</name>
 </elementInfo>
 ' #txt
 al0 f16 80 34 336 44 -163 -19 #rect
-al0 f16 @|IBIcon #fIcon
 al0 f16 -1|-1|-65536 #nodeStyle
 al0 f3 dialogId error.handling.demo.approval.RequestForm #txt
 al0 f3 startMethod start() #txt
@@ -100,7 +96,6 @@ al0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 al0 f3 168 170 112 44 -39 -8 #rect
-al0 f3 @|UserTaskIcon #fIcon
 al0 f9 expr out #txt
 al0 f9 type error.handling.demo.Approval #txt
 al0 f9 var in1 #txt
@@ -132,7 +127,6 @@ al0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 al0 f11 336 362 112 44 -22 -8 #rect
-al0 f11 @|UserTaskIcon #fIcon
 al0 f12 dialogId error.handling.demo.approval.RequestApproved #txt
 al0 f12 startMethod start(error.handling.demo.Approval) #txt
 al0 f12 requestActionDecl '<error.handling.demo.Approval approval> param;' #txt
@@ -160,7 +154,6 @@ al0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 al0 f12 584 234 112 44 -48 -8 #rect
-al0 f12 @|UserTaskIcon #fIcon
 al0 f13 expr data #txt
 al0 f13 outCond ivp=="TaskA.ivp" #txt
 al0 f13 type error.handling.demo.Approval #txt
@@ -184,7 +177,6 @@ al0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 al0 Et0 409 345 30 30 18 -25 #rect
-al0 Et0 @|ErrorBoundaryEventIcon #fIcon
 al0 f14 expr data #txt
 al0 f14 outCond ivp=="TaskA.ivp" #txt
 al0 f14 type error.handling.demo.Approval #txt
@@ -222,7 +214,6 @@ al0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 al0 f17 584 170 112 44 -46 -8 #rect
-al0 f17 @|UserTaskIcon #fIcon
 al0 f10 expr data #txt
 al0 f10 outCond ivp=="TaskA.ivp" #txt
 al0 f10 696 192 753 192 #arcP

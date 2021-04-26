@@ -1,5 +1,5 @@
 [Ivy]
-162492A1649E72DF 9.2.0 #module
+162492A1649E72DF 9.3.0 #module
 >Proto >Proto Collection #zClass
 ce0 createOrderService Big #zClass
 ce0 WS #cInfo
@@ -55,9 +55,7 @@ ce0 ws0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ce0 ws0 @C|.responsibility Everybody #txt
 ce0 ws0 57 137 30 30 -27 -33 #rect
-ce0 ws0 @|StartWSIcon #fIcon
 ce0 ws1 441 73 30 30 0 15 #rect
-ce0 ws1 @|EndWSIcon #fIcon
 ce0 f1 processCall soap/service/order:approveOrder(com.axonivy.connectivity.soap.service.Order,String) #txt
 ce0 f1 requestActionDecl '<com.axonivy.connectivity.soap.service.Order order,String responsibleRole> param;' #txt
 ce0 f1 requestMappingAction 'param.order=in.order;
@@ -81,7 +79,6 @@ by boss</name>
 </elementInfo>
 ' #txt
 ce0 f1 272 66 112 44 -25 -15 #rect
-ce0 f1 @|TriggerIcon #fIcon
 ce0 f0 expr out #txt
 ce0 f0 384 88 441 88 #arcP
 ce0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -94,7 +91,6 @@ ce0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ce0 f3 160 136 32 32 20 -8 #rect
-ce0 f3 @|AlternativeIcon #fIcon
 ce0 f4 expr out #txt
 ce0 f4 87 152 160 152 #arcP
 ce0 f2 expr in #txt
@@ -113,7 +109,6 @@ ce0 f2 176 136 272 88 #arcP
 ce0 f2 1 176 88 #addKink
 ce0 f2 1 0.19155493663523251 1 9 #arcLabel
 ce0 f5 441 203 30 30 0 15 #rect
-ce0 f5 @|EndWSIcon #fIcon
 ce0 f6 processCall soap/service/order:approveOrder(com.axonivy.connectivity.soap.service.Order,String) #txt
 ce0 f6 requestActionDecl '<com.axonivy.connectivity.soap.service.Order order,String responsibleRole> param;' #txt
 ce0 f6 requestMappingAction 'param.order=in.order;
@@ -137,7 +132,6 @@ by team</name>
 </elementInfo>
 ' #txt
 ce0 f6 272 196 112 44 -25 -15 #rect
-ce0 f6 @|TriggerIcon #fIcon
 ce0 f7 expr out #txt
 ce0 f7 384 218 441 218 #arcP
 ce0 f8 expr in #txt
@@ -169,7 +163,6 @@ ce0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ce0 f9 88 298 448 60 -221 -22 #rect
-ce0 f9 @|IBIcon #fIcon
 ce0 f10 88 328 72 167 #arcP
 ce0 f10 1 72 328 #addKink
 ce0 f10 1 0.4012420937466449 0 0 #arcLabel
@@ -178,7 +171,6 @@ ce0 f10 1 0.4012420937466449 0 0 #arcLabel
 >Proto ce0 .type com.axonivy.connectivity.soap.service.CreateOrderServiceData #txt
 >Proto ce0 .processKind WEB_SERVICE #txt
 >Proto ce0 -8 -8 16 16 16 26 #rect
->Proto ce0 '' #fIcon
 ce0 f1 mainOut f0 tail #connect
 ce0 f0 head ws1 mainIn #connect
 ce0 ws0 mainOut f4 tail #connect

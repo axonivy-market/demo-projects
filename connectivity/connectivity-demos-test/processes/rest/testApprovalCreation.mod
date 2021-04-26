@@ -1,5 +1,5 @@
 [Ivy]
-171535C55F24D530 9.2.0 #module
+171535C55F24D530 9.3.0 #module
 >Proto >Proto Collection #zClass
 cl0 testApprovalCreation Big #zClass
 cl0 B #cInfo
@@ -29,9 +29,7 @@ cl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cl0 f0 @C|.responsibility Everybody #txt
 cl0 f0 81 49 30 30 -25 17 #rect
-cl0 f0 @|StartRequestIcon #fIcon
 cl0 f1 337 49 30 30 0 15 #rect
-cl0 f1 @|EndIcon #fIcon
 cl0 f3 processCall rest/createApproval:call(String,String) #txt
 cl0 f3 requestActionDecl '<String title,String description> param;' #txt
 cl0 f3 requestMappingAction 'param.title=ivy.session.getSessionUserName();
@@ -49,7 +47,6 @@ cl0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 cl0 f3 160 42 128 44 -61 -7 #rect
-cl0 f3 @|CallSubIcon #fIcon
 cl0 f4 111 64 160 64 #arcP
 cl0 f2 288 64 337 64 #arcP
 >Proto cl0 .type com.axonivy.connectivity.test.CreateApprovalData #txt

@@ -1,5 +1,5 @@
 [Ivy]
-162494137FBEE605 9.2.0 #module
+162494137FBEE605 9.3.0 #module
 >Proto >Proto Collection #zClass
 As0 AcceptOrderProcess Big #zClass
 As0 RD #cInfo
@@ -37,9 +37,7 @@ As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f0 83 51 26 26 -31 15 #rect
-As0 f0 @|UdInitIcon #fIcon
 As0 f1 211 51 26 26 0 12 #rect
-As0 f1 @|UdProcessEndIcon #fIcon
 As0 f2 expr out #txt
 As0 f2 109 64 211 64 #arcP
 As0 f3 guid 1624941387BCA73D #txt
@@ -55,9 +53,7 @@ As0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f3 83 147 26 26 -18 15 #rect
-As0 f3 @|UdEventIcon #fIcon
 As0 f4 211 147 26 26 0 12 #rect
-As0 f4 @|UdExitEndIcon #fIcon
 As0 f5 expr out #txt
 As0 f5 109 160 211 160 #arcP
 As0 f6 errorCode order:declined #txt
@@ -71,7 +67,6 @@ As0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f6 212 244 24 24 -39 17 #rect
-As0 f6 @|ErrorEndIcon #fIcon
 As0 f7 guid 1624D160FEC234EA #txt
 As0 f7 actionTable 'out=in;
 ' #txt
@@ -85,13 +80,11 @@ As0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f7 83 243 26 26 -20 15 #rect
-As0 f7 @|UdEventIcon #fIcon
 As0 f8 expr out #txt
 As0 f8 109 256 212 256 #arcP
 >Proto As0 .type com.axonivy.connectivity.soap.AcceptOrder.AcceptOrderData #txt
 >Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
->Proto As0 '' #fIcon
 As0 f0 mainOut f2 tail #connect
 As0 f2 head f1 mainIn #connect
 As0 f3 mainOut f5 tail #connect

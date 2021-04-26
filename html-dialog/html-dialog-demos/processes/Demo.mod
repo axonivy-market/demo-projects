@@ -1,5 +1,5 @@
 [Ivy]
-139D3A4CEEEDAA4B 9.2.0 #module
+139D3A4CEEEDAA4B 9.3.0 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
 Do0 B #cInfo
@@ -42,10 +42,8 @@ Do0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Do0 f0 @C|.responsibility Everybody #txt
 Do0 f0 113 113 30 30 -21 15 #rect
-Do0 f0 @|StartRequestIcon #fIcon
 Do0 f0 -1|-1|-9671572 #nodeStyle
 Do0 f1 465 113 30 30 0 15 #rect
-Do0 f1 @|EndIcon #fIcon
 Do0 f1 -1|-1|-9671572 #nodeStyle
 Do0 f2 dialogId ch.ivyteam.htmldialog.demo.Main #txt
 Do0 f2 startMethod start() #txt
@@ -55,7 +53,6 @@ Do0 f2 responseActionDecl 'htmlDialogDemos.Data out;
 Do0 f2 responseMappingAction 'out=in;
 ' #txt
 Do0 f2 248 106 112 44 58 -2 #rect
-Do0 f2 @|UserDialogIcon #fIcon
 Do0 f2 -1|-1|-9671572 #nodeStyle
 Do0 f4 expr out #txt
 Do0 f4 360 128 465 128 #arcP

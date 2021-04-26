@@ -1,5 +1,5 @@
 [Ivy]
-154616078A1D629D 9.2.0 #module
+154616078A1D629D 9.3.0 #module
 >Proto >Proto Collection #zClass
 ce0 callOwnPersonRestService Big #zClass
 ce0 B #cInfo
@@ -61,9 +61,7 @@ ce0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ce0 f0 @C|.responsibility Everybody #txt
 ce0 f0 81 113 30 30 -40 17 #rect
-ce0 f0 @|StartRequestIcon #fIcon
 ce0 f1 337 113 30 30 0 15 #rect
-ce0 f1 @|EndIcon #fIcon
 ce0 f5 outLink personManager.ivp #txt
 ce0 f5 inParamDecl '<> param;' #txt
 ce0 f5 requestEnabled true #txt
@@ -92,9 +90,7 @@ ce0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ce0 f5 @C|.responsibility Everybody #txt
 ce0 f5 81 257 30 30 -52 17 #rect
-ce0 f5 @|StartRequestIcon #fIcon
 ce0 f6 337 257 30 30 0 15 #rect
-ce0 f6 @|EndIcon #fIcon
 ce0 f8 dialogId com.axonivy.connectivity.rest.PersonManager #txt
 ce0 f8 startMethod start() #txt
 ce0 f8 requestActionDecl '<> param;' #txt
@@ -114,7 +110,6 @@ PersonManager</name>
 </elementInfo>
 ' #txt
 ce0 f8 168 248 112 48 -32 -17 #rect
-ce0 f8 @|UserDialogIcon #fIcon
 ce0 f9 expr out #txt
 ce0 f9 111 272 168 272 #arcP
 ce0 f7 expr out #txt
@@ -131,7 +126,6 @@ and log it''s response</name>
 </elementInfo>
 ' #txt
 ce0 f10 344 42 192 44 -87 -16 #rect
-ce0 f10 @|IBIcon #fIcon
 ce0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -144,7 +138,6 @@ as backend for a PersonManger dialog</name>
 </elementInfo>
 ' #txt
 ce0 f12 344 178 256 44 -121 -16 #rect
-ce0 f12 @|IBIcon #fIcon
 ce0 f13 344 200 264 248 #arcP
 ce0 f14 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 ce0 f14 headers 'Accept=application/json;
@@ -167,7 +160,6 @@ ce0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ce0 f14 168 106 112 44 -52 -8 #rect
-ce0 f14 @|RestClientCallIcon #fIcon
 ce0 f15 344 64 265 106 #arcP
 ce0 f15 0 0.7097590884517754 0 0 #arcLabel
 ce0 f11 expr out #txt
@@ -201,9 +193,7 @@ ce0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ce0 f2 @C|.responsibility Everybody #txt
 ce0 f2 81 393 30 30 -66 17 #rect
-ce0 f2 @|StartRequestIcon #fIcon
 ce0 f3 337 393 30 30 0 15 #rect
-ce0 f3 @|EndIcon #fIcon
 ce0 f17 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 ce0 f17 headers 'Accept=application/vnd.sun.wadl+xml;
 ' #txt
@@ -224,7 +214,6 @@ REST resources</name>
 </elementInfo>
 ' #txt
 ce0 f17 160 386 128 44 -44 -15 #rect
-ce0 f17 @|RestClientCallIcon #fIcon
 ce0 f18 expr out #txt
 ce0 f18 111 408 160 408 #arcP
 ce0 f16 288 408 337 408 #arcP
@@ -239,7 +228,6 @@ of my own PersonService implementation</name>
 </elementInfo>
 ' #txt
 ce0 f19 344 330 272 44 -128 -15 #rect
-ce0 f19 @|IBIcon #fIcon
 ce0 f20 344 352 271 386 #arcP
 >Proto ce0 .type com.axonivy.connectivity.Data #txt
 >Proto ce0 .processKind NORMAL #txt

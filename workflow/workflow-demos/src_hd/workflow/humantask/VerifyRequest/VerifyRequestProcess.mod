@@ -1,5 +1,5 @@
 [Ivy]
-15254DF8F30D6949 9.2.0 #module
+15254DF8F30D6949 9.3.0 #module
 >Proto >Proto Collection #zClass
 Vs0 VerifyRequestProcess Big #zClass
 Vs0 RD #cInfo
@@ -44,11 +44,8 @@ Vs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Vs0 f0 83 51 26 26 -75 15 #rect
-Vs0 f0 @|UdInitIcon #fIcon
 Vs0 f1 339 51 26 26 0 12 #rect
-Vs0 f1 @|UdProcessEndIcon #fIcon
 Vs0 f4 339 147 26 26 0 12 #rect
-Vs0 f4 @|UdExitEndIcon #fIcon
 Vs0 f2 expr out #txt
 Vs0 f2 109 64 339 64 #arcP
 Vs0 f6 actionTable 'out=in;
@@ -67,7 +64,6 @@ Vs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Vs0 f6 168 138 112 44 -33 -8 #rect
-Vs0 f6 @|StepIcon #fIcon
 Vs0 f5 expr out #txt
 Vs0 f5 280 160 339 160 #arcP
 Vs0 f8 guid 152A1A71D5D17CAC #txt
@@ -84,7 +80,6 @@ Vs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Vs0 f8 59 211 26 26 -20 15 #rect
-Vs0 f8 @|UdEventIcon #fIcon
 Vs0 f11 guid 152A1A7AEA3D662F #txt
 Vs0 f11 actionTable 'out=in;
 out.ok=true;
@@ -99,11 +94,9 @@ Vs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Vs0 f11 59 147 26 26 -13 15 #rect
-Vs0 f11 @|UdEventIcon #fIcon
 Vs0 f9 expr out #txt
 Vs0 f9 85 160 168 160 #arcP
 Vs0 f3 339 211 26 26 0 12 #rect
-Vs0 f3 @|UdExitEndIcon #fIcon
 Vs0 f10 actionTable 'out=in;
 out.logEntry.activity=ivy.cms.co("/Dialogs/procurementRequest/declinedBy");
 out.logEntry.timestamp=new DateTime();
@@ -120,7 +113,6 @@ Vs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Vs0 f10 168 202 112 44 -33 -8 #rect
-Vs0 f10 @|StepIcon #fIcon
 Vs0 f12 expr out #txt
 Vs0 f12 85 224 168 224 #arcP
 Vs0 f12 0 0.5658436222109136 0 0 #arcLabel
@@ -130,7 +122,6 @@ Vs0 f7 0 0.5658436222109136 0 0 #arcLabel
 >Proto Vs0 .type workflow.humantask.VerifyRequest.VerifyRequestData #txt
 >Proto Vs0 .processKind HTML_DIALOG #txt
 >Proto Vs0 -8 -8 16 16 16 26 #rect
->Proto Vs0 '' #fIcon
 Vs0 f0 mainOut f2 tail #connect
 Vs0 f2 head f1 mainIn #connect
 Vs0 f6 mainOut f5 tail #connect

@@ -1,5 +1,5 @@
 [Ivy]
-15A89953E2D3784F 9.2.0 #module
+15A89953E2D3784F 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ik0 InternalSolvencyCheck Big #zClass
 Ik0 B #cInfo
@@ -45,9 +45,7 @@ Ik0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ik0 f0 @C|.responsibility Everybody #txt
 Ik0 f0 81 49 30 30 -21 17 #rect
-Ik0 f0 @|StartRequestIcon #fIcon
 Ik0 f1 337 49 30 30 0 15 #rect
-Ik0 f1 @|EndIcon #fIcon
 Ik0 f3 actionTable 'out=in;
 ' #txt
 Ik0 f3 actionCode 'import workflow.credit.CreditDossier;
@@ -72,7 +70,6 @@ evaluation</name>
 </elementInfo>
 ' #txt
 Ik0 f3 168 42 112 44 -28 -16 #rect
-Ik0 f3 @|StepIcon #fIcon
 Ik0 f4 expr out #txt
 Ik0 f4 111 64 168 64 #arcP
 Ik0 f2 expr out #txt

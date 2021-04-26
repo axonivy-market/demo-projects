@@ -1,5 +1,5 @@
 [Ivy]
-15254DC87A1B183B 9.2.0 #module
+15254DC87A1B183B 9.3.0 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestParallel Big #zClass
 Pt0 B #cInfo
@@ -60,7 +60,6 @@ by Manager</name>
 </elementInfo>
 ' #txt
 Pt0 f6 360 402 112 44 -39 -16 #rect
-Pt0 f6 @|UserDialogIcon #fIcon
 Pt0 f0 outLink start.ivp #txt
 Pt0 f0 inParamDecl '<> param;' #txt
 Pt0 f0 requestEnabled true #txt
@@ -91,9 +90,7 @@ Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Pt0 f0 @C|.responsibility Employee #txt
 Pt0 f0 65 169 30 30 -21 17 #rect
-Pt0 f0 @|StartRequestIcon #fIcon
 Pt0 f1 857 169 30 30 0 15 #rect
-Pt0 f1 @|EndIcon #fIcon
 Pt0 f7 actionTable 'out=in1;
 out.activityLog=in1.activityLog.removeAll(in2.activityLog).addAll(in2.activityLog);
 out.dataOkManager=in2.dataOkManager;
@@ -117,7 +114,6 @@ TaskB.SKIP_TASK_LIST=true
 TaskB.TYPE=0' #txt
 Pt0 f7 template "" #txt
 Pt0 f7 512 288 32 32 0 16 #rect
-Pt0 f7 @|TaskSwitchIcon #fIcon
 Pt0 f3 dialogId workflow.humantask.EnterRequest #txt
 Pt0 f3 startMethod start() #txt
 Pt0 f3 requestActionDecl '<> param;' #txt
@@ -137,7 +133,6 @@ Pt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f3 152 162 112 44 -39 -8 #rect
-Pt0 f3 @|UserDialogIcon #fIcon
 Pt0 f2 actionTable 'out=in1;
 ' #txt
 Pt0 f2 outLinks "TaskA.ivp","TaskB.ivp" #txt
@@ -161,7 +156,6 @@ TaskB.SKIP_TASK_LIST=false
 TaskB.TYPE=0' #txt
 Pt0 f2 template "" #txt
 Pt0 f2 296 288 32 32 0 16 #rect
-Pt0 f2 @|TaskSwitchIcon #fIcon
 Pt0 f5 dialogId workflow.humantask.VerifyRequest #txt
 Pt0 f5 startMethod start(workflow.humantask.ProcurementRequest) #txt
 Pt0 f5 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequest> param;' #txt
@@ -184,7 +178,6 @@ by Team Leader</name>
 </elementInfo>
 ' #txt
 Pt0 f5 352 282 128 44 -42 -16 #rect
-Pt0 f5 @|UserDialogIcon #fIcon
 Pt0 f8 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/yourRequestHasBeen\\"")%> <%=(in.accepted ? ivy.cms.co(\\""/Emails/accepted\\"") : ivy.cms.co(\\""/Emails/declined\\""))%>: <%=in.amount%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/piecesOf\\"")%>  \\''<%=in.description%>\\'' <%=ivy.cms.co(\\""/Dialogs/procurementRequest/forTotal\\"")%> <%=in.totalPrice%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/currencySymbol\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.requester.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage "" <html> \\n\\t<style type=\\""text/css\\"">\\n     \\t\\t<%=ivy.cms.co(\\""/Styles/Classic\\"")%>\\n\\t</style>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Images/Logo\\"")%>\\n\\n\\t<%=ivy.cms.co(\\""/Emails/procurementRequestNotification\\"")%>\\n</html>""/emailAttachments * }"' #txt
 Pt0 f8 type workflow.humantask.ProcurementRequest #txt
 Pt0 f8 timeout 0 #txt
@@ -199,7 +192,6 @@ Pt0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f8 712 162 112 44 -45 -8 #rect
-Pt0 f8 @|EMailIcon #fIcon
 Pt0 f4 expr out #txt
 Pt0 f4 95 184 152 184 #arcP
 Pt0 f9 expr out #txt
@@ -240,7 +232,6 @@ Pt0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f16 632 514 112 44 -43 -8 #rect
-Pt0 f16 @|UserDialogIcon #fIcon
 Pt0 f17 expr out #txt
 Pt0 f17 744 536 768 206 #arcP
 Pt0 f17 1 768 536 #addKink
@@ -255,7 +246,6 @@ Pt0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f19 576 288 32 32 23 -4 #rect
-Pt0 f19 @|AlternativeIcon #fIcon
 Pt0 f20 expr data #txt
 Pt0 f20 outCond ivp=="TaskB.ivp" #txt
 Pt0 f20 544 304 576 304 #arcP
@@ -295,7 +285,6 @@ and accepted by an executive.</name>
 </elementInfo>
 ' #txt
 Pt0 f14 64 18 528 60 -258 -24 #rect
-Pt0 f14 @|IBIcon #fIcon
 Pt0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -310,7 +299,6 @@ will be problems with the session handling.</name>
 </elementInfo>
 ' #txt
 Pt0 f24 96 506 352 76 -168 -32 #rect
-Pt0 f24 @|IBIcon #fIcon
 Pt0 f25 272 506 304 312 #arcP
 Pt0 f26 actionTable 'out=in1;
 ' #txt
@@ -326,7 +314,6 @@ TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
 Pt0 f26 template "" #txt
 Pt0 f26 577 521 30 30 0 16 #rect
-Pt0 f26 @|TaskSwitchSimpleIcon #fIcon
 Pt0 f27 expr in #txt
 Pt0 f27 outCond 'in.dataOkManager && in.dataOkTeamLeader' #txt
 Pt0 f27 type workflow.humantask.ProcurementRequest #txt

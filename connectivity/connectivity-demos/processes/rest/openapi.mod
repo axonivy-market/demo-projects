@@ -1,5 +1,5 @@
 [Ivy]
-16F375741231763F 9.2.0 #module
+16F375741231763F 9.3.0 #module
 >Proto >Proto Collection #zClass
 oi0 openapi Big #zClass
 oi0 B #cInfo
@@ -28,7 +28,6 @@ oi0 @PushWFArc f4 '' #zField
 oi0 @StartRequest f0 '' #zField
 >Proto oi0 oi0 openapi #zField
 oi0 f1 305 145 30 30 0 15 #rect
-oi0 f1 @|EndIcon #fIcon
 oi0 f3 clientId ae69ba01-79b7-4dce-9049-900f8f420907 #txt
 oi0 f3 path /pet/findByStatus #txt
 oi0 f3 queryParams 'status="available";
@@ -48,7 +47,6 @@ PETs</name>
 </elementInfo>
 ' #txt
 oi0 f3 136 138 112 44 -27 -15 #rect
-oi0 f3 @|RestClientCallIcon #fIcon
 oi0 f2 248 160 305 160 #arcP
 oi0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -63,7 +61,6 @@ resources and datas in a standard schema.</name>
 </elementInfo>
 ' #txt
 oi0 f5 32 34 416 60 -201 -22 #rect
-oi0 f5 @|IBIcon #fIcon
 oi0 f6 clientId ae69ba01-79b7-4dce-9049-900f8f420907 #txt
 oi0 f6 path /user/login #txt
 oi0 f6 queryParams 'username="IvyPowerUser";
@@ -84,7 +81,6 @@ oi0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 oi0 f6 136 234 112 44 -44 -15 #rect
-oi0 f6 @|RestClientCallIcon #fIcon
 oi0 f7 outLink login.ivp #txt
 oi0 f7 inParamDecl '<> param;' #txt
 oi0 f7 requestEnabled true #txt
@@ -104,9 +100,7 @@ oi0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 oi0 f7 @C|.responsibility Everybody #txt
 oi0 f7 49 241 30 30 -25 17 #rect
-oi0 f7 @|StartRequestIcon #fIcon
 oi0 f8 305 241 30 30 0 15 #rect
-oi0 f8 @|EndIcon #fIcon
 oi0 f10 248 256 305 256 #arcP
 oi0 f9 79 256 136 256 #arcP
 oi0 f11 outLink upload.ivp #txt
@@ -128,9 +122,7 @@ oi0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 oi0 f11 @C|.responsibility Everybody #txt
 oi0 f11 49 337 30 30 -25 17 #rect
-oi0 f11 @|StartRequestIcon #fIcon
 oi0 f13 465 337 30 30 0 15 #rect
-oi0 f13 @|EndIcon #fIcon
 oi0 f14 clientId ae69ba01-79b7-4dce-9049-900f8f420907 #txt
 oi0 f14 path /pet/{petId}/uploadImage #txt
 oi0 f14 queryParams 'additionalMetadata="Ivy is everywhere";
@@ -165,7 +157,6 @@ This is usefull during prototyping or to overcome technical boundaries caused by
 </elementInfo>
 ' #txt
 oi0 f14 296 328 112 48 -44 -15 #rect
-oi0 f14 @|RestClientCallIcon #fIcon
 oi0 f16 408 352 465 352 #arcP
 oi0 f12 clientId ae69ba01-79b7-4dce-9049-900f8f420907 #txt
 oi0 f12 path /pet/findByStatus #txt
@@ -184,7 +175,6 @@ oi0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 oi0 f12 136 330 112 44 -30 -7 #rect
-oi0 f12 @|RestClientCallIcon #fIcon
 oi0 f17 79 352 136 352 #arcP
 oi0 f15 248 352 296 352 #arcP
 oi0 f4 79 160 136 160 #arcP
@@ -206,7 +196,6 @@ oi0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 oi0 f0 @C|.responsibility Everybody #txt
 oi0 f0 49 145 30 30 -25 17 #rect
-oi0 f0 @|StartRequestIcon #fIcon
 >Proto oi0 .type com.axonivy.connectivity.rest.OpenApiData #txt
 >Proto oi0 .processKind NORMAL #txt
 >Proto oi0 0 0 32 24 18 0 #rect

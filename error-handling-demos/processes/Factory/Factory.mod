@@ -1,5 +1,5 @@
 [Ivy]
-15066B87D449F453 9.2.0 #module
+15066B87D449F453 9.3.0 #module
 >Proto >Proto Collection #zClass
 Fy0 Factory Big #zClass
 Fy0 B #cInfo
@@ -46,9 +46,7 @@ Fy0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Fy0 f0 @C|.responsibility Everybody #txt
 Fy0 f0 65 145 30 30 -21 17 #rect
-Fy0 f0 @|StartRequestIcon #fIcon
 Fy0 f1 321 145 30 30 0 15 #rect
-Fy0 f1 @|EndIcon #fIcon
 Fy0 f3 processCall Factory/Production:produceShoes(String,Number) #txt
 Fy0 f3 requestActionDecl '<String model,Number amount> param;' #txt
 Fy0 f3 requestMappingAction 'param.model="Super Runner";
@@ -68,7 +66,6 @@ Fy0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fy0 f3 152 138 112 44 -29 -8 #rect
-Fy0 f3 @|CallSubIcon #fIcon
 Fy0 f4 expr out #txt
 Fy0 f4 95 160 152 160 #arcP
 Fy0 f2 expr out #txt
@@ -85,7 +82,6 @@ Fy0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fy0 Et0 225 169 30 30 19 6 #rect
-Fy0 Et0 @|ErrorBoundaryEventIcon #fIcon
 Fy0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -101,10 +97,8 @@ Fy0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fy0 f9 40 34 640 44 -315 -19 #rect
-Fy0 f9 @|IBIcon #fIcon
 Fy0 f9 -1|-1|-65536 #nodeStyle
 Fy0 f5 321 225 30 30 0 15 #rect
-Fy0 f5 @|EndIcon #fIcon
 Fy0 f6 expr out #txt
 Fy0 f6 240 199 321 240 #arcP
 Fy0 f6 1 240 240 #addKink

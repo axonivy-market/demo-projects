@@ -1,5 +1,5 @@
 [Ivy]
-145D1849FACF0EAA 9.2.0 #module
+145D1849FACF0EAA 9.3.0 #module
 >Proto >Proto Collection #zClass
 Ct0 Component Big #zClass
 Ct0 B #cInfo
@@ -43,7 +43,6 @@ Ct0 @PushWFArc f4 '' #zField
 Ct0 @PushWFArc f2 '' #zField
 >Proto Ct0 Ct0 Component #zField
 Ct0 f48 441 49 30 30 0 15 #rect
-Ct0 f48 @|EndIcon #fIcon
 Ct0 f48 -1|-1|-9671572 #nodeStyle
 Ct0 f20 outLink PartialUpdateDemo.ivp #txt
 Ct0 f20 inParamDecl '<> param;' #txt
@@ -72,10 +71,8 @@ Ct0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ct0 f20 @C|.responsibility Everybody #txt
 Ct0 f20 113 433 30 30 -63 15 #rect
-Ct0 f20 @|StartRequestIcon #fIcon
 Ct0 f20 -1|-1|-9671572 #nodeStyle
 Ct0 f22 441 433 30 30 0 15 #rect
-Ct0 f22 @|EndIcon #fIcon
 Ct0 f22 -1|-1|-9671572 #nodeStyle
 Ct0 f47 outLink ComponentDemo.ivp #txt
 Ct0 f47 inParamDecl '<> param;' #txt
@@ -102,7 +99,6 @@ Ct0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ct0 f47 @C|.responsibility Everybody #txt
 Ct0 f47 113 49 30 30 -58 15 #rect
-Ct0 f47 @|StartRequestIcon #fIcon
 Ct0 f47 -1|-1|-9671572 #nodeStyle
 Ct0 f82 outLink ComponentEventListenerDemo.ivp #txt
 Ct0 f82 inParamDecl '<> param;' #txt
@@ -132,7 +128,6 @@ EventListenerDemo.ivp</name>
 ' #txt
 Ct0 f82 @C|.responsibility Everybody #txt
 Ct0 f82 113 337 30 30 -63 15 #rect
-Ct0 f82 @|StartRequestIcon #fIcon
 Ct0 f82 -1|-1|-9671572 #nodeStyle
 Ct0 f58 dialogId ch.ivyteam.htmldialog.demo.component.ComponentCustomizingDemo #txt
 Ct0 f58 startMethod start() #txt
@@ -142,7 +137,6 @@ Ct0 f58 responseActionDecl 'htmlDialogDemos.Data out;
 Ct0 f58 responseMappingAction 'out=in;
 ' #txt
 Ct0 f58 232 138 112 44 58 -2 #rect
-Ct0 f58 @|UserDialogIcon #fIcon
 Ct0 f58 -1|-1|-9671572 #nodeStyle
 Ct0 f84 dialogId ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog #txt
 Ct0 f84 startMethod start() #txt
@@ -152,7 +146,6 @@ Ct0 f84 responseActionDecl 'htmlDialogDemos.Data out;
 Ct0 f84 responseMappingAction 'out=in;
 ' #txt
 Ct0 f84 232 330 112 44 58 -2 #rect
-Ct0 f84 @|UserDialogIcon #fIcon
 Ct0 f84 -1|-1|-9671572 #nodeStyle
 Ct0 f99 dialogId ch.ivyteam.htmldialog.demo.component.JsfCompositeComponentDemo #txt
 Ct0 f99 startMethod start() #txt
@@ -162,13 +155,10 @@ Ct0 f99 responseActionDecl 'htmlDialogDemos.Data out;
 Ct0 f99 responseMappingAction 'out=in;
 ' #txt
 Ct0 f99 232 234 112 44 58 -2 #rect
-Ct0 f99 @|UserDialogIcon #fIcon
 Ct0 f99 -1|-1|-9671572 #nodeStyle
 Ct0 f59 441 145 30 30 0 15 #rect
-Ct0 f59 @|EndIcon #fIcon
 Ct0 f59 -1|-1|-9671572 #nodeStyle
 Ct0 f98 441 241 30 30 0 15 #rect
-Ct0 f98 @|EndIcon #fIcon
 Ct0 f98 -1|-1|-9671572 #nodeStyle
 Ct0 f21 dialogId ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo #txt
 Ct0 f21 startMethod start() #txt
@@ -178,7 +168,6 @@ Ct0 f21 responseActionDecl 'htmlDialogDemos.Data out;
 Ct0 f21 responseMappingAction 'out=in;
 ' #txt
 Ct0 f21 232 426 112 44 58 -2 #rect
-Ct0 f21 @|UserDialogIcon #fIcon
 Ct0 f21 -1|-1|-9671572 #nodeStyle
 Ct0 f49 dialogId ch.ivyteam.htmldialog.demo.component.ComponentDemo #txt
 Ct0 f49 startMethod start() #txt
@@ -188,7 +177,6 @@ Ct0 f49 responseActionDecl 'htmlDialogDemos.Data out;
 Ct0 f49 responseMappingAction 'out=in;
 ' #txt
 Ct0 f49 232 42 112 44 58 -2 #rect
-Ct0 f49 @|UserDialogIcon #fIcon
 Ct0 f49 -1|-1|-9671572 #nodeStyle
 Ct0 f57 outLink ComponentCustomizingDemo.ivp #txt
 Ct0 f57 inParamDecl '<> param;' #txt
@@ -218,10 +206,8 @@ CustomizingDemo</name>
 ' #txt
 Ct0 f57 @C|.responsibility Everybody #txt
 Ct0 f57 113 145 30 30 -51 15 #rect
-Ct0 f57 @|StartRequestIcon #fIcon
 Ct0 f57 -1|-1|-9671572 #nodeStyle
 Ct0 f83 441 337 30 30 0 15 #rect
-Ct0 f83 @|EndIcon #fIcon
 Ct0 f83 -1|-1|-9671572 #nodeStyle
 Ct0 f97 outLink JsfCompositeComponent.ivp #txt
 Ct0 f97 inParamDecl '<> param;' #txt
@@ -250,7 +236,6 @@ Ct0 f97 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ct0 f97 @C|.responsibility Everybody #txt
 Ct0 f97 113 241 30 30 -80 15 #rect
-Ct0 f97 @|StartRequestIcon #fIcon
 Ct0 f97 -1|-1|-9671572 #nodeStyle
 Ct0 f23 expr out #txt
 Ct0 f23 143 448 232 448 #arcP
@@ -300,9 +285,7 @@ Ct0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ct0 f0 @C|.responsibility Everybody #txt
 Ct0 f0 113 529 30 30 -74 17 #rect
-Ct0 f0 @|StartRequestIcon #fIcon
 Ct0 f1 441 529 30 30 0 15 #rect
-Ct0 f1 @|EndIcon #fIcon
 Ct0 f3 dialogId ch.ivyteam.htmldialog.demo.component.LazyLoadedModalDialog #txt
 Ct0 f3 startMethod start() #txt
 Ct0 f3 requestActionDecl '<> param;' #txt
@@ -311,7 +294,6 @@ Ct0 f3 responseActionDecl 'htmlDialogDemos.Data out;
 Ct0 f3 responseMappingAction 'out=in;
 ' #txt
 Ct0 f3 232 522 112 44 0 -7 #rect
-Ct0 f3 @|UserDialogIcon #fIcon
 Ct0 f4 expr out #txt
 Ct0 f4 143 544 232 544 #arcP
 Ct0 f2 expr out #txt

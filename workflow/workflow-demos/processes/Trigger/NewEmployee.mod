@@ -1,5 +1,5 @@
 [Ivy]
-15254CF1CE56AE72 9.2.0 #module
+15254CF1CE56AE72 9.3.0 #module
 >Proto >Proto Collection #zClass
 Tr0 NewEmployee Big #zClass
 Tr0 B #cInfo
@@ -57,7 +57,6 @@ Tr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Tr0 f0 @C|.responsibility 'HR Manager' #txt
 Tr0 f0 73 209 30 30 -21 17 #rect
-Tr0 f0 @|StartRequestIcon #fIcon
 Tr0 f5 dialogId workflow.trigger.CreateNewEmployee #txt
 Tr0 f5 startMethod start(workflow.trigger.NewEmployeeData) #txt
 Tr0 f5 requestActionDecl '<workflow.trigger.NewEmployeeData newEmployeeData> param;' #txt
@@ -76,9 +75,7 @@ personal data</name>
 </elementInfo>
 ' #txt
 Tr0 f5 176 202 144 44 -53 -16 #rect
-Tr0 f5 @|UserDialogIcon #fIcon
 Tr0 f1 977 209 30 30 0 15 #rect
-Tr0 f1 @|EndIcon #fIcon
 Tr0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -89,7 +86,6 @@ Tr0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Tr0 f7 560 208 32 32 -52 18 #rect
-Tr0 f7 @|AlternativeIcon #fIcon
 Tr0 f10 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/welcomeHeader\\"")%> <%=in.name%>!""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage "" <html> \\n\\t<style type=\\""text/css\\"">\\n     \\t\\t<%=ivy.cms.co(\\""/Styles/Classic\\"")%>\\n\\t</style>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Images/Logo\\"")%>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Emails/welcomeMail\\"")%>\\n</html>""/emailAttachments * }"' #txt
 Tr0 f10 type workflow.trigger.NewEmployeeData #txt
 Tr0 f10 timeout 0 #txt
@@ -104,7 +100,6 @@ Tr0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Tr0 f10 800 202 128 44 -54 -8 #rect
-Tr0 f10 @|EMailIcon #fIcon
 Tr0 f2 expr out #txt
 Tr0 f2 928 224 977 224 #arcP
 Tr0 f12 expr in #txt
@@ -137,7 +132,6 @@ If a new employee needs a parking lot the Parking Lot Reservation process is sta
 </elementInfo>
 ' #txt
 Tr0 f9 64 26 544 44 -264 -16 #rect
-Tr0 f9 @|IBIcon #fIcon
 Tr0 f13 processCall Trigger/ParkingLotReservation:start(workflow.trigger.NewEmployeeData) #txt
 Tr0 f13 requestActionDecl '<workflow.trigger.NewEmployeeData newEmployeeData> param;' #txt
 Tr0 f13 requestMappingAction 'param.newEmployeeData=in;
@@ -156,7 +150,6 @@ Tr0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Tr0 f13 656 202 112 44 -53 -8 #rect
-Tr0 f13 @|TriggerIcon #fIcon
 Tr0 f14 expr in #txt
 Tr0 f14 outCond in.needsParkingLot #txt
 Tr0 f14 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -185,7 +178,6 @@ Tr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Tr0 f3 352 200 160 48 -69 -7 #rect
-Tr0 f3 @|StepIcon #fIcon
 Tr0 f11 expr out #txt
 Tr0 f11 320 224 352 224 #arcP
 Tr0 f8 expr out #txt

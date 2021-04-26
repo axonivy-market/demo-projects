@@ -1,5 +1,5 @@
 [Ivy]
-150148B81ACE3E1E 9.2.0 #module
+150148B81ACE3E1E 9.3.0 #module
 >Proto >Proto Collection #zClass
 Er0 ErrorHandler Big #zClass
 Er0 B #cInfo
@@ -35,9 +35,7 @@ Er0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Er0 f0 65 161 30 30 -24 17 #rect
-Er0 f0 @|ExceptionIcon #fIcon
 Er0 f1 321 161 30 30 0 15 #rect
-Er0 f1 @|EndIcon #fIcon
 Er0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -48,7 +46,6 @@ Er0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Er0 f3 136 233 256 30 -125 -8 #rect
-Er0 f3 @|IBIcon #fIcon
 Er0 f4 136 248 89 187 #arcP
 Er0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -67,7 +64,6 @@ Error Start Events in a global error process catch uncaught errors in the whole 
 </elementInfo>
 ' #txt
 Er0 f5 64 34 480 60 -233 -26 #rect
-Er0 f5 @|IBIcon #fIcon
 Er0 f5 -1|-1|-65536 #nodeStyle
 Er0 f6 dialogId error.handling.demo.GlobalError #txt
 Er0 f6 startMethod start(String,String) #txt
@@ -89,7 +85,6 @@ Er0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Er0 f6 152 154 112 44 -37 -7 #rect
-Er0 f6 @|UserDialogIcon #fIcon
 Er0 f7 expr out #txt
 Er0 f7 95 176 152 176 #arcP
 Er0 f2 expr out #txt

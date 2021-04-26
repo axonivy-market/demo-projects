@@ -1,5 +1,5 @@
 [Ivy]
-16150E1D07E8CA18 9.2.0 #module
+16150E1D07E8CA18 9.3.0 #module
 >Proto >Proto Collection #zClass
 pe0 personService Big #zClass
 pe0 WS #cInfo
@@ -52,9 +52,7 @@ pe0 ws0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 pe0 ws0 @C|.responsibility Everybody #txt
 pe0 ws0 73 113 30 30 -36 17 #rect
-pe0 ws0 @|StartWSIcon #fIcon
 pe0 ws1 417 113 30 30 0 15 #rect
-pe0 ws1 @|EndWSIcon #fIcon
 pe0 f1 inParamDecl '<com.axonivy.connectivity.Person person> param;' #txt
 pe0 f1 inParamTable 'out.person=param.person;
 ' #txt
@@ -78,7 +76,6 @@ pe0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 pe0 f1 @C|.responsibility Everybody #txt
 pe0 f1 73 193 30 30 -50 17 #rect
-pe0 f1 @|StartWSIcon #fIcon
 pe0 f2 inParamDecl '<com.axonivy.connectivity.Person person> param;' #txt
 pe0 f2 inParamTable 'out.person=param.person;
 ' #txt
@@ -102,11 +99,8 @@ pe0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 pe0 f2 @C|.responsibility Everybody #txt
 pe0 f2 73 273 30 30 -57 17 #rect
-pe0 f2 @|StartWSIcon #fIcon
 pe0 f3 417 193 30 30 0 15 #rect
-pe0 f3 @|EndWSIcon #fIcon
 pe0 f4 417 273 30 30 0 15 #rect
-pe0 f4 @|EndWSIcon #fIcon
 pe0 f0 actionTable 'out=in;
 ' #txt
 pe0 f0 actionCode 'import com.axonivy.connectivity.soap.service.PersonRepository;
@@ -121,7 +115,6 @@ pe0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 pe0 f0 216 106 112 44 -42 -8 #rect
-pe0 f0 @|StepIcon #fIcon
 pe0 f7 expr out #txt
 pe0 f7 103 128 216 128 #arcP
 pe0 f8 expr out #txt
@@ -140,7 +133,6 @@ pe0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 pe0 f9 216 186 112 44 -31 -8 #rect
-pe0 f9 @|StepIcon #fIcon
 pe0 f10 expr out #txt
 pe0 f10 103 208 216 208 #arcP
 pe0 f5 expr out #txt
@@ -159,7 +151,6 @@ pe0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 pe0 f11 216 266 112 44 -38 -8 #rect
-pe0 f11 @|StepIcon #fIcon
 pe0 f12 expr out #txt
 pe0 f12 103 288 216 288 #arcP
 pe0 f6 expr out #txt
@@ -175,7 +166,6 @@ All accesses are protected by HTTP_BASIC.</name>
 </elementInfo>
 ' #txt
 pe0 f13 56 26 400 44 -197 -16 #rect
-pe0 f13 @|IBIcon #fIcon
 >Proto pe0 .webServiceName com.axonivy.connectivity.soap.service.PersonService #txt
 >Proto pe0 .authenticationType 'HTTP Basic' #txt
 >Proto pe0 .type com.axonivy.connectivity.soap.service.PersonServiceData #txt
@@ -186,7 +176,6 @@ pe0 f13 @|IBIcon #fIcon
 </elementInfo>
 ' #txt
 >Proto pe0 -8 -8 16 16 16 26 #rect
->Proto pe0 '' #fIcon
 pe0 ws0 mainOut f7 tail #connect
 pe0 f7 head f0 mainIn #connect
 pe0 f0 mainOut f8 tail #connect

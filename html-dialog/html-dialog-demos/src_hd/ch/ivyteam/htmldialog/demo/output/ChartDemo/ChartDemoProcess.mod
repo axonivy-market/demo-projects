@@ -1,5 +1,5 @@
 [Ivy]
-146052EC6B2ADB68 9.2.0 #module
+146052EC6B2ADB68 9.3.0 #module
 >Proto >Proto Collection #zClass
 Cs0 ChartDemoProcess Big #zClass
 Cs0 RD #cInfo
@@ -37,10 +37,8 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f0 51 51 26 26 -20 15 #rect
-Cs0 f0 @|UdInitIcon #fIcon
 Cs0 f0 -1|-1|-9671572 #nodeStyle
 Cs0 f1 451 51 26 26 0 12 #rect
-Cs0 f1 @|UdProcessEndIcon #fIcon
 Cs0 f1 -1|-1|-9671572 #nodeStyle
 Cs0 f6 actionTable 'out=in;
 ' #txt
@@ -114,7 +112,6 @@ chart model</name>
 </elementInfo>
 ' #txt
 Cs0 f6 136 42 112 44 -37 -15 #rect
-Cs0 f6 @|StepIcon #fIcon
 Cs0 f6 -1|-1|-9671572 #nodeStyle
 Cs0 f7 expr out #txt
 Cs0 f7 77 64 136 64 #arcP
@@ -140,10 +137,8 @@ Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f8 51 147 26 26 -52 15 #rect
-Cs0 f8 @|UdMethodIcon #fIcon
 Cs0 f8 -1|-1|-9671572 #nodeStyle
 Cs0 f9 179 147 26 26 0 12 #rect
-Cs0 f9 @|UdProcessEndIcon #fIcon
 Cs0 f9 -1|-1|-9671572 #nodeStyle
 Cs0 f10 expr out #txt
 Cs0 f10 77 160 179 160 #arcP
@@ -183,7 +178,6 @@ chart model</name>
 </elementInfo>
 ' #txt
 Cs0 f11 296 42 112 44 -37 -15 #rect
-Cs0 f11 @|StepIcon #fIcon
 Cs0 f11 -1|-1|-9671572 #nodeStyle
 Cs0 f12 expr out #txt
 Cs0 f12 248 64 296 64 #arcP
@@ -210,16 +204,13 @@ Cs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f13 51 211 26 26 -52 15 #rect
-Cs0 f13 @|UdMethodIcon #fIcon
 Cs0 f13 -1|-1|-9671572 #nodeStyle
 Cs0 f14 179 211 26 26 0 12 #rect
-Cs0 f14 @|UdProcessEndIcon #fIcon
 Cs0 f14 -1|-1|-9671572 #nodeStyle
 Cs0 f15 77 224 179 224 #arcP
 >Proto Cs0 .type ch.ivyteam.htmldialog.demo.output.ChartDemo.ChartDemoData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
->Proto Cs0 '' #fIcon
 Cs0 f0 mainOut f7 tail #connect
 Cs0 f7 head f6 mainIn #connect
 Cs0 f8 mainOut f10 tail #connect

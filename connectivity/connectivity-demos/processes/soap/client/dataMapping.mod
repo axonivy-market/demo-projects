@@ -1,5 +1,5 @@
 [Ivy]
-1605A38503199ADB 9.2.0 #module
+1605A38503199ADB 9.3.0 #module
 >Proto >Proto Collection #zClass
 dg0 dataMapping Big #zClass
 dg0 B #cInfo
@@ -57,9 +57,7 @@ Follow up executions will simply consume the first result from the cache.</desc>
 ' #txt
 dg0 f0 @C|.responsibility Everybody #txt
 dg0 f0 81 49 30 30 -60 17 #rect
-dg0 f0 @|StartRequestIcon #fIcon
 dg0 f1 497 49 30 30 0 15 #rect
-dg0 f1 @|EndIcon #fIcon
 dg0 f3 actionTable 'out=in;
 out.time=wsResponse;
 ' #txt
@@ -76,7 +74,6 @@ remote time</name>
 </elementInfo>
 ' #txt
 dg0 f3 168 42 112 44 -38 -15 #rect
-dg0 f3 @|WebServiceIcon #fIcon
 dg0 f4 expr out #txt
 dg0 f4 111 64 168 64 #arcP
 dg0 f5 actionTable 'out=in;
@@ -91,7 +88,6 @@ dg0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 dg0 f5 328 42 112 44 -25 -7 #rect
-dg0 f5 @|StepIcon #fIcon
 dg0 f6 expr out #txt
 dg0 f6 280 64 328 64 #arcP
 dg0 f2 expr out #txt
@@ -126,7 +122,6 @@ dg0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 dg0 f7 @C|.responsibility Everybody #txt
 dg0 f7 81 137 30 30 -59 17 #rect
-dg0 f7 @|StartRequestIcon #fIcon
 dg0 f8 actionTable 'out=in;
 out.person=wsResponse;
 ' #txt
@@ -148,11 +143,9 @@ to own service</name>
 </elementInfo>
 ' #txt
 dg0 f8 160 130 128 44 -42 -15 #rect
-dg0 f8 @|WebServiceIcon #fIcon
 dg0 f9 expr out #txt
 dg0 f9 111 152 160 152 #arcP
 dg0 f10 497 137 30 30 0 15 #rect
-dg0 f10 @|EndIcon #fIcon
 dg0 f12 actionTable 'out=in;
 ' #txt
 dg0 f12 actionCode 'ivy.log.info("created person with id "+in.person.id);' #txt
@@ -164,7 +157,6 @@ dg0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 dg0 f12 328 130 112 44 -25 -7 #rect
-dg0 f12 @|StepIcon #fIcon
 dg0 f13 expr out #txt
 dg0 f13 288 152 328 152 #arcP
 dg0 f11 expr out #txt

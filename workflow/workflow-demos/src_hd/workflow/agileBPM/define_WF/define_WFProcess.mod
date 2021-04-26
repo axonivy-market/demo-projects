@@ -1,5 +1,5 @@
 [Ivy]
-1525503525CD0CCC 9.2.0 #module
+1525503525CD0CCC 9.3.0 #module
 >Proto >Proto Collection #zClass
 ds0 define_WFProcess Big #zClass
 ds0 RD #cInfo
@@ -79,11 +79,8 @@ ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f0 51 51 26 26 -54 23 #rect
-ds0 f0 @|UdInitIcon #fIcon
 ds0 f1 275 51 26 26 0 12 #rect
-ds0 f1 @|UdProcessEndIcon #fIcon
 ds0 f4 531 147 26 26 0 12 #rect
-ds0 f4 @|UdExitEndIcon #fIcon
 ds0 f28 guid 14913CDEFB31F084 #txt
 ds0 f28 actionTable 'out=in;
 ' #txt
@@ -97,7 +94,6 @@ ds0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f28 51 147 26 26 -7 15 #rect
-ds0 f28 @|UdEventIcon #fIcon
 ds0 f3 actionTable 'out=in;
 ' #txt
 ds0 f3 actionCode 'import ch.ivyteam.ivy.SystemDo;
@@ -144,7 +140,6 @@ ds0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f3 120 138 112 44 -32 -8 #rect
-ds0 f3 @|StepIcon #fIcon
 ds0 f5 expr out #txt
 ds0 f5 77 160 120 160 #arcP
 ds0 f10 expr out #txt
@@ -185,7 +180,6 @@ ds0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f11 112 234 128 44 -56 -8 #rect
-ds0 f11 @|StepIcon #fIcon
 ds0 f8 guid 144689B5E8531C29 #txt
 ds0 f8 actionTable 'out=in;
 ' #txt
@@ -197,9 +191,7 @@ ds0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f8 51 243 26 26 -33 12 #rect
-ds0 f8 @|UdEventIcon #fIcon
 ds0 f9 275 243 26 26 0 12 #rect
-ds0 f9 @|UdProcessEndIcon #fIcon
 ds0 f7 actionTable 'out=in;
 out.caseInfo.kind="TODO";
 out.started=new DateTime();
@@ -248,7 +240,6 @@ ds0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f7 120 42 112 44 -8 -8 #rect
-ds0 f7 @|StepIcon #fIcon
 ds0 f12 expr out #txt
 ds0 f12 77 64 120 64 #arcP
 ds0 f2 expr out #txt
@@ -268,13 +259,10 @@ ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f13 51 387 26 26 -57 15 #rect
-ds0 f13 @|UdMethodIcon #fIcon
 ds0 f15 275 387 26 26 0 12 #rect
-ds0 f15 @|UdProcessEndIcon #fIcon
 ds0 f16 expr out #txt
 ds0 f16 77 400 275 400 #arcP
 ds0 f17 275 315 26 26 0 12 #rect
-ds0 f17 @|UdProcessEndIcon #fIcon
 ds0 f18 actionTable 'out=in;
 ' #txt
 ds0 f18 actionCode 'out.definedTasks.clear();
@@ -326,7 +314,6 @@ ds0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f18 120 306 112 44 -44 -8 #rect
-ds0 f18 @|StepIcon #fIcon
 ds0 f19 guid 14AEE59B893711B7 #txt
 ds0 f19 actionTable 'out=in;
 ' #txt
@@ -340,7 +327,6 @@ ds0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f19 51 315 26 26 -31 15 #rect
-ds0 f19 @|UdEventIcon #fIcon
 ds0 f20 expr out #txt
 ds0 f20 232 328 275 328 #arcP
 ds0 f21 expr out #txt
@@ -355,7 +341,6 @@ ds0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f22 272 144 32 32 -31 18 #rect
-ds0 f22 @|AlternativeIcon #fIcon
 ds0 f23 expr out #txt
 ds0 f23 232 160 272 160 #arcP
 ds0 f6 expr in #txt
@@ -372,7 +357,6 @@ ds0 f6 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ds0 f6 304 160 531 160 #arcP
 ds0 f6 0 0.4977973568281938 0 7 #arcLabel
 ds0 f24 531 99 26 26 0 12 #rect
-ds0 f24 @|UdProcessEndIcon #fIcon
 ds0 f26 actionTable 'out=in;
 ' #txt
 ds0 f26 actionCode 'import javax.faces.application.FacesMessage;
@@ -391,7 +375,6 @@ ds0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f26 360 90 112 44 -27 -8 #rect
-ds0 f26 @|StepIcon #fIcon
 ds0 f27 expr in #txt
 ds0 f27 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -421,7 +404,6 @@ ds0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f29 51 467 26 26 -22 15 #rect
-ds0 f29 @|UdEventIcon #fIcon
 ds0 f32 actionTable 'out=in;
 ' #txt
 ds0 f32 actionCode 'if(in.user.length()>0)
@@ -439,13 +421,11 @@ ds0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f32 120 458 112 44 -23 -8 #rect
-ds0 f32 @|StepIcon #fIcon
 ds0 f33 expr out #txt
 ds0 f33 77 480 120 480 #arcP
 ds0 f31 expr out #txt
 ds0 f31 232 480 275 480 #arcP
 ds0 f30 275 467 26 26 0 12 #rect
-ds0 f30 @|UdProcessEndIcon #fIcon
 ds0 f34 guid 14BEECEBE2A5DE80 #txt
 ds0 f34 actionTable 'out=in;
 ' #txt
@@ -459,9 +439,7 @@ ds0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f34 51 563 26 26 -42 15 #rect
-ds0 f34 @|UdEventIcon #fIcon
 ds0 f35 275 563 26 26 0 12 #rect
-ds0 f35 @|UdProcessEndIcon #fIcon
 ds0 f37 actionTable 'out=in;
 ' #txt
 ds0 f37 actionCode 'out.user="";
@@ -481,7 +459,6 @@ ds0 f37 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f37 120 554 112 44 -36 -8 #rect
-ds0 f37 @|StepIcon #fIcon
 ds0 f38 expr out #txt
 ds0 f38 77 576 120 576 #arcP
 ds0 f36 expr out #txt
@@ -508,9 +485,7 @@ ds0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f39 120 650 112 44 -25 -8 #rect
-ds0 f39 @|StepIcon #fIcon
 ds0 f40 275 659 26 26 0 12 #rect
-ds0 f40 @|UdProcessEndIcon #fIcon
 ds0 f43 expr out #txt
 ds0 f43 232 672 275 672 #arcP
 ds0 f44 guid 14BEF560D05EF4D6 #txt
@@ -530,7 +505,6 @@ ds0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f44 51 659 26 26 -58 15 #rect
-ds0 f44 @|UdMethodIcon #fIcon
 ds0 f41 expr out #txt
 ds0 f41 77 672 120 672 #arcP
 ds0 f47 guid 150143FB91A313FB #txt
@@ -550,9 +524,7 @@ ds0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f47 51 755 26 26 -82 15 #rect
-ds0 f47 @|UdMethodIcon #fIcon
 ds0 f48 179 755 26 26 0 12 #rect
-ds0 f48 @|UdProcessEndIcon #fIcon
 ds0 f49 77 768 179 768 #arcP
 ds0 f50 guid 150144175FAED33C #txt
 ds0 f50 actionTable 'out=in;
@@ -568,14 +540,11 @@ ds0 f50 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f50 51 851 26 26 -53 15 #rect
-ds0 f50 @|UdEventIcon #fIcon
 ds0 f51 179 851 26 26 0 12 #rect
-ds0 f51 @|UdProcessEndIcon #fIcon
 ds0 f52 77 864 179 864 #arcP
 >Proto ds0 .type workflow.agileBPM.define_WF.define_WFData #txt
 >Proto ds0 .processKind HTML_DIALOG #txt
 >Proto ds0 -8 -8 16 16 16 26 #rect
->Proto ds0 '' #fIcon
 ds0 f11 mainOut f10 tail #connect
 ds0 f10 head f9 mainIn #connect
 ds0 f8 mainOut f14 tail #connect

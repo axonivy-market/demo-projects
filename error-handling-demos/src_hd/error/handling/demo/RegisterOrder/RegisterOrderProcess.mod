@@ -1,5 +1,5 @@
 [Ivy]
-14ECFEF3BADB5A9E 9.2.0 #module
+14ECFEF3BADB5A9E 9.3.0 #module
 >Proto >Proto Collection #zClass
 Rs0 RegisterOrderProcess Big #zClass
 Rs0 RD #cInfo
@@ -38,9 +38,7 @@ Rs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Rs0 f0 83 51 26 26 -16 15 #rect
-Rs0 f0 @|UdInitIcon #fIcon
 Rs0 f1 339 51 26 26 0 12 #rect
-Rs0 f1 @|UdProcessEndIcon #fIcon
 Rs0 f3 guid 14ECFEF3BE4B400F #txt
 Rs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -50,9 +48,7 @@ Rs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Rs0 f3 83 147 26 26 -15 12 #rect
-Rs0 f3 @|UdEventIcon #fIcon
 Rs0 f4 211 147 26 26 0 12 #rect
-Rs0 f4 @|UdExitEndIcon #fIcon
 Rs0 f5 expr out #txt
 Rs0 f5 109 160 211 160 #arcP
 Rs0 f6 actionDecl 'error.handling.demo.RegisterOrder.RegisterOrderData out;
@@ -86,7 +82,6 @@ Rs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Rs0 f6 152 42 144 44 -66 -8 #rect
-Rs0 f6 @|DBStepIcon #fIcon
 Rs0 f7 expr out #txt
 Rs0 f7 109 64 152 64 #arcP
 Rs0 f2 expr out #txt
@@ -94,7 +89,6 @@ Rs0 f2 296 64 339 64 #arcP
 >Proto Rs0 .type error.handling.demo.RegisterOrder.RegisterOrderData #txt
 >Proto Rs0 .processKind HTML_DIALOG #txt
 >Proto Rs0 -8 -8 16 16 16 26 #rect
->Proto Rs0 '' #fIcon
 Rs0 f3 mainOut f5 tail #connect
 Rs0 f5 head f4 mainIn #connect
 Rs0 f0 mainOut f7 tail #connect
