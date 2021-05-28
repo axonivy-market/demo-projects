@@ -1,4 +1,4 @@
-![CI-8](https://github.com/ivy-samples/ivy-project-demos/workflows/CI-8/badge.svg?branch=release%2F8.0)
+[![CI-Build](https://github.com/axonivy-market/demo-projects/actions/workflows/ci.yml/badge.svg?branch=release%2F8.0)](https://github.com/axonivy-market/demo-projects/actions/workflows/ci.yml)
 
 # Ivy demo projects
 
