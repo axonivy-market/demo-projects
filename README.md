@@ -1,4 +1,4 @@
-![CI](https://github.com/ivy-samples/ivy-project-demos/workflows/CI/badge.svg)
+![CI-Build](https://github.com/axonivy-market/demo-projects/workflows/ci.yml/badge.svg)
 
 # Ivy demo projects
 
