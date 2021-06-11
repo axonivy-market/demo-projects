@@ -1,6 +1,6 @@
 [![CI-Build](https://github.com/axonivy-market/demo-projects/actions/workflows/ci.yml/badge.svg)](https://github.com/axonivy-market/demo-projects/actions/workflows/ci.yml)
 
-# Ivy demo projects
+# Demo Projects
 
 This repository contains multiple demos how to use the Axon Ivy platform.
 
