@@ -1,9 +1,6 @@
 RestClients:
   jsonPlaceholder:
     UUID: 449e7581-aa1e-4e3b-931a-903253491b50
-    Description: "A free to use test service with fixed data. \n\nTo run this service\
-      \ locally:\n1. run 'npm install -g gson-server'\n2. download 'https://raw.githubusercontent.com/typicode/jsonplaceholder/master/data.json'\n\
-      3. start in cmd 'gson-server data.json'"
     Url: http://test-webservices.ivyteam.io:8091/
     Features:
     - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
