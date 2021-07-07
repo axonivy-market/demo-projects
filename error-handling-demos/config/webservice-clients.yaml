@@ -1,0 +1,9 @@
+WebServiceClients:
+  factory:
+    Id: 16FEC3EAEC5333CC
+    WsdlUrl: http://localhost:9999/designer/ws/NikeProject/16FEAF30FCA53A53?WSDL
+    WsCallLibrary: CXF
+    ServiceClass: nike.project.client.NikeFactoryService
+    Endpoints:
+      NikeFactoryPort:
+      - http://localhost:8082/designer/ws/NikeProject/16FEAF30FCA53A53
