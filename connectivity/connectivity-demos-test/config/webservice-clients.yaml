@@ -1,0 +1,17 @@
+WebServiceClients:
+  createOrderService:
+    Id: 1624D62D6426F325
+    WsdlUrl: http://localhost:8081/designer/ws/connectivity-demos/162492A1649E72DF?WSDL
+    WsCallLibrary: CXF
+    ServiceClass: com.axonivy.connectivity.createorder.client.CreateOrderService
+    Endpoints:
+      CreateOrderPort:
+      - http://localhost:8081/designer/ws/connectivity-demos/162492A1649E72DF
+  policyGreeter:
+    Id: 162AF1AE2B935160
+    WsdlUrl: http://test-webservices.ivyteam.io:8080/country-service/webservices/greet-policy-wss?wsdl
+    WsCallLibrary: CXF
+    ServiceClass: ch.ivyteam.testservice.policy.greeter.client.SecureGreetPolicyServiceService
+    Endpoints:
+      SecureGreetPolicyServicePort:
+      - http://test-webservices.ivyteam.io:8080/country-service/webservices/greet-policy-wss
