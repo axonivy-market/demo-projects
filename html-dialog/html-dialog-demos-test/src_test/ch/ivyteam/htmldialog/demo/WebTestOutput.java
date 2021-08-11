@@ -21,10 +21,10 @@ import com.axonivy.ivy.webtest.primeui.widget.SelectOneMenu;
 import com.axonivy.ivy.webtest.primeui.widget.Table;
 
 @IvyWebTest
-public class WebTestOutput
+class WebTestOutput
 {
   @Test
-  public void testDataTable() throws Exception
+  void dataTable() throws Exception
   {
     startProcess("145D180807C60B4B/DataTableDemo.ivp");
 
@@ -74,7 +74,7 @@ public class WebTestOutput
   }
 
   @Test
-  public void testEditableTable() throws Exception
+  void editableTable() throws Exception
   {
     startProcess("145D180807C60B4B/EditableTableDemo.ivp");
 
@@ -113,7 +113,7 @@ public class WebTestOutput
   }
 
   @Test
-  public void testPickList() throws Exception
+  void pickList() throws Exception
   {
     startProcess("145D180807C60B4B/PickListDemo.ivp");
 
@@ -130,7 +130,7 @@ public class WebTestOutput
   }
 
   @Test
-  public void testOrderList()
+  void orderList()
   {
     startProcess("145D180807C60B4B/OrderListDemo.ivp");
 
@@ -148,7 +148,7 @@ public class WebTestOutput
   }
 
   @Test
-  public void testSelectOneMenu() throws Exception
+  void selectOneMenu() throws Exception
   {
     startProcess("145D180807C60B4B/SelectOneMenuDemo.ivp");
 
@@ -165,7 +165,7 @@ public class WebTestOutput
   }
 
   @Test
-  public void testAutoComplete() throws Exception
+  void autoComplete() throws Exception
   {
     startProcess("145D180807C60B4B/AutoCompleteDemo.ivp");
     searchAndExpect("xzyt", "xzyt69", "xzyz99");
@@ -185,7 +185,7 @@ public class WebTestOutput
   }
 
   @Test
-  public void testSelectCheckboxes() throws Exception
+  void selectCheckboxes() throws Exception
   {
     startProcess("145D180807C60B4B/SelectManyCheckboxDemo.ivp");
     SelectManyCheckbox checkbox = PrimeUi.selectManyCheckbox(By.id("demoForm:manyCheckboxes"));
@@ -195,11 +195,21 @@ public class WebTestOutput
   }
 
   @Test
-  public void testChart()
+  void chart()
   {
     startProcess("145D180807C60B4B/ChartDemo.ivp");
     $(By.id("form:comboChart")).shouldBe(visible);
     $(By.id("form:pieChart")).shouldBe(visible);
+  }
+
+  @Test
+  void prettyTime()
+  {
+    startProcess("145D180807C60B4B/PrettyTimeDemo.ivp");
+    $(By.id("form:yesterday")).shouldHave(text("1 day ago"));
+    $(By.id("form:twoHoursBefore")).shouldHave(text("2 hours ago"));
+    $(By.id("form:threeWeeksAgo")).shouldHave(text("3 weeks ago"));
+    $(By.id("form:threeYearsAgo")).shouldHave(text("3 years ago"));
   }
 
   private void clearInput(By inputLocator)

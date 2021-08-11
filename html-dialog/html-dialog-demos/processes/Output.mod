@@ -66,6 +66,11 @@ Ot0 @EndTask f41 '' #zField
 Ot0 @UserDialog f42 '' #zField
 Ot0 @PushWFArc f43 '' #zField
 Ot0 @PushWFArc f44 '' #zField
+Ot0 @StartRequest f45 '' #zField
+Ot0 @EndTask f46 '' #zField
+Ot0 @UserDialog f47 '' #zField
+Ot0 @PushWFArc f48 '' #zField
+Ot0 @PushWFArc f49 '' #zField
 >Proto Ot0 Ot0 Output #zField
 Ot0 f94 outLink SelectManyCheckboxDemo.ivp #txt
 Ot0 f94 inParamDecl '<> param;' #txt
@@ -533,6 +538,35 @@ Ot0 f43 expr out #txt
 Ot0 f43 360 1024 465 1024 #arcP
 Ot0 f44 expr out #txt
 Ot0 f44 143 1024 248 1024 #arcP
+Ot0 f45 outLink PrettyTimeDemo.ivp #txt
+Ot0 f45 inParamDecl '<> param;' #txt
+Ot0 f45 requestEnabled true #txt
+Ot0 f45 triggerEnabled false #txt
+Ot0 f45 callSignature PrettyTimeDemo() #txt
+Ot0 f45 startName 'Pretty Time Demo' #txt
+Ot0 f45 startCategory output #txt
+Ot0 f45 startCustomFields 'cssIcon=fa fa-clock-o' #txt
+Ot0 f45 caseData businessCase.attach=true #txt
+Ot0 f45 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>PrettyTimeDemo.ivp</name>
+    </language>
+</elementInfo>
+' #txt
+Ot0 f45 @C|.responsibility Everybody #txt
+Ot0 f45 113 1105 30 30 -56 18 #rect
+Ot0 f46 465 1105 30 30 0 15 #rect
+Ot0 f47 dialogId ch.ivyteam.htmldialog.demo.output.PrettyTimeDemo #txt
+Ot0 f47 startMethod start() #txt
+Ot0 f47 requestActionDecl '<> param;' #txt
+Ot0 f47 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Ot0 f47 responseMappingAction 'out=in;
+' #txt
+Ot0 f47 248 1098 112 44 0 -8 #rect
+Ot0 f48 143 1120 248 1120 #arcP
+Ot0 f49 360 1120 465 1120 #arcP
 >Proto Ot0 .type htmlDialogDemos.Data #txt
 >Proto Ot0 .processKind NORMAL #txt
 >Proto Ot0 0 0 32 24 18 0 #rect
@@ -581,3 +615,7 @@ Ot0 f40 mainOut f44 tail #connect
 Ot0 f44 head f42 mainIn #connect
 Ot0 f42 mainOut f43 tail #connect
 Ot0 f43 head f41 mainIn #connect
+Ot0 f45 mainOut f48 tail #connect
+Ot0 f48 head f47 mainIn #connect
+Ot0 f47 mainOut f49 tail #connect
+Ot0 f49 head f46 mainIn #connect

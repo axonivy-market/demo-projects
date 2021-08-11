@@ -1,0 +1,10 @@
+PrettyTimeDemoData #class
+ch.ivyteam.htmldialog.demo.output.PrettyTimeDemo #namespace
+yesterday java.util.Date #field
+yesterday PERSISTENT #fieldModifier
+twoHoursBefore java.util.Date #field
+twoHoursBefore PERSISTENT #fieldModifier
+threeYearsAgo java.util.Date #field
+threeYearsAgo PERSISTENT #fieldModifier
+threeWeeksAgo java.util.Date #field
+threeWeeksAgo PERSISTENT #fieldModifier
