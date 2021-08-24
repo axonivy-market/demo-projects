@@ -1,15 +1,13 @@
 package com.axonivy.connectivity.rest;
 
 import static com.axonivy.ivy.webtest.engine.EngineUrl.createProcessUrl;
-import static com.codeborne.selenide.Condition.and;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
-import com.axonivy.ivy.webtest.engine.EngineUrl;
+import com.codeborne.selenide.WebDriverRunner;
 
 @IvyWebTest
 public class WebTestRestProcessStarts
@@ -38,13 +36,7 @@ public class WebTestRestProcessStarts
   {
     String path = "connectivity-demos/" + process;
     open(createProcessUrl(path));
-    if (EngineUrl.isDesigner())
-    {
-      $("h2").shouldHave(and("Process url '" + path + "' should run to an end without problems.", text("Personal Task List")));
-    }
-    else
-    {
-      $("h3").shouldHave(and("Process url '" + path + "' should run to an end without problems.",text("Task End")));
-    }
+    assertThat(WebDriverRunner.url()).as("Process url '" + path + "' should run to an end without problems.")
+          .contains("endedTaskId=");
   }
 }
