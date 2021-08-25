@@ -1,11 +1,10 @@
 package test.web;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.axonivy.ivy.webtest.engine.EngineUrl;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 
 public class ProcessUtil
 {
@@ -22,26 +21,7 @@ public class ProcessUtil
 
   public static void checkEndPage()
   {
-    if (EngineUrl.applicationName().equals("designer"))
-    {
-      $("h2").waitUntil(exactText("Personal Task List"), 15000);
-    }
-    else
-    {
-      $("h3").waitUntil(exactText("Task End"), 15000);
-    }
-  }
-
-  public static void checkTaskList()
-  {
-    if (EngineUrl.applicationName().equals("designer"))
-    {
-      $("h2").waitUntil(exactText("Personal Task List"), 15000);
-    }
-    else
-    {
-      $("h1").waitUntil(text("Task List"), 15000);
-    }
+    assertThat(WebDriverRunner.url()).contains("endedTaskId=");
   }
 
 }

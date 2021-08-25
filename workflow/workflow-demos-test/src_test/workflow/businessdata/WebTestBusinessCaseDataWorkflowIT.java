@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.sleep;
 import static test.web.ProcessUtil.checkEndPage;
-import static test.web.ProcessUtil.checkTaskList;
 import static test.web.ProcessUtil.startProcess;
 import static test.web.ProcessUtil.startTestProcess;
 
@@ -18,6 +17,7 @@ import org.junit.jupiter.api.Test;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.engine.EngineUrl;
+import com.codeborne.selenide.Selenide;
 
 @IvyWebTest
 public class WebTestBusinessCaseDataWorkflowIT
@@ -38,11 +38,10 @@ public class WebTestBusinessCaseDataWorkflowIT
     startProcess("16EF567002B146F2/create.ivp");
     $("#form\\:interviewFirstName").shouldBe(visible).sendKeys("Hans");
     $("#form\\:interviewLastName").sendKeys("Muster");
-
     $("#form\\:saveAndPark").click();
-    checkTaskList();
 
     $$("table tr a").find(text("6.1: Save BusinessCaseData When Park Task")).click();
+    Selenide.switchTo().frame("iFrame");
     $("#form\\:interviewFirstName").shouldBe(visible, exactValue("Hans"));
     $("#form\\:interviewLastName").shouldBe(exactValue("Muster")).sendKeys("mann");
     $("#form\\:interviewConversation").sendKeys("This is an interview");
@@ -67,7 +66,7 @@ public class WebTestBusinessCaseDataWorkflowIT
       $("#loginForm\\:userName").shouldBe(visible).sendKeys("hb");
       $("#loginForm\\:password").sendKeys("hb");
       $("#loginForm\\:login").click();
-      $("h1").shouldBe(text("Application: " + EngineUrl.applicationName()));
+      $("#sessionUserName").shouldBe(text("hb"));
     }
   }
 
