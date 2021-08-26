@@ -1,0 +1,6 @@
+DocumentViewerData #class
+ch.ivyteam.htmldialog.demo.output.DocumentViewer #namespace
+ivyFile File #field
+ivyFile PERSISTENT #fieldModifier
+filename String #field
+filename PERSISTENT #fieldModifier

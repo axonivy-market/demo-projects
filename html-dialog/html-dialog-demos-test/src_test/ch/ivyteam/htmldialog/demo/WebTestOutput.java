@@ -3,13 +3,18 @@ package ch.ivyteam.htmldialog.demo;
 import static ch.ivyteam.htmldialog.server.test.ProcessUtil.startProcess;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.not;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.File;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -212,6 +217,20 @@ class WebTestOutput
     $(By.id("form:threeYearsAgo")).shouldHave(text("3 years ago"));
   }
 
+  @Test
+  void documentViewer() throws Exception
+  {
+    startProcess("145D180807C60B4B/DocumentViewerDemo.ivp");
+
+    File tempFile = File.createTempFile("tempDocFile", ".pdf");
+    tempFile.deleteOnExit();
+
+    $(By.id("form:choose_input")).shouldBe(exist).sendKeys(tempFile.getAbsolutePath());
+    $(By.id("form:upload")).click();
+    $(By.id("form:doclink")).shouldHave(text(tempFile.getName()));
+    $(By.id("form:viewer")).shouldBe(visible);
+  }  
+  
   private void clearInput(By inputLocator)
   {
     $(inputLocator).shouldBe(visible).clear();
