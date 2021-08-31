@@ -97,9 +97,9 @@
                   <include>**/WebTest*</include>
                 </includes>
                 <additionalClasspathElements>${ivy.test.vm.runtime},
-                	${ivy.engine.classpath},
-                	${ivy.project.iar.classpath},
-                	${project.basedir}/lib_ws/client/cxfClient_1624D62D6426F325.jar</additionalClasspathElements>
+                  ${ivy.engine.classpath},
+                  ${ivy.project.iar.classpath},
+                  ${project.basedir}/lib_ws/client/cxfClient_1624D62D6426F325.jar</additionalClasspathElements>
               </configuration>
             </execution>
           </executions>
