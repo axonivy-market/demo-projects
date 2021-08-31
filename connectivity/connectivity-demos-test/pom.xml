@@ -63,16 +63,6 @@
         </exclusion>
       </exclusions>
     </dependency>
-
-    <!-- hack to add the cxf client to the maven classpath -->
-    <dependency>
-      <groupId>com.axonivy.webservice.client.lib</groupId>
-      <artifactId>cxf-client</artifactId>
-      <version>0.0.1</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/lib_ws/client/cxfClient_1624D62D6426F325.jar</systemPath>
-    </dependency>
-
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
@@ -106,6 +96,10 @@
                   <include>**/IntegrationTest*</include>
                   <include>**/WebTest*</include>
                 </includes>
+                <additionalClasspathElements>${ivy.test.vm.runtime},
+                	${ivy.engine.classpath},
+                	${ivy.project.iar.classpath},
+                	${project.basedir}/lib_ws/client/cxfClient_1624D62D6426F325.jar</additionalClasspathElements>
               </configuration>
             </execution>
           </executions>
