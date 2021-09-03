@@ -1,40 +1,58 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions">
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
-		<ui:define name="title">DocumentViewer</ui:define>
-		<ui:define name="content">
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:define name="title">DocumentViewer</ui:define>
+    <ui:define name="content">
 
-			<h3>Upload a PDF document and show it with the Document Viewer</h3>
-			<h:form id="form" enctype="multipart/form-data">
-				<p:messages />
-				<p:panelGrid columns="3" layout="grid"
-					styleClass="ui-panelgrid-blank"
-					columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
-					<h:outputLabel value="PDF document"></h:outputLabel>
-					<p:fileUpload id="choose" value="#{data.ivyFile}" mode="simple" auto="false"
-						label="Choose" skinSimple="true" update="form"
-						sizeLimit="10000000"
-						invalidSizeMessage="Document exceeds the allowed size"
-						invalidFileMessage="Document is not a pdf"
-						allowTypes=" /(\.|\/)(pdf|PDF)$/" onstart="PF('form').validate();"/>
-					<p:commandButton id="upload" value="Upload" ajax="false"
-						icon="si si-send-email" actionListener="#{logic.upload}"
-						style="width:100px"></p:commandButton>
-				</p:panelGrid>
-				<p:link id="doclink" href="#{ivy.html.fileref(data.ivyFile)}"
-					value="#{data.filename}" />
-				<pe:documentViewer id="viewer" rendered="#{data.ivyFile ne null}"
-					url="#{ivy.html.fileref(data.ivyFile)}" height="500px"></pe:documentViewer>
-			</h:form>
+      <h3>Upload a PDF document and show it with the Document
+        Viewer</h3>
+      <h:form id="form" enctype="multipart/form-data">
+        <p:messages />
+        <p:panelGrid columns="2" layout="grid"
+          styleClass="ui-panelgrid-blank"
+          columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
+          <p:outputLabel for="choose" value="PDF document" />
+          <p:fileUpload id="choose" value="#{data.ivyFile}"
+            mode="simple" auto="false" label="Choose" skinSimple="true"
+            update="form" sizeLimit="10000000"
+            invalidSizeMessage="Document exceeds the allowed size"
+            invalidFileMessage="Document is not a pdf"
+            allowTypes=" /(\.|\/)(pdf|PDF)$/"
+            onstart="PF('form').validate();" />
 
-		</ui:define>
-	</ui:composition>
+          <p:commandButton id="upload" value="Upload" ajax="false"
+            icon="si si-send-email" actionListener="#{logic.upload}"
+            style="width:100px"></p:commandButton>
+          <br />
+
+        </p:panelGrid>
+        <br />
+        <h:panelGrid columns="2" rendered="#{data.ivyFile ne null}">
+          <p:outputLabel for="doclink" value="Link to PDF document: " />
+          <p:link id="doclink" href="#{ivy.html.fileref(data.ivyFile)}"
+            value="#{data.filename}" />
+        </h:panelGrid>
+        <br />
+        <h:panelGrid columns="2" width="100%"
+          rendered="#{data.ivyFile ne null}">
+          <p:outputLabel for="viewer"
+            value="Primefaces Extension Document Viewer" />
+          <h:outputLabel value="Browser native PDF Viewer (iframe)" />
+
+          <pe:documentViewer id="viewer"
+            url="#{ivy.html.fileref(data.ivyFile)}" height="500" />
+          <iframe src="embedded-viewer.xhtml" width="100%" height="500" />
+        </h:panelGrid>
+      </h:form>
+
+    </ui:define>
+  </ui:composition>
 </h:body>
 
 </html>
