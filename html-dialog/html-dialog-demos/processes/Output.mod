@@ -71,6 +71,11 @@ Ot0 @EndTask f46 '' #zField
 Ot0 @UserDialog f47 '' #zField
 Ot0 @PushWFArc f48 '' #zField
 Ot0 @PushWFArc f49 '' #zField
+Ot0 @EndTask f50 '' #zField
+Ot0 @UserDialog f51 '' #zField
+Ot0 @StartRequest f52 '' #zField
+Ot0 @PushWFArc f53 '' #zField
+Ot0 @PushWFArc f54 '' #zField
 >Proto Ot0 Ot0 Output #zField
 Ot0 f94 outLink SelectManyCheckboxDemo.ivp #txt
 Ot0 f94 inParamDecl '<> param;' #txt
@@ -567,6 +572,35 @@ Ot0 f47 responseMappingAction 'out=in;
 Ot0 f47 248 1098 112 44 0 -8 #rect
 Ot0 f48 143 1120 248 1120 #arcP
 Ot0 f49 360 1120 465 1120 #arcP
+Ot0 f50 465 1201 30 30 0 15 #rect
+Ot0 f51 dialogId ch.ivyteam.htmldialog.demo.output.DocumentViewer #txt
+Ot0 f51 startMethod start() #txt
+Ot0 f51 requestActionDecl '<> param;' #txt
+Ot0 f51 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Ot0 f51 responseMappingAction 'out=in;
+' #txt
+Ot0 f51 248 1194 112 44 0 -8 #rect
+Ot0 f52 outLink DocumentViewerDemo.ivp #txt
+Ot0 f52 inParamDecl '<> param;' #txt
+Ot0 f52 requestEnabled true #txt
+Ot0 f52 triggerEnabled false #txt
+Ot0 f52 callSignature DocumentViewerDemo() #txt
+Ot0 f52 startName 'Document Viewer Demo' #txt
+Ot0 f52 startCategory output #txt
+Ot0 f52 startCustomFields 'cssIcon=fa fa-file-pdf-o' #txt
+Ot0 f52 caseData businessCase.attach=true #txt
+Ot0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>DocumentViewerDemo.ivp</name>
+    </language>
+</elementInfo>
+' #txt
+Ot0 f52 @C|.responsibility Everybody #txt
+Ot0 f52 113 1201 30 30 -64 24 #rect
+Ot0 f53 143 1216 248 1216 #arcP
+Ot0 f54 360 1216 465 1216 #arcP
 >Proto Ot0 .type htmlDialogDemos.Data #txt
 >Proto Ot0 .processKind NORMAL #txt
 >Proto Ot0 0 0 32 24 18 0 #rect
@@ -619,3 +653,7 @@ Ot0 f45 mainOut f48 tail #connect
 Ot0 f48 head f47 mainIn #connect
 Ot0 f47 mainOut f49 tail #connect
 Ot0 f49 head f46 mainIn #connect
+Ot0 f52 mainOut f53 tail #connect
+Ot0 f53 head f51 mainIn #connect
+Ot0 f51 mainOut f54 tail #connect
+Ot0 f54 head f50 mainIn #connect
