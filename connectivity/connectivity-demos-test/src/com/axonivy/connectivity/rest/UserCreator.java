@@ -23,15 +23,14 @@ public class UserCreator
       IUser user = securityContext.users().find(userN);
       if (user == null)
       {
-        NewUser newUser = NewUser.create(userN)
+        var newUser = NewUser.create(userN)
             .fullName(userN)
             .password(userN)
-            .mailLanguage(Locale.GERMAN)
+            .language(Locale.GERMAN)
             .mailAddress("nomail@junit.com")
             .externalName(userN).toNewUser();
         user = securityContext.users().create(newUser);
       }
     }
   }
-
 }
