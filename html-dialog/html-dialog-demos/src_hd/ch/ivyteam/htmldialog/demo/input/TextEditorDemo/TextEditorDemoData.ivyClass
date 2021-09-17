@@ -1,0 +1,4 @@
+TextEditorDemoData #class
+ch.ivyteam.htmldialog.demo.input.TextEditorDemo #namespace
+text String #field
+text PERSISTENT #fieldModifier

@@ -38,13 +38,18 @@ It0 @PushWFArc f70 '' #zField
 It0 @PushWFArc f71 '' #zField
 It0 @PushWFArc f80 '' #zField
 It0 @PushWFArc f81 '' #zField
+It0 @StartRequest f0 '' #zField
+It0 @EndTask f1 '' #zField
+It0 @UserDialog f2 '' #zField
+It0 @PushWFArc f3 '' #zField
+It0 @PushWFArc f4 '' #zField
 >Proto It0 It0 Input #zField
 It0 f69 dialogId ch.ivyteam.htmldialog.demo.input.MultiViewDemo #txt
 It0 f69 startMethod start() #txt
 It0 f69 requestActionDecl '<> param;' #txt
 It0 f69 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
-It0 f69 248 426 112 44 58 -2 #rect
+It0 f69 256 426 112 44 58 -2 #rect
 It0 f69 -1|-1|-9671572 #nodeStyle
 It0 f54 dialogId ch.ivyteam.htmldialog.demo.input.BeanValidationDemo #txt
 It0 f54 startMethod start() #txt
@@ -53,7 +58,7 @@ It0 f54 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 It0 f54 responseMappingAction 'out=in;
 ' #txt
-It0 f54 248 138 112 44 58 -2 #rect
+It0 f54 256 138 112 44 58 -2 #rect
 It0 f54 -1|-1|-9671572 #nodeStyle
 It0 f52 outLink BeanValidationDemo.ivp #txt
 It0 f52 inParamDecl '<> param;' #txt
@@ -210,7 +215,7 @@ It0 f63 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 It0 f63 responseMappingAction 'out=in;
 ' #txt
-It0 f63 248 234 112 44 58 -2 #rect
+It0 f63 256 234 112 44 58 -2 #rect
 It0 f63 -1|-1|-9671572 #nodeStyle
 It0 f78 465 337 30 30 0 15 #rect
 It0 f78 -1|-1|-9671572 #nodeStyle
@@ -249,7 +254,7 @@ It0 f77 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 It0 f77 responseMappingAction 'out=in;
 ' #txt
-It0 f77 248 330 112 44 58 -2 #rect
+It0 f77 256 330 112 44 58 -2 #rect
 It0 f77 -1|-1|-9671572 #nodeStyle
 It0 f19 expr out #txt
 It0 f19 584 64 689 64 #arcP
@@ -258,21 +263,55 @@ It0 f36 143 64 232 64 #arcP
 It0 f18 expr out #txt
 It0 f18 376 64 472 64 #arcP
 It0 f55 expr out #txt
-It0 f55 143 160 248 160 #arcP
+It0 f55 143 160 256 160 #arcP
 It0 f56 expr out #txt
-It0 f56 360 160 465 160 #arcP
+It0 f56 368 160 465 160 #arcP
 It0 f65 expr out #txt
-It0 f65 143 256 248 256 #arcP
+It0 f65 143 256 256 256 #arcP
 It0 f66 expr out #txt
-It0 f66 360 256 465 256 #arcP
+It0 f66 368 256 465 256 #arcP
 It0 f70 expr out #txt
-It0 f70 143 448 248 448 #arcP
+It0 f70 143 448 256 448 #arcP
 It0 f71 expr out #txt
-It0 f71 360 448 465 448 #arcP
+It0 f71 368 448 465 448 #arcP
 It0 f80 expr out #txt
-It0 f80 143 352 248 352 #arcP
+It0 f80 143 352 256 352 #arcP
 It0 f81 expr out #txt
-It0 f81 360 352 465 352 #arcP
+It0 f81 368 352 465 352 #arcP
+It0 f0 outLink TextEditorDemo.ivp #txt
+It0 f0 inParamDecl '<> param;' #txt
+It0 f0 requestEnabled true #txt
+It0 f0 triggerEnabled false #txt
+It0 f0 callSignature TextEditorDemo() #txt
+It0 f0 startName 'Text Editor Demo' #txt
+It0 f0 startCategory input #txt
+It0 f0 startCustomFields 'cssIcon=fa fa-bars' #txt
+It0 f0 caseData businessCase.attach=true #txt
+It0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>TextEditorDemo.ivp</name>
+    </language>
+</elementInfo>
+' #txt
+It0 f0 @C|.responsibility Everybody #txt
+It0 f0 112 512 32 32 -53 17 #rect
+It0 f1 465 513 30 30 0 15 #rect
+It0 f2 dialogId ch.ivyteam.htmldialog.demo.input.TextEditorDemo #txt
+It0 f2 startMethod start() #txt
+It0 f2 requestActionDecl '<> param;' #txt
+It0 f2 responseMappingAction 'out=in;
+' #txt
+It0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>TextEditorDemo</name>
+    </language>
+</elementInfo>
+' #txt
+It0 f2 256 506 112 44 -49 -7 #rect
+It0 f3 144 528 256 528 #arcP
+It0 f4 368 528 465 528 #arcP
 >Proto It0 .type htmlDialogDemos.Data #txt
 >Proto It0 .processKind NORMAL #txt
 >Proto It0 0 0 32 24 18 0 #rect
@@ -299,3 +338,7 @@ It0 f79 mainOut f80 tail #connect
 It0 f80 head f77 mainIn #connect
 It0 f77 mainOut f81 tail #connect
 It0 f81 head f78 mainIn #connect
+It0 f0 mainOut f3 tail #connect
+It0 f3 head f2 mainIn #connect
+It0 f2 mainOut f4 tail #connect
+It0 f4 head f1 mainIn #connect
