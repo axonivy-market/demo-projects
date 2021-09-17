@@ -15,11 +15,11 @@ import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.primeui.PrimeUi;
 
 @IvyWebTest
-public class WebTestInput
+class WebTestInput
 {
 
   @Test
-  public void testForm()
+  void form()
   {
     startProcess("145D18298A3E81CF/FormDemo.ivp");
 
@@ -44,7 +44,7 @@ public class WebTestInput
   }
 
   @Test
-  public void testForm_customProjectValidator()
+  void form_customProjectValidator()
   {
     startProcess("145D18298A3E81CF/FormDemo.ivp");
     $(By.id("Form:Mail")).shouldBe(visible).sendKeys("notValidMail[at]test.ch");
@@ -53,7 +53,7 @@ public class WebTestInput
   }
 
   @Test
-  public void testMultiView_invoice()
+  void multiView_invoice()
   {
     startProcess("145D18298A3E81CF/MultiViewDemo.ivp");
 
@@ -69,7 +69,7 @@ public class WebTestInput
   }
 
   @Test
-  public void testMultiView_creditCard() throws Exception
+  void multiView_creditCard() throws Exception
   {
     startProcess("145D18298A3E81CF/MultiViewDemo.ivp");
 
@@ -87,6 +87,12 @@ public class WebTestInput
     $(By.id("myForm:finishButton")).click();
 
     waitForSummary("team", "ivy");
+  }
+  
+  @Test
+  void textEditor() {
+    startProcess("145D18298A3E81CF/TextEditorDemo.ivp");
+    $(By.id("form:update")).click();
   }
 
   private void waitForSummary(String name, String firstName)
