@@ -12,6 +12,8 @@ WebServiceClients:
     WsdlUrl: http://test-webservices.ivyteam.io:8080/country-service/webservices/greet-policy-wss?wsdl
     WsCallLibrary: CXF
     ServiceClass: ch.ivyteam.testservice.policy.greeter.client.SecureGreetPolicyServiceService
+    Properties:
+      endpoint.cache: 'false'
     Endpoints:
       SecureGreetPolicyServicePort:
       - http://test-webservices.ivyteam.io:8080/country-service/webservices/greet-policy-wss
