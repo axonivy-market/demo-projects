@@ -33,6 +33,11 @@
         <id>162AF1AE2B935160</id>
         <wsdlUrl>http://test-webservices.ivyteam.io:8080/country-service/webservices/greet-policy-wss?wsdl</wsdlUrl>
         <wsCallLibrary>CXF</wsCallLibrary>
+        <property>
+            <name>endpoint.cache</name>
+            <value>false</value>
+            <password>false</password>
+        </property>
         <service>
             <serviceClass>ch.ivyteam.testservice.policy.greeter.client.SecureGreetPolicyServiceService</serviceClass>
             <port>
@@ -60,6 +65,11 @@
             <property>
                 <name>policy.disabled</name>
                 <value>http://schemas.xmlsoap.org/ws/2005/07/securitypolicy:SupportingTokens</value>
+                <password>false</password>
+            </property>
+            <property>
+                <name>endpoint.cache</name>
+                <value>false</value>
                 <password>false</password>
             </property>
             <feature>
