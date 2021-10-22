@@ -14,10 +14,10 @@ Oe0 @TextInP .responsibility .responsibility #zField
 Oe0 @EndRequest f5 '' #zField
 Oe0 @StartRequest f0 '' #zField
 Oe0 @UserTask f3 '' #zField
-Oe0 @TkArc f4 '' #zField
-Oe0 @PushWFArc f6 '' #zField
+Oe0 @TkArc f1 '' #zField
+Oe0 @PushWFArc f2 '' #zField
 >Proto Oe0 Oe0 Offline #zField
-Oe0 f5 template "/ProcessPages/Other/RedirectToMainPage.ivc" #txt
+Oe0 f5 template "view/redirect.xhtml" #txt
 Oe0 f5 433 81 30 30 0 15 #rect
 Oe0 f0 outLink ClientSideValidationDemo.ivp #txt
 Oe0 f0 inParamDecl '<> param;' #txt
@@ -64,18 +64,13 @@ TaskA.ROL=Everybody
 TaskA.SKIP_TASK_LIST=true
 TaskA.TYPE=0' #txt
 Oe0 f3 216 74 112 44 0 -7 #rect
-Oe0 f4 expr out #txt
-Oe0 f4 type htmlDialogDemos.Data #txt
-Oe0 f4 var in1 #txt
-Oe0 f4 111 96 216 96 #arcP
-Oe0 f6 expr data #txt
-Oe0 f6 outCond ivp=="TaskA.ivp" #txt
-Oe0 f6 328 96 433 96 #arcP
+Oe0 f1 111 96 216 96 #arcP
+Oe0 f2 328 96 433 96 #arcP
 >Proto Oe0 .type htmlDialogDemos.Data #txt
 >Proto Oe0 .processKind NORMAL #txt
 >Proto Oe0 0 0 32 24 18 0 #rect
 >Proto Oe0 @|BIcon #fIcon
-Oe0 f0 mainOut f4 tail #connect
-Oe0 f4 head f3 in #connect
-Oe0 f3 out f6 tail #connect
-Oe0 f6 head f5 mainIn #connect
+Oe0 f0 mainOut f1 tail #connect
+Oe0 f1 head f3 in #connect
+Oe0 f3 out f2 tail #connect
+Oe0 f2 head f5 mainIn #connect
