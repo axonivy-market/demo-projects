@@ -9,14 +9,13 @@
 
     <ui:define name="title">Redirect</ui:define>
     <ui:define name="content">
-    	<span id="redirectUri"><h:outputText value="#{ivy.html.startRef('Demo/start.ivp')}" /></span>
-    	<script type="text/javascript">
-    		var element = document.getElementById('redirectUri');
-    		var uri = element.innerHTML;
-			setTimeout("document.location.href = '"+uri+"'", 500);
-		</script>
+      <span id="redirectUri"><h:outputText value="#{ivy.html.startRef('Demo/start.ivp')}" /></span>
+        <script type="text/javascript">
+          var element = document.getElementById('redirectUri');
+          var uri = element.innerHTML;
+          setTimeout("document.location.href = '"+uri+"'", 500);
+        </script>
     </ui:define>
-
   </ui:composition>
 </h:body>
 
