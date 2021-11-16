@@ -148,7 +148,7 @@ or0 Et1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 Et1 497 145 30 30 18 1 #rect
-or0 f9 template "/ProcessPages/Booking/Booking/bookingFail.ivc" #txt
+or0 f9 template "view/booking-failed.xhtml" #txt
 or0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -217,7 +217,7 @@ The Happy Path is interrupted and
 ' #txt
 or0 f16 64 18 336 60 -158 -26 #rect
 or0 f16 -1|-1|-65536 #nodeStyle
-or0 f14 template "/ProcessPages/Booking/Booking/bookingSuccess.ivc" #txt
+or0 f14 template "view/booking-success.xhtml" #txt
 or0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
