@@ -1,5 +1,5 @@
 [Ivy]
-16150E1D07E8CA18 9.3.0 #module
+16150E1D07E8CA18 9.3.1 #module
 >Proto >Proto Collection #zClass
 pe0 personService Big #zClass
 pe0 WS #cInfo
@@ -167,7 +167,7 @@ All accesses are protected by HTTP_BASIC.</name>
 ' #txt
 pe0 f13 56 26 400 44 -197 -16 #rect
 >Proto pe0 .webServiceName com.axonivy.connectivity.soap.service.PersonService #txt
->Proto pe0 .authenticationType 'HTTP Basic' #txt
+>Proto pe0 .authenticationType HTTP_BASIC #txt
 >Proto pe0 .type com.axonivy.connectivity.soap.service.PersonServiceData #txt
 >Proto pe0 .processKind WEB_SERVICE #txt
 >Proto pe0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

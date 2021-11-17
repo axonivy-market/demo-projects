@@ -1,5 +1,5 @@
 [Ivy]
-162492A1649E72DF 9.3.0 #module
+162492A1649E72DF 9.3.1 #module
 >Proto >Proto Collection #zClass
 ce0 createOrderService Big #zClass
 ce0 WS #cInfo
@@ -167,7 +167,7 @@ ce0 f10 88 328 72 167 #arcP
 ce0 f10 1 72 328 #addKink
 ce0 f10 1 0.4012420937466449 0 0 #arcLabel
 >Proto ce0 .webServiceName com.axonivy.connectivity.createOrder #txt
->Proto ce0 .authenticationType 'None or Container' #txt
+>Proto ce0 .authenticationType NONE #txt
 >Proto ce0 .type com.axonivy.connectivity.soap.service.CreateOrderServiceData #txt
 >Proto ce0 .processKind WEB_SERVICE #txt
 >Proto ce0 -8 -8 16 16 16 26 #rect

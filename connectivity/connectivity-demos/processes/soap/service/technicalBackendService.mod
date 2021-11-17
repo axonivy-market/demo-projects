@@ -1,5 +1,5 @@
 [Ivy]
-162B95BB70C3178E 9.3.0 #module
+162B95BB70C3178E 9.3.1 #module
 >Proto >Proto Collection #zClass
 te0 technicalBackendService Big #zClass
 te0 WS #cInfo
@@ -85,7 +85,7 @@ te0 f1 176 192 131 113 #arcP
 te0 f1 1 131 192 #addKink
 te0 f1 0 0.889103248784782 0 0 #arcLabel
 >Proto te0 .webServiceName com.axonivy.connectivity.technicalBackendService #txt
->Proto te0 .authenticationType 'None or Container' #txt
+>Proto te0 .authenticationType NONE #txt
 >Proto te0 .type com.axonivy.connectivity.soap.service.TechnicalBackendServiceData #txt
 >Proto te0 .processKind WEB_SERVICE #txt
 >Proto te0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
