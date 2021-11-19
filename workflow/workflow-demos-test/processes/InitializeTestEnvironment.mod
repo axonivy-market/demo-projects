@@ -41,7 +41,7 @@ LO0 f3 actionCode 'import ch.ivyteam.ivy.security.*;
 
 ivy.session.loginSessionUser("admin","admin");
 
-IRole role = ivy.session.getSecurityContext().findRole("HR Manager");
+IRole role = ivy.security.roles().find("HR Manager");
 ivy.session.assignRole(role);' #txt
 LO0 f3 security system #txt
 LO0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

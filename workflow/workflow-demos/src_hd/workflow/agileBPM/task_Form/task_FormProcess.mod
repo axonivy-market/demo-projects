@@ -343,10 +343,9 @@ ts0 f15 actionCode 'import ch.ivyteam.ivy.Helper;
 // wfuserlist
 // not that gravatar is used for portrait images
 import ch.ivyteam.ivy.security.IUser;
-List users = ivy.wf.getSecurityContext().getUsers();
 in.userList.clear();
 
-for(IUser user : users)
+for(IUser user : ivy.security.users().paged())
 {
 	if(user.getName() != "SYSTEM")
 	{

@@ -104,7 +104,7 @@ for(TaskDef tdef: in.definedTasks)
 	List<String> names = tdef.actor.split(",");
 	for(String name: names)
 	{
-		if(name.trim().length()>0 && ivy.wf.getSecurityContext().findUser(name.trim())== null)
+		if(name.trim().length()>0 && ivy.security.users().find(name.trim())== null)
 		{
 			out.errormsg = "WF User "+name.trim()+" not found";
 		}	
@@ -218,10 +218,9 @@ out.definedTasks.add(newTask);
 // wfuserlist
 // not that gravatar is used for portrait images
 import ch.ivyteam.ivy.security.IUser;
-List users = ivy.wf.getSecurityContext().getUsers();
 in.userList.clear();
 
-for(IUser user : users)
+for(IUser user : ivy.security.users().paged())
 {
 	if(user.getName() != "SYSTEM")
 	{
@@ -472,7 +471,7 @@ if(users.size()>1)
 {
 	for(String u: users)
 	{
-		out.userSelection.add(ivy.session.getSecurityContext().findUser(u.trim()));
+		out.userSelection.add(ivy.security.users().find(u.trim()));
 	}	
 }' #txt
 ds0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

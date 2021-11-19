@@ -136,7 +136,7 @@ class TestStartProcessAs
 
     assertThat(result.workflow().activeCase().getCreatorUser())
         .isEqualTo(result.workflow().session().getSessionUser())
-        .isEqualTo(app.getSecurityContext().getSystemUser());
+        .isEqualTo(app.getSecurityContext().users().system());
   }
 
   @Test

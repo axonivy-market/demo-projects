@@ -63,7 +63,7 @@
               <h:panelGrid columns="2" cellpadding="0" cellspacing="4" styleClass="flowpanel">
                 <h:graphicImage library="ivy-webcontent" name="user/group.jsp" height="60" title="#{data.newTask.actor}"
                   styleClass="circularGroupImg" rendered="#{data.newTask.actor.indexOf(',') gt 0}" />
-                <pe:gravatar value="#{ivy.wf.getSecurityContext().findUser(data.newTask.actor).getEMailAddress()}"
+                <pe:gravatar value="#{ivy.security.users().find(data.newTask.actor).getEMailAddress()}"
                   size="60" notFound="mm" style="border-radius:30px"
                   rendered="#{data.newTask.actor.indexOf(',') le 0}" />
                 <h:panelGrid columns="1" cellpadding="0" cellspacing="0">
@@ -90,7 +90,7 @@
                       <p:ajax event="mousedown" process="@this" listener="#{logic.initUserList(defineTask)}"
                         oncomplete="PF('userList').show();" />
                     </h:graphicImage>
-                    <pe:gravatar value="#{ivy.wf.getSecurityContext().findUser(defineTask.actor).getEMailAddress()}"
+                    <pe:gravatar value="#{ivy.security.users().find(defineTask.actor).getEMailAddress()}"
                       size="60" notFound="mm" style="border-radius:30px"
                       rendered="#{defineTask.actor.indexOf(',') le 0}" />
                     <h:panelGrid columns="1" cellpadding="0" cellspacing="0">
@@ -142,7 +142,7 @@
                   <h:panelGrid columns="2" cellpadding="1" styleClass="flowpanel">
                     <h:graphicImage library="ivy-webcontent" name="user/SYSTEM.png" height="68" title="#{adTask.actor}"
                       styleClass="circularImg" rendered="#{adTask.actor eq 'SYSTEM'}" />
-                    <pe:gravatar value="#{ivy.wf.getSecurityContext().findUser(adTask.actor).getEMailAddress()}"
+                    <pe:gravatar value="#{ivy.security.users().find(adTask.actor).getEMailAddress()}"
                       size="60" notFound="mm" style="border-radius:30px" rendered="#{adTask.actor ne 'SYSTEM'}" />
 
                     <h:panelGrid columns="1">
