@@ -1,4 +1,7 @@
 {
+    "properties": {
+		"importTestProject": false
+	},
     "installers": [
         {
             "id": "maven-import",
