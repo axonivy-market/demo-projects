@@ -9,6 +9,7 @@
   <modules>
     <module>rule-engine-demos</module>
     <module>rule-engine-demos-test</module>
+    <module>rule-engine-demos-product</module>
   </modules>
 
   <build>

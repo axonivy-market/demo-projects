@@ -9,6 +9,7 @@
   <modules>
     <module>workflow-demos</module>
     <module>workflow-demos-test</module>
+    <module>workflow-demos-product</module>
   </modules>
 
   <build>
