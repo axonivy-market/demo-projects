@@ -8,5 +8,4 @@
 **/logs/*
 **/src_ws/*
 **/build/*
-.project
 .gitignore
