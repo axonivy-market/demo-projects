@@ -9,6 +9,7 @@
   <modules>
     <module>html-dialog-demos</module>
     <module>html-dialog-demos-test</module>
+    <module>html-dialog-demos-product</module>
   </modules>
 
   <build>

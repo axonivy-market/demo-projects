@@ -8,7 +8,7 @@
   <modules>
     <module>build.maven/test</module> <!-- parent pom for test projects -->
     <module>html-dialog</module>
-    <module>error-handling-demos</module>
+    <module>error-handling</module>
     <module>quick-start-tutorial</module>
     <module>rule-engine</module>
     <module>workflow</module>

@@ -1,0 +1,33 @@
+{
+    "installers": [
+        {
+            "id": "maven-import",
+            "data": {
+                "projects": [
+                    {
+                        "groupId": "ch.ivyteam.demo",
+                        "artifactId": "connectivity-demos",
+                        "version": "${version}",
+                        "type": "iar"
+                    },
+                    {
+                        "groupId": "ch.ivyteam.demo",
+                        "artifactId": "connectivity-demos-test",
+                        "version": "${version}",
+                        "type": "iar",
+                        "importInWorkspace": "@importTestProject@"
+                    }
+                ],
+                "repositories": [
+                    {
+                        "id": "axonivy.public",
+                        "url": "https://repo.axonivy.rocks",
+                        "snapshots": {
+                            "enabled": "true"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
