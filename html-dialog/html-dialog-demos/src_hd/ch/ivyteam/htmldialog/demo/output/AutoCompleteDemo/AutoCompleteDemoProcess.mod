@@ -68,9 +68,8 @@ As0 f11 actionTable 'out=in;
 As0 f11 actionCode 'import ch.ivyteam.ivy.security.IUser;
 
 List<IUser> result;
-List<IUser> allUsers = ivy.wf.getSecurityContext().getUsers();
         
-for(IUser user : allUsers) {
+for(IUser user : ivy.security.users().paged()) {
   if(user.getName().toUpperCase().contains(in.searchText.toUpperCase()))
   {
     result.add(user);
@@ -150,7 +149,7 @@ As0 f16 actionTable 'out=in;
 As0 f16 actionCode 'in.userViaAjax = null;
 if(in.searchText != 0)
 {
-	in.userViaAjax = ivy.wf.getSecurityContext().findUser(in.selectedUserId);
+	in.userViaAjax = ivy.security.users().find(in.selectedUserId);
 }' #txt
 As0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
