@@ -9,9 +9,9 @@
 
 	<modules>
 		<module>html-dialog</module>
-		<module>error-handling-demos</module>
+		<module>error-handling</module>
 		<module>quick-start-tutorial</module>
-		<module>rule-engine-demos</module>
+		<module>rule-engine</module>
 		<module>workflow</module>
 		<module>connectivity</module>
 		<module>demos-app</module>

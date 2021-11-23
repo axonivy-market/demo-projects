@@ -2,14 +2,13 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.ivyteam.demo</groupId>
-  <artifactId>workflow-modules</artifactId>
+  <artifactId>rule-engine-modules</artifactId>
   <version>8.0.5-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
-    <module>workflow-demos</module>
-    <module>workflow-demos-test</module>
-    <module>workflow-demos-product</module>
+    <module>rule-engine-demos</module>
+    <module>rule-engine-demos-product</module>
   </modules>
 
   <build>
