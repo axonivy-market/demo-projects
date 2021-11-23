@@ -15,7 +15,7 @@
     <maven.surefire.version>3.0.0-M3</maven.surefire.version>
     <test.application>Portal</test.application>
     <engine.directory>${java.io.tmpdir}/ivyEngine</engine.directory>
-    <project.build.plugin.version>9.3.0-SNAPSHOT</project.build.plugin.version>
+    <project.build.plugin.version>9.4.0-SNAPSHOT</project.build.plugin.version>
   </properties>
 
   <repositories>
