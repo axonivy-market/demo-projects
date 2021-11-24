@@ -38,7 +38,6 @@ dg0 @EndTask f23 '' #zField
 dg0 @PushWFArc f24 '' #zField
 dg0 @RestClientCall f25 '' #zField
 dg0 @PushWFArc f26 '' #zField
-dg0 @PushWFArc f27 '' #zField
 dg0 @StartRequest f28 '' #zField
 dg0 @RestClientCall f29 '' #zField
 dg0 @GridStep f30 '' #zField
@@ -69,6 +68,9 @@ dg0 @StartRequest f54 '' #zField
 dg0 @PushWFArc f55 '' #zField
 dg0 @EndTask f56 '' #zField
 dg0 @PushWFArc f57 '' #zField
+dg0 @RestClientCall f58 '' #zField
+dg0 @PushWFArc f59 '' #zField
+dg0 @PushWFArc f27 '' #zField
 >Proto dg0 dg0 dataMapping #zField
 dg0 f0 outLink rawJSON.ivp #txt
 dg0 f0 inParamDecl '<> param;' #txt
@@ -325,12 +327,12 @@ dg0 f21 statusErrorCode ivy:error:rest:client #txt
 dg0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Get Persons
+        <name>Get Person
 as JSON</name>
     </language>
 </elementInfo>
 ' #txt
-dg0 f21 168 866 112 44 -38 -15 #rect
+dg0 f21 168 866 112 44 -35 -15 #rect
 dg0 f22 outLink acceptType.ivp #txt
 dg0 f22 inParamDecl '<> param;' #txt
 dg0 f22 inParamTable 'out.userId=1;
@@ -361,7 +363,7 @@ dg0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 dg0 f22 @C|.responsibility Everybody #txt
 dg0 f22 80 873 30 30 -46 17 #rect
-dg0 f23 527 873 30 30 0 15 #rect
+dg0 f23 687 873 30 30 0 15 #rect
 dg0 f24 expr out #txt
 dg0 f24 110 888 168 888 #arcP
 dg0 f25 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
@@ -383,14 +385,13 @@ dg0 f25 statusErrorCode ivy:error:rest:client #txt
 dg0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Get Persons
-as XML</name>
+        <name>Get Person
+as raw XML</name>
     </language>
 </elementInfo>
 ' #txt
-dg0 f25 352 866 112 44 -38 -15 #rect
+dg0 f25 352 866 112 44 -35 -15 #rect
 dg0 f26 280 888 352 888 #arcP
-dg0 f27 464 888 527 888 #arcP
 dg0 f28 outLink formData.ivp #txt
 dg0 f28 inParamDecl '<> param;' #txt
 dg0 f28 requestEnabled true #txt
@@ -815,6 +816,27 @@ dg0 f55 expr out #txt
 dg0 f55 110 590 349 590 #arcP
 dg0 f56 527 575 30 30 0 15 #rect
 dg0 f57 477 590 527 590 #arcP
+dg0 f58 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
+dg0 f58 path 1 #txt
+dg0 f58 headers 'Accept=application/xml;
+' #txt
+dg0 f58 method GET #txt
+dg0 f58 bodyInputType RAW #txt
+dg0 f58 resultType com.axonivy.connectivity.Person #txt
+dg0 f58 responseCode 'ivy.log.info("person from XML:"+result);' #txt
+dg0 f58 clientErrorCode ivy:error:rest:client #txt
+dg0 f58 statusErrorCode ivy:error:rest:client #txt
+dg0 f58 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Get Person
+from XML</name>
+    </language>
+</elementInfo>
+' #txt
+dg0 f58 528 866 112 44 -35 -15 #rect
+dg0 f59 464 888 528 888 #arcP
+dg0 f27 640 888 687 888 #arcP
 >Proto dg0 .type com.axonivy.connectivity.rest.DataMappingData #txt
 >Proto dg0 .processKind NORMAL #txt
 >Proto dg0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -863,8 +885,6 @@ dg0 f22 mainOut f24 tail #connect
 dg0 f24 head f21 mainIn #connect
 dg0 f21 mainOut f26 tail #connect
 dg0 f26 head f25 mainIn #connect
-dg0 f25 mainOut f27 tail #connect
-dg0 f27 head f23 mainIn #connect
 dg0 f29 mainOut f34 tail #connect
 dg0 f34 head f31 mainIn #connect
 dg0 f28 mainOut f32 tail #connect
@@ -889,3 +909,7 @@ dg0 f54 mainOut f55 tail #connect
 dg0 f55 head f53 mainIn #connect
 dg0 f53 mainOut f57 tail #connect
 dg0 f57 head f56 mainIn #connect
+dg0 f25 mainOut f59 tail #connect
+dg0 f59 head f58 mainIn #connect
+dg0 f58 mainOut f27 tail #connect
+dg0 f27 head f23 mainIn #connect
