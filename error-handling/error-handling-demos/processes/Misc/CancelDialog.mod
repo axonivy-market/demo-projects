@@ -41,6 +41,7 @@ Ct0 f0 inParamDecl '<> param;' #txt
 Ct0 f0 requestEnabled true #txt
 Ct0 f0 triggerEnabled false #txt
 Ct0 f0 callSignature start() #txt
+Ct0 f0 startName 'Cancel a dialog using an error boundary event' #txt
 Ct0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
