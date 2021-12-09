@@ -30,7 +30,8 @@ Oe0 f0 callSignature ClientSideValidationDemo() #txt
 Oe0 f0 persist false #txt
 Oe0 f0 startName ClientSideValidationDemo #txt
 Oe0 f0 startCategory offline #txt
-Oe0 f0 startCustomFields 'cssIcon=fa fa-wifi' #txt
+Oe0 f0 startCustomFields 'cssIcon=fa fa-wifi
+embedInFrame=false' #txt
 Oe0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0

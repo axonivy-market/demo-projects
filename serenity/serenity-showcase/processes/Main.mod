@@ -17,6 +17,7 @@ Mn0 f0 inParamDecl '<> param;' #txt
 Mn0 f0 requestEnabled true #txt
 Mn0 f0 triggerEnabled false #txt
 Mn0 f0 callSignature showcase() #txt
+Mn0 f0 startCustomFields embedInFrame=false #txt
 Mn0 f0 caseData businessCase.attach=true #txt
 Mn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
