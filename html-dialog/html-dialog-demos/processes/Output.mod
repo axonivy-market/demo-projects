@@ -85,7 +85,8 @@ Ot0 f94 callSignature SelectManyCheckboxDemo() #txt
 Ot0 f94 persist false #txt
 Ot0 f94 startName 'Select Many Checkbox Demo' #txt
 Ot0 f94 startCategory output #txt
-Ot0 f94 startCustomFields 'cssIcon=fa fa-check-square-o' #txt
+Ot0 f94 startCustomFields 'cssIcon=fa fa-check-square-o
+embedInFrame=false' #txt
 Ot0 f94 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -113,7 +114,8 @@ Ot0 f87 callSignature SelectOneMenuDemo() #txt
 Ot0 f87 persist false #txt
 Ot0 f87 startName 'Select One Menu Demo' #txt
 Ot0 f87 startCategory output #txt
-Ot0 f87 startCustomFields 'cssIcon=fa fa-list-alt' #txt
+Ot0 f87 startCustomFields 'cssIcon=fa fa-list-alt
+embedInFrame=false' #txt
 Ot0 f87 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -152,7 +154,8 @@ Ot0 f25 callSignature PickListDemo() #txt
 Ot0 f25 persist false #txt
 Ot0 f25 startName 'PickList Demo' #txt
 Ot0 f25 startCategory output #txt
-Ot0 f25 startCustomFields 'cssIcon=fa fa-list-ul' #txt
+Ot0 f25 startCustomFields 'cssIcon=fa fa-list-ul
+embedInFrame=false' #txt
 Ot0 f25 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -215,7 +218,8 @@ Ot0 f5 callSignature OrderListDemo() #txt
 Ot0 f5 persist false #txt
 Ot0 f5 startName OrderListDemo #txt
 Ot0 f5 startCategory output #txt
-Ot0 f5 startCustomFields 'cssIcon=fa fa-list-ol' #txt
+Ot0 f5 startCustomFields 'cssIcon=fa fa-list-ol
+embedInFrame=false' #txt
 Ot0 f5 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -245,7 +249,8 @@ Ot0 f30 callSignature ResourceDemo() #txt
 Ot0 f30 persist false #txt
 Ot0 f30 startName 'Resource Demo' #txt
 Ot0 f30 startCategory output #txt
-Ot0 f30 startCustomFields 'cssIcon=fa fa-picture-o' #txt
+Ot0 f30 startCustomFields 'cssIcon=fa fa-picture-o
+embedInFrame=false' #txt
 Ot0 f30 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -289,7 +294,8 @@ Ot0 f10 callSignature EditableTableDemo() #txt
 Ot0 f10 persist false #txt
 Ot0 f10 startName 'Editable Table Demo' #txt
 Ot0 f10 startCategory output #txt
-Ot0 f10 startCustomFields 'cssIcon=fa fa-table' #txt
+Ot0 f10 startCustomFields 'cssIcon=fa fa-table
+embedInFrame=false' #txt
 Ot0 f10 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -354,7 +360,8 @@ Ot0 f0 callSignature ChartDemo() #txt
 Ot0 f0 persist false #txt
 Ot0 f0 startName 'Chart Demo' #txt
 Ot0 f0 startCategory output #txt
-Ot0 f0 startCustomFields 'cssIcon=fa fa-line-chart' #txt
+Ot0 f0 startCustomFields 'cssIcon=fa fa-line-chart
+embedInFrame=false' #txt
 Ot0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -384,7 +391,8 @@ Ot0 f20 callSignature AutoCompleteDemo() #txt
 Ot0 f20 persist false #txt
 Ot0 f20 startName 'Auto Complete Demo' #txt
 Ot0 f20 startCategory output #txt
-Ot0 f20 startCustomFields 'cssIcon=fa fa-bars' #txt
+Ot0 f20 startCustomFields 'cssIcon=fa fa-bars
+embedInFrame=false' #txt
 Ot0 f20 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -438,7 +446,8 @@ Ot0 f17 callSignature DataTableDemo() #txt
 Ot0 f17 persist false #txt
 Ot0 f17 startName 'DataTable Demo' #txt
 Ot0 f17 startCategory output #txt
-Ot0 f17 startCustomFields 'cssIcon=fa fa-table' #txt
+Ot0 f17 startCustomFields 'cssIcon=fa fa-table
+embedInFrame=false' #txt
 Ot0 f17 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -471,7 +480,8 @@ Ot0 f35 callSignature LazyLoadingDemo() #txt
 Ot0 f35 persist false #txt
 Ot0 f35 startName 'Lazy Table-Loading Demo' #txt
 Ot0 f35 startCategory output #txt
-Ot0 f35 startCustomFields 'cssIcon=fa fa-spinner' #txt
+Ot0 f35 startCustomFields 'cssIcon=fa fa-spinner
+embedInFrame=false' #txt
 Ot0 f35 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -512,7 +522,8 @@ Ot0 f40 callSignature ExportExcelDemo() #txt
 Ot0 f40 persist false #txt
 Ot0 f40 startName 'Export Excel Demo' #txt
 Ot0 f40 startCategory output #txt
-Ot0 f40 startCustomFields 'cssIcon=fa fa-file-excel-o' #txt
+Ot0 f40 startCustomFields 'cssIcon=fa fa-file-excel-o
+embedInFrame=false' #txt
 Ot0 f40 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -550,7 +561,8 @@ Ot0 f45 triggerEnabled false #txt
 Ot0 f45 callSignature PrettyTimeDemo() #txt
 Ot0 f45 startName 'Pretty Time Demo' #txt
 Ot0 f45 startCategory output #txt
-Ot0 f45 startCustomFields 'cssIcon=fa fa-clock-o' #txt
+Ot0 f45 startCustomFields 'cssIcon=fa fa-clock-o
+embedInFrame=false' #txt
 Ot0 f45 caseData businessCase.attach=true #txt
 Ot0 f45 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -588,7 +600,8 @@ Ot0 f52 triggerEnabled false #txt
 Ot0 f52 callSignature DocumentViewerDemo() #txt
 Ot0 f52 startName 'Document Viewer Demo' #txt
 Ot0 f52 startCategory output #txt
-Ot0 f52 startCustomFields 'cssIcon=fa fa-file-pdf-o' #txt
+Ot0 f52 startCustomFields 'cssIcon=fa fa-file-pdf-o
+embedInFrame=false' #txt
 Ot0 f52 caseData businessCase.attach=true #txt
 Ot0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

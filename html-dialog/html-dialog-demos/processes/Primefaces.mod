@@ -28,7 +28,8 @@ Ps0 f72 callSignature Primefaces() #txt
 Ps0 f72 persist false #txt
 Ps0 f72 startName Primefaces #txt
 Ps0 f72 startCategory primefaces #txt
-Ps0 f72 startCustomFields 'cssIcon=fa fa-code' #txt
+Ps0 f72 startCustomFields 'cssIcon=fa fa-code
+embedInFrame=false' #txt
 Ps0 f72 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -72,7 +73,8 @@ Ps0 f0 triggerEnabled false #txt
 Ps0 f0 callSignature IconsShowcase() #txt
 Ps0 f0 startName 'Icons Showcase' #txt
 Ps0 f0 startCategory primefaces #txt
-Ps0 f0 startCustomFields 'cssIcon=fa fa-font-awesome' #txt
+Ps0 f0 startCustomFields 'cssIcon=fa fa-font-awesome
+embedInFrame=false' #txt
 Ps0 f0 caseData businessCase.attach=true #txt
 Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
