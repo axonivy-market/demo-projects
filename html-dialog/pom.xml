@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.ivyteam.demo</groupId>
   <artifactId>html-dialog-modules</artifactId>
-  <version>9.3.0-SNAPSHOT</version>
+  <version>9.4.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
