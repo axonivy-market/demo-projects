@@ -1,3 +1,0 @@
-co: name={currencySymbol} description={} changed={2016-02-16 22:21:41 CET} changedby={xtrans} visualorder={0} guid={15254E5865262042} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={15254E5865994435} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-13 10:45:50 CET} validto={} changed={2016-02-01 12:20:41 CET} changedby={bhu} properties={} id={}
-val: guid={152EBF5D03972DD4} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:21:41 CET} validto={} changed={2016-02-16 22:21:41 CET} changedby={xtrans} properties={} id={}

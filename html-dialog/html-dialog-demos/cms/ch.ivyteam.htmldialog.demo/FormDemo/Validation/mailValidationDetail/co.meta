@@ -1,3 +1,0 @@
-co: name={mailValidationDetail} description={} changed={2015-08-05 07:04:52 GMT} changedby={rew} visualorder={0} guid={14EFCAAF41FD9378} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={14EFCAAF424E378C} datatype={} isdefault={true} langid={en} description={} validfrom={2015-08-05 07:02:18 GMT} validto={} changed={2015-08-05 07:02:18 GMT} changedby={rew} properties={} id={}
-val: guid={14EFCAD4C72ADEFB} datatype={} isdefault={false} langid={de} description={} validfrom={2015-08-05 07:04:47 GMT} validto={} changed={2015-08-05 07:04:52 GMT} changedby={rew} properties={} id={}

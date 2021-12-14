@@ -1,3 +1,0 @@
-co: name={reserveParkingLotFor} description={} changed={2016-02-17 14:53:59 CET} changedby={bhu} visualorder={0} guid={1525E0CFF246263E} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1525E0CFF2B139C5} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-20 09:00:56 CET} validto={} changed={2016-01-20 09:00:56 CET} changedby={bhu} properties={} id={}
-val: guid={152EC08CE1C97505} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:42:26 CET} validto={} changed={2016-02-17 14:53:58 CET} changedby={bhu} properties={} id={}

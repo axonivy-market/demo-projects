@@ -1,3 +1,0 @@
-co: name={welcomeHeader} description={} changed={2016-02-17 08:21:23 CET} changedby={bhu} visualorder={0} guid={1527DBE6150987B0} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={152EBFE6D7E233EC} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:31:05 CET} validto={} changed={2016-02-16 22:31:06 CET} changedby={xtrans} properties={} id={}
-val: guid={1527DBE6155C2B5F} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-26 12:42:54 CET} validto={} changed={2016-02-17 08:21:23 CET} changedby={bhu} properties={} id={}

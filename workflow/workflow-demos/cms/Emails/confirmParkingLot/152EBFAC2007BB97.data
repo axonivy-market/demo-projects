@@ -1,9 +1,0 @@
-<H1>
-Hallo <%=in.name%>
-</H1>
-<P>
-Der Parkplatz Nr. <%=in.selectedParkingLotNr%> wurde für Sie reserviert. 
-</P>
-<P>
-Wir wünschen Ihnen einen schönen Tag.
-</P>

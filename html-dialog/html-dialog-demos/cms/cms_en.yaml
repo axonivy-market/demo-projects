@@ -1,0 +1,57 @@
+Categories:
+  component:
+    cssIcon: si si-module-three-1
+    name: 6. Components
+    tooltip: |
+      Shows how to split your dialogs into components
+  demo:
+    cssIcon: si si-network-browser
+    name: 1. Demo
+    tooltip: All Demos in one HTML Dialog
+  input:
+    cssIcon: si si-graphic-tablet-drawing-pen
+    name: 2. Data Input
+    tooltip: How to input data in forms
+  offline:
+    cssIcon: si si-button-refresh-arrows
+    name: 5. Offline HTML Dialogs
+    tooltip: HTML Dialog that works even offline
+  other:
+    cssIcon: si si-add-small
+    name: 8. Others
+  output:
+    cssIcon: si si-pie-line-graph-desktop
+    name: 3. Data Output
+    tooltip: How to output data on HTML Dialogs
+  primefaces:
+    cssIcon: si si-image-file-landscape
+    name: 7. Primefaces
+    tooltip: Primefaces specific Demos
+  static:
+    cssIcon: si si-folder-empty
+    name: 4. Static HTML Dialogs
+    tooltip: HTML Dialogs that run without processes
+ch.ivyteam.htmldialog.demo:
+  BeanValidationDemo:
+    between3And10Characters: 'Value must have at least 3 and at most 10 characters '
+    greaterOrEqualThan1900: Value must be greator or equal than 1900
+    licensePlate: Value must be a vehicle license from Zug (e.g. ZG 123 456)
+    notnull: Field must be filled in
+    smallerOrEqualThan2100: Value must be smaller or equal than 2100
+    socialSecurityNumber: Value must have format of a swiss social security number (e.g 742.72.242.144)
+  FormDemo:
+    Labels:
+      Address: Address
+      Birthday: Birthday
+      City: City
+      Country: Country
+      EMail: E-Mail
+      FirstName: First Name
+      Name: Name
+      PhoneNumber: Phone Number
+      ZipCode: Zip Code
+    Validation:
+      mailValidationDetail: Invalid E-mail format
+      mailValidationSummary: 'E-mail validation failed: invalid mail address'
+  Static:
+    Welcome: Welcome

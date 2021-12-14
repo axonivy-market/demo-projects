@@ -1,3 +1,0 @@
-co: name={deliverKeyCardFor} description={} changed={2016-02-17 14:54:23 CET} changedby={bhu} visualorder={0} guid={1525E1090B2E5137} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1525E1090B986587} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-20 09:04:49 CET} validto={} changed={2016-01-20 09:04:49 CET} changedby={bhu} properties={} id={}
-val: guid={152EC0874C33698F} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:42:03 CET} validto={} changed={2016-02-17 14:54:23 CET} changedby={bhu} properties={} id={}
