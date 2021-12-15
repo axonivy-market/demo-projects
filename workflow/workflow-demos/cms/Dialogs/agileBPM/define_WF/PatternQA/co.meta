@@ -1,3 +1,0 @@
-co: name={PatternQA} description={} changed={2016-02-16 22:12:32 CET} changedby={xtrans} visualorder={0} guid={1525A57F307E700E} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1525A57F30E67CA0} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-19 15:44:19 CET} validto={} changed={2016-01-19 15:44:19 CET} changedby={bhu} properties={} id={}
-val: guid={152EBED6E215D5A6} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:12:32 CET} validto={} changed={2016-02-16 22:12:32 CET} changedby={xtrans} properties={} id={}

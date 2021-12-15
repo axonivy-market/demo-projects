@@ -1,3 +1,0 @@
-co: name={isNotAValidEmailAddress} description={} changed={2016-02-16 22:26:15 CET} changedby={xtrans} visualorder={0} guid={1527DF24FE94A959} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={152EBF9CFA664E28} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:26:03 CET} validto={} changed={2016-02-16 22:26:15 CET} changedby={xtrans} properties={} id={}
-val: guid={1527DF24FEFD794B} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-26 13:39:38 CET} validto={} changed={2016-01-26 13:41:17 CET} changedby={bhu} properties={} id={}

@@ -1,5 +1,5 @@
 [Ivy]
-16D29AE50A7A6E34 9.3.0 #module
+16D29AE50A7A6E34 9.3.1 #module
 >Proto >Proto Collection #zClass
 sn0 serviceWithException Big #zClass
 sn0 WS #cInfo
@@ -50,7 +50,7 @@ sn0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 sn0 f5 80 116 832 88 -408 -30 #rect
 >Proto sn0 .webServiceName com.axonivy.connectivity.soap.interceptor.serviceWithException #txt
->Proto sn0 .authenticationType 'None or Container' #txt
+>Proto sn0 .authenticationType NONE #txt
 >Proto sn0 .type com.axonivy.connectivity.soap.service.ExceptionData #txt
 >Proto sn0 .processKind WEB_SERVICE #txt
 >Proto sn0 -8 -8 16 16 16 26 #rect

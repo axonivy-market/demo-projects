@@ -1,0 +1,202 @@
+Categories:
+  agile:
+    cssIcon: si si-single-neutral-actions-process
+    name: 1. Agile BPM
+    tooltip: Agile Business Process Management
+  business:
+    data:
+      case:
+        cssIcon: si si-monitor-heart-beat-search
+        name: 6 Business Case Data
+        tooltip: Stores business data associated with case
+      cssIcon: si si-monitor-heart-beat-search
+      name: 5. Business Data
+      tooltip: Store business data and query them
+  expiry:
+    cssIcon: si si-alarm-bell-timer
+    name: 7. Expiry
+    tooltip: How to handle deadllines
+  human:
+    cssIcon: si si-multiple-neutral-1
+    name: 2. Human Tasks
+    tooltip: How to integrate humans into workflows
+  signal:
+    cssIcon: si si-network-signal
+    name: 3. Signals
+    tooltip: Sends and receives signals to control the process
+  trigger:
+    cssIcon: si si-controls-play
+    name: 4. Triggers
+    tooltip: |
+      Trigger other processes
+Dialogs:
+  agileBPM:
+    define_WF:
+      AddTask: Add a task to the sequence
+      AdhocWorkflowTasks: Workflow Tasks
+      Case: Case
+      CommaSeparatedListOfUsers: 'Comma separated list of users:'
+      Creator: CREATOR
+      DeleteStep: Delete this Step
+      Details: Details
+      ForwardTo: 'Forward to: '
+      Ok: OK
+      PatternAdHoc: Ad-hoc
+      PatternApproval: Approval
+      PatternQA: Question-Answer
+      PatternTodo: ToDo
+      ResponsableUsers: Responsable Users
+      SequenceOfTasks: Following Tasks
+      ShowDetails: Show details to the patterns
+      StartWF: Start Workflow
+      TaskActor: TaskActor
+      TaskDescription: Task Description
+      TaskSubject: Task Name
+      WFAttachment: Attachment
+      WFCategory: Category
+      WFDescription: Description
+      WFPattern: Pattern
+      WFSubject: Subject
+      WFUser: WF User
+      Workflow: Workflow
+      YourComment: Your comment
+    task_Form:
+      AddAdHocTask: Add ad-hoc task
+      Append: Append
+      AppendATaskAfter: Add a task into the sequence following my task.
+      AssignTo: Assign to
+      Attachment: Attachment
+      Case: Case
+      ConfirmTodo: Confirm the Todo
+      Deadline: Deadline
+      Decision: Decision
+      Decline: Decline
+      DeclineTodo: Decline the task
+      Description: Description
+      Done: Done
+      Finish: Finish
+      FollowUpQuestion: Follow-up question
+      InsertATaskBefore: Insert a task before my task.  My task will be postboned.
+      MyAnswer: My answer
+      MyTaskIsDoneAnd: My task is done and the new task is appended
+      NoNOK: No, not ok
+      Remarks: Remarks
+      Send: Send
+      Task: Task
+      Workflow: Workflow
+      YesOK: Yes, its ok
+      YourComment: Your comment
+      YourDecision: Your decision
+  general:
+    locale: de_CH
+    name: Name
+    proceed: Proceed
+  procurementRequest:
+    AcceptTitle: Accept Procurement Request
+    accept: Accept
+    acceptDescription: 'The following procurement request needs to be answered:'
+    acceptedBy: Accepted by
+    amount: Amount
+    currencySymbol: $
+    decline: Decline
+    declinedBy: Declined by
+    description: Description
+    enterDescription: Please enter your request data.
+    enterTitle: Enter Procurement Request
+    forTotal: for a total of
+    notes: Notes
+    piecesOf: pieces of
+    pricePerUnit: Price per Unit
+    requestedBy: Requested by
+    totalPrice: Total
+    verified: Verify
+    verifiedBy: Verified by
+    verify: Verify
+    verifyDescription: 'The following procurement request needs to be verified:'
+    verifyTitle: Verify Procurement Request
+  signal:
+    CreateUserDescription: Please insert the new employees data
+    CreateUserTitle: New Employee
+    Finish: Finish
+    QuitSignalSent: Employee successfully quit.
+    QuitUserDescription: Please insert the User Key of the leaving employee.
+    QuitUserTitle: Quit Employee
+    city: City
+    createProcesses: Create Processes
+    name: Name
+    reason: Reason
+    street: Street
+    userKey: User Key
+  trigger:
+    dateOfBirth: Date Of Birth
+    email: E-Mail
+    employee: Employee
+    isNotAValidEmailAddress: 'E-mail: Not valid.'
+    newEmployeeTitle: New Employee
+    parkingLotNeeded: Parking Lot needed
+    parkingLotNr: Parking Lot Nr.
+    selectParkingLot: Select parking lot
+Emails:
+  accepted: accepted
+  confirmParkingLot: "<H1>\r\nHello <%=in.name%>\r\n</H1>\r\n<P>\r\nWe reserved the parking lot nr. <%=in.selectedParkingLotNr%> for you.\r\n</P>\r\n<P>\r\nHave a nice day.\r\n</P>\r\n"
+  declined: declined
+  parkingLotReservationHeader: Your parking lot has been reserved
+  procurementRequestNotification: "<H1>\r\nHello <%=in.requester.fullName%>\r\n</H1>\r\n<P>\r\nYour request has been <%=(in.accepted ? \"accepted\" : \"declined\")%>:\r\n</P>\r\n<P>\r\n<%=in.amount%> pieces of '<%=in.description%>' for a total of <%=in.totalPrice%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/currencySymbol\"\
+    )%>\r\n</P>\r\n<P>\r\nKind regards\r\n</P>\r\n"
+  senderMail: noreply@axonivy.com
+  welcomeHeader: Welcome
+  welcomeMail: "<H1>\r\nHello <%=in.name%>\r\n</H1>\r\n<P>\r\nWelcome at our company. It is a great pleasure to have you here!\r\n</P>\r\n<P>\r\nIf you have any question, please don't hesitate to contact your teamleader or your HR Manager.\r\n</P>\r\n<P>\r\nHave a nice day!\r\n</P>\r\n"
+  yourRequestHasBeen: Your request has been
+Labels:
+  AdhocWorkflow: Describe your Workflow
+  AppendTask-Explain: The task is added to the sequence after my task.
+  AppendTheTask: Append the task
+  InsertTask-Explain: Insert the task.  My task will be postboned.
+  InsertTheTask: Insert the task
+  TaskUser-Explain: Comma separated list of users
+  title: Self Service Ad-hoc Workflow
+ProcessDescriptions:
+  AdHocDescription: 'Self Service Process: Launch an ad-hoc Workflow based on a predefined flow pattern.'
+  AdHocName: Ad-hoc Process
+  SelfServiceBPM: Self Service BPM
+  SignalQuitUserDescription: This process is part of the signal demo process. It sends a quit signal for a particular user.
+  createUserProcess: Create User Process
+  newEmployee: New Employee
+  parallelTaskExample: Parallel Tasks
+  procurementRequest: Procurement Request
+  procurementRequestParallelDescription: This example shows the usage of a parallel task switch gateway.
+  procurementRequestUserTaskDescription: This example shows the usage of a User Task Activity.
+  quitUserProcess: Employee Quit
+  sequenceTaskExample: Sequence Task example
+  signalCreateUserDescription: This examples illustrates use cases for Signals.
+  signalExample: Signal
+  triggerDescription: This example shows the usage of a trigger step.
+  triggerExample: Trigger
+  userTaskExample: Sequential Tasks
+Stages:
+  approval:
+    name: Approval
+  credit_rating:
+    name: Credit rating
+  identification:
+    name: Identification
+  request_postponed:
+    name: Request postponend
+TaskDescriptions:
+  DeliverKeyCardDesc: 'Please deliver key card for '
+  acceptRequest: Accept Request
+  currencySymbol: $
+  deliverKeyCardFor: Deliver keycard for
+  prepareOfficeKeyDesc: 'Please prepare the office key for '
+  prepareOfficeKeyFor: Prepare Office Key for
+  reserveParkingLotFor: Reserve parking lot for
+  setupWorkstation: Setup Workstation for
+  setupWorkstationDesc: 'Please set up the workstation for '
+  verifyRequest: Verify Request
+Texts:
+  Adhoc-Explain: "<P>\r\n<B>Enter your comment </B>and press <B>Send</B> to proceed the workflow.\r\n</P>\r\n"
+  AdhocWF-Explain: "<P>\r\nDefine and launch a Workflow at your fingertip: Select a flow pattern, add some tasks and start the Workflow. \r\n</P>\r\n<P>\r\n\r\n</P>\r\n"
+  Approval-Explain: "<P>\r\n<B>Enter your decision</B> and press <B>Send </B>to proceed the workflow.\r\n</P>\r\n"
+  QA-Explain: "<P>\r\nAnswer the question and <B>Send </B>your answer back to the caller. \r\n</P>\r\n"
+  QAresponse-Explain: "<P>\r\nYou can <B>Send</B> back a follow-up question or <B>Finish</B> the Workflow.\r\n</P>\r\n"
+  ToDo-Explain: "<P>\r\nConfirm that the<B> TODO </B>is <B>Done</B> or decline it.\r\n</P>\r\n"

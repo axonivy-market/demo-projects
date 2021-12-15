@@ -1,0 +1,22 @@
+ch.ivyteam.htmldialog.demo:
+  BeanValidationDemo:
+    between3And10Characters: Wert muss im Minimum 3 und im Maximum 10 Zeichen lang sein
+    greaterOrEqualThan1900: Wert muss grösser oder gleich 1900 sein
+    licensePlate: Wert muss eine Zuger Autonummer sein (z.B. ZG 123 456)
+    notnull: Feld muss ausgefüllt werden
+    smallerOrEqualThan2100: Wert muss kleiner oder gleich 2100 sein
+    socialSecurityNumber: Wert muss eine AHV Nummer sein (z.B. 742.72.242.144)
+  FormDemo:
+    Labels:
+      Address: Adresse
+      Birthday: Geburtstag
+      City: Stadt
+      Country: Land
+      FirstName: Vorname
+      PhoneNumber: Telefon Nr.
+      ZipCode: PLZ
+    Validation:
+      mailValidationDetail: Ungültiges E-Mail format
+      mailValidationSummary: 'E-mail Validierungsfehler: ungültige Mail Adresse'
+  Static:
+    Welcome: Willkommen

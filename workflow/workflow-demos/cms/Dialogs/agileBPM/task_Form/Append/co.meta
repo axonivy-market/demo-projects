@@ -1,3 +1,0 @@
-co: name={Append} description={} changed={2016-02-16 22:15:52 CET} changedby={xtrans} visualorder={0} guid={1525A7714BF81856} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1525A7714C8BD10F} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-19 16:18:19 CET} validto={} changed={2016-01-19 16:18:19 CET} changedby={bhu} properties={} id={}
-val: guid={152EBF07B13836FC} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:15:51 CET} validto={} changed={2016-02-16 22:15:52 CET} changedby={xtrans} properties={} id={}

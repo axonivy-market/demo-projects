@@ -1,3 +1,0 @@
-co: name={PhoneNumber} description={} changed={2012-09-20 13:03:34 GMT} changedby={rwei} visualorder={0} guid={139E3C65A4249921} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={139E3C69A9A7E689} datatype={} isdefault={false} langid={de} description={} validfrom={2012-09-20 13:03:27 GMT} validto={} changed={2012-09-20 13:03:34 GMT} changedby={rwei} properties={} id={}
-val: guid={139E3C65A48355EA} datatype={} isdefault={true} langid={en} description={} validfrom={2012-09-20 13:03:10 GMT} validto={} changed={2012-09-20 13:03:34 GMT} changedby={rwei} properties={} id={}

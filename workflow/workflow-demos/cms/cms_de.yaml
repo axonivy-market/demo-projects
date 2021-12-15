@@ -1,0 +1,145 @@
+Dialogs:
+  agileBPM:
+    define_WF:
+      AddTask: Aufgabe zum Ablauf hinzufügen
+      AdhocWorkflowTasks: Workflow Aufgaben
+      Case: Fall
+      CommaSeparatedListOfUsers: 'Komma getrennte Liste von Benutzern:'
+      Creator: ERSTELLER
+      DeleteStep: Diesen Schritt löschen
+      Details: Details
+      ForwardTo: 'Weiterleiten an:'
+      Ok: OK
+      PatternAdHoc: Ad-Hoc
+      PatternApproval: Freigabe
+      PatternQA: Frage-Antwort
+      PatternTodo: ToDo
+      ResponsableUsers: Verantwortlicher Benutzer
+      SequenceOfTasks: Nachfolgende Aufgaben
+      ShowDetails: Zeige Details zu den Vorlagen
+      StartWF: Workflow starten
+      TaskActor: Ausführender Benutzer
+      TaskDescription: Beschreibung der Aufgabe
+      TaskSubject: Name der Aufgabe
+      WFAttachment: Anhang
+      WFCategory: Kategorie
+      WFDescription: Beschreibung
+      WFPattern: Vorlage
+      WFSubject: Betreff
+      WFUser: WF Benutzer
+      Workflow: Workflow
+      YourComment: Ihr Kommentar
+    task_Form:
+      AddAdHocTask: Ad-Hoc Aufgabe hinzufügen
+      Append: Anfügen
+      AppendATaskAfter: Eine Aufgabe im Ablauf nach meiner Aufgabe einfügen.
+      AssignTo: Zuweisen an
+      Attachment: Anhang
+      Case: Fall
+      ConfirmTodo: Todo erledigt
+      Deadline: Frist
+      Decision: Entscheidung
+      Decline: Ablehnen
+      DeclineTodo: Aufgabe ablehnen
+      DeleteTask: Aufgabe löschen
+      Description: Beschreibung
+      Done: Erledigt
+      Finish: Beenden
+      FollowUpQuestion: Anschlussfrage
+      InsertATaskBefore: Aufgabe vor meiner Aufgabe einfügen. Meine Aufgabe wird zurückgestellt.
+      MyAnswer: Meine Antwort
+      MyTaskIsDoneAnd: Meine Aufgabe ist erledigt und eine neue Aufgabe wurde angefügt
+      NoNOK: Nein, nicht ok
+      Remarks: Anmerkungen
+      Send: Senden
+      Task: Aufgabe
+      Workflow: Workflow
+      YesOK: Ja, ok
+      YourComment: Ihr Kommentar
+      YourDecision: Ihre Entscheidung
+  general:
+    name: Name
+    proceed: Durchführen
+  procurementRequest:
+    AcceptTitle: Beschaffungstrag annehmen
+    accept: Akzeptieren
+    acceptDescription: 'Der nachfolgende Beschaffungsantrag muss beantwortet werden:'
+    acceptedBy: Angenommen von
+    amount: Menge
+    currencySymbol: $
+    decline: Ablehnen
+    declinedBy: Abgelehnt von
+    description: Beschreibung
+    enterDescription: Bitte geben Sie die Antragsdaten ein.
+    enterTitle: Beschaffungsantrag erfassen
+    forTotal: zum Gesamtpreis von
+    notes: Notizen
+    piecesOf: Stück
+    pricePerUnit: Stückpreis
+    requestedBy: Beantragt von
+    totalPrice: Total
+    verified: Prüfen
+    verifiedBy: Geprüft von
+    verify: Prüfen
+    verifyDescription: 'Der nachfolgende Beschaffungsantrag muss geprüft werden:'
+    verifyTitle: Beschaffungsantrag prüfen
+  signal:
+    CreateUserDescription: Bitte geben Sie die Daten des neuen Mitarbeiters ein.
+    CreateUserTitle: Neuer Mitarbeiter
+    Finish: Beenden
+    QuitSignalSent: Mitarbeiter erfolgreich ausgetreten.
+    QuitUserDescription: Bitte geben Sie die Benutzerkennung des austretenden Mitarbeiters an.
+    QuitUserTitle: Mitarbeiteraustritt
+    city: Stadt
+    createProcesses: Prozesse erstellen
+    name: Name
+    reason: Begründung
+    street: Strasse
+    userKey: Benutzerkennung
+  trigger:
+    dateOfBirth: Geburtsdatum
+    email: E-Mail
+    employee: Mitarbeiter
+    isNotAValidEmailAddress: E-Mail-Adresse ungültig
+    newEmployeeTitle: Neuer Mitarbeiter
+    parkingLotNeeded: Parkplatz benötigt
+    parkingLotNr: Parkplatznr.
+    selectParkingLot: Parkplatz auswählen
+Emails:
+  accepted: akzeptiert
+  confirmParkingLot: "<H1>\r\nHallo <%=in.name%>\r\n</H1>\r\n<P>\r\nDer Parkplatz Nr. <%=in.selectedParkingLotNr%> wurde für Sie reserviert. \r\n</P>\r\n<P>\r\nWir wünschen Ihnen einen schönen Tag.\r\n</P>\r\n"
+  declined: abgelehnt
+  parkingLotReservationHeader: Ihr Parkplatz wurde reserviert
+  procurementRequestNotification: "<H1>\r\nHallo <%=in.requester.fullName%> \r\n</H1>\r\n<P>\r\nIhr Antrag wurde <%=(in.accepted ? \"angenommen\" : \"abgelehnt\")%>: \r\n</P>\r\n<P>\r\n<%=in.amount%> Stück '<%=in.description%>' zum Gesamtpreis von <%=in.totalPrice%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/currencySymbol\"\
+    )%> \r\n</P>\r\n<P>\r\nFreundliche Grüsse \r\n</P>\r\n"
+  senderMail: noreply@axonivy.com
+  welcomeHeader: Willkommen
+  welcomeMail: "<H1>\r\nHallo <%=in.name%> \r\n</H1>\r\n<P>\r\nWillkommen in unserem Unternehmen. Wir freuen uns, Sie bei uns begrüssen zu dürfen! \r\n</P>\r\n<P>\r\nWenn Sie Fragen haben, wenden Sie sich bitte an Ihren Teamleiter oder an Ihren HR Manager. \r\n</P>\r\n<P>\r\nWir wünschen Ihnen einen schö\
+    nen Tag! \r\n</P>\r\n"
+  yourRequestHasBeen: 'Ihre Anfrage wurde '
+Labels:
+  AdhocWorkflow: Beschreiben Sie Ihren Workflow
+  AppendTask-Explain: Die Aufgabe wird im Ablauf nach meiner Aufgabe hinzugefügt.
+  AppendTheTask: Aufgabe anfügen
+  InsertTask-Explain: Aufgabe einfügen. Meine Aufgabe wird zurückgestellt.
+  InsertTheTask: Aufgabe einfügen
+  TaskUser-Explain: Komma getrennte Liste von Benutzern
+  title: Self Service Ad-Hoc Workflow
+TaskDescriptions:
+  DeliverKeyCardDesc: Bitte liefern Sie die Schlüsselkarte aus für
+  acceptRequest: Antrag annehmen
+  currencySymbol: $
+  deliverKeyCardFor: Schlüsselkarte ausliefern für
+  prepareOfficeKeyDesc: Bitte bereiten Sie den Büroschlüssel vor für
+  prepareOfficeKeyFor: Bereite Büroschlüssel vor für
+  reserveParkingLotFor: Parkplatz reservieren für
+  setupWorkstation: Arbeitsplatz einrichten für
+  setupWorkstationDesc: Bitte richten Sie den Arbeitsplatz ein für
+  verifyRequest: Prüfe Antrag
+Texts:
+  Adhoc-Explain: '<P>  <B>Geben Sie Ihren Kommentar ein </B>und drücken Sie <B>Senden</B> um weiterzufahren.  </P>  '
+  AdhocWF-Explain: "<P>\r\nDefinieren und starten Sie einen Workflow auf Knopfdruck. \r\n</P>\r\n"
+  Approval-Explain: "<P>\r\n<B>Treffen Sie Ihre Entscheidung</B> und klicken Sie auf <B>Senden </B>um weiterzufahren. \r\n</P>\r\n"
+  QA-Explain: "<P>\r\nBeantworten Sie die Frage und <B>Senden </B>Sie Ihre Antwort an den Fragesteller zurück.\r\n</P>\r\n"
+  QAresponse-Explain: '<P>  Sie können eine Anschlussfrage <B>Zurücksenden</B> oder den Workflow <B>Beenden</B>.</P>  '
+  ToDo-Explain: '<P>  Bestätigen Sie, dass das <B> TODO Erledigt</B> wurde oder lehnen Sie es ab.</P>  '

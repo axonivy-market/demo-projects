@@ -1,3 +1,0 @@
-co: name={smallerOrEqualThan2100} description={} changed={2013-01-15 11:39:55 GMT} changedby={rwei} visualorder={0} guid={13C3DC7C8ACA613A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={13C3DC845E57B34D} datatype={} isdefault={false} langid={de} description={} validfrom={2013-01-15 10:36:40 GMT} validto={} changed={2013-01-15 11:39:55 GMT} changedby={rwei} properties={} id={}
-val: guid={13C3DC7C8AC4F3F4} datatype={} isdefault={true} langid={en} description={} validfrom={2013-01-15 10:36:08 GMT} validto={} changed={2013-01-15 10:36:40 GMT} changedby={rwei} properties={} id={}

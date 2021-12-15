@@ -1,3 +1,0 @@
-co: name={senderMail} description={} changed={2016-02-16 22:31:01 CET} changedby={xtrans} visualorder={0} guid={1525FB87B80D0A8A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1525FB87B8B527E9} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-20 16:47:51 CET} validto={} changed={2016-01-20 16:47:51 CET} changedby={bhu} properties={} id={}
-val: guid={152EBFE5A8561DB4} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:31:01 CET} validto={} changed={2016-02-16 22:31:01 CET} changedby={xtrans} properties={} id={}
