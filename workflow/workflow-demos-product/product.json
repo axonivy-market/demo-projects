@@ -1,7 +1,4 @@
 {
-    "properties": {
-		"importTestProject": false
-	},
     "installers": [
         {
             "id": "maven-import",
@@ -18,7 +15,7 @@
                         "artifactId": "workflow-demos-test",
                         "version": "${version}",
                         "type": "iar",
-                        "importInWorkspace": "@importTestProject@"
+                        "importInWorkspace": "false"
                     }
                 ],
                 "repositories": [
