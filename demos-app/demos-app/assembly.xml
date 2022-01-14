@@ -22,4 +22,10 @@
 			<source>deploy.options.yaml</source>
 		</file>
 	</files>
+
+	<fileSets>
+		<fileSet>
+			<directory>branding</directory>
+		</fileSet>
+	</fileSets>
 </assembly>
