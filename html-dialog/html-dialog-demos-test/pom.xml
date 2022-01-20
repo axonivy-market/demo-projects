@@ -59,6 +59,7 @@
         <version>${project.build.plugin.version}</version>
         <extensions>true</extensions>
         <configuration>
+          <deployTargetFileFormat>EXPANDED</deployTargetFileFormat> <!-- need for input/download test -->
           <additionalVmOptions>-Divy.Errors.ShowDetailsToEndUser=true</additionalVmOptions>
         </configuration>
       </plugin>
