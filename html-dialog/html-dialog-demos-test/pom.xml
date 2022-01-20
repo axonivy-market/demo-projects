@@ -7,8 +7,6 @@
   <packaging>iar-integration-test</packaging>
 
   <properties>
-    <test.application>Portal</test.application>
-    <engine.directory>${java.io.tmpdir}/ivyEngine</engine.directory>
     <project.build.plugin.version>9.4.0-SNAPSHOT</project.build.plugin.version>
   </properties>
 
@@ -39,12 +37,6 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.browserup</groupId>
-      <artifactId>browserup-proxy-core</artifactId>
-      <version>2.0.1</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.awaitility</groupId>
       <artifactId>awaitility</artifactId>
       <version>4.0.2</version>
@@ -53,9 +45,7 @@
   </dependencies>
   
   <build>
-    <sourceDirectory>src</sourceDirectory>
     <testSourceDirectory>src_test</testSourceDirectory>
-    <testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
     <plugins>   
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
@@ -64,24 +54,9 @@
         <extensions>true</extensions>
         <configuration>
           <deployTargetFileFormat>EXPANDED</deployTargetFileFormat>
-          <deployToEngineApplication>${test.application}</deployToEngineApplication>
           <additionalVmOptions>-Divy.Errors.ShowDetailsToEndUser=true</additionalVmOptions>
         </configuration>
       </plugin>
     </plugins>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-failsafe-plugin</artifactId>
-          <version>3.0.0-M5</version>
-          <configuration>
-            <includes>
-              <include>**/WebTest*</include>
-            </includes>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
 </project>
