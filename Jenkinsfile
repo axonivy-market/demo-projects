@@ -2,7 +2,6 @@ pipeline {
   agent any
 
   triggers {
-    pollSCM '@hourly'
     cron '@midnight'
   }
 
