@@ -1,17 +1,29 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>ch.ivyteam.demo</groupId>
-    <artifactId>build-maven-test</artifactId>
-    <version>9.4.0-SNAPSHOT</version>
-    <relativePath>../../build.maven/test</relativePath>
-  </parent>
 
   <groupId>ch.ivyteam.demo</groupId>
   <artifactId>workflow-demos-test</artifactId>
   <version>9.4.0-SNAPSHOT</version>
   <packaging>iar-integration-test</packaging>
+
+  <properties>
+    <test.application>Portal</test.application>
+    <engine.directory>${java.io.tmpdir}/ivyEngine</engine.directory>
+    <project.build.plugin.version>9.4.0-SNAPSHOT</project.build.plugin.version>
+  </properties>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>central.snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>  
 
   <dependencies>
     <dependency>
@@ -20,16 +32,40 @@
       <version>${project.version}</version>
       <type>iar</type>
     </dependency>
+    <dependency>
+      <groupId>com.axonivy.ivy.webtest</groupId>
+      <artifactId>web-tester</artifactId>
+      <version>9.2.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.browserup</groupId>
+      <artifactId>browserup-proxy-core</artifactId>
+      <version>2.0.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.awaitility</groupId>
+      <artifactId>awaitility</artifactId>
+      <version>4.0.2</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
     <outputDirectory>classes</outputDirectory>
-
+    <testSourceDirectory>src_test</testSourceDirectory>
+    <testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
     <plugins>
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
+        <version>${project.build.plugin.version}</version>
         <extensions>true</extensions>
+        <configuration>
+          <deployToEngineApplication>${test.application}</deployToEngineApplication>
+          <additionalVmOptions>-Divy.Errors.ShowDetailsToEndUser=true</additionalVmOptions>
+        </configuration>
       </plugin>
     </plugins>
   </build>
