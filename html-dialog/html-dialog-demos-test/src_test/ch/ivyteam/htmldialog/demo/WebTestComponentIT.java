@@ -13,7 +13,7 @@ import org.openqa.selenium.Keys;
 import com.axonivy.ivy.webtest.IvyWebTest;
 
 @IvyWebTest
-public class WebTestComponent
+public class WebTestComponentIT
 {
   @Test
   public void testComponentDemo()

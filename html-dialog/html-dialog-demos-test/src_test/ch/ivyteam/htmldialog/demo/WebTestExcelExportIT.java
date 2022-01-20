@@ -23,7 +23,7 @@ import com.codeborne.selenide.FileDownloadMode;
 import com.codeborne.selenide.Selenide;
 
 @IvyWebTest
-public class WebTestExcelExport
+public class WebTestExcelExportIT
 {
 
   @BeforeAll

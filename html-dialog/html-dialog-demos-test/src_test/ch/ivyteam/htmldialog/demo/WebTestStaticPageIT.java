@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import com.axonivy.ivy.webtest.IvyWebTest;
 
 @IvyWebTest
-public class WebTestStaticPage {
+public class WebTestStaticPageIT {
 
   @Test
   void testStaticPage()

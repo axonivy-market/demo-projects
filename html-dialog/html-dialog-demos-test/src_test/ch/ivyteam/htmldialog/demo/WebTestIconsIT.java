@@ -13,7 +13,7 @@ import org.openqa.selenium.Keys;
 import com.axonivy.ivy.webtest.IvyWebTest;
 
 @IvyWebTest
-public class WebTestIcons
+public class WebTestIconsIT
 {
   @Test
   void testIcons()

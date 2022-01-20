@@ -17,7 +17,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 
 @IvyWebTest
-public class WebTestOther
+public class WebTestOtherIT
 {
   @Test
   public void testHtmlJsfDemo()

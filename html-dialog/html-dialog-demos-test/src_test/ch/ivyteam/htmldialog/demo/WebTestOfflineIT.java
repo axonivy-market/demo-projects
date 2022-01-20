@@ -13,7 +13,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 
 @IvyWebTest
-public class WebTestOffline
+public class WebTestOfflineIT
 {
   @Test
   public void testClientSideValidationExists()
