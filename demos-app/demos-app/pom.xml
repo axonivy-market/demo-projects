@@ -45,22 +45,12 @@
     </dependency>
   </dependencies>
 
-  <repositories>
-    <repository>
-      <id>repo.axonivy.com</id>
-      <url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-
   <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
-        <version>3.0.0-M1</version>
+        <version>3.0.0-M2</version>
         <configuration>
           <skip>false</skip>
         </configuration>
@@ -68,12 +58,13 @@
 
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>3.3.0</version>
         <configuration>
           <descriptors>
             <descriptor>assembly.xml</descriptor>
           </descriptors>
           <appendAssemblyId>false</appendAssemblyId>
+          <ignoreMissingDescriptor>true</ignoreMissingDescriptor>
         </configuration>
         <executions>
           <execution>

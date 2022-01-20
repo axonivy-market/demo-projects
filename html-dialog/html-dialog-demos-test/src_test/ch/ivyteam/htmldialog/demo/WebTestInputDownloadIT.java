@@ -25,7 +25,7 @@ import com.codeborne.selenide.FileDownloadMode;
 import com.codeborne.selenide.Selenide;
 
 @IvyWebTest
-public class WebTestInputDownload
+public class WebTestInputDownloadIT
 {
 
   @BeforeAll

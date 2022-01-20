@@ -1,12 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>ch.ivyteam.demo</groupId>
-    <artifactId>build-maven-test</artifactId>
-    <version>9.4.0-SNAPSHOT</version>
-    <relativePath>../../build.maven/test</relativePath>
-  </parent>
 
   <groupId>ch.ivyteam.demo</groupId>
   <artifactId>connectivity-demos-test</artifactId>
@@ -16,7 +9,21 @@
   <properties>
     <wss4j.version>2.2.4</wss4j.version>
     <jersey.version>2.31</jersey.version>
+    <project.build.plugin.version>9.4.0-SNAPSHOT</project.build.plugin.version>
   </properties>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>central.snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
 
   <dependencies>
     <dependency>
@@ -64,22 +71,36 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>3.15.0</version>
+      <groupId>com.axonivy.ivy.webtest</groupId>
+      <artifactId>web-tester</artifactId>
+      <version>9.3.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.awaitility</groupId>
+      <artifactId>awaitility</artifactId>
+      <version>4.0.2</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
 
   <build>
-    <outputDirectory>target/classes</outputDirectory>
-    <testOutputDirectory>target/test-classes</testOutputDirectory>
-
+    <testSourceDirectory>src_test</testSourceDirectory>
     <plugins>
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
+        <version>${project.build.plugin.version}</version>
         <extensions>true</extensions>
+        <executions>
+          <execution>
+            <id>default-start-test-engine</id>
+            <configuration>
+              <deployToEngineApplication>Portal</deployToEngineApplication>
+              <additionalVmOptions>-Divy.Errors.ShowDetailsToEndUser=true -Divy.REST.Servlet.MobileWorkflow.API=true</additionalVmOptions>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
     
@@ -113,23 +134,7 @@
             </systemPropertyVariables>
           </configuration>
         </plugin>
-        <plugin>
-          <groupId>com.axonivy.ivy.ci</groupId>
-          <artifactId>project-build-plugin</artifactId>
-          <executions>
-            <execution>
-              <id>default-start-test-engine</id>
-              <configuration>
-                <deployToEngineApplication>Portal</deployToEngineApplication>
-                <!-- enable Mobile.WF.ui -->
-                <additionalVmOptions>-Divy.Errors.ShowDetailsToEndUser=true -Divy.REST.Servlet.MobileWorkflow.API=true</additionalVmOptions>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
       </plugins>
     </pluginManagement>
   </build>
-
-
 </project>

@@ -2,7 +2,6 @@ pipeline {
   agent any
 
   triggers {
-    pollSCM '@hourly'
     cron '@midnight'
   }
 
@@ -29,13 +28,17 @@ pipeline {
                         "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
                         "-Divy.engine.version='[9.2.0,]' " +
                         "-Divy.engine.list.url=${params.engineListUrl} " + 
-                        "-Dtest.environemnt=dev-axonivy " +
                         "-DaltDeploymentRepository=repo.axonivy.com::https://repo.axonivy.com/artifactory/libs-snapshot-local"
               checkVersions()
+
               archiveArtifacts '**/target/*.iar,**/target/*.zip'
               archiveArtifacts artifacts: '**/target/selenide/reports/**/*', allowEmptyArchive: true
+
               recordIssues tools: [eclipse()], unstableTotalAll: 1
-              recordIssues tools: [mavenConsole()], unstableNewAll: 1, qualityGates: [[threshold: 1, type: 'NEW', unstable: true]]
+              recordIssues tools: [mavenConsole()], unstableTotalAll: 1, filters: [
+                excludeMessage('.*An illegal reflective access operation has occurred.*'), // in rule engine test
+              ]
+
               junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/*-reports/**/*.xml'          
             }          
         }

@@ -15,7 +15,7 @@ import com.axonivy.ivy.webtest.engine.EngineUrl;
 import com.codeborne.selenide.WebDriverRunner;
 
 @IvyWebTest
-public class WebTestErrorHandling
+public class WebTestErrorHandlingIT
 {
   @Test
   public void ajax_error_dialog()

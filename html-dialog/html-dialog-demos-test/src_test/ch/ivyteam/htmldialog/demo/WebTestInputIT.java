@@ -15,7 +15,7 @@ import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.primeui.PrimeUi;
 
 @IvyWebTest
-class WebTestInput
+class WebTestInputIT
 {
 
   @Test

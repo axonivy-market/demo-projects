@@ -23,7 +23,7 @@ import com.axonivy.ivy.webtest.primeui.widget.SelectOneMenu;
 import com.axonivy.ivy.webtest.primeui.widget.Table;
 
 @IvyWebTest
-class WebTestOutput
+class WebTestOutputIT
 {
   @Test
   void dataTable() throws Exception
