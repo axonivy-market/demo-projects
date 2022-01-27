@@ -23,11 +23,11 @@ import org.primefaces.model.menu.Separator;
 import org.primefaces.model.menu.Submenu;
 import org.primefaces.util.AjaxRequestBuilder;
 import org.primefaces.util.ComponentTraversalUtils;
-import org.primefaces.util.WidgetBuilder;
 
 public class SerenityMenuRenderer extends BaseMenuRenderer {
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     protected void encodeMarkup(FacesContext context, AbstractMenu abstractMenu) throws IOException {
         SerenityMenu menu = (SerenityMenu) abstractMenu;
         ResponseWriter writer = context.getResponseWriter();
@@ -103,7 +103,8 @@ public class SerenityMenuRenderer extends BaseMenuRenderer {
         }
     }
     
-    protected void encodeSubmenu(FacesContext context, AbstractMenu menu, Submenu submenu) throws IOException{
+    @SuppressWarnings("unchecked")
+	protected void encodeSubmenu(FacesContext context, AbstractMenu menu, Submenu submenu) throws IOException{
 		ResponseWriter writer = context.getResponseWriter();
         String icon = submenu.getIcon();
         String label = submenu.getLabel();
@@ -200,7 +201,6 @@ public class SerenityMenuRenderer extends BaseMenuRenderer {
         ResponseWriter writer = context.getResponseWriter();
         String title = menuitem.getTitle();
         boolean disabled = menuitem.isDisabled();
-        Object value = menuitem.getValue();
         String style = menuitem.getStyle();
         String styleClass = menuitem.getStyleClass();
         String defaultStyleClass = "ripplelink";
@@ -308,7 +308,8 @@ public class SerenityMenuRenderer extends BaseMenuRenderer {
         rw.endElement("script");
     }
     
-    protected String createAjaxRequest(FacesContext context, AjaxSource source, UIComponent form) {
+    @SuppressWarnings("deprecation")
+	protected String createAjaxRequest(FacesContext context, AjaxSource source, UIComponent form) {
         UIComponent component = (UIComponent) source;
         String clientId = component.getClientId(context);
         
@@ -341,7 +342,8 @@ public class SerenityMenuRenderer extends BaseMenuRenderer {
         return builder.build();
     }
     
-    protected String createAjaxRequest(FacesContext context, AbstractMenu menu, AjaxSource source, UIComponent form,
+    @SuppressWarnings("deprecation")
+	protected String createAjaxRequest(FacesContext context, AbstractMenu menu, AjaxSource source, UIComponent form,
             Map<String, List<String>> params) {
         
         String clientId = menu.getClientId(context);
@@ -374,8 +376,9 @@ public class SerenityMenuRenderer extends BaseMenuRenderer {
         return builder.build();
     }
     
+    @SuppressWarnings("rawtypes")
     protected AjaxRequestBuilder getAjaxRequestBuilder() {
-        Class rootContext;
+		Class rootContext;
         Object requestContextInstance;
         AjaxRequestBuilder builder;
 
@@ -390,7 +393,8 @@ public class SerenityMenuRenderer extends BaseMenuRenderer {
         }
 
         try {
-            Method method = rootContext.getMethod("getCurrentInstance");
+            @SuppressWarnings("unchecked")
+			Method method = rootContext.getMethod("getCurrentInstance");
             requestContextInstance = method.invoke(null);
 
             method = requestContextInstance.getClass().getMethod("getAjaxRequestBuilder");

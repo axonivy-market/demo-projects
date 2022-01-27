@@ -107,7 +107,7 @@ Bs0 f16 actionCode 'import workflow.businessdata.Dossier;
 
 in.searchResult = ivy.repo.search(Dossier.class)
 													.textField("person.lastName")
-													.containsWordPattern(in.searchText)
+													.containsAnyWords(in.searchText)
 													.orderBy().textField("name")
 													.limit(in.limit)
 													.execute();

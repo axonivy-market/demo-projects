@@ -26,6 +26,7 @@ import org.primefaces.serenity.domain.Document;
 @ApplicationScoped
 public class DocumentService {
     
+	@SuppressWarnings("unused")
     public TreeNode createDocuments() {
         TreeNode root = new DefaultTreeNode(new Document("Files", "-", "Folder"), null);
 		
@@ -59,6 +60,7 @@ public class DocumentService {
         return root;
     }
     
+	@SuppressWarnings("unused")
     public TreeNode createCheckboxDocuments() {
         TreeNode root = new CheckboxTreeNode(new Document("Files", "-", "Folder"), null);
 		

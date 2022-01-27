@@ -35,8 +35,10 @@ Ps0 f1 339 51 26 26 0 12 #rect
 Ps0 f1 -1|-1|-9671572 #nodeStyle
 Ps0 f3 actionTable 'out=in;
 ' #txt
-Ps0 f3 actionCode 'import org.primefaces.context.RequestContext;
-in.primefacesVersion = RequestContext.getCurrentInstance().getApplicationContext().getEnvironment().getBuildVersion();' #txt
+Ps0 f3 actionCode 'import org.primefaces.context.PrimeRequestContext;
+
+in.primefacesVersion = PrimeRequestContext.getCurrentInstance().getApplicationContext().getEnvironment().getBuildVersion();
+' #txt
 Ps0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
