@@ -26,14 +26,13 @@ Fs0 @PushWFArc f11 '' #zField
 Fs0 f0 guid 13CF812673B64819 #txt
 Fs0 f0 method start() #txt
 Fs0 f0 inParameterDecl '<> param;' #txt
-Fs0 f0 inActionCode 'import ch.ivyteam.ivy.cm.IContentObject;
+Fs0 f0 inActionCode 'import ch.ivyteam.ivy.cm.ContentObject;
 
-IContentObject co = ivy.cms.findContentObject("/ch.ivyteam.htmldialog.demo/fileUploadImages");
-List children = co.getChildren();
-for(int i = 0; i < children.size(); i++)
-{
- out.images.add((children.get(i) as IContentObject).getName());
-}' #txt
+ContentObject co = ivy.cms.findContentObject("/ch.ivyteam.htmldialog.demo/fileUploadImages");
+for (ContentObject child : co.children()) {
+	out.images.add(child.name());
+}
+' #txt
 Fs0 f0 outParameterDecl '<> result;' #txt
 Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -71,16 +70,17 @@ Fs0 f4 563 147 26 26 0 12 #rect
 Fs0 f4 -1|-1|-9671572 #nodeStyle
 Fs0 f5 actionTable 'out=in;
 ' #txt
-Fs0 f5 actionCode 'import java.io.InputStream;
+Fs0 f5 actionCode 'import org.apache.commons.lang3.StringUtils;
+import java.io.InputStream;
 import org.primefaces.model.UploadedFile;
 import ch.ivyteam.ivy.cm.CoType;
-import ch.ivyteam.ivy.cm.IContentObject;
-import ch.ivyteam.ivy.cm.IContentObjectValue;
+import ch.ivyteam.ivy.cm.ContentObject;
+import ch.ivyteam.ivy.cm.ContentObjectValue;
 
 UploadedFile uploadedFile = in.fileUploadEvent.getFile();
 String fileName = uploadedFile.getFileName();
 
-IContentObject baseFolder = ivy.cms.findContentObject("/ch.ivyteam.htmldialog.demo/fileUploadImages");
+ContentObject baseFolder = ivy.cms.root().child().folder("ch.ivyteam.htmldialog.demo/fileUploadImages");
 
 // create new Content Object name
 String coName = fileName.substring(0, fileName.lastIndexOf("."));
@@ -92,39 +92,22 @@ if (coName.contains("\\") || coName.contains("/"))
 }
 String firstCoName = coName;
 Number counter = 1;
-while (baseFolder.getChild(coName) != null)
+while (!baseFolder.child().exists(coName))
 {
 	coName = firstCoName + "_" + counter;
 	counter++;
 }
 
-// evaluate CoType
-CoType coType;
-if (fileName.toLowerCase().endsWith("gif"))
-{
-	coType = ch.ivyteam.ivy.cm.CoType.GIF;
-}
-else if (fileName.toLowerCase().endsWith("jpeg") || fileName.toLowerCase().endsWith("jpg"))
-{
-	coType = ch.ivyteam.ivy.cm.CoType.JPEG;	
-}
-else if (fileName.toLowerCase().endsWith("png"))
-{
-	coType = ch.ivyteam.ivy.cm.CoType.PNG;
-}
-else
-{
-	ivy.log.error("invalid file name extension: " + fileName);
-}
+String fileExtension = StringUtils.substringAfterLast(fileName, ".");
 
-// create Content Object item
-IContentObject newImgae = baseFolder.addChild(coName, "", coType, null);
-IContentObjectValue cov = newImgae.addValue("", null, null, null, "", true, null);
+ContentObject newImgae = baseFolder.child().file(coName, fileExtension);
+ContentObjectValue cov = newImgae.value().get();
+
 InputStream inputStream = null;
 try
 {
 	inputStream = uploadedFile.getInputstream();
-	cov.setContent(inputStream, 0, null);
+	cov.write().binaryStream(inputStream);
 }
 finally
 {
