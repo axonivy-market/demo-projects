@@ -41,8 +41,9 @@ ft0 f19 336 274 112 44 -38 -8 #rect
 ft0 f6 361 185 30 30 0 15 #rect
 ft0 f28 actionTable 'out.user=signal.getSignalData() as workflow.signal.User;
 ' #txt
-ft0 f28 actionCode 'ivy.case.setBusinessObjectCode(out.user.userKey);
-ivy.case.setBusinessObjectName(out.user.name);' #txt
+ft0 f28 actionCode 'ivy.case.customFields().stringField("userKey").set(out.user.userKey);
+ivy.case.customFields().stringField("userName").set(out.user.name);
+' #txt
 ft0 f28 signalCode user:createdV2 #txt
 ft0 f28 attachToBusinessCase true #txt
 ft0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

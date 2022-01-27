@@ -41,6 +41,7 @@ public class MailboxView implements Serializable{
     private TreeNode mailbox;
 
     @PostConstruct
+    @SuppressWarnings("unused")
     public void init() {
         mailboxes = new DefaultTreeNode("root", null);
 

@@ -38,6 +38,7 @@ public class DragDropView implements Serializable {
     private TreeNode selectedNode2;
     
     @PostConstruct
+    @SuppressWarnings("unused")
     public void init() {
 		root1 = new DefaultTreeNode("Root", null);
 		TreeNode node0 = new DefaultTreeNode("Node 0", root1);

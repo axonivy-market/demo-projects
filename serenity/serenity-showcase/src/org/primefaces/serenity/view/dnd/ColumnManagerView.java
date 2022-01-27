@@ -60,6 +60,7 @@ public class ColumnManagerView implements Serializable {
         createDynamicColumns();
     }
     
+    @SuppressWarnings("unused")
     private void createAvailableColumns() {
         availableColumns = new DefaultTreeNode("Root", null);
         TreeNode root = new DefaultTreeNode("Columns", availableColumns);
@@ -107,6 +108,7 @@ public class ColumnManagerView implements Serializable {
         }
     }
      
+    @SuppressWarnings("unused")
     public void tableToTree() {
         Map<String,String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         int colIndex = Integer.parseInt(params.get("colIndex"));

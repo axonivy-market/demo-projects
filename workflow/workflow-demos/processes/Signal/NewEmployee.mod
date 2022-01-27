@@ -121,8 +121,9 @@ import com.google.gson.Gson;
 
 out.user = new Gson().fromJson(signal.getSignalData() as String, User.class) as User;
 
-ivy.case.setBusinessObjectCode(out.user.userKey);
-ivy.case.setBusinessObjectName(out.user.name);' #txt
+ivy.case.customFields().stringField("userKey").set(out.user.userKey);
+ivy.case.customFields().stringField("userName").set(out.user.name);
+' #txt
 cr0 f32 signalCode user:created #txt
 cr0 f32 attachToBusinessCase true #txt
 cr0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -217,8 +218,9 @@ import com.google.gson.Gson;
 
 out.user = new Gson().fromJson(signal.getSignalData() as String, User.class) as User;
 
-ivy.case.setBusinessObjectCode(out.user.userKey);
-ivy.case.setBusinessObjectName(out.user.name);' #txt
+ivy.case.customFields().stringField("userKey").set(out.user.userKey);
+ivy.case.customFields().stringField("userName").set(out.user.name);
+' #txt
 cr0 f28 signalCode user:created #txt
 cr0 f28 attachToBusinessCase true #txt
 cr0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
