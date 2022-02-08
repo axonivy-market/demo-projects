@@ -37,6 +37,7 @@ pipeline {
               recordIssues tools: [eclipse()], unstableTotalAll: 1
               recordIssues tools: [mavenConsole()], unstableTotalAll: 1, filters: [
                 excludeMessage('.*An illegal reflective access operation has occurred.*'), // in rule engine test
+                excludeMessage('processes/soap/service/serviceWithException.mod.*'), // connectivity-demos
               ]
 
               junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/*-reports/**/*.xml'          
