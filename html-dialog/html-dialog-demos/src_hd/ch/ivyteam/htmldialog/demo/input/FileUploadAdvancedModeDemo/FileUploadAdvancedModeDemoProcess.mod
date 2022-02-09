@@ -104,10 +104,10 @@ ContentObject newImgae = baseFolder.child().file(coName, fileExtension);
 ContentObjectValue cov = newImgae.value().get();
 
 InputStream inputStream = null;
-try
+try 
 {
 	inputStream = uploadedFile.getInputstream();
-	cov.write().binaryStream(inputStream);
+	cov.write().inputStream(inputStream);
 }
 finally
 {
