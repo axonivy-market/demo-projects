@@ -64,16 +64,17 @@ out.nextTask=param.nextTask;
 ' #txt
 ts0 f0 inActionCode 'import workflow.agileBPM.TaskDef;
 import ch.ivyteam.ivy.workflow.ITask;
-for(int i=0; i<ivy.case.getTasks().size()-1; i++)
+ivy.case.tasks().all();
+for(int i=0; i<ivy.case.tasks().all().size()-1; i++)
 {
-	ITask itask = ivy.case.getTasks().get(i);
+	ITask itask = ivy.case.tasks().all().get(i);
 	if(!"#SYSTEM".equalsIgnoreCase(itask.getActivatorName()) 
 		&& itask.getEndTimestamp().toString().length()>0
-		&& !"AD_HOC_MODIFIED".equals(itask.getCustomVarCharField1()))
+		&& !"AD_HOC_MODIFIED".equals(itask.customFields().stringField("CustomVarCharField1").getOrNull()))
 	{ 
 		TaskDef def = 	new TaskDef();
 		def.actor = itask.getWorkerUserName();
-		def.kind = itask.getKindCode();
+		def.kind = itask.customFields().stringField("KindCode").getOrNull();
 		def.done = itask.getEndTimestamp();
 		def.taskNotes = itask.getNotes();
 		out.taskHistory.add(def);

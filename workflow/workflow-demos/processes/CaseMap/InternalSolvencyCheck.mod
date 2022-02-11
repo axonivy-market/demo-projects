@@ -55,7 +55,10 @@ CreditDossier dossier  = ivy.repo.get(CreditDossier.class) as CreditDossier;
 
 dossier.decision.granted = false;
 // Execute rules to evaluate if it needs approval Level 1 and / or Level 2
-ivy.rules.engine.createRuleBase().loadRulesFromNamespace("workflow.credit").createSession().execute(dossier);
+ivy.rules.create()
+  .namespace("workflow.credit")
+  .executor()
+  .execute(dossier);
 
 // Save dossier
 ivy.repo.save(dossier);' #txt
