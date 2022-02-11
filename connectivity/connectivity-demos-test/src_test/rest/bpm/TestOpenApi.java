@@ -18,6 +18,7 @@ import ch.ivyteam.ivy.environment.AppFixture;
 @IvyProcessTest
 public class TestOpenApi
 {
+  @SuppressWarnings("removal")
   @BeforeAll
   static void setUp(AppFixture fixture)
   {
@@ -34,7 +35,7 @@ public class TestOpenApi
     assertThat(data.getPets()).isNotEmpty();
     assertThat(data.getPets().get(0).getName()).isNotEmpty();
   }
-  
+
   @Test
   public void openApi_petQuery(BpmClient bpmClient)
   {
@@ -44,13 +45,13 @@ public class TestOpenApi
     long sessionId = Long.parseLong((String)result.workflow().session().getAttribute("pet.session.id"));
     assertThat(sessionId).as("got session ID from pet store api login").isGreaterThan(1);
   }
-  
+
   @Test
   public void openApi_fileUpload(BpmClient bpmClient)
   {
     ExecutionResult result = bpmClient.start().process("rest/openapi/upload.ivp").execute();
     assertThat(result).isNotNull();
-    
+
     OpenApiData data = result.data().last();
     List<String> photos = data.getPets().get(0).getPhotoUrls();
     assertThat(photos.stream()).isNotEmpty();
