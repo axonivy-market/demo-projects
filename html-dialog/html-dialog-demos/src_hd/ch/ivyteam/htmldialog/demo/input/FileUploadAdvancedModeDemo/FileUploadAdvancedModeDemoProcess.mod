@@ -26,13 +26,14 @@ Fs0 @PushWFArc f11 '' #zField
 Fs0 f0 guid 13CF812673B64819 #txt
 Fs0 f0 method start() #txt
 Fs0 f0 inParameterDecl '<> param;' #txt
-Fs0 f0 inActionCode 'import ch.ivyteam.ivy.cm.IContentObject;
+Fs0 f0 inActionCode 'import ch.ivyteam.ivy.cm.ContentObject;
+import ch.ivyteam.ivy.cm.IContentObject;
 
 IContentObject co = ivy.cms.findContentObject("/ch.ivyteam.htmldialog.demo/fileUploadImages");
-List children = co.getChildren();
+List children = co.children();
 for(int i = 0; i < children.size(); i++)
 {
- out.images.add((children.get(i) as IContentObject).getName());
+ out.images.add((children.get(i) as ContentObject).name());
 }' #txt
 Fs0 f0 outParameterDecl '<> result;' #txt
 Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -71,7 +72,8 @@ Fs0 f4 563 147 26 26 0 12 #rect
 Fs0 f4 -1|-1|-9671572 #nodeStyle
 Fs0 f5 actionTable 'out=in;
 ' #txt
-Fs0 f5 actionCode 'import java.io.InputStream;
+Fs0 f5 actionCode 'import ch.ivyteam.ivy.cm.ContentObject;
+import java.io.InputStream;
 import org.primefaces.model.UploadedFile;
 import ch.ivyteam.ivy.cm.CoType;
 import ch.ivyteam.ivy.cm.IContentObject;
@@ -92,39 +94,21 @@ if (coName.contains("\\") || coName.contains("/"))
 }
 String firstCoName = coName;
 Number counter = 1;
-while (baseFolder.getChild(coName) != null)
+while (baseFolder.child().get(coName) != null)
 {
 	coName = firstCoName + "_" + counter;
 	counter++;
 }
 
-// evaluate CoType
-CoType coType;
-if (fileName.toLowerCase().endsWith("gif"))
-{
-	coType = ch.ivyteam.ivy.cm.CoType.GIF;
-}
-else if (fileName.toLowerCase().endsWith("jpeg") || fileName.toLowerCase().endsWith("jpg"))
-{
-	coType = ch.ivyteam.ivy.cm.CoType.JPEG;	
-}
-else if (fileName.toLowerCase().endsWith("png"))
-{
-	coType = ch.ivyteam.ivy.cm.CoType.PNG;
-}
-else
-{
-	ivy.log.error("invalid file name extension: " + fileName);
-}
+String fileExt = fileName.substring(fileName.lastIndexOf("."), fileName.length());
 
 // create Content Object item
-IContentObject newImgae = baseFolder.addChild(coName, "", coType, null);
-IContentObjectValue cov = newImgae.addValue("", null, null, null, "", true, null);
+ContentObject newImage = baseFolder.child().file(coName, fileExt);
 InputStream inputStream = null;
 try
 {
 	inputStream = uploadedFile.getInputstream();
-	cov.setContent(inputStream, 0, null);
+  newImage.value().get().write().inputStream(inputStream);
 }
 finally
 {
