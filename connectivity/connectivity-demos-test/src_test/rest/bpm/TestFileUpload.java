@@ -16,28 +16,29 @@ import ch.ivyteam.ivy.environment.AppFixture;
 @IvyProcessTest
 public class TestFileUpload
 {
+  @SuppressWarnings("removal")
   @BeforeAll
   static void setUp(AppFixture fixture)
   {
     fixture.environment(System.getProperty("test.environment", "Default"));
   }
-  
+
   @Test
   public void fileUpload_octetStream(BpmClient bpmClient)
   {
     ExecutionResult result = bpmClient.start().process("rest/fileUpload/upAndDown.ivp").execute();
     assertThat(result).isNotNull();
-    
+
     Data data = result.data().last();
     assertThat(data.getResult()).endsWith(".png");
   }
-  
+
   @Test
   public void fileUpload_multiPart(BpmClient bpmClient)
   {
     ExecutionResult result = bpmClient.start().process("rest/fileUpload/fileMultipart.ivp").execute();
     assertThat(result).isNotNull();
-    
+
     Data data = result.data().last();
     assertThat(data.getResult()).startsWith("File was uploaded succesfully");
   }

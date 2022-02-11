@@ -93,7 +93,7 @@ public class IntegrationTestSecureService
     return httpClient;
   }
 
-  @SuppressWarnings("deprecation")
+  @SuppressWarnings("removal")
   private static Client createClient()
   {
     Client httpClient = ClientBuilder.newClient();

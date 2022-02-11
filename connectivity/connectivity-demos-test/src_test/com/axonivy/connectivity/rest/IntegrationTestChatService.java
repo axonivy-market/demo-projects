@@ -181,7 +181,7 @@ public class IntegrationTestChatService
     return createClient().register(HttpAuthenticationFeature.basic(REST_USER, REST_USER));
   }
 
-  @SuppressWarnings("deprecation")
+  @SuppressWarnings("removal")
   private static Client createClient()
   {
     return silentClient().register(new org.glassfish.jersey.filter.LoggingFilter());
