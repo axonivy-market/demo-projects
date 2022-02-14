@@ -82,11 +82,11 @@ Fy0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Demonstrates how default ivy errors can be catched locally and propagated as custom error
-- the callable sub process throws  custom error `factory:unavailable`` `</name>
+- the callable sub process throws  custom error `factory:unavailable`</name>
     </language>
 </elementInfo>
 ' #txt
-Fy0 f9 40 34 640 44 -315 -19 #rect
+Fy0 f9 64 34 592 44 -290 -15 #rect
 Fy0 f9 -1|-1|-65536 #nodeStyle
 Fy0 f5 321 225 30 30 0 15 #rect
 Fy0 f6 expr out #txt

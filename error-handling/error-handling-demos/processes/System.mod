@@ -70,13 +70,13 @@ tl0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Usage of Global Error Process
-This DB Step throws` ivy:error:database`  system error
-The system errors` ``ivy:error:*`*` *`are* *handled* *in
-a Global Error Process *(**ErrorHandler**)*</name>
+This DB Step throws `ivy:error:database`  system error
+The system errors `ivy:error:*` are handled in
+a Global Error Process *(ErrorHandler)*</name>
     </language>
 </elementInfo>
 ' #txt
-tl0 f5 48 26 336 76 -160 -35 #rect
+tl0 f5 40 34 352 60 -171 -30 #rect
 tl0 f5 -1|-1|-65536 #nodeStyle
 >Proto tl0 .type error.handling.demo.technicalData #txt
 >Proto tl0 .processKind NORMAL #txt

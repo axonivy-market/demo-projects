@@ -43,14 +43,14 @@ fy0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Demonstrates how default ivy errors can be wrapped into a custom error
-- the remote factory can throw an` ``ivy:error:webservice:exception``  ` if the host is not available
+- the remote factory can throw an `ivy:error:webservice:exception` if the host is not available
 - the attached Error Boundary Event catches any ivy webservice error
 - the Error End Event wraps the webservice error 
-   and throws it as` ``factory:unavailable``  `which has a specific meaning for the business</name>
+   and throws it as `factory:unavailable` which has a specific meaning for the business</name>
     </language>
 </elementInfo>
 ' #txt
-fy0 f9 56 18 560 92 -274 -43 #rect
+fy0 f9 40 26 592 76 -290 -37 #rect
 fy0 f9 -1|-1|-65536 #nodeStyle
 fy0 f7 actionDecl 'error.handling.demo.FactoryData out;
 ' #txt

@@ -79,19 +79,21 @@ be0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>SOAP requests are aborted by default 
-if the remote service does not answer within `60`` `seconds!
+if the remote service does not answer within `60` seconds!
 
 This batch client overrides the default settings with properties:
+```
 // waits 70 seconds for a result 
-`javax.xml.ws.client.receiveTimeout=70''000
-`// wait 1 second for a connection time out`
-javax.xml.ws.client.connectionTimeout=1''000`
+javax.xml.ws.client.receiveTimeout=70''000
+// wait 1 second for a connection time out
+javax.xml.ws.client.connectionTimeout=1''000
+```
 </name>
     </language>
 </elementInfo>
 ' #txt
-be0 f5 104 162 400 140 -197 -67 #rect
-be0 f6 304 162 304 102 #arcP
+be0 f5 104 146 400 172 -197 -82 #rect
+be0 f6 304 146 304 102 #arcP
 be0 f6 0 0.37994037265054 0 0 #arcLabel
 >Proto be0 .type com.axonivy.connectivity.soap.BatchServiceClientData #txt
 >Proto be0 .processKind NORMAL #txt
