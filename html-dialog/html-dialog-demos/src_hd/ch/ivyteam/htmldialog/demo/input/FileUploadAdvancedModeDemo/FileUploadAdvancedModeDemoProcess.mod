@@ -92,7 +92,7 @@ if (coName.contains("\\") || coName.contains("/"))
 }
 String firstCoName = coName;
 Number counter = 1;
-while (!baseFolder.child().exists(coName))
+while (baseFolder.child().exists(coName))
 {
 	coName = firstCoName + "_" + counter;
 	counter++;
