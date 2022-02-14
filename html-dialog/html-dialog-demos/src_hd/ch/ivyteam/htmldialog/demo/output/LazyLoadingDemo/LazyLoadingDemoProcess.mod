@@ -1,5 +1,5 @@
 [Ivy]
-15AEFE76879218F9 9.3.1 #module
+15AEFE76879218F9 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ds0 LazyLoadingDemoProcess Big #zClass
 Ds0 RD #cInfo
@@ -28,8 +28,6 @@ Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -61,8 +59,6 @@ Ds0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>generate Data</name>
-        <nameStyle>13,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

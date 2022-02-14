@@ -1,5 +1,5 @@
 [Ivy]
-153E9EE0223D1DF9 9.3.1 #module
+153E9EE0223D1DF9 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ds0 DiscountCalculatorProcess Big #zClass
 Ds0 RD #cInfo
@@ -41,8 +41,6 @@ Ds0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>applyRulesFromDRL()</name>
-        <nameStyle>19,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -56,8 +54,6 @@ Ds0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>applyRulesFromDecisionTable()</name>
-        <nameStyle>29,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

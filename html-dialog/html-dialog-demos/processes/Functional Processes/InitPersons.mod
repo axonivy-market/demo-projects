@@ -1,5 +1,5 @@
 [Ivy]
-139D97A1E15DE439 9.3.1 #module
+139D97A1E15DE439 9.4.0 #module
 >Proto >Proto Collection #zClass
 Is0 InitPersons Big #zClass
 Is0 B #cInfo
@@ -23,8 +23,6 @@ Is0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>initPerson()</name>
-        <nameStyle>12,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

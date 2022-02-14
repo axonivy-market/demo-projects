@@ -1,5 +1,5 @@
 [Ivy]
-148655DDB7BB6588 9.3.1 #module
+148655DDB7BB6588 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ms0 MyProcess Big #zClass
 Ms0 B #cInfo
@@ -49,8 +49,6 @@ Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Enter Product</name>
-        <nameStyle>13,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -61,8 +59,6 @@ Ms0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Price higher than 100?</name>
-        <nameStyle>22,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

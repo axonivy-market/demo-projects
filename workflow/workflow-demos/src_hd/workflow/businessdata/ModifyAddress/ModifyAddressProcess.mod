@@ -1,5 +1,5 @@
 [Ivy]
-156DF5CB0BDE73A1 9.3.1 #module
+156DF5CB0BDE73A1 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ms0 ModifyAddressProcess Big #zClass
 Ms0 RD #cInfo
@@ -53,8 +53,6 @@ Ms0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(String)</name>
-        <nameStyle>13,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -68,8 +66,6 @@ Ms0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Load Address</name>
-        <nameStyle>12
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -85,8 +81,6 @@ Ms0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Save into Repo</name>
-        <nameStyle>14
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -97,8 +91,6 @@ Ms0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>is up to date?</name>
-        <nameStyle>14
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -119,8 +111,6 @@ Ms0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Reload data
  from Repo</name>
-        <nameStyle>22
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -142,8 +132,6 @@ Ms0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Display warning</name>
-        <nameStyle>15
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

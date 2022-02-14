@@ -1,5 +1,5 @@
 [Ivy]
-139E3EF5C6DBC97F 9.3.1 #module
+139E3EF5C6DBC97F 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ps0 PartialUpdateDemoProcess Big #zClass
 Ps0 RD #cInfo
@@ -28,8 +28,6 @@ Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -46,8 +44,6 @@ Ps0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>increaseCounter</name>
-        <nameStyle>15,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -62,8 +58,6 @@ Ps0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Increase Counter</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

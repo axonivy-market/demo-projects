@@ -1,5 +1,5 @@
 [Ivy]
-16764B1AE13CC212 9.3.1 #module
+16764B1AE13CC212 9.4.0 #module
 >Proto >Proto Collection #zClass
 Cs0 ChatClientProcess Big #zClass
 Cs0 RD #cInfo
@@ -52,19 +52,12 @@ Cs0 f5 109 160 211 160 #arcP
 Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Client Side in JavaScript
+        <name>**Client Side in JavaScript**
 
 Not much is going on in here:
 - within this demo no server side processing is done with JSF
 - data is requested and shown via JavaScript directly within the client browser
-- see resources/chat.js and the ChatClient View for details</name>
-        <nameStyle>25,0,8
-180,7
-17,1,7
-9,7
-15,1,7
-12,7
-</nameStyle>
+- see *resources/chat.js* and the *ChatClient View* for details</name>
     </language>
 </elementInfo>
 ' #txt
@@ -72,7 +65,7 @@ Cs0 f6 72 226 432 108 -210 -50 #rect
 Cs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Server Side in Java
+        <name>**Server Side in Java**
 
 The REST endpoint called by this demo is implemented in the Java class: 
 
@@ -80,10 +73,6 @@ com.axonivy.connectivity.rest.aynch.chat.ChatService
 
 The Java class uses asynchronous request processing so that no 
 request thread is blocked while waiting for new chat messages.</name>
-        <nameStyle>19,0,8
-75,7
-181,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

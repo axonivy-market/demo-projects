@@ -1,5 +1,5 @@
 [Ivy]
-155BB5BDEDF19356 9.3.1 #module
+155BB5BDEDF19356 9.4.0 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
 Bs0 RD #cInfo
@@ -92,8 +92,6 @@ Bs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>do a fulltext search</name>
-        <nameStyle>20,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -118,8 +116,6 @@ Bs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>search for LastName</name>
-        <nameStyle>19,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -133,8 +129,6 @@ Bs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>updateSearchToDate</name>
-        <nameStyle>18,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -157,8 +151,6 @@ Bs0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>search for birthdate</name>
-        <nameStyle>20,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -173,8 +165,6 @@ Bs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>toDate=fromDate</name>
-        <nameStyle>15,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -222,9 +212,6 @@ Bs0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Display growl
 message (index)</name>
-        <nameStyle>21,7
-8,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -257,8 +244,6 @@ Bs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(String,Boolean)</name>
-        <nameStyle>21,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -280,8 +265,6 @@ Bs0 f37 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>search for name</name>
-        <nameStyle>15,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

@@ -1,5 +1,5 @@
 [Ivy]
-1508AE543CAEEEC1 9.3.1 #module
+1508AE543CAEEEC1 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ct0 CancelDialog Big #zClass
 Ct0 B #cInfo
@@ -66,8 +66,6 @@ Ct0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Get email</name>
-        <nameStyle>9
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -108,13 +106,7 @@ Ct0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Demonstrates how a dialog can be cancelled by throwing an error
-The process ends because of a start:cancelled  error</name>
-        <nameStyle>63,8
-1,7
-30,7
-15,3,7
-7,7
-</nameStyle>
+The process ends because of a `start:cancelled`  error</name>
     </language>
 </elementInfo>
 ' #txt

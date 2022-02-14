@@ -1,5 +1,5 @@
 [Ivy]
-14ECFC90CDE278D0 9.3.1 #module
+14ECFC90CDE278D0 9.4.0 #module
 >Proto >Proto Collection #zClass
 or0 Order Big #zClass
 or0 B #cInfo
@@ -111,8 +111,6 @@ or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
-        <nameStyle>9,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -122,8 +120,6 @@ or0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Success</name>
-        <nameStyle>7,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -139,8 +135,6 @@ or0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Register Order</name>
-        <nameStyle>14,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -166,8 +160,6 @@ or0 Et1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>out_of_stock</name>
-        <nameStyle>12,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -198,8 +190,6 @@ or0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Order was shipped</name>
-        <nameStyle>17,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -211,12 +201,7 @@ or0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Demonstrates the handling of a Business Error
-The process can not continue because of an out_of_stock  error</name>
-        <nameStyle>46,8
-43,7
-12,3,7
-7,7
-</nameStyle>
+The process can not continue because of an `out_of_stock`  error</name>
     </language>
 </elementInfo>
 ' #txt
@@ -264,8 +249,6 @@ Ct0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Read available items</name>
-        <nameStyle>20,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -275,8 +258,6 @@ Ct0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Enough items in stock?</name>
-        <nameStyle>22,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -288,8 +269,6 @@ Ct0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>out_of_stock</name>
-        <nameStyle>12,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -328,8 +307,6 @@ Ct0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Update available items</name>
-        <nameStyle>22,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -370,8 +347,6 @@ Ct1 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Add items to stock</name>
-        <nameStyle>18,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -397,8 +372,6 @@ Ct1 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Read available items</name>
-        <nameStyle>20,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -436,8 +409,6 @@ Bk0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Create Table</name>
-        <nameStyle>12
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -461,8 +432,6 @@ Bk0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Add Stock</name>
-        <nameStyle>9
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -486,8 +455,6 @@ Bk0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Add Stock</name>
-        <nameStyle>9
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -512,8 +479,6 @@ Bk0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Check if Table exists</name>
-        <nameStyle>21
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -527,8 +492,6 @@ Bk0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>table does not exist</name>
-        <nameStyle>20
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

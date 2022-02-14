@@ -1,5 +1,5 @@
 [Ivy]
-16150E26E34D4339 9.3.1 #module
+16150E26E34D4339 9.4.0 #module
 >Proto >Proto Collection #zClass
 pt0 personClient Big #zClass
 pt0 B #cInfo
@@ -49,8 +49,6 @@ pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>read.ivp</name>
-        <nameStyle>8,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -115,8 +113,6 @@ pt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>delete.ivp</name>
-        <nameStyle>10,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -169,8 +165,6 @@ pt0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>add.ivp</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -206,8 +200,6 @@ pt0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>This processes call the Web Service Process (personService) with the web service client.
 The web service client is configured with HTTP_BASIC feature, because the personService is protected by HTTP_BASIC.
 </name>
-        <nameStyle>205,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

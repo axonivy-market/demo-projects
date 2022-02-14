@@ -1,5 +1,5 @@
 [Ivy]
-153D1CC01F460F8B 9.3.1 #module
+153D1CC01F460F8B 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ds0 DataTableDemoProcess Big #zClass
 Ds0 RD #cInfo
@@ -36,8 +36,6 @@ Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -85,8 +83,6 @@ Ds0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>load Data</name>
-        <nameStyle>9
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -111,8 +107,6 @@ Ds0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Log</name>
-        <nameStyle>3,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -128,8 +122,6 @@ Ds0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>save</name>
-        <nameStyle>4,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

@@ -1,5 +1,5 @@
 [Ivy]
-015A8996ACC13882 9.3.1 #module
+015A8996ACC13882 9.4.0 #module
 >Proto >Proto Collection #zClass
 Rt0 ResumeRequest Big #zClass
 Rt0 B #cInfo
@@ -34,8 +34,6 @@ Rt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
-        <nameStyle>9,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

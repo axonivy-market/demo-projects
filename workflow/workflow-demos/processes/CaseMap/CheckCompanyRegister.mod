@@ -1,5 +1,5 @@
 [Ivy]
-15A8492F526C14B3 9.3.1 #module
+15A8492F526C14B3 9.4.0 #module
 >Proto >Proto Collection #zClass
 Cr0 CheckCompanyRegister Big #zClass
 Cr0 B #cInfo
@@ -38,8 +38,6 @@ Cr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>start()
 start.ivp</name>
-        <nameStyle>17,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -53,8 +51,6 @@ Cr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>log stage</name>
-        <nameStyle>9,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

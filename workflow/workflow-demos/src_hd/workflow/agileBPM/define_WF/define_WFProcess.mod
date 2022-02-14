@@ -1,5 +1,5 @@
 [Ivy]
-1525503525CD0CCC 9.3.1 #module
+1525503525CD0CCC 9.4.0 #module
 >Proto >Proto Collection #zClass
 ds0 define_WFProcess Big #zClass
 ds0 RD #cInfo
@@ -73,8 +73,6 @@ ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(List&lt;TaskDef&gt;,CaseDef)</name>
-        <nameStyle>28,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -88,8 +86,6 @@ ds0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>go</name>
-        <nameStyle>2,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -134,8 +130,6 @@ ds0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Setup Case</name>
-        <nameStyle>10,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -174,8 +168,6 @@ ds0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>add new Task to List</name>
-        <nameStyle>20,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -233,8 +225,6 @@ ds0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Init</name>
-        <nameStyle>4,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -252,8 +242,6 @@ ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>deleteTask(TaskDef)</name>
-        <nameStyle>19,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -307,8 +295,6 @@ ds0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>init List of Tasks</name>
-        <nameStyle>18,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -320,8 +306,6 @@ ds0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>initTaskDef</name>
-        <nameStyle>11,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -334,8 +318,6 @@ ds0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>wf user ok?</name>
-        <nameStyle>11
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -368,8 +350,6 @@ ds0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Error msg</name>
-        <nameStyle>9
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -397,8 +377,6 @@ ds0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>setUser</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -414,8 +392,6 @@ ds0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>editTask</name>
-        <nameStyle>8
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -432,8 +408,6 @@ ds0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>updateUserList</name>
-        <nameStyle>14,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -452,8 +426,6 @@ ds0 f37 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>update users</name>
-        <nameStyle>12
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -478,8 +450,6 @@ ds0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>init users</name>
-        <nameStyle>10
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -498,8 +468,6 @@ ds0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>initUserList(TaskDef)</name>
-        <nameStyle>21,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -517,8 +485,6 @@ ds0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>editTaskDescription(TaskDef)</name>
-        <nameStyle>28,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -533,8 +499,6 @@ ds0 f50 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>setTaskDescription</name>
-        <nameStyle>18,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

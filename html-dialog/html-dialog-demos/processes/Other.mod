@@ -1,5 +1,5 @@
 [Ivy]
-145D1862CF17F2C9 9.3.1 #module
+145D1862CF17F2C9 9.4.0 #module
 >Proto >Proto Collection #zClass
 Or0 Other Big #zClass
 Or0 B #cInfo
@@ -83,8 +83,6 @@ Or0 f109 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Html5BootstrapDemo.ivp</name>
-        <nameStyle>22,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -125,8 +123,6 @@ Or0 f106 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Html5Demo.ivp</name>
-        <nameStyle>13,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -154,8 +150,6 @@ Or0 f42 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>ManagedBeanDemo.ivp</name>
-        <nameStyle>19,5,7
-</nameStyle>
         <desc>ManagedBean Demo</desc>
     </language>
 </elementInfo>
@@ -206,8 +200,6 @@ Or0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>MethodCallWithAjaxDemo.ivp</name>
-        <nameStyle>26,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -254,8 +246,6 @@ Or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>ErrorHandlingDemo.ivp</name>
-        <nameStyle>21,5,7
-</nameStyle>
         <desc>ErrorHandling Demo</desc>
     </language>
 </elementInfo>

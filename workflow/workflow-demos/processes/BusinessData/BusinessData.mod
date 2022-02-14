@@ -1,5 +1,5 @@
 [Ivy]
-155BB4328F79B2D5 9.3.1 #module
+155BB4328F79B2D5 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
 Ba0 B #cInfo
@@ -60,8 +60,6 @@ Ba0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>create.ivp</name>
-        <nameStyle>10,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -82,8 +80,6 @@ Ba0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>modify</name>
-        <nameStyle>6,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -112,8 +108,6 @@ Ba0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>edit.ivp</name>
-        <nameStyle>8,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -145,8 +139,6 @@ Ba0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>browse.ivp</name>
-        <nameStyle>10,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -166,8 +158,6 @@ Ba0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>browse</name>
-        <nameStyle>6,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -178,12 +168,9 @@ Ba0 f14 472 160 529 160 #arcP
 Ba0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Business Data Store Demo
+        <name>**Business Data Store Demo**
 - Manage dossier objects in the Business Data Repository (ivy.repo).
 - New fields can be added to the Dossier type and it still works.</name>
-        <nameStyle>24,0,7
-135,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -200,8 +187,6 @@ Ba0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>delete</name>
-        <nameStyle>6,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -217,8 +202,6 @@ Ba0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>create test data</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -264,8 +247,6 @@ Ba0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>delete.ivp</name>
-        <nameStyle>10,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -286,8 +267,6 @@ Ba0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>browse lazy</name>
-        <nameStyle>11,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -315,8 +294,6 @@ Ba0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>browseLazy.ivp</name>
-        <nameStyle>14,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -332,8 +309,6 @@ Ba0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>create test data</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

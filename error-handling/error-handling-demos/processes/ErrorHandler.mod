@@ -1,5 +1,5 @@
 [Ivy]
-150148B81ACE3E1E 9.3.1 #module
+150148B81ACE3E1E 9.4.0 #module
 >Proto >Proto Collection #zClass
 Er0 ErrorHandler Big #zClass
 Er0 B #cInfo
@@ -29,8 +29,6 @@ Er0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>ivy:error</name>
-        <nameStyle>9
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -40,8 +38,6 @@ Er0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Catches uncaught system errors in the project</name>
-        <nameStyle>45
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -53,13 +49,6 @@ Er0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>Global Error Process
 The name of a global error process must start with "Error".
 Error Start Events in a global error process catch uncaught errors in the whole project.</name>
-        <nameStyle>21,8
-51,7
-1,5,7
-5,5,7
-2,5,7
-89,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -79,8 +68,6 @@ Er0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Display Error</name>
-        <nameStyle>13
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

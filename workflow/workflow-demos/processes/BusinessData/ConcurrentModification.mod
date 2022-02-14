@@ -1,5 +1,5 @@
 [Ivy]
-156DB84CCE78254F 9.3.1 #module
+156DB84CCE78254F 9.4.0 #module
 >Proto >Proto Collection #zClass
 Cn0 ConcurrentModification Big #zClass
 Cn0 B #cInfo
@@ -58,8 +58,6 @@ Cn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
-        <nameStyle>9,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -116,8 +114,6 @@ Cn0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Modify "country" 
 of Address</name>
-        <nameStyle>28
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -136,8 +132,6 @@ Cn0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Modify
 Address</name>
-        <nameStyle>14
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -157,8 +151,6 @@ Cn0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>View merged
 Data</name>
-        <nameStyle>16
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -193,13 +185,10 @@ Cn0 f15 744 384 785 384 #arcP
 Cn0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Instruction
+        <name>**Instruction**
 Start both tasks in parallel. (Use two browser windows).
 Finish the modify country task first.
 Finish the modify address task and see the isUpToDate check.</name>
-        <nameStyle>11,0
-156
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -216,8 +205,6 @@ Cn0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Create Address</name>
-        <nameStyle>14
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -231,7 +218,7 @@ Cn0 f5 280 384 336 384 #arcP
 Cn0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Concurrent modification of Business Data values
+        <name>**Concurrent modification of Business Data values**
 This use case handles the problematic of concurrent modification
 of the same business data, e.g. in parallel .
 When multiple participants (users) work on the same business data,
@@ -240,15 +227,9 @@ otherwise one process will override changes of the other process.
 Therefore the ivy.repo.save(val) method uses optimistic locking and will throw an
 exception if the data was modified since loading it. This is implemented by 
 versioning the data on the repository.
-If the local data is not up-to-date it is recommended to reload the data with reload(val)
+If the local data is not up-to-date it is recommended to reload the data with *reload(val)*
 and re-apply the modifications. Other use cases are documented in the Public API.
 </name>
-        <nameStyle>47,0
-517
-79
-11,1
-83
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -256,11 +237,7 @@ Cn0 f3 64 18 480 204 -232 -96 #rect
 Cn0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>partial overwrite Business Data</name>
-        <nameStyle>8
-9,1
-14
-</nameStyle>
+        <name>partial *overwrite* Business Data</name>
     </language>
 </elementInfo>
 ' #txt
@@ -269,10 +246,7 @@ Cn0 f20 512 272 464 298 #arcP
 Cn0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>reload Business Data when necessary</name>
-        <nameStyle>21,1
-14
-</nameStyle>
+        <name>*reload Business Data *when necessary</name>
     </language>
 </elementInfo>
 ' #txt

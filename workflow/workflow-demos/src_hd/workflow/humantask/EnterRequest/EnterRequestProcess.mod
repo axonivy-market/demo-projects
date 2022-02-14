@@ -1,5 +1,5 @@
 [Ivy]
-15254DF5837F8B00 9.3.1 #module
+15254DF5837F8B00 9.4.0 #module
 >Proto >Proto Collection #zClass
 Es0 EnterRequestProcess Big #zClass
 Es0 RD #cInfo
@@ -33,8 +33,6 @@ Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -47,8 +45,6 @@ Es0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>close</name>
-        <nameStyle>5,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -69,8 +65,6 @@ Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>init data</name>
-        <nameStyle>9,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -88,8 +82,6 @@ Es0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Init LogEntry</name>
-        <nameStyle>13,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

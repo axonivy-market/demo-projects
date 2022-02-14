@@ -1,5 +1,5 @@
 [Ivy]
-145D1849FACF0EAA 9.3.1 #module
+145D1849FACF0EAA 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ct0 Component Big #zClass
 Ct0 B #cInfo
@@ -65,8 +65,6 @@ Ct0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>PartialUpdateDemo.ivp</name>
-        <nameStyle>21,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -124,8 +122,6 @@ Ct0 f82 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Component:
 EventListenerDemo.ivp</name>
-        <nameStyle>32,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -203,8 +199,6 @@ Ct0 f57 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Component:
 CustomizingDemo</name>
-        <nameStyle>26,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -234,8 +228,6 @@ Ct0 f97 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>JsfCompositeComponent.ivp</name>
-        <nameStyle>25,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -284,8 +276,6 @@ Ct0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>LazyLoadComponent.ivp</name>
-        <nameStyle>21,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

@@ -1,5 +1,5 @@
 [Ivy]
-15004A488FF27022 9.3.1 #module
+15004A488FF27022 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ss0 SelectOptionsProcess Big #zClass
 Ss0 RD #cInfo
@@ -32,8 +32,6 @@ Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(Customer)</name>
-        <nameStyle>15,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

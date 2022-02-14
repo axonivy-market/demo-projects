@@ -1,5 +1,5 @@
 [Ivy]
-13F613EA00B31DDD 9.3.1 #module
+13F613EA00B31DDD 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ss0 SelectManyCheckboxDemoProcess Big #zClass
 Ss0 RD #cInfo
@@ -29,8 +29,6 @@ Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -65,8 +63,6 @@ Ss0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>close</name>
-        <nameStyle>5,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -81,8 +77,6 @@ Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>send</name>
-        <nameStyle>4,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

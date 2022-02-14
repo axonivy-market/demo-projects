@@ -1,5 +1,5 @@
 [Ivy]
-146052EC6B2ADB68 9.3.1 #module
+146052EC6B2ADB68 9.4.0 #module
 >Proto >Proto Collection #zClass
 Cs0 ChartDemoProcess Big #zClass
 Cs0 RD #cInfo
@@ -105,9 +105,6 @@ Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>init combo
 chart model</name>
-        <nameStyle>17,7
-5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -131,8 +128,6 @@ Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>itemSelected(...)</name>
-        <nameStyle>17,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -171,9 +166,6 @@ Cs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>init pie
 chart model</name>
-        <nameStyle>9,7
-11,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -198,8 +190,6 @@ Cs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>sliceSelected(...)</name>
-        <nameStyle>18,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

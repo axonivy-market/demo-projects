@@ -1,5 +1,5 @@
 [Ivy]
-14ED397D47F3083D 9.3.1 #module
+14ED397D47F3083D 9.4.0 #module
 >Proto >Proto Collection #zClass
 al0 Approval Big #zClass
 al0 B #cInfo
@@ -46,8 +46,6 @@ al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
-        <nameStyle>9,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -59,14 +57,7 @@ al0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Demonstrates the handling of a Business Error
-The error approval:declined  initiates an alternative flow</name>
-        <nameStyle>46,8
-9,7
-1,5,7,10
-18,3,7,9
-1,5,7,10
-29,7
-</nameStyle>
+The error `approval:declined ` initiates an alternative flow</name>
     </language>
 </elementInfo>
 ' #txt
@@ -90,8 +81,6 @@ al0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Request From</name>
-        <nameStyle>12,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -121,8 +110,6 @@ al0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>approve</name>
-        <nameStyle>7,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -148,8 +135,6 @@ al0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>request approved</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -171,8 +156,6 @@ al0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Declined</name>
-        <nameStyle>8,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -208,8 +191,6 @@ al0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>request declined</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

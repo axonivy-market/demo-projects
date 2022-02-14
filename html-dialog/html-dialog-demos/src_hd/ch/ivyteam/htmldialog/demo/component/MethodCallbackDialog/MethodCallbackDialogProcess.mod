@@ -1,5 +1,5 @@
 [Ivy]
-13EF083D130E971B 9.3.1 #module
+13EF083D130E971B 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ms0 MethodCallbackDialogProcess Big #zClass
 Ms0 RD #cInfo
@@ -29,8 +29,6 @@ Ms0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -68,8 +66,6 @@ Ms0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>load demo data:
 create persons</name>
-        <nameStyle>30,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -97,8 +93,6 @@ Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>componentButtonClicked</name>
-        <nameStyle>22,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -130,8 +124,6 @@ Ms0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>componentTableRowSelected</name>
-        <nameStyle>25,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

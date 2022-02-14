@@ -1,5 +1,5 @@
 [Ivy]
-13B69F43C5CEC0EC 9.3.1 #module
+13B69F43C5CEC0EC 9.4.0 #module
 >Proto >Proto Collection #zClass
 Cs0 ComponentDemoProcess Big #zClass
 Cs0 RD #cInfo
@@ -21,8 +21,6 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

@@ -1,5 +1,5 @@
 [Ivy]
-145D18298A3E81CF 9.3.1 #module
+145D18298A3E81CF 9.4.0 #module
 >Proto >Proto Collection #zClass
 It0 Input Big #zClass
 It0 B #cInfo
@@ -81,8 +81,6 @@ It0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>BeanValidationDemo.ivp</name>
-        <nameStyle>22,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -114,8 +112,6 @@ It0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>set content language
 for selenium test</name>
-        <nameStyle>38,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -142,8 +138,6 @@ It0 f67 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>MultiViewDemo.ivp</name>
-        <nameStyle>17,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -202,8 +196,6 @@ It0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>FormDemo.ivp</name>
-        <nameStyle>12,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

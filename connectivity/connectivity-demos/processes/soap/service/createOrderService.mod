@@ -1,5 +1,5 @@
 [Ivy]
-162492A1649E72DF 9.3.1 #module
+162492A1649E72DF 9.4.0 #module
 >Proto >Proto Collection #zClass
 ce0 createOrderService Big #zClass
 ce0 WS #cInfo
@@ -44,8 +44,6 @@ ce0 ws0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>call(Order)</name>
-        <nameStyle>11,5,7
-</nameStyle>
         <tool>
             <toolName>wsdl</toolName>
             <url>http://localhost:8081/designer/ws/ConnectivityDemos/162492A1649E72DF?WSDL</url>
@@ -73,8 +71,6 @@ ce0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>approve
 by boss</name>
-        <nameStyle>15,5
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -85,8 +81,6 @@ ce0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>price &gt; 10k</name>
-        <nameStyle>11,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -126,8 +120,6 @@ ce0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>approve
 by team</name>
-        <nameStyle>15,5
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -153,8 +145,6 @@ ce0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>Web Service Endpoint: 
 - allows third party system to start this process via SOAP 
 - for service definition WSDL, see link in engine ''Overview'' Web Browser.</name>
-        <nameStyle>156
-</nameStyle>
         <tool>
             <toolName>wsdl</toolName>
             <url>http://127.0.0.1:8081/designer/ws/ConnectivityDemos/162492A1649E72DF?WSDL</url>

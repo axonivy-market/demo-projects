@@ -1,5 +1,5 @@
 [Ivy]
-15254CF1CE56AE72 9.3.1 #module
+15254CF1CE56AE72 9.4.0 #module
 >Proto >Proto Collection #zClass
 Tr0 NewEmployee Big #zClass
 Tr0 B #cInfo
@@ -50,8 +50,6 @@ Tr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
-        <nameStyle>9,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -69,8 +67,6 @@ Tr0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Enter new employees
 personal data</name>
-        <nameStyle>33,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -80,8 +76,6 @@ Tr0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Needs parking lot?</name>
-        <nameStyle>18,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -94,8 +88,6 @@ Tr0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Send welcome mail</name>
-        <nameStyle>17,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -123,11 +115,6 @@ Tr0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>This example shows the use of a trigger step.
 If a new employee needs a parking lot the Parking Lot Reservation process is started by a trigger.</name>
-        <nameStyle>45,7
-1,7
-97,7
-1,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -144,8 +131,6 @@ Tr0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Reserve parking lot</name>
-        <nameStyle>19,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -172,8 +157,6 @@ Tr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Set Business Case Name</name>
-        <nameStyle>22
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

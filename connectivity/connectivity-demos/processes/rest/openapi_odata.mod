@@ -1,5 +1,5 @@
 [Ivy]
-15DEF1BE5B9E5A42 9.3.1 #module
+15DEF1BE5B9E5A42 9.4.0 #module
 >Proto >Proto Collection #zClass
 oa0 openapi_odata Big #zClass
 oa0 B #cInfo
@@ -44,8 +44,6 @@ oa0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>readCollection.ivp</name>
-        <nameStyle>18,5,7
-</nameStyle>
         <tool>
             <toolName>odata</toolName>
             <url>http://www.odata.org</url>
@@ -96,8 +94,6 @@ oa0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>readById.ivp</name>
-        <nameStyle>12,5,7
-</nameStyle>
         <tool>
             <toolName>odata</toolName>
             <url>http://www.odata.org</url>
@@ -132,15 +128,10 @@ oa0 f7 280 256 337 256 #arcP
 oa0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Demonstrates how to interact with OData services:
+        <name>**Demonstrates how to interact with OData services:**
 - OData is a simple REST protocol that is widely adopted by Microsoft services. http://www.odata.org
 - By converting the Odata$metadata service specification to an Open API 3.0 compatible form, these
 services can be called and data sent to an fro without the need to consult the technical specialities of ODATA.</name>
-        <nameStyle>49,5,0
-1,5
-80,5
-231,5
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

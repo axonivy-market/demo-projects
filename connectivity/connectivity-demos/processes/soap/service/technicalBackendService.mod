@@ -1,5 +1,5 @@
 [Ivy]
-162B95BB70C3178E 9.3.1 #module
+162B95BB70C3178E 9.4.0 #module
 >Proto >Proto Collection #zClass
 te0 technicalBackendService Big #zClass
 te0 WS #cInfo
@@ -75,8 +75,6 @@ te0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>simulates a slow service for the ''batchServiceClient''</name>
-        <nameStyle>53
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

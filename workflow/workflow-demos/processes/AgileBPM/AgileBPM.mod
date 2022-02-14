@@ -1,5 +1,5 @@
 [Ivy]
-15255056043EE914 9.3.1 #module
+15255056043EE914 9.4.0 #module
 >Proto >Proto Collection #zClass
 AF0 AgileBPM Big #zClass
 AF0 B #cInfo
@@ -129,8 +129,6 @@ AF0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
-        <nameStyle>9,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -148,8 +146,6 @@ AF0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>define ad hoc WF</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -161,8 +157,6 @@ AF0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Abort ?</name>
-        <nameStyle>7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -186,8 +180,6 @@ AF0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Aborted</name>
-        <nameStyle>7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -209,8 +201,6 @@ AF0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Finished</name>
-        <nameStyle>8
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -220,8 +210,6 @@ AF0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Self Service Process: Launch an ad-hoc Workflow based on a predefined flow pattern.</name>
-        <nameStyle>83,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -256,8 +244,6 @@ AF0 f10 64 33 480 30 -233 -8 #rect
 <elementInfo>
     <language>
         <name>more Tasks?</name>
-        <nameStyle>11
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -305,8 +291,6 @@ out.nextTask.setSubject(in.caseInfo.subject);
 <elementInfo>
     <language>
         <name>next Task</name>
-        <nameStyle>9
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -330,8 +314,6 @@ out.nextTask.setSubject(in.caseInfo.subject);
 <elementInfo>
     <language>
         <name>send Mail</name>
-        <nameStyle>9,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -340,8 +322,6 @@ out.nextTask.setSubject(in.caseInfo.subject);
 <elementInfo>
     <language>
         <name>Next actor = "SYSTEM"?</name>
-        <nameStyle>22,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -365,8 +345,6 @@ TaskA.TYPE=0' #txt
 <elementInfo>
     <language>
         <name>SYSTEM</name>
-        <nameStyle>6,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -413,8 +391,6 @@ ivy.log.debug("Email: {0}", ivy.case.getCreatorUser().getEMailAddress());' #txt
 <elementInfo>
     <language>
         <name>setup Mail</name>
-        <nameStyle>10
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -463,8 +439,6 @@ Ct0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>task list</name>
-        <nameStyle>9,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -485,8 +459,6 @@ Ct0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>taskForm</name>
-        <nameStyle>8,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -536,8 +508,6 @@ Ct0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>SYSTEM spilt</name>
-        <nameStyle>12,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -560,8 +530,6 @@ Ct0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>SYSTEM join</name>
-        <nameStyle>11,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -575,8 +543,6 @@ Ct0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>more?</name>
-        <nameStyle>5
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -608,8 +574,6 @@ Ct0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>more?</name>
-        <nameStyle>5
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -641,8 +605,6 @@ Ct0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>init</name>
-        <nameStyle>4
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -657,8 +619,6 @@ Ct0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>n-1</name>
-        <nameStyle>3,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -688,8 +648,6 @@ Ct0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>n+1</name>
-        <nameStyle>3,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

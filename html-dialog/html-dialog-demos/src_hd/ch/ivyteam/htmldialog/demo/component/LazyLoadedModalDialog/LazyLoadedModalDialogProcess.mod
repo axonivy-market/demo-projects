@@ -1,5 +1,5 @@
 [Ivy]
-15FB50542D237D38 9.3.1 #module
+15FB50542D237D38 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ls0 LazyLoadedModalDialogProcess Big #zClass
 Ls0 RD #cInfo
@@ -60,8 +60,6 @@ Ls0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>showAddress</name>
-        <nameStyle>11,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

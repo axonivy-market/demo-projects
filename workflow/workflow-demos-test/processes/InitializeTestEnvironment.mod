@@ -1,5 +1,5 @@
 [Ivy]
-1537FF3C3382D47F 9.3.1 #module
+1537FF3C3382D47F 9.4.0 #module
 >Proto >Proto Collection #zClass
 LO0 InitializeTestEnvironment Big #zClass
 LO0 B #cInfo
@@ -48,8 +48,6 @@ LO0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Initialize Test Environment</name>
-        <nameStyle>27,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -90,8 +88,6 @@ LO0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>clear repo</name>
-        <nameStyle>10
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

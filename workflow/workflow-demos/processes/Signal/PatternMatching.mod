@@ -1,5 +1,5 @@
 [Ivy]
-16AC5A6319BD9D86 9.3.1 #module
+16AC5A6319BD9D86 9.4.0 #module
 >Proto >Proto Collection #zClass
 Pg0 PatternMatching Big #zClass
 Pg0 B #cInfo
@@ -72,10 +72,7 @@ Pg0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>send signal
-airport:passenger:boarding:3424</name>
-        <nameStyle>12,5
-31,3
-</nameStyle>
+`airport:passenger:boarding:3424`</name>
     </language>
 </elementInfo>
 ' #txt

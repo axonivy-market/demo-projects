@@ -1,5 +1,5 @@
 [Ivy]
-16249376A44F1F8E 9.3.1 #module
+16249376A44F1F8E 9.4.0 #module
 >Proto >Proto Collection #zClass
 or0 order Big #zClass
 or0 B #cInfo
@@ -48,8 +48,6 @@ or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>approveOrder(Order,String)</name>
-        <nameStyle>26,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -70,8 +68,6 @@ or0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Approve Order</name>
-        <nameStyle>13,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -98,8 +94,6 @@ or0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>inform requester</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -132,8 +126,6 @@ or0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>can not be started with a start link by a human user,
 but will be triggered by WebService-Process via SOAP:
 see ''createOrderService''</name>
-        <nameStyle>132
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

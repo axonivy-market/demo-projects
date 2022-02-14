@@ -1,5 +1,5 @@
 [Ivy]
-157B33AB7587F1F1 9.3.1 #module
+157B33AB7587F1F1 9.4.0 #module
 >Proto >Proto Collection #zClass
 be0 batchService Big #zClass
 be0 B #cInfo
@@ -40,8 +40,6 @@ be0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>callLongRunningBatch.ivp</name>
-        <nameStyle>24,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -57,14 +55,9 @@ if the remote service does not answer within 30 seconds!
 This batch client overrides the default settings 
 and waits 35 seconds for a result 
 and 1 seconds for a connection by setting:
-jersey.config.client.readTimeout=35''000
-jersey.config.client.connectTimeout=1''000
+`jersey.config.client.readTimeout=35''000
+jersey.config.client.connectTimeout=1''000`
 </name>
-        <nameStyle>95,7
-129,7
-81,3,7
-1,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -77,8 +70,6 @@ be0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>call batch</name>
-        <nameStyle>10,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

@@ -1,5 +1,5 @@
 [Ivy]
-1500483191BD4791 9.3.1 #module
+1500483191BD4791 9.4.0 #module
 >Proto >Proto Collection #zClass
 hz0 Car Big #zClass
 hz0 B #cInfo
@@ -38,8 +38,6 @@ hz0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>remote booking</name>
-        <nameStyle>14,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

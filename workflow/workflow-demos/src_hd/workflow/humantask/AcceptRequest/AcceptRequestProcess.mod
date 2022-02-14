@@ -1,5 +1,5 @@
 [Ivy]
-15254DF1CAEC5132 9.3.1 #module
+15254DF1CAEC5132 9.4.0 #module
 >Proto >Proto Collection #zClass
 As0 AcceptRequestProcess Big #zClass
 As0 RD #cInfo
@@ -38,8 +38,6 @@ As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -58,8 +56,6 @@ As0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Init LogEntry</name>
-        <nameStyle>13,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -74,8 +70,6 @@ As0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>accept</name>
-        <nameStyle>6,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -88,8 +82,6 @@ As0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>decline</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -107,8 +99,6 @@ As0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Init LogEntry</name>
-        <nameStyle>13,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

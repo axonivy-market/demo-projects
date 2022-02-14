@@ -1,5 +1,5 @@
 [Ivy]
-150047A1589EB0D8 9.3.1 #module
+150047A1589EB0D8 9.4.0 #module
 >Proto >Proto Collection #zClass
 or0 Booking Big #zClass
 or0 B #cInfo
@@ -52,8 +52,6 @@ or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
-        <nameStyle>9,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -75,9 +73,6 @@ or0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>select
 flight &amp; car</name>
-        <nameStyle>7,7
-12,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -94,8 +89,6 @@ or0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>book flight</name>
-        <nameStyle>11,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -112,8 +105,6 @@ or0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>book car</name>
-        <nameStyle>8,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -128,8 +119,6 @@ or0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>failed</name>
-        <nameStyle>6,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -142,8 +131,6 @@ or0 Et1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>failed</name>
-        <nameStyle>6,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -153,8 +140,6 @@ or0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>booking failed</name>
-        <nameStyle>14,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -173,9 +158,6 @@ or0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>cancel flight
 booking</name>
-        <nameStyle>7,7
-14,7
-</nameStyle>
         <desc>compensate already booked flight</desc>
     </language>
 </elementInfo>
@@ -194,9 +176,6 @@ or0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>confirmation
 mail</name>
-        <nameStyle>13,7
-4,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -209,9 +188,6 @@ or0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>Demonstrates the handling of Business Errors
 The Happy Path is interrupted and 
  rollback activities are called. </name>
-        <nameStyle>45,8
-68,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -223,8 +199,6 @@ or0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>booking 
 successful</name>
-        <nameStyle>19,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

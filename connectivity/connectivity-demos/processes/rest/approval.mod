@@ -1,5 +1,5 @@
 [Ivy]
-1549FE9E911A1812 9.3.1 #module
+1549FE9E911A1812 9.4.0 #module
 >Proto >Proto Collection #zClass
 al0 approval Big #zClass
 al0 B #cInfo
@@ -47,8 +47,6 @@ al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>approve(Approval)</name>
-        <nameStyle>17,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -60,8 +58,6 @@ al0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>private start: only triggerable!</name>
-        <nameStyle>32,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -90,8 +86,6 @@ al0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>createApproval
 viaREST.ivp</name>
-        <nameStyle>26,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -111,8 +105,6 @@ al0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>approval dialog</name>
-        <nameStyle>15,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -126,9 +118,6 @@ al0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Start me to see how a REST client can 
 run a functional SubProcess.</name>
-        <nameStyle>39,7
-28,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -157,8 +146,6 @@ al0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>REST client:
 create approval</name>
-        <nameStyle>28,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

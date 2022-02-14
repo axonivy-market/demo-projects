@@ -1,5 +1,5 @@
 [Ivy]
-13D440EE6A78EF1E 9.3.1 #module
+13D440EE6A78EF1E 9.4.0 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadAdvancedModeDemoProcess Big #zClass
 Fs0 RD #cInfo
@@ -38,8 +38,6 @@ Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -59,8 +57,6 @@ Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>uploadFile(FileUploadEvent)</name>
-        <nameStyle>27,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -121,8 +117,6 @@ Fs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>store uploaded image in CMS</name>
-        <nameStyle>27,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -145,8 +139,6 @@ Fs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Display error</name>
-        <nameStyle>13,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

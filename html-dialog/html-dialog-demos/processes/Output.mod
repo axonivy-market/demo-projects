@@ -1,5 +1,5 @@
 [Ivy]
-145D180807C60B4B 9.3.1 #module
+145D180807C60B4B 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ot0 Output Big #zClass
 Ot0 B #cInfo
@@ -98,8 +98,6 @@ Ot0 f94 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>SelectManyCheckboxDemo</name>
-        <nameStyle>22,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -127,8 +125,6 @@ Ot0 f87 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>SelectOneMenuDemo</name>
-        <nameStyle>17,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -167,8 +163,6 @@ Ot0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>PickListDemo.ivp</name>
-        <nameStyle>16,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -231,8 +225,6 @@ Ot0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>OrderListDemo.ivp</name>
-        <nameStyle>17,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -307,8 +299,6 @@ Ot0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>EditableTableDemo.ivp</name>
-        <nameStyle>21,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -373,8 +363,6 @@ Ot0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>ChartDemo.ivp</name>
-        <nameStyle>13,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -404,8 +392,6 @@ Ot0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>AutoCompleteDemo.ivp</name>
-        <nameStyle>20,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -460,8 +446,6 @@ Ot0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>DataTableDemo.ivp</name>
-        <nameStyle>17,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -494,8 +478,6 @@ Ot0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>LazyLoadingDemo.ivp</name>
-        <nameStyle>19,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

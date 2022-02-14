@@ -1,5 +1,5 @@
 [Ivy]
-1500417E1DADBB7C 9.3.1 #module
+1500417E1DADBB7C 9.4.0 #module
 >Proto >Proto Collection #zClass
 fy0 Production Big #zClass
 fy0 B #cInfo
@@ -34,8 +34,6 @@ fy0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>produceShoes
 (String,Number)</name>
-        <nameStyle>28,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -45,21 +43,10 @@ fy0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Demonstrates how default ivy errors can be wrapped into a custom error
-- the remote factory can throw an ivy:error:webservice:exception   if the host is not available
+- the remote factory can throw an` ``ivy:error:webservice:exception``  ` if the host is not available
 - the attached Error Boundary Event catches any ivy webservice error
 - the Error End Event wraps the webservice error 
-   and throws it as factory:unavailable  which has a specific meaning for the business</name>
-        <nameStyle>70,8
-34,7
-1,3,7
-30,3,7
-2,3,7
-168,7
-1,3,7
-19,3,7
-2,3,7
-45,7
-</nameStyle>
+   and throws it as` ``factory:unavailable``  `which has a specific meaning for the business</name>
     </language>
 </elementInfo>
 ' #txt
@@ -78,8 +65,6 @@ fy0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>store in erp</name>
-        <nameStyle>12,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -101,9 +86,6 @@ fy0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>call remote
 factory</name>
-        <nameStyle>12,7
-7,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -123,8 +105,6 @@ fy0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>catch ws error</name>
-        <nameStyle>14,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -135,8 +115,6 @@ fy0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>factory:unavailable</name>
-        <nameStyle>19,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

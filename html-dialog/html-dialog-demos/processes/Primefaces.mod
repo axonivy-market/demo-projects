@@ -1,5 +1,5 @@
 [Ivy]
-145D18869AFC8A9A 9.3.1 #module
+145D18869AFC8A9A 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ps0 Primefaces Big #zClass
 Ps0 B #cInfo
@@ -41,8 +41,6 @@ Ps0 f72 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>primefaces.ivp</name>
-        <nameStyle>14,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

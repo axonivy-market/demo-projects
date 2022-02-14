@@ -1,5 +1,5 @@
 [Ivy]
-154616078A1D629D 9.3.1 #module
+154616078A1D629D 9.4.0 #module
 >Proto >Proto Collection #zClass
 ce0 callOwnPersonRestService Big #zClass
 ce0 B #cInfo
@@ -54,8 +54,6 @@ ce0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>listPersons.ivp</name>
-        <nameStyle>15,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -83,8 +81,6 @@ ce0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>personManager.ivp</name>
-        <nameStyle>17,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -103,9 +99,6 @@ ce0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Restful
 PersonManager</name>
-        <nameStyle>8,7
-13,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -119,9 +112,6 @@ ce0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Invoke our simple REST service
 and log it''s response</name>
-        <nameStyle>31,7
-21,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -131,9 +121,6 @@ ce0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Use all methods of our simple REST service
 as backend for a PersonManger dialog</name>
-        <nameStyle>43,7
-36,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -154,8 +141,6 @@ ce0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Call PersonService</name>
-        <nameStyle>18,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -186,8 +171,6 @@ ce0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>listServiceOptions.ivp</name>
-        <nameStyle>22,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -222,8 +205,6 @@ ce0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Exposes the REST API description 
 of my own PersonService implementation</name>
-        <nameStyle>72
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

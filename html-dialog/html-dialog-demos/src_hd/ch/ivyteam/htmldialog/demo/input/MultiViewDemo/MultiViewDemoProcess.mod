@@ -1,5 +1,5 @@
 [Ivy]
-13D0159BD5D40664 9.3.1 #module
+13D0159BD5D40664 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ms0 MultiViewDemoProcess Big #zClass
 Ms0 RD #cInfo
@@ -79,8 +79,6 @@ Ms0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Init_Start1</name>
-        <nameStyle>11,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -102,8 +100,6 @@ Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>nextView</name>
-        <nameStyle>8,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -137,8 +133,6 @@ Ms0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>stopProcessing</name>
-        <nameStyle>14,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -233,8 +227,6 @@ Ct0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Payment Kind?</name>
-        <nameStyle>13,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -279,8 +271,6 @@ Ct0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Current View?</name>
-        <nameStyle>13,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

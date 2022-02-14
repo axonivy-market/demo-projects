@@ -1,5 +1,5 @@
 [Ivy]
-152A20DB2213CEE4 9.3.1 #module
+152A20DB2213CEE4 9.4.0 #module
 >Proto >Proto Collection #zClass
 Rs0 RequestLogProcess Big #zClass
 Rs0 RD #cInfo
@@ -28,8 +28,6 @@ Rs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

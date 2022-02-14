@@ -1,5 +1,5 @@
 [Ivy]
-150850F930AF7EA6 9.3.1 #module
+150850F930AF7EA6 9.4.0 #module
 >Proto >Proto Collection #zClass
 Rs0 RequestApprovalProcess Big #zClass
 Rs0 RD #cInfo
@@ -69,8 +69,6 @@ Rs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>approval:declined</name>
-        <nameStyle>17,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

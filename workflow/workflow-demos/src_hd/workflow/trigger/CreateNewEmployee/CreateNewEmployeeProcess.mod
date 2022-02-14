@@ -1,5 +1,5 @@
 [Ivy]
-15254CFABE5EF2E5 9.3.1 #module
+15254CFABE5EF2E5 9.4.0 #module
 >Proto >Proto Collection #zClass
 Es0 CreateNewEmployeeProcess Big #zClass
 Es0 RD #cInfo
@@ -31,8 +31,6 @@ Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

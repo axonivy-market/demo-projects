@@ -1,5 +1,5 @@
 [Ivy]
-16150E1D07E8CA18 9.3.1 #module
+16150E1D07E8CA18 9.4.0 #module
 >Proto >Proto Collection #zClass
 pe0 personService Big #zClass
 pe0 WS #cInfo
@@ -45,8 +45,6 @@ pe0 ws0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>getPersons()</name>
-        <nameStyle>12,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -69,8 +67,6 @@ pe0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>addPerson(Person)</name>
-        <nameStyle>17,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -92,8 +88,6 @@ pe0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>deletePerson(Person)</name>
-        <nameStyle>20,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -160,8 +154,6 @@ pe0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>This web service provides an interface to create, load and delete people.
 All accesses are protected by HTTP_BASIC.</name>
-        <nameStyle>115,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

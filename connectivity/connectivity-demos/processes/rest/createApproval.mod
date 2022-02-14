@@ -1,5 +1,5 @@
 [Ivy]
-1549FEEB682EF158 9.3.1 #module
+1549FEEB682EF158 9.4.0 #module
 >Proto >Proto Collection #zClass
 cl0 createApproval Big #zClass
 cl0 B #cInfo
@@ -32,8 +32,6 @@ cl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>call(String,String)</name>
-        <nameStyle>19,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -53,8 +51,6 @@ cl0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>approve by
 boss</name>
-        <nameStyle>15,5
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -68,9 +64,6 @@ cl0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>creates a new task asynchronously.
 so we can finish the running REST request.</name>
-        <nameStyle>19,7
-58,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

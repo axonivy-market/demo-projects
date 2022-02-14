@@ -1,5 +1,5 @@
 [Ivy]
-1500482C30B7492E 9.3.1 #module
+1500482C30B7492E 9.4.0 #module
 >Proto >Proto Collection #zClass
 et0 Flight Big #zClass
 et0 B #cInfo
@@ -35,8 +35,6 @@ et0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>bookFlight
 (Flight,Customer)</name>
-        <nameStyle>28,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -49,8 +47,6 @@ et0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>register customer</name>
-        <nameStyle>17,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -64,8 +60,6 @@ et0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>book flight</name>
-        <nameStyle>11,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -82,8 +76,6 @@ et0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>ivy:error:webservice</name>
-        <nameStyle>20,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -94,8 +86,6 @@ et0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>booking:flight:failed</name>
-        <nameStyle>21,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -110,8 +100,6 @@ et0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>cancelFlight
 (Flight,Customer)</name>
-        <nameStyle>30,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -124,8 +112,6 @@ et0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>cancel flight</name>
-        <nameStyle>13,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
