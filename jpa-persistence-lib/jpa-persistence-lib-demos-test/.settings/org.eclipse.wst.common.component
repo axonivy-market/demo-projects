@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="jpa-persistence-lib-demos-test">
+        <wb-resource deploy-path="/" source-path="/webContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_hd"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_wsproc"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_dataClasses"/>
+        <property name="context-root" value="jpa-persistence-lib-demos-test"/>
+        <property name="java-output-path" value="/jpa-persistence-lib-demos-test/target/classes"/>
+    </wb-module>
+</project-modules>

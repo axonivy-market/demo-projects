@@ -1,0 +1,7 @@
+<ul>
+<li>Restriction to persons of the own department (except for role Administrator)</li>
+<li>Lazy Search with <code>SearchFilter</code>, i.e. search returns Tuples</li>
+<li>Validation with hard errors and additional warnings which can be applied with "save anyway"</li>
+<li>Class-level validation warning, if Ivy user name is not firstname.lastname</li>
+<li>Class-level validation error, if Ivy user name is not unique because it is used (including deleted users)</li>
+</ul>

@@ -1,0 +1,4 @@
+InfoData #class
+ch.ivyteam.demo.jpa.demos.components.Info #namespace
+value String #field
+value PERSISTENT #fieldModifier

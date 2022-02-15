@@ -1,0 +1,218 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core" 
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+	xmlns:ic="http://ivyteam.ch/jsf/component" 
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+	<ui:composition template="/layouts/basic-9.xhtml">
+		<ui:define name="title">#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/personSearch')}</ui:define>
+		<ui:define name="content">
+			
+			<style type="text/css">
+			.person_search_table tr td {
+				padding: 0.2em 0.2em 0.2em 0.2em !important;
+			}
+			
+			.right {
+				text-align: right;
+			}
+			
+			.left {
+				text-align: left;
+			}
+			</style>
+			
+			<h:form id="mainForm">
+				<p:growl id="growl" showDetail="true" sticky="true" escape="false"/>
+				
+				<div class="ui-g">
+					<div class="ui-g-12 ui-md-12 ui-lg-2 left">
+						<ic:ch.ivyteam.demo.jpa.demos.components.Info header="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/infoHeader')}" 
+								value="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/info')}" />
+					</div>
+					<div class="ui-g-12 ui-md-12 ui-lg-10 right">
+						<p:commandButton actionListener="#{logic.editPerson(null)}" update="personDialog" 
+								oncomplete="PF('personDialog').show()" icon="fa fa-plus" 
+								value="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/addPerson')}" />
+					</div>
+				</div>
+				<div class="ui-g">
+					<div class="ui-g-12 ui-md-12 ui-lg-12">
+						<p:dataTable id="personTable" value="#{data.personSearchBean.personSearchLazyDataModel}" var="personTuple"
+							rowKey="#{projectTuple.get(0)}" sortMode="multiple" paginator="true" rows="20" filterEvent="enter"
+							paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+							rowsPerPageTemplate="10,20,50" lazy="true" styleClass="person_search_table" reflow="true">
+							<f:facet name="header">
+								<p:commandButton id="toggler" type="button" value="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/columns')}"
+									style="float:right" icon="fa fa-align-justify" />
+								<p:columnToggler datasource="personTable" trigger="toggler" />
+							</f:facet>
+
+							<p:column headerText="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/ivyUserName')}" sortBy="#{IVY_USER_NAME}"
+								filterBy="#{IVY_USER_NAME}" style="width: 10em">
+								<h:outputText value="#{personTuple.get(1)}" />
+							</p:column>
+							<p:column headerText="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/firstName')}" sortBy="#{FIRST_NAME}"
+								filterBy="#{FIRST_NAME}">
+								<h:outputText value="#{personTuple.get(2)}" />
+							</p:column>
+							<p:column headerText="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/lastName')}" sortBy="#{LAST_NAME}" filterBy="#{LAST_NAME}"
+								style="width: 10em">
+								<h:outputText value="#{personTuple.get(3)}" />
+							</p:column>
+							<p:column headerText="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/birthdate')}" sortBy="#{BIRTHDATE}" filterBy="#{BIRTHDATE}">
+								<h:outputText value="#{personTuple.get(4)}" />
+								<f:facet name="filter">
+									<p:calendar pattern="dd.MM.yyyy" navigator="true" mindate="01.01.1800" timeInput="true">
+										<p:ajax event="dateSelect" oncomplete="PF('personTable').filter()" />
+									</p:calendar>
+								</f:facet>
+							</p:column>
+							<p:column headerText="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/maritalStatus')}" sortBy="#{MARITAL_STATUS}"
+								filterBy="#{MARITAL_STATUS}" visible="false">
+								<f:facet name="filter">
+									<p:selectOneMenu onchange="PF('personTable').filter()">
+										<f:selectItem itemValue="#{null}" itemLabel="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/all')}" />
+										<f:selectItems value="#{enums.maritalStatus}" var="m" itemLabel="#{m.getCmsName()}" itemValue="#{m}" />
+									</p:selectOneMenu>
+								</f:facet>
+								<h:outputText value="#{personTuple.get(5).getCmsName()}" />
+							</p:column>
+							<p:column headerText="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/maritalStatusLike')}" sortBy="#{MARITAL_STATUS_LIKE}"
+								filterBy="#{MARITAL_STATUS_LIKE}">
+								<h:outputText value="#{personTuple.get(6).getCmsName()}" />
+							</p:column>
+							<p:column headerText="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/salary')}" styleClass="right" sortBy="#{SALARY}" filterBy="#{SALARY}">
+								<h:outputText value="#{personTuple.get(7)}" />
+							</p:column>
+							<p:column headerText="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/departmentName')}" sortBy="#{DEPARTMENT_NAME}"
+								filterBy="#{DEPARTMENT_NAME}">
+								<h:outputText value="#{personTuple.get(8)}" />
+							</p:column>
+							<p:column headerText="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/syncToIvy')}" sortBy="#{SYNC_TO_IVY}"
+								filterBy="#{SYNC_TO_IVY}">
+								<f:facet name="filter">
+									<p:toggleSwitch onchange="PF('personTable').filter()"/>
+								</f:facet>
+								<h:panelGroup rendered="#{personTuple.get(9)}"><i class="fa fa-check" aria-hidden="true"/></h:panelGroup>
+							</p:column>
+							<p:column headerText="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/edit')}" style="width: 2em; text-align:center">
+								<p:commandLink actionListener="#{logic.editPerson(personTuple.get(0))}" update="#{p:component('personDialog')}" oncomplete="PF('personDialog').show()">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+								</p:commandLink>
+							</p:column>
+							<p:column headerText="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/delete')}" style="width: 2em; text-align:center">
+								<p:commandLink actionListener="#{logic.deletePerson(personTuple.get(0))}" update="mainForm">
+									<i class="fa fa-trash" aria-hidden="true"/>
+									<p:confirm header="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/deleteHeader')}"
+										message="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/deleteMessage', [personTuple.get(2), personTuple.get(3)])}"
+										icon="pi pi-exclamation-triangle" />
+								</p:commandLink>
+							</p:column>
+						</p:dataTable>
+					</div>
+				</div>
+				<div class="ui-g">
+					<div class="ui-g-12 ui-md-12 ui-lg-12" style="text-align: right">
+						<p:commandButton value="#{ivy.cms.co('/Labels/back')}" actionListener="#{logic.close}" />
+					</div>
+				</div>
+			</h:form>
+			
+			<p:dialog id="personDialog" widgetVar="personDialog" modal="true" closable="true" closeOnEscape="true" width="50%" 
+					appendTo="@(body)" dynamic="true" 
+					header="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/person')}">
+				<h:form>
+					<div class="ui-g">
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:outputLabel for="ivyUserName" value="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/ivyUserName')}"/>
+						</div>
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:inputText id="ivyUserName" value="#{data.personSearchBean.person.ivyUserName}"/>
+						</div>
+						<div class="ui-g-12 ui-md-6 ui-lg-2">
+						</div>
+						<div class="ui-g-12 ui-md-6 ui-lg-2">
+							<p:outputLabel for="syncToIvy" value="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/syncToIvy')}"/>
+						</div>
+						<div class="ui-g-12 ui-md-6 ui-lg-2">
+							<p:toggleSwitch id="syncToIvy" value="#{data.personSearchBean.person.syncToIvy}"/>
+						</div>
+					</div>
+					<div class="ui-g">
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:outputLabel for="firstName" value="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/firstName')}"/>
+						</div>
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:inputText id="firstName" value="#{data.personSearchBean.person.firstName}"/>
+						</div>
+					</div>
+					<div class="ui-g">
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:outputLabel for="lastName" value="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/lastName')}"/>
+						</div>
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:inputText id="lastName" value="#{data.personSearchBean.person.lastName}"/>
+						</div>
+					</div>
+					<div class="ui-g">
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:outputLabel for="birthdate" value="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/birthdate')}"/>
+						</div>
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:calendar id="birthdate" value="#{data.personSearchBean.person.birthdateAsJavaUtilDate}" pattern="dd.MM.yyyy" navigator="true" mindate="01.01.1800" timeInput="true"/>
+						</div>
+					</div>
+					<div class="ui-g">
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:outputLabel for="maritalStatus" value="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/maritalStatus')}"/>
+						</div>
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:selectOneMenu id="maritalStatus" value="#{data.personSearchBean.person.maritalStatus}" onchange="PF('personTable').filter()">
+								<f:selectItem itemValue="#{null}" itemLabel="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/all')}" />
+								<f:selectItems value="#{enums.maritalStatus}" var="m" itemLabel="#{m.getCmsName()}" itemValue="#{m}" />
+							</p:selectOneMenu>
+						</div>
+					</div>
+					<div class="ui-g">
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:outputLabel for="salary" value="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/salary')}"/>
+						</div>
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:inputNumber id="salary" value="#{data.personSearchBean.person.salary}"/>
+						</div>
+					</div>
+					<div class="ui-g">
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:outputLabel for="department" value="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/departmentName')}"/>
+						</div>
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:selectOneMenu id="department" value="#{data.personSearchBean.person.department}" converter="ivy.ListItem">
+								<f:selectItem itemValue="#{null}" itemLabel="" />
+								<f:selectItems value="#{data.personSearchBean.departments}" var="department" itemLabel="#{department.name}" itemValue="#{department}" />
+							</p:selectOneMenu>
+						</div>
+					</div>
+					<h:panelGroup id="dialogButtons">
+						<div class="ui-g">
+							<div class="ui-g-12 ui-md-6 ui-lg-6">
+							</div>
+							<div class="ui-g-12 ui-md-6 ui-lg-6 right">
+								<p:commandButton id="saveButton" value="#{data.personSearchBean.saveViolationMaxWarning ? ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/saveAnyway') : ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/PersonSearch/save')}" actionListener="#{logic.savePerson}" update="mainForm:personTable mainForm:growl dialogButtons"/>
+								<p:commandButton value="#{ivy.cms.co('/Labels/cancel')}" actionListener="#{logic.cancelPerson}" oncomplete="PF('personDialog').hide()" update="mainForm"/>
+							</div>
+						</div>
+					</h:panelGroup>
+				</h:form>
+			</p:dialog>
+			
+			<p:confirmDialog id="confirmDialog" global="true" showEffect="fade" hideEffect="fade">
+				<p:commandButton value="#{ivy.cms.co('/Labels/ok')}" type="button" styleClass="ui-confirmdialog-yes" icon="fa fa-check" />
+				<p:commandButton value="#{ivy.cms.co('/Labels/cancel')}" type="button" styleClass="ui-confirmdialog-no" icon="fa fa-times" />
+			</p:confirmDialog>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

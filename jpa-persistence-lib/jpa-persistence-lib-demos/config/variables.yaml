@@ -1,0 +1,6 @@
+Variables:
+  # Percentage to raise salaries.
+  com_axonivy_demo_jpa_demo_core_raise_salary_percentage: 5
+
+  # The probability (as a percentage going from 0-100) that a person receives a raise of their salary.
+  com_axonivy_demo_jpa_demo_core_raise_salary_probability: 5

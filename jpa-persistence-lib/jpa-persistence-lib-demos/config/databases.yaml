@@ -1,0 +1,6 @@
+Databases:
+  jpa-demo:
+    Url: jdbc:sqlserver://localhost;databaseName=jpa_demo
+    Driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    UserName: sa
+    Password: ${decrypt:\u0001\u008D\u0053\u006E\u001C\u00F6\u006E\u00ED\u00E8\u007F\u003C\u00B6\u000C\u00F5\u00E6\u0051}

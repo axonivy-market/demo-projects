@@ -1,0 +1,7 @@
+<ul>
+<li>Einschränkung auf Personen der eigenen Abteilung (ausgenommen Rolle Administrator)</li>
+<li>Lazy Search mittels <code>SearchFilter</code>, d.h. die Suche liefert Tuples</li>
+<li>Validierung mit harten Fehlern und zusätzlich Warnungen, die mit "Trotzdem speichern" übernommen werden können</li>
+<li>Class-level Validierungswarnung falls Ivy user name nicht firstname.lastname entspricht</li>
+<li>Class-level Validierungsfehler falls Ivy user name nicht eindeutig ist, weil er schon benutzt wird (inkl. gelöschte Benutzer)</li>
+</ul>

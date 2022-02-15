@@ -1,0 +1,8 @@
+DepartmentSearchData #class
+ch.ivyteam.demo.jpa.demos.DepartmentSearch #namespace
+departmentId String #field
+departmentId PERSISTENT #fieldModifier
+secondSave Boolean #field
+secondSave PERSISTENT #fieldModifier
+departmentSearchBean ch.ivyteam.demo.jpa.demos.ui.DepartmentSearchBean #field
+departmentSearchBean PERSISTENT #fieldModifier

@@ -1,0 +1,6 @@
+<ul>
+<li>Also showing logically deleted departments</li>
+<li>Non-Lazy search with <code>findAll()</code>, i.e. search returns Department objects</li>
+<li>Validation</li>
+<li>Intentional possibility to see fatal error (caused by exception) when trying to save a new department with an already existing name</li>
+</ul>

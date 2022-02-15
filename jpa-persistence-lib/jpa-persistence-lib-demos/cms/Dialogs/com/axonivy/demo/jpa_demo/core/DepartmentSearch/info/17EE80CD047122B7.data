@@ -1,0 +1,6 @@
+<ul>
+<li>Zeigt auch logisch gelöschte Abteilungen</li>
+<li>Non-Lazy Suche mit <code>findAll()</code>, d.h. die Suche liefert Department Objekte</li>
+<li>Validierung</li>
+<li>Beabsichtigte Möglichkeit einen Fatal-error zu erzeugen (aufgrund einer Exception), indem eine neue Abteilung mit einerm bereits existierenden Namen gespeichert wird</li>
+</ul>

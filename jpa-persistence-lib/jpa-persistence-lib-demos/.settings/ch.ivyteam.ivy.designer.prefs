@@ -1,0 +1,4 @@
+ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=ch.ivyteam.demo.jpa.demos.Data
+ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=ch.ivyteam.demo.jpa.demos
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=93900
+eclipse.preferences.version=1

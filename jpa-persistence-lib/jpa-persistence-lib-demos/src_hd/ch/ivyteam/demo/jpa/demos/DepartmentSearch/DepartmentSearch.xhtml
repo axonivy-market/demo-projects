@@ -1,0 +1,101 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core" 
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+	xmlns:ic="http://ivyteam.ch/jsf/component" 
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+	<ui:composition template="/layouts/basic-9.xhtml">
+		<ui:define name="title">#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/DepartmentSearch/departmentSearch')}</ui:define>
+		<ui:define name="content">
+			
+			<style type="text/css">
+			.department_search_table tr td {
+				padding: 0.2em 0.2em 0.2em 0.2em !important;
+			}
+			
+			.right {
+				text-align: right;
+			}
+			</style>
+			
+			<h:form id="mainForm">
+				<p:growl id="growl" showDetail="true" sticky="true" escape="false"/>
+
+				<div class="ui-g">
+					<div class="ui-g-12 ui-md-12 ui-lg-2 left">
+						<ic:ch.ivyteam.demo.jpa.demos.components.Info header="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/DepartmentSearch/infoHeader')}" 
+								value="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/DepartmentSearch/info')}" />
+					</div>
+					<div class="ui-g-12 ui-md-12 ui-lg-10 right">
+						<p:commandButton actionListener="#{logic.editDepartment(null)}" update="departmentDialog" 
+								oncomplete="PF('departmentDialog').show()" icon="fa fa-plus" 
+								value="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/DepartmentSearch/addDepartment')}" />
+					</div>
+				</div>
+				<div class="ui-g">
+					<div class="ui-g-12 ui-md-12 ui-lg-12">
+						<p:dataTable id="departmentTable" value="#{data.departmentSearchBean.departments}" var="department" rowKey="#{department.id}"
+								sortMode="multiple" paginator="true" rows="20" filterEvent="enter"
+								paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+								rowsPerPageTemplate="10,20,50" styleClass="department_search_table" reflow="true">
+							<p:column headerText="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/DepartmentSearch/name')}" style="width: 40em">
+								<h:outputText value="#{department.name}" styleClass="#{department.deleted ? 'deleted' : ''}"/>
+							</p:column>
+							<p:column headerText="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/DepartmentSearch/edit')}" style="width: 2em; text-align:center">
+								<p:commandLink actionListener="#{logic.editDepartment(department.id)}" update="departmentDialog" oncomplete="PF('departmentDialog').show()">
+									<i class="fa fa-pencil" aria-hidden="true" />
+								</p:commandLink>
+							</p:column>
+							<p:column headerText="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/DepartmentSearch/delete')}" style="width: 2em; text-align:center">
+								<p:commandLink actionListener="#{logic.deleteDepartment(department.id)}" update="mainForm" rendered="#{!department.deleted}">
+									<i class="fa fa-trash" aria-hidden="true" />
+									<p:confirm header="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/DepartmentSearch/deleteHeader')}"
+										message="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/DepartmentSearch/deleteMessage', [department.name])}"
+										icon="fa fa-exclamation-triangle" />
+								</p:commandLink>
+							</p:column>
+						</p:dataTable>
+					</div>
+				</div>
+				<div class="ui-g">
+					<div class="ui-g-12 ui-md-12 ui-lg-12" style="text-align: right">
+						<p:commandButton value="#{ivy.cms.co('/Labels/back')}" actionListener="#{logic.close}" />
+					</div>
+				</div>
+			</h:form>
+			
+			<p:dialog id="departmentDialog" widgetVar="departmentDialog" modal="true" closable="true" closeOnEscape="true" 
+					width="50%" appendTo="@(body)" dynamic="true" 
+					header="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/DepartmentSearch/department')}">
+				<h:form>
+					<div class="ui-g">
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:outputLabel for="departmentName" value="#{ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/DepartmentSearch/name')}"/>
+						</div>
+						<div class="ui-g-12 ui-md-6 ui-lg-3">
+							<p:inputText id="departmentName" value="#{data.departmentSearchBean.department.name}"/>
+						</div>
+					</div>
+					<h:panelGroup id="dialogButtons">
+						<div class="ui-g">
+							<div class="ui-g-12 ui-md-6 ui-lg-6">
+							</div>
+							<div class="ui-g-12 ui-md-6 ui-lg-6 right">
+								<p:commandButton id="saveButton" value="#{data.departmentSearchBean.saveViolationMaxWarning ? ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/DepartmentSearch/saveAnyway') : ivy.cms.co('/Dialogs/com/axonivy/demo/jpa_demo/core/DepartmentSearch/save')}" actionListener="#{logic.saveDepartment}" update="mainForm:departmentTable mainForm:growl dialogButtons"/>
+								<p:commandButton value="#{ivy.cms.co('/Labels/cancel')}" actionListener="#{logic.cancelDepartment}" oncomplete="PF('departmentDialog').hide()" update="mainForm"/>
+							</div>
+						</div>
+					</h:panelGroup>
+				</h:form>
+			</p:dialog>
+			
+			<p:confirmDialog id="confirmDialog" global="true" showEffect="fade" hideEffect="fade">
+				<p:commandButton value="#{ivy.cms.co('/Labels/ok')}" type="button" styleClass="ui-confirmdialog-yes" icon="fa fa-check" />
+				<p:commandButton value="#{ivy.cms.co('/Labels/cancel')}" type="button" styleClass="ui-confirmdialog-no" icon="fa fa-times" />
+			</p:confirmDialog>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
