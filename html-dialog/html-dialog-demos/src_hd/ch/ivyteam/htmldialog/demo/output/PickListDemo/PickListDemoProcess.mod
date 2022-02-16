@@ -1,5 +1,5 @@
 [Ivy]
-139E3427D3640FBC 9.3.1 #module
+139E3427D3640FBC 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ps0 PickListDemoProcess Big #zClass
 Ps0 RD #cInfo
@@ -44,8 +44,6 @@ Ps0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>initPerson()</name>
-        <nameStyle>12,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -61,8 +59,6 @@ Ps0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>send</name>
-        <nameStyle>4,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

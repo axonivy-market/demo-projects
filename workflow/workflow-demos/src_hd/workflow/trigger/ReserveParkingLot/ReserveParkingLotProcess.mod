@@ -1,5 +1,5 @@
 [Ivy]
-15254CFDBF077CCB 9.3.1 #module
+15254CFDBF077CCB 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ps0 ReserveParkingLotProcess Big #zClass
 Ps0 RD #cInfo
@@ -32,8 +32,6 @@ Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(ParkingLotReservationData)</name>
-        <nameStyle>32,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -64,8 +62,6 @@ Ps0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>init</name>
-        <nameStyle>4,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

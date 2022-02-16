@@ -1,5 +1,5 @@
 [Ivy]
-1468B144151F2C82 9.3.1 #module
+1468B144151F2C82 9.4.0 #module
 >Proto >Proto Collection #zClass
 As0 AutoCompleteDemoProcess Big #zClass
 As0 RD #cInfo
@@ -81,8 +81,6 @@ As0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>find users</name>
-        <nameStyle>10,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -101,8 +99,6 @@ As0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>send</name>
-        <nameStyle>4,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -135,8 +131,6 @@ As0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>show message of
 selected users</name>
-        <nameStyle>30,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -156,8 +150,6 @@ As0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>get and set 
 selected user</name>
-        <nameStyle>26,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

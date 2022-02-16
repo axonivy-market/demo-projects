@@ -1,5 +1,5 @@
 [Ivy]
-171E51B493DDB838 9.3.1 #module
+171E51B493DDB838 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ey0 Expiry Big #zClass
 Ey0 B #cInfo
@@ -129,8 +129,6 @@ Ey0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>This example shows how you can set an expiry on a task.
 After the expire the task has a higher priority.</name>
-        <nameStyle>104,5
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -140,8 +138,6 @@ Ey0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>This example shows how you can set an expiry on a task.
 After the expiry the task is reassigned to the role "Manager".</name>
-        <nameStyle>118,5
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -152,8 +148,6 @@ Ey0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>This example shows how you can set an expiry on a task.
 After the expiry the task is destroyed. 
 Instead a new system task is created starting at the error start ''taskExpired''.</name>
-        <nameStyle>176,5
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

@@ -1,5 +1,5 @@
 [Ivy]
-161AE4E4EC67C8FD 9.3.1 #module
+161AE4E4EC67C8FD 9.4.0 #module
 >Proto >Proto Collection #zClass
 be0 batchServiceClient Big #zClass
 be0 B #cInfo
@@ -43,8 +43,6 @@ be0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>callLongRunning
 BatchOperation.ivp</name>
-        <nameStyle>34,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -81,28 +79,21 @@ be0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>SOAP requests are aborted by default 
-if the remote service does not answer within 60 seconds!
+if the remote service does not answer within `60` seconds!
 
 This batch client overrides the default settings with properties:
+```
 // waits 70 seconds for a result 
 javax.xml.ws.client.receiveTimeout=70''000
 // wait 1 second for a connection time out
 javax.xml.ws.client.connectionTimeout=1''000
+```
 </name>
-        <nameStyle>83,7
-2,3,7
-1,3,7
-110,7
-42,3,7
-42,4,7
-44,3,7
-1,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-be0 f5 104 162 400 140 -197 -67 #rect
-be0 f6 304 162 304 102 #arcP
+be0 f5 104 146 400 172 -197 -82 #rect
+be0 f6 304 146 304 102 #arcP
 be0 f6 0 0.37994037265054 0 0 #arcLabel
 >Proto be0 .type com.axonivy.connectivity.soap.BatchServiceClientData #txt
 >Proto be0 .processKind NORMAL #txt

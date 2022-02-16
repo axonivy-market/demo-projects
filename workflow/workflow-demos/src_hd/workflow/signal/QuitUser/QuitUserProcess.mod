@@ -1,5 +1,5 @@
 [Ivy]
-151CA244D672B3A4 9.3.1 #module
+151CA244D672B3A4 9.4.0 #module
 >Proto >Proto Collection #zClass
 Qs0 QuitUserProcess Big #zClass
 Qs0 RD #cInfo
@@ -32,8 +32,6 @@ Qs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -66,8 +64,6 @@ Qs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>find active cases</name>
-        <nameStyle>17
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

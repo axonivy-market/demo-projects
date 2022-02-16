@@ -1,5 +1,5 @@
 [Ivy]
-15A89953E2D3784F 9.3.1 #module
+15A89953E2D3784F 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ik0 InternalSolvencyCheck Big #zClass
 Ik0 B #cInfo
@@ -38,8 +38,6 @@ Ik0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
-        <nameStyle>9,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -65,8 +63,6 @@ Ik0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Approvals
 evaluation</name>
-        <nameStyle>20,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

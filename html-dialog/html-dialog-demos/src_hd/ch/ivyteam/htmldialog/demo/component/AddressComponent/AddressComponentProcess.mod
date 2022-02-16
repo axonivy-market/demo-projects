@@ -1,5 +1,5 @@
 [Ivy]
-13B69F6D60FCC080 9.3.1 #module
+13B69F6D60FCC080 9.4.0 #module
 >Proto >Proto Collection #zClass
 As0 AddressComponentProcess Big #zClass
 As0 RD #cInfo
@@ -25,8 +25,6 @@ As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(Address)</name>
-        <nameStyle>14,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

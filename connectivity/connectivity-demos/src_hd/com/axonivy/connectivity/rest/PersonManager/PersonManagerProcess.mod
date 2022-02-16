@@ -1,5 +1,5 @@
 [Ivy]
-15470DE765DF45FC 9.3.1 #module
+15470DE765DF45FC 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ps0 PersonManagerProcess Big #zClass
 Ps0 RD #cInfo
@@ -50,8 +50,6 @@ Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -83,8 +81,6 @@ Ps0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>edit(Person)</name>
-        <nameStyle>12,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -98,8 +94,6 @@ Ps0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>add</name>
-        <nameStyle>3,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -112,8 +106,6 @@ Ps0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>update</name>
-        <nameStyle>6,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -127,8 +119,6 @@ Ps0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>update()</name>
-        <nameStyle>8,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -144,8 +134,6 @@ Ps0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>delete(UUID)</name>
-        <nameStyle>12,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

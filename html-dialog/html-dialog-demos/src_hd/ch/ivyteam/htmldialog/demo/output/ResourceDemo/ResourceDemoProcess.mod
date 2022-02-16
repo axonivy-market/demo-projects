@@ -1,5 +1,5 @@
 [Ivy]
-13A0168D09848672 9.3.1 #module
+13A0168D09848672 9.4.0 #module
 >Proto >Proto Collection #zClass
 Rs0 ResourceDemoProcess Big #zClass
 Rs0 RD #cInfo
@@ -52,8 +52,6 @@ Rs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>getStreamedImage()</name>
-        <nameStyle>18,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

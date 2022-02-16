@@ -1,5 +1,5 @@
 [Ivy]
-139D96A5734DE195 9.3.1 #module
+139D96A5734DE195 9.4.0 #module
 >Proto >Proto Collection #zClass
 Es0 EditableTableDemoProcess Big #zClass
 Es0 RD #cInfo
@@ -73,8 +73,6 @@ Es0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>send</name>
-        <nameStyle>4,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -87,8 +85,6 @@ Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>close</name>
-        <nameStyle>5,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -129,8 +125,6 @@ Es0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>delete(Record)</name>
-        <nameStyle>14,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -143,8 +137,6 @@ Es0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Delete record from recordset</name>
-        <nameStyle>28,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -163,8 +155,6 @@ Es0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>add</name>
-        <nameStyle>3,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -179,8 +169,6 @@ Es0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Add new record to recordset</name>
-        <nameStyle>27,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

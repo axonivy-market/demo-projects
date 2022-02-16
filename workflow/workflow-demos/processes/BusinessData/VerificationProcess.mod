@@ -1,5 +1,5 @@
 [Ivy]
-156E5D9AA7D41BAA 9.3.1 #module
+156E5D9AA7D41BAA 9.4.0 #module
 >Proto >Proto Collection #zClass
 Vn0 VerificationProcess Big #zClass
 Vn0 B #cInfo
@@ -22,7 +22,7 @@ Vn0 @TkArc f22 '' #zField
 Vn0 @InfoButton f0 '' #zField
 Vn0 @PushWFArc f2 '' #zField
 >Proto Vn0 Vn0 VerificationProcess #zField
-Vn0 f1 352 198 176 143 #arcP
+Vn0 f1 352 206 176 143 #arcP
 Vn0 f1 1 176 388 #addKink
 Vn0 f1 0 0.664795927536001 0 0 #arcLabel
 Vn0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -34,36 +34,29 @@ The Business Data is loaded from the repo with the stored ID if it is used in th
 Otherwise the Business Data will references a different instance after the save point in the Task Switch
 
 E.g. the following script exectued after a Task Switch works as expected:
+```
   // load the related Business Data with id
   out.myBusinessData = ivy.repo.find(in.myId, MyBusinessData.class);
   // modify Business Data
   out.myBusinessData.setTitle("Changed");
   // update the loaded Business Data
   ivy.repo.update(out.myBusinessData);
+```
 
 E.g. the following script exectued after a Task Switch may  not work as expected, because 
 the Business Data from the process data is used, without loading it before:
+```
   // use the stored Business Data in the process data
   out.myBusinessData = in.myBusinessData;
   // modify Business Data
   out.myBusinessData.setTitle("Changed");
   // will store a new entry of the Business Data and will NOT update it
   ivy.repo.update(out.myBusinessData);
-  
-</name>
-        <nameStyle>327,7
-2,7
-73,5,7
-1,7
-44,3,7
-213,3,7
-168,5,7
-278,3,7
-</nameStyle>
+```</name>
     </language>
 </elementInfo>
 ' #txt
-Vn0 f30 64 198 576 396 -279 -190 #rect
+Vn0 f30 24 206 656 380 -323 -187 #rect
 Vn0 f21 dialogId workflow.businessdata.BusinessDataDossierModifier #txt
 Vn0 f21 startMethod start(String,String) #txt
 Vn0 f21 requestActionDecl '<String businessDataId,String title> param;' #txt
@@ -79,8 +72,6 @@ Vn0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>dossier
 verification</name>
-        <nameStyle>20,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -101,8 +92,6 @@ Vn0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>verification task</name>
-        <nameStyle>17,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -131,8 +120,6 @@ Vn0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>verifyDossier.ivp</name>
-        <nameStyle>17,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -148,15 +135,11 @@ Vn0 f22 95 128 161 128 #arcP
 Vn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>This use case highlights the handling of Business Data over a Task Switch.
-</name>
-        <nameStyle>74,7
-1,3,7
-</nameStyle>
+        <name>This use case highlights the handling of Business Data over a Task Switch.</name>
     </language>
 </elementInfo>
 ' #txt
-Vn0 f0 65 24 416 44 -205 -16 #rect
+Vn0 f0 33 24 480 44 -234 -7 #rect
 Vn0 f2 expr out #txt
 Vn0 f2 344 128 425 128 #arcP
 >Proto Vn0 .type workflow.businessdata.Data #txt

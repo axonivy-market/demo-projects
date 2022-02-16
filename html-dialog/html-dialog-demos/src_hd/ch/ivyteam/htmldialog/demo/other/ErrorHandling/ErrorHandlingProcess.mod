@@ -1,5 +1,5 @@
 [Ivy]
-15E519280889B152 9.3.1 #module
+15E519280889B152 9.4.0 #module
 >Proto >Proto Collection #zClass
 Es0 ErrorHandlingProcess Big #zClass
 Es0 RD #cInfo
@@ -62,8 +62,6 @@ Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>expireMySession</name>
-        <nameStyle>15,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -76,8 +74,6 @@ Es0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>throw exception</name>
-        <nameStyle>15,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -96,8 +92,6 @@ Es0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>expire this session</name>
-        <nameStyle>19,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

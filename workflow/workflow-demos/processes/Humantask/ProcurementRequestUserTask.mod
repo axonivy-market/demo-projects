@@ -1,5 +1,5 @@
 [Ivy]
-15254DCE818AD7A2 9.3.1 #module
+15254DCE818AD7A2 9.4.0 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
 Pt0 B #cInfo
@@ -52,8 +52,6 @@ Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
-        <nameStyle>9,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -73,8 +71,6 @@ Pt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Enter Request</name>
-        <nameStyle>13,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -105,8 +101,6 @@ Pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Verify Request</name>
-        <nameStyle>14,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -141,8 +135,6 @@ Pt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Accept Request</name>
-        <nameStyle>14,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -155,8 +147,6 @@ Pt0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Notify Requester</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -172,8 +162,6 @@ Pt0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Verified?</name>
-        <nameStyle>9,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -215,8 +203,6 @@ Pt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Combines a Task Switch Event
 and a User Dialog Step.</name>
-        <nameStyle>52,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -228,8 +214,6 @@ Pt0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>This example shows the usage of a User Task Activity.
 A procurement request is made by an employee, verified by the manager and accepted by an executive.
 The User Task step is used instead of a Task Switch and a User Dialog step.</name>
-        <nameStyle>229,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

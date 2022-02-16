@@ -1,5 +1,5 @@
 [Ivy]
-156DF88423ED9C68 9.3.1 #module
+156DF88423ED9C68 9.4.0 #module
 >Proto >Proto Collection #zClass
 Cs0 CreateAddressProcess Big #zClass
 Cs0 RD #cInfo
@@ -45,8 +45,6 @@ Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -59,8 +57,6 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Save Address
 into Repository</name>
-        <nameStyle>28
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -76,8 +72,6 @@ Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Init Address</name>
-        <nameStyle>12
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

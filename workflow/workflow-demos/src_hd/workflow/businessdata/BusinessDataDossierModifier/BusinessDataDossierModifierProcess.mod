@@ -1,5 +1,5 @@
 [Ivy]
-155BB4D0A6771B1B 9.3.1 #module
+155BB4D0A6771B1B 9.4.0 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierModifierProcess Big #zClass
 Bs0 RD #cInfo
@@ -45,8 +45,6 @@ Bs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>create new?</name>
-        <nameStyle>11,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -58,8 +56,6 @@ Bs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>save</name>
-        <nameStyle>4,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -75,8 +71,6 @@ Bs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>create</name>
-        <nameStyle>6,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -100,8 +94,6 @@ Bs0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>load</name>
-        <nameStyle>4,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -126,8 +118,6 @@ Bs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(String,String)</name>
-        <nameStyle>20,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

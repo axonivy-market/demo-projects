@@ -1,5 +1,5 @@
 [Ivy]
-1576AF3D55F99A36 9.3.1 #module
+1576AF3D55F99A36 9.4.0 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierLazyBrowserProcess Big #zClass
 Bs0 RD #cInfo
@@ -43,8 +43,6 @@ Bs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

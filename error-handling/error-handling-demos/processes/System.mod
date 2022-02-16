@@ -1,5 +1,5 @@
 [Ivy]
-150149331438F9EA 9.3.1 #module
+150149331438F9EA 9.4.0 #module
 >Proto >Proto Collection #zClass
 tl0 System Big #zClass
 tl0 B #cInfo
@@ -36,8 +36,6 @@ tl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>throwSystemError.ivp</name>
-        <nameStyle>20,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -60,8 +58,6 @@ tl0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Throws system error</name>
-        <nameStyle>19
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -74,29 +70,13 @@ tl0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Usage of Global Error Process
-This DB Step throws ivy:error:database  system error
-The system errors ivy:error:* are handled in
-a Global Error Process (ErrorHandler)</name>
-        <nameStyle>29,8
-20
-19,3
-32
-1,3,9
-11,3,9
-1,1,3,9
-3
-1,1
-7
-1,1
-26
-1,1
-12,1
-1,1
-</nameStyle>
+This DB Step throws `ivy:error:database`  system error
+The system errors `ivy:error:*` are handled in
+a Global Error Process *(ErrorHandler)*</name>
     </language>
 </elementInfo>
 ' #txt
-tl0 f5 48 26 336 76 -160 -35 #rect
+tl0 f5 40 34 352 60 -171 -30 #rect
 tl0 f5 -1|-1|-65536 #nodeStyle
 >Proto tl0 .type error.handling.demo.technicalData #txt
 >Proto tl0 .processKind NORMAL #txt

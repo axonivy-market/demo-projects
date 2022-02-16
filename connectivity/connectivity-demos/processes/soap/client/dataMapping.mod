@@ -1,5 +1,5 @@
 [Ivy]
-1605A38503199ADB 9.3.1 #module
+1605A38503199ADB 9.4.0 #module
 >Proto >Proto Collection #zClass
 dg0 dataMapping Big #zClass
 dg0 B #cInfo
@@ -47,8 +47,6 @@ dg0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>resolveToCache.ivp</name>
-        <nameStyle>18,5,7
-</nameStyle>
         <desc>Caches the result of a remote WebService invocation.
 Only the first execution will fire an HTTP request over the network. 
 Follow up executions will simply consume the first result from the cache.</desc>
@@ -113,8 +111,6 @@ dg0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>mapComplexData.ivp</name>
-        <nameStyle>18,5,7
-</nameStyle>
         <desc>sends and consumes complex objects:
 - for demo reasons, the remote service is also provided with axon.ivy tooling.</desc>
     </language>

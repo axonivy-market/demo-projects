@@ -1,5 +1,5 @@
 [Ivy]
-15254CF47A16DEA1 9.3.1 #module
+15254CF47A16DEA1 9.4.0 #module
 >Proto >Proto Collection #zClass
 Pn0 ParkingLotReservation Big #zClass
 Pn0 B #cInfo
@@ -44,8 +44,6 @@ Pn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(NewEmployeeData)</name>
-        <nameStyle>22,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -65,8 +63,6 @@ Pn0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Reserve parking lot</name>
-        <nameStyle>19,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -81,8 +77,6 @@ Pn0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Inform employee</name>
-        <nameStyle>15,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -96,8 +90,6 @@ Pn0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>This Request Start is defined to be 
 startable by a trigger step.</name>
-        <nameStyle>65,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -108,8 +100,6 @@ Pn0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>This process can be started by a trigger step. It is part of the Trigger demo case.</name>
-        <nameStyle>83,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

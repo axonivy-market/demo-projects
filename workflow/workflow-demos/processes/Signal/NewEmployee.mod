@@ -1,5 +1,5 @@
 [Ivy]
-151CA0D8CBDD2DEC 9.3.1 #module
+151CA0D8CBDD2DEC 9.4.0 #module
 >Proto >Proto Collection #zClass
 cr0 NewEmployee Big #zClass
 cr0 B #cInfo
@@ -43,11 +43,11 @@ cr0 @PushWFArc f35 '' #zField
 cr0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>This examples illustrates use cases for Signals. 
+        <name>**This examples illustrates use cases for Signals. **
 * Several concurrent process are started by a signal.
 * Signal Boundary Events are used to interrupt (destroy) User Tasks.
 
-The example consists of two main processes:
+**The example consists of two main processes:**
 The CreateUser process starts concurrent processes with the signal ''user:created''. 
 The user object is added as payload to the signal. 
 
@@ -61,13 +61,6 @@ Start at least one CreateUser process. The new user will have an auto created us
 After the completion of the CreateUser main process, you start a QuitUser process.
 If you enter a user key of one of the previously started CreateUser business cases, any involved 
 and not completed User Task is destroyed. </name>
-        <nameStyle>49,0,7
-124,7
-1,7
-43,0,7
-301,7
-360,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -96,8 +89,6 @@ cr0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Set up office key</name>
-        <nameStyle>17,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -110,8 +101,6 @@ cr0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>log event data</name>
-        <nameStyle>14,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -130,8 +119,6 @@ cr0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>user:created</name>
-        <nameStyle>12,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -164,8 +151,6 @@ cr0 St1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>admin:quit:[userKey]</name>
-        <nameStyle>20,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -194,8 +179,6 @@ cr0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Set up workstation</name>
-        <nameStyle>18,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -207,8 +190,6 @@ cr0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>log event data</name>
-        <nameStyle>14,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -227,8 +208,6 @@ cr0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>user:created</name>
-        <nameStyle>12,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -262,8 +241,6 @@ cr0 St0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>admin:quit:[userKey]</name>
-        <nameStyle>20,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -283,8 +260,6 @@ cr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Add user data</name>
-        <nameStyle>13,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -308,8 +283,6 @@ cr0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Send Signal
 ''user:created''</name>
-        <nameStyle>26,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -339,8 +312,6 @@ cr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>addUser.ivp</name>
-        <nameStyle>11,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

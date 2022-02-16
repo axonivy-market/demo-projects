@@ -1,5 +1,5 @@
 [Ivy]
-139D3B8894867715 9.3.1 #module
+139D3B8894867715 9.4.0 #module
 >Proto >Proto Collection #zClass
 Os0 OrderListDemoProcess Big #zClass
 Os0 RD #cInfo
@@ -29,8 +29,6 @@ Os0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -45,8 +43,6 @@ Os0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>send</name>
-        <nameStyle>4,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -61,8 +57,6 @@ Os0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>close</name>
-        <nameStyle>5,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

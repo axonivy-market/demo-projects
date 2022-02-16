@@ -1,5 +1,5 @@
 [Ivy]
-15DC0CCB70274584 9.3.1 #module
+15DC0CCB70274584 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ma0 MigrateData Big #zClass
 Ma0 B #cInfo
@@ -42,8 +42,6 @@ Ma0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>migrate.ivp</name>
-        <nameStyle>11,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -59,8 +57,6 @@ Ma0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>migrate data</name>
-        <nameStyle>12
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -73,11 +69,7 @@ Ma0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Migrates the stored Business Data values to the latest format.
-This is only required for Business Data written with an engine before Axon Ivy 6.7.0.</name>
-        <nameStyle>71
-76,0,12
-1
-</nameStyle>
+This is **only required for Business Data written with an engine before Axon Ivy 6.7.0**.</name>
     </language>
 </elementInfo>
 ' #txt

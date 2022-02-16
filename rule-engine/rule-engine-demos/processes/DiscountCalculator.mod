@@ -1,5 +1,5 @@
 [Ivy]
-153EAAA7649F85DA 9.3.1 #module
+153EAAA7649F85DA 9.4.0 #module
 >Proto >Proto Collection #zClass
 Dr0 DiscountCalculator Big #zClass
 Dr0 B #cInfo
@@ -42,8 +42,6 @@ Dr0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>end</name>
-        <nameStyle>3,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -59,8 +57,6 @@ Dr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Discount Calculator</name>
-        <nameStyle>19,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -73,8 +69,6 @@ Dr0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>end</name>
-        <nameStyle>3,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -106,9 +100,6 @@ Dr0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Adjustable &#13;
 Discount Calculator</name>
-        <nameStyle>13,5
-19,5
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

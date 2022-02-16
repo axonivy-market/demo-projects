@@ -1,5 +1,5 @@
 [Ivy]
-16764B07C0329FC8 9.3.1 #module
+16764B07C0329FC8 9.4.0 #module
 >Proto >Proto Collection #zClass
 cc0 asyncInvocation Big #zClass
 cc0 B #cInfo
@@ -134,8 +134,6 @@ cc0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Async operation ended, 
 result is available!</name>
-        <nameStyle>44
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -146,8 +144,6 @@ cc0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>Execution continous immediately, 
 even tough the server side processing
 takes up to 3 seconds</name>
-        <nameStyle>93
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

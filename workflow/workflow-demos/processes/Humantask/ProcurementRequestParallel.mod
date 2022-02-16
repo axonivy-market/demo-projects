@@ -1,5 +1,5 @@
 [Ivy]
-15254DC87A1B183B 9.3.1 #module
+15254DC87A1B183B 9.4.0 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestParallel Big #zClass
 Pt0 B #cInfo
@@ -54,8 +54,6 @@ Pt0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Verify Request&#13;
 by Manager</name>
-        <nameStyle>26,5
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -83,8 +81,6 @@ Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
-        <nameStyle>9,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -127,8 +123,6 @@ Pt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Enter Request</name>
-        <nameStyle>13,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -172,8 +166,6 @@ Pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Verify Request&#13;
 by Team Leader</name>
-        <nameStyle>30,5
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -186,8 +178,6 @@ Pt0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Notify Requester</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -226,8 +216,6 @@ Pt0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Accept Request</name>
-        <nameStyle>14,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -240,8 +228,6 @@ Pt0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Verified?</name>
-        <nameStyle>9,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -279,8 +265,6 @@ Pt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>This example shows the use of a Parallel Task Switch Gateway.
 A procurement request is made by an employee, verified by the team leader and by a manager 
 and accepted by an executive.</name>
-        <nameStyle>183,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -292,9 +276,6 @@ Pt0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 You can use it to delegate parallel tasks to different users.
 Don''t use the Split-Gateway to implement this, because there 
 will be problems with the session handling.</name>
-        <nameStyle>38,7
-167,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

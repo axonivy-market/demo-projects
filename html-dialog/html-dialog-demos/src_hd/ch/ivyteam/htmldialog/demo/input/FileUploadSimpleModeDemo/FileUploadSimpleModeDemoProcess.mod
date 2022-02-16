@@ -1,5 +1,5 @@
 [Ivy]
-13D440F293AA05F8 9.3.1 #module
+13D440F293AA05F8 9.4.0 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadSimpleModeDemoProcess Big #zClass
 Fs0 RD #cInfo
@@ -36,8 +36,6 @@ Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -52,8 +50,6 @@ Fs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>showContent</name>
-        <nameStyle>11,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -68,8 +64,6 @@ Fs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>set show content</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -113,8 +107,6 @@ Fs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>set file path for download</name>
-        <nameStyle>26,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -148,8 +140,6 @@ Fs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>set file content and name</name>
-        <nameStyle>25,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

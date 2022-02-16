@@ -1,5 +1,5 @@
 [Ivy]
-152551002ABB8DFE 9.3.1 #module
+152551002ABB8DFE 9.4.0 #module
 >Proto >Proto Collection #zClass
 To0 FlowPatterns Big #zClass
 To0 B #cInfo
@@ -210,8 +210,6 @@ To0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Creator
 Request Form</name>
-        <nameStyle>20,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -250,8 +248,6 @@ To0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>  </name>
-        <nameStyle>2,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -280,8 +276,6 @@ To0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Creator
 Question Form</name>
-        <nameStyle>21,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -302,8 +296,6 @@ To0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name> </name>
-        <nameStyle>1
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -316,9 +308,7 @@ To0 f12 280 440 312 440 #arcP
 To0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>ToDo</name>
-        <nameStyle>4,0
-</nameStyle>
+        <name>**ToDo**</name>
     </language>
 </elementInfo>
 ' #txt
@@ -326,9 +316,7 @@ To0 f13 16 153 48 30 -14 -8 #rect
 To0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Question-Answer</name>
-        <nameStyle>15,0
-</nameStyle>
+        <name>**Question-Answer**</name>
     </language>
 </elementInfo>
 ' #txt
@@ -374,8 +362,6 @@ To0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>  </name>
-        <nameStyle>2,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -393,8 +379,6 @@ To0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Creator
 Request Form</name>
-        <nameStyle>20,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -403,8 +387,6 @@ To0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name> </name>
-        <nameStyle>1
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -417,8 +399,6 @@ To0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Creator
 Notification Mail</name>
-        <nameStyle>25
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -433,9 +413,7 @@ To0 f22 264 320 304 320 #arcP
 To0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Approval</name>
-        <nameStyle>8,0
-</nameStyle>
+        <name>**Approval**</name>
     </language>
 </elementInfo>
 ' #txt
@@ -444,8 +422,6 @@ To0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Follow-up question?</name>
-        <nameStyle>19
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -466,9 +442,6 @@ To0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>These are the predefined Flow Patterns which can be selected in the Self Service Process.
 In Addition you can also create an Ad-Hoc Workflow from scratch.</name>
-        <nameStyle>90,7
-64,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -511,8 +484,6 @@ Bk4 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Dummy-Subprocess</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -526,8 +497,6 @@ Bk0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Dummy-Subprocess</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -540,8 +509,6 @@ Bk1 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Dummy-Subprocess</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -555,8 +522,6 @@ Bk2 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Dummy-Subprocess</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -575,8 +540,6 @@ Bk3 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Dummy-Subprocess</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -612,8 +575,6 @@ Bk5 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Dummy-Subprocess</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -627,8 +588,6 @@ Bk6 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Dummy-Subprocess</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

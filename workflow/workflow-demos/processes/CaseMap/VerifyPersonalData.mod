@@ -1,5 +1,5 @@
 [Ivy]
-15A849250AA78F65 9.3.1 #module
+15A849250AA78F65 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ca0 VerifyPersonalData Big #zClass
 Ca0 B #cInfo
@@ -37,8 +37,6 @@ Ca0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
-        <nameStyle>9,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -53,8 +51,6 @@ Ca0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>log stage</name>
-        <nameStyle>9,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

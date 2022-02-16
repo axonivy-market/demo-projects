@@ -1,5 +1,5 @@
 [Ivy]
-151CA1EFC1542D87 9.3.1 #module
+151CA1EFC1542D87 9.4.0 #module
 >Proto >Proto Collection #zClass
 qr0 QuitEmployee Big #zClass
 qr0 B #cInfo
@@ -45,8 +45,6 @@ qr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
-        <nameStyle>9,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -73,8 +71,6 @@ qr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Send Quit Signal</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -91,8 +87,6 @@ qr0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Select User</name>
-        <nameStyle>11,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -104,8 +98,6 @@ qr0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>This process is part of the signal demo process. 
 QuitUser sends a signal that will cancel User Tasks from a previously started CreateUser business case.</name>
-        <nameStyle>153,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -124,8 +116,6 @@ qr0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Information about
 Signal Sent</name>
-        <nameStyle>29,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

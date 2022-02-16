@@ -1,5 +1,5 @@
 [Ivy]
-1523FF963044280C 9.3.1 #module
+1523FF963044280C 9.4.0 #module
 >Proto >Proto Collection #zClass
 ft0 KeyCardDelivery Big #zClass
 ft0 B #cInfo
@@ -32,8 +32,6 @@ ft0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>log event data</name>
-        <nameStyle>14,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -50,8 +48,6 @@ ft0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>user:created </name>
-        <nameStyle>13,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -80,8 +76,6 @@ ft0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Deliver Key Card</name>
-        <nameStyle>16,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -110,8 +104,6 @@ ft0 St0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>admin:quit:[userKey] </name>
-        <nameStyle>21,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -119,12 +111,8 @@ ft0 St0 265 217 30 30 15 6 #rect
 ft0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>A Signal Start listening to a certain signal can also reside in another process or project.
+        <name>A **Signal Start** listening to a certain signal can also reside in another process or project.
 As long as the projects are deployed into the same application.</name>
-        <nameStyle>2,7
-12,0,7
-141,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -134,8 +122,6 @@ ft0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>This process is part of the signal demo process. It is started by a signal sent from the CreateUser process. </name>
-        <nameStyle>109,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

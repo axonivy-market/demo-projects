@@ -1,5 +1,5 @@
 [Ivy]
-156DB995D6C6D132 9.3.1 #module
+156DB995D6C6D132 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ms0 ModifyCountryProcess Big #zClass
 Ms0 RD #cInfo
@@ -45,8 +45,6 @@ Ms0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(String)</name>
-        <nameStyle>13,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -60,8 +58,6 @@ Ms0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Load Address</name>
-        <nameStyle>12
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -78,8 +74,6 @@ Ms0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Overwrite "Country"
 in the Repository</name>
-        <nameStyle>37
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

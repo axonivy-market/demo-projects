@@ -1,5 +1,5 @@
 [Ivy]
-15066B87D449F453 9.3.1 #module
+15066B87D449F453 9.4.0 #module
 >Proto >Proto Collection #zClass
 Fy0 Factory Big #zClass
 Fy0 B #cInfo
@@ -39,8 +39,6 @@ Fy0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
-        <nameStyle>9,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -60,8 +58,6 @@ Fy0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Production</name>
-        <nameStyle>10,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -86,17 +82,11 @@ Fy0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Demonstrates how default ivy errors can be catched locally and propagated as custom error
-- the callable sub process throws  custom error factory:unavailable </name>
-        <nameStyle>89,8
-1,7
-48,7
-19,3,7
-1,3,7
-</nameStyle>
+- the callable sub process throws  custom error `factory:unavailable`</name>
     </language>
 </elementInfo>
 ' #txt
-Fy0 f9 40 34 640 44 -315 -19 #rect
+Fy0 f9 64 34 592 44 -290 -15 #rect
 Fy0 f9 -1|-1|-65536 #nodeStyle
 Fy0 f5 321 225 30 30 0 15 #rect
 Fy0 f6 expr out #txt

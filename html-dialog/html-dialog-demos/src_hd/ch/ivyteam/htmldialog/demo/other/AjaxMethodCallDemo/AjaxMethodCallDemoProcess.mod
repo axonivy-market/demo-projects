@@ -1,5 +1,5 @@
 [Ivy]
-13A3F854E6D3A3F7 9.3.1 #module
+13A3F854E6D3A3F7 9.4.0 #module
 >Proto >Proto Collection #zClass
 As0 AjaxMethodCallDemoProcess Big #zClass
 As0 RD #cInfo
@@ -50,8 +50,6 @@ As0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>helloWorld(String)</name>
-        <nameStyle>18,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

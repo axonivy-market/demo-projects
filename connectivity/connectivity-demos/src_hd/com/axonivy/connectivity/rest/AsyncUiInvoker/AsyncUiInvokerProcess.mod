@@ -1,5 +1,5 @@
 [Ivy]
-16778F324326C1FA 9.3.1 #module
+16778F324326C1FA 9.4.0 #module
 >Proto >Proto Collection #zClass
 As0 AsyncUiInvokerProcess Big #zClass
 As0 RD #cInfo
@@ -52,16 +52,12 @@ As0 f5 109 160 211 160 #arcP
 As0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Client Side in JavaScript
+        <name>**Client Side in JavaScript**
 
 Not much is going on in here:
 - within this demo no server side processing is done with JSF
 - data is requested and shown via JavaScript directly within the client browser
 - see AsyncUiInvoker View for details</name>
-        <nameStyle>25,0,8
-199,7
-12,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -69,15 +65,11 @@ As0 f6 64 226 432 108 -210 -50 #rect
 As0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Server Side in Java
+        <name>**Server Side in Java**
 
 The REST endpoint called by this demo is implemented in the Java class: 
 
 com.axonivy.connectivity.rest.provider.BatchService</name>
-        <nameStyle>19,0,8
-75,7
-52,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

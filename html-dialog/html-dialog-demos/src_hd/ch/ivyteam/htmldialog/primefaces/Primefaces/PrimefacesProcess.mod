@@ -1,5 +1,5 @@
 [Ivy]
-13D39CF289ACE89B 9.3.1 #module
+13D39CF289ACE89B 9.4.0 #module
 >Proto >Proto Collection #zClass
 Ps0 PrimefacesProcess Big #zClass
 Ps0 RD #cInfo
@@ -43,8 +43,6 @@ Ps0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Set Version</name>
-        <nameStyle>11,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

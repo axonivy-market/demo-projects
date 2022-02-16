@@ -1,5 +1,5 @@
 [Ivy]
-156DBAA5DDFCA84E 9.3.1 #module
+156DBAA5DDFCA84E 9.4.0 #module
 >Proto >Proto Collection #zClass
 Vs0 ViewAddressProcess Big #zClass
 Vs0 RD #cInfo
@@ -45,8 +45,6 @@ Vs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(String)</name>
-        <nameStyle>13,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -60,8 +58,6 @@ Vs0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Load Address</name>
-        <nameStyle>12
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
