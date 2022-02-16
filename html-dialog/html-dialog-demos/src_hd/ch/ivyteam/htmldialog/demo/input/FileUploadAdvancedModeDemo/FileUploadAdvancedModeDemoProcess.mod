@@ -28,10 +28,10 @@ Fs0 f0 method start() #txt
 Fs0 f0 inParameterDecl '<> param;' #txt
 Fs0 f0 inActionCode 'import ch.ivyteam.ivy.cm.ContentObject;
 
-ContentObject co = ivy.cms.findContentObject("/ch.ivyteam.htmldialog.demo/fileUploadImages");
+ContentObject co = ivy.cms.find("/ch.ivyteam.htmldialog.demo/fileUploadImages").orElseThrow() as ContentObject;
 for (ContentObject child : co.children()) {
-	out.images.add(child.name());
-}
+  out.images.add(child.name());
+}	
 ' #txt
 Fs0 f0 outParameterDecl '<> result;' #txt
 Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
