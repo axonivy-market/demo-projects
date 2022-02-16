@@ -24,7 +24,7 @@
 
             <p:outputLabel value="Select user via AJAX event:" for="event" />
             <p:autoComplete id="event" value="#{data.selectedUserId}" completeMethod="#{logic.searchUsers}" var="user"
-              itemLabel="#{user.name}" itemValue="#{user.id.toString()}" forceSelection="true" dropdown="true">
+              itemLabel="#{user.name}" itemValue="#{user.securityMemberId}" forceSelection="true" dropdown="true">
             </p:autoComplete>
 
             <p:outputLabel value="Select user via FacesConverter:" for="converter" />

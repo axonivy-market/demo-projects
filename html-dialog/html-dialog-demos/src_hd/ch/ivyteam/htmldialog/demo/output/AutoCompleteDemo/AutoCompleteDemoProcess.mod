@@ -143,7 +143,7 @@ As0 f16 actionTable 'out=in;
 As0 f16 actionCode 'in.userViaAjax = null;
 if(in.searchText != 0)
 {
-	in.userViaAjax = ivy.security.users().find(in.selectedUserId);
+	in.userViaAjax = ivy.security.users().findById(in.selectedUserId);
 }' #txt
 As0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

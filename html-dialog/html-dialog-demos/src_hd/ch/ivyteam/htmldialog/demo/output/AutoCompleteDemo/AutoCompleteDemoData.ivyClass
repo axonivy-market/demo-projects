@@ -4,7 +4,7 @@ searchText String #field
 searchText PERSISTENT #fieldModifier
 searchResult List<ch.ivyteam.ivy.security.IUser> #field
 searchResult PERSISTENT #fieldModifier
-selectedUserId Number #field
+selectedUserId String #field
 selectedUserId PERSISTENT #fieldModifier
 userViaAjax ch.ivyteam.ivy.security.IUser #field
 userViaAjax PERSISTENT #fieldModifier
