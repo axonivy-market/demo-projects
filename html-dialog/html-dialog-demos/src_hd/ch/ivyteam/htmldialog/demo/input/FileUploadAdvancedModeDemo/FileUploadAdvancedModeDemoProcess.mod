@@ -28,7 +28,7 @@ Fs0 f0 method start() #txt
 Fs0 f0 inParameterDecl '<> param;' #txt
 Fs0 f0 inActionCode 'import ch.ivyteam.ivy.cm.ContentObject;
 
-ContentObject co = ivy.cms.find("/ch.ivyteam.htmldialog.demo/fileUploadImages").orElseThrow() as ContentObject;
+ContentObject co = ivy.cms.get("/ch.ivyteam.htmldialog.demo/fileUploadImages").orElseThrow() as ContentObject;
 for (ContentObject child : co.children()) {
   out.images.add(child.name());
 }	
