@@ -1,9 +1,11 @@
 [Ivy]
-17B81E211CF4837E 9.4.0 #module
+17B81E211CF4837E 9.4.1 #module
 >Proto >Proto Collection #zClass
 Ds0 DocumentViewerProcess Big #zClass
 Ds0 RD #cInfo
 Ds0 #process
+Ds0 @TextInP .colors .colors #zField
+Ds0 @TextInP color color #zField
 Ds0 @AnnotationInP-0n ai ai #zField
 Ds0 @TextInP .type .type #zField
 Ds0 @TextInP .processKind .processKind #zField

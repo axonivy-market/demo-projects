@@ -1,5 +1,5 @@
 [Ivy]
-152551002ABB8DFE 9.4.0 #module
+152551002ABB8DFE 9.4.1 #module
 >Proto >Proto Collection #zClass
 To0 FlowPatterns Big #zClass
 To0 B #cInfo
@@ -18,6 +18,8 @@ Bk5 BpmnUserTask Big #zClass
 Bk5 BpmnUserTask #cInfo
 Bk6 BpmnUserTask Big #zClass
 Bk6 BpmnUserTask #cInfo
+To0 @TextInP .colors .colors #zField
+To0 @TextInP color color #zField
 To0 @PushWFArc f2 '' #zField
 To0 Bk4 U31 'User 3' #zField
 To0 @TextInP .type .type #zField
@@ -61,6 +63,8 @@ To0 @PushWFArc f10 '' #zField
 To0 @PushWFArc f26 '' #zField
 To0 @InfoButton f27 '' #zField
 >Proto To0 To0 FlowPatterns #zField
+Bk4 @TextInP .colors .colors #zField
+Bk4 @TextInP color color #zField
 Bk4 @TextInP .type .type #zField
 Bk4 @TextInP .processKind .processKind #zField
 Bk4 @AnnotationInP-0n ai ai #zField
@@ -73,6 +77,8 @@ Bk4 @EndTask f1 '' #zField
 Bk4 @PushWFArc f2 '' #zField
 Bk4 @InfoButton f3 '' #zField
 >Proto Bk4 Bk0 BpmnUserTask #zField
+Bk0 @TextInP .colors .colors #zField
+Bk0 @TextInP color color #zField
 Bk0 @TextInP .type .type #zField
 Bk0 @TextInP .processKind .processKind #zField
 Bk0 @AnnotationInP-0n ai ai #zField
@@ -85,6 +91,8 @@ Bk0 @PushTrueWFOutG-01 g1 '' #zField
 Bk0 @PushWFArc f0 '' #zField
 Bk0 @InfoButton f3 '' #zField
 >Proto Bk0 Bk1 BpmnUserTask #zField
+Bk1 @TextInP .colors .colors #zField
+Bk1 @TextInP color color #zField
 Bk1 @TextInP .type .type #zField
 Bk1 @TextInP .processKind .processKind #zField
 Bk1 @AnnotationInP-0n ai ai #zField
@@ -97,6 +105,8 @@ Bk1 @EndTask f0 '' #zField
 Bk1 @PushWFArc f1 '' #zField
 Bk1 @InfoButton f3 '' #zField
 >Proto Bk1 Bk2 BpmnUserTask #zField
+Bk2 @TextInP .colors .colors #zField
+Bk2 @TextInP color color #zField
 Bk2 @TextInP .type .type #zField
 Bk2 @TextInP .processKind .processKind #zField
 Bk2 @AnnotationInP-0n ai ai #zField
@@ -109,6 +119,8 @@ Bk2 @PushTrueWFOutG-01 g1 '' #zField
 Bk2 @PushWFArc f0 '' #zField
 Bk2 @InfoButton f3 '' #zField
 >Proto Bk2 Bk3 BpmnUserTask #zField
+Bk3 @TextInP .colors .colors #zField
+Bk3 @TextInP color color #zField
 Bk3 @TextInP .type .type #zField
 Bk3 @TextInP .processKind .processKind #zField
 Bk3 @AnnotationInP-0n ai ai #zField
@@ -125,6 +137,8 @@ Bk3 @PushWFArc f0 '' #zField
 Bk3 @PushWFArc f3 '' #zField
 Bk3 @InfoButton f4 '' #zField
 >Proto Bk3 Bk4 BpmnUserTask #zField
+Bk5 @TextInP .colors .colors #zField
+Bk5 @TextInP color color #zField
 Bk5 @TextInP .type .type #zField
 Bk5 @TextInP .processKind .processKind #zField
 Bk5 @AnnotationInP-0n ai ai #zField
@@ -137,6 +151,8 @@ Bk5 @StartRequest f0 '' #zField
 Bk5 @PushWFArc f2 '' #zField
 Bk5 @InfoButton f3 '' #zField
 >Proto Bk5 Bk5 BpmnUserTask #zField
+Bk6 @TextInP .colors .colors #zField
+Bk6 @TextInP color color #zField
 Bk6 @TextInP .type .type #zField
 Bk6 @TextInP .processKind .processKind #zField
 Bk6 @AnnotationInP-0n ai ai #zField
@@ -150,6 +166,7 @@ Bk6 @PushWFArc f0 '' #zField
 Bk6 @InfoButton f3 '' #zField
 >Proto Bk6 Bk6 BpmnUserTask #zField
 To0 f2 408 208 457 208 #arcP
+To0 U31 color NodeStyle2 #txt
 To0 U31 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -161,7 +178,6 @@ ToDo task</name>
 </elementInfo>
 ' #txt
 To0 U31 304 194 112 44 -28 -16 #rect
-To0 U31 -1|-1|-13016147 #nodeStyle
 To0 f0 outLink start.ivp #txt
 To0 f0 inParamDecl '<> param;' #txt
 To0 f0 requestEnabled true #txt
@@ -197,7 +213,6 @@ ToDo task</name>
 ' #txt
 To0 U10 296 186 112 44 -28 -16 #rect
 To0 U10 @|BpmnUserTaskIcon #fIcon
-To0 U10 -1|-1|-13016147 #nodeStyle
 To0 f5 dialogId workflow.agileBPM.test #txt
 To0 f5 startMethod start(String) #txt
 To0 f5 requestActionDecl '<String answer> param;' #txt
@@ -230,7 +245,6 @@ answer Question</name>
 ' #txt
 To0 U20 320 426 128 44 -43 -16 #rect
 To0 U20 g0 -9 -22 #fFoot
-To0 U20 -1|-1|-13016147 #nodeStyle
 To0 f4 outLink start2.ivp #txt
 To0 f4 inParamDecl '<> param;' #txt
 To0 f4 requestEnabled false #txt
@@ -291,7 +305,6 @@ answer question</name>
 </elementInfo>
 ' #txt
 To0 U21 312 418 128 44 -43 -16 #rect
-To0 U21 -1|-1|-13016147 #nodeStyle
 To0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -332,7 +345,6 @@ approve request</name>
 </elementInfo>
 ' #txt
 To0 U12 312 306 128 44 -42 -16 #rect
-To0 U12 -1|-1|-13016147 #nodeStyle
 To0 U13 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -344,7 +356,6 @@ approve request</name>
 </elementInfo>
 ' #txt
 To0 U13 304 298 128 44 -42 -16 #rect
-To0 U13 -1|-1|-13016147 #nodeStyle
 To0 f15 outLink start22.ivp #txt
 To0 f15 inParamDecl '<> param;' #txt
 To0 f15 requestEnabled false #txt
@@ -446,6 +457,8 @@ In Addition you can also create an Ad-Hoc Workflow from scratch.</name>
 </elementInfo>
 ' #txt
 To0 f27 64 26 512 44 -246 -16 #rect
+>Proto To0 .colors 'NodeStyle2=rgb(57, 99, 173);
+' #txt
 >Proto To0 .type workflow.agileBPM.Data #txt
 >Proto To0 .processKind NORMAL #txt
 >Proto To0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

@@ -1,11 +1,13 @@
 [Ivy]
-13D0159BD5D40664 9.4.0 #module
+13D0159BD5D40664 9.4.1 #module
 >Proto >Proto Collection #zClass
 Ms0 MultiViewDemoProcess Big #zClass
 Ms0 RD #cInfo
 Ms0 #process
 Ct0 Component Big #zClass
 Ct0 B #cInfo
+Ms0 @TextInP .colors .colors #zField
+Ms0 @TextInP color color #zField
 Ms0 Ct0 S10 'Sub 1' #zField
 Ms0 @TextInP .type .type #zField
 Ms0 @TextInP .processKind .processKind #zField
@@ -26,6 +28,8 @@ Ms0 @PushWFArc f29 '' #zField
 Ms0 @PushWFArc f31 '' #zField
 Ms0 @PushWFArc f32 '' #zField
 >Proto Ms0 Ms0 MultiViewDemoProcess #zField
+Ct0 @TextInP .colors .colors #zField
+Ct0 @TextInP color color #zField
 Ct0 @TextInP .type .type #zField
 Ct0 @TextInP .processKind .processKind #zField
 Ct0 @AnnotationInP-0n ai ai #zField

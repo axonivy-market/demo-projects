@@ -1,9 +1,11 @@
 [Ivy]
-1576AF3D55F99A36 9.4.0 #module
+1576AF3D55F99A36 9.4.1 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierLazyBrowserProcess Big #zClass
 Bs0 RD #cInfo
 Bs0 #process
+Bs0 @TextInP .colors .colors #zField
+Bs0 @TextInP color color #zField
 Bs0 @TextInP .type .type #zField
 Bs0 @TextInP .processKind .processKind #zField
 Bs0 @AnnotationInP-0n ai ai #zField

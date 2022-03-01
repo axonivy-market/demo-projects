@@ -1,9 +1,11 @@
 [Ivy]
-15254CF47A16DEA1 9.4.0 #module
+15254CF47A16DEA1 9.4.1 #module
 >Proto >Proto Collection #zClass
 Pn0 ParkingLotReservation Big #zClass
 Pn0 B #cInfo
 Pn0 #process
+Pn0 @TextInP .colors .colors #zField
+Pn0 @TextInP color color #zField
 Pn0 @TextInP .type .type #zField
 Pn0 @TextInP .processKind .processKind #zField
 Pn0 @AnnotationInP-0n ai ai #zField

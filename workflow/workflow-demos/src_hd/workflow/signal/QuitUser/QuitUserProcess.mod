@@ -1,9 +1,11 @@
 [Ivy]
-151CA244D672B3A4 9.4.0 #module
+151CA244D672B3A4 9.4.1 #module
 >Proto >Proto Collection #zClass
 Qs0 QuitUserProcess Big #zClass
 Qs0 RD #cInfo
 Qs0 #process
+Qs0 @TextInP .colors .colors #zField
+Qs0 @TextInP color color #zField
 Qs0 @TextInP .type .type #zField
 Qs0 @TextInP .processKind .processKind #zField
 Qs0 @AnnotationInP-0n ai ai #zField

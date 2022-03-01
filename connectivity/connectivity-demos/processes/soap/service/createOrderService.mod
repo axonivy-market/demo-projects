@@ -1,9 +1,11 @@
 [Ivy]
-162492A1649E72DF 9.4.0 #module
+162492A1649E72DF 9.4.1 #module
 >Proto >Proto Collection #zClass
 ce0 createOrderService Big #zClass
 ce0 WS #cInfo
 ce0 #process
+ce0 @TextInP .colors .colors #zField
+ce0 @TextInP color color #zField
 ce0 @TextInP .webServiceName .webServiceName #zField
 ce0 @TextInP .implementationClassName .implementationClassName #zField
 ce0 @TextInP .authenticationType .authenticationType #zField
@@ -98,7 +100,8 @@ ce0 f2 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-ce0 f2 6 #arcStyle
+ce0 f2 color ArcStyle7 #txt
+ce0 f2 '' #arcStyle
 ce0 f2 176 136 272 88 #arcP
 ce0 f2 1 176 88 #addKink
 ce0 f2 1 0.19155493663523251 1 9 #arcLabel
@@ -156,6 +159,8 @@ ce0 f9 88 298 448 60 -221 -22 #rect
 ce0 f10 88 328 72 167 #arcP
 ce0 f10 1 72 328 #addKink
 ce0 f10 1 0.4012420937466449 0 0 #arcLabel
+>Proto ce0 .colors 'ArcStyle7=rgb(0, 128, 0);
+' #txt
 >Proto ce0 .webServiceName com.axonivy.connectivity.createOrder #txt
 >Proto ce0 .authenticationType NONE #txt
 >Proto ce0 .type com.axonivy.connectivity.soap.service.CreateOrderServiceData #txt

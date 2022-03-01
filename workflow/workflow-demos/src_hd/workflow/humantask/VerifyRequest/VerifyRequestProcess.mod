@@ -1,9 +1,11 @@
 [Ivy]
-15254DF8F30D6949 9.4.0 #module
+15254DF8F30D6949 9.4.1 #module
 >Proto >Proto Collection #zClass
 Vs0 VerifyRequestProcess Big #zClass
 Vs0 RD #cInfo
 Vs0 #process
+Vs0 @TextInP .colors .colors #zField
+Vs0 @TextInP color color #zField
 Vs0 @TextInP .type .type #zField
 Vs0 @TextInP .processKind .processKind #zField
 Vs0 @AnnotationInP-0n ai ai #zField

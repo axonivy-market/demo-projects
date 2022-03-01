@@ -1,9 +1,11 @@
 [Ivy]
-15066B87D449F453 9.4.0 #module
+15066B87D449F453 9.4.1 #module
 >Proto >Proto Collection #zClass
 Fy0 Factory Big #zClass
 Fy0 B #cInfo
 Fy0 #process
+Fy0 @TextInP .colors .colors #zField
+Fy0 @TextInP color color #zField
 Fy0 @TextInP .type .type #zField
 Fy0 @TextInP .processKind .processKind #zField
 Fy0 @AnnotationInP-0n ai ai #zField
@@ -86,13 +88,15 @@ Fy0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Fy0 f9 @C|color NodeStyle3 #txt
 Fy0 f9 64 34 592 44 -290 -15 #rect
-Fy0 f9 -1|-1|-65536 #nodeStyle
 Fy0 f5 321 225 30 30 0 15 #rect
 Fy0 f6 expr out #txt
 Fy0 f6 240 199 321 240 #arcP
 Fy0 f6 1 240 240 #addKink
 Fy0 f6 1 0.20984925234769336 0 0 #arcLabel
+>Proto Fy0 .colors 'NodeStyle3=rgb(255, 0, 0);
+' #txt
 >Proto Fy0 .type error.handling.demo.Data #txt
 >Proto Fy0 .processKind NORMAL #txt
 >Proto Fy0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

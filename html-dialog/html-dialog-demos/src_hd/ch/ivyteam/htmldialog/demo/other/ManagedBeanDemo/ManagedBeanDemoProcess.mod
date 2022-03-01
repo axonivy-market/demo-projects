@@ -1,9 +1,11 @@
 [Ivy]
-13B610D02E245A6A 9.4.0 #module
+13B610D02E245A6A 9.4.1 #module
 >Proto >Proto Collection #zClass
 Ms0 ManagedBeanDemoProcess Big #zClass
 Ms0 RD #cInfo
 Ms0 #process
+Ms0 @TextInP .colors .colors #zField
+Ms0 @TextInP color color #zField
 Ms0 @TextInP .type .type #zField
 Ms0 @TextInP .processKind .processKind #zField
 Ms0 @AnnotationInP-0n ai ai #zField

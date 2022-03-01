@@ -1,9 +1,11 @@
 [Ivy]
-156DBAA5DDFCA84E 9.4.0 #module
+156DBAA5DDFCA84E 9.4.1 #module
 >Proto >Proto Collection #zClass
 Vs0 ViewAddressProcess Big #zClass
 Vs0 RD #cInfo
 Vs0 #process
+Vs0 @TextInP .colors .colors #zField
+Vs0 @TextInP color color #zField
 Vs0 @TextInP .type .type #zField
 Vs0 @TextInP .processKind .processKind #zField
 Vs0 @AnnotationInP-0n ai ai #zField

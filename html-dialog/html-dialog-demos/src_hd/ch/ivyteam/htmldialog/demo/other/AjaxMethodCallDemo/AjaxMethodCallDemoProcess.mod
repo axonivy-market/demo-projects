@@ -1,9 +1,11 @@
 [Ivy]
-13A3F854E6D3A3F7 9.4.0 #module
+13A3F854E6D3A3F7 9.4.1 #module
 >Proto >Proto Collection #zClass
 As0 AjaxMethodCallDemoProcess Big #zClass
 As0 RD #cInfo
 As0 #process
+As0 @TextInP .colors .colors #zField
+As0 @TextInP color color #zField
 As0 @TextInP .type .type #zField
 As0 @TextInP .processKind .processKind #zField
 As0 @AnnotationInP-0n ai ai #zField

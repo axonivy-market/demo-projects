@@ -1,9 +1,11 @@
 [Ivy]
-150149331438F9EA 9.4.0 #module
+150149331438F9EA 9.4.1 #module
 >Proto >Proto Collection #zClass
 tl0 System Big #zClass
 tl0 B #cInfo
 tl0 #process
+tl0 @TextInP .colors .colors #zField
+tl0 @TextInP color color #zField
 tl0 @TextInP .type .type #zField
 tl0 @TextInP .processKind .processKind #zField
 tl0 @AnnotationInP-0n ai ai #zField
@@ -76,8 +78,10 @@ a Global Error Process *(ErrorHandler)*</name>
     </language>
 </elementInfo>
 ' #txt
+tl0 f5 @C|color NodeStyle3 #txt
 tl0 f5 40 34 352 60 -171 -30 #rect
-tl0 f5 -1|-1|-65536 #nodeStyle
+>Proto tl0 .colors 'NodeStyle3=rgb(255, 0, 0);
+' #txt
 >Proto tl0 .type error.handling.demo.technicalData #txt
 >Proto tl0 .processKind NORMAL #txt
 >Proto tl0 0 0 32 24 18 0 #rect

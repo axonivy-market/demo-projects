@@ -1,9 +1,11 @@
 [Ivy]
-1500417E1DADBB7C 9.4.0 #module
+1500417E1DADBB7C 9.4.1 #module
 >Proto >Proto Collection #zClass
 fy0 Production Big #zClass
 fy0 B #cInfo
 fy0 #process
+fy0 @TextInP .colors .colors #zField
+fy0 @TextInP color color #zField
 fy0 @TextInP .type .type #zField
 fy0 @TextInP .processKind .processKind #zField
 fy0 @AnnotationInP-0n ai ai #zField
@@ -50,8 +52,8 @@ fy0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+fy0 f9 @C|color NodeStyle3 #txt
 fy0 f9 40 26 592 76 -290 -37 #rect
-fy0 f9 -1|-1|-65536 #nodeStyle
 fy0 f7 actionDecl 'error.handling.demo.FactoryData out;
 ' #txt
 fy0 f7 actionTable 'out=in;
@@ -123,6 +125,8 @@ fy0 f4 expr out #txt
 fy0 f4 111 224 176 224 #arcP
 fy0 f2 expr out #txt
 fy0 f2 488 224 577 224 #arcP
+>Proto fy0 .colors 'NodeStyle3=rgb(255, 0, 0);
+' #txt
 >Proto fy0 .type error.handling.demo.FactoryData #txt
 >Proto fy0 .processKind CALLABLE_SUB #txt
 >Proto fy0 0 0 32 24 18 0 #rect

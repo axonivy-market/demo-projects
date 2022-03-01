@@ -1,9 +1,11 @@
 [Ivy]
-155BB4D0A6771B1B 9.4.0 #module
+155BB4D0A6771B1B 9.4.1 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierModifierProcess Big #zClass
 Bs0 RD #cInfo
 Bs0 #process
+Bs0 @TextInP .colors .colors #zField
+Bs0 @TextInP color color #zField
 Bs0 @TextInP .type .type #zField
 Bs0 @TextInP .processKind .processKind #zField
 Bs0 @AnnotationInP-0n ai ai #zField

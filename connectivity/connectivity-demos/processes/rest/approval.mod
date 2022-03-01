@@ -1,9 +1,11 @@
 [Ivy]
-1549FE9E911A1812 9.4.0 #module
+1549FE9E911A1812 9.4.1 #module
 >Proto >Proto Collection #zClass
 al0 approval Big #zClass
 al0 B #cInfo
 al0 #process
+al0 @TextInP .colors .colors #zField
+al0 @TextInP color color #zField
 al0 @TextInP .type .type #zField
 al0 @TextInP .processKind .processKind #zField
 al0 @AnnotationInP-0n ai ai #zField
@@ -43,6 +45,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Boss
 TaskTriggered.TYPE=0' #txt
 al0 f0 showInStartList 1 #txt
+al0 f0 @CG|color NodeStyle16 #txt
 al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -52,7 +55,6 @@ al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 al0 f0 @C|.responsibility Everybody #txt
 al0 f0 113 209 30 30 -49 17 #rect
-al0 f0 -993312|-1|-16777216 #nodeStyle
 al0 f1 369 209 30 30 0 15 #rect
 al0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -153,6 +155,8 @@ al0 f14 192 106 128 44 -41 -16 #rect
 al0 f7 expr out #txt
 al0 f7 143 128 192 128 #arcP
 al0 f8 320 128 369 128 #arcP
+>Proto al0 .colors 'NodeStyle16=rgb(240, 215, 224);
+' #txt
 >Proto al0 .type com.axonivy.connectivity.rest.Approval #txt
 >Proto al0 .processKind NORMAL #txt
 >Proto al0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

@@ -1,9 +1,11 @@
 [Ivy]
-1525508CF8DC4D23 9.4.0 #module
+1525508CF8DC4D23 9.4.1 #module
 >Proto >Proto Collection #zClass
 Is0 TaskFormProcess Big #zClass
 Is0 RD #cInfo
 Is0 #process
+Is0 @TextInP .colors .colors #zField
+Is0 @TextInP color color #zField
 Is0 @TextInP .type .type #zField
 Is0 @TextInP .processKind .processKind #zField
 Is0 @AnnotationInP-0n ai ai #zField

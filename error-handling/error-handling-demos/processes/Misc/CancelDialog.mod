@@ -1,11 +1,13 @@
 [Ivy]
-1508AE543CAEEEC1 9.4.0 #module
+1508AE543CAEEEC1 9.4.1 #module
 >Proto >Proto Collection #zClass
 Ct0 CancelDialog Big #zClass
 Ct0 B #cInfo
 Ct0 #process
 Bk1 BpmnSendTask Big #zClass
 Bk1 BpmnSendTask #cInfo
+Ct0 @TextInP .colors .colors #zField
+Ct0 @TextInP color color #zField
 Ct0 @TextInP .type .type #zField
 Ct0 @TextInP .processKind .processKind #zField
 Ct0 @AnnotationInP-0n ai ai #zField
@@ -25,6 +27,8 @@ Ct0 @PushWFArc f7 '' #zField
 Ct0 @PushWFArc f2 '' #zField
 Ct0 @InfoButton f8 '' #zField
 >Proto Ct0 Ct0 CancelDialog #zField
+Bk1 @TextInP .colors .colors #zField
+Bk1 @TextInP color color #zField
 Bk1 @TextInP .type .type #zField
 Bk1 @TextInP .processKind .processKind #zField
 Bk1 @AnnotationInP-0n ai ai #zField
@@ -110,8 +114,10 @@ The process ends because of a `start:cancelled`  error</name>
     </language>
 </elementInfo>
 ' #txt
+Ct0 f8 @C|color NodeStyle3 #txt
 Ct0 f8 40 26 464 44 -225 -19 #rect
-Ct0 f8 -1|-1|-65536 #nodeStyle
+>Proto Ct0 .colors 'NodeStyle3=rgb(255, 0, 0);
+' #txt
 >Proto Ct0 .type misc.CancelStartData #txt
 >Proto Ct0 .processKind NORMAL #txt
 >Proto Ct0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

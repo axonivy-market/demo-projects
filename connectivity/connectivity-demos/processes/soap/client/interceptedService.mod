@@ -1,9 +1,11 @@
 [Ivy]
-16D29C451A0AF7D5 9.4.0 #module
+16D29C451A0AF7D5 9.4.1 #module
 >Proto >Proto Collection #zClass
 ie0 interceptedService Big #zClass
 ie0 B #cInfo
 ie0 #process
+ie0 @TextInP .colors .colors #zField
+ie0 @TextInP color color #zField
 ie0 @TextInP .type .type #zField
 ie0 @TextInP .processKind .processKind #zField
 ie0 @TextInP .xml .xml #zField

@@ -1,9 +1,11 @@
 [Ivy]
-15A8995AA29B442B 9.4.0 #module
+15A8995AA29B442B 9.4.1 #module
 >Proto >Proto Collection #zClass
 Ek0 ExternalSolvencyService Big #zClass
 Ek0 B #cInfo
 Ek0 #process
+Ek0 @TextInP .colors .colors #zField
+Ek0 @TextInP color color #zField
 Ek0 @TextInP .type .type #zField
 Ek0 @TextInP .processKind .processKind #zField
 Ek0 @AnnotationInP-0n ai ai #zField

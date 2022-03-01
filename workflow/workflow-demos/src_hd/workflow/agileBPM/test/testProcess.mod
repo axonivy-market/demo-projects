@@ -1,9 +1,11 @@
 [Ivy]
-1525511ED79C649A 9.4.0 #module
+1525511ED79C649A 9.4.1 #module
 >Proto >Proto Collection #zClass
 ts0 testProcess Big #zClass
 ts0 RD #cInfo
 ts0 #process
+ts0 @TextInP .colors .colors #zField
+ts0 @TextInP color color #zField
 ts0 @TextInP .type .type #zField
 ts0 @TextInP .processKind .processKind #zField
 ts0 @AnnotationInP-0n ai ai #zField

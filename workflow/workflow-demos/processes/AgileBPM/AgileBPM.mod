@@ -1,5 +1,5 @@
 [Ivy]
-15255056043EE914 9.4.0 #module
+15255056043EE914 9.4.1 #module
 >Proto >Proto Collection #zClass
 AF0 AgileBPM Big #zClass
 AF0 B #cInfo
@@ -8,6 +8,8 @@ AF0 #process
 1b1 B #cInfo
 Ct0 Component Big #zClass
 Ct0 B #cInfo
+AF0 @TextInP .colors .colors #zField
+AF0 @TextInP color color #zField
 AF0 1b1 1b0 '1 Sub' #zField
 AF0 @TextInP .type .type #zField
 AF0 @TextInP .processKind .processKind #zField
@@ -28,6 +30,8 @@ AF0 @EndTask f9 '' #zField
 AF0 @PushWFArc f3 '' #zField
 AF0 @InfoButton f10 '' #zField
 >Proto AF0 AF0 AgileBPM #zField
+1b1 @TextInP .colors .colors #zField
+1b1 @TextInP color color #zField
 1b1 Ct0 S10 'Sub 1' #zField
 1b1 @TextInP .type .type #zField
 1b1 @TextInP .processKind .processKind #zField
@@ -55,6 +59,8 @@ AF0 @InfoButton f10 '' #zField
 1b1 @PushWFArc f19 '' #zField
 1b1 @PushWFArc f20 '' #zField
 >Proto 1b1 1b0 '1 Sub' #zField
+Ct0 @TextInP .colors .colors #zField
+Ct0 @TextInP color color #zField
 Ct0 @TextInP .type .type #zField
 Ct0 @TextInP .processKind .processKind #zField
 Ct0 @AnnotationInP-0n ai ai #zField

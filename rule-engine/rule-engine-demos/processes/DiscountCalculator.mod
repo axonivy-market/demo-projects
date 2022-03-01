@@ -1,9 +1,11 @@
 [Ivy]
-153EAAA7649F85DA 9.4.0 #module
+153EAAA7649F85DA 9.4.1 #module
 >Proto >Proto Collection #zClass
 Dr0 DiscountCalculator Big #zClass
 Dr0 B #cInfo
 Dr0 #process
+Dr0 @TextInP .colors .colors #zField
+Dr0 @TextInP color color #zField
 Dr0 @TextInP .type .type #zField
 Dr0 @TextInP .processKind .processKind #zField
 Dr0 @AnnotationInP-0n ai ai #zField

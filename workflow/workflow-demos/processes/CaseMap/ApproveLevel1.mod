@@ -1,9 +1,11 @@
 [Ivy]
-15A852737BAA2982 9.4.0 #module
+15A852737BAA2982 9.4.1 #module
 >Proto >Proto Collection #zClass
 A10 ApproveLevel1 Big #zClass
 A10 B #cInfo
 A10 #process
+A10 @TextInP .colors .colors #zField
+A10 @TextInP color color #zField
 A10 @TextInP .type .type #zField
 A10 @TextInP .processKind .processKind #zField
 A10 @AnnotationInP-0n ai ai #zField

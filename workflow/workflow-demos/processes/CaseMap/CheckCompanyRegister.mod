@@ -1,9 +1,11 @@
 [Ivy]
-15A8492F526C14B3 9.4.0 #module
+15A8492F526C14B3 9.4.1 #module
 >Proto >Proto Collection #zClass
 Cr0 CheckCompanyRegister Big #zClass
 Cr0 B #cInfo
 Cr0 #process
+Cr0 @TextInP .colors .colors #zField
+Cr0 @TextInP color color #zField
 Cr0 @TextInP .type .type #zField
 Cr0 @TextInP .processKind .processKind #zField
 Cr0 @AnnotationInP-0n ai ai #zField
