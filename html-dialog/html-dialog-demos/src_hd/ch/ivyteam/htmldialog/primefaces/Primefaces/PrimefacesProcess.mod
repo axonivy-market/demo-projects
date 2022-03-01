@@ -1,9 +1,11 @@
 [Ivy]
-13D39CF289ACE89B 9.4.0 #module
+13D39CF289ACE89B 9.4.1 #module
 >Proto >Proto Collection #zClass
 Ps0 PrimefacesProcess Big #zClass
 Ps0 RD #cInfo
 Ps0 #process
+Ps0 @TextInP .colors .colors #zField
+Ps0 @TextInP color color #zField
 Ps0 @TextInP .type .type #zField
 Ps0 @TextInP .processKind .processKind #zField
 Ps0 @AnnotationInP-0n ai ai #zField

@@ -1,9 +1,11 @@
 [Ivy]
-1468B144151F2C82 9.4.0 #module
+1468B144151F2C82 9.4.1 #module
 >Proto >Proto Collection #zClass
 As0 AutoCompleteDemoProcess Big #zClass
 As0 RD #cInfo
 As0 #process
+As0 @TextInP .colors .colors #zField
+As0 @TextInP color color #zField
 As0 @TextInP .type .type #zField
 As0 @TextInP .processKind .processKind #zField
 As0 @AnnotationInP-0n ai ai #zField

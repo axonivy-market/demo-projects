@@ -1,9 +1,11 @@
 [Ivy]
-15254DCE818AD7A2 9.4.0 #module
+15254DCE818AD7A2 9.4.1 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
 Pt0 B #cInfo
 Pt0 #process
+Pt0 @TextInP .colors .colors #zField
+Pt0 @TextInP color color #zField
 Pt0 @TextInP .type .type #zField
 Pt0 @TextInP .processKind .processKind #zField
 Pt0 @AnnotationInP-0n ai ai #zField

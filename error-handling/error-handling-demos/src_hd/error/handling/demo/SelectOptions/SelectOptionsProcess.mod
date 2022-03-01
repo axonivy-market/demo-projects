@@ -1,9 +1,11 @@
 [Ivy]
-15004A488FF27022 9.4.0 #module
+15004A488FF27022 9.4.1 #module
 >Proto >Proto Collection #zClass
 Ss0 SelectOptionsProcess Big #zClass
 Ss0 RD #cInfo
 Ss0 #process
+Ss0 @TextInP .colors .colors #zField
+Ss0 @TextInP color color #zField
 Ss0 @TextInP .type .type #zField
 Ss0 @TextInP .processKind .processKind #zField
 Ss0 @AnnotationInP-0n ai ai #zField

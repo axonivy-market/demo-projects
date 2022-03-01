@@ -1,9 +1,11 @@
 [Ivy]
-162B95BB70C3178E 9.4.0 #module
+162B95BB70C3178E 9.4.1 #module
 >Proto >Proto Collection #zClass
 te0 technicalBackendService Big #zClass
 te0 WS #cInfo
 te0 #process
+te0 @TextInP .colors .colors #zField
+te0 @TextInP color color #zField
 te0 @TextInP .webServiceName .webServiceName #zField
 te0 @TextInP .implementationClassName .implementationClassName #zField
 te0 @TextInP .authenticationType .authenticationType #zField

@@ -1,9 +1,11 @@
 [Ivy]
-17BF3918B962C886 9.4.0 #module
+17BF3918B962C886 9.4.1 #module
 >Proto >Proto Collection #zClass
 Ts0 TextEditorDemoProcess Big #zClass
 Ts0 RD #cInfo
 Ts0 #process
+Ts0 @TextInP .colors .colors #zField
+Ts0 @TextInP color color #zField
 Ts0 @AnnotationInP-0n ai ai #zField
 Ts0 @TextInP .type .type #zField
 Ts0 @TextInP .processKind .processKind #zField

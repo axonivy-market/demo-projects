@@ -1,9 +1,11 @@
 [Ivy]
-16E59F2CEDC492A6 9.4.0 #module
+16E59F2CEDC492A6 9.4.1 #module
 >Proto >Proto Collection #zClass
 Rs0 ResponsiveGridDemoProcess Big #zClass
 Rs0 RD #cInfo
 Rs0 #process
+Rs0 @TextInP .colors .colors #zField
+Rs0 @TextInP color color #zField
 Rs0 @TextInP .type .type #zField
 Rs0 @TextInP .processKind .processKind #zField
 Rs0 @TextInP .xml .xml #zField

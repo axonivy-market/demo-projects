@@ -1,9 +1,11 @@
 [Ivy]
-16764B07C0329FC8 9.4.0 #module
+16764B07C0329FC8 9.4.1 #module
 >Proto >Proto Collection #zClass
 cc0 asyncInvocation Big #zClass
 cc0 B #cInfo
 cc0 #process
+cc0 @TextInP .colors .colors #zField
+cc0 @TextInP color color #zField
 cc0 @TextInP .type .type #zField
 cc0 @TextInP .processKind .processKind #zField
 cc0 @AnnotationInP-0n ai ai #zField
@@ -120,6 +122,7 @@ cc0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 cc0 f12 145 457 30 30 -62 17 #rect
 cc0 f17 signalCode ivy:error:rest:client #txt
 cc0 f17 attachToBusinessCase true #txt
+cc0 f17 @CG|color NodeStyle3 #txt
 cc0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -128,7 +131,6 @@ cc0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 cc0 f17 289 553 30 30 -17 17 #rect
-cc0 f17 -1|-1|-65536 #nodeStyle
 cc0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -258,6 +260,8 @@ cc0 f26 80 584 145 472 #arcP
 cc0 f26 1 72 584 #addKink
 cc0 f26 2 72 472 #addKink
 cc0 f26 1 0.7975447465262427 0 0 #arcLabel
+>Proto cc0 .colors 'NodeStyle3=rgb(255, 0, 0);
+' #txt
 >Proto cc0 .type com.axonivy.connectivity.rest.AsyncInvocationData #txt
 >Proto cc0 .processKind NORMAL #txt
 >Proto cc0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

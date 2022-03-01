@@ -1,9 +1,11 @@
 [Ivy]
-15254CF1CE56AE72 9.4.0 #module
+15254CF1CE56AE72 9.4.1 #module
 >Proto >Proto Collection #zClass
 Tr0 NewEmployee Big #zClass
 Tr0 B #cInfo
 Tr0 #process
+Tr0 @TextInP .colors .colors #zField
+Tr0 @TextInP color color #zField
 Tr0 @TextInP .type .type #zField
 Tr0 @TextInP .processKind .processKind #zField
 Tr0 @AnnotationInP-0n ai ai #zField

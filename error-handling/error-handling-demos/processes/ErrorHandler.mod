@@ -1,9 +1,11 @@
 [Ivy]
-150148B81ACE3E1E 9.4.0 #module
+150148B81ACE3E1E 9.4.1 #module
 >Proto >Proto Collection #zClass
 Er0 ErrorHandler Big #zClass
 Er0 B #cInfo
 Er0 #process
+Er0 @TextInP .colors .colors #zField
+Er0 @TextInP color color #zField
 Er0 @TextInP .type .type #zField
 Er0 @TextInP .processKind .processKind #zField
 Er0 @AnnotationInP-0n ai ai #zField
@@ -52,8 +54,8 @@ Error Start Events in a global error process catch uncaught errors in the whole 
     </language>
 </elementInfo>
 ' #txt
+Er0 f5 @C|color NodeStyle3 #txt
 Er0 f5 64 34 480 60 -233 -26 #rect
-Er0 f5 -1|-1|-65536 #nodeStyle
 Er0 f6 dialogId error.handling.demo.GlobalError #txt
 Er0 f6 startMethod start(String,String) #txt
 Er0 f6 requestActionDecl '<String errorCode,String errorText> param;' #txt
@@ -76,6 +78,8 @@ Er0 f7 expr out #txt
 Er0 f7 95 176 152 176 #arcP
 Er0 f2 expr out #txt
 Er0 f2 264 176 321 176 #arcP
+>Proto Er0 .colors 'NodeStyle3=rgb(255, 0, 0);
+' #txt
 >Proto Er0 .type error.handling.demo.ErrorHandler #txt
 >Proto Er0 .processKind NORMAL #txt
 >Proto Er0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

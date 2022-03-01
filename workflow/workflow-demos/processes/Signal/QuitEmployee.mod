@@ -1,9 +1,11 @@
 [Ivy]
-151CA1EFC1542D87 9.4.0 #module
+151CA1EFC1542D87 9.4.1 #module
 >Proto >Proto Collection #zClass
 qr0 QuitEmployee Big #zClass
 qr0 B #cInfo
 qr0 #process
+qr0 @TextInP .colors .colors #zField
+qr0 @TextInP color color #zField
 qr0 @TextInP .type .type #zField
 qr0 @TextInP .processKind .processKind #zField
 qr0 @AnnotationInP-0n ai ai #zField

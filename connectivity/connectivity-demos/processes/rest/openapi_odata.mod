@@ -1,9 +1,11 @@
 [Ivy]
-15DEF1BE5B9E5A42 9.4.0 #module
+15DEF1BE5B9E5A42 9.4.1 #module
 >Proto >Proto Collection #zClass
 oa0 openapi_odata Big #zClass
 oa0 B #cInfo
 oa0 #process
+oa0 @TextInP .colors .colors #zField
+oa0 @TextInP color color #zField
 oa0 @TextInP .type .type #zField
 oa0 @TextInP .processKind .processKind #zField
 oa0 @AnnotationInP-0n ai ai #zField

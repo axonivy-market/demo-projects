@@ -1,9 +1,11 @@
 [Ivy]
-16EF56C29B4905A8 9.4.0 #module
+16EF56C29B4905A8 9.4.1 #module
 >Proto >Proto Collection #zClass
 Is0 InterviewFormProcess Big #zClass
 Is0 RD #cInfo
 Is0 #process
+Is0 @TextInP .colors .colors #zField
+Is0 @TextInP color color #zField
 Is0 @TextInP .type .type #zField
 Is0 @TextInP .processKind .processKind #zField
 Is0 @TextInP .xml .xml #zField

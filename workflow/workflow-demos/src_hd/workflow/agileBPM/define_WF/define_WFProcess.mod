@@ -1,9 +1,11 @@
 [Ivy]
-1525503525CD0CCC 9.4.0 #module
+1525503525CD0CCC 9.4.1 #module
 >Proto >Proto Collection #zClass
 ds0 define_WFProcess Big #zClass
 ds0 RD #cInfo
 ds0 #process
+ds0 @TextInP .colors .colors #zField
+ds0 @TextInP color color #zField
 ds0 @TextInP .type .type #zField
 ds0 @TextInP .processKind .processKind #zField
 ds0 @AnnotationInP-0n ai ai #zField

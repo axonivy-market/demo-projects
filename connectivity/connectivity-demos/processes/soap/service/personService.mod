@@ -1,9 +1,11 @@
 [Ivy]
-16150E1D07E8CA18 9.4.0 #module
+16150E1D07E8CA18 9.4.1 #module
 >Proto >Proto Collection #zClass
 pe0 personService Big #zClass
 pe0 WS #cInfo
 pe0 #process
+pe0 @TextInP .colors .colors #zField
+pe0 @TextInP color color #zField
 pe0 @TextInP .webServiceName .webServiceName #zField
 pe0 @TextInP .implementationClassName .implementationClassName #zField
 pe0 @TextInP .authenticationType .authenticationType #zField

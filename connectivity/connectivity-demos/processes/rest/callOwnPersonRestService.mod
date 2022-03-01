@@ -1,9 +1,11 @@
 [Ivy]
-154616078A1D629D 9.4.0 #module
+154616078A1D629D 9.4.1 #module
 >Proto >Proto Collection #zClass
 ce0 callOwnPersonRestService Big #zClass
 ce0 B #cInfo
 ce0 #process
+ce0 @TextInP .colors .colors #zField
+ce0 @TextInP color color #zField
 ce0 @TextInP .type .type #zField
 ce0 @TextInP .processKind .processKind #zField
 ce0 @AnnotationInP-0n ai ai #zField

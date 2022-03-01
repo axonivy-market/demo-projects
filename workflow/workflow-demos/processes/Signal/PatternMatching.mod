@@ -1,9 +1,11 @@
 [Ivy]
-16AC5A6319BD9D86 9.4.0 #module
+16AC5A6319BD9D86 9.4.1 #module
 >Proto >Proto Collection #zClass
 Pg0 PatternMatching Big #zClass
 Pg0 B #cInfo
 Pg0 #process
+Pg0 @TextInP .colors .colors #zField
+Pg0 @TextInP color color #zField
 Pg0 @TextInP .type .type #zField
 Pg0 @TextInP .processKind .processKind #zField
 Pg0 @AnnotationInP-0n ai ai #zField
@@ -116,6 +118,7 @@ Pg0 f13 1 480 352 #addKink
 Pg0 f13 0 0.7513382007022681 0 0 #arcLabel
 Pg0 f14 signalCode airport:crew:boarding #txt
 Pg0 f14 attachToBusinessCase true #txt
+Pg0 f14 @CG|color NodeStyle3 #txt
 Pg0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -124,7 +127,6 @@ Pg0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pg0 f14 81 401 30 30 -16 17 #rect
-Pg0 f14 -1|-1|-65536 #nodeStyle
 Pg0 f15 111 416 480 175 #arcP
 Pg0 f15 1 480 416 #addKink
 Pg0 f15 0 0.8336933382563666 0 0 #arcLabel
@@ -164,7 +166,6 @@ Pg0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pg0 f21 81 625 30 30 -13 16 #rect
-Pg0 f21 -1|-1|-65536 #nodeStyle
 Pg0 f22 111 640 480 527 #arcP
 Pg0 f22 1 480 640 #addKink
 Pg0 f22 0 0.668773729726818 0 0 #arcLabel
@@ -186,6 +187,8 @@ contain wildcards (*)</name>
 </elementInfo>
 ' #txt
 Pg0 f24 536 554 144 44 -65 -15 #rect
+>Proto Pg0 .colors 'NodeStyle3=rgb(255, 0, 0);
+' #txt
 >Proto Pg0 .type workflow.humantask.Data #txt
 >Proto Pg0 .processKind NORMAL #txt
 >Proto Pg0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

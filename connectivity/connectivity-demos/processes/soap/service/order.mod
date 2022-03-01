@@ -1,9 +1,11 @@
 [Ivy]
-16249376A44F1F8E 9.4.0 #module
+16249376A44F1F8E 9.4.1 #module
 >Proto >Proto Collection #zClass
 or0 order Big #zClass
 or0 B #cInfo
 or0 #process
+or0 @TextInP .colors .colors #zField
+or0 @TextInP color color #zField
 or0 @TextInP .type .type #zField
 or0 @TextInP .processKind .processKind #zField
 or0 @AnnotationInP-0n ai ai #zField
@@ -44,6 +46,7 @@ TaskTriggered.ROL=param.responsibleRole
 TaskTriggered.TYPE=2' #txt
 or0 f0 caseData businessCase.attach=true #txt
 or0 f0 showInStartList 0 #txt
+or0 f0 @CG|color NodeStyle2 #txt
 or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -53,7 +56,6 @@ or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 or0 f0 @C|.responsibility Team #txt
 or0 f0 41 49 30 30 -23 -36 #rect
-or0 f0 -1|-1|-13016147 #nodeStyle
 or0 f1 729 49 30 30 0 15 #rect
 or0 f3 dialogId com.axonivy.connectivity.soap.AcceptOrder #txt
 or0 f3 startMethod start(com.axonivy.connectivity.soap.service.Order) #txt
@@ -133,6 +135,8 @@ or0 f12 80 130 352 60 -167 -22 #rect
 or0 f13 80 160 56 79 #arcP
 or0 f13 1 56 160 #addKink
 or0 f13 1 0.6784892174215019 0 0 #arcLabel
+>Proto or0 .colors 'NodeStyle2=rgb(57, 99, 173);
+' #txt
 >Proto or0 .type com.axonivy.connectivity.soap.service.CreateOrderServiceData #txt
 >Proto or0 .processKind NORMAL #txt
 >Proto or0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

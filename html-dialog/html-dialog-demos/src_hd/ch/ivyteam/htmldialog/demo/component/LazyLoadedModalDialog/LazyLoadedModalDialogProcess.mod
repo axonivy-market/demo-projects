@@ -1,9 +1,11 @@
 [Ivy]
-15FB50542D237D38 9.4.0 #module
+15FB50542D237D38 9.4.1 #module
 >Proto >Proto Collection #zClass
 Ls0 LazyLoadedModalDialogProcess Big #zClass
 Ls0 RD #cInfo
 Ls0 #process
+Ls0 @TextInP .colors .colors #zField
+Ls0 @TextInP color color #zField
 Ls0 @TextInP .type .type #zField
 Ls0 @TextInP .processKind .processKind #zField
 Ls0 @AnnotationInP-0n ai ai #zField

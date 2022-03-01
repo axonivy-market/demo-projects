@@ -1,9 +1,11 @@
 [Ivy]
-15014A15C1CA5451 9.4.0 #module
+15014A15C1CA5451 9.4.1 #module
 >Proto >Proto Collection #zClass
 Gs0 GlobalErrorProcess Big #zClass
 Gs0 RD #cInfo
 Gs0 #process
+Gs0 @TextInP .colors .colors #zField
+Gs0 @TextInP color color #zField
 Gs0 @TextInP .type .type #zField
 Gs0 @TextInP .processKind .processKind #zField
 Gs0 @AnnotationInP-0n ai ai #zField

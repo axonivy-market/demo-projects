@@ -1,5 +1,5 @@
 [Ivy]
-14ECFC90CDE278D0 9.4.0 #module
+14ECFC90CDE278D0 9.4.1 #module
 >Proto >Proto Collection #zClass
 or0 Order Big #zClass
 or0 B #cInfo
@@ -10,6 +10,8 @@ Ct1 Component Big #zClass
 Ct1 B #cInfo
 Bk0 BpmnScriptTask Big #zClass
 Bk0 BpmnScriptTask #cInfo
+or0 @TextInP .colors .colors #zField
+or0 @TextInP color color #zField
 or0 @TextInP .type .type #zField
 or0 @TextInP .processKind .processKind #zField
 or0 @AnnotationInP-0n ai ai #zField
@@ -34,6 +36,8 @@ or0 @PushWFArc f4 '' #zField
 or0 @PushWFArc f8 '' #zField
 or0 @PushWFArc f10 '' #zField
 >Proto or0 or0 Order #zField
+Ct0 @TextInP .colors .colors #zField
+Ct0 @TextInP color color #zField
 Ct0 @TextInP .type .type #zField
 Ct0 @TextInP .processKind .processKind #zField
 Ct0 @AnnotationInP-0n ai ai #zField
@@ -55,6 +59,8 @@ Ct0 @DBStep f8 '' #zField
 Ct0 @PushWFArc f9 '' #zField
 Ct0 @PushWFArc f0 '' #zField
 >Proto Ct0 Ct0 Component #zField
+Ct1 @TextInP .colors .colors #zField
+Ct1 @TextInP color color #zField
 Ct1 @TextInP .type .type #zField
 Ct1 @TextInP .processKind .processKind #zField
 Ct1 @AnnotationInP-0n ai ai #zField
@@ -70,6 +76,8 @@ Ct1 @DBStep f3 '' #zField
 Ct1 @PushWFArc f4 '' #zField
 Ct1 @PushWFArc f2 '' #zField
 >Proto Ct1 Ct1 Component #zField
+Bk0 @TextInP .colors .colors #zField
+Bk0 @TextInP color color #zField
 Bk0 @TextInP .type .type #zField
 Bk0 @TextInP .processKind .processKind #zField
 Bk0 @AnnotationInP-0n ai ai #zField
@@ -205,8 +213,8 @@ The process can not continue because of an `out_of_stock`  error</name>
     </language>
 </elementInfo>
 ' #txt
+or0 f16 @C|color NodeStyle3 #txt
 or0 f16 56 26 368 44 -181 -19 #rect
-or0 f16 -1|-1|-65536 #nodeStyle
 or0 S30 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -224,6 +232,8 @@ or0 f10 504 225 536 128 #arcP
 or0 f10 1 480 225 #addKink
 or0 f10 2 480 144 #addKink
 or0 f10 1 0.6693044712359421 0 0 #arcLabel
+>Proto or0 .colors 'NodeStyle3=rgb(255, 0, 0);
+' #txt
 >Proto or0 .type error.handling.demo.Data #txt
 >Proto or0 .processKind NORMAL #txt
 >Proto or0 0 0 32 24 18 0 #rect

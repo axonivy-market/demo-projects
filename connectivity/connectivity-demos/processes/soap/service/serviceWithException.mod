@@ -1,9 +1,11 @@
 [Ivy]
-16D29AE50A7A6E34 9.3.1 #module
+16D29AE50A7A6E34 9.4.1 #module
 >Proto >Proto Collection #zClass
 sn0 serviceWithException Big #zClass
 sn0 WS #cInfo
 sn0 #process
+sn0 @TextInP .colors .colors #zField
+sn0 @TextInP color color #zField
 sn0 @TextInP .webServiceName .webServiceName #zField
 sn0 @TextInP .implementationClassName .implementationClassName #zField
 sn0 @TextInP .authenticationType .authenticationType #zField

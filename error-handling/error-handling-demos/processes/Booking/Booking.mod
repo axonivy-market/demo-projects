@@ -1,9 +1,11 @@
 [Ivy]
-150047A1589EB0D8 9.4.0 #module
+150047A1589EB0D8 9.4.1 #module
 >Proto >Proto Collection #zClass
 or0 Booking Big #zClass
 or0 B #cInfo
 or0 #process
+or0 @TextInP .colors .colors #zField
+or0 @TextInP color color #zField
 or0 @TextInP .type .type #zField
 or0 @TextInP .processKind .processKind #zField
 or0 @AnnotationInP-0n ai ai #zField
@@ -191,8 +193,8 @@ The Happy Path is interrupted and
     </language>
 </elementInfo>
 ' #txt
+or0 f16 @C|color NodeStyle3 #txt
 or0 f16 64 18 336 60 -158 -26 #rect
-or0 f16 -1|-1|-65536 #nodeStyle
 or0 f14 template "view/booking-success.xhtml" #txt
 or0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -205,6 +207,8 @@ successful</name>
 or0 f14 737 113 30 30 -26 18 #rect
 or0 f15 expr out #txt
 or0 f15 688 128 737 128 #arcP
+>Proto or0 .colors 'NodeStyle3=rgb(255, 0, 0);
+' #txt
 >Proto or0 .type booking.BookingData #txt
 >Proto or0 .processKind NORMAL #txt
 >Proto or0 0 0 32 24 18 0 #rect

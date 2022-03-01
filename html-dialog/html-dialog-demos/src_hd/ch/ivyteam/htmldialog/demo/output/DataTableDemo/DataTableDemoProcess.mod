@@ -1,9 +1,11 @@
 [Ivy]
-153D1CC01F460F8B 9.4.0 #module
+153D1CC01F460F8B 9.4.1 #module
 >Proto >Proto Collection #zClass
 Ds0 DataTableDemoProcess Big #zClass
 Ds0 RD #cInfo
 Ds0 #process
+Ds0 @TextInP .colors .colors #zField
+Ds0 @TextInP color color #zField
 Ds0 @TextInP .type .type #zField
 Ds0 @TextInP .processKind .processKind #zField
 Ds0 @AnnotationInP-0n ai ai #zField

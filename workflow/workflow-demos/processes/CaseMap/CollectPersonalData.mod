@@ -1,9 +1,11 @@
 [Ivy]
-15A5AC9A4F755A3B 9.4.0 #module
+15A5AC9A4F755A3B 9.4.1 #module
 >Proto >Proto Collection #zClass
 Ca0 CollectPersonalData Big #zClass
 Ca0 B #cInfo
 Ca0 #process
+Ca0 @TextInP .colors .colors #zField
+Ca0 @TextInP color color #zField
 Ca0 @TextInP .type .type #zField
 Ca0 @TextInP .processKind .processKind #zField
 Ca0 @AnnotationInP-0n ai ai #zField

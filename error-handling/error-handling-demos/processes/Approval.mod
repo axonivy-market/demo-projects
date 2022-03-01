@@ -1,9 +1,11 @@
 [Ivy]
-14ED397D47F3083D 9.4.0 #module
+14ED397D47F3083D 9.4.1 #module
 >Proto >Proto Collection #zClass
 al0 Approval Big #zClass
 al0 B #cInfo
 al0 #process
+al0 @TextInP .colors .colors #zField
+al0 @TextInP color color #zField
 al0 @TextInP .type .type #zField
 al0 @TextInP .processKind .processKind #zField
 al0 @AnnotationInP-0n ai ai #zField
@@ -61,8 +63,8 @@ The error `approval:declined ` initiates an alternative flow</name>
     </language>
 </elementInfo>
 ' #txt
+al0 f16 @C|color NodeStyle3 #txt
 al0 f16 80 34 336 44 -163 -19 #rect
-al0 f16 -1|-1|-65536 #nodeStyle
 al0 f3 dialogId error.handling.demo.approval.RequestForm #txt
 al0 f3 startMethod start() #txt
 al0 f3 requestActionDecl '<> param;' #txt
@@ -204,6 +206,8 @@ al0 f19 var in2 #txt
 al0 f19 424 345 584 192 #arcP
 al0 f19 1 424 192 #addKink
 al0 f19 0 0.8002504882268449 0 0 #arcLabel
+>Proto al0 .colors 'NodeStyle3=rgb(255, 0, 0);
+' #txt
 >Proto al0 .type error.handling.demo.Approval #txt
 >Proto al0 .processKind NORMAL #txt
 >Proto al0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
