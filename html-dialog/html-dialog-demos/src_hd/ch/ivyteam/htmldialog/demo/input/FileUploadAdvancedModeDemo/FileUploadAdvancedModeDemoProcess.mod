@@ -70,7 +70,7 @@ Fs0 f5 actionTable 'out=in;
 ' #txt
 Fs0 f5 actionCode 'import org.apache.commons.lang3.StringUtils;
 import java.io.InputStream;
-import org.primefaces.model.UploadedFile;
+import org.primefaces.model.file.UploadedFile;
 import ch.ivyteam.ivy.cm.CoType;
 import ch.ivyteam.ivy.cm.ContentObject;
 import ch.ivyteam.ivy.cm.ContentObjectValue;
@@ -104,7 +104,7 @@ ContentObjectValue cov = newImgae.value().get();
 InputStream inputStream = null;
 try 
 {
-	inputStream = uploadedFile.getInputstream();
+	inputStream = uploadedFile.getInputStream();
 	cov.write().inputStream(inputStream);
 }
 finally

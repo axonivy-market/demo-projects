@@ -8,9 +8,7 @@ import org.primefaces.model.SelectableDataModel;
 
 import ch.ivyteam.htmldialog.demo.Person;
 
-public class PersonListDataModel
-        extends ListDataModel<Person>
-        implements SelectableDataModel<Person>
+public class PersonListDataModel extends ListDataModel<Person> implements SelectableDataModel<Person>
 {
 
   public PersonListDataModel()
@@ -43,7 +41,7 @@ public class PersonListDataModel
   }
 
   @Override
-  public Object getRowKey(Person person)
+  public String getRowKey(Person person)
   {
     return person.getName();
   }

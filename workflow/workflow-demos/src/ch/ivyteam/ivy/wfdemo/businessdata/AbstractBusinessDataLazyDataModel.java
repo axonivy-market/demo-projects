@@ -3,7 +3,6 @@ package ch.ivyteam.ivy.wfdemo.businessdata;
 import java.util.List;
 import java.util.Map;
 
-import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 
 import ch.ivyteam.ivy.business.data.store.search.Filter;
@@ -11,8 +10,9 @@ import ch.ivyteam.ivy.business.data.store.search.OrderByOperation.Direction;
 import ch.ivyteam.ivy.business.data.store.search.Query;
 import ch.ivyteam.ivy.business.data.store.search.Result;
 import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.jsf.primefaces.legazy.LazyDataModel7;
 
-public abstract class AbstractBusinessDataLazyDataModel<T> extends LazyDataModel<T>
+public abstract class AbstractBusinessDataLazyDataModel<T> extends LazyDataModel7<T>
 {
 
   private static final long serialVersionUID = -4266652507970456174L;
@@ -31,7 +31,7 @@ public abstract class AbstractBusinessDataLazyDataModel<T> extends LazyDataModel
   }
 
   @Override
-  public final Object getRowKey(T data)
+  public final String getRowKey(T data)
   {
     return ivy.repo.getId(data);
   }

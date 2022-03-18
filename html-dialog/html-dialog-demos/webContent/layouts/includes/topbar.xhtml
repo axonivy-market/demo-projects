@@ -11,29 +11,5 @@
       <ul class="topbar-menu animated">
       </ul>
     </div>
-
-    <div class="navbar navbar-top">
-      <div id="headerdiv">
-        <div class="pull-right themeswitcher">
-          <h:form id="themeswitcher">
-            <h:panelGrid columns="2">
-              <!-- See Designer Documentation about Themes or the PublicAPI of IvyPrimefacesThemeResolver for more information -->
-              <p:outputLabel value="Theme" style="font-weight:bold; color: var(--topbar-text-color, #000);" />
-              <p:themeSwitcher id="basic" value="#{guestPreferences.theme}"
-                style="width: 160px; margin-right:20px; color: var(--topbar-text-color, #000);">
-                <f:selectItems value="#{guestPreferences.themes}" var="theme" itemLabel="#{theme}"
-                  itemValue="#{theme}" />
-                <p:ajax oncomplete="window.location.reload()" />
-              </p:themeSwitcher>
-            </h:panelGrid>
-            <style>
-              .ui-selectonemenu-item {
-                color: black;
-              }
-            </style>
-          </h:form>
-        </div>
-      </div>
-    </div>
   </div>
 </ui:composition>

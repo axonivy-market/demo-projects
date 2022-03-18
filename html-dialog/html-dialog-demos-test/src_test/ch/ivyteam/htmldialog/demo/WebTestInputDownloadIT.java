@@ -68,7 +68,7 @@ public class WebTestInputDownloadIT
     }
 
     $(By.id("pictureGalleryForm:fileUpload_input")).shouldBe(exist).sendKeys(tempImage.getAbsolutePath());
-    $(By.id("pictureGalleryForm:pictureGallery")).findAll(".ui-galleria-filmstrip li").shouldHave(size(4));
+    $(By.id("pictureGalleryForm:pictureGallery")).findAll(".ui-galleria-item").shouldHave(size(4));
   }
 
 }

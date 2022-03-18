@@ -91,17 +91,20 @@ Fs0 f4 403 339 26 26 0 12 #rect
 Fs0 f4 -1|-1|-9671572 #nodeStyle
 Fs0 f6 actionTable 'out=in;
 ' #txt
-Fs0 f6 actionCode 'import java.io.FileInputStream;
+Fs0 f6 actionCode 'import ch.ivyteam.ivy.jsf.primefaces.stream.InputStreamSupplier;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import javax.faces.bean.ManagedBean;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
-InputStream stream;
-
-stream = new FileInputStream(in.filePath);
-in.fileDownload = new DefaultStreamedContent(stream, "text/txt", in.fileName);
+InputStream stream = new FileInputStream(in.filePath);
+in.fileDownload = DefaultStreamedContent.builder()
+  .stream(InputStreamSupplier.stream(stream))
+  .contentType("text/txt")
+  .name(in.fileName)
+  .build();
 
 
 ' #txt

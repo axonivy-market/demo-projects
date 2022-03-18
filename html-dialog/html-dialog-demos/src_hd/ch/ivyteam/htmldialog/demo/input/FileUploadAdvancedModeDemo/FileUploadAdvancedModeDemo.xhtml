@@ -12,16 +12,20 @@
         <p>This demo explains how images from the CMS (Content Management System) can be uploaded and displayed.</p>
         <h:form id="pictureGalleryForm" enctype="multipart/form-data">
           <p:messages id="messages" />
-          <p:galleria id="pictureGallery" value="#{data.images}" var="imagename" panelWidth="500" panelHeight="313"
-            showCaption="true" autoPlay="false">
+          <p:galleria id="pictureGallery" value="#{data.images}" var="imagename" style="max-width: 500px" 
+            showCaption="true" autoPlay="false" showItemNavigators="true" numVisible="5">
             <p:graphicImage library="ivy-cms" name="ch.ivyteam.htmldialog.demo/fileUploadImages/#{imagename}"
-              alt="Image Description for #{imagename}" width="500" title="#{imagename}" />
+              alt="Image Description for #{imagename}" style="width: 100%; display: block" />
+            <f:facet name="caption">
+              <h4 class="p-mb-2">#{imagename}</h4>
+              <p>"Image Description for #{imagename}</p>
+            </f:facet>
           </p:galleria>
           <br />
           <br />
           <h:outputText value="Add an image to the gallery. Allowed image types are gif, jpg or png." />
           <br />
-          <p:fileUpload id="fileUpload" fileUploadListener="#{logic.uploadFile}" allowTypes="/(\.|\/)(gif|jpe?g|png)$/i"
+          <p:fileUpload id="fileUpload" listener="#{logic.uploadFile}" allowTypes="/(\.|\/)(gif|jpe?g|png)$/i"
             auto="true" mode="advanced" label="Add Image" update="pictureGalleryForm" />
           <br />
         </h:form>

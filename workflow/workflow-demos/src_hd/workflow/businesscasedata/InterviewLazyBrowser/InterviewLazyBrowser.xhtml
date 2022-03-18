@@ -23,8 +23,8 @@
         paginator="true" paginatorPosition="bottom" rows="5"
         paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
         currentPageReportTemplate="{startRecord} - {endRecord} of {totalRecords}"
-        rowsPerPageTemplate="5,10,15,25,50,100" lazy="true" sortBy="#{interview.firstName}">
-        <p:column headerText="First Name" sortBy="#{interview.firstName}">
+        rowsPerPageTemplate="5,10,15,25,50,100" lazy="true">
+        <p:column headerText="First Name" sortBy="#{interview.firstName}" sortOrder="descending">
           <h:outputText value="#{interview.firstName}" />
         </p:column>
         <p:column headerText="Last Name" sortBy="#{interview.lastName}">

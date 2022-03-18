@@ -11,9 +11,9 @@
       <h:form id="form">
         <h:panelGroup id="persons" layout="block">
           <p>This demo explains how a Recordset can be used as data for an editable table widget.</p>
-          <p:dataTable var="person" value="#{data.recordset}" sortBy="#{person.name}" sortOrder="descending"
+          <p:dataTable var="person" value="#{data.recordset}"
             editable="true" id="personTable" style="width:900px">
-            <p:column headerText="Name" sortBy="#{person.name}">
+            <p:column headerText="Name" sortBy="#{person.name}" sortOrder="descending">
               <p:cellEditor>
                 <f:facet name="output">
                   <h:outputText value="#{person['Name']}" style="font-weight:bold" />

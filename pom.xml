@@ -13,7 +13,6 @@
     <module>workflow</module>
     <module>connectivity</module>
     <module>demos-app</module>
-    <module>serenity</module>
   </modules>
 
   <build>
