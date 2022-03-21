@@ -178,12 +178,15 @@ Fs0 f19 headers 'Accept=application/octet-stream;
 ' #txt
 Fs0 f19 method GET #txt
 Fs0 f19 resultType '[B' #txt
-Fs0 f19 responseCode 'import java.io.ByteArrayInputStream;
+Fs0 f19 responseCode 'import ch.ivyteam.ivy.jsf.primefaces.stream.InputStreamSupplier;
+import java.io.ByteArrayInputStream;
 import org.primefaces.model.DefaultStreamedContent;
 
-out.fileDownload = new DefaultStreamedContent(new ByteArrayInputStream(result), "text/plain", in.downloadName);
-
-
+out.fileDownload = DefaultStreamedContent.builder()
+  .stream(InputStreamSupplier.stream(new ByteArrayInputStream(result)))
+  .contentType("text/plain")
+  .name(in.downloadName)
+  .build();
 ' #txt
 Fs0 f19 clientErrorCode ivy:error:rest:client #txt
 Fs0 f19 statusErrorCode ivy:error:rest:client #txt

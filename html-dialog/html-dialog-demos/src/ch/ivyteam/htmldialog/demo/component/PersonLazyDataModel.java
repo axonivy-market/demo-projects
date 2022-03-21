@@ -3,14 +3,14 @@ package ch.ivyteam.htmldialog.demo.component;
 import java.util.List;
 import java.util.Map;
 
-import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 
 import ch.ivyteam.htmldialog.demo.Person;
 import ch.ivyteam.htmldialog.demo.data.DataSource;
+import ch.ivyteam.ivy.jsf.primefaces.legazy.LazyDataModel7;
 
 @SuppressWarnings("serial")
-public class PersonLazyDataModel extends LazyDataModel<Person>
+public class PersonLazyDataModel extends LazyDataModel7<Person>
 {
 
   private DataSource source;
@@ -27,9 +27,9 @@ public class PersonLazyDataModel extends LazyDataModel<Person>
   }
 
   @Override
-  public Object getRowKey(Person person)
+  public String getRowKey(Person person)
   {
-    return person.getId();
+    return person.getId().toString();
   }
 
   @Override

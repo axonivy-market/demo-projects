@@ -44,9 +44,9 @@ public class ImageGenerator
     g2.drawString(text, 10, 25);
     ByteArrayOutputStream os = new ByteArrayOutputStream();
     ImageIO.write(bufferedImg, "png", os);
-    StreamedContent graphic = new DefaultStreamedContent(
-            new ByteArrayInputStream(os.toByteArray()), "image/png");
-
-    return graphic;
+    return DefaultStreamedContent.builder()
+            .stream(() -> new ByteArrayInputStream(os.toByteArray()))
+            .contentType("image/png")
+            .build();
   }
 }
