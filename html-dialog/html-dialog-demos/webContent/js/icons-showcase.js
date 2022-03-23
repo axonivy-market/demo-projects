@@ -1,4 +1,4 @@
-var iconsStylesheet = Object.values(document.styleSheets).filter(sheet => sheet.href?.includes("streamlineicons.css"))[0];
+var iconsStylesheet = Object.values(document.styleSheets).filter(sheet => sheet.href?.includes("StreamlineIcons.css"))[0];
 var icons = Object.values(iconsStylesheet.rules).filter(rule => rule.selectorText?.startsWith(".si-"));
 icons.sort((a, b) => (a.selectorText > b.selectorText) ? 1 : -1);
 
