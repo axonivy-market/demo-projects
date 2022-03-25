@@ -25,8 +25,8 @@
           <h:graphicImage id="portrait" library="ivy-webcontent" name="user/group.jpg"
             title="#{ivy.cms.co('/Dialogs/agileBPM/define_WF/WFUser')}" styleClass="circularGroupImg"
             rendered="#{data.user.indexOf(',') gt 0}" />
-          <pe:gravatar value="#{ivy.security.users().find(data.user).getEMailAddress()}" size="60"
-            notFound="mm" style="border-radius:30px" rendered="#{data.user.indexOf(',') le 0}" />
+          <p:avatar gravatar="#{ivy.security.users().find(data.user).getEMailAddress()}" 
+            size="large" gravatarConfig="d=mp" rendered="#{data.user.indexOf(',') le 0}"/>
 
           <p:spacer height="60"></p:spacer>
           <p:commandButton value="#{ivy.cms.co('/Dialogs/agileBPM/define_WF/Ok')}" update=":form:taskDef"

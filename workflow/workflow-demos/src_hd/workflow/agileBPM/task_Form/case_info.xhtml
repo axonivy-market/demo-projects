@@ -45,9 +45,8 @@
                   </h:panelGrid>
                 </p:tooltip>
               </h:graphicImage>
-              <pe:gravatar id="h#{row.index}"
-                value="#{ivy.security.users().find(histTask.actor).getEMailAddress()}" size="60"
-                notFound="mm" style="border-radius:30px" rendered="#{histTask.actor.indexOf(',') le 0}">
+              <p:avatar id="h#{row.index}" gravatar="#{ivy.security.users().find(histTask.actor).getEMailAddress()}" 
+                size="large" gravatarConfig="d=mp" rendered="#{histTask.actor.indexOf(',') le 0}">
                 <p:tooltip for="h#{row.index}" styleClass="panel">
                   <h:panelGrid columns="2" cellpadding="0">
                     <h:graphicImage library="ivy-webcontent" name="images/done.jpg" alt="Done" height="24"
@@ -62,7 +61,7 @@
                     </h:panelGrid>
                   </h:panelGrid>
                 </p:tooltip>
-              </pe:gravatar>
+              </p:avatar>
               <p:outputLabel value="#{histTask.actor}"></p:outputLabel>
             </h:panelGrid>
             <h:graphicImage library="ivy-webcontent" name="images/flowA.png"
@@ -94,8 +93,8 @@
                 </h:panelGrid>
               </p:tooltip>
             </h:graphicImage>
-            <pe:gravatar id="pp" value="#{ivy.security.users().find(data.nextTask.actor).getEMailAddress()}"
-              size="60" notFound="mm" style="border-radius:30px" rendered="#{data.nextTask.actor.indexOf(',') le 0}">
+            <p:avatar id="pp" gravatar="#{ivy.security.users().find(data.nextTask.actor).getEMailAddress()}" 
+              size="large" gravatarConfig="d=mp" rendered="#{data.nextTask.actor.indexOf(',') le 0}">
               <p:tooltip id="tt" for="pp" styleClass="panel">
                 <h:panelGrid columns="2" cellpadding="0">
                   <h:graphicImage library="ivy-webcontent" name="images/deadline.jpg" alt="Deadline" height="24"
@@ -108,7 +107,7 @@
                   </h:panelGrid>
                 </h:panelGrid>
               </p:tooltip>
-            </pe:gravatar>
+            </p:avatar>
             <p:outputLabel value="#{data.nextTask.actor}" style="font-weight:bold;" />
           </h:panelGrid>
           <p:panel style="border:0px" styleClass="panel">
@@ -138,9 +137,8 @@
               <h:graphicImage library="ivy-webcontent" name="user/SYSTEM.png" rendered="#{defTask.actor eq 'SYSTEM'}"
                 title="#{defTask.actor}" styleClass="circularImg" style="margin-left:20px; margin-right:20px;">
               </h:graphicImage>
-              <pe:gravatar value="#{ivy.security.users().find(defTask.actor).getEMailAddress()}" size="60"
-                notFound="mm" style="border-radius:30px"
-                rendered="#{defTask.actor.indexOf(',') le 0 and defTask.actor ne 'SYSTEM'}" />
+              <p:avatar gravatar="#{ivy.security.users().find(defTask.actor).getEMailAddress()}" 
+                size="large" gravatarConfig="d=mp" rendered="#{defTask.actor.indexOf(',') le 0 and defTask.actor ne 'SYSTEM'}" />
               <p:outputLabel value="#{defTask.actor}"></p:outputLabel>
             </h:panelGrid>
           </c:forEach>
