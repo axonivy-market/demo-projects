@@ -18,6 +18,14 @@ div {
   display: inline;
 }
 
+.ui-avatar-lg {
+  height: 60px;
+  width: 60px;
+}
+.ui-avatar-lg img {
+  border-radius: 30px;
+}
+
 .circularImg {
   width: 60px;
   height: 60px;
