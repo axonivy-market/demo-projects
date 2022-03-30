@@ -11,8 +11,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
+import com.codeborne.selenide.Selenide;
 
-@IvyWebTest
+@IvyWebTest(headless = false)
 public class WebTestComponentIT
 {
   @Test
@@ -42,9 +43,10 @@ public class WebTestComponentIT
   {
     startProcess("145D1849FACF0EAA/ComponentEventListenerDemo.ivp");
 
-    $(By.id("componentForm:detailListComponent:personsTable")).find("tr", 2).shouldBe(visible).click();
+    $(By.id("componentForm:detailListComponent:personsTable")).shouldBe(visible);
+    Selenide.executeJavaScript("PF('personsTable').selectRow(1, false);");
     $(By.id("componentForm:selectionResult_container")).shouldHave(text("Person selected"), text("Peter"));
-    $(By.id("componentForm:detailListComponent:personsTable")).find("tr", 4).shouldBe(visible).click();
+    Selenide.executeJavaScript("PF('personsTable').selectRow(3, false);");
     $(By.id("componentForm:selectionResult_container")).shouldHave(text("Person selected"), text("Bruno"));
     $(By.id("componentForm:detailListComponent:fireEventButton")).shouldBe(visible, enabled).click();
     $(By.id("componentForm:selectionResult_container")).shouldHave(text("Fire event!"));

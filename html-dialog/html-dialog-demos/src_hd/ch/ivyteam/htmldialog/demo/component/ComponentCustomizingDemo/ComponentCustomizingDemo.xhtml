@@ -46,8 +46,8 @@
         </h:form>
 
         <br />
-        <h:outputText value="Home Address" style="font-weight:bold" />
-        <h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+        <h:outputText value="Home Address" style="font-weight: bold; line-height: 3rem;" />
+        <p:panelGrid columns="2" layout="flex" style="max-width: 500px;">
           <h:outputText value="Title" style="font-style:italic" />
           <h:outputText value="#{data.title}" />
           <h:outputText value="Name" style="font-style:italic" />
@@ -56,18 +56,18 @@
           <h:outputText value="#{data.homeAddress.street}" />
           <h:outputText value="Country" style="font-style:italic" />
           <h:outputText value="#{data.homeAddress.country}" />
-        </h:panelGrid>
+        </p:panelGrid>
 
         <br />
-        <h:outputText value="Corporate Address" style="font-weight:bold" />
-        <h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+        <h:outputText value="Corporate Address" style="font-weight: bold; line-height: 3rem;" />
+        <p:panelGrid columns="2" layout="flex" style="max-width: 500px;">
           <h:outputText value="Company" style="font-style:italic" />
           <h:outputText value="#{data.company}" />
           <h:outputText value="Street" style="font-style:italic" />
           <h:outputText value="#{data.corporateAddress.street}" />
           <h:outputText value="Country" style="font-style:italic" />
           <h:outputText value="#{data.corporateAddress.country}" />
-        </h:panelGrid>
+        </p:panelGrid>
       </h:panelGroup>
     </ui:define>
   </ui:composition>

@@ -51,7 +51,7 @@
         </p>
         <h:form id="person">
           <p:messages id="msgs" />
-          <h:panelGrid columns="3">
+          <p:panelGrid columns="3" layout="flex">
             <p:outputLabel value="Name" for="name" />
             <p:inputText value="#{data.person.name}" id="name" />
             <p:message for="name" display="icon" id="nameMessage" />
@@ -64,9 +64,9 @@
             <p:outputLabel value="Vehicle license" for="license" />
             <p:inputText value="#{data.person.vehicleLicense}" id="license" />
             <p:message for="license" display="icon" id="licenseMessage" />
-          </h:panelGrid>
+          </p:panelGrid>
           <h:panelGrid>
-            <p:commandButton actionListener="#{logic.Send}" value="Submit" id="submit" update="person" />
+            <p:commandButton actionListener="#{logic.Send}" value="Send" icon="pi pi-save" id="submit" update="person" />
           </h:panelGrid>
           <br />
           <br />

@@ -47,7 +47,8 @@ public class WebTestInputDownloadIT
     String testContent = "this is a test for the Simple File Up- and Download";
     FileUtils.write(tempFile, testContent, Charset.defaultCharset());
 
-    $(By.id("demoForm:fileUpload")).shouldBe(visible).sendKeys(tempFile.getAbsolutePath());
+    $(By.id("demoForm:fileUpload")).shouldBe(visible);
+    $(By.id("demoForm:fileUpload_input")).sendKeys(tempFile.getAbsolutePath());
     $(By.id("demoForm:fileUploadButton")).click();
     $(By.id("demoForm:showFileButton")).click();
     $(By.id("demoForm:textAreaLabel")).shouldHave(text(testContent));

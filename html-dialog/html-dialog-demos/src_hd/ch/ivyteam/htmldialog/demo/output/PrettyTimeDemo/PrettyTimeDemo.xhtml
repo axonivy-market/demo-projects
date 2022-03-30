@@ -13,9 +13,7 @@
 
       <h:form id="form">
         <p:messages />
-        <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank"
-          columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
-
+        <p:panelGrid columns="2" layout="flex" style="max-width: 400px;">
           <h:outputText value="#{data.twoHoursBefore}">
             <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
           </h:outputText>
@@ -43,7 +41,6 @@
           <h:outputText id="threeYearsAgo" value="#{data.threeYearsAgo}">
             <f:converter converterId="org.ocpsoft.PrettyTimeConverter" />
           </h:outputText>
-
         </p:panelGrid>
       </h:form>
     </ui:define>

@@ -18,9 +18,9 @@
           </p:outputPanel>
           <p:outputPanel rendered="#{not data.processing}">
             <p:outputLabel value="Credit card verified!" id="confirmVerification" />
-            <h:panelGrid>
-              <p:commandButton value="Finish" action="#{logic.nextView('CreditCardProcessing')}" id="finishButton" />
-            </h:panelGrid>
+            <br/>
+            <br/>
+            <p:commandButton style="width: 200px" value="Finish" icon="pi pi-save" action="#{logic.nextView('CreditCardProcessing')}" id="finishButton" />
           </p:outputPanel>
           <p:poll interval="3" stop="#{not data.processing}" autoStart="true" listener="#{logic.stopProcessing}"
             update="myForm" />

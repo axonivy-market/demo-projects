@@ -12,13 +12,12 @@
         <h:panelGroup layout="block" id="panel">
           <h3>Payment - Invoice</h3>
           <p:messages id="msgs" />
-          <h:panelGrid columns="2">
+          <p:panelGrid columns="2" layout="flex" contentStyleClass="p-align-baseline ui-fluid" style="max-width: 500px;">
             <p:outputLabel value="Address" for="Address" />
             <p:inputText required="true" value="#{data.address}" id="Address"></p:inputText>
-          </h:panelGrid>
-          <h:panelGrid>
-            <p:commandButton value="Finish" update="myForm" action="#{logic.nextView('Invoice')}" id="finishButton" />
-          </h:panelGrid>
+          </p:panelGrid>
+          
+          <p:commandButton style="width: 200px" value="Finish" icon="pi pi-save" update="myForm" action="#{logic.nextView('Invoice')}" id="finishButton" />
         </h:panelGroup>
       </h:form>
     </ui:define>

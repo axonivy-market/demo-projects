@@ -12,7 +12,7 @@
         <h:panelGroup id="persons" layout="block">
           <p>This demo explains how a Recordset can be used as data for an editable table widget.</p>
           <p:dataTable var="person" value="#{data.recordset}"
-            editable="true" id="personTable" style="width:900px">
+            editable="true" id="personTable">
             <p:column headerText="Name" sortBy="#{person.name}" sortOrder="descending">
               <p:cellEditor>
                 <f:facet name="output">
@@ -35,22 +35,24 @@
             </p:column>
             <p:column headerText="Controls" style="width:5em;">
               <p:rowEditor id="rowEditor" />
-              <p:commandLink actionListener="#{logic.delete(person)}" update=":form:persons" title="Delete"
-                id="deleteButton">
-                <span class="ui-icon ui-icon-trash" />
-              </p:commandLink>
+              <div class="ui-row-editor">
+                <p:commandLink actionListener="#{logic.delete(person)}" update=":form:persons" title="Delete"
+                  id="deleteButton" style="display: inline-block;">
+                  <i class="pi pi-trash"></i>
+                </p:commandLink>
+              </div>
             </p:column>
             <f:facet name="footer">
               <p:outputLabel value="footer" style="color:transparent" />
               <p:commandLink title="Add" actionListener="#{logic.add}" update=":form:persons" style="float:right"
                 id="addButton">
-                <span class="ui-icon ui-icon-plusthick" />
+                <i class="pi pi-plus"></i>
               </p:commandLink>
             </f:facet>
           </p:dataTable>
           <br />
           <h:panelGrid>
-            <p:commandButton actionListener="#{logic.send}" value="Send" update="persons" />
+            <p:commandButton actionListener="#{logic.send}" icon="pi pi-save" value="Send" update="persons" />
           </h:panelGrid>
           <br />
           <h:outputText value="Data: #{data.recordset}" />

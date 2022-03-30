@@ -69,8 +69,8 @@ class WebTestOutputIT
     table.contains("2300");
     table.containsNot("1324");
 
-    $(By.id("form:theTable:scoreId")).click();
-    Thread.sleep(500);
+    $(By.id("form:theTable:scoreId")).scrollIntoView("{block: \"center\"}").click();
+    table.firstRowContains("testPerson");
     $(By.id("form:theTable:scoreId")).click();
     table.firstRowContains("Tim");
   }

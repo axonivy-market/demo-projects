@@ -12,15 +12,13 @@
         <h:panelGroup layout="block" id="panel">
           <h3>Payment - Credit Card</h3>
           <p:messages id="msgs" />
-          <h:panelGrid columns="2">
+          <p:panelGrid columns="2" layout="flex" contentStyleClass="p-align-baseline ui-fluid" style="max-width: 500px;">
             <p:outputLabel value="Credit Card Number" />
             <p:inputMask required="true" value="#{data.creditCardNumber}" id="CreditCardNumber"
               mask="9999-9999-9999-9999"></p:inputMask>
-          </h:panelGrid>
+          </p:panelGrid>
 
-          <h:panelGrid>
-            <p:commandButton value="Next" update="myForm" action="#{logic.nextView('CreditCard')}" />
-          </h:panelGrid>
+          <p:commandButton style="width: 200px" value="Next" icon="pi pi-arrow-right" update="myForm" action="#{logic.nextView('CreditCard')}" />
         </h:panelGroup>
       </h:form>
     </ui:define>

@@ -16,7 +16,7 @@
             Dialog.</p>
           <h3>Payment</h3>
           <p:messages id="msgs" />
-          <h:panelGrid columns="2">
+          <p:panelGrid columns="2" layout="flex" contentStyleClass="p-align-baseline ui-fluid" style="max-width: 500px;">
             <p:outputLabel value="Name" for="Name" />
             <p:inputText required="true" value="#{data.name}" id="Name"></p:inputText>
             <p:outputLabel value="First Name" for="FirstName" />
@@ -26,10 +26,9 @@
               <f:selectItem itemLabel="Invoice" itemValue="Invoice" />
               <f:selectItem itemLabel="Credit Card" itemValue="CreditCard" />
             </p:selectOneRadio>
-          </h:panelGrid>
-          <h:panelGrid>
-            <p:commandButton value="Next" update="myForm" action="#{logic.nextView('MultiViewDemo')}" id="nextButton" />
-          </h:panelGrid>
+          </p:panelGrid>
+          
+          <p:commandButton style="width: 200px" value="Next" icon="pi pi-arrow-right" update="myForm" action="#{logic.nextView('MultiViewDemo')}" id="nextButton" />
         </h:panelGroup>
       </h:form>
     </ui:define>

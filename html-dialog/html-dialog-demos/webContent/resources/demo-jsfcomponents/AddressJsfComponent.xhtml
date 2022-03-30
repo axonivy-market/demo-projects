@@ -15,8 +15,8 @@ This attributes can be accessed by the el expression cc.attrs.attributeName.
 </cc:interface>
 <cc:implementation>
   <p:fieldset legend="Address JSF Component">
-    <h:outputText>#{cc.attrs.label}</h:outputText>
-    <h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+    <h:outputText value="#{cc.attrs.label}" style="line-height: 3rem;" />
+    <p:panelGrid columns="2" layout="flex" contentStyleClass="p-align-baseline ui-fluid" style="max-width: 500px;">
 
       <!-- Insert the children from the parent where the include of this component is defined -->
       <cc:insertChildren />
@@ -25,7 +25,7 @@ This attributes can be accessed by the el expression cc.attrs.attributeName.
       <p:inputText value="#{cc.attrs.address.street}" id="street" />
       <p:outputLabel value="Country" for="country" />
       <p:inputText value="#{cc.attrs.address.country}" id="country" />
-    </h:panelGrid>
+    </p:panelGrid>
   </p:fieldset>
 </cc:implementation>
 

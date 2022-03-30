@@ -21,7 +21,7 @@
           </p>
           <h:panelGrid>
             <p:commandButton actionListener="#{logic.exception}" value="Execute non-ajax HTTP Request" update="form"
-              icon="ui-icon-check" ajax="false" id="nonAjax" />
+              icon="pi pi-times-circle" ajax="false" id="nonAjax" />
           </h:panelGrid>
 
           <h4>AJAX Request</h4>
@@ -36,7 +36,7 @@
           </p>
           <h:panelGrid>
             <p:commandButton actionListener="#{logic.exception}" value="Execute ajax-based HTTP Request" update="form"
-              icon="ui-icon-check" id="ajax" />
+              icon="pi pi-times-circle" id="ajax" />
           </h:panelGrid>
 
           <h4>View Expired Exception</h4>
@@ -52,9 +52,9 @@
           </p>
           <h:panelGrid columns="2">
             <p:commandButton actionListener="#{logic.expireMySession}" value="Expire my session" update="form"
-              icon="ui-icon-check" id="expireSession" />
-            <p:commandButton actionListener="#{logic.executeSomething}" value="Execute ajax-based HTTP Request"
-              update="form" icon="ui-icon-check" id="ajaxWithExpiredSession" />
+              icon="pi pi-times-circle" id="expireSession" />
+            <p:commandButton actionListener="#{logic.executeSomething}" value="Execute ajax-based HTTP Request" 
+              icon="pi pi-times-circle" update="form" id="ajaxWithExpiredSession" />
           </h:panelGrid>
         </h:form>
       </h:panelGroup>
