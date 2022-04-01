@@ -1,5 +1,5 @@
 [Ivy]
-15254CF47A16DEA1 9.4.1 #module
+15254CF47A16DEA1 9.4.3 #module
 >Proto >Proto Collection #zClass
 Pn0 ParkingLotReservation Big #zClass
 Pn0 B #cInfo
@@ -41,7 +41,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Facility Manager
 TaskTriggered.TYPE=0' #txt
 Pn0 f0 caseData case.category=Facility/ParkingLot/Reservation #txt
-Pn0 f0 showInStartList 1 #txt
+Pn0 f0 showInStartList true #txt
 Pn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

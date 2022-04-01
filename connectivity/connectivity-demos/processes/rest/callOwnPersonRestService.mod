@@ -1,5 +1,5 @@
 [Ivy]
-154616078A1D629D 9.4.1 #module
+154616078A1D629D 9.4.3 #module
 >Proto >Proto Collection #zClass
 ce0 callOwnPersonRestService Big #zClass
 ce0 B #cInfo
@@ -51,7 +51,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 ce0 f0 caseData businessCase.attach=false #txt
-ce0 f0 showInStartList 1 #txt
+ce0 f0 showInStartList true #txt
 ce0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -78,7 +78,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 ce0 f5 caseData businessCase.attach=false #txt
-ce0 f5 showInStartList 1 #txt
+ce0 f5 showInStartList true #txt
 ce0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -168,7 +168,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 ce0 f2 caseData businessCase.attach=true #txt
-ce0 f2 showInStartList 1 #txt
+ce0 f2 showInStartList true #txt
 ce0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

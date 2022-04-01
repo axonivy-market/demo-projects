@@ -1,5 +1,5 @@
 [Ivy]
-156DB84CCE78254F 9.4.1 #module
+156DB84CCE78254F 9.4.3 #module
 >Proto >Proto Collection #zClass
 Cn0 ConcurrentModification Big #zClass
 Cn0 B #cInfo
@@ -55,7 +55,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 Cn0 f0 caseData case.category=Customer/Onboarding #txt
-Cn0 f0 showInStartList 1 #txt
+Cn0 f0 showInStartList true #txt
 Cn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

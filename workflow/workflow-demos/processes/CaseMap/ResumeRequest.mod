@@ -1,5 +1,5 @@
 [Ivy]
-015A8996ACC13882 9.4.1 #module
+015A8996ACC13882 9.4.3 #module
 >Proto >Proto Collection #zClass
 Rt0 ResumeRequest Big #zClass
 Rt0 B #cInfo
@@ -31,7 +31,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 Rt0 f0 caseData businessCase.attach=true #txt
-Rt0 f0 showInStartList 0 #txt
+Rt0 f0 showInStartList false #txt
 Rt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

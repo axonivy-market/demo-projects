@@ -1,5 +1,5 @@
 [Ivy]
-15A8995AA29B442B 9.4.1 #module
+15A8995AA29B442B 9.4.3 #module
 >Proto >Proto Collection #zClass
 Ek0 ExternalSolvencyService Big #zClass
 Ek0 B #cInfo
@@ -31,7 +31,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 Ek0 f0 caseData businessCase.attach=true #txt
-Ek0 f0 showInStartList 0 #txt
+Ek0 f0 showInStartList false #txt
 Ek0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

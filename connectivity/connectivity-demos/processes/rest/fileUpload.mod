@@ -1,5 +1,5 @@
 [Ivy]
-169B3B7F5EF38D8F 9.4.1 #module
+169B3B7F5EF38D8F 9.4.3 #module
 >Proto >Proto Collection #zClass
 fd0 fileUpload Big #zClass
 fd0 B #cInfo
@@ -47,7 +47,7 @@ fd0 f0 startName '6.4.0 Upload file UI' #txt
 fd0 f0 startCategory rest/mapping/file #txt
 fd0 f0 startCustomFields 'cssIcon=fa fa-upload' #txt
 fd0 f0 caseData businessCase.attach=true #txt
-fd0 f0 showInStartList 1 #txt
+fd0 f0 showInStartList true #txt
 fd0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -97,7 +97,7 @@ fd0 f6 startName '6.4.1 Upload file multipart' #txt
 fd0 f6 startCategory rest/mapping/file #txt
 fd0 f6 startCustomFields 'cssIcon=fa fa-upload' #txt
 fd0 f6 caseData businessCase.attach=true #txt
-fd0 f6 showInStartList 1 #txt
+fd0 f6 showInStartList true #txt
 fd0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -265,7 +265,7 @@ fd0 f13 startName '6.4.2 Upload many files at once' #txt
 fd0 f13 startCategory rest/mapping/file #txt
 fd0 f13 startCustomFields 'cssIcon=fa fa-upload' #txt
 fd0 f13 caseData businessCase.attach=true #txt
-fd0 f13 showInStartList 1 #txt
+fd0 f13 showInStartList true #txt
 fd0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

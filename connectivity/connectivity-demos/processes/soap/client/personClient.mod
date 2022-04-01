@@ -1,5 +1,5 @@
 [Ivy]
-16150E26E34D4339 9.4.1 #module
+16150E26E34D4339 9.4.3 #module
 >Proto >Proto Collection #zClass
 pt0 personClient Big #zClass
 pt0 B #cInfo
@@ -46,7 +46,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 pt0 f0 caseData businessCase.attach=true #txt
-pt0 f0 showInStartList 1 #txt
+pt0 f0 showInStartList true #txt
 pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -110,7 +110,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 pt0 f7 caseData businessCase.attach=true #txt
-pt0 f7 showInStartList 1 #txt
+pt0 f7 showInStartList true #txt
 pt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -162,7 +162,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 pt0 f11 caseData businessCase.attach=true #txt
-pt0 f11 showInStartList 1 #txt
+pt0 f11 showInStartList true #txt
 pt0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,5 +1,5 @@
 [Ivy]
-15DEF1BE5B9E5A42 9.4.1 #module
+15DEF1BE5B9E5A42 9.4.3 #module
 >Proto >Proto Collection #zClass
 oa0 openapi_odata Big #zClass
 oa0 B #cInfo
@@ -41,7 +41,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 oa0 f0 caseData businessCase.attach=true #txt
-oa0 f0 showInStartList 1 #txt
+oa0 f0 showInStartList true #txt
 oa0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -91,7 +91,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 oa0 f5 caseData businessCase.attach=true #txt
-oa0 f5 showInStartList 1 #txt
+oa0 f5 showInStartList true #txt
 oa0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

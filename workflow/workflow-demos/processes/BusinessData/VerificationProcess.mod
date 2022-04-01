@@ -1,5 +1,5 @@
 [Ivy]
-156E5D9AA7D41BAA 9.4.1 #module
+156E5D9AA7D41BAA 9.4.3 #module
 >Proto >Proto Collection #zClass
 Vn0 VerificationProcess Big #zClass
 Vn0 B #cInfo
@@ -117,7 +117,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 Vn0 f19 caseData case.category=Dossier/Verify #txt
-Vn0 f19 showInStartList 0 #txt
+Vn0 f19 showInStartList false #txt
 Vn0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

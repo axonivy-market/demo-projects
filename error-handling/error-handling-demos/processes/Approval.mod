@@ -1,5 +1,5 @@
 [Ivy]
-14ED397D47F3083D 9.4.1 #module
+14ED397D47F3083D 9.4.3 #module
 >Proto >Proto Collection #zClass
 al0 Approval Big #zClass
 al0 B #cInfo
@@ -43,7 +43,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 al0 f0 wfuser 1 #txt
-al0 f0 showInStartList 1 #txt
+al0 f0 showInStartList true #txt
 al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

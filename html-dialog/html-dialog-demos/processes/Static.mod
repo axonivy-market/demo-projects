@@ -1,5 +1,5 @@
 [Ivy]
-1698080EFEC9C585 9.4.1 #module
+1698080EFEC9C585 9.4.3 #module
 >Proto >Proto Collection #zClass
 Sc0 Static Big #zClass
 Sc0 B #cInfo
@@ -28,7 +28,7 @@ Sc0 f0 startCategory static #txt
 Sc0 f0 startCustomFields 'cssIcon=fa fa-file-o
 embedInFrame=false' #txt
 Sc0 f0 caseData businessCase.attach=true #txt
-Sc0 f0 showInStartList 1 #txt
+Sc0 f0 showInStartList true #txt
 Sc0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,9 +1,11 @@
 [Ivy]
-148655EC6EF98127 9.4.0 #module
+148655EC6EF98127 9.4.3 #module
 >Proto >Proto Collection #zClass
 Es0 EnterProductProcess Big #zClass
 Es0 RD #cInfo
 Es0 #process
+Es0 @TextInP .colors .colors #zField
+Es0 @TextInP color color #zField
 Es0 @TextInP .type .type #zField
 Es0 @TextInP .processKind .processKind #zField
 Es0 @AnnotationInP-0n ai ai #zField
