@@ -1,5 +1,5 @@
 [Ivy]
-16249376A44F1F8E 9.4.1 #module
+16249376A44F1F8E 9.4.3 #module
 >Proto >Proto Collection #zClass
 or0 order Big #zClass
 or0 B #cInfo
@@ -45,7 +45,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=param.responsibleRole
 TaskTriggered.TYPE=2' #txt
 or0 f0 caseData businessCase.attach=true #txt
-or0 f0 showInStartList 0 #txt
+or0 f0 showInStartList false #txt
 or0 f0 @CG|color NodeStyle2 #txt
 or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

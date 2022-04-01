@@ -1,5 +1,5 @@
 [Ivy]
-1605A38503199ADB 9.4.1 #module
+1605A38503199ADB 9.4.3 #module
 >Proto >Proto Collection #zClass
 dg0 dataMapping Big #zClass
 dg0 B #cInfo
@@ -44,7 +44,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 dg0 f0 caseData businessCase.attach=true #txt
-dg0 f0 showInStartList 1 #txt
+dg0 f0 showInStartList true #txt
 dg0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -108,7 +108,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 dg0 f7 caseData businessCase.attach=true #txt
-dg0 f7 showInStartList 1 #txt
+dg0 f7 showInStartList true #txt
 dg0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

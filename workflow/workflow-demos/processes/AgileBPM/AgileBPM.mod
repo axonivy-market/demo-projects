@@ -1,5 +1,5 @@
 [Ivy]
-15255056043EE914 9.4.1 #module
+15255056043EE914 9.4.3 #module
 >Proto >Proto Collection #zClass
 AF0 AgileBPM Big #zClass
 AF0 B #cInfo
@@ -130,7 +130,7 @@ AF0 f0 caseData 'case.category=AdHoc
 customFields.STRING.ProcessCategoryCode="Self Service WF"
 customFields.STRING.ProcessCategoryName="Self Service WF"' #txt
 AF0 f0 wfuser 1 #txt
-AF0 f0 showInStartList 1 #txt
+AF0 f0 showInStartList true #txt
 AF0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

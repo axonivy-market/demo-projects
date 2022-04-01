@@ -1,5 +1,5 @@
 [Ivy]
-15DC0CCB70274584 9.4.1 #module
+15DC0CCB70274584 9.4.3 #module
 >Proto >Proto Collection #zClass
 Ma0 MigrateData Big #zClass
 Ma0 B #cInfo
@@ -39,7 +39,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 Ma0 f0 caseData businessCase.attach=true #txt
-Ma0 f0 showInStartList 1 #txt
+Ma0 f0 showInStartList true #txt
 Ma0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

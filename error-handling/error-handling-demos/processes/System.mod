@@ -1,5 +1,5 @@
 [Ivy]
-150149331438F9EA 9.4.1 #module
+150149331438F9EA 9.4.3 #module
 >Proto >Proto Collection #zClass
 tl0 System Big #zClass
 tl0 B #cInfo
@@ -33,7 +33,7 @@ TaskTriggered.EXTYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
-tl0 f0 showInStartList 1 #txt
+tl0 f0 showInStartList true #txt
 tl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

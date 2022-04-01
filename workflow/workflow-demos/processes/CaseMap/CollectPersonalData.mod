@@ -1,5 +1,5 @@
 [Ivy]
-15A5AC9A4F755A3B 9.4.1 #module
+15A5AC9A4F755A3B 9.4.3 #module
 >Proto >Proto Collection #zClass
 Ca0 CollectPersonalData Big #zClass
 Ca0 B #cInfo
@@ -40,7 +40,7 @@ TaskTriggered.TYPE=0' #txt
 Ca0 f0 caseData 'businessCase.attach=true
 case.name=Lending' #txt
 Ca0 f0 wfuser 1 #txt
-Ca0 f0 showInStartList 0 #txt
+Ca0 f0 showInStartList false #txt
 Ca0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

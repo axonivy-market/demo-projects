@@ -1,9 +1,11 @@
 [Ivy]
-1675F33D16FB90A4 9.4.0 #module
+1675F33D16FB90A4 9.4.3 #module
 >Proto >Proto Collection #zClass
 cs0 createUsers Big #zClass
 cs0 B #cInfo
 cs0 #process
+cs0 @TextInP .colors .colors #zField
+cs0 @TextInP color color #zField
 cs0 @TextInP .type .type #zField
 cs0 @TextInP .processKind .processKind #zField
 cs0 @AnnotationInP-0n ai ai #zField
@@ -33,7 +35,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 cs0 f0 caseData businessCase.attach=true #txt
-cs0 f0 showInStartList 1 #txt
+cs0 f0 showInStartList true #txt
 cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,5 +1,5 @@
 [Ivy]
-157B33AB7587F1F1 9.4.1 #module
+157B33AB7587F1F1 9.4.3 #module
 >Proto >Proto Collection #zClass
 be0 batchService Big #zClass
 be0 B #cInfo
@@ -37,7 +37,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 be0 f0 caseData businessCase.attach=true #txt
-be0 f0 showInStartList 1 #txt
+be0 f0 showInStartList true #txt
 be0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

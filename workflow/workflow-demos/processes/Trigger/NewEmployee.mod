@@ -1,5 +1,5 @@
 [Ivy]
-15254CF1CE56AE72 9.4.1 #module
+15254CF1CE56AE72 9.4.3 #module
 >Proto >Proto Collection #zClass
 Tr0 NewEmployee Big #zClass
 Tr0 B #cInfo
@@ -47,7 +47,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 Tr0 f0 caseData case.category=HR/Employee/Entry #txt
-Tr0 f0 showInStartList 1 #txt
+Tr0 f0 showInStartList true #txt
 Tr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

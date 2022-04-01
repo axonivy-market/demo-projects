@@ -1,9 +1,11 @@
 [Ivy]
-162AFFB8ACCCB74C 9.3.1 #module
+162AFFB8ACCCB74C 9.4.3 #module
 >Proto >Proto Collection #zClass
 pr0 policyGreeter Big #zClass
 pr0 B #cInfo
 pr0 #process
+pr0 @TextInP .colors .colors #zField
+pr0 @TextInP color color #zField
 pr0 @TextInP .type .type #zField
 pr0 @TextInP .processKind .processKind #zField
 pr0 @AnnotationInP-0n ai ai #zField
@@ -32,13 +34,11 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 pr0 f0 caseData businessCase.attach=true #txt
-pr0 f0 showInStartList 1 #txt
+pr0 f0 showInStartList true #txt
 pr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>greeterPoliciesDisabled.ivp</name>
-        <nameStyle>27,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt

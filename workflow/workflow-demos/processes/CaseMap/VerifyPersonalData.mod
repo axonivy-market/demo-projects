@@ -1,5 +1,5 @@
 [Ivy]
-15A849250AA78F65 9.4.1 #module
+15A849250AA78F65 9.4.3 #module
 >Proto >Proto Collection #zClass
 Ca0 VerifyPersonalData Big #zClass
 Ca0 B #cInfo
@@ -34,7 +34,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 Ca0 f0 caseData businessCase.attach=true #txt
-Ca0 f0 showInStartList 0 #txt
+Ca0 f0 showInStartList false #txt
 Ca0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

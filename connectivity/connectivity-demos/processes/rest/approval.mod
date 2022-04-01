@@ -1,5 +1,5 @@
 [Ivy]
-1549FE9E911A1812 9.4.1 #module
+1549FE9E911A1812 9.4.3 #module
 >Proto >Proto Collection #zClass
 al0 approval Big #zClass
 al0 B #cInfo
@@ -44,7 +44,7 @@ TaskTriggered.NAM=Approve request from <%\=param.approval.requestedBy%>
 TaskTriggered.PRI=2
 TaskTriggered.ROL=Boss
 TaskTriggered.TYPE=0' #txt
-al0 f0 showInStartList 1 #txt
+al0 f0 showInStartList true #txt
 al0 f0 @CG|color NodeStyle16 #txt
 al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -82,7 +82,7 @@ TaskTriggered.EXTYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
-al0 f5 showInStartList 1 #txt
+al0 f5 showInStartList true #txt
 al0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

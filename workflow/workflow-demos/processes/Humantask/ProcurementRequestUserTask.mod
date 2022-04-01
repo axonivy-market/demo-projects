@@ -1,5 +1,5 @@
 [Ivy]
-15254DCE818AD7A2 9.4.1 #module
+15254DCE818AD7A2 9.4.3 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
 Pt0 B #cInfo
@@ -49,7 +49,7 @@ TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
 TaskTriggered.TYPE=0' #txt
 Pt0 f0 caseData case.category=Procurement/Request #txt
-Pt0 f0 showInStartList 1 #txt
+Pt0 f0 showInStartList true #txt
 Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
