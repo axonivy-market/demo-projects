@@ -6,7 +6,7 @@
 </cc:interface>
 <cc:implementation>
   <p:fieldset legend="Person Component" id="personComponentFieldset">
-    <h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+    <p:panelGrid columns="2" layout="flex" contentStyleClass="p-align-baseline ui-fluid" style="max-width: 700px;">
       <p:outputLabel value="First Name" for="firstname" />
       <p:inputText value="#{data.person.firstname}" id="firstname" />
       <p:outputLabel value="Last Name" for="lastname" />
@@ -25,9 +25,10 @@
       -->
       <ic:ch.ivyteam.htmldialog.demo.component.AddressComponent startMethod="start"
         address="#{data.person.billingAddress}" label="Billing Address" id="billingAddressComponent" />
-    </h:panelGrid>
+    </p:panelGrid>
+    
     <h:panelGrid>
-      <p:commandButton value="Submit" ajax="false" />
+      <p:commandButton value="Submit" icon="pi pi-save" ajax="false" />
     </h:panelGrid>
   </p:fieldset>
 </cc:implementation>

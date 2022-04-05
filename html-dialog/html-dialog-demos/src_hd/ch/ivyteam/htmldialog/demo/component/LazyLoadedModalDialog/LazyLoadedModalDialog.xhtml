@@ -33,11 +33,9 @@
           </h:panelGrid>
           <p:dialog id="dialog" widgetVar="addressDialog" header="Large sample component" modal="true" visible="true"
             rendered="#{data.showAddress}" closable="false" dynamic="true">
-            <ic:ch.ivyteam.htmldialog.demo.component.AddressComponent id="input">
-              <p:commandButton value="close" actionListener="#{logic.showAddress(false)}"
-                onclick="PF('addressDialog').hide()" update="form:address" />
-              <br />
-            </ic:ch.ivyteam.htmldialog.demo.component.AddressComponent>
+            <ic:ch.ivyteam.htmldialog.demo.component.AddressComponent id="input" />
+            <p:commandButton style="width: 200px; margin-top: 10px;" value="Close" icon="pi pi-times" actionListener="#{logic.showAddress(false)}"
+              onclick="PF('addressDialog').hide()" update="form:address" />
           </p:dialog>
         </p:outputPanel>
       </h:form>

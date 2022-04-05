@@ -1,15 +1,31 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
   xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
-  xmlns:pa="http://primefaces.org/serenity" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+  xmlns:pa="http://primefaces.org/freya-ivy" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
   <div class="layout-topbar">
-    <a href="#" class="menu-btn">
-      <i class="material-icons">menu</i>
-    </a>
-
-    <div class="layout-topbar-menu-wrapper">
-      <ul class="topbar-menu animated">
-      </ul>
+    <div class="layout-topbar-wrapper">
+      <div class="layout-topbar-left">
+        <a href="#" class="menu-button">
+         <i class="pi pi-bars"/>
+        </a>
+        <h:link id="logolink" src="dashboard.xhtml" styleClass="layout-topbar-logo">
+          <p:graphicImage name="#{ivyFreyaTheme.logo}" library="ivy-branding" alt="Logo" />
+        </h:link>
+      </div>
+      
+      <div class="layout-topbar-right">
+        <ul class="layout-topbar-actions">
+          <li class="topbar-item themeswitch-item">
+            <p:commandLink id="themeSwitcher" onclick="PrimeFaces.FreyaConfigurator.changeLayout('ivy', '#{ivyFreyaTheme.mode == 'light' ? 'dark' : 'light'}');"
+              style="text-decoration: none;">
+              <i class="topbar-icon pi pi-#{ivyFreyaTheme.mode == 'light' ? 'moon' : 'sun'}"/>
+              <p:ajax onstart="PrimeFaces.FreyaConfigurator.beforeResourceChange();" listener="#{ivyFreyaTheme.toggleTheme}" update="themeSwitcher" />
+            </p:commandLink>
+          </li>
+        </ul>
+      </div>
+     
+      <ui:include src="./sidebar.xhtml" />
     </div>
   </div>
 </ui:composition>

@@ -19,7 +19,7 @@
             <li>User input can be validated direct on the UI.</li>
           </ul>
           <p:messages id="msgs" />
-          <h:panelGrid columns="3" cellpadding="5" columnClasses="label-top" id="Person">
+          <p:panelGrid columns="3" layout="flex" id="Person" style="max-width: 700px;">
 
             <p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Name')}" for="Name" />
             <!--
@@ -92,9 +92,9 @@
             Use #{logic.send} to call the event process with the name send.
             -->
 
-          </h:panelGrid>
+          </p:panelGrid>
           <h:panelGrid>
-            <p:commandButton value="Send" actionListener="#{logic.send}" update="panel" id="SendButton" />
+            <p:commandButton value="Send" icon="pi pi-save" actionListener="#{logic.send}" update="panel" id="SendButton" />
           </h:panelGrid>
 
           <br />

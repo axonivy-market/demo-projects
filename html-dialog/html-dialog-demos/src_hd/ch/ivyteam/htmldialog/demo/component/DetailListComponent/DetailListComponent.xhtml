@@ -13,8 +13,8 @@
 </cc:interface>
 
 <cc:implementation>
-  <p:dataTable value="#{data.persons}" var="person" style="margin-top:5px;width:900px" selectionMode="single"
-    selection="#{data.selectedPerson}" id="personsTable">
+  <p:dataTable value="#{data.persons}" var="person" selectionMode="single"
+    selection="#{data.selectedPerson}" id="personsTable" widgetVar="personsTable">
 
     <p:ajax event="rowSelect" update="@form" listener="#{cc.attrs.tableRowSelected}" />
     <!-- registers method from parent as actionListener -->
@@ -28,7 +28,7 @@
   </p:dataTable>
 
   <h:panelGrid>
-    <p:commandButton value="Fire event!" style="margin-top:10px;" actionListener="#{cc.attrs.buttonClicked}"
+    <p:commandButton value="Fire event!" icon="pi pi-send" style="margin-top:10px;" actionListener="#{cc.attrs.buttonClicked}"
       update="@form" id="fireEventButton" />
   </h:panelGrid>
 </cc:implementation>

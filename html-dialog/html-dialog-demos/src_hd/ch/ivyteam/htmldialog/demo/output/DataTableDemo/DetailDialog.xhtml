@@ -3,10 +3,10 @@
   xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 <h:body>
-  <p:dialog header="Detail" id="detailDialog" widgetVar="detailDialog" modal="true" appendTo="@(body)">
+  <p:dialog header="Detail" id="detailDialog" widgetVar="detailDialog" modal="true" appendTo="@(body)" width="500">
     <h:form id="detailForm">
       <p:messages id="detailMessage" />
-      <p:panelGrid columns="2">
+      <p:panelGrid columns="2" layout="flex">
         <p:outputLabel>No</p:outputLabel>
         <p:inputText value="#{data.selectedScore.id}" disabled="true" />
         <p:outputLabel for="name">Name</p:outputLabel>
@@ -15,14 +15,14 @@
         <p:inputText value="#{data.selectedScore.points}" required="true" id="points"
           requiredMessage="Point value is required" />
         <br></br>
-        <h:panelGroup>
-          <p:commandButton value="Save" actionListener="#{logic.save}" update=":form:theTable detailForm"
-            oncomplete="validateToHide(args, PF('detailDialog'));" id="dialogSaveButton" />
-          <p:commandButton value="Cancel" process="@this" oncomplete="PF('detailDialog').hide();">
-            <p:resetInput target="detailForm"></p:resetInput>
-          </p:commandButton>
-        </h:panelGroup>
       </p:panelGrid>
+      <h:panelGroup>
+        <p:commandButton value="Save" icon="pi pi-save" actionListener="#{logic.save}" update=":form:theTable detailForm"
+          oncomplete="validateToHide(args, PF('detailDialog'));" id="dialogSaveButton" />
+        <p:commandButton value="Cancel" styleClass="ui-button-flat" process="@this" oncomplete="PF('detailDialog').hide();">
+          <p:resetInput target="detailForm"></p:resetInput>
+        </p:commandButton>
+      </h:panelGroup>
     </h:form>
     <script>
       function validateToHide(args, dialog) {

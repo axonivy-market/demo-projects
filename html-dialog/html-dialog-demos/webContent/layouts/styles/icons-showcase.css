@@ -13,7 +13,8 @@
   gap: 1em;
 }
 .icon-usage-block {
-  background-color: hsl(0, 0%, 90%);
+  background-color: hsl(0, 0%, 50%, 0.2);
+  border-radius: 5px;
   min-width: 300px;
 }
 .icon-usage-block i {
@@ -22,7 +23,7 @@
 .icon-block{
   text-align: center;
   border-radius: 5px;
-  background-color: #e4f7fa;
+  border: 1px solid;
 }
 .icon-block p {
   width: 10rem;

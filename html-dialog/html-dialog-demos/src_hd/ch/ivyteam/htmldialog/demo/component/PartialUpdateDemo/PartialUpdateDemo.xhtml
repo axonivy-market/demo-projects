@@ -26,7 +26,7 @@
             without to reload the whole page or update other panels
               -->
             <h:panelGrid>
-              <p:commandButton value="Increase counter then update 'Panel A'" update="counterPanel_1"
+              <p:commandButton value="Increase counter then update 'Panel A'" icon="pi pi-plus" update="counterPanel_1"
                 actionListener="#{logic.increaseCounter}" id="increasePAButton" />
             </h:panelGrid>
           </p:panel>
@@ -41,7 +41,7 @@
             without to reload the whole page or update other panels
               -->
             <h:panelGrid>
-              <p:commandButton value="Increase counter then update 'Panel B'" update="counterPanel_2"
+              <p:commandButton value="Increase counter then update 'Panel B'" icon="pi pi-plus" update="counterPanel_2"
                 actionListener="#{logic.increaseCounter}" id="increasePBButton" />
             </h:panelGrid>
           </p:panel>
@@ -52,7 +52,7 @@
           without to reload the whole page
               -->
           <h:panelGrid>
-            <p:commandButton value="Increase counter then update both panels" update="counterPanel_1 counterPanel_2"
+            <p:commandButton value="Increase counter then update both panels" icon="pi pi-plus" update="counterPanel_1 counterPanel_2"
               actionListener="#{logic.increaseCounter}" id="increaseAllButton" />
           </h:panelGrid>
         </h:panelGroup>

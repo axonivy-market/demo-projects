@@ -13,7 +13,7 @@
           <p:pickList id="pickList" value="#{data.persons}" var="person" effect="slide"
             itemLabel="#{person.name} #{person.firstname}" itemValue="#{person}" showSourceControls="true"
             showTargetControls="true" showSourceFilter="true" showTargetFilter="true" filterMatchMode="contains"
-            converter="ivy.ListItem">
+            converter="ivy.ListItem" responsive="true">
 
             <f:facet name="sourceCaption">Available</f:facet>
             <f:facet name="targetCaption">Selected</f:facet>
@@ -24,7 +24,7 @@
           </p:pickList>
           <br />
           <h:panelGrid>
-            <p:commandButton actionListener="#{logic.send}" value="Send" update="pickList, resultPanel"
+            <p:commandButton actionListener="#{logic.send}" value="Send" icon="pi pi-save" update="pickList, resultPanel"
               id="sendButton" />
           </h:panelGrid>
           <br />

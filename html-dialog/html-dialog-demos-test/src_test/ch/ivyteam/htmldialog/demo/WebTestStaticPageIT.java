@@ -16,7 +16,8 @@ public class WebTestStaticPageIT {
   void testStaticPage()
   {
     startProcess("1698080EFEC9C585/StaticEndPage.ivp");
+    $(".layout-content").shouldNotHave(text("clicked the button"));
     $$("button").find(text("Bean Magic")).click();
-    $("#mainArea").shouldHave(text("clicked the button"));
+    $(".layout-content").shouldHave(text("clicked the button"));
   }
 }

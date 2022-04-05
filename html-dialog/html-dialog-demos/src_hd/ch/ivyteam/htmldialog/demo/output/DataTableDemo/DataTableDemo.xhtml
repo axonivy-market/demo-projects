@@ -20,15 +20,16 @@
 
           <p:dataTable id="theTable" widgetVar="theTable" value="#{data.scores}" var="score" rows="8"
             selection="#{data.selectedScore}" selectionMode="single" rowKey="#{score.id}" draggableColumns="true"
-            draggableRows="true" style="width:900px">
+            draggableRows="true">
             <p:ajax event="rowSelect" update=":detailDialog" oncomplete="PF('detailDialog').show()" />
 
             <f:facet name="header">
-              <p:outputPanel style="height:16px; padding-bottom:15px; text-align:right">
-                <h:outputText value="Find: " style="font-size:10pt;" />
-                <p:inputText id="globalFilter" onkeyup="PF('theTable').filter()" style="width:150px"
-                  placeholder="Enter keyword" />
-              </p:outputPanel>
+              <div class="customers-table-header">
+                <span class="ui-input-icon-left filter-container">
+                  <i class="pi pi-search"/>
+                  <p:inputText id="globalFilter" onkeyup="PF('theTable').filter()" placeholder="Global Search"/>
+                </span>
+              </div>
             </f:facet>
 
             <p:column style="width:16px">
@@ -36,7 +37,7 @@
             </p:column>
 
             <p:rowExpansion>
-              <p:panelGrid columns="2" style="width:400px">
+              <p:panelGrid columns="2" layout="flex" style="width:400px">
                 <p:outputLabel>No</p:outputLabel>
                 <p:inputText value="#{score.id}" disabled="true" />
                 <p:outputLabel for="name">Name</p:outputLabel>
@@ -44,7 +45,7 @@
                 <p:outputLabel for="points">Points</p:outputLabel>
                 <p:inputText id="points" value="#{score.points}" required="true" />
                 <br></br>
-                <p:commandButton value="Save" update=":form:theTable" actionListener="#{logic.save}" id="saveButton" />
+                <p:commandButton value="Save" icon="pi pi-save" update=":form:theTable" actionListener="#{logic.save}" id="saveButton" />
               </p:panelGrid>
             </p:rowExpansion>
 
@@ -90,7 +91,7 @@
 
           <br />
           <h:panelGrid>
-            <p:commandButton actionListener="#{logic.send}" value="Send" update="form" />
+            <p:commandButton actionListener="#{logic.send}" icon="pi pi-save" value="Send" update="form" />
           </h:panelGrid>
 
         </h:panelGroup>

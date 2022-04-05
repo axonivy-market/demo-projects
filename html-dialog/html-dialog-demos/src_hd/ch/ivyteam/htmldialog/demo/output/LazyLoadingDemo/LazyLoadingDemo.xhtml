@@ -17,16 +17,17 @@
             </f:facet>
 
             <p:dataTable id="theTable" widgetVar="theTable" value="#{data.lazyModel}" var="person" rows="10"
-              rowKey="#{person.id}" draggableColumns="true" draggableRows="true" style="width:900px" paginator="true"
+              rowKey="#{person.id}" draggableColumns="true" draggableRows="true" paginator="true"
               rowsPerPageTemplate="10, 20, 50" lazy="true"
               paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
 
               <f:facet name="header">
-                <p:outputPanel style="height:16px; padding-bottom:15px; text-align:right">
-                  <h:outputText value="Find: " style="font-size:10pt;" />
-                  <p:inputText id="globalFilter" onkeyup="PF('theTable').filter()" style="width:150px"
-                    placeholder="Enter keyword" />
-                </p:outputPanel>
+                <div class="customers-table-header">
+                  <span class="ui-input-icon-left filter-container">
+                    <i class="pi pi-search"/>
+                    <p:inputText id="globalFilter" onkeyup="PF('theTable').filter()" placeholder="Global Search"/>
+                  </span>
+                </div>
               </f:facet>
 
               <p:column headerText="Id" sortBy="#{person.id}" style="width:60px" id="personId">

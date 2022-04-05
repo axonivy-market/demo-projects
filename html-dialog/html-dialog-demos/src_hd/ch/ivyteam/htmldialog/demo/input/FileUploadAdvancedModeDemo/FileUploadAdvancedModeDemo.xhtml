@@ -15,10 +15,14 @@
           <p:galleria id="pictureGallery" value="#{data.images}" var="imagename" style="max-width: 500px" 
             showCaption="true" autoPlay="false" showItemNavigators="true" numVisible="5">
             <p:graphicImage library="ivy-cms" name="ch.ivyteam.htmldialog.demo/fileUploadImages/#{imagename}"
-              alt="Image Description for #{imagename}" style="width: 100%; display: block" />
+              alt="Image Description for #{imagename}" style="width: 100%;" />
             <f:facet name="caption">
               <h4 class="p-mb-2">#{imagename}</h4>
               <p>"Image Description for #{imagename}</p>
+            </f:facet>
+            <f:facet name="thumbnail">
+              <p:graphicImage library="ivy-cms" name="ch.ivyteam.htmldialog.demo/fileUploadImages/#{imagename}" 
+                alt="Image Description for #{imagename}" style="width: 100%;" />
             </f:facet>
           </p:galleria>
           <br />
