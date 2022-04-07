@@ -1,13 +1,13 @@
 package com.axonivy.connectivity.soap.client;
 
-import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.application.IApplication;
 
 public class ServiceContext
 {
 
   public static ServiceContext create()
   {
-    return new ServiceContext(ServerUriHelper.getCurrentServer(), Ivy.wf().getApplication().getName());
+    return new ServiceContext(ServerUriHelper.getCurrentServer(), IApplication.current().getName());
   }
 
   public final String uri;
