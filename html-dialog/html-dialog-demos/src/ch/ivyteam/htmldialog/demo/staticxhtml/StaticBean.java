@@ -3,6 +3,7 @@ package ch.ivyteam.htmldialog.demo.staticxhtml;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.environment.Ivy;
 
 @ManagedBean
@@ -19,6 +20,6 @@ public class StaticBean
   public void buttonAction()
   {
     text = Ivy.session().getSessionUserName() + " clicked the button in application '"
-            + Ivy.wf().getApplication().getName() + "'.";
+            + IApplication.current().getName() + "'.";
   }
 }
