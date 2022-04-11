@@ -1,5 +1,5 @@
 [Ivy]
-1500483191BD4791 9.4.3 #module
+1500483191BD4791 9.4.6 #module
 >Proto >Proto Collection #zClass
 hz0 Car Big #zClass
 hz0 B #cInfo
@@ -35,7 +35,6 @@ hz0 f3 actionTable 'out=in;
 ' #txt
 hz0 f3 actionCode 'import ch.ivyteam.ivy.bpm.error.BpmError;
 BpmError.create("booking:car:failed:unavailable").throwError();' #txt
-hz0 f3 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 hz0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
