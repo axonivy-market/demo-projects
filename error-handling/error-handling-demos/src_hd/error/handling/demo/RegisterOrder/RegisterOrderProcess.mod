@@ -1,5 +1,5 @@
 [Ivy]
-14ECFEF3BADB5A9E 9.4.3 #module
+14ECFEF3BADB5A9E 9.4.7 #module
 >Proto >Proto Collection #zClass
 Rs0 RegisterOrderProcess Big #zClass
 Rs0 RD #cInfo
@@ -51,8 +51,6 @@ Rs0 f3 83 147 26 26 -15 12 #rect
 Rs0 f4 211 147 26 26 0 12 #rect
 Rs0 f5 expr out #txt
 Rs0 f5 109 160 211 160 #arcP
-Rs0 f6 actionDecl 'error.handling.demo.RegisterOrder.RegisterOrderData out;
-' #txt
 Rs0 f6 actionTable 'out=in;
 ' #txt
 Rs0 f6 actionCode 'import error.handling.demo.StockItem;
@@ -68,7 +66,6 @@ Rs0 f6 dbSql '<?xml version=""1.0"" standalone=""no""?>
 <!DOCTYPE SELECT SYSTEM  ""sqlStatements.dtd"">
 <SELECT><Table name=''STOCK''/></SELECT>' #txt
 Rs0 f6 dbUrl stock #txt
-Rs0 f6 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 Rs0 f6 lotSize 2147483647 #txt
 Rs0 f6 startIdx 0 #txt
 Rs0 f6 type error.handling.demo.RegisterOrder.RegisterOrderData #txt
