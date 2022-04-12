@@ -1,5 +1,5 @@
 [Ivy]
-150149331438F9EA 9.4.6 #module
+150149331438F9EA 9.4.3 #module
 >Proto >Proto Collection #zClass
 tl0 System Big #zClass
 tl0 B #cInfo
@@ -44,12 +44,15 @@ tl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 tl0 f0 @C|.responsibility Everybody #txt
 tl0 f0 81 177 30 30 -61 17 #rect
 tl0 f1 433 177 30 30 0 15 #rect
+tl0 f3 actionDecl 'error.handling.demo.technicalData out;
+' #txt
 tl0 f3 actionTable 'out=in;
 ' #txt
 tl0 f3 dbSql '<?xml version=""1.0"" standalone=""no""?>
 <!DOCTYPE ANY_SQL SYSTEM  ""sqlStatements.dtd"">
 <ANY_SQL><Verbatim quote=''true''></Verbatim></ANY_SQL>' #txt
 tl0 f3 dbUrl invalidDB #txt
+tl0 f3 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 tl0 f3 lotSize 2147483647 #txt
 tl0 f3 startIdx 0 #txt
 tl0 f3 type error.handling.demo.technicalData #txt

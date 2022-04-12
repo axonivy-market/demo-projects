@@ -1,5 +1,5 @@
 [Ivy]
-14ECFC90CDE278D0 9.4.6 #module
+14ECFC90CDE278D0 9.4.3 #module
 >Proto >Proto Collection #zClass
 or0 Order Big #zClass
 or0 B #cInfo
@@ -241,6 +241,8 @@ or0 f10 1 0.6693044712359421 0 0 #arcLabel
 Ct0 g0 19 243 26 26 0 5 #rect
 Ct0 g1 603 243 26 26 -91 25 #rect
 Ct0 g2 19 307 26 26 -3 6 #rect
+Ct0 f1 actionDecl 'error.handling.demo.Data out;
+' #txt
 Ct0 f1 actionTable 'out=in;
 out.availableItems=record.getField("NUMBEROFITEMS").toNumber();
 ' #txt
@@ -248,6 +250,7 @@ Ct0 f1 dbSql '<?xml version=""1.0"" standalone=""no""?>
 <!DOCTYPE SELECT SYSTEM  ""sqlStatements.dtd"">
 <SELECT><Column name=''NUMBEROFITEMS''/><Table name=''STOCK''/><Condition><Relation kind=''=''><Column name=''PRODUCT''/><AnyExpression>in.order.product</AnyExpression></Relation></Condition></SELECT>' #txt
 Ct0 f1 dbUrl stock #txt
+Ct0 f1 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 Ct0 f1 dbWizard PRODUCT=in.order.product #txt
 Ct0 f1 lotSize 1 #txt
 Ct0 f1 startIdx 0 #txt
@@ -297,12 +300,15 @@ Ct0 f6 1 0.27324891912789034 0 0 #arcLabel
 Ct0 f7 45 320 192 278 #arcP
 Ct0 f7 1 96 320 #addKink
 Ct0 f7 1 0.0683004546901119 0 0 #arcLabel
+Ct0 f8 actionDecl 'error.handling.demo.Data out;
+' #txt
 Ct0 f8 actionTable 'out=in;
 ' #txt
 Ct0 f8 dbSql '<?xml version=""1.0"" standalone=""no""?>
 <!DOCTYPE UPDATE SYSTEM  ""sqlStatements.dtd"">
 <UPDATE><Table name=''STOCK''/><Value column=''NUMBEROFITEMS''><AnyExpression>in.availableItems-in.order.numberOfItems</AnyExpression></Value><Condition><Relation kind=''=''><Column name=''product''/><AnyExpression>in.order.product</AnyExpression></Relation></Condition></UPDATE>' #txt
 Ct0 f8 dbUrl stock #txt
+Ct0 f8 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 Ct0 f8 dbWizard product=in.order.product #txt
 Ct0 f8 lotSize 2147483647 #txt
 Ct0 f8 startIdx 0 #txt
@@ -334,12 +340,15 @@ Ct0 f0 560 256 603 256 #arcP
 >Proto Ct0 @|BIcon #fIcon
 Ct1 g0 51 243 26 26 0 5 #rect
 Ct1 g1 611 243 26 26 -63 7 #rect
+Ct1 f1 actionDecl 'error.handling.demo.Data out;
+' #txt
 Ct1 f1 actionTable 'out=in;
 ' #txt
 Ct1 f1 dbSql '<?xml version=""1.0"" standalone=""no""?>
 <!DOCTYPE UPDATE SYSTEM  ""sqlStatements.dtd"">
 <UPDATE><Table name=''STOCK''/><Value column=''NUMBEROFITEMS''><AnyExpression>in.availableItems+in.order.numberOfItems*2</AnyExpression></Value><Condition><Relation kind=''=''><Column name=''PRODUCT''/><AnyExpression>in.order.product</AnyExpression></Relation></Condition></UPDATE>' #txt
 Ct1 f1 dbUrl stock #txt
+Ct1 f1 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 Ct1 f1 dbWizard PRODUCT=in.order.product #txt
 Ct1 f1 lotSize 2147483647 #txt
 Ct1 f1 startIdx 0 #txt
@@ -355,6 +364,8 @@ Ct1 f1 364 232 136 48 -50 -8 #rect
 Ct1 f0 expr out #txt
 Ct1 f0 500 256 611 256 #arcP
 Ct1 f0 0 0.485524775591399 0 0 #arcLabel
+Ct1 f3 actionDecl 'error.handling.demo.Data out;
+' #txt
 Ct1 f3 actionTable 'out=in;
 out.availableItems=record.getField("NUMBEROFITEMS").toNumber();
 ' #txt
@@ -362,6 +373,7 @@ Ct1 f3 dbSql '<?xml version=""1.0"" standalone=""no""?>
 <!DOCTYPE SELECT SYSTEM  ""sqlStatements.dtd"">
 <SELECT><Column name=''NUMBEROFITEMS''/><Table name=''STOCK''/><Condition><Relation kind=''=''><Column name=''PRODUCT''/><AnyExpression>in.order.product</AnyExpression></Relation></Condition></SELECT>' #txt
 Ct1 f3 dbUrl stock #txt
+Ct1 f3 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 Ct1 f3 dbWizard PRODUCT=in.order.product #txt
 Ct1 f3 lotSize 2147483647 #txt
 Ct1 f3 startIdx 0 #txt
@@ -382,6 +394,8 @@ Ct1 f2 256 256 364 256 #arcP
 >Proto Ct1 @|BIcon #fIcon
 Bk0 g0 51 243 26 26 0 5 #rect
 Bk0 g1 979 243 26 26 0 5 #rect
+Bk0 f3 actionDecl 'error.handling.demo.Data out;
+' #txt
 Bk0 f3 actionTable 'out=in;
 ' #txt
 Bk0 f3 dbSql '<?xml version=""1.0"" standalone=""no""?>
@@ -392,6 +406,7 @@ Bk0 f3 dbSql '<?xml version=""1.0"" standalone=""no""?>
   numberOfItems INTEGER
 )</Verbatim></ANY_SQL>' #txt
 Bk0 f3 dbUrl stock #txt
+Bk0 f3 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 Bk0 f3 dbWizard 'CREATE TABLE Stock
 ( 
   product VARCHAR(50),
@@ -408,6 +423,8 @@ Bk0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bk0 f3 408 298 112 44 -35 -8 #rect
+Bk0 f5 actionDecl 'error.handling.demo.Data out;
+' #txt
 Bk0 f5 actionTable 'out=in;
 ' #txt
 Bk0 f5 dbSql '<?xml version=""1.0"" standalone=""no""?>
@@ -415,6 +432,7 @@ Bk0 f5 dbSql '<?xml version=""1.0"" standalone=""no""?>
 <ANY_SQL><Verbatim quote=''true''>INSERT INTO STOCK (PRODUCT, NUMBEROFITEMS)
 VALUES (&#39;PostIt&#39;, 5)</Verbatim></ANY_SQL>' #txt
 Bk0 f5 dbUrl stock #txt
+Bk0 f5 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 Bk0 f5 dbWizard 'INSERT INTO STOCK (PRODUCT, NUMBEROFITEMS)
 VALUES (''PostIt'', 5)' #txt
 Bk0 f5 lotSize 2147483647 #txt
@@ -428,6 +446,8 @@ Bk0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bk0 f5 568 298 112 44 -27 -8 #rect
+Bk0 f7 actionDecl 'error.handling.demo.Data out;
+' #txt
 Bk0 f7 actionTable 'out=in;
 ' #txt
 Bk0 f7 dbSql '<?xml version=""1.0"" standalone=""no""?>
@@ -435,6 +455,7 @@ Bk0 f7 dbSql '<?xml version=""1.0"" standalone=""no""?>
 <ANY_SQL><Verbatim quote=''true''>INSERT INTO STOCK (PRODUCT, NUMBEROFITEMS)
 VALUES (&#39;Pen&#39;, 2)</Verbatim></ANY_SQL>' #txt
 Bk0 f7 dbUrl stock #txt
+Bk0 f7 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 Bk0 f7 dbWizard 'INSERT INTO STOCK (PRODUCT, NUMBEROFITEMS)
 VALUES (''Pen'', 2)' #txt
 Bk0 f7 lotSize 2147483647 #txt
@@ -452,12 +473,15 @@ Bk0 f6 expr out #txt
 Bk0 f6 520 320 568 320 #arcP
 Bk0 f8 expr out #txt
 Bk0 f8 680 320 728 320 #arcP
+Bk0 f1 actionDecl 'error.handling.demo.Data out;
+' #txt
 Bk0 f1 actionTable 'out=in;
 ' #txt
 Bk0 f1 dbSql '<?xml version=""1.0"" standalone=""no""?>
 <!DOCTYPE SELECT SYSTEM  ""sqlStatements.dtd"">
 <SELECT><Table name=''STOCK''/></SELECT>' #txt
 Bk0 f1 dbUrl stock #txt
+Bk0 f1 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 Bk0 f1 lotSize 2147483647 #txt
 Bk0 f1 startIdx 0 #txt
 Bk0 f1 type error.handling.demo.Data #txt

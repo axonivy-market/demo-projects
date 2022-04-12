@@ -1,5 +1,5 @@
 [Ivy]
-1500417E1DADBB7C 9.4.6 #module
+1500417E1DADBB7C 9.4.3 #module
 >Proto >Proto Collection #zClass
 fy0 Production Big #zClass
 fy0 B #cInfo
@@ -54,9 +54,12 @@ fy0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 fy0 f9 @C|color NodeStyle3 #txt
 fy0 f9 40 26 592 76 -290 -37 #rect
+fy0 f7 actionDecl 'error.handling.demo.FactoryData out;
+' #txt
 fy0 f7 actionTable 'out=in;
 ' #txt
 fy0 f7 dbUrl stock #txt
+fy0 f7 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 fy0 f7 lotSize 2147483647 #txt
 fy0 f7 startIdx 0 #txt
 fy0 f7 type error.handling.demo.FactoryData #txt
@@ -71,6 +74,7 @@ fy0 f7 376 202 112 44 -31 -8 #rect
 fy0 f3 actionTable 'out=in;
 out.newShoes=wsResponse.shoes;
 ' #txt
+fy0 f3 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 fy0 f3 clientId 16FEC3EAEC5333CC #txt
 fy0 f3 port NikeFactoryPort #txt
 fy0 f3 operation produce #txt
