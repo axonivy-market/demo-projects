@@ -1,0 +1,79 @@
+{
+  "format" : "9.4.8",
+  "id" : "150850F930AF7EA6",
+  "data" : "error.handling.demo.approval.RequestApproval.RequestApprovalData",
+  "kind" : "HTML_DIALOG",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "HtmlDialogStart",
+      "name" : "start(Approval)",
+      "config" : {
+        "callSignature" : "start",
+        "input" : {
+          "params" : [
+            { "name" : "approval", "type" : "error.handling.demo.Approval" }
+          ],
+          "map" : {
+            "out.approval" : "param.approval"
+          }
+        },
+        "guid" : "150850F931993F87"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : -39, "y" : 15 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f1",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      }
+    }, {
+      "id" : "f4",
+      "type" : "HtmlDialogExit",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 160 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "HtmlDialogEventStart",
+      "name" : "approve",
+      "config" : {
+        "guid" : "1508510768ABBCDA"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 160 },
+        "labelOffset" : { "x" : -22, "y" : 12 }
+      },
+      "connect" : { "id" : "f12", "to" : "f4" }
+    }, {
+      "id" : "f9",
+      "type" : "HtmlDialogEventStart",
+      "name" : "decline",
+      "config" : {
+        "guid" : "15085107DFA259AD"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 256 },
+        "labelOffset" : { "x" : -20, "y" : 12 }
+      },
+      "connect" : { "id" : "f8", "to" : "f5" }
+    }, {
+      "id" : "f5",
+      "type" : "ErrorEnd",
+      "name" : "approval:declined",
+      "config" : {
+        "error" : {
+          "code" : "approval:declined"
+        },
+        "actionCode" : "error.setAttribute(\"declineReason\",in.declineReason);"
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 256 },
+        "size" : { "width" : 26, "height" : 26 },
+        "labelOffset" : { "x" : -48, "y" : 15 }
+      }
+    } ]
+}

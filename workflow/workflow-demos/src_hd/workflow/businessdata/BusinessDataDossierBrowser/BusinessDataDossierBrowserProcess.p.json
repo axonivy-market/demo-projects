@@ -1,0 +1,287 @@
+{
+  "format" : "9.4.8",
+  "id" : "155BB5BDEDF19356",
+  "data" : "workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData",
+  "kind" : "HTML_DIALOG",
+  "elements" : [ {
+      "id" : "f3",
+      "type" : "HtmlDialogEventStart",
+      "name" : "close",
+      "config" : {
+        "guid" : "155BB5BDF10FCA85"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 640 },
+        "labelOffset" : { "x" : -16, "y" : 12 }
+      },
+      "connect" : { "id" : "f5", "to" : "f4" }
+    }, {
+      "id" : "f4",
+      "type" : "HtmlDialogExit",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 640 }
+      }
+    }, {
+      "id" : "f8",
+      "type" : "HtmlDialogEventStart",
+      "name" : "search",
+      "config" : {
+        "guid" : "15627E1B09E15483"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 160 },
+        "labelOffset" : { "x" : -19, "y" : 12 }
+      },
+      "connect" : { "id" : "f29", "to" : "f28" }
+    }, {
+      "id" : "f9",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 448, "y" : 160 }
+      }
+    }, {
+      "id" : "f11",
+      "type" : "Script",
+      "name" : "do a fulltext search",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import workflow.businessdata.Dossier;",
+            "",
+            "                    ",
+            "in.searchResult = ivy.repo.search(Dossier.class)",
+            "                          .score()",
+            "                          .allTextFields()",
+            "                          .query(in.searchText)",
+            "                          .orderBy().score()",
+            "                          .limit(in.limit)",
+            "                          .execute();",
+            "                          ",
+            "in.dossiers = in.searchResult.getAll();"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 320, "y" : 160 },
+        "labelOffset" : { "x" : -51, "y" : -8 }
+      },
+      "connect" : { "id" : "f10", "to" : "f9" }
+    }, {
+      "id" : "f14",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 448, "y" : 224 }
+      }
+    }, {
+      "id" : "f16",
+      "type" : "Script",
+      "name" : "search for LastName",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import workflow.businessdata.Dossier;",
+            "",
+            "in.searchResult = ivy.repo.search(Dossier.class)",
+            "                          .textField(\"person.lastName\")",
+            "                          .containsAllWordPatterns(in.searchText)",
+            "                          .orderBy().textField(\"name\")",
+            "                          .limit(in.limit)",
+            "                          .execute();",
+            "",
+            "in.dossiers = in.searchResult.getAll();"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 320, "y" : 224 },
+        "size" : { "width" : 128, "height" : 44 },
+        "labelOffset" : { "x" : -58, "y" : -8 }
+      },
+      "connect" : { "id" : "f15", "to" : "f14" }
+    }, {
+      "id" : "f19",
+      "type" : "HtmlDialogEventStart",
+      "name" : "updateSearchToDate",
+      "config" : {
+        "guid" : "15692726A4D2F2CF"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 448 },
+        "labelOffset" : { "x" : -58, "y" : 15 }
+      },
+      "connect" : { "id" : "f26", "to" : "f23" }
+    }, {
+      "id" : "f20",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 448, "y" : 288 }
+      }
+    }, {
+      "id" : "f21",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 448 }
+      }
+    }, {
+      "id" : "f22",
+      "type" : "Script",
+      "name" : "search for birthdate",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import workflow.businessdata.Dossier;",
+            "",
+            "in.searchResult = ivy.repo.search(Dossier.class)",
+            "                          .dateTimeField(\"person.birthDate\")",
+            "                          .isInDateRange(in.searchFromDate,in.searchToDate)",
+            "                          .orderBy().textField(\"name\")",
+            "                          .limit(in.limit)",
+            "                          .execute();",
+            "                          ",
+            "in.dossiers = in.searchResult.getAll();"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 320, "y" : 288 },
+        "labelOffset" : { "x" : -53, "y" : -8 }
+      },
+      "connect" : { "id" : "f25", "to" : "f20" }
+    }, {
+      "id" : "f23",
+      "type" : "Script",
+      "name" : "toDate=fromDate",
+      "config" : {
+        "output" : {
+          "code" : [
+            "if (in.searchToDate < in.searchFromDate)",
+            "{",
+            "  in.searchToDate = in.searchFromDate;",
+            "}"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 448 },
+        "labelOffset" : { "x" : -47, "y" : -8 }
+      },
+      "connect" : { "id" : "f27", "to" : "f21" }
+    }, {
+      "id" : "f28",
+      "type" : "Alternative",
+      "visual" : {
+        "at" : { "x" : 192, "y" : 160 }
+      },
+      "connect" : [
+        { "id" : "f12", "to" : "f11", "condition" : "in.searchType==\"FullText\"" },
+        { "id" : "f13", "to" : "f16", "via" : [ { "x" : 192, "y" : 224 } ], "condition" : "in.searchType==\"LastName\"" },
+        { "id" : "f17", "to" : "f22", "via" : [ { "x" : 192, "y" : 288 } ], "condition" : "in.searchType==\"BirthDate\"" },
+        { "id" : "f39", "to" : "f37", "via" : [ { "x" : 192, "y" : 360 } ] }
+      ]
+    }, {
+      "id" : "f31",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 544 }
+      }
+    }, {
+      "id" : "f33",
+      "type" : "Script",
+      "name" : [
+        "Display growl",
+        "message (index)"
+      ],
+      "config" : {
+        "output" : {
+          "code" : [
+            "import org.primefaces.event.SelectEvent;",
+            "import javax.faces.context.FacesContext;",
+            "",
+            "if (!in.lastEditedId.isEmpty())",
+            "{",
+            "  // create message for pop-up (p:growl)",
+            "  FacesContext.getCurrentInstance().addMessage(null,",
+            "    new javax.faces.application.FacesMessage(",
+            "    \"Search index might not be immediately up-to-date\", ",
+            "    \"If your newly created dossier does not show up in the list yet, then press search to refresh the list.\"",
+            "  ));",
+            "}",
+            "in.lastEditedId = \"\";"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 544 },
+        "size" : { "width" : 128, "height" : 44 },
+        "labelOffset" : { "x" : -43, "y" : -16 }
+      },
+      "connect" : { "id" : "f32", "to" : "f31" }
+    }, {
+      "id" : "f18",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "displayMessage()",
+      "config" : {
+        "callSignature" : "displayMessage",
+        "guid" : "1569CFB6E45ABE22"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 544 },
+        "labelOffset" : { "x" : -49, "y" : 15 }
+      },
+      "connect" : { "id" : "f24", "to" : "f33" }
+    }, {
+      "id" : "f0",
+      "type" : "HtmlDialogStart",
+      "name" : "start(String,Boolean)",
+      "config" : {
+        "callSignature" : "start",
+        "input" : {
+          "params" : [
+            { "name" : "lastId", "type" : "String" },
+            { "name" : "showAll", "type" : "Boolean" }
+          ],
+          "map" : {
+            "out.lastEditedId" : "param.lastId",
+            "out.limit" : "param.showAll ? 1000 : 5",
+            "out.searchType" : "\"LastName\""
+          }
+        },
+        "guid" : "156FE96D5274976E"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : -57, "y" : 15 }
+      },
+      "connect" : { "id" : "f2", "to" : "f28", "via" : [ { "x" : 192, "y" : 64 } ] }
+    }, {
+      "id" : "f36",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 448, "y" : 360 }
+      }
+    }, {
+      "id" : "f37",
+      "type" : "Script",
+      "name" : "search for name",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import workflow.businessdata.Dossier;",
+            "",
+            "in.searchResult = ivy.repo.search(Dossier.class)",
+            "                          .textField(\"name\")",
+            "                          .containsAnyWordsFuzzy(in.searchText)",
+            "                          .orderBy().textField(\"name\")",
+            "                          .limit(in.limit)",
+            "                          .execute();",
+            "                          ",
+            "in.dossiers = in.searchResult.getAll();"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 320, "y" : 360 }
+      },
+      "connect" : { "id" : "f38", "to" : "f36" }
+    } ]
+}

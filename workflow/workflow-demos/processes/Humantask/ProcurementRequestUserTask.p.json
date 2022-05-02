@@ -1,0 +1,221 @@
+{
+  "format" : "9.4.8",
+  "id" : "15254DCE818AD7A2",
+  "data" : "workflow.humantask.ProcurementRequest",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start.ivp",
+      "config" : {
+        "callSignature" : "start",
+        "responsible" : "Employee",
+        "startCategory" : "human",
+        "case" : {
+          "category" : "Procurement/Request",
+          "attachToBusinessCase" : false
+        },
+        "startDescription" : "<%=ivy.cms.co(\"/ProcessDescriptions/procurementRequestUserTaskDescription\")%>",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-female" }
+        ],
+        "task" : {
+          "category" : "Input/Procurement"
+        },
+        "outLink" : "start.ivp",
+        "startName" : "2.1: <%=ivy.cms.co(\"/ProcessDescriptions/procurementRequest\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/userTaskExample\")%>)"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 192 },
+        "labelOffset" : { "x" : -21, "y" : 17 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 928, "y" : 192 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "DialogCall",
+      "name" : "Enter Request",
+      "config" : {
+        "dialogId" : "workflow.humantask.EnterRequest",
+        "startMethod" : "start()",
+        "output" : {
+          "map" : {
+            "out" : "result.procurementRequestData",
+            "out.activityLog" : "in.activityLog.add(result.logEntry)",
+            "out.totalPrice" : "result.procurementRequestData.amount * result.procurementRequestData.pricePerUnit"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 192 },
+        "labelOffset" : { "x" : -39, "y" : -8 }
+      },
+      "connect" : { "id" : "f6", "to" : "f5", "via" : [ { "x" : 224, "y" : 320 } ], "var" : "in1" }
+    }, {
+      "id" : "f5",
+      "type" : "UserTask",
+      "name" : "Verify Request",
+      "config" : {
+        "dialogId" : "workflow.humantask.VerifyRequest",
+        "startMethod" : "start(workflow.humantask.ProcurementRequest)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.activityLog" : "in.activityLog.add(result.logEntry)",
+            "out.dataOkManager" : "result.dataOk"
+          }
+        },
+        "task" : {
+          "name" : "<%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> '<%=in.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>",
+          "category" : "Review/Procurement",
+          "responsible" : {
+            "role" : "Manager"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "procurementRequest", "type" : "workflow.humantask.ProcurementRequest" }
+          ],
+          "map" : {
+            "param.procurementRequest" : "in"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 384, "y" : 320 },
+        "labelOffset" : { "x" : -39, "y" : -8 }
+      },
+      "connect" : { "id" : "f12", "to" : "f11", "condition" : "ivp==\"TaskA.ivp\"" }
+    }, {
+      "id" : "f7",
+      "type" : "UserTask",
+      "name" : "Accept Request",
+      "config" : {
+        "dialogId" : "workflow.humantask.AcceptRequest",
+        "startMethod" : "start(workflow.humantask.ProcurementRequest)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.accepted" : "result.accepted",
+            "out.activityLog" : "in.activityLog.add(result.logEntry)"
+          }
+        },
+        "task" : {
+          "name" : "<%=ivy.cms.co(\"/TaskDescriptions/acceptRequest\")%>: <%=in.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> '<%=in.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>",
+          "category" : "Accept/Procurement",
+          "responsible" : {
+            "role" : "Executive Manager"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "procurementRequest", "type" : "workflow.humantask.ProcurementRequest" }
+          ],
+          "map" : {
+            "param.procurementRequest" : "in"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 640, "y" : 440 },
+        "labelOffset" : { "x" : -43, "y" : -8 }
+      },
+      "connect" : { "id" : "f10", "to" : "f9", "via" : [ { "x" : 800, "y" : 440 } ], "condition" : "ivp==\"TaskA.ivp\"" }
+    }, {
+      "id" : "f9",
+      "type" : "EMail",
+      "name" : "Notify Requester",
+      "config" : {
+        "headers" : {
+          "emailFrom" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>",
+          "emailTo" : "<%=in.requester.email%>",
+          "emailSubject" : "<%=ivy.cms.co(\"/Emails/yourRequestHasBeen\")%> <%=(in.accepted ? ivy.cms.co(\"/Emails/accepted\") : ivy.cms.co(\"/Emails/declined\"))%>: <%=in.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> '<%=in.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in.totalPrice%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/currencySymbol\")%>"
+        },
+        "message" : [
+          " <html> ",
+          "  <style type=\"text/css\">",
+          "         <%=ivy.cms.co(\"/Styles/Classic\")%>",
+          "  </style>",
+          "  ",
+          "  <%=ivy.cms.co(\"/Images/Logo\")%>",
+          "",
+          "  <%=ivy.cms.co(\"/Emails/procurementRequestNotification\")%>",
+          "</html>"
+        ],
+        "exceptionHandler" : ">>"
+      },
+      "visual" : {
+        "at" : { "x" : 800, "y" : 192 },
+        "size" : { "width" : 112, "height" : 48 },
+        "labelOffset" : { "x" : -45, "y" : -8 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f11",
+      "type" : "Alternative",
+      "name" : "Verified?",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 320 },
+        "labelOffset" : { "x" : 27, "y" : -7 }
+      },
+      "connect" : [
+        { "id" : "f8", "to" : "f7", "via" : [ { "x" : 512, "y" : 440 } ], "label" : {
+            "name" : "Yes",
+            "segment" : 0.85,
+            "offset" : { "x" : 15, "y" : 0 }
+          }, "condition" : "in.dataOkManager", "var" : "in1" },
+        { "id" : "f13", "to" : "f9", "via" : [ { "x" : 512, "y" : 192 } ], "label" : {
+            "name" : "No",
+            "segment" : 1.06,
+            "offset" : { "x" : 0, "y" : 13 }
+          } }
+      ]
+    }, {
+      "id" : "f14",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "Combines a Task Switch Event",
+        "and a User Dialog Step."
+      ],
+      "visual" : {
+        "at" : { "x" : 312, "y" : 392 },
+        "size" : { "width" : 176, "height" : 44 },
+        "labelOffset" : { "x" : -85, "y" : -16 }
+      },
+      "connect" : { "id" : "f15", "to" : "f5" }
+    }, {
+      "id" : "f16",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "This example shows the usage of a User Task Activity.",
+        "A procurement request is made by an employee, verified by the manager and accepted by an executive.",
+        "The User Task step is used instead of a Task Switch and a User Dialog step."
+      ],
+      "visual" : {
+        "at" : { "x" : 352, "y" : 48 },
+        "size" : { "width" : 576, "height" : 60 },
+        "labelOffset" : { "x" : -280, "y" : -24 }
+      }
+    } ],
+  "layout" : {
+    "lanes" : [ {
+        "name" : "Procurement Request",
+        "offset" : 128,
+        "size" : 360,
+        "lanes" : [ {
+            "name" : "Employee",
+            "size" : 128
+          }, {
+            "name" : "Manager",
+            "size" : 120
+          }, {
+            "name" : "Executive",
+            "size" : 112
+          } ]
+      } ]
+  }
+}

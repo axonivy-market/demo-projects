@@ -1,0 +1,37 @@
+{
+  "format" : "9.4.8",
+  "id" : "17BF3918B962C886",
+  "data" : "ch.ivyteam.htmldialog.demo.input.TextEditorDemo.TextEditorDemoData",
+  "kind" : "HTML_DIALOG",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "HtmlDialogStart",
+      "name" : "start()",
+      "config" : {
+        "callSignature" : "start",
+        "guid" : "17BF3918BD1C8189"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f1",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "HtmlDialogEventStart",
+      "name" : "update",
+      "config" : {
+        "guid" : "17BF3918C06BF4B6"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 160 },
+        "labelOffset" : { "x" : -16, "y" : 15 }
+      },
+      "connect" : { "id" : "f4", "to" : "f1" }
+    } ]
+}

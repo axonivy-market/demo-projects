@@ -1,0 +1,178 @@
+{
+  "format" : "9.4.8",
+  "id" : "14ED397D47F3083D",
+  "data" : "error.handling.demo.Approval",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start.ivp",
+      "config" : {
+        "callSignature" : "start",
+        "responsible" : "Team",
+        "outLink" : "start.ivp",
+        "wfuser" : "1",
+        "startName" : "Business Error initiates an alternative flow"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 192 },
+        "labelOffset" : { "x" : -21, "y" : 17 }
+      },
+      "connect" : { "id" : "f9", "to" : "f3", "var" : "in1" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 768, "y" : 256 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 768, "y" : 192 }
+      }
+    }, {
+      "id" : "f16",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "Demonstrates the handling of a Business Error",
+        "The error `approval:declined ` initiates an alternative flow"
+      ],
+      "visual" : {
+        "at" : { "x" : 248, "y" : 56 },
+        "size" : { "width" : 336, "height" : 44 },
+        "labelOffset" : { "x" : -163, "y" : -19 },
+        "color" : "NodeStyle3"
+      }
+    }, {
+      "id" : "f3",
+      "type" : "UserTask",
+      "name" : "Request From",
+      "config" : {
+        "dialogId" : "error.handling.demo.approval.RequestForm",
+        "startMethod" : "start()",
+        "output" : {
+          "map" : {
+            "out" : "result.approval"
+          }
+        },
+        "task" : {
+          "skipTasklist" : true
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 192 },
+        "labelOffset" : { "x" : -39, "y" : -8 }
+      },
+      "connect" : { "id" : "f14", "to" : "f11", "via" : [ { "x" : 224, "y" : 384 } ], "condition" : "ivp==\"TaskA.ivp\"", "var" : "in1" }
+    }, {
+      "id" : "f11",
+      "type" : "UserTask",
+      "name" : "approve",
+      "config" : {
+        "dialogId" : "error.handling.demo.approval.RequestApproval",
+        "startMethod" : "start(error.handling.demo.Approval)",
+        "task" : {
+          "name" : "Approve Request for a <%=in.description%>",
+          "responsible" : {
+            "role" : "Boss"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "approval", "type" : "error.handling.demo.Approval" }
+          ],
+          "map" : {
+            "param.approval" : "in"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 392, "y" : 384 },
+        "labelOffset" : { "x" : -22, "y" : -8 }
+      },
+      "boundaries" : [ {
+          "id" : "Et0",
+          "type" : "ErrorBoundaryEvent",
+          "name" : "Declined",
+          "config" : {
+            "errorCode" : "approval:declined",
+            "output" : {
+              "code" : "out.declineReason = error.getAttribute(\"declineReason\") as String;"
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 424, "y" : 360 },
+            "labelOffset" : { "x" : 18, "y" : -25 }
+          },
+          "connect" : { "id" : "f19", "to" : "f17", "via" : [ { "x" : 424, "y" : 192 } ], "var" : "in2" }
+        } ],
+      "connect" : { "id" : "f13", "to" : "f12", "via" : [ { "x" : 544, "y" : 384 }, { "x" : 544, "y" : 256 } ], "condition" : "ivp==\"TaskA.ivp\"", "var" : "in1" }
+    }, {
+      "id" : "f12",
+      "type" : "UserTask",
+      "name" : "request approved",
+      "config" : {
+        "dialogId" : "error.handling.demo.approval.RequestApproved",
+        "startMethod" : "start(error.handling.demo.Approval)",
+        "task" : {
+          "name" : "Request for <%=in.description%> approved",
+          "responsible" : {
+            "userFromAttribute" : "ivy.case.getCreatorUser().getName()"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "approval", "type" : "error.handling.demo.Approval" }
+          ],
+          "map" : {
+            "param.approval" : "in"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 640, "y" : 256 },
+        "labelOffset" : { "x" : -48, "y" : -8 }
+      },
+      "connect" : { "id" : "f15", "to" : "f1", "condition" : "ivp==\"TaskA.ivp\"" }
+    }, {
+      "id" : "f17",
+      "type" : "UserTask",
+      "name" : "request declined",
+      "config" : {
+        "dialogId" : "error.handling.demo.approval.RequestDeclined",
+        "startMethod" : "start(error.handling.demo.Approval)",
+        "task" : {
+          "name" : "Request for <%=in.description%> declined",
+          "responsible" : {
+            "userFromAttribute" : "ivy.case.getCreatorUserName()"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "approval", "type" : "error.handling.demo.Approval" }
+          ],
+          "map" : {
+            "param.approval" : "in"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 640, "y" : 192 },
+        "labelOffset" : { "x" : -46, "y" : -8 }
+      },
+      "connect" : { "id" : "f10", "to" : "f6", "condition" : "ivp==\"TaskA.ivp\"" }
+    } ],
+  "layout" : {
+    "lanes" : [ {
+        "name" : "Team",
+        "offset" : 128,
+        "size" : 192
+      }, {
+        "name" : "Boss",
+        "size" : 128
+      } ],
+    "colors" : {
+      "NodeStyle3" : "rgb(255, 0, 0)"
+    }
+  }
+}

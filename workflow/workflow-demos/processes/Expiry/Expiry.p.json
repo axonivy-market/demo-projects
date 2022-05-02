@@ -1,0 +1,171 @@
+{
+  "format" : "9.4.8",
+  "id" : "171E51B493DDB838",
+  "data" : "workflow.humantask.Data",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "createExpriyErrorTask.ivp",
+      "config" : {
+        "callSignature" : "createExpriyErrorTask",
+        "startCategory" : "expiry",
+        "outLink" : "createExpriyErrorTask.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-calendar-times-o" }
+        ],
+        "startName" : "7.3 Create an exception task on expiry"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 384 },
+        "labelOffset" : { "x" : -77, "y" : 20 }
+      },
+      "connect" : { "id" : "f3", "to" : "f2" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 384 }
+      }
+    }, {
+      "id" : "f2",
+      "type" : "TaskSwitchEvent",
+      "config" : {
+        "task" : {
+          "expiry" : {
+            "timeout" : "'1m'",
+            "error" : "f5",
+            "responsible" : {
+              "deleteTask" : true
+            }
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 384 }
+      },
+      "connect" : { "id" : "f4", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "ErrorStartEvent",
+      "name" : "taskExpired",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 464 },
+        "labelOffset" : { "x" : -25, "y" : 20 }
+      },
+      "connect" : { "id" : "f6", "to" : "f1" }
+    }, {
+      "id" : "f8",
+      "type" : "RequestStart",
+      "name" : "createExpiryTaskOtherRole.ivp",
+      "config" : {
+        "callSignature" : "createExpiryTaskOtherRole",
+        "startCategory" : "expiry",
+        "outLink" : "createExpiryTaskOtherRole.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-calendar" }
+        ],
+        "startName" : "7.2 Assign task to another role on expiry"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 224 },
+        "labelOffset" : { "x" : -86, "y" : 24 }
+      },
+      "connect" : { "id" : "f13", "to" : "f10" }
+    }, {
+      "id" : "f9",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 224 }
+      }
+    }, {
+      "id" : "f10",
+      "type" : "TaskSwitchEvent",
+      "config" : {
+        "task" : {
+          "expiry" : {
+            "timeout" : "'1m'",
+            "responsible" : {
+              "role" : "Manager"
+            }
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 224 }
+      },
+      "connect" : { "id" : "f11", "to" : "f9" }
+    }, {
+      "id" : "f7",
+      "type" : "TaskSwitchEvent",
+      "config" : {
+        "task" : {
+          "expiry" : {
+            "timeout" : "'1m'",
+            "priority" : "HIGH"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      },
+      "connect" : { "id" : "f15", "to" : "f12" }
+    }, {
+      "id" : "f12",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      }
+    }, {
+      "id" : "f14",
+      "type" : "RequestStart",
+      "name" : "createExpriyTaskHigherPrio.ivp",
+      "config" : {
+        "callSignature" : "createExpriyTaskHigherPrio",
+        "startCategory" : "expiry",
+        "outLink" : "createExpriyTaskHigherPrio.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-clock-o" }
+        ],
+        "startName" : "7.1 Set higher task priority on expiry"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : -85, "y" : 32 }
+      },
+      "connect" : { "id" : "f16", "to" : "f7" }
+    }, {
+      "id" : "f17",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "This example shows how you can set an expiry on a task.",
+        "After the expire the task has a higher priority."
+      ],
+      "visual" : {
+        "at" : { "x" : 608, "y" : 64 },
+        "size" : { "width" : 368, "height" : 44 }
+      }
+    }, {
+      "id" : "f18",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "This example shows how you can set an expiry on a task.",
+        "After the expiry the task is reassigned to the role \"Manager\"."
+      ],
+      "visual" : {
+        "at" : { "x" : 624, "y" : 224 },
+        "size" : { "width" : 400, "height" : 44 }
+      }
+    }, {
+      "id" : "f19",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "This example shows how you can set an expiry on a task.",
+        "After the expiry the task is destroyed. ",
+        "Instead a new system task is created starting at the error start 'taskExpired'."
+      ],
+      "visual" : {
+        "at" : { "x" : 672, "y" : 384 },
+        "size" : { "width" : 496, "height" : 60 }
+      }
+    } ]
+}

@@ -1,0 +1,62 @@
+{
+  "format" : "9.4.8",
+  "id" : "13A0168D09848672",
+  "data" : "ch.ivyteam.htmldialog.demo.output.ResourceDemo.ResourceDemoData",
+  "kind" : "HTML_DIALOG",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "HtmlDialogStart",
+      "name" : "start()",
+      "config" : {
+        "callSignature" : "start",
+        "guid" : "13A0168D0B4F1482"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : -16, "y" : 12 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f1",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "getStreamedImage()",
+      "config" : {
+        "callSignature" : "getStreamedImage",
+        "result" : {
+          "params" : [
+            { "name" : "image", "type" : "org.primefaces.model.StreamedContent" }
+          ],
+          "code" : [
+            "import javax.faces.event.PhaseId;",
+            "import javax.faces.context.FacesContext;",
+            "import org.primefaces.model.DefaultStreamedContent;",
+            "",
+            "FacesContext context = FacesContext.getCurrentInstance();",
+            "",
+            "if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {",
+            "  result.image = new DefaultStreamedContent();",
+            "} else {",
+            "  result.image = ch.ivyteam.htmldialog.demo.output.ImageGenerator.generateImage(\"Streamed\");",
+            "}"
+          ]
+        },
+        "guid" : "14DFBDBFE176800C"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 160 }
+      },
+      "connect" : { "id" : "f5", "to" : "f4" }
+    }, {
+      "id" : "f4",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 160 }
+      }
+    } ]
+}

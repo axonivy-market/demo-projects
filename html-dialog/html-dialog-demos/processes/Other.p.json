@@ -1,0 +1,235 @@
+{
+  "format" : "9.4.8",
+  "id" : "145D1862CF17F2C9",
+  "data" : "htmlDialogDemos.Data",
+  "elements" : [ {
+      "id" : "f104",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.other.Html5Demo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 64 }
+      },
+      "connect" : { "id" : "f108", "to" : "f105" }
+    }, {
+      "id" : "f44",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.other.ManagedBeanDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 352 }
+      },
+      "connect" : { "id" : "f46", "to" : "f43" }
+    }, {
+      "id" : "f109",
+      "type" : "RequestStart",
+      "name" : "Html5BootstrapDemo.ivp",
+      "config" : {
+        "callSignature" : "Html5BootstrapDemo",
+        "startCategory" : "other",
+        "outLink" : "Html5BootstrapDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-drivers-license-o" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Html 5 Bootstrap Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 160 },
+        "labelOffset" : { "x" : -69, "y" : 15 }
+      },
+      "connect" : { "id" : "f113", "to" : "f112" }
+    }, {
+      "id" : "f38",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 256 }
+      },
+      "connect" : { "id" : "f103", "to" : "f102" }
+    }, {
+      "id" : "f105",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 64 }
+      }
+    }, {
+      "id" : "f37",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 712, "y" : 256 }
+      }
+    }, {
+      "id" : "f106",
+      "type" : "RequestStart",
+      "name" : "Html5Demo.ivp",
+      "config" : {
+        "callSignature" : "Html5Demo",
+        "startCategory" : "other",
+        "outLink" : "Html5Demo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-html5" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Html 5 Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 64 },
+        "labelOffset" : { "x" : -42, "y" : 15 }
+      },
+      "connect" : { "id" : "f107", "to" : "f104" }
+    }, {
+      "id" : "f42",
+      "type" : "RequestStart",
+      "name" : "ManagedBeanDemo.ivp",
+      "config" : {
+        "callSignature" : "ManagedBeanDemo",
+        "startCategory" : "other",
+        "outLink" : "ManagedBeanDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-code" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "ManagedBean Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 352 },
+        "labelOffset" : { "x" : -66, "y" : 15 },
+        "description" : "ManagedBean Demo"
+      },
+      "connect" : { "id" : "f45", "to" : "f44" }
+    }, {
+      "id" : "f102",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.Main",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 528, "y" : 256 }
+      },
+      "connect" : { "id" : "f41", "to" : "f37" }
+    }, {
+      "id" : "f110",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 160 }
+      }
+    }, {
+      "id" : "f43",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 352 }
+      }
+    }, {
+      "id" : "f112",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 160 }
+      },
+      "connect" : { "id" : "f111", "to" : "f110" }
+    }, {
+      "id" : "f39",
+      "type" : "RequestStart",
+      "name" : "MethodCallWithAjaxDemo.ivp",
+      "config" : {
+        "callSignature" : "MethodCallWithAjaxDemo",
+        "startCategory" : "other",
+        "outLink" : "MethodCallWithAjaxDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa  fa-spinner" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Method call with Ajax"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 256 },
+        "labelOffset" : { "x" : -80, "y" : 15 }
+      },
+      "connect" : { "id" : "f40", "to" : "f38" }
+    }, {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "ErrorHandlingDemo.ivp",
+      "config" : {
+        "callSignature" : "ErrorHandlingDemo",
+        "startCategory" : "other",
+        "outLink" : "ErrorHandlingDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-exclamation-triangle" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "ErrorHandlingDemo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 448 },
+        "labelOffset" : { "x" : -64, "y" : 17 },
+        "description" : "ErrorHandling Demo"
+      },
+      "connect" : { "id" : "f3", "to" : "f1" }
+    }, {
+      "id" : "f1",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.other.ErrorHandling",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 448 }
+      },
+      "connect" : { "id" : "f4", "to" : "f2" }
+    }, {
+      "id" : "f2",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 448 }
+      }
+    }, {
+      "id" : "f5",
+      "type" : "RequestStart",
+      "name" : "ResponsiveGridDemo.ivp",
+      "config" : {
+        "callSignature" : "ResponsiveGridDemo",
+        "startCategory" : "other",
+        "outLink" : "ResponsiveGridDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-th" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Responsive Grid Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 544 },
+        "labelOffset" : { "x" : -66, "y" : 16 }
+      },
+      "connect" : { "id" : "f9", "to" : "f8" }
+    }, {
+      "id" : "f6",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 544 }
+      }
+    }, {
+      "id" : "f8",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.other.ResponsiveGridDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 544 }
+      },
+      "connect" : { "id" : "f7", "to" : "f6" }
+    } ]
+}

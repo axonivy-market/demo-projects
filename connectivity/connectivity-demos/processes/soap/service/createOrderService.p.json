@@ -1,0 +1,156 @@
+{
+  "format" : "9.4.8",
+  "id" : "162492A1649E72DF",
+  "data" : "com.axonivy.connectivity.soap.service.CreateOrderServiceData",
+  "kind" : "WEB_SERVICE",
+  "wsTypeName" : "com.axonivy.connectivity.createOrder",
+  "elements" : [ {
+      "id" : "ws0",
+      "type" : "WebserviceStart",
+      "name" : "call(Order)",
+      "config" : {
+        "callSignature" : "call",
+        "input" : {
+          "params" : [
+            { "name" : "order", "type" : "com.axonivy.connectivity.soap.service.Order" }
+          ],
+          "map" : {
+            "out.order" : "param.order"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "task", "type" : "com.axonivy.connectivity.soap.service.Task" }
+          ],
+          "map" : {
+            "result.task" : "in.task"
+          }
+        }
+      },
+      "docs" : {
+        "wsdl" : "http://localhost:8081/designer/ws/ConnectivityDemos/162492A1649E72DF?WSDL"
+      },
+      "visual" : {
+        "at" : { "x" : 72, "y" : 152 },
+        "labelOffset" : { "x" : -27, "y" : -33 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "ws1",
+      "type" : "WebserviceEnd",
+      "visual" : {
+        "at" : { "x" : 456, "y" : 88 }
+      }
+    }, {
+      "id" : "f1",
+      "type" : "TriggerCall",
+      "name" : [
+        "approve",
+        "by boss"
+      ],
+      "config" : {
+        "processCall" : "soap/service/order:approveOrder(com.axonivy.connectivity.soap.service.Order,String)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.task.activator" : "triggeredTask.getActivatorName()",
+            "out.task.id" : "triggeredTask.getId()",
+            "out.task.name" : "triggeredTask.getName()"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "order", "type" : "com.axonivy.connectivity.soap.service.Order" },
+            { "name" : "responsibleRole", "type" : "String" }
+          ],
+          "map" : {
+            "param.order" : "in.order",
+            "param.responsibleRole" : "\"Boss\""
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 328, "y" : 88 }
+      },
+      "connect" : { "id" : "f0", "to" : "ws1" }
+    }, {
+      "id" : "f3",
+      "type" : "Alternative",
+      "name" : "price > 10k",
+      "visual" : {
+        "at" : { "x" : 176, "y" : 152 },
+        "labelOffset" : { "x" : 20, "y" : -8 }
+      },
+      "connect" : [
+        { "id" : "f2", "to" : "f1", "via" : [ { "x" : 176, "y" : 88 } ], "color" : "ArcStyle7", "label" : {
+            "name" : "yes",
+            "segment" : 1.19,
+            "offset" : { "x" : 1, "y" : 9 }
+          }, "condition" : "in.order.amount * in.order.unitPrice > 10000" },
+        { "id" : "f8", "to" : "f6", "via" : [ { "x" : 176, "y" : 218 } ], "label" : {
+            "name" : "no",
+            "segment" : 1.21,
+            "offset" : { "x" : 0, "y" : -11 }
+          } }
+      ]
+    }, {
+      "id" : "f5",
+      "type" : "WebserviceEnd",
+      "visual" : {
+        "at" : { "x" : 456, "y" : 218 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "TriggerCall",
+      "name" : [
+        "approve",
+        "by team"
+      ],
+      "config" : {
+        "processCall" : "soap/service/order:approveOrder(com.axonivy.connectivity.soap.service.Order,String)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.task.activator" : "triggeredTask.getActivatorName()",
+            "out.task.id" : "triggeredTask.getId()",
+            "out.task.name" : "triggeredTask.getName()"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "order", "type" : "com.axonivy.connectivity.soap.service.Order" },
+            { "name" : "responsibleRole", "type" : "String" }
+          ],
+          "map" : {
+            "param.order" : "in.order",
+            "param.responsibleRole" : "\"Team\""
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 328, "y" : 218 }
+      },
+      "connect" : { "id" : "f7", "to" : "f5" }
+    }, {
+      "id" : "f9",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "Web Service Endpoint: ",
+        "- allows third party system to start this process via SOAP ",
+        "- for service definition WSDL, see link in engine 'Overview' Web Browser."
+      ],
+      "docs" : {
+        "wsdl" : "http://127.0.0.1:8081/designer/ws/ConnectivityDemos/162492A1649E72DF?WSDL"
+      },
+      "visual" : {
+        "at" : { "x" : 312, "y" : 328 },
+        "size" : { "width" : 448, "height" : 60 }
+      },
+      "connect" : { "id" : "f10", "to" : "ws0", "via" : [ { "x" : 72, "y" : 328 } ] }
+    } ],
+  "layout" : {
+    "colors" : {
+      "ArcStyle7" : "rgb(0, 128, 0)"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "format" : "9.4.8",
+  "id" : "15A8995AA29B442B",
+  "data" : "workflow.humantask.Data",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start.ivp",
+      "config" : {
+        "callSignature" : "start",
+        "task" : {
+          "name" : "External Solvency Check"
+        },
+        "showInStartList" : false,
+        "outLink" : "start.ivp"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : -21, "y" : 17 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      }
+    } ]
+}

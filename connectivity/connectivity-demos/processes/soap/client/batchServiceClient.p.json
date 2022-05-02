@@ -1,0 +1,96 @@
+{
+  "format" : "9.4.8",
+  "id" : "161AE4E4EC67C8FD",
+  "data" : "com.axonivy.connectivity.soap.BatchServiceClientData",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : [
+        "callLongRunning",
+        "BatchOperation.ivp"
+      ],
+      "config" : {
+        "callSignature" : "callLongRunningBatchOperation",
+        "input" : {
+          "params" : [
+            { "name" : "blockSeconds", "type" : "Integer" }
+          ],
+          "map" : {
+            "out.blockSeconds" : "param.blockSeconds"
+          }
+        },
+        "startCategory" : "soap",
+        "outLink" : "callLongRunningBatchOperation.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-clock-o" }
+        ],
+        "startName" : "9.3 Increase timeout properties for long running requests"
+      },
+      "visual" : {
+        "at" : { "x" : 112, "y" : 80 },
+        "labelOffset" : { "x" : -58, "y" : -47 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 464, "y" : 80 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "WebServiceCall",
+      "name" : "call batch",
+      "config" : {
+        "clientId" : "162B962523BAAB85",
+        "port" : "TechnicalBackendServicePort",
+        "inputParams" : {
+          "parameters.blockSeconds" : "in.blockSeconds"
+        },
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.message" : "wsResponse"
+          },
+          "code" : "ivy.log.info(wsResponse);"
+        },
+        "operation" : "longRunningBatchOperation",
+        "properties" : {
+          "javax.xml.ws.client.connectionTimeout" : "1000",
+          "javax.xml.ws.client.receiveTimeout" : "70000"
+        },
+        "timeout" : "0"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 80 },
+        "labelOffset" : { "x" : -26, "y" : -8 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "SOAP requests are aborted by default ",
+        "if the remote service does not answer within `60` seconds!",
+        "",
+        "This batch client overrides the default settings with properties:",
+        "```",
+        "// waits 70 seconds for a result ",
+        "javax.xml.ws.client.receiveTimeout=70'000",
+        "// wait 1 second for a connection time out",
+        "javax.xml.ws.client.connectionTimeout=1'000",
+        "```"
+      ],
+      "visual" : {
+        "at" : { "x" : 304, "y" : 232 },
+        "size" : { "width" : 400, "height" : 172 }
+      },
+      "connect" : { "id" : "f6", "to" : "f3" }
+    } ],
+  "layout" : {
+    "lanes" : [ {
+        "name" : "Timeout Properties",
+        "size" : 344
+      } ]
+  }
+}

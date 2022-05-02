@@ -1,0 +1,156 @@
+{
+  "format" : "9.4.8",
+  "id" : "1549FE9E911A1812",
+  "data" : "com.axonivy.connectivity.rest.Approval",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "approve(Approval)",
+      "config" : {
+        "callSignature" : "approve",
+        "input" : {
+          "params" : [
+            { "name" : "approval", "type" : "com.axonivy.connectivity.rest.Approval" }
+          ],
+          "map" : {
+            "out" : "param.approval"
+          }
+        },
+        "outLink" : "approve.ivp",
+        "task" : {
+          "name" : "Approve request from <%=param.approval.requestedBy%>",
+          "description" : "<%=param.approval.title%>",
+          "responsible" : {
+            "role" : "Boss"
+          }
+        },
+        "triggerEnabled" : true,
+        "requestEnabled" : false
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 224 },
+        "labelOffset" : { "x" : -49, "y" : 17 },
+        "color" : "NodeStyle16"
+      },
+      "connect" : { "id" : "f11", "to" : "f10" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 384, "y" : 224 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "ProcessAnnotation",
+      "name" : "private start: only triggerable!",
+      "visual" : {
+        "at" : { "x" : 248, "y" : 280 },
+        "size" : { "width" : 160, "height" : 30 },
+        "labelOffset" : { "x" : -77, "y" : -8 }
+      },
+      "connect" : { "id" : "f4", "to" : "f0", "via" : [ { "x" : 128, "y" : 264 } ] }
+    }, {
+      "id" : "f5",
+      "type" : "RequestStart",
+      "name" : [
+        "createApproval",
+        "viaREST.ivp"
+      ],
+      "config" : {
+        "callSignature" : "createApprovalViaREST",
+        "startCategory" : "rest/approval",
+        "outLink" : "createApprovalViaREST.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "si si-check-2" }
+        ],
+        "startName" : "3. Calls a BPM process from REST service"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 128 },
+        "labelOffset" : { "x" : -40, "y" : 17 }
+      },
+      "connect" : { "id" : "f7", "to" : "f14" }
+    }, {
+      "id" : "f6",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 384, "y" : 128 }
+      }
+    }, {
+      "id" : "f10",
+      "type" : "DialogCall",
+      "name" : "approval dialog",
+      "config" : {
+        "dialogId" : "com.axonivy.connectivity.rest.ApprovalDialog",
+        "startMethod" : "start(com.axonivy.connectivity.rest.Approval)",
+        "call" : {
+          "params" : [
+            { "name" : "approval", "type" : "com.axonivy.connectivity.rest.Approval" }
+          ],
+          "map" : {
+            "param.approval" : "in"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 256, "y" : 224 },
+        "labelOffset" : { "x" : -42, "y" : -8 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f12",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "Start me to see how a REST client can ",
+        "run a functional SubProcess."
+      ],
+      "visual" : {
+        "at" : { "x" : 224, "y" : 40 },
+        "size" : { "width" : 224, "height" : 44 },
+        "labelOffset" : { "x" : -106, "y" : -16 }
+      },
+      "connect" : { "id" : "f13", "to" : "f5", "via" : [ { "x" : 128, "y" : 88 } ] }
+    }, {
+      "id" : "f14",
+      "type" : "RestClientCall",
+      "name" : [
+        "REST client:",
+        "create approval"
+      ],
+      "config" : {
+        "headers" : {
+          "Accept" : "application/json",
+          "X-Requested-By" : "\"ivy\""
+        },
+        "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
+        "method" : "PUT",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "bodyObjectType" : "ivy.local.client.Body1",
+        "bodyInputType" : "FORM",
+        "responseCode" : "ivy.log.info(result);",
+        "bodyForm" : {
+          "title" : "\"I need a new car\"",
+          "description" : "\"really, I'm sick of my old Fiat Punto\""
+        },
+        "path" : "/approve",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
+        "bodyMediaType" : "application/x-www-form-urlencoded"
+      },
+      "visual" : {
+        "at" : { "x" : 256, "y" : 128 },
+        "size" : { "width" : 128, "height" : 44 },
+        "labelOffset" : { "x" : -41, "y" : -16 }
+      },
+      "connect" : { "id" : "f8", "to" : "f6" }
+    } ],
+  "layout" : {
+    "lanes" : [ {
+        "name" : "REST bean interaction with IVY",
+        "size" : 320
+      } ],
+    "colors" : {
+      "NodeStyle16" : "rgb(240, 215, 224)"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "format" : "9.4.8",
+  "id" : "15AEFE76879218F9",
+  "data" : "ch.ivyteam.htmldialog.demo.output.LazyLoadingDemo.LazyLoadingDemoData",
+  "kind" : "HTML_DIALOG",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "HtmlDialogStart",
+      "name" : "start()",
+      "config" : {
+        "callSignature" : "start",
+        "guid" : "153D1CC021F1C2E7"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : -16, "y" : 15 }
+      },
+      "connect" : { "id" : "f7", "to" : "f6" }
+    }, {
+      "id" : "f1",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "HtmlDialogEventStart",
+      "name" : "close",
+      "config" : {
+        "guid" : "153D1CC0233591EA"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 160 },
+        "labelOffset" : { "x" : -15, "y" : 12 }
+      },
+      "connect" : { "id" : "f5", "to" : "f4" }
+    }, {
+      "id" : "f4",
+      "type" : "HtmlDialogExit",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 160 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "Script",
+      "name" : "generate Data",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import ch.ivyteam.htmldialog.demo.data.*;",
+            "import ch.ivyteam.htmldialog.demo.component.PersonLazyDataModel;",
+            "import ch.ivyteam.htmldialog.demo.Person;",
+            "",
+            "DataSource source = new DataSource(123456);",
+            "out.lazyModel = new PersonLazyDataModel(source);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 },
+        "labelOffset" : { "x" : -39, "y" : -8 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    } ]
+}

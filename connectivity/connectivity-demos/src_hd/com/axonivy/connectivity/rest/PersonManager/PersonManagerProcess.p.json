@@ -1,0 +1,267 @@
+{
+  "format" : "9.4.8",
+  "id" : "15470DE765DF45FC",
+  "data" : "com.axonivy.connectivity.rest.PersonManager.PersonManagerData",
+  "kind" : "HTML_DIALOG",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "HtmlDialogStart",
+      "name" : "start()",
+      "config" : {
+        "callSignature" : "start",
+        "input" : {
+          "code" : "out.editPerson; //init"
+        },
+        "guid" : "15470DE767CB62E5"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : -16, "y" : 15 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f1",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "HtmlDialogEventStart",
+      "name" : "close",
+      "config" : {
+        "guid" : "15470DE7696A313C"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 192 },
+        "labelOffset" : { "x" : -15, "y" : 12 }
+      },
+      "connect" : { "id" : "f5", "to" : "f4" }
+    }, {
+      "id" : "f4",
+      "type" : "HtmlDialogExit",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 192 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "edit(Person)",
+      "config" : {
+        "callSignature" : "edit",
+        "input" : {
+          "params" : [
+            { "name" : "person", "type" : "com.axonivy.connectivity.Person" }
+          ],
+          "map" : {
+            "out.editPerson" : "param.person"
+          }
+        },
+        "guid" : "154714B11193C26B"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 128 },
+        "labelOffset" : { "x" : -34, "y" : 15 }
+      },
+      "connect" : { "id" : "f8", "to" : "f7" }
+    }, {
+      "id" : "f7",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 128 }
+      }
+    }, {
+      "id" : "f9",
+      "type" : "HtmlDialogEventStart",
+      "name" : "add",
+      "config" : {
+        "guid" : "1547568524C22385"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 352 },
+        "labelOffset" : { "x" : -10, "y" : 15 }
+      },
+      "connect" : { "id" : "f26", "to" : "f25" }
+    }, {
+      "id" : "f10",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 352 }
+      }
+    }, {
+      "id" : "f14",
+      "type" : "HtmlDialogEventStart",
+      "name" : "update",
+      "config" : {
+        "guid" : "154756D22FAF47CA"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 416 },
+        "labelOffset" : { "x" : -19, "y" : 15 }
+      },
+      "connect" : { "id" : "f28", "to" : "f27" }
+    }, {
+      "id" : "f15",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 416 }
+      }
+    }, {
+      "id" : "f19",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "update()",
+      "config" : {
+        "callSignature" : "update",
+        "guid" : "154756E891F20C23"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 288 },
+        "labelOffset" : { "x" : -36, "y" : 15 }
+      },
+      "connect" : { "id" : "f12", "to" : "f11" }
+    }, {
+      "id" : "f21",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 288 }
+      }
+    }, {
+      "id" : "f22",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "delete(UUID)",
+      "config" : {
+        "callSignature" : "delete",
+        "input" : {
+          "params" : [
+            { "name" : "id", "type" : "java.util.UUID" }
+          ],
+          "map" : {
+            "out.editPerson.id" : "param.id"
+          }
+        },
+        "guid" : "154996947DF8D2D2"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 480 },
+        "labelOffset" : { "x" : -36, "y" : 15 }
+      },
+      "connect" : { "id" : "f18", "to" : "f17" }
+    }, {
+      "id" : "f23",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 480 }
+      }
+    }, {
+      "id" : "f25",
+      "type" : "RestClientCall",
+      "name" : "PersonService.PUT",
+      "config" : {
+        "bodyForm" : {
+          "firstname" : "in.firstName",
+          "lastname" : "in.lastName"
+        },
+        "headers" : {
+          "Accept" : "*/*",
+          "X-Requested-By" : "\"ivy\""
+        },
+        "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "method" : "PUT",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.response" : "response"
+        },
+        "bodyInputType" : "FORM"
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 352 },
+        "size" : { "width" : 144, "height" : 44 }
+      },
+      "connect" : { "id" : "f13", "to" : "f10" }
+    }, {
+      "id" : "f11",
+      "type" : "RestClientCall",
+      "name" : "PersonService.GET",
+      "config" : {
+        "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.persons" : "result"
+        },
+        "resultType" : "java.util.List<com.axonivy.connectivity.Person>"
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 288 },
+        "size" : { "width" : 144, "height" : 44 }
+      },
+      "connect" : { "id" : "f20", "to" : "f21" }
+    }, {
+      "id" : "f27",
+      "type" : "RestClientCall",
+      "name" : "PersonService.POST",
+      "config" : {
+        "path" : "{person.id}",
+        "headers" : {
+          "Accept" : "*/*",
+          "X-Requested-By" : "\"ivy\""
+        },
+        "bodyObjectMapping" : {
+          "param" : "in.editPerson"
+        },
+        "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "method" : "POST",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.response" : "response"
+        },
+        "bodyObjectType" : "com.axonivy.connectivity.Person",
+        "templateParams" : {
+          "person.id" : "in.editPerson.id"
+        },
+        "bodyInputType" : "ENTITY"
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 416 },
+        "size" : { "width" : 144, "height" : 44 }
+      },
+      "connect" : { "id" : "f16", "to" : "f15" }
+    }, {
+      "id" : "f17",
+      "type" : "RestClientCall",
+      "name" : "PersonService.DELETE",
+      "config" : {
+        "path" : "{person.id}",
+        "headers" : {
+          "Accept" : "*/*",
+          "X-Requested-By" : "\"ivy\""
+        },
+        "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "method" : "DELETE",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.response" : "response"
+        },
+        "templateParams" : {
+          "person.id" : "in.editPerson.id"
+        },
+        "bodyObjectCode" : "param = in.editPerson;",
+        "bodyInputType" : "ENTITY"
+      },
+      "visual" : {
+        "at" : { "x" : 225, "y" : 480 },
+        "size" : { "width" : 144, "height" : 44 }
+      },
+      "connect" : { "id" : "f24", "to" : "f23" }
+    } ],
+  "layout" : {
+    "lanes" : [ {
+        "name" : "Invokes REST client calls",
+        "offset" : 248,
+        "size" : 288
+      } ]
+  }
+}

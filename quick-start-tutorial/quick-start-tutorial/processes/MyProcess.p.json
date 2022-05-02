@@ -1,0 +1,77 @@
+{
+  "format" : "9.4.8",
+  "id" : "148655DDB7BB6588",
+  "data" : "quickStartTutorial.Data",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start.ivp",
+      "config" : {
+        "callSignature" : "start",
+        "outLink" : "start.ivp"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : -21, "y" : 17 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "DialogCall",
+      "name" : "Enter Product",
+      "config" : {
+        "dialogId" : "quickStartTutorial.EnterProduct",
+        "startMethod" : "start(quickStartTutorial.Data)",
+        "output" : {
+          "map" : {
+            "out" : "result.data"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "data", "type" : "quickStartTutorial.Data" }
+          ],
+          "map" : {
+            "param.data" : "in"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 },
+        "labelOffset" : { "x" : -37, "y" : -8 }
+      },
+      "connect" : { "id" : "f6", "to" : "f5" }
+    }, {
+      "id" : "f5",
+      "type" : "Alternative",
+      "name" : "Price higher than 100?",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 },
+        "labelOffset" : { "x" : -62, "y" : -34 }
+      },
+      "connect" : [
+        { "id" : "f2", "to" : "f1", "label" : {
+            "name" : "yes",
+            "segment" : 0.19,
+            "offset" : { "x" : 0, "y" : -8 }
+          }, "condition" : "in.price > 100" },
+        { "id" : "f8", "to" : "f7", "via" : [ { "x" : 352, "y" : 160 } ], "label" : {
+            "name" : "no",
+            "segment" : 1.27,
+            "offset" : { "x" : 0, "y" : -8 }
+          } }
+      ]
+    }, {
+      "id" : "f7",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 160 }
+      }
+    } ]
+}

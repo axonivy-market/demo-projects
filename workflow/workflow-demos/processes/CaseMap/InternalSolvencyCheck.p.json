@@ -1,0 +1,62 @@
+{
+  "format" : "9.4.8",
+  "id" : "15A89953E2D3784F",
+  "data" : "workflow.humantask.Data",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start.ivp",
+      "config" : {
+        "callSignature" : "start",
+        "task" : {
+          "name" : "Internal Solvency Check",
+          "expiry" : {
+            "timeout" : "new Duration(\"20h\")"
+          }
+        },
+        "showInStartList" : false,
+        "outLink" : "start.ivp",
+        "startName" : "Internal Solvency Check"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : -21, "y" : 17 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "Script",
+      "name" : [
+        "Approvals",
+        "evaluation"
+      ],
+      "config" : {
+        "output" : {
+          "code" : [
+            "import workflow.credit.CreditDossier;",
+            "",
+            "// Load dossier for current business case",
+            "CreditDossier dossier  = ivy.repo.get(CreditDossier.class) as CreditDossier;",
+            "dossier.decision.granted = false;",
+            "",
+            "// Execute rules to evaluate if it needs approval Level 1 and / or Level 2",
+            "ivy.rules.create().namespace(\"workflow.credit\").executor().execute(dossier);",
+            "",
+            "// Save dossier",
+            "ivy.repo.save(dossier);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 },
+        "labelOffset" : { "x" : -28, "y" : -16 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    } ]
+}

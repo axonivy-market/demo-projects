@@ -1,0 +1,476 @@
+{
+  "format" : "9.4.8",
+  "id" : "145D180807C60B4B",
+  "data" : "htmlDialogDemos.Data",
+  "elements" : [ {
+      "id" : "f94",
+      "type" : "RequestStart",
+      "name" : "SelectManyCheckboxDemo",
+      "config" : {
+        "callSignature" : "SelectManyCheckboxDemo",
+        "startCategory" : "output",
+        "outLink" : "SelectManyCheckboxDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-check-square-o" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Select Many Checkbox Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 544 },
+        "labelOffset" : { "x" : -75, "y" : 15 }
+      },
+      "connect" : { "id" : "f95", "to" : "f92" }
+    }, {
+      "id" : "f87",
+      "type" : "RequestStart",
+      "name" : "SelectOneMenuDemo",
+      "config" : {
+        "callSignature" : "SelectOneMenuDemo",
+        "startCategory" : "output",
+        "outLink" : "SelectOneMenuDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-list-alt" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Select One Menu Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 448 },
+        "labelOffset" : { "x" : -60, "y" : 15 }
+      },
+      "connect" : { "id" : "f90", "to" : "f88" }
+    }, {
+      "id" : "f11",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.output.EditableTableDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 64 }
+      },
+      "connect" : { "id" : "f14", "to" : "f13" }
+    }, {
+      "id" : "f26",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 352 }
+      }
+    }, {
+      "id" : "f25",
+      "type" : "RequestStart",
+      "name" : "PickListDemo.ivp",
+      "config" : {
+        "callSignature" : "PickListDemo",
+        "startCategory" : "output",
+        "outLink" : "PickListDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-list-ul" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "PickList Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 352 },
+        "labelOffset" : { "x" : -47, "y" : 15 }
+      },
+      "connect" : { "id" : "f28", "to" : "f27" }
+    }, {
+      "id" : "f93",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 544 }
+      }
+    }, {
+      "id" : "f31",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 160 }
+      }
+    }, {
+      "id" : "f89",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 448 }
+      }
+    }, {
+      "id" : "f88",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 448 }
+      },
+      "connect" : { "id" : "f91", "to" : "f89" }
+    }, {
+      "id" : "f13",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 64 }
+      }
+    }, {
+      "id" : "f27",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.output.PickListDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 352 }
+      },
+      "connect" : { "id" : "f29", "to" : "f26" }
+    }, {
+      "id" : "f32",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.output.ResourceDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 160 }
+      },
+      "connect" : { "id" : "f34", "to" : "f31" }
+    }, {
+      "id" : "f5",
+      "type" : "RequestStart",
+      "name" : "OrderListDemo.ivp",
+      "config" : {
+        "callSignature" : "OrderListDemo",
+        "startCategory" : "output",
+        "outLink" : "OrderListDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-list-ol" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "OrderListDemo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 256 },
+        "labelOffset" : { "x" : -51, "y" : 15 }
+      },
+      "connect" : { "id" : "f7", "to" : "f6" }
+    }, {
+      "id" : "f8",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 256 }
+      }
+    }, {
+      "id" : "f30",
+      "type" : "RequestStart",
+      "name" : "ResourceDemo.ivp",
+      "config" : {
+        "callSignature" : "ResourceDemo",
+        "startCategory" : "output",
+        "outLink" : "ResourceDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-picture-o" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Resource Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 160 },
+        "labelOffset" : { "x" : -53, "y" : 15 }
+      },
+      "connect" : { "id" : "f33", "to" : "f32" }
+    }, {
+      "id" : "f6",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.output.OrderListDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 256 }
+      },
+      "connect" : { "id" : "f9", "to" : "f8" }
+    }, {
+      "id" : "f92",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 544 }
+      },
+      "connect" : { "id" : "f96", "to" : "f93" }
+    }, {
+      "id" : "f10",
+      "type" : "RequestStart",
+      "name" : "EditableTableDemo.ivp",
+      "config" : {
+        "callSignature" : "EditableTableDemo",
+        "startCategory" : "output",
+        "outLink" : "EditableTableDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-table" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Editable Table Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 64 },
+        "labelOffset" : { "x" : -64, "y" : 15 }
+      },
+      "connect" : { "id" : "f12", "to" : "f11" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 640 }
+      }
+    }, {
+      "id" : "f2",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.output.ChartDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 640 }
+      },
+      "connect" : { "id" : "f4", "to" : "f1" }
+    }, {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "ChartDemo.ivp",
+      "config" : {
+        "callSignature" : "ChartDemo",
+        "startCategory" : "output",
+        "outLink" : "ChartDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-line-chart" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Chart Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 640 }
+      },
+      "connect" : { "id" : "f3", "to" : "f2" }
+    }, {
+      "id" : "f20",
+      "type" : "RequestStart",
+      "name" : "AutoCompleteDemo.ivp",
+      "config" : {
+        "callSignature" : "AutoCompleteDemo",
+        "startCategory" : "output",
+        "outLink" : "AutoCompleteDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-bars" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Auto Complete Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 736 },
+        "labelOffset" : { "x" : -65, "y" : 17 }
+      },
+      "connect" : { "id" : "f23", "to" : "f21" }
+    }, {
+      "id" : "f21",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 736 }
+      },
+      "connect" : { "id" : "f24", "to" : "f22" }
+    }, {
+      "id" : "f22",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 736 }
+      }
+    }, {
+      "id" : "f15",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 832 }
+      }
+    }, {
+      "id" : "f16",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.output.DataTableDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 832 }
+      },
+      "connect" : { "id" : "f19", "to" : "f15" }
+    }, {
+      "id" : "f17",
+      "type" : "RequestStart",
+      "name" : "DataTableDemo.ivp",
+      "config" : {
+        "callSignature" : "DataTableDemo",
+        "startCategory" : "output",
+        "case" : {
+          "attachToBusinessCase" : false
+        },
+        "outLink" : "DataTableDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-table" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "DataTable Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 832 },
+        "labelOffset" : { "x" : -54, "y" : 17 }
+      },
+      "connect" : { "id" : "f18", "to" : "f16" }
+    }, {
+      "id" : "f35",
+      "type" : "RequestStart",
+      "name" : "LazyLoadingDemo.ivp",
+      "config" : {
+        "callSignature" : "LazyLoadingDemo",
+        "startCategory" : "output",
+        "outLink" : "LazyLoadingDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-spinner" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Lazy Table-Loading Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 928 },
+        "labelOffset" : { "x" : -60, "y" : 17 }
+      },
+      "connect" : { "id" : "f38", "to" : "f36" }
+    }, {
+      "id" : "f36",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.output.LazyLoadingDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 928 }
+      },
+      "connect" : { "id" : "f39", "to" : "f37" }
+    }, {
+      "id" : "f37",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 928 }
+      }
+    }, {
+      "id" : "f40",
+      "type" : "RequestStart",
+      "name" : "ExportExcelDemo.ivp",
+      "config" : {
+        "callSignature" : "ExportExcelDemo",
+        "startCategory" : "output",
+        "outLink" : "ExportExcelDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-file-excel-o" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Export Excel Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 1024 },
+        "labelOffset" : { "x" : -60, "y" : 17 }
+      },
+      "connect" : { "id" : "f44", "to" : "f42" }
+    }, {
+      "id" : "f41",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 1024 }
+      }
+    }, {
+      "id" : "f42",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.output.ExportExcelDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 1024 }
+      },
+      "connect" : { "id" : "f43", "to" : "f41" }
+    }, {
+      "id" : "f45",
+      "type" : "RequestStart",
+      "name" : "PrettyTimeDemo.ivp",
+      "config" : {
+        "callSignature" : "PrettyTimeDemo",
+        "startCategory" : "output",
+        "outLink" : "PrettyTimeDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-clock-o" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Pretty Time Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 1120 },
+        "labelOffset" : { "x" : -56, "y" : 18 }
+      },
+      "connect" : { "id" : "f48", "to" : "f47" }
+    }, {
+      "id" : "f46",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 1120 }
+      }
+    }, {
+      "id" : "f47",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.output.PrettyTimeDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 1120 }
+      },
+      "connect" : { "id" : "f49", "to" : "f46" }
+    }, {
+      "id" : "f50",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 1216 }
+      }
+    }, {
+      "id" : "f51",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.output.DocumentViewer",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 1216 }
+      },
+      "connect" : { "id" : "f54", "to" : "f50" }
+    }, {
+      "id" : "f52",
+      "type" : "RequestStart",
+      "name" : "DocumentViewerDemo.ivp",
+      "config" : {
+        "callSignature" : "DocumentViewerDemo",
+        "startCategory" : "output",
+        "outLink" : "DocumentViewerDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-file-pdf-o" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Document Viewer Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 1216 },
+        "labelOffset" : { "x" : -64, "y" : 24 }
+      },
+      "connect" : { "id" : "f53", "to" : "f51" }
+    } ]
+}

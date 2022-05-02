@@ -1,0 +1,83 @@
+{
+  "format" : "9.4.8",
+  "id" : "150148B81ACE3E1E",
+  "data" : "error.handling.demo.ErrorHandler",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "ErrorStartEvent",
+      "name" : "ivy:error",
+      "config" : {
+        "errorCode" : "ivy:error",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.errorCode" : "error.getErrorCode()",
+            "out.errorText" : "error.getErrorMessage()"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 176 },
+        "labelOffset" : { "x" : -24, "y" : 17 }
+      },
+      "connect" : { "id" : "f7", "to" : "f6" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 336, "y" : 176 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "ProcessAnnotation",
+      "name" : "Catches uncaught system errors in the project",
+      "visual" : {
+        "at" : { "x" : 264, "y" : 248 },
+        "size" : { "width" : 256, "height" : 30 },
+        "labelOffset" : { "x" : -125, "y" : -8 }
+      },
+      "connect" : { "id" : "f4", "to" : "f0" }
+    }, {
+      "id" : "f5",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "Global Error Process",
+        "The name of a global error process must start with \"Error\".",
+        "Error Start Events in a global error process catch uncaught errors in the whole project."
+      ],
+      "visual" : {
+        "at" : { "x" : 304, "y" : 64 },
+        "size" : { "width" : 480, "height" : 60 },
+        "labelOffset" : { "x" : -233, "y" : -26 },
+        "color" : "NodeStyle3"
+      }
+    }, {
+      "id" : "f6",
+      "type" : "DialogCall",
+      "name" : "Display Error",
+      "config" : {
+        "dialogId" : "error.handling.demo.GlobalError",
+        "startMethod" : "start(String,String)",
+        "call" : {
+          "params" : [
+            { "name" : "errorCode", "type" : "String" },
+            { "name" : "errorText", "type" : "String" }
+          ],
+          "map" : {
+            "param.errorCode" : "in.errorCode",
+            "param.errorText" : "in.errorText"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 208, "y" : 176 },
+        "labelOffset" : { "x" : -37, "y" : -7 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    } ],
+  "layout" : {
+    "colors" : {
+      "NodeStyle3" : "rgb(255, 0, 0)"
+    }
+  }
+}

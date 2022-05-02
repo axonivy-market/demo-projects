@@ -1,0 +1,94 @@
+{
+  "format" : "9.4.8",
+  "id" : "153EAAA7649F85DA",
+  "data" : "rule.engine.demo.Data",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start1.ivp",
+      "config" : {
+        "callSignature" : "start1",
+        "outLink" : "start1.ivp",
+        "startName" : "1. Discount Calculator"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 152 },
+        "labelOffset" : { "x" : -21, "y" : 17 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "name" : "end",
+      "visual" : {
+        "at" : { "x" : 336, "y" : 152 },
+        "labelOffset" : { "x" : -10, "y" : 17 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "DialogCall",
+      "name" : "Discount Calculator",
+      "config" : {
+        "dialogId" : "rule.engine.demo.DiscountCalculator",
+        "startMethod" : "start(rule.engine.demo.Member)",
+        "call" : {
+          "params" : [
+            { "name" : "member", "type" : "rule.engine.demo.Member" }
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 208, "y" : 152 },
+        "labelOffset" : { "x" : -53, "y" : -8 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "TaskEnd",
+      "name" : "end",
+      "visual" : {
+        "at" : { "x" : 336, "y" : 280 },
+        "labelOffset" : { "x" : -10, "y" : 17 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "RequestStart",
+      "name" : "start2.ivp",
+      "config" : {
+        "callSignature" : "start2",
+        "outLink" : "start2.ivp",
+        "startName" : "2. Adjustable Discount Calculator"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 280 },
+        "labelOffset" : { "x" : -24, "y" : 17 }
+      },
+      "connect" : { "id" : "f9", "to" : "f7" }
+    }, {
+      "id" : "f7",
+      "type" : "DialogCall",
+      "name" : [
+        "Adjustable ",
+        "Discount Calculator"
+      ],
+      "config" : {
+        "dialogId" : "rule.engine.demo.AdjustableDiscountCalculator",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 208, "y" : 280 },
+        "size" : { "width" : 128, "height" : 44 },
+        "labelOffset" : { "x" : -46, "y" : -16 }
+      },
+      "connect" : { "id" : "f8", "to" : "f5" }
+    }, {
+      "id" : "f10",
+      "type" : "ProcessAnnotation",
+      "name" : "This demo explains how to use the Rule Engine to execute the rules from DRL files, decision tables (XLS) and DMN models.",
+      "visual" : {
+        "at" : { "x" : 392, "y" : 56 },
+        "size" : { "width" : 688, "height" : 30 },
+        "labelOffset" : { "x" : -339, "y" : -8 }
+      }
+    } ]
+}
