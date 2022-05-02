@@ -1,0 +1,54 @@
+{
+  "format" : "9.4.8",
+  "id" : "171535C55F24D530",
+  "data" : "com.axonivy.connectivity.test.CreateApprovalData",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "test.ivp",
+      "config" : {
+        "callSignature" : "test",
+        "outLink" : "test.ivp"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : -25, "y" : 17 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "SubProcessCall",
+      "name" : "rest/createApproval",
+      "config" : {
+        "processCall" : "rest/createApproval:call(String,String)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.createdTask" : "result.approvalTask"
+          },
+          "code" : "ivy.log.info(\"created task: \"+result.approvalTask);"
+        },
+        "call" : {
+          "params" : [
+            { "name" : "title", "type" : "String" },
+            { "name" : "description", "type" : "String" }
+          ],
+          "map" : {
+            "param.title" : "ivy.session.getSessionUserName()",
+            "param.description" : "\"Tests make the world a better place\""
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 },
+        "size" : { "width" : 128, "height" : 44 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    } ]
+}

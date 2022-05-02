@@ -1,0 +1,70 @@
+{
+  "format" : "9.4.8",
+  "id" : "157B33AB7587F1F1",
+  "data" : "com.axonivy.connectivity.rest.BatchServiceData",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "callLongRunningBatch.ivp",
+      "config" : {
+        "callSignature" : "callLongRunningBatch",
+        "startCategory" : "rest/async",
+        "outLink" : "callLongRunningBatch.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-clock-o" }
+        ],
+        "startName" : "5. Increase timeout properties for long running requests"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 64 },
+        "labelOffset" : { "x" : -71, "y" : 17 }
+      },
+      "connect" : { "id" : "f2", "to" : "f6" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 384, "y" : 64 }
+      }
+    }, {
+      "id" : "f5",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "REST requests are aborted by default ",
+        "if the remote service does not answer within 30 seconds!",
+        "",
+        "This batch client overrides the default settings ",
+        "and waits 35 seconds for a result ",
+        "and 1 seconds for a connection by setting:",
+        "`jersey.config.client.readTimeout=35'000",
+        "jersey.config.client.connectTimeout=1'000`"
+      ],
+      "visual" : {
+        "at" : { "x" : 360, "y" : 200 },
+        "size" : { "width" : 320, "height" : 156 },
+        "labelOffset" : { "x" : -155, "y" : -73 }
+      },
+      "connect" : { "id" : "f4", "to" : "f6" }
+    }, {
+      "id" : "f6",
+      "type" : "RestClientCall",
+      "name" : "call batch",
+      "config" : {
+        "clientId" : "b0a5f371-e479-444d-b71c-af1fff4c084d",
+        "method" : "GET",
+        "resultType" : "java.lang.String",
+        "responseCode" : "ivy.log.info(\"batch service returned: \"+result);"
+      },
+      "visual" : {
+        "at" : { "x" : 256, "y" : 64 },
+        "labelOffset" : { "x" : -26, "y" : -8 }
+      },
+      "connect" : { "id" : "f3", "to" : "f1" }
+    } ],
+  "layout" : {
+    "lanes" : [ {
+        "name" : "Timeout Properties",
+        "size" : 312
+      } ]
+  }
+}

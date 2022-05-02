@@ -1,0 +1,203 @@
+{
+  "format" : "9.4.8",
+  "id" : "150047A1589EB0D8",
+  "data" : "booking.BookingData",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start.ivp",
+      "config" : {
+        "callSignature" : "start",
+        "input" : {
+          "map" : {
+            "out.customer.firstname" : "\"John\"",
+            "out.customer.lastname" : "\"Smith\""
+          }
+        },
+        "outLink" : "start.ivp",
+        "startName" : "Business Error interrupts the happy path and calls rollback activities"
+      },
+      "visual" : {
+        "at" : { "x" : 48, "y" : 128 },
+        "labelOffset" : { "x" : -21, "y" : 17 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f3",
+      "type" : "DialogCall",
+      "name" : [
+        "select",
+        "flight & car"
+      ],
+      "config" : {
+        "dialogId" : "error.handling.demo.SelectOptions",
+        "startMethod" : "start(booking.Customer)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.carSize" : "result.carSize",
+            "out.flight" : "result.flight"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "customer", "type" : "booking.Customer" }
+          ],
+          "map" : {
+            "param.customer" : "in.customer"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 168, "y" : 128 },
+        "labelOffset" : { "x" : -28, "y" : -16 }
+      },
+      "connect" : { "id" : "f6", "to" : "f5" }
+    }, {
+      "id" : "f5",
+      "type" : "SubProcessCall",
+      "name" : "book flight",
+      "config" : {
+        "processCall" : "Booking/Service/Flight:bookFlight(booking.Flight,booking.Customer)",
+        "call" : {
+          "params" : [
+            { "name" : "flight", "type" : "booking.Flight" },
+            { "name" : "customer", "type" : "booking.Customer" }
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 320, "y" : 128 },
+        "labelOffset" : { "x" : -28, "y" : -8 }
+      },
+      "boundaries" : [ {
+          "id" : "Et0",
+          "type" : "ErrorBoundaryEvent",
+          "name" : "failed",
+          "config" : {
+            "errorCode" : "booking:flight:failed"
+          },
+          "visual" : {
+            "at" : { "x" : 352, "y" : 160 },
+            "labelOffset" : { "x" : 19, "y" : 0 }
+          },
+          "connect" : { "id" : "f10", "to" : "f9", "via" : [ { "x" : 352, "y" : 288 } ] }
+        } ],
+      "connect" : { "id" : "f8", "to" : "f7" }
+    }, {
+      "id" : "f7",
+      "type" : "SubProcessCall",
+      "name" : "book car",
+      "config" : {
+        "processCall" : "Booking/Service/Car:bookCar(String)",
+        "call" : {
+          "params" : [
+            { "name" : "size", "type" : "String" }
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 480, "y" : 128 },
+        "labelOffset" : { "x" : -23, "y" : -8 }
+      },
+      "boundaries" : [ {
+          "id" : "Et1",
+          "type" : "ErrorBoundaryEvent",
+          "name" : "failed",
+          "config" : {
+            "errorCode" : "booking:car:failed"
+          },
+          "visual" : {
+            "at" : { "x" : 512, "y" : 160 },
+            "labelOffset" : { "x" : 18, "y" : 1 }
+          },
+          "connect" : { "id" : "f12", "to" : "f11" }
+        } ],
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f9",
+      "type" : "TaskEndPage",
+      "name" : "booking failed",
+      "config" : {
+        "template" : "view/booking-failed.xhtml"
+      },
+      "visual" : {
+        "at" : { "x" : 752, "y" : 288 },
+        "labelOffset" : { "x" : -38, "y" : 17 }
+      }
+    }, {
+      "id" : "f11",
+      "type" : "SubProcessCall",
+      "name" : [
+        "cancel flight",
+        "booking"
+      ],
+      "config" : {
+        "processCall" : "Booking/Service/Flight:cancelFlight(booking.Flight,booking.Customer)",
+        "call" : {
+          "params" : [
+            { "name" : "flight", "type" : "booking.Flight" },
+            { "name" : "customer", "type" : "booking.Customer" }
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 512, "y" : 232 },
+        "labelOffset" : { "x" : -32, "y" : -20 },
+        "description" : "compensate already booked flight"
+      },
+      "connect" : { "id" : "f13", "to" : "f9", "via" : [ { "x" : 752, "y" : 232 } ] }
+    }, {
+      "id" : "f1",
+      "type" : "EMail",
+      "name" : [
+        "confirmation",
+        "mail"
+      ],
+      "config" : {
+        "headers" : {
+          "emailTo" : "<%=in.customer.email%>",
+          "emailSubject" : "Booking confirmation"
+        },
+        "message" : "..."
+      },
+      "visual" : {
+        "at" : { "x" : 632, "y" : 128 },
+        "labelOffset" : { "x" : -34, "y" : -16 }
+      },
+      "connect" : { "id" : "f15", "to" : "f14" }
+    }, {
+      "id" : "f16",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "Demonstrates the handling of Business Errors",
+        "The Happy Path is interrupted and ",
+        " rollback activities are called. "
+      ],
+      "visual" : {
+        "at" : { "x" : 232, "y" : 48 },
+        "size" : { "width" : 336, "height" : 60 },
+        "labelOffset" : { "x" : -158, "y" : -26 },
+        "color" : "NodeStyle3"
+      }
+    }, {
+      "id" : "f14",
+      "type" : "TaskEndPage",
+      "name" : [
+        "booking ",
+        "successful"
+      ],
+      "config" : {
+        "template" : "view/booking-success.xhtml"
+      },
+      "visual" : {
+        "at" : { "x" : 752, "y" : 128 },
+        "labelOffset" : { "x" : -26, "y" : 18 }
+      }
+    } ],
+  "layout" : {
+    "colors" : {
+      "NodeStyle3" : "rgb(255, 0, 0)"
+    }
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "format" : "9.4.8",
+  "id" : "16F375741231763F",
+  "data" : "com.axonivy.connectivity.rest.OpenApiData",
+  "elements" : [ {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 320, "y" : 160 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "RestClientCall",
+      "name" : [
+        "available",
+        "PETs"
+      ],
+      "config" : {
+        "path" : "/pet/findByStatus",
+        "clientId" : "ae69ba01-79b7-4dce-9049-900f8f420907",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "queryParams" : {
+          "status" : "\"available\""
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.pets" : "result"
+        },
+        "resultType" : "java.util.List<io.swagger.petstore3.client.Pet>",
+        "responseCode" : "ivy.log.info(\"some pets are available: \"+out.pets.size());"
+      },
+      "visual" : {
+        "at" : { "x" : 192, "y" : 160 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "**Open API client sample**",
+        "Rest services written in openapi compatible manor expose their ",
+        "resources and datas in a standard schema."
+      ],
+      "visual" : {
+        "at" : { "x" : 240, "y" : 64 },
+        "size" : { "width" : 416, "height" : 60 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "RestClientCall",
+      "name" : [
+        "    Login User",
+        "(query params)"
+      ],
+      "config" : {
+        "path" : "/user/login",
+        "clientId" : "ae69ba01-79b7-4dce-9049-900f8f420907",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "queryParams" : {
+          "username" : "\"IvyPowerUser\"",
+          "password" : "ivy.session.getAttribute(\"pet.secret\") as String"
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "resultType" : "java.lang.String",
+        "responseCode" : [
+          "import org.apache.commons.lang.StringUtils;",
+          "String id = StringUtils.substringAfterLast(result, \"session: \");",
+          "ivy.session.setAttribute(\"pet.session.id\", id);"
+        ]
+      },
+      "visual" : {
+        "at" : { "x" : 192, "y" : 256 }
+      },
+      "connect" : { "id" : "f10", "to" : "f8" }
+    }, {
+      "id" : "f7",
+      "type" : "RequestStart",
+      "name" : "login.ivp",
+      "config" : {
+        "callSignature" : "login",
+        "startCategory" : "rest/openapi",
+        "outLink" : "login.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-sign-in" }
+        ],
+        "startName" : "8.1.2 open api query"
+      },
+      "visual" : {
+        "at" : { "x" : 64, "y" : 256 }
+      },
+      "connect" : { "id" : "f9", "to" : "f6" }
+    }, {
+      "id" : "f8",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 320, "y" : 256 }
+      }
+    }, {
+      "id" : "f11",
+      "type" : "RequestStart",
+      "name" : "upload.ivp",
+      "config" : {
+        "callSignature" : "upload",
+        "startCategory" : "rest/openapi",
+        "outLink" : "upload.ivp",
+        "startDescription" : "Use any undocummented feature",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-upload" }
+        ],
+        "startName" : "8.1.3 open api upload file"
+      },
+      "visual" : {
+        "at" : { "x" : 64, "y" : 352 },
+        "labelOffset" : { "x" : -25, "y" : 17 }
+      },
+      "connect" : { "id" : "f17", "to" : "f12" }
+    }, {
+      "id" : "f13",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 352 }
+      }
+    }, {
+      "id" : "f14",
+      "type" : "RestClientCall",
+      "name" : [
+        "     Upload File",
+        "(programmatic)"
+      ],
+      "config" : {
+        "path" : "/pet/{petId}/uploadImage",
+        "clientId" : "ae69ba01-79b7-4dce-9049-900f8f420907",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "method" : "JAX_RS",
+        "queryParams" : {
+          "additionalMetadata" : "\"Ivy is everywhere\""
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "clientCode" : [
+          "import com.axonivy.connectivity.rest.client.file.FileUpload;",
+          "import io.swagger.petstore3.client.Pet;",
+          "import javax.ws.rs.core.MediaType;",
+          "import javax.ws.rs.client.Entity;",
+          "",
+          "java.io.File logo = FileUpload.getIvyLogo();",
+          "Pet pet = client.request()",
+          "  .post(Entity.entity(logo, MediaType.APPLICATION_OCTET_STREAM_TYPE), Pet.class) as Pet;",
+          "",
+          "ivy.log.info(\"Screenshots: \"+pet.photoUrls);",
+          "out.pets.set(0, pet);"
+        ],
+        "templateParams" : {
+          "petId" : "in.pets.get(0).getId()"
+        },
+        "resultType" : "io.swagger.petstore3.client.ApiResponse",
+        "bodyInputType" : "RAW",
+        "bodyMediaType" : "application/octet-stream"
+      },
+      "visual" : {
+        "at" : { "x" : 352, "y" : 352 },
+        "size" : { "width" : 112, "height" : 48 },
+        "description" : [
+          "Show that the presence of a strictly defined service descriptor is not a blocker to use advanced JAX-RS Api to interact with the remote service.",
+          "This is usefull during prototyping or to overcome technical boundaries caused by weakly defined services."
+        ]
+      },
+      "connect" : { "id" : "f16", "to" : "f13" }
+    }, {
+      "id" : "f12",
+      "type" : "RestClientCall",
+      "name" : "read Pets",
+      "config" : {
+        "path" : "/pet/findByStatus",
+        "clientId" : "ae69ba01-79b7-4dce-9049-900f8f420907",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "queryParams" : {
+          "status" : "\"available\""
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.pets" : "result"
+        },
+        "resultType" : "java.util.List<io.swagger.petstore3.client.Pet>"
+      },
+      "visual" : {
+        "at" : { "x" : 192, "y" : 352 }
+      },
+      "connect" : { "id" : "f15", "to" : "f14" }
+    }, {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "listPets.ivp",
+      "config" : {
+        "callSignature" : "listPets",
+        "startCategory" : "rest/openapi",
+        "outLink" : "listPets.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-paw" }
+        ],
+        "startName" : "8.1.1 open api read collection"
+      },
+      "visual" : {
+        "at" : { "x" : 64, "y" : 160 },
+        "labelOffset" : { "x" : -25, "y" : 17 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    } ]
+}

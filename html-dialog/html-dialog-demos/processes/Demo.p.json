@@ -1,0 +1,48 @@
+{
+  "format" : "9.4.8",
+  "id" : "139D3A4CEEEDAA4B",
+  "data" : "htmlDialogDemos.Data",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start.ivp",
+      "config" : {
+        "callSignature" : "start",
+        "startCategory" : "demo",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-desktop" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "outLink" : "start.ivp",
+        "startName" : "All HtmlDialog Demos"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 128 },
+        "labelOffset" : { "x" : -21, "y" : 15 }
+      },
+      "connect" : { "id" : "f3", "to" : "f2" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 128 }
+      }
+    }, {
+      "id" : "f2",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.Main",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 128 }
+      },
+      "connect" : { "id" : "f4", "to" : "f1" }
+    } ],
+  "layout" : {
+    "lanes" : [ {
+        "name" : "Demo Start",
+        "size" : 255
+      } ]
+  }
+}

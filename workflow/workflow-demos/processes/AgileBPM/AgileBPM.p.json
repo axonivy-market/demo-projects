@@ -1,0 +1,567 @@
+{
+  "format" : "9.4.8",
+  "id" : "15255056043EE914",
+  "data" : "workflow.agileBPM.Data",
+  "elements" : [ {
+      "id" : "1b0",
+      "type" : "EmbeddedProcess",
+      "name" : "Execute Tasks",
+      "elements" : [ {
+          "id" : "1b0-S10",
+          "type" : "EmbeddedProcess",
+          "name" : "User Task",
+          "elements" : [ {
+              "id" : "1b0-S10-f9",
+              "type" : "TaskSwitchEvent",
+              "name" : "task list",
+              "config" : {
+                "outLinks" : [ "TaskA.ivp" ],
+                "task" : {
+                  "name" : "<%=in1.nextTask.kind%> <%=in1.nextTask.subject%>",
+                  "description" : "<%=in1.nextTask.description%>",
+                  "responsible" : {
+                    "userFromAttribute" : "in1.nextTask.actoruser"
+                  },
+                  "expiry" : {
+                    "timeout" : "in1.nextTask.until!=null ? in1.nextTask.until - new DateTime() : null",
+                    "responsible" : {
+                      "userFromAttribute" : "in1.nextTask.actoruser"
+                    },
+                    "priority" : "EXCEPTION"
+                  },
+                  "customFields" : [
+                    { "name" : "KindCode", "type" : "String", "value" : "in1.nextTask.kind" }
+                  ]
+                }
+              },
+              "visual" : {
+                "at" : { "x" : 488, "y" : 264 },
+                "size" : { "width" : 28, "height" : 28 },
+                "labelOffset" : { "x" : -17, "y" : 20 }
+              },
+              "connect" : { "id" : "1b0-S10-f12", "to" : "1b0-S10-f11", "condition" : "ivp==\"TaskA.ivp\"" }
+            }, {
+              "id" : "1b0-S10-f11",
+              "type" : "DialogCall",
+              "name" : "taskForm",
+              "config" : {
+                "dialogId" : "workflow.agileBPM.task_Form",
+                "startMethod" : "start(workflow.agileBPM.CaseDef,workflow.agileBPM.TaskDef,List<workflow.agileBPM.TaskDef>)",
+                "output" : {
+                  "map" : {
+                    "out" : "in",
+                    "out.definedTasks" : "result.definedTasks"
+                  }
+                },
+                "call" : {
+                  "params" : [
+                    { "name" : "caseInfo", "type" : "workflow.agileBPM.CaseDef" },
+                    { "name" : "nextTask", "type" : "workflow.agileBPM.TaskDef" },
+                    { "name" : "definedTasks", "type" : "List<workflow.agileBPM.TaskDef>" }
+                  ],
+                  "map" : {
+                    "param.caseInfo" : "in.caseInfo",
+                    "param.nextTask" : "in.nextTask",
+                    "param.definedTasks" : "in.definedTasks"
+                  }
+                }
+              },
+              "visual" : {
+                "at" : { "x" : 600, "y" : 264 },
+                "labelOffset" : { "x" : -26, "y" : -8 }
+              },
+              "connect" : { "id" : "1b0-S10-f16", "to" : "1b0-S10-f4", "via" : [ { "x" : 736, "y" : 264 } ], "var" : "in2" }
+            }, {
+              "id" : "1b0-S10-g0",
+              "type" : "EmbeddedStart",
+              "name" : "in 1",
+              "visual" : {
+                "at" : { "x" : 64, "y" : 160 },
+                "labelOffset" : { "x" : 2, "y" : 14 }
+              },
+              "parentConnector" : "1b0-f19",
+              "connect" : { "id" : "1b0-S10-f21", "to" : "1b0-S10-f20" }
+            }, {
+              "id" : "1b0-S10-g1",
+              "type" : "EmbeddedEnd",
+              "name" : "out 1",
+              "visual" : {
+                "at" : { "x" : 992, "y" : 160 },
+                "labelOffset" : { "x" : -16, "y" : 13 }
+              },
+              "parentConnector" : "1b0-f20"
+            }, {
+              "id" : "1b0-S10-f2",
+              "type" : "TaskSwitchGateway",
+              "name" : "SYSTEM spilt",
+              "config" : {
+                "outLinks" : [ "TaskA.ivp", "TaskB.ivp" ],
+                "tasks" : {
+                  "TaskA" : {
+                    "name" : "Split SYSTEM",
+                    "category" : "System/Split",
+                    "responsible" : {
+                      "role" : "SYSTEM"
+                    },
+                    "skipTasklist" : true
+                  },
+                  "TaskB" : {
+                    "name" : "Split Usertask",
+                    "category" : "System/CreateUserTask",
+                    "responsible" : {
+                      "role" : "SYSTEM"
+                    }
+                  }
+                }
+              },
+              "visual" : {
+                "at" : { "x" : 352, "y" : 160 },
+                "labelOffset" : { "x" : 9, "y" : -32 }
+              },
+              "connect" : [
+                { "id" : "1b0-S10-f10", "to" : "1b0-S10-f8", "condition" : "ivp==\"TaskA.ivp\"" },
+                { "id" : "1b0-S10-f0", "to" : "1b0-S10-f9", "via" : [ { "x" : 352, "y" : 264 } ], "condition" : "ivp==\"TaskB.ivp\"", "var" : "in1" }
+              ]
+            }, {
+              "id" : "1b0-S10-f4",
+              "type" : "TaskSwitchGateway",
+              "name" : "SYSTEM join",
+              "config" : {
+                "outLinks" : [ "TaskA.ivp" ],
+                "tasks" : {
+                  "TaskA" : {
+                    "name" : "SYSTEM join",
+                    "category" : "System/Join",
+                    "responsible" : {
+                      "role" : "SYSTEM"
+                    }
+                  }
+                },
+                "output" : {
+                  "map" : {
+                    "out" : "in1",
+                    "out.definedTasks" : "in2.definedTasks"
+                  }
+                }
+              },
+              "visual" : {
+                "at" : { "x" : 736, "y" : 160 },
+                "labelOffset" : { "x" : 12, "y" : -29 }
+              },
+              "connect" : [
+                { "id" : "1b0-S10-f18", "to" : "1b0-S10-f17", "condition" : "ivp==\"TaskA.ivp\"" }
+              ]
+            }, {
+              "id" : "1b0-S10-f6",
+              "type" : "Alternative",
+              "visual" : {
+                "at" : { "x" : 280, "y" : 160 }
+              },
+              "connect" : [
+                { "id" : "1b0-S10-f3", "to" : "1b0-S10-f2", "var" : "in1" }
+              ]
+            }, {
+              "id" : "1b0-S10-f8",
+              "type" : "Alternative",
+              "name" : "more?",
+              "visual" : {
+                "at" : { "x" : 488, "y" : 160 },
+                "labelOffset" : { "x" : -18, "y" : 18 }
+              },
+              "connect" : [
+                { "id" : "1b0-S10-f23", "to" : "1b0-S10-f22", "via" : [ { "x" : 488, "y" : 88 } ], "label" : {
+                    "name" : "Yes",
+                    "segment" : 0.79,
+                    "offset" : { "x" : 14, "y" : 0 }
+                  }, "condition" : "in.nextTask.n>1" },
+                { "id" : "1b0-S10-f15", "to" : "1b0-S10-f14", "label" : {
+                    "name" : "No",
+                    "segment" : 0.16,
+                    "offset" : { "x" : 0, "y" : 7 }
+                  } }
+              ]
+            }, {
+              "id" : "1b0-S10-f14",
+              "type" : "Alternative",
+              "visual" : {
+                "at" : { "x" : 680, "y" : 160 }
+              },
+              "connect" : [
+                { "id" : "1b0-S10-f5", "to" : "1b0-S10-f4", "var" : "in1" }
+              ]
+            }, {
+              "id" : "1b0-S10-f17",
+              "type" : "Alternative",
+              "name" : "more?",
+              "visual" : {
+                "at" : { "x" : 864, "y" : 160 },
+                "labelOffset" : { "x" : -18, "y" : 18 }
+              },
+              "connect" : [
+                { "id" : "1b0-S10-f25", "to" : "1b0-S10-f24", "via" : [ { "x" : 864, "y" : 88 } ], "label" : {
+                    "name" : "Yes",
+                    "segment" : 0.77,
+                    "offset" : { "x" : 13, "y" : 0 }
+                  }, "condition" : "in.nextTask.n <in.nextTask.count" },
+                { "id" : "1b0-S10-f1", "to" : "1b0-S10-g1", "label" : {
+                    "name" : "No",
+                    "segment" : 0.46,
+                    "offset" : { "x" : 0, "y" : 8 }
+                  } }
+              ]
+            }, {
+              "id" : "1b0-S10-f20",
+              "type" : "Script",
+              "name" : "init",
+              "config" : {
+                "output" : {
+                  "code" : [
+                    "out.nextTask.actorusers.clear();",
+                    "",
+                    "List<String> names = in.nextTask.actor.split(\",\");",
+                    "for(String name: names)",
+                    "{",
+                    "  if(name.trim().length()>0)",
+                    "  {",
+                    "    out.nextTask.actorusers.add(name.trim());",
+                    "  }  ",
+                    "}  ",
+                    "",
+                    "out.nextTask.n = out.nextTask.actorusers.size();",
+                    "out.nextTask.count = out.nextTask.actorusers.size();",
+                    "",
+                    "out.nextTask.actoruser = in.nextTask.actorusers.get(out.nextTask.n-1);"
+                  ]
+                }
+              },
+              "visual" : {
+                "at" : { "x" : 168, "y" : 160 },
+                "labelOffset" : { "x" : -8, "y" : -8 }
+              },
+              "connect" : { "id" : "1b0-S10-f7", "to" : "1b0-S10-f6" }
+            }, {
+              "id" : "1b0-S10-f22",
+              "type" : "Script",
+              "name" : "n-1",
+              "config" : {
+                "output" : {
+                  "map" : {
+                    "out" : "in",
+                    "out.nextTask.n" : "in.nextTask.n-1"
+                  },
+                  "code" : "out.nextTask.actoruser = in.nextTask.actorusers.get(out.nextTask.n-1);"
+                }
+              },
+              "visual" : {
+                "at" : { "x" : 392, "y" : 88 },
+                "labelOffset" : { "x" : -9, "y" : -8 }
+              },
+              "connect" : { "id" : "1b0-S10-f13", "to" : "1b0-S10-f6", "via" : [ { "x" : 280, "y" : 88 } ] }
+            }, {
+              "id" : "1b0-S10-f24",
+              "type" : "Script",
+              "name" : "n+1",
+              "config" : {
+                "output" : {
+                  "map" : {
+                    "out" : "in",
+                    "out.nextTask.n" : "in.nextTask.n+1"
+                  }
+                }
+              },
+              "visual" : {
+                "at" : { "x" : 768, "y" : 88 },
+                "labelOffset" : { "x" : -10, "y" : -8 }
+              },
+              "connect" : { "id" : "1b0-S10-f19", "to" : "1b0-S10-f14", "via" : [ { "x" : 680, "y" : 88 } ] }
+            } ],
+          "visual" : {
+            "at" : { "x" : 576, "y" : 224 },
+            "labelOffset" : { "x" : -28, "y" : -8 }
+          },
+          "connect" : { "id" : "1b0-f20", "to" : "1b0-f6", "via" : [ { "x" : 840, "y" : 224 }, { "x" : 840, "y" : 144 }, { "x" : 128, "y" : 144 } ] }
+        }, {
+          "id" : "1b0-f6",
+          "type" : "Alternative",
+          "name" : "more Tasks?",
+          "visual" : {
+            "at" : { "x" : 128, "y" : 224 },
+            "size" : { "width" : 28, "height" : 28 },
+            "labelOffset" : { "x" : 2, "y" : 19 }
+          },
+          "connect" : [
+            { "id" : "1b0-f1", "to" : "1b0-g1", "via" : [ { "x" : 128, "y" : 416 } ], "label" : {
+                "name" : "No",
+                "segment" : 0.28,
+                "offset" : { "x" : 12, "y" : 0 }
+              }, "condition" : "in.definedTasks.size()==0" },
+            { "id" : "1b0-f4", "to" : "1b0-f5", "label" : {
+                "name" : "Yes",
+                "offset" : { "x" : 0, "y" : -5 }
+              } }
+          ]
+        }, {
+          "id" : "1b0-g0",
+          "type" : "EmbeddedStart",
+          "name" : "in 1",
+          "visual" : {
+            "at" : { "x" : 48, "y" : 224 },
+            "labelOffset" : { "x" : -13, "y" : 18 }
+          },
+          "parentConnector" : "f4",
+          "connect" : { "id" : "1b0-f0", "to" : "1b0-f6" }
+        }, {
+          "id" : "1b0-g1",
+          "type" : "EmbeddedEnd",
+          "name" : "out 1",
+          "visual" : {
+            "at" : { "x" : 256, "y" : 416 },
+            "labelOffset" : { "x" : -19, "y" : 15 }
+          },
+          "parentConnector" : "f3"
+        }, {
+          "id" : "1b0-f5",
+          "type" : "Script",
+          "name" : "next Task",
+          "config" : {
+            "output" : {
+              "code" : [
+                "out.nextTask = in.definedTasks.removeGet(0);",
+                "",
+                "out.nextTask.setSubject(in.caseInfo.subject);"
+              ]
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 272, "y" : 224 },
+            "size" : { "width" : 104, "height" : 40 },
+            "labelOffset" : { "x" : -24, "y" : -8 }
+          },
+          "connect" : { "id" : "1b0-f10", "to" : "1b0-f8" }
+        }, {
+          "id" : "1b0-f3",
+          "type" : "EMail",
+          "name" : "send Mail",
+          "config" : {
+            "headers" : {
+              "emailFrom" : "noreply@ivyserver.local",
+              "emailTo" : "<%=ivy.case.getCreatorUser().getEMailAddress()%>",
+              "emailSubject" : "<%=in.caseInfo.kind%> <%=in.caseInfo.subject%>"
+            },
+            "message" : [
+              "<html>",
+              "<head>",
+              "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"></head>",
+              "<body   style=\"font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:10pt;\">",
+              "<div style=\"background-color:#575656; height:100px\">",
+              "<%=ivy.cms.co(\"/Project/Banner\")%>",
+              "</div>",
+              "<div style=\"background-color:#eaeaea; height:30px; padding-top:10px\">AXON IVY Self Service Ad-hoc Workflow</div>",
+              "<div>",
+              "<p>",
+              "<b><%=in.caseInfo.kind%> <%=in.caseInfo.subject%></b>",
+              "</p>",
+              "<%=in.caseInfo.description%>",
+              "<hr>",
+              "<p>",
+              "<%=in.answer%>",
+              "</p>",
+              "<p> Autogenerated Mail <br>",
+              "Powered by Axon Ivy Workflow </p>",
+              "</div>",
+              "</body>",
+              "</html>"
+            ]
+          },
+          "visual" : {
+            "at" : { "x" : 736, "y" : 320 },
+            "labelOffset" : { "x" : -26, "y" : -8 }
+          },
+          "connect" : { "id" : "1b0-f16", "to" : "1b0-f6", "via" : [ { "x" : 840, "y" : 320 }, { "x" : 840, "y" : 144 }, { "x" : 128, "y" : 144 } ] }
+        }, {
+          "id" : "1b0-f8",
+          "type" : "Alternative",
+          "name" : "Next actor = \"SYSTEM\"?",
+          "visual" : {
+            "at" : { "x" : 384, "y" : 224 },
+            "labelOffset" : { "x" : -65, "y" : -45 }
+          },
+          "connect" : [
+            { "id" : "1b0-f19", "to" : "1b0-S10", "label" : {
+                "name" : "No",
+                "offset" : { "x" : 0, "y" : 7 }
+              }, "condition" : "in.nextTask.actor !=\"SYSTEM\"" },
+            { "id" : "1b0-f14", "to" : "1b0-f13", "via" : [ { "x" : 384, "y" : 320 } ], "label" : {
+                "name" : "Yes",
+                "segment" : 1.0,
+                "offset" : { "x" : 6, "y" : 6 }
+              }, "var" : "in1" }
+          ]
+        }, {
+          "id" : "1b0-f13",
+          "type" : "TaskSwitchEvent",
+          "name" : "SYSTEM",
+          "config" : {
+            "outLinks" : [ "TaskA.ivp" ],
+            "task" : {
+              "name" : "SYSTEM Send <%=in1.caseInfo.kind%> Mail",
+              "category" : "System/Mail",
+              "responsible" : {
+                "role" : "SYSTEM"
+              }
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 432, "y" : 320 },
+            "labelOffset" : { "x" : -23, "y" : 17 }
+          },
+          "connect" : { "id" : "1b0-f18", "to" : "1b0-f17", "condition" : "ivp==\"TaskA.ivp\"" }
+        }, {
+          "id" : "1b0-f17",
+          "type" : "Script",
+          "name" : "setup Mail",
+          "config" : {
+            "output" : {
+              "code" : [
+                "import ch.ivyteam.ivy.workflow.INote;",
+                "StringBuffer sb = new StringBuffer();",
+                "for(INote note: ivy.case.getNotes())",
+                "{",
+                "  sb.append(note.getCreationTimestamp());",
+                "  sb.append(\" \");",
+                "  sb.append(note.getWritterName());",
+                "  sb.append(\": \");",
+                "  sb.append(note.getMessage());",
+                "  sb.append(\"<br>\");",
+                "}  ",
+                "",
+                "out.answer = sb.toString();",
+                "",
+                "ivy.log.debug(\"Email: {0}\", ivy.case.getCreatorUser().getEMailAddress());"
+              ]
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 576, "y" : 320 },
+            "labelOffset" : { "x" : -28, "y" : -8 }
+          },
+          "connect" : { "id" : "1b0-f15", "to" : "1b0-f3" }
+        } ],
+      "visual" : {
+        "at" : { "x" : 448, "y" : 192 },
+        "labelOffset" : { "x" : -40, "y" : -8 }
+      },
+      "connect" : { "id" : "f3", "to" : "f9" }
+    }, {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start.ivp",
+      "config" : {
+        "callSignature" : "start",
+        "responsible" : "Employee",
+        "startCategory" : "agile",
+        "case" : {
+          "category" : "AdHoc",
+          "attachToBusinessCase" : false,
+          "customFields" : [
+            { "name" : "ProcessCategoryCode", "type" : "String", "value" : "\"Self Service WF\"" },
+            { "name" : "ProcessCategoryName", "type" : "String", "value" : "\"Self Service WF\"" }
+          ]
+        },
+        "startDescription" : "<%=ivy.cms.co(\"/ProcessDescriptions/AdHocDescription\")%>",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-map-signs" }
+        ],
+        "task" : {
+          "name" : "Self Service Workflow",
+          "category" : "Input/Adhoc",
+          "customFields" : [
+            { "name" : "KindCode", "type" : "String", "value" : "\"CREATOR\"" }
+          ]
+        },
+        "outLink" : "start.ivp",
+        "wfuser" : "1",
+        "startName" : "1: <%=ivy.cms.co(\"/ProcessDescriptions/SelfServiceBPM\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/AdHocName\")%>)"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 192 },
+        "size" : { "width" : 26, "height" : 26 },
+        "labelOffset" : { "x" : -21, "y" : 15 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f1",
+      "type" : "DialogCall",
+      "name" : "define ad hoc WF",
+      "config" : {
+        "dialogId" : "workflow.agileBPM.define_WF",
+        "startMethod" : "start()",
+        "output" : {
+          "map" : {
+            "out.caseInfo" : "result.caseInfo",
+            "out.definedTasks" : "result.definedTasks"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 192 },
+        "labelOffset" : { "x" : -47, "y" : -8 }
+      },
+      "connect" : { "id" : "f6", "to" : "f5" }
+    }, {
+      "id" : "f5",
+      "type" : "Alternative",
+      "name" : "Abort ?",
+      "visual" : {
+        "at" : { "x" : 336, "y" : 192 },
+        "size" : { "width" : 28, "height" : 28 },
+        "labelOffset" : { "x" : -14, "y" : -34 }
+      },
+      "connect" : [
+        { "id" : "f4", "to" : "1b0", "label" : {
+            "name" : "No",
+            "offset" : { "x" : 0, "y" : -8 }
+          }, "condition" : "in.definedTasks.size() > 0" },
+        { "id" : "f8", "to" : "f7", "via" : [ { "x" : 336, "y" : 256 } ], "label" : {
+            "name" : "Yes",
+            "segment" : 1.38,
+            "offset" : { "x" : 0, "y" : -6 }
+          } }
+      ]
+    }, {
+      "id" : "f7",
+      "type" : "TaskEnd",
+      "name" : "Aborted",
+      "visual" : {
+        "at" : { "x" : 576, "y" : 256 },
+        "size" : { "width" : 26, "height" : 26 },
+        "labelOffset" : { "x" : -21, "y" : 21 }
+      }
+    }, {
+      "id" : "f9",
+      "type" : "TaskEnd",
+      "name" : "Finished",
+      "visual" : {
+        "at" : { "x" : 576, "y" : 192 },
+        "size" : { "width" : 26, "height" : 26 },
+        "labelOffset" : { "x" : -22, "y" : 17 }
+      }
+    }, {
+      "id" : "f10",
+      "type" : "ProcessAnnotation",
+      "name" : "Self Service Process: Launch an ad-hoc Workflow based on a predefined flow pattern.",
+      "visual" : {
+        "at" : { "x" : 304, "y" : 48 },
+        "size" : { "width" : 480, "height" : 30 },
+        "labelOffset" : { "x" : -233, "y" : -8 }
+      }
+    } ],
+  "layout" : {
+    "lanes" : [ {
+        "name" : "Ad hoc WF",
+        "offset" : 96,
+        "size" : 225,
+        "lanes" : [ ]
+      } ]
+  }
+}

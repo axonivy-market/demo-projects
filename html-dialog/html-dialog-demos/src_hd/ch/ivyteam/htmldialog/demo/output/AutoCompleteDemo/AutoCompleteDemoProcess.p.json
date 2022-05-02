@@ -1,0 +1,167 @@
+{
+  "format" : "9.4.8",
+  "id" : "1468B144151F2C82",
+  "data" : "ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData",
+  "kind" : "HTML_DIALOG",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "HtmlDialogStart",
+      "name" : "start()",
+      "config" : {
+        "callSignature" : "start",
+        "guid" : "1468B144171FC46C"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : -16, "y" : 15 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f1",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      }
+    }, {
+      "id" : "f8",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "searchUsers(String)",
+      "config" : {
+        "callSignature" : "searchUsers",
+        "result" : {
+          "params" : [
+            { "name" : "foundUsers", "type" : "List<ch.ivyteam.ivy.security.IUser>" }
+          ],
+          "map" : {
+            "result.foundUsers" : "in.searchResult"
+          }
+        },
+        "input" : {
+          "params" : [
+            { "name" : "searchText", "type" : "String" }
+          ],
+          "map" : {
+            "out.searchText" : "param.searchText"
+          }
+        },
+        "guid" : "1468B1E4E5D48D18"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 160 },
+        "labelOffset" : { "x" : -56, "y" : 15 }
+      },
+      "connect" : { "id" : "f12", "to" : "f11" }
+    }, {
+      "id" : "f9",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 160 }
+      }
+    }, {
+      "id" : "f11",
+      "type" : "Script",
+      "name" : "find users",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import ch.ivyteam.ivy.security.IUser;",
+            "",
+            "List<IUser> result;",
+            "        ",
+            "for(IUser user : ivy.security.users().paged()) {",
+            "  if(user.getName().toUpperCase().contains(in.searchText.toUpperCase()))",
+            "  {",
+            "    result.add(user);",
+            "  }",
+            "}",
+            "",
+            "in.searchResult = result;"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 160 },
+        "labelOffset" : { "x" : -27, "y" : -8 }
+      },
+      "connect" : { "id" : "f10", "to" : "f9" }
+    }, {
+      "id" : "f18",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 528, "y" : 256 }
+      }
+    }, {
+      "id" : "f19",
+      "type" : "HtmlDialogEventStart",
+      "name" : "send",
+      "config" : {
+        "guid" : "1468B41F73969E32"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 256 },
+        "labelOffset" : { "x" : -14, "y" : 12 }
+      },
+      "connect" : { "id" : "f20", "to" : "f16" }
+    }, {
+      "id" : "f13",
+      "type" : "Script",
+      "name" : [
+        "show message of",
+        "selected users"
+      ],
+      "config" : {
+        "output" : {
+          "code" : [
+            "import javax.faces.context.FacesContext;",
+            "import javax.faces.application.FacesMessage;",
+            "",
+            "String userViaAjax = \"<not selected>\";",
+            "String userViaFacesConverter = \"<not selected>\";",
+            "",
+            "// get the user with the selected user id",
+            "if(in.userViaAjax != null)",
+            "{",
+            "  userViaAjax = \"User Name: \" + in.userViaAjax.getName();",
+            "}",
+            "if(in.selectedUserViaFacesConverter != null)",
+            "{",
+            "  userViaFacesConverter = \"User Name: \" + in.selectedUserViaFacesConverter.getName();",
+            "}",
+            "",
+            "// show message",
+            "FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(\"User Selected via AJAX event\", userViaAjax));",
+            "FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(\"User Selected via FacesConverter\", userViaFacesConverter));"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 400, "y" : 256 },
+        "size" : { "width" : 128, "height" : 44 },
+        "labelOffset" : { "x" : -44, "y" : -16 }
+      },
+      "connect" : { "id" : "f15", "to" : "f18" }
+    }, {
+      "id" : "f16",
+      "type" : "Script",
+      "name" : [
+        "get and set ",
+        "selected user"
+      ],
+      "config" : {
+        "output" : {
+          "code" : [
+            "in.userViaAjax = null;",
+            "if(in.searchText != 0)",
+            "{",
+            "  in.userViaAjax = ivy.security.users().findById(in.selectedUserId);",
+            "}"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 256 },
+        "labelOffset" : { "x" : -37, "y" : -16 }
+      },
+      "connect" : { "id" : "f14", "to" : "f13" }
+    } ]
+}

@@ -1,0 +1,62 @@
+{
+  "format" : "9.4.8",
+  "id" : "150425B095B4FB54",
+  "data" : "htmlDialogDemos.Data",
+  "elements" : [ {
+      "id" : "f5",
+      "type" : "TaskEndPage",
+      "config" : {
+        "template" : "view/redirect.xhtml"
+      },
+      "visual" : {
+        "at" : { "x" : 448, "y" : 96 }
+      }
+    }, {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "ClientSideValidationDemo.ivp",
+      "config" : {
+        "callSignature" : "ClientSideValidationDemo",
+        "startCategory" : "offline",
+        "outLink" : "ClientSideValidationDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-wifi" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "input" : {
+          "code" : [
+            "if (ivy.session.isSessionUserUnknown()) {",
+            "  ivy.session.loginSessionUser(\"demoUser1\", \"demoUser1\");",
+            "}"
+          ]
+        },
+        "startName" : "ClientSideValidationDemo"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 96 }
+      },
+      "connect" : { "id" : "f1", "to" : "f3" }
+    }, {
+      "id" : "f3",
+      "type" : "UserTask",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.offline.ClientSideValidation",
+        "startMethod" : "start()",
+        "task" : {
+          "name" : "Continue with 'Client Side Validation Demo'",
+          "description" : "Expires after one hour so that it's deleted automatically.",
+          "skipTasklist" : true,
+          "expiry" : {
+            "timeout" : "'1h'",
+            "responsible" : {
+              "deleteTask" : true
+            }
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 272, "y" : 96 }
+      },
+      "connect" : { "id" : "f2", "to" : "f5" }
+    } ]
+}

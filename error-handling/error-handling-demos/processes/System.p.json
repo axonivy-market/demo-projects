@@ -1,0 +1,63 @@
+{
+  "format" : "9.4.8",
+  "id" : "150149331438F9EA",
+  "data" : "error.handling.demo.technicalData",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "throwSystemError.ivp",
+      "config" : {
+        "callSignature" : "throwSystemError",
+        "outLink" : "throwSystemError.ivp",
+        "startName" : "Use global Error Process"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 192 },
+        "labelOffset" : { "x" : -61, "y" : 17 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 448, "y" : 192 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "Database",
+      "name" : "Throws system error",
+      "config" : {
+        "dbUrl" : "invalidDB",
+        "dbSql" : [
+          "<?xml version=\"\"1.0\"\" standalone=\"\"no\"\"?>",
+          "<!DOCTYPE ANY_SQL SYSTEM  \"\"sqlStatements.dtd\"\">",
+          "<ANY_SQL><Verbatim quote='true'></Verbatim></ANY_SQL>"
+        ]
+      },
+      "visual" : {
+        "at" : { "x" : 272, "y" : 192 },
+        "size" : { "width" : 128, "height" : 44 },
+        "labelOffset" : { "x" : -56, "y" : -8 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "Usage of Global Error Process",
+        "This DB Step throws `ivy:error:database`  system error",
+        "The system errors `ivy:error:*` are handled in",
+        "a Global Error Process *(ErrorHandler)*"
+      ],
+      "visual" : {
+        "at" : { "x" : 216, "y" : 64 },
+        "size" : { "width" : 352, "height" : 60 },
+        "color" : "NodeStyle3"
+      }
+    } ],
+  "layout" : {
+    "colors" : {
+      "NodeStyle3" : "rgb(255, 0, 0)"
+    }
+  }
+}

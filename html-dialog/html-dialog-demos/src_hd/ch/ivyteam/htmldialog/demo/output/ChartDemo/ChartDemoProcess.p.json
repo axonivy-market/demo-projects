@@ -1,0 +1,202 @@
+{
+  "format" : "9.4.8",
+  "id" : "146052EC6B2ADB68",
+  "data" : "ch.ivyteam.htmldialog.demo.output.ChartDemo.ChartDemoData",
+  "kind" : "HTML_DIALOG",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "HtmlDialogStart",
+      "name" : "start()",
+      "config" : {
+        "callSignature" : "start",
+        "guid" : "146052EC6FEF2D5C"
+      },
+      "visual" : {
+        "at" : { "x" : 64, "y" : 64 }
+      },
+      "connect" : { "id" : "f7", "to" : "f6" }
+    }, {
+      "id" : "f1",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 464, "y" : 64 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "Script",
+      "name" : [
+        "init combo",
+        "chart model"
+      ],
+      "config" : {
+        "output" : {
+          "code" : [
+            "import org.primefaces.model.chart.LinearAxis;",
+            "import org.primefaces.model.chart.CategoryAxis;",
+            "import org.primefaces.model.chart.Axis;",
+            "import org.primefaces.model.chart.AxisType;",
+            "import org.primefaces.model.chart.LineChartModel;",
+            "import org.primefaces.model.chart.LineChartSeries;",
+            "import org.primefaces.model.chart.BarChartSeries;",
+            "",
+            "BarChartSeries rainfall = new BarChartSeries();",
+            "rainfall.setLabel(\"Rainfall\");",
+            "rainfall.set(\"Jun\", 176);",
+            "rainfall.set(\"Jul\", 135);",
+            "rainfall.set(\"Aug\", 150);",
+            "rainfall.set(\"Sep\", 216);",
+            "rainfall.set(\"Okt\", 194);",
+            "rainfall.set(\"Nov\", 95);",
+            "rainfall.set(\"Dec\", 75);",
+            "",
+            "LineChartSeries temperature = new LineChartSeries();",
+            "temperature.setLabel(\"Temperature\");",
+            "temperature.setYaxis(AxisType.Y2);",
+            "temperature.set(\"Jun\", 21);",
+            "temperature.set(\"Jul\", 25);",
+            "temperature.set(\"Aug\", 27);",
+            "temperature.set(\"Sep\", 23);",
+            "temperature.set(\"Okt\", 18);",
+            "temperature.set(\"Nov\", 14);",
+            "temperature.set(\"Dec\", 11);",
+            "",
+            "LineChartModel chartModel = new LineChartModel();",
+            "chartModel.addSeries(rainfall);",
+            "chartModel.addSeries(temperature);",
+            "chartModel.setSeriesColors(\"7cb5ec,afca05\");",
+            "  ",
+            "chartModel.setTitle(\"Multi Axis Demo Chart\");",
+            "chartModel.setLegendPosition(\"ne\");",
+            "chartModel.setMouseoverHighlight(false);",
+            "chartModel.setAnimate(true);",
+            "",
+            "chartModel.getAxes().put(AxisType.X, new CategoryAxis(\"\"));",
+            "  ",
+            "Axis yAxis = chartModel.getAxis(AxisType.Y);",
+            "yAxis.setLabel(\"Rainfall [mm]\");",
+            "yAxis.setMin(50);",
+            "yAxis.setMax(250);",
+            "    ",
+            "Axis yRightAxis = new LinearAxis(\"Temperature [C°]\");",
+            "yRightAxis.setMin(10);",
+            "yRightAxis.setMax(30);",
+            "  ",
+            "chartModel.getAxes().put(AxisType.Y2, yRightAxis);",
+            "",
+            "// %1 = x, %2 = y",
+            "chartModel.setDatatipFormat(\"%2$s\");",
+            "// see ext java script function in view",
+            "chartModel.setExtender(\"ext\");",
+            "",
+            "out.comboChartModel = chartModel;"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 192, "y" : 64 }
+      },
+      "connect" : { "id" : "f12", "to" : "f11" }
+    }, {
+      "id" : "f8",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "itemSelected(...)",
+      "config" : {
+        "callSignature" : "itemSelected",
+        "input" : {
+          "params" : [
+            { "name" : "event", "type" : "org.primefaces.event.ItemSelectEvent" }
+          ],
+          "code" : [
+            "import javax.faces.context.FacesContext;",
+            "import javax.faces.application.FacesMessage;",
+            "",
+            "FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,",
+            "\"Item selected\", \"Item Index: \" + param.event.getItemIndex() +",
+            "\", Series Index:\" + param.event.getSeriesIndex());",
+            "",
+            "FacesContext.getCurrentInstance().addMessage(null, msg);"
+          ]
+        },
+        "guid" : "1460568243F99D79"
+      },
+      "visual" : {
+        "at" : { "x" : 64, "y" : 160 }
+      },
+      "connect" : { "id" : "f10", "to" : "f9" }
+    }, {
+      "id" : "f9",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 192, "y" : 160 }
+      }
+    }, {
+      "id" : "f11",
+      "type" : "Script",
+      "name" : [
+        "init pie",
+        "chart model"
+      ],
+      "config" : {
+        "output" : {
+          "code" : [
+            "import org.primefaces.model.chart.PieChartModel;",
+            "",
+            "PieChartModel model = new PieChartModel();",
+            "model.set(\"Brand 1\", 540);",
+            "model.set(\"Brand 2\", 325);",
+            "model.set(\"Brand 3\", 702);",
+            "model.set(\"Brand 4\", 421);",
+            "  ",
+            "model.setTitle(\"Pie Demo Chart\");",
+            "model.setLegendPosition(\"e\");",
+            "model.setShowDataLabels(true);",
+            "model.setSliceMargin(8);",
+            "model.setShadow(false);",
+            "model.setSeriesColors(\"ddffaa,b7f17c,8ae82d,52c60d\");",
+            "// Data format: label, value or percent (default)",
+            "model.setDataFormat(\"value\");",
+            "// see ext java script function in view",
+            "model.setExtender(\"ext\");",
+            "",
+            "out.pieChartModel = model;"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f13",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "sliceSelected(...)",
+      "config" : {
+        "callSignature" : "sliceSelected",
+        "input" : {
+          "params" : [
+            { "name" : "event", "type" : "org.primefaces.event.ItemSelectEvent" }
+          ],
+          "code" : [
+            "import javax.faces.context.FacesContext;",
+            "import javax.faces.application.FacesMessage;",
+            "",
+            "FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,",
+            "\"Slice selected\", \"Index: \" + param.event.getItemIndex());",
+            "",
+            "FacesContext.getCurrentInstance().addMessage(null, msg);"
+          ]
+        },
+        "guid" : "14623C0E2748E74C"
+      },
+      "visual" : {
+        "at" : { "x" : 64, "y" : 224 }
+      },
+      "connect" : { "id" : "f15", "to" : "f14" }
+    }, {
+      "id" : "f14",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 192, "y" : 224 }
+      }
+    } ]
+}

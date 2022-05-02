@@ -1,0 +1,227 @@
+{
+  "format" : "9.4.8",
+  "id" : "145D1849FACF0EAA",
+  "data" : "htmlDialogDemos.Data",
+  "elements" : [ {
+      "id" : "f48",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 456, "y" : 64 }
+      }
+    }, {
+      "id" : "f20",
+      "type" : "RequestStart",
+      "name" : "PartialUpdateDemo.ivp",
+      "config" : {
+        "callSignature" : "PartialUpdateDemo",
+        "startCategory" : "component",
+        "outLink" : "PartialUpdateDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-object-group" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Partial Update Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 448 },
+        "labelOffset" : { "x" : -63, "y" : 15 }
+      },
+      "connect" : { "id" : "f23", "to" : "f21" }
+    }, {
+      "id" : "f22",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 456, "y" : 448 }
+      }
+    }, {
+      "id" : "f47",
+      "type" : "RequestStart",
+      "name" : "ComponentDemo.ivp",
+      "config" : {
+        "callSignature" : "ComponentDemo",
+        "startCategory" : "component",
+        "outLink" : "ComponentDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-cube" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Component Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 64 },
+        "labelOffset" : { "x" : -58, "y" : 15 }
+      },
+      "connect" : { "id" : "f50", "to" : "f49" }
+    }, {
+      "id" : "f82",
+      "type" : "RequestStart",
+      "name" : [
+        "Component:",
+        "EventListenerDemo.ivp"
+      ],
+      "config" : {
+        "callSignature" : "ComponentEventListenerDemo",
+        "startCategory" : "component",
+        "outLink" : "ComponentEventListenerDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-bolt" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Component Callback Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 352 },
+        "labelOffset" : { "x" : -63, "y" : 15 }
+      },
+      "connect" : { "id" : "f85", "to" : "f84" }
+    }, {
+      "id" : "f58",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.component.ComponentCustomizingDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 288, "y" : 160 }
+      },
+      "connect" : { "id" : "f61", "to" : "f59" }
+    }, {
+      "id" : "f84",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 288, "y" : 352 }
+      },
+      "connect" : { "id" : "f86", "to" : "f83" }
+    }, {
+      "id" : "f99",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.component.JsfCompositeComponentDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 288, "y" : 256 }
+      },
+      "connect" : { "id" : "f101", "to" : "f98" }
+    }, {
+      "id" : "f59",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 456, "y" : 160 }
+      }
+    }, {
+      "id" : "f98",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 456, "y" : 256 }
+      }
+    }, {
+      "id" : "f21",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 288, "y" : 448 }
+      },
+      "connect" : { "id" : "f24", "to" : "f22" }
+    }, {
+      "id" : "f49",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.component.ComponentDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 288, "y" : 64 }
+      },
+      "connect" : { "id" : "f51", "to" : "f48" }
+    }, {
+      "id" : "f57",
+      "type" : "RequestStart",
+      "name" : [
+        "Component:",
+        "CustomizingDemo"
+      ],
+      "config" : {
+        "callSignature" : "ComponentCustomizingDemo",
+        "startCategory" : "component",
+        "outLink" : "ComponentCustomizingDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-cubes" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Component Customizing Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 160 },
+        "labelOffset" : { "x" : -51, "y" : 15 }
+      },
+      "connect" : { "id" : "f60", "to" : "f58" }
+    }, {
+      "id" : "f83",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 456, "y" : 352 }
+      }
+    }, {
+      "id" : "f97",
+      "type" : "RequestStart",
+      "name" : "JsfCompositeComponent.ivp",
+      "config" : {
+        "callSignature" : "JsfCompositeComponent",
+        "startCategory" : "component",
+        "outLink" : "JsfCompositeComponent.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-cube" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Jsf Composite Component Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 256 },
+        "labelOffset" : { "x" : -80, "y" : 15 }
+      },
+      "connect" : { "id" : "f100", "to" : "f99" }
+    }, {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "LazyLoadComponent.ivp",
+      "config" : {
+        "callSignature" : "lazyLoadComponent",
+        "startCategory" : "component",
+        "outLink" : "lazyLoadComponent.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-spinner" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Lazy loaded UI parts"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 544 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 456, "y" : 544 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.component.LazyLoadedModalDialog",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 288, "y" : 544 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    } ]
+}

@@ -1,0 +1,127 @@
+{
+  "format" : "9.4.8",
+  "id" : "156E5D9AA7D41BAA",
+  "data" : "workflow.businessdata.Data",
+  "elements" : [ {
+      "id" : "f30",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "The important point is, that the process data that is persisted on the Task Switch,",
+        "should only contain the ID of the Business Data. ",
+        "The Business Data is loaded from the repo with the stored ID if it is used in the task. ",
+        "Otherwise the Business Data will references a different instance after the save point in the Task Switch",
+        "",
+        "E.g. the following script exectued after a Task Switch works as expected:",
+        "```",
+        "  // load the related Business Data with id",
+        "  out.myBusinessData = ivy.repo.find(in.myId, MyBusinessData.class);",
+        "  // modify Business Data",
+        "  out.myBusinessData.setTitle(\"Changed\");",
+        "  // update the loaded Business Data",
+        "  ivy.repo.update(out.myBusinessData);",
+        "```",
+        "",
+        "E.g. the following script exectued after a Task Switch may  not work as expected, because ",
+        "the Business Data from the process data is used, without loading it before:",
+        "```",
+        "  // use the stored Business Data in the process data",
+        "  out.myBusinessData = in.myBusinessData;",
+        "  // modify Business Data",
+        "  out.myBusinessData.setTitle(\"Changed\");",
+        "  // will store a new entry of the Business Data and will NOT update it",
+        "  ivy.repo.update(out.myBusinessData);",
+        "```"
+      ],
+      "visual" : {
+        "at" : { "x" : 352, "y" : 396 },
+        "size" : { "width" : 656, "height" : 380 }
+      },
+      "connect" : { "id" : "f1", "to" : "f31", "via" : [ { "x" : 176, "y" : 388 } ] }
+    }, {
+      "id" : "f21",
+      "type" : "DialogCall",
+      "name" : [
+        "dossier",
+        "verification"
+      ],
+      "config" : {
+        "dialogId" : "workflow.businessdata.BusinessDataDossierModifier",
+        "startMethod" : "start(String,String)",
+        "call" : {
+          "params" : [
+            { "name" : "businessDataId", "type" : "String" },
+            { "name" : "title", "type" : "String" }
+          ],
+          "map" : {
+            "param.businessDataId" : "in.id",
+            "param.title" : "\"Dossier Verification\""
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 288, "y" : 128 },
+        "labelOffset" : { "x" : -29, "y" : -16 }
+      },
+      "connect" : { "id" : "f2", "to" : "f23" }
+    }, {
+      "id" : "f31",
+      "type" : "TaskSwitchEvent",
+      "name" : "verification task",
+      "config" : {
+        "outLinks" : [ "TaskA.ivp" ],
+        "task" : {
+          "name" : "Verification of Person <%=(ivy.repo.find(in1.id, workflow.businessdata.Dossier.class) as workflow.businessdata.Dossier).name%>"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 176, "y" : 128 },
+        "labelOffset" : { "x" : -43, "y" : -41 }
+      },
+      "connect" : { "id" : "f34", "to" : "f21", "condition" : "ivp==\"TaskA.ivp\"" }
+    }, {
+      "id" : "f23",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 440, "y" : 128 }
+      }
+    }, {
+      "id" : "f19",
+      "type" : "RequestStart",
+      "name" : "verifyDossier.ivp",
+      "config" : {
+        "callSignature" : "verifyDossier",
+        "input" : {
+          "params" : [
+            { "name" : "id", "type" : "String" }
+          ],
+          "map" : {
+            "out.id" : "param.id"
+          }
+        },
+        "startCategory" : "business/data",
+        "case" : {
+          "category" : "Dossier/Verify",
+          "attachToBusinessCase" : false
+        },
+        "outLink" : "verifyDossier.ivp",
+        "task" : {
+          "category" : "Review/Dossier"
+        },
+        "showInStartList" : false,
+        "startName" : "Verify Dossier Process"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 128 },
+        "labelOffset" : { "x" : -44, "y" : 17 }
+      },
+      "connect" : { "id" : "f22", "to" : "f31", "var" : "in1" }
+    }, {
+      "id" : "f0",
+      "type" : "ProcessAnnotation",
+      "name" : "This use case highlights the handling of Business Data over a Task Switch.",
+      "visual" : {
+        "at" : { "x" : 273, "y" : 46 },
+        "size" : { "width" : 480, "height" : 44 }
+      }
+    } ]
+}

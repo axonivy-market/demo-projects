@@ -1,0 +1,216 @@
+{
+  "format" : "9.4.8",
+  "id" : "175F99FC96A78D96",
+  "data" : "rule.engine.demo.AdjustableDiscountCalculator.AdjustableDiscountCalculatorData",
+  "kind" : "HTML_DIALOG",
+  "elements" : [ {
+      "id" : "f11",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 576, "y" : 384 }
+      }
+    }, {
+      "id" : "f0",
+      "type" : "HtmlDialogStart",
+      "name" : "start()",
+      "config" : {
+        "callSignature" : "start",
+        "result" : {
+          "params" : [
+            { "name" : "member", "type" : "rule.engine.demo.Member" }
+          ]
+        },
+        "guid" : "153E9EE0238C8F41"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : -38, "y" : 15 }
+      },
+      "connect" : { "id" : "f8", "to" : "f4" }
+    }, {
+      "id" : "f1",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 64 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "ThirdPartyProgramInterface",
+      "impl" : "RuleActivity",
+      "name" : "Apply Rules from DRL",
+      "config" : {
+        "beanConfig" : "{\"namespace\":\"rule.engine.adjustable-drl\",\"dataObject\":\"in.ruleData\"}"
+      },
+      "visual" : {
+        "at" : { "x" : 280, "y" : 384 },
+        "size" : { "width" : 128, "height" : 44 },
+        "labelOffset" : { "x" : -60, "y" : -8 },
+        "description" : [
+          "'in.member' is the input object that stores the information of a member.",
+          "This object will be modified during the rule execution."
+        ]
+      },
+      "connect" : { "id" : "f16", "to" : "f15" }
+    }, {
+      "id" : "f5",
+      "type" : "HtmlDialogEventStart",
+      "name" : "saveRules",
+      "config" : {
+        "guid" : "175F9C1813FE7E35"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 256 },
+        "labelOffset" : { "x" : -29, "y" : 15 }
+      },
+      "connect" : { "id" : "f12", "to" : "f10" }
+    }, {
+      "id" : "f7",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 256 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "HtmlDialogEventStart",
+      "name" : "applyRules",
+      "config" : {
+        "guid" : "175FA45130F2A6CE",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.ruleData.member.discount" : "null"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 384 },
+        "labelOffset" : { "x" : -31, "y" : 15 }
+      },
+      "connect" : { "id" : "f14", "to" : "f6" }
+    }, {
+      "id" : "f4",
+      "type" : "Script",
+      "name" : [
+        "Load rules from DB",
+        "(csv resource in this demo)"
+      ],
+      "config" : {
+        "output" : {
+          "code" : [
+            "import rule.engine.demo.RuleRepo;",
+            "// initial .csv resource",
+            "out.filename = \"rulerepo.csv\";",
+            "out.files.add(out.filename);",
+            "",
+            "out.ruleData.rules = RuleRepo.loadRules(out.filename);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 280, "y" : 64 },
+        "size" : { "width" : 176, "height" : 44 },
+        "labelOffset" : { "x" : -69, "y" : -16 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f10",
+      "type" : "Script",
+      "name" : [
+        "Store rules into DB",
+        "(csv in this demo)"
+      ],
+      "config" : {
+        "output" : {
+          "code" : [
+            "import rule.engine.demo.RuleRepo;",
+            "",
+            "out.filename = RuleRepo.saveRules(in.ruleData.rules);",
+            "out.files.add(out.filename);",
+            "",
+            "// make a call to force the rule engine to initialize rulebase",
+            "out.ruleData.member.purchaseAmount = 0;",
+            "ivy.rules.create()",
+            "   .namespace(\"rule.engine.adjustable-drl\")",
+            "  .executor()",
+            "  .execute(in.ruleData);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 280, "y" : 256 },
+        "size" : { "width" : 128, "height" : 44 },
+        "labelOffset" : { "x" : -45, "y" : -16 }
+      },
+      "connect" : { "id" : "f9", "to" : "f7" }
+    }, {
+      "id" : "f15",
+      "type" : "Script",
+      "name" : "Validate result",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import javax.faces.application.FacesMessage;",
+            "import javax.faces.context.FacesContext;",
+            "if(!in.ruleData.member.#discount is initialized)",
+            "{",
+            "  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, \"Discount NOT defined\", \"\"));",
+            "}"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 448, "y" : 384 },
+        "labelOffset" : { "x" : -39, "y" : -8 }
+      },
+      "connect" : { "id" : "f13", "to" : "f11" }
+    }, {
+      "id" : "f17",
+      "type" : "HtmlDialogEventStart",
+      "name" : "loadRules",
+      "config" : {
+        "guid" : "1762968775DA744B"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 192 },
+        "labelOffset" : { "x" : -28, "y" : 15 }
+      },
+      "connect" : { "id" : "f21", "to" : "f20" }
+    }, {
+      "id" : "f18",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 192 }
+      }
+    }, {
+      "id" : "f20",
+      "type" : "Script",
+      "name" : [
+        "Load rules from DB",
+        "(csv resource in this demo)"
+      ],
+      "config" : {
+        "output" : {
+          "code" : [
+            "import rule.engine.demo.RuleRepo;",
+            "",
+            "out.ruleData.rules = RuleRepo.loadRules(out.filename);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 288, "y" : 192 },
+        "size" : { "width" : 176, "height" : 44 },
+        "labelOffset" : { "x" : -69, "y" : -16 }
+      },
+      "connect" : { "id" : "f19", "to" : "f18" }
+    } ],
+  "layout" : {
+    "lanes" : [ {
+        "size" : 128
+      }, {
+        "size" : 192
+      }, {
+        "size" : 128
+      } ]
+  }
+}
