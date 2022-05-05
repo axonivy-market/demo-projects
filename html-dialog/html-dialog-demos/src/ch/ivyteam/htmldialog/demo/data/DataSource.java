@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
-import org.primefaces.model.SortOrder;
+import org.primefaces.model.FilterMeta;
+import org.primefaces.model.SortMeta;
 
 import ch.ivyteam.htmldialog.demo.Person;
 import ch.ivyteam.htmldialog.demo.component.PersonLazySorter;
@@ -40,105 +41,82 @@ public class DataSource
     }
   }
 
-  private List<Person> sort(String sortField, SortOrder sortOrder, List<Person> filteredPersons)
-  {
-    if (sortField != null)
-    {
-      Collections.sort(filteredPersons, new PersonLazySorter(sortField, sortOrder));
+  private List<Person> sort(Map<String, SortMeta> sortBy, List<Person> filteredPersons) {
+    if (sortBy != null) {
+      Collections.sort(filteredPersons, new PersonLazySorter(sortBy));
     }
     return filteredPersons;
   }
 
-  private List<Person> filter(Map<String, Object> filters)
-  {
+  private List<Person> filter(Map<String, FilterMeta> filters) {
+    if (filters == null) {
+      return allPersons;
+    }
     List<Person> filteredPersons = new ArrayList<Person>();
-    for (Person person : allPersons)
-    {
-      boolean match = true;
-
-      if (filters != null)
-      {
-        for (Iterator<String> it = filters.keySet().iterator(); it.hasNext();)
-        {
-          try
-          {
-            String filterProperty = it.next();
-            String filterValue = filters.get(filterProperty).toString();
-            String fieldValue = "";
-
-            if (filterProperty.equals("globalFilter"))
-            {
-              if (StringUtils.containsIgnoreCase(person.getName(), filterValue)
-                      || StringUtils.containsIgnoreCase(person.getFirstname(), filterValue)
-                      || person.getBirthYear().toString().contains(filterValue))
-              {
-                match = true;
-                break;
-              }
-              match = false;
-            }
-            else
-            {
-              if (filterProperty.equals("name"))
-              {
-                fieldValue = person.getName();
-              }
-              else if (filterProperty.equals("firstname"))
-              {
-                fieldValue = person.getFirstname();
-              }
-              else if (filterProperty.equals("birthYear"))
-              {
-                fieldValue = person.getBirthYear().toString();
-              }
-
-              if (filterValue == null || StringUtils.containsIgnoreCase(fieldValue, filterValue))
-              {
-                match = true;
-              }
-              else
-              {
-                match = false;
-                break;
-              }
-            }
-
-          }
-          catch (Exception ex)
-          {
-            match = false;
-          }
-        }
-      }
-
-      if (match)
-      {
+    for (Person person : allPersons) {
+      if (filter(filters, person)) {
         filteredPersons.add(person);
       }
     }
     return filteredPersons;
   }
 
-  public Person getPerson(String rowKey)
-  {
-    for (Person person : allPersons)
-    {
-      if (person.getId().equals(Double.valueOf(rowKey)))
-        return person;
+  private static boolean filter(Map<String, FilterMeta> filters, Person person) {
+    if (filters.isEmpty()) {
+      return true;
+    }
+    for (Iterator<String> it = filters.keySet().iterator(); it.hasNext();) {
+      String filterProperty = it.next();
+      if (matches(filters, person, filterProperty)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private static boolean matches(Map<String, FilterMeta> filters, Person person, String filterProperty) {
+    String filterValue = filters.get(filterProperty).toString();
+    if (filterProperty.equals("globalFilter")) {
+      if (StringUtils.containsIgnoreCase(person.getName(), filterValue)
+              || StringUtils.containsIgnoreCase(person.getFirstname(), filterValue)
+              || person.getBirthYear().toString().contains(filterValue)) {
+        return true;
+      }
+      return false;
+    }
+
+    String fieldValue = getValue(person, filterProperty);
+    return filterValue == null || StringUtils.containsIgnoreCase(fieldValue, filterValue);
+  }
+
+  private static String getValue(Person person, String filterProperty) {
+    if (filterProperty.equals("name")) {
+      return person.getName();
+    } else if (filterProperty.equals("firstname")) {
+      return person.getFirstname();
+    } else if (filterProperty.equals("birthYear")) {
+      return person.getBirthYear().toString();
     }
     return null;
   }
 
-  public List<Person> query(Map<String, Object> filters, SortOrder sortOrder,
-          String sortField, int pageSize, int first)
-  {
+  public Person getPerson(String rowKey) {
+    for (Person person : allPersons)  {
+      if (person.getId().equals(Double.valueOf(rowKey))) {
+        return person;
+      }
+    }
+    return null;
+  }
+
+  public List<Person> query(Map<String, FilterMeta> filters, Map<String, SortMeta> sortBy, int pageSize, int first) {
     List<Person> persons = filter(filters);
-    persons = sort(sortField, sortOrder, persons);
+    persons = sort(sortBy, persons);
     persons = paginate(first, pageSize, persons);
     return persons;
   }
 
-  public int count(Map<String, Object> filters)
+  public int count(Map<String, FilterMeta> filters)
   {
     return filter(filters).size();
   }
