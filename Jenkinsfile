@@ -28,7 +28,7 @@ pipeline {
                         "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
                         "-Divy.engine.version='[9.2.0,]' " +
                         "-Divy.engine.list.url=${params.engineListUrl} " + 
-                        "-DaltDeploymentRepository=repo.axonivy.com::https://repo.axonivy.com/artifactory/libs-snapshot-local"
+                        "-DaltDeploymentRepository=nexus.axonivy.com::https://nexus.axonivy.com/repository/maven-snapshots/"
               checkVersions()
 
               archiveArtifacts '**/target/*.iar,**/target/*.zip'
