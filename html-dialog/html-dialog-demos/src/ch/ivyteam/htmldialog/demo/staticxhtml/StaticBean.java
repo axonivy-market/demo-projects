@@ -19,7 +19,12 @@ public class StaticBean
 
   public void buttonAction()
   {
+    @SuppressWarnings("removal")
+    IApplication app = Ivy.wf().getApplication(); // Deprecated since 8.0.26  
+    // For 8.0.26 and newer use the following code:  
+    // IApplication app = IApplication.current();
+
     text = Ivy.session().getSessionUserName() + " clicked the button in application '"
-            + IApplication.current().getName() + "'.";
+            + app.getName() + "'.";
   }
 }
