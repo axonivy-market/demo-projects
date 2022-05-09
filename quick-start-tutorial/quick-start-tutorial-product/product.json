@@ -5,7 +5,7 @@
             "data": {
                 "projects": [
                     {
-                        "groupId": "ch.ivyteam.demo",
+                        "groupId": "com.axonivy.demo",
                         "artifactId": "quick-start-tutorial",
                         "version": "${version}",
                         "type": "iar"
