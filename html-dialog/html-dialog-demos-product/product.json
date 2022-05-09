@@ -5,13 +5,13 @@
             "data": {
                 "projects": [
                     {
-                        "groupId": "ch.ivyteam.demo",
+                        "groupId": "com.axonivy.demo",
                         "artifactId": "html-dialog-demos",
                         "version": "${version}",
                         "type": "iar"
                     },
                     {
-                        "groupId": "ch.ivyteam.demo",
+                        "groupId": "com.axonivy.demo",
                         "artifactId": "html-dialog-demos-test",
                         "version": "${version}",
                         "type": "iar",
