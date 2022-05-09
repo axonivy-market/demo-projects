@@ -4,20 +4,20 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>ch.ivyteam.demo</groupId>
+		<groupId>com.axonivy.demo</groupId>
 		<artifactId>build-maven-web</artifactId>
 		<version>8.0.5-SNAPSHOT</version>
 		<relativePath>../../build.maven/web</relativePath>
 	</parent>
 
-	<groupId>ch.ivyteam.demo</groupId>
+	<groupId>com.axonivy.demo</groupId>
 	<artifactId>workflow-demos-test</artifactId>
 	<version>8.0.5-SNAPSHOT</version>
 	<packaging>iar</packaging>
 
 	<dependencies>
 		<dependency>
-			<groupId>ch.ivyteam.demo</groupId>
+			<groupId>com.axonivy.demo</groupId>
 			<artifactId>workflow-demos</artifactId>
 			<version>${project.version}</version>
 			<type>iar</type>
@@ -40,7 +40,7 @@
 						</goals>
 						<phase>integration-test</phase>
 						<configuration>
-							<deployFile>${ch.ivyteam.demo:workflow-demos:iar}</deployFile>
+							<deployFile>${com.axonivy.demo:workflow-demos:iar}</deployFile>
 						</configuration>
 					</execution>
 					<execution>
@@ -50,7 +50,7 @@
 						</goals>
 						<phase>integration-test</phase>
 						<configuration>
-							<deployFile>${ch.ivyteam.demo:workflow-demos-test:iar}</deployFile>
+							<deployFile>${com.axonivy.demo:workflow-demos-test:iar}</deployFile>
 						</configuration>
 					</execution>
 				</executions>

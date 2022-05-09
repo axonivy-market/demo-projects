@@ -2,13 +2,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>ch.ivyteam.demo</groupId>
+		<groupId>com.axonivy.demo</groupId>
 		<artifactId>build-maven-web</artifactId>
 		<version>8.0.5-SNAPSHOT</version>
 		<relativePath>../../build.maven/web</relativePath>
 	</parent>
 
-	<groupId>ch.ivyteam.demo</groupId>
+	<groupId>com.axonivy.demo</groupId>
 	<artifactId>connectivity-demos-test</artifactId>
 	<version>8.0.5-SNAPSHOT</version>
 	<packaging>iar</packaging>
@@ -20,7 +20,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>ch.ivyteam.demo</groupId>
+			<groupId>com.axonivy.demo</groupId>
 			<artifactId>connectivity-demos</artifactId>
 			<version>${project.version}</version>
 			<type>iar</type>
@@ -111,7 +111,7 @@
 						</goals>
 						<phase>pre-integration-test</phase>
 						<configuration>
-							<deployFile>${ch.ivyteam.demo:connectivity-demos:iar}</deployFile>
+							<deployFile>${com.axonivy.demo:connectivity-demos:iar}</deployFile>
 						</configuration>
 					</execution>
 					<execution>
