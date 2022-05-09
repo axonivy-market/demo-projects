@@ -1,44 +1,44 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>ch.ivyteam.demo</groupId>
+  <groupId>com.axonivy.demo</groupId>
   <artifactId>ivy-demos-app</artifactId>
   <version>9.4.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <dependencies>
     <dependency>
-      <groupId>ch.ivyteam.demo</groupId>
+      <groupId>com.axonivy.demo</groupId>
       <artifactId>connectivity-demos</artifactId>
       <version>${project.version}</version>
       <type>iar</type>
     </dependency>
     <dependency>
-      <groupId>ch.ivyteam.demo</groupId>
+      <groupId>com.axonivy.demo</groupId>
       <artifactId>workflow-demos</artifactId>
       <version>${project.version}</version>
       <type>iar</type>
     </dependency>
     <dependency>
-      <groupId>ch.ivyteam.demo</groupId>
+      <groupId>com.axonivy.demo</groupId>
       <artifactId>error-handling-demos</artifactId>
       <version>${project.version}</version>
       <type>iar</type>
     </dependency>
     <dependency>
-      <groupId>ch.ivyteam.demo</groupId>
+      <groupId>com.axonivy.demo</groupId>
       <artifactId>html-dialog-demos</artifactId>
       <version>${project.version}</version>
       <type>iar</type>
     </dependency>
     <dependency>
-      <groupId>ch.ivyteam.demo</groupId>
+      <groupId>com.axonivy.demo</groupId>
       <artifactId>quick-start-tutorial</artifactId>
       <version>${project.version}</version>
       <type>iar</type>
     </dependency>
     <dependency>
-      <groupId>ch.ivyteam.demo</groupId>
+      <groupId>com.axonivy.demo</groupId>
       <artifactId>rule-engine-demos</artifactId>
       <version>${project.version}</version>
       <type>iar</type>
