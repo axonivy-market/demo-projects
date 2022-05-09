@@ -15,7 +15,7 @@
           </f:facet>
 
           <p:outputLabel for="zip" value="Zip" />
-          <p:inputNumber id="zip" value="#{data.address.zip}" maxValue="99999" minValue="0000" thousandSeparator=""
+          <p:inputNumber id="zip" value="#{data.address.zip}" maxValue="99999" minValue="0000" thousandSeparator="" decimalPlaces="0"
             required="true" style="width:20px" />
 
           <p:outputLabel for="city" value="City" />
@@ -25,7 +25,7 @@
           <p:inputText id="country" value="#{data.address.country}" />
 
           <br />
-          <p:commandButton actionListener="#{logic.close}" value="Save" update="form" icon="ui-icon-check" />
+          <p:commandButton actionListener="#{logic.close}" value="Save" update="form" icon="fa fa-check" />
         </h:panelGrid>
       </h:form>
 

@@ -26,7 +26,7 @@ public class WebTestBusinessCaseDataWorkflowIT
   @BeforeEach
   void cleanElasticSearch()
   {
-    startTestProcess("1537FF3C3382D47F/clearDemoDossiers.ivp");
+    startTestProcess("1537FF3C3382D47F/clearDemoDossiers.ivp?embedInFrame");
     checkEndPage();
   }
 

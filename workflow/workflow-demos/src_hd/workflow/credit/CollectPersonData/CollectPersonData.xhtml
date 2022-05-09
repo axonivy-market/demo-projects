@@ -7,8 +7,6 @@
     <ui:define name="title">CollectPersonData</ui:define>
     <ui:define name="content">
       <h3>Credit Request</h3>
-      <br />
-      <br />
 
       <h:form id="form">
 
@@ -58,7 +56,7 @@
           <p:inputText required="true" id="amountOfOtherCredits" value="#{data.dossier.request.amountOfOtherCredits}" />
         </h:panelGrid>
 
-        <p:commandButton actionListener="#{logic.close}" value="Submit Request" update="form" icon="ui-icon-check" />
+        <p:commandButton actionListener="#{logic.close}" value="Submit Request" update="form" icon="fa fa-check" />
       </h:form>
 
     </ui:define>

@@ -1,48 +1,62 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
-  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-  xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
-  xmlns:pe="http://primefaces.org/ui/extensions">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-  <ui:composition template="/layouts/basic.xhtml">
-    <ui:define name="title">InterviewForm</ui:define>
-    <ui:define name="content">
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">InterviewForm</ui:define>
+		<ui:define name="content">
 
-      <h3>This is an example how to use business data in a workflow.</h3>
-      <p>In this case you can park the current task to finish it later. The actual input data is saved to the ivy
-        business data repository.</p>
+			<h3>This is an example how to use business data in a workflow.</h3>
+			<p>In this case you can park the current task to finish it later.
+				The actual input data is saved to the ivy business data repository.</p>
 
-      <h:form id="form">
-        <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank" columnClasses="ui-g-12 ui-md-3 ui-lg-2,
+			<h:form id="form">
+				<p:panelGrid columns="2" layout="grid"
+					styleClass="ui-panelgrid-blank"
+					columnClasses="ui-g-12 ui-md-3 ui-lg-2,
             ui-g-12 ui-md-9 ui-lg-4,
             ui-g-12 ui-md-3 ui-lg-2,
             ui-g-12 ui-md-9 ui-lg-4">
-          <f:facet name="header">
-            <p:messages></p:messages>
-          </f:facet>
+					<f:facet name="header">
+						<p:messages></p:messages>
+					</f:facet>
 
-          <p:outputLabel for="interviewFirstName" value="First Name" />
-          <p:inputText id="interviewFirstName" value="#{data.interview.firstName}"></p:inputText>
+					<p:outputLabel for="interviewFirstName" value="First Name" />
+					<p:inputText id="interviewFirstName"
+						value="#{data.interview.firstName}" required="true"></p:inputText>
 
-          <p:outputLabel for="interviewLastName" value="Last Name" />
-          <p:inputText id="interviewLastName" value="#{data.interview.lastName}"></p:inputText>
+					<p:outputLabel for="interviewLastName" value="Last Name" />
+					<p:inputText id="interviewLastName"
+						value="#{data.interview.lastName}"></p:inputText>
 
-          <p:outputLabel for="interviewDate" value="Date" />
-          <p:calendar id="interviewDate" value="#{data.interview.date}" pattern="dd.MM.yyyy" size="10">
-            <f:convertDateTime pattern="dd.MM.yyyy" />
-          </p:calendar>
+					<p:outputLabel for="interviewDate" value="Date" />
+					<p:calendar id="interviewDate" value="#{data.interview.date}"
+						pattern="dd.MM.yyyy" size="10">
+						<f:convertDateTime pattern="dd.MM.yyyy" />
+					</p:calendar>
 
-          <p:outputLabel for="interviewConversation" value="Conversation" />
-          <p:inputTextarea id="interviewConversation" value="#{data.interview.conversation}"></p:inputTextarea>
+					<p:outputLabel for="interviewConversation" value="Conversation" />
+					<p:inputTextarea id="interviewConversation"
+						value="#{data.interview.conversation}"></p:inputTextarea>
 
-          <p:commandButton id="proceed" actionListener="#{logic.close}" value="Proceed" update="form"
-            icon="ui-icon-check" />
-          <p:commandButton id="saveAndPark" actionListener="#{logic.saveAndPark}" value="Save and park" update="form"
-            icon="ui-icon-save" />
-        </p:panelGrid>
-      </h:form>
 
-    </ui:define>
-  </ui:composition>
+				</p:panelGrid>
+				<br />
+				<div align="right">
+					<p:commandButton id="proceed" actionListener="#{logic.close}"
+						value="Proceed" update="form" icon="fa fa-check" style="margin-right:.1em;"/>
+					<p:commandButton id="saveAndPark"
+						actionListener="#{logic.saveAndPark}" value="Save and park"
+						update="form" icon="fa fa-save"/>
+				</div>
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
 </h:body>
 
 </html>

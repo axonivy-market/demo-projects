@@ -18,6 +18,10 @@ div {
   display: inline;
 }
 
+body .ui-panel .ui-panel-content {
+	border:0px;	
+}
+
 .ui-avatar-lg {
   height: 60px;
   width: 60px;

@@ -125,7 +125,7 @@
               <h:panelGroup>
                 <p:outputLabel value="#{defTask.kind}"></p:outputLabel>
                 <p:spacer width="10" height="1"></p:spacer>
-                <p:commandButton icon="ui-icon-close" title="#{ivy.cms.co('/Dialogs/agileBPM/task_Form/DeleteTask')}"
+                <p:commandButton icon="fa fa-close" title="#{ivy.cms.co('/Dialogs/agileBPM/task_Form/DeleteTask')}"
                   actionListener="#{logic.deleteTask(defTask)}" update=":caseform:workflow" process=":caseform:workflow"
                   style="border:0; margin:0px; padding:0px; height:16px; background-color:#eeeeee" styleClass="xbutton"
                   rendered="#{defTask.adhoc}" />
