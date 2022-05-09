@@ -8,13 +8,13 @@
             "data": {
                 "projects": [
                     {
-                        "groupId": "ch.ivyteam.demo",
+                        "groupId": "com.axonivy.demo",
                         "artifactId": "connectivity-demos",
                         "version": "${version}",
                         "type": "iar"
                     },
                     {
-                        "groupId": "ch.ivyteam.demo",
+                        "groupId": "com.axonivy.demo",
                         "artifactId": "connectivity-demos-test",
                         "version": "${version}",
                         "type": "iar",
