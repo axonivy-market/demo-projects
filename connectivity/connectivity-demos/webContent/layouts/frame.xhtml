@@ -6,24 +6,8 @@
   xmlns:ic="http://ivyteam.ch/jsf/component"
   xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
-  
-<!--
-DESCRIPTION:
-This is the default template to use the freya-ivy theme as well as iFrames approach.
 
-PORTAL:
-If you are using the Axon Ivy Portal, you can pass several parameters to it to use some features (e.g. process chain).
-You'll find the list of parameters here: https://developer.axonivy.com/portal/dev/doc/portal-developer-guide/components/layout-templates.html#components-layout-templates-iframe-task-template
-For further information about iframes and usage in Portal please refer to: https://developer.axonivy.com/portal/dev/doc/portal-developer-guide/iframe/index.html
 
-BRANDING:
-If you want to brand your dialogs, please take a look at our documentation: https://developer.axonivy.com/doc/dev/designer-guide/user-interface/branding/index.html
-
-STYLING:
-If you want to add custom styles, you can simply add your own .css file (e.g. at the location: "webContent/layouts/styles/style.css")
-and refence it below in the head part.
--->
-  
 <h:head>
   <f:attribute name="primefaces.THEME" value="#{ivyFreyaTheme.theme}" />
   <meta charset="utf-8" />
@@ -31,7 +15,8 @@ and refence it below in the head part.
   <title><ui:insert name="title">Ivy Html Dialog</ui:insert></title>
   <link rel="shortcut icon" href="#{resource['ivy-branding:favicon']}" />
   <h:outputScript name="js/layout.js" library="#{ivyFreyaTheme.library}" />
-  <h:outputStylesheet name="#{ivyFreyaTheme.layout}" library="#{ivyFreyaTheme.library}" />
+  <h:outputStylesheet name="#{ivyFreyaTheme.layout}"
+    library="#{ivyFreyaTheme.library}" />
   <h:outputStylesheet name="primeflex-2.min.css" library="primeflex" />
   <h:outputStylesheet name="custom.css" library="ivy-branding" />
   <!-- Optional Style or Script files: 
@@ -48,12 +33,6 @@ and refence it below in the head part.
   <ui:insert name="exception">
     <ui:include src="/layouts/includes/exception.xhtml" />
   </ui:insert>
-
-  <!-- optional Portal parameters:
-  <script>
-    window.
-  </script>
-  -->
 
 </h:body>
 </html>
