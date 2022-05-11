@@ -1,9 +1,12 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
-  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-  xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component"
+  xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-  <ui:composition template="/layouts/basic.xhtml">
+  <ui:composition template="/layouts/frame.xhtml">
     <ui:define name="title">PersonManager</ui:define>
     <ui:define name="content">
       <h3>Restful Person Manager</h3>
@@ -19,44 +22,61 @@
             <p:outputLabel value="#{person.lastname}"></p:outputLabel>
           </p:column>
           <p:column headerText="Controls" style="width:5em;">
-            <p:commandLink actionListener="#{logic.edit(person)}" style="display:inline"
-              oncomplete="PF('editDlg').show();" update=":form:editor">
-              <span class="ui-icon ui-icon-pencil" />
+            <p:commandLink actionListener="#{logic.edit(person)}"
+              style="display:inline" oncomplete="PF('editDlg').show();"
+              update=":form:editor">
+              <span class="ui-icon fa fa-pencil" />
             </p:commandLink>
-            <p:commandLink actionListener="#{logic.delete(person.id)}" style="display:inline"
-              update=":form:persons, :form:notify" oncomplete="PF('status').show();">
-              <span class="ui-icon ui-icon-trash" />
+            <p:commandLink actionListener="#{logic.delete(person.id)}"
+              style="display:inline"
+              update=":form:persons, :form:notify"
+              oncomplete="PF('status').show();">
+              <span class="ui-icon fa fa-trash" />
             </p:commandLink>
           </p:column>
         </p:dataTable>
 
         <p:dialog id="editor" widgetVar="editDlg" header="Person Editor">
-          <p:inputText value="#{data.editPerson.firstname}" />
-          <p:inputText value="#{data.editPerson.lastname}" />
-          <p:commandButton actionListener="#{logic.update}" value="Edit" update=":form:persons, :form:notify"
-            oncomplete="PF('editDlg').hide(); PF('status').show();" icon="ui-icon-check" />
+          <h:panelGrid columns="3">
+            <p:inputText value="#{data.editPerson.firstname}" />
+            <p:inputText value="#{data.editPerson.lastname}" />
+            <p:commandButton actionListener="#{logic.update}"
+              value="Edit" update=":form:persons, :form:notify"
+              oncomplete="PF('editDlg').hide(); PF('status').show();"
+              icon="ui-icon-check" />
+          </h:panelGrid>
         </p:dialog>
 
-        <h4>New Person</h4>
-        <h:panelGrid columns="3">
-          <p:outputLabel value="Firstname" for="first" />
-          <p:inputText value="#{data.firstName}" id="first" />
-          <br />
-          <p:outputLabel value="Lastname" for="last" />
-          <p:inputText value="#{data.lastName}" id="last" />
-          <p:commandButton actionListener="#{logic.add}" value="Add" update="persons, notify"
-            oncomplete="PF('status').show();" icon="ui-icon-plus" />
-        </h:panelGrid>
-
-        <br />
-        <br />
-        <p:commandButton actionListener="#{logic.close}" value="Exit" update="form" icon="ui-icon-check" />
-
-        <p:notificationBar position="top" effect="slide" widgetVar="status">
+        <p:notificationBar position="top" effect="slide"
+          widgetVar="status">
           <h:outputText value="#{data.response}" id="notify" />
         </p:notificationBar>
 
       </h:form>
+
+      <h4>New Person</h4>
+      <h:form id="addform">
+        <p:messages></p:messages>
+        <h:panelGrid columns="3">
+          <p:outputLabel value="Firstname" for="first" />
+          <p:inputText value="#{data.firstName}" id="first"
+            required="true" />
+          <br />
+          <p:outputLabel value="Lastname" for="last" />
+          <p:inputText value="#{data.lastName}" id="last"
+            required="true" />
+          <p:commandButton actionListener="#{logic.add}" value="Add"
+            update="addform, :form:persons, :form:notify"
+            onsuccess="PF('status').show();" icon="fa fa-plus" />
+        </h:panelGrid>
+      </h:form>
+
+      <br />
+      <br />
+      <p:commandButton actionListener="#{logic.close}" value="Exit"
+        process="@this" icon="fa fa-close" />
+
+
 
     </ui:define>
   </ui:composition>
