@@ -1,9 +1,12 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
-  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-  xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component"
+  xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-  <ui:composition template="/layouts/basic.xhtml">
+  <ui:composition template="/layouts/frame.xhtml">
     <ui:define name="title">RequestForm</ui:define>
     <ui:define name="content">
       <h3>Approval Request</h3>
@@ -15,7 +18,8 @@
           </f:facet>
 
           <p:outputLabel for="approvalDescription" value="Description" />
-          <p:inputText id="approvalDescription" value="#{data.approval.description}">
+          <p:inputText id="approvalDescription"
+            value="#{data.approval.description}">
             <f:validateLength minimum="1" />
           </p:inputText>
 
@@ -23,8 +27,10 @@
           <p:inputText id="approvalCost" value="#{data.approval.cost}"></p:inputText>
 
           <br />
-          <p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
+          <p:commandButton actionListener="#{logic.close}"
+            value="Proceed" update="form" icon="fa-solid fa-check" />
         </h:panelGrid>
+
       </h:form>
 
     </ui:define>

@@ -1,15 +1,6 @@
 @charset "UTF-8";
 
-body,
-html,
-td,
-tr,
-th,
-input,
-textarea,
-select,
-form,
-div {
+body, html, td, tr, th, input, textarea, select, form, div {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 9pt;
 }
@@ -18,10 +9,15 @@ div {
   display: inline;
 }
 
+body .ui-panel .ui-panel-content {
+  border: 0px;
+}
+
 .ui-avatar-lg {
   height: 60px;
   width: 60px;
 }
+
 .ui-avatar-lg img {
   border-radius: 30px;
 }

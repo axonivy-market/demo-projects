@@ -3,7 +3,7 @@
   xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-  <ui:composition template="/layouts/basic.xhtml">
+  <ui:composition template="/layouts/frame.xhtml">
     <ui:define name="title">Approve Order</ui:define>
     <ui:define name="content">
       <h3>Approve Order</h3>
@@ -27,8 +27,8 @@
             <h:outputLabel for="unitPrice" value="Unit Price: " />
             <p:inputText id="unitPrice" value="#{data.order.unitPrice}" />
 
-            <p:commandButton actionListener="#{logic.accept}" value="Accept" update="form" icon="ui-icon-check" />
-            <p:commandButton actionListener="#{logic.decline}" value="Decline" update="form" icon="ui-icon-check" />
+            <p:commandButton actionListener="#{logic.accept}" value="Accept" update="form" icon="fa-solid fa-check" />
+            <p:commandButton actionListener="#{logic.decline}" value="Decline" update="form" icon="fa-solid fa-check" />
           </h:panelGrid>
         </h:panelGrid>
       </h:form>

@@ -3,7 +3,7 @@
   xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-  <ui:composition template="/layouts/basic.xhtml">
+  <ui:composition template="/layouts/frame.xhtml">
     <ui:define name="title">CancelStart</ui:define>
     <ui:define name="content">
       <h3>Please sign up we will send you inside news about the stock market!</h3>
@@ -17,8 +17,11 @@
 
           <p:outputLabel for="email" value="Email" />
           <p:inputText id="email" value="#{data.email}"></p:inputText>
-          <p:commandButton actionListener="#{logic.cancel}" value="Cancel" update="form" icon="ui-icon-close" />
-          <p:commandButton actionListener="#{logic.close}" value="OK" update="form" icon="ui-icon-check" />
+          <br/>
+          <h:panelGroup>
+          <p:commandButton actionListener="#{logic.cancel}" value="Cancel" update="form" icon="fa-solid fa-close" style="margin-right:.2em"/>
+          <p:commandButton actionListener="#{logic.close}" value="OK" update="form" icon="fa-solid fa-check" />
+        </h:panelGroup>
         </h:panelGrid>
       </h:form>
 

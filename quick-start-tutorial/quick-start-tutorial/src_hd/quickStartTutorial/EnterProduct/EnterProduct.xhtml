@@ -3,7 +3,7 @@
   xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-  <ui:composition template="/layouts/basic.xhtml">
+  <ui:composition template="/layouts/frame.xhtml">
     <ui:define name="title">EnterProduct</ui:define>
     <ui:define name="content">
       <h3>
@@ -14,10 +14,9 @@
       </h3>
 
       <h:form id="form">
-        <h:panelGrid columns="2">
-          <f:facet name="header">
-            <p:messages></p:messages>
-          </f:facet>
+        <p:messages />
+        <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
+          columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
 
           <p:outputLabel for="dataProduct" value="Product" />
           <p:inputText id="dataProduct" value="#{data.data.product}"></p:inputText>
@@ -30,9 +29,12 @@
           <p:outputLabel for="dataPrice" value="Price" />
           <p:inputText id="dataPrice" value="#{data.data.price}"></p:inputText>
 
-          <br />
-          <p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
-        </h:panelGrid>
+        </p:panelGrid>
+        <br />
+        <div class="command-btns">
+          <p:commandLink id="cancel" actionListener="#{ivyWorkflowView.cancel()}" value="Cancel" />
+          <p:commandButton id="proceed" actionListener="#{logic.close}" value="Proceed" update="form" icon="fa-solid fa-check" />
+        </div>
       </h:form>
 
     </ui:define>

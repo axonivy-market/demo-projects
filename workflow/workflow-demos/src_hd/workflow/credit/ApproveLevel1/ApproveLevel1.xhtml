@@ -3,7 +3,7 @@
   xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-  <ui:composition template="/layouts/basic.xhtml">
+  <ui:composition template="/layouts/frame.xhtml">
     <ui:define name="title">ApproveLevel1</ui:define>
     <ui:define name="content">
       <h3>Credit Request Approval Level 1&#160;</h3>
@@ -35,9 +35,9 @@
           </f:facet>
           <p:outputLabel for="reason" value="Reject Reason" />
           <p:inputTextarea id="reason" value="#{data.dossier.decision.rejectReason}" />
-          <p:commandButton actionListener="#{logic.approved}" value="Approve" update="form" icon="ui-icon-check" />
+          <p:commandButton actionListener="#{logic.approved}" value="Approve" update="form" icon="fa-solid fa-check" />
           <p:commandButton actionListener="#{logic.rejected}" value="Reject" update="form"
-            icon="ui-icon-circle-close" />
+            icon="fa-solid fa-remove" />
         </h:panelGrid>
       </h:form>
 

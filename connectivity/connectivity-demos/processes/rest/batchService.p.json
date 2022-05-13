@@ -16,8 +16,7 @@
         "startName" : "5. Increase timeout properties for long running requests"
       },
       "visual" : {
-        "at" : { "x" : 128, "y" : 64 },
-        "labelOffset" : { "x" : -71, "y" : 17 }
+        "at" : { "x" : 128, "y" : 64 }
       },
       "connect" : { "id" : "f2", "to" : "f6" }
     }, {
@@ -40,9 +39,8 @@
         "jersey.config.client.connectTimeout=1'000`"
       ],
       "visual" : {
-        "at" : { "x" : 360, "y" : 200 },
-        "size" : { "width" : 320, "height" : 156 },
-        "labelOffset" : { "x" : -155, "y" : -73 }
+        "at" : { "x" : 312, "y" : 192 },
+        "size" : { "width" : 320, "height" : 156 }
       },
       "connect" : { "id" : "f4", "to" : "f6" }
     }, {
@@ -56,8 +54,7 @@
         "responseCode" : "ivy.log.info(\"batch service returned: \"+result);"
       },
       "visual" : {
-        "at" : { "x" : 256, "y" : 64 },
-        "labelOffset" : { "x" : -26, "y" : -8 }
+        "at" : { "x" : 256, "y" : 64 }
       },
       "connect" : { "id" : "f3", "to" : "f1" }
     } ],

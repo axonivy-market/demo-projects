@@ -3,7 +3,7 @@
   xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-  <ui:composition template="/layouts/basic.xhtml">
+  <ui:composition template="/layouts/frame.xhtml">
     <ui:define name="title">AsyncUiInvoker</ui:define>
     <ui:define name="content">
       <h3>Async backend call</h3>
@@ -55,7 +55,7 @@
         <f:facet name="header">
           <p:messages></p:messages>
         </f:facet>
-        <h:panelGrid columns="2" border="2">
+        <h:panelGrid columns="2" border="0">
 
           <p:fieldset style="border:none;">
             Timeout to simulate: <br />
@@ -69,7 +69,7 @@
 
         </h:panelGrid>
         <br />
-        <p:commandButton actionListener="#{logic.close}" value="Close" update="form" icon="ui-icon-check" />
+        <p:commandButton actionListener="#{logic.close}" value="Close" update="form" icon="fa-solid fa-check" />
       </h:form>
 
     </ui:define>

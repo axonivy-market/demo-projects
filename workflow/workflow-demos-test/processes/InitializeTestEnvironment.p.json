@@ -11,8 +11,7 @@
         "outLink" : "start.ivp"
       },
       "visual" : {
-        "at" : { "x" : 96, "y" : 64 },
-        "labelOffset" : { "x" : -21, "y" : 17 }
+        "at" : { "x" : 96, "y" : 64 }
       },
       "connect" : { "id" : "f4", "to" : "f3" }
     }, {
@@ -40,8 +39,7 @@
       },
       "visual" : {
         "at" : { "x" : 320, "y" : 64 },
-        "size" : { "width" : 160, "height" : 44 },
-        "labelOffset" : { "x" : -71, "y" : -8 }
+        "size" : { "width" : 160, "height" : 44 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {

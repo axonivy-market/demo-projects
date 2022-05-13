@@ -6,7 +6,7 @@
   xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-  <ui:composition template="/layouts/frame-8.xhtml">
+  <ui:composition template="/layouts/frame.xhtml">
     <ui:define name="title">Discount Calculator</ui:define>
     <ui:define name="content">
       <h:outputStylesheet library="ivy-dialog"
@@ -91,13 +91,14 @@
           </p:column>
         </p:dataTable>
 
-        <p:commandButton id="save" value="Save the rules"
-          icon="fa fa-check" actionListener="#{logic.saveRules}"
-          update="@form" />
-        <p:outputLabel id="saved_msg"
-          value=" Saved as: #{data.filename}"
-          rendered="#{data.filename.length() gt 12}"></p:outputLabel>
-
+        <div class="command-btns" style="margin-top: 10px">
+          <p:outputLabel id="saved_msg"
+            value=" Saved as: #{data.filename} "
+            rendered="#{data.filename.length() gt 12}"></p:outputLabel>
+          <p:commandButton id="save" value="Save the rules"
+            icon="fa-solid fa-check" actionListener="#{logic.saveRules}"
+            update="@form" />
+        </div>
         <hr />
       </h:form>
       <h4>Apply rules:</h4>
@@ -116,7 +117,7 @@
               requiredMessage="Please enter Purchase Amount"
               value="#{data.ruleData.member.purchaseAmount}"
               style="width: 50%" />
-            <h:outputText value="$" />
+            <h:outputText value=" $" />
             <p:message for="memberPurchaseAmount"
               id="memberPurchaseAmountMessage" />
           </h:panelGroup>
@@ -139,7 +140,7 @@
           <p:commandButton id="applyDRL"
             actionListener="#{logic.applyRules}" process="@form"
             value="Apply the rules" update="@form"
-            icon="fa fa-file-text-o" />
+            icon="fa-solid fa-file-text-o" />
         </div>
       </h:form>
     </ui:define>

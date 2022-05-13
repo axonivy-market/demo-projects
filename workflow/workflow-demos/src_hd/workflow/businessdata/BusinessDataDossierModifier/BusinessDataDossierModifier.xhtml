@@ -3,7 +3,7 @@
   xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-  <ui:composition template="/layouts/basic.xhtml">
+  <ui:composition template="/layouts/frame.xhtml">
     <ui:define name="title">BusinessDataDossier</ui:define>
     <ui:define name="content">
       <h3>#{data.title}</h3>
@@ -37,7 +37,7 @@
           <p:outputLabel for="dossierPersonAddressCountry" value="Country" />
           <p:inputText id="dossierPersonAddressCountry" value="#{data.dossier.person.address.country}"></p:inputText>
           <br />
-          <p:commandButton actionListener="#{logic.close}" value="Save" id="save" update="form" icon="ui-icon-check" />
+          <p:commandButton actionListener="#{logic.close}" value="Save" id="save" update="form" icon="fa-solid fa-check" />
         </h:panelGrid>
       </h:form>
 
