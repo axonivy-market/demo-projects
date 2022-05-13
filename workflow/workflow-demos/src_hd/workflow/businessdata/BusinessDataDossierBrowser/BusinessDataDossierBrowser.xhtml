@@ -10,14 +10,14 @@
     <ui:define name="title">BusinessDataDossierBrowser</ui:define>
     <ui:define name="content">
       <style>
-body .ui-panelgrid tbody tr.ui-widget-content {
-  border: none;
-}
+        body .ui-panelgrid tbody tr.ui-widget-content {
+        border: none;
+        }
 
-.ui-panelgrid .ui-panelgrid-cell {
-  border: none;
-}
-</style>
+        .ui-panelgrid .ui-panelgrid-cell {
+        border: none;
+        }
+      </style>
 
       <h3>Browse Dossiers</h3>
 
@@ -57,10 +57,10 @@ body .ui-panelgrid tbody tr.ui-widget-content {
                 <f:convertDateTime pattern="dd.MM.yyyy" />
               </p:calendar>
             </p:panelGrid>
-            <p:commandButton icon="fa fa-search" value="Search"
+            <p:commandButton icon="fa-solid fa-search" value="Search"
               actionListener="#{logic.search}"
               update=":dossierTable :resultCount" />
-            <p:commandButton icon="fa fa-circle-question" value="Help"
+            <p:commandButton icon="fa-solid fa-circle-question" value="Help"
               onclick="PF('help#{data.searchType}').show();" />
           </p:panelGrid>
         </p:panelGrid>

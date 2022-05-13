@@ -17,8 +17,11 @@
 
           <p:outputLabel for="email" value="Email" />
           <p:inputText id="email" value="#{data.email}"></p:inputText>
-          <p:commandButton actionListener="#{logic.cancel}" value="Cancel" update="form" icon="fa fa-close" />
-          <p:commandButton actionListener="#{logic.close}" value="OK" update="form" icon="fa fa-check" />
+          <br/>
+          <h:panelGroup>
+          <p:commandButton actionListener="#{logic.cancel}" value="Cancel" update="form" icon="fa-solid fa-close" style="margin-right:.2em"/>
+          <p:commandButton actionListener="#{logic.close}" value="OK" update="form" icon="fa-solid fa-check" />
+        </h:panelGroup>
         </h:panelGrid>
       </h:form>
 

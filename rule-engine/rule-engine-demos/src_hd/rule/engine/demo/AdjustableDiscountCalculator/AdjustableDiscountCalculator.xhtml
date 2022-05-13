@@ -96,7 +96,7 @@
             value=" Saved as: #{data.filename} "
             rendered="#{data.filename.length() gt 12}"></p:outputLabel>
           <p:commandButton id="save" value="Save the rules"
-            icon="fa fa-check" actionListener="#{logic.saveRules}"
+            icon="fa-solid fa-check" actionListener="#{logic.saveRules}"
             update="@form" />
         </div>
         <hr />
@@ -140,7 +140,7 @@
           <p:commandButton id="applyDRL"
             actionListener="#{logic.applyRules}" process="@form"
             value="Apply the rules" update="@form"
-            icon="fa fa-file-text-o" />
+            icon="fa-solid fa-file-text-o" />
         </div>
       </h:form>
     </ui:define>
