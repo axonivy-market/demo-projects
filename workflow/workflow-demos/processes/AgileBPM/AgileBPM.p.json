@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.8",
+  "format" : "9.4.9",
   "id" : "15255056043EE914",
   "data" : "workflow.agileBPM.Data",
   "elements" : [ {
@@ -371,7 +371,8 @@
               "</div>",
               "</body>",
               "</html>"
-            ]
+            ],
+            "contentType" : "text/html"
           },
           "visual" : {
             "at" : { "x" : 736, "y" : 320 },

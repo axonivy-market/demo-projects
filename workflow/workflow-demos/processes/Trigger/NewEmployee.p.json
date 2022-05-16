@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.8",
+  "format" : "9.4.9",
   "id" : "15254CF1CE56AE72",
   "data" : "workflow.trigger.NewEmployeeData",
   "elements" : [ {
@@ -103,6 +103,7 @@
           "  <%=ivy.cms.co(\"/Emails/welcomeMail\")%>",
           "</html>"
         ],
+        "contentType" : "text/html",
         "exceptionHandler" : ">>"
       },
       "visual" : {

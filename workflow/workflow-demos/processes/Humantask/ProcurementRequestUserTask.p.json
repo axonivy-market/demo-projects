@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.8",
+  "format" : "9.4.9",
   "id" : "15254DCE818AD7A2",
   "data" : "workflow.humantask.ProcurementRequest",
   "elements" : [ {
@@ -146,6 +146,7 @@
           "  <%=ivy.cms.co(\"/Emails/procurementRequestNotification\")%>",
           "</html>"
         ],
+        "contentType" : "text/html",
         "exceptionHandler" : ">>"
       },
       "visual" : {
