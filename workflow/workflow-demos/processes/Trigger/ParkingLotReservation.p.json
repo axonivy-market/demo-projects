@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.8",
+  "format" : "9.4.9",
   "id" : "15254CF47A16DEA1",
   "data" : "workflow.trigger.NewEmployeeData",
   "elements" : [ {
@@ -89,6 +89,7 @@
           "  <%=ivy.cms.co(\"/Emails/confirmParkingLot\")%>",
           "</html>"
         ],
+        "contentType" : "text/html",
         "exceptionHandler" : ">>"
       },
       "visual" : {

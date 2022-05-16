@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.8",
+  "format" : "9.4.9",
   "id" : "169B3B7F5EF38D8F",
   "data" : "com.axonivy.connectivity.Data",
   "elements" : [ {
@@ -89,20 +89,6 @@
         "(multi/part)"
       ],
       "config" : {
-        "headers" : {
-          "Accept" : "*/*",
-          "X-Requested-By" : "\"ivy\""
-        },
-        "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
-        "method" : "PUT",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyObjectType" : "ivy.local.client.Body3",
-        "bodyInputType" : "FORM",
-        "responseCode" : [
-          "String result = response.readEntity(String.class) as String;",
-          "ivy.log.info(result);",
-          "out.result = result;"
-        ],
         "bodyForm" : {
           "file" : [
             "in.file",
@@ -112,8 +98,22 @@
           "ownerId" : ""
         },
         "path" : "/file",
+        "headers" : {
+          "Accept" : "*/*",
+          "X-Requested-By" : "\"ivy\""
+        },
+        "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
         "clientErrorCode" : "ivy:error:rest:client",
-        "bodyMediaType" : "multipart/form-data"
+        "method" : "PUT",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "bodyObjectType" : "ivy.local.client.Body3",
+        "bodyInputType" : "FORM",
+        "bodyMediaType" : "multipart/form-data",
+        "responseCode" : [
+          "String result = response.readEntity(String.class) as String;",
+          "ivy.log.info(result);",
+          "out.result = result;"
+        ]
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 320 }
