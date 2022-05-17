@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.9",
+  "format" : "9.4.10",
   "id" : "1549FEEB682EF158",
   "data" : "com.axonivy.connectivity.rest.CreateApprovalData",
   "kind" : "CALLABLE_SUB",
@@ -84,10 +84,6 @@
     } ],
   "layout" : {
     "lanes" : [ {
-        "name" : [
-          "Called by REST ",
-          "service provider class"
-        ],
         "size" : 224
       } ]
   }
