@@ -45,16 +45,6 @@
     </dependency>
   </dependencies>
 
-  <repositories>
-    <repository>
-      <id>repo.axonivy.com</id>
-      <url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-
   <build>
     <plugins>
       <plugin>
