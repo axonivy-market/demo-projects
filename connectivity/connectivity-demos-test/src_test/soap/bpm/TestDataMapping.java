@@ -8,13 +8,16 @@ import com.axonivy.connectivity.soap.DataMappingData;
 
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
+import ch.ivyteam.ivy.environment.AppFixture;
 
 @IvyProcessTest
-public class TestDataMapping
-{
+public class TestDataMapping {
+
   @Test
-  void resolveToCache(BpmClient bpmClient)
-  {
+  void resolveToCache(BpmClient bpmClient, AppFixture fixture) {
+    fixture.config("WebServiceClients.smartbearTests.Endpoints.SampleWebServiceSoap12",
+      "http://test-webservices.ivyteam.io:7086/mockSampleWebServiceSoap12");
+
     var result = bpmClient.start().process("soap/client/dataMapping/resolveToCache.ivp").execute();
     assertThat(result).isNotNull();
 
@@ -23,8 +26,7 @@ public class TestDataMapping
   }
 
   @Test
-  void mapComplexData(BpmClient bpmClient)
-  {
+  void mapComplexData(BpmClient bpmClient) {
     var result = bpmClient.start().process("soap/client/dataMapping/mapComplexData.ivp").execute();
     assertThat(result).isNotNull();
 
