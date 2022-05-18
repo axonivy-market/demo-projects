@@ -17,6 +17,7 @@ pipeline {
               def workspace = pwd()
               def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
               maven cmd: "clean ${phase} -Dmaven.test.failure.ignore=true  " + 
+                        "-Dmaven.test.skip = true " + 
                         "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
                         "-Divy.engine.version=9.3.4 " +
                         "-Dtest.environemnt=dev-axonivy " +
