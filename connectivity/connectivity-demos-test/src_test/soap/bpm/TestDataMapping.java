@@ -13,10 +13,15 @@ import ch.ivyteam.ivy.environment.AppFixture;
 @IvyProcessTest
 public class TestDataMapping {
 
+  public static interface Smartbear {
+    String ENDPOINT_URI_KEY = "WebServiceClients.smartbearTests.Endpoints.SampleWebServiceSoap12";
+    String MOCK_SERVICE = "http://test-webservices.ivyteam.io:7086/mockSampleWebServiceSoap12";
+  }
+
   @Test
   void resolveToCache(BpmClient bpmClient, AppFixture fixture) {
-    fixture.config("WebServiceClients.smartbearTests.Endpoints.SampleWebServiceSoap12",
-      "http://test-webservices.ivyteam.io:7086/mockSampleWebServiceSoap12");
+    fixture.config(Smartbear.ENDPOINT_URI_KEY,
+      Smartbear.MOCK_SERVICE);
 
     var result = bpmClient.start().process("soap/client/dataMapping/resolveToCache.ivp").execute();
     assertThat(result).isNotNull();
