@@ -178,6 +178,22 @@
                 </operation>
             </portType>
         </service>
+        <environmentConfigurations>
+            <environment>dev-axonivy</environment>
+            <service>
+                <serviceClass>com.smartbear.sample.test.client.SampleWebService</serviceClass>
+                <port>
+                    <name>SampleWebServiceSoap</name>
+                    <portType>SampleWebServiceSoap</portType>
+                    <locationUri>http://secure.smartbearsoftware.com/samples/testcomplete12/webservices/Service.asmx</locationUri>
+                </port>
+                <port>
+                    <name>SampleWebServiceSoap12</name>
+                    <portType>SampleWebServiceSoap</portType>
+                    <locationUri>http://test-webservices.ivyteam.io:7086/mockSampleWebServiceSoap12</locationUri>
+                </port>
+            </service>
+        </environmentConfigurations>
     </webServiceConfig>
     <webServiceConfig>
         <name>interceptedService</name>
