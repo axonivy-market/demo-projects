@@ -28,7 +28,7 @@ proc "useEnvironment" [val env]
 {
 	get-preferences-menu | click
 	with [get-window Preferences] {
-		get-tree | select "Axon Ivy/Process Engine"
+		get-tree | select "Axon.ivy/Process Engine"
 		get-combo -after [get-label "Use environment for simulation:"] | select $env
 		get-button "Apply and Close" | click -metaKeys ""
 	}
