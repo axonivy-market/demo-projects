@@ -8,13 +8,13 @@
             "data": {
                 "projects": [
                     {
-                        "groupId": "ch.ivyteam.demo",
+                        "groupId": "com.axonivy.demo",
                         "artifactId": "workflow-demos",
                         "version": "${version}",
                         "type": "iar"
                     },
                     {
-                        "groupId": "ch.ivyteam.demo",
+                        "groupId": "com.axonivy.demo",
                         "artifactId": "workflow-demos-test",
                         "version": "${version}",
                         "type": "iar",
@@ -23,8 +23,8 @@
                 ],
                 "repositories": [
                     {
-                        "id": "axonivy.public",
-                        "url": "https://repo.axonivy.rocks",
+                        "id": "maven.axonivy.com",
+                        "url": "https://maven.axonivy.com",
                         "snapshots": {
                             "enabled": "true"
                         }
