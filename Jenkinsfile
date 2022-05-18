@@ -18,6 +18,7 @@ pipeline {
               def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
               maven cmd: "clean ${phase} -Dmaven.test.failure.ignore=true  " + 
                         "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
+                        "-Divy.engine.version=9.3.4 " +
                         "-Dtest.environemnt=dev-axonivy " +
                         "-DaltDeploymentRepository=repo.axonivy.com::https://repo.axonivy.com/artifactory/libs-snapshot-local"
               checkVersions()
