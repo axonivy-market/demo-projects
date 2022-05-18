@@ -24,7 +24,7 @@ proc "startMappingProcess" [val processName]
 	}
 }
 
-proc "useEnvironment" [val env] -name
+proc "useEnvironment" [val env]
 {
 	get-preferences-menu | click
 	with [get-window Preferences] {
