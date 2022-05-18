@@ -2,20 +2,11 @@ pipeline {
   agent any
 
   triggers {
-    pollSCM '@hourly'
     cron '@midnight'
   }
 
   options {
     buildDiscarder(logRotator(numToKeepStr: '60', artifactNumToKeepStr: '2'))
-  }
-
-  parameters {
-    string(
-       name: 'engineListUrl',
-       description: 'Engine to use for build',
-       defaultValue: 'https://jenkins.ivyteam.io/job/ivy-core_product/job/master/lastSuccessfulBuild/'
-    )
   }
 
   stages {
@@ -27,8 +18,6 @@ pipeline {
               def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
               maven cmd: "clean ${phase} -Dmaven.test.failure.ignore=true  " + 
                         "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
-                        "-Divy.engine.version='[9.2.0,]' " +
-                        "-Divy.engine.list.url=${params.engineListUrl} " + 
                         "-Dtest.environemnt=dev-axonivy " +
                         "-DaltDeploymentRepository=repo.axonivy.com::https://repo.axonivy.com/artifactory/libs-snapshot-local"
               checkVersions()
