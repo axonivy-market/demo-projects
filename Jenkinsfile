@@ -25,8 +25,8 @@ pipeline {
               checkVersions()
               archiveArtifacts '**/target/*.iar,**/target/*.zip'
               archiveArtifacts artifacts: '**/target/selenide/reports/**/*', allowEmptyArchive: true
-              recordIssues tools: [eclipse()], unstableTotalAll: 1
-              recordIssues tools: [mavenConsole()], unstableNewAll: 1, qualityGates: [[threshold: 1, type: 'NEW', unstable: true]]
+              //recordIssues tools: [eclipse()], unstableTotalAll: 1
+              //recordIssues tools: [mavenConsole()], unstableNewAll: 1, qualityGates: [[threshold: 1, type: 'NEW', unstable: true]]
               //junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/*-reports/**/*.xml'          
             }          
         }
