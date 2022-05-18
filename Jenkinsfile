@@ -15,7 +15,7 @@ pipeline {
         script {          
             docker.build('maven-selenium').inside {
               def workspace = pwd()
-              def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
+              def phase = env.BRANCH_NAME == 'release/9.3' ? 'deploy' : 'verify'
               maven cmd: "clean ${phase} -Dmaven.test.failure.ignore=true  " + 
                         "-Dmaven.test.skip=true " + 
                         "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
