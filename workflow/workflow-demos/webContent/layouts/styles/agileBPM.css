@@ -53,20 +53,20 @@ body .ui-avatar {
 .flowpanelHot {
   border: 2px solid;
   border-radius: 4px;
-  border-color: var(--ivy-primary-light-color);
+  border-color: var(--primary-light-color);
   height: 80px;
 }
 
 .flowpanel {
   border: 1px solid;
   border-radius: 4px;
-  border-color: var(--ivy-primary-color);
+  border-color: var(--primary-color);
   height: 80px;
 }
 
 .taskpanel {
   border: 1px solid;
-  border-color: var(--ivy-primary-color);
+  border-color: var(--primary-color);
 }
 
 .iconButton {
@@ -78,6 +78,6 @@ body .ui-avatar {
 }
 
 .xbutton {
-  background-color: var(--ivy-primary-darker-color);
+  background-color: var(--primary-darker-color);
   float: right;
 }
