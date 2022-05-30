@@ -2,6 +2,9 @@ package soap.bpm;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.soap.DataMappingData;
@@ -27,7 +30,8 @@ public class TestDataMapping {
     assertThat(result).isNotNull();
 
     DataMappingData data = result.data().last();
-    assertThat(data.getTime().toJavaDate()).isToday();
+    assertThat(data.getTime().toJavaDate()).isBetween(
+            Instant.now().minus(1, ChronoUnit.DAYS), Instant.now().plus(1, ChronoUnit.DAYS));
   }
 
   @Test

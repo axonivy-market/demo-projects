@@ -4,15 +4,12 @@ import static ch.ivyteam.htmldialog.server.test.ProcessUtil.startProcess;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
-import static org.assertj.core.api.Assertions.assertThat;
 
-import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.engine.EngineUrl;
-import com.codeborne.selenide.WebDriverRunner;
 
 @IvyWebTest
 public class WebTestErrorHandlingIT
@@ -24,37 +21,37 @@ public class WebTestErrorHandlingIT
     $(By.id("form:ajax")).shouldBe(visible).click();
 
     $(By.id("ajaxExceptionDialog_title")).shouldHave(text("Error"));
-    String text = $(By.id("ajaxExceptionDialog_content")).getText();
-    assertThat(text)
-        .contains("ivy:error:script")
-        .contains("Error id")
-        .contains("Process")
-        .contains("ErrorHandlingProcess")
-        .contains("Element")
-        .contains("throw exception <15E519280889B152-f9>")
-        .contains("Technical cause")
-        .contains("IvyScriptRuntimeException: IvyScript Runtime Exception in")
-        .contains("Instruction:")
-        .contains("(0 / 0)")
-        .contains("Request Uri")
-        .contains("/"+EngineUrl.applicationName()+"/faces/instances/html-dialog-demos$1/").contains("/ch.ivyteam.htmldialog.demo.other.ErrorHandling/ErrorHandling.xhtml")
-        .contains("Servlet")
-        .contains("Faces Servlet")
-        .contains("Application")
-        .contains(EngineUrl.applicationName())
-        .contains("Thread local values")
-        .contains("application")
-        .contains("session")
-        .contains("requestId")
-        .contains("executionContext")
-        .contains("SYSTEM")
-        .contains("pmv")
-        .contains("client")
-        .contains("hd")
-        .contains("ch.ivyteam.htmldialog.demo.other.ErrorHandling")
-        .contains("processElement")
-        .contains("15E519280889B152-f9")
-        .contains("Stack-Trace");
+    $(By.id("ajaxExceptionDialog_content")).shouldHave(
+            text("ivy:error:script"),
+            text("Error id"),
+            text("Process"),
+            text("ErrorHandlingProcess"),
+            text("Element"),
+            text("throw exception <15E519280889B152-f9>"),
+            text("Technical cause"),
+            text("IvyScriptRuntimeException: IvyScript Runtime Exception in"),
+            text("Instruction:"),
+            text("(0 / 0)"),
+            text("Request Uri"),
+            text("/"+EngineUrl.applicationName()+"/faces/instances/html-dialog-demos$1/"),
+            text("/ch.ivyteam.htmldialog.demo.other.ErrorHandling/ErrorHandling.xhtml"),
+            text("Servlet"),
+            text("Faces Servlet"),
+            text("Application"),
+            text(EngineUrl.applicationName()),
+            text("Thread local values"),
+            text("application"),
+            text("session"),
+            text("requestId"),
+            text("executionContext"),
+            text("SYSTEM"),
+            text("pmv"),
+            text("client"),
+            text("hd"),
+            text("ch.ivyteam.htmldialog.demo.other.ErrorHandling"),
+            text("processElement"),
+            text("15E519280889B152-f9"),
+            text("Stack-Trace"));
   }
 
   @Test
@@ -64,36 +61,37 @@ public class WebTestErrorHandlingIT
     $(By.id("form:nonAjax")).shouldBe(visible).click();
 
     $("h1").shouldHave(text("ivy:error:script"));
-    assertThat(StringUtils.substringAfter(WebDriverRunner.source(), "exception-panel"))
-        .contains("ivy:error:script")
-        .contains("Error id")
-        .contains("Process")
-        .contains("ErrorHandlingProcess")
-        .contains("Element")
-        .contains("throw exception &lt;15E519280889B152-f9&gt;")
-        .contains("Technical cause")
-        .contains("IvyScriptRuntimeException: IvyScript Runtime Exception in")
-        .contains("Instruction:")
-        .contains("(0 / 0)")
-        .contains("Request Uri")
-        .contains("/"+EngineUrl.applicationName()+"/faces/instances/html-dialog-demos$1/").contains("/ch.ivyteam.htmldialog.demo.other.ErrorHandling/ErrorHandling.xhtml")
-        .contains("Servlet")
-        .contains("Faces Servlet")
-        .contains("Application")
-        .contains(EngineUrl.applicationName())
-        .contains("Thread local values")
-        .contains("application")
-        .contains("session")
-        .contains("requestId")
-        .contains("executionContext")
-        .contains("SYSTEM")
-        .contains("pmv")
-        .contains("client")
-        .contains("hd")
-        .contains("ch.ivyteam.htmldialog.demo.other.ErrorHandling")
-        .contains("processElement")
-        .contains("15E519280889B152-f9")
-        .contains("Stack-Trace");
+    $(".exception-detail-link > a").click();
+    $(".ui-dialog").shouldHave(text("ivy:error:script"),
+            text("Error id"),
+            text("Process"),
+            text("ErrorHandlingProcess"),
+            text("Element"),
+            text("throw exception <15E519280889B152-f9>"),
+            text("Technical cause"),
+            text("IvyScriptRuntimeException: IvyScript Runtime Exception in"),
+            text("Instruction:"),
+            text("(0 / 0)"),
+            text("Request Uri"),
+            text("/" + EngineUrl.applicationName() + "/faces/instances/html-dialog-demos$1/"),
+            text("/ch.ivyteam.htmldialog.demo.other.ErrorHandling/ErrorHandling.xhtml"),
+            text("Servlet"),
+            text("Faces Servlet"),
+            text("Application"),
+            text(EngineUrl.applicationName()),
+            text("Thread local values"),
+            text("application"),
+            text("session"),
+            text("requestId"),
+            text("executionContext"),
+            text("SYSTEM"),
+            text("pmv"),
+            text("client"),
+            text("hd"),
+            text("ch.ivyteam.htmldialog.demo.other.ErrorHandling"),
+            text("processElement"),
+            text("15E519280889B152-f9"),
+            text("Stack-Trace"));
   }
 
   @Test
@@ -104,11 +102,10 @@ public class WebTestErrorHandlingIT
     $(By.id("form:ajaxWithExpiredSession")).shouldBe(visible).click();
 
     $(By.id("viewExpiredExceptionDialog_title")).shouldHave(text("View or Session Expired"));
-    String text = $(By.id("viewExpiredExceptionDialog_content")).getText();
-    assertThat(text)
-        .contains("Custom Exception Handling for ViewExpiredException")
-        .contains("The view or session has expired")
-        .contains("Please login again");
+    $(By.id("viewExpiredExceptionDialog_content")).shouldHave(
+            text("Custom Exception Handling for ViewExpiredException"),
+            text("The view or session has expired"),
+            text("Please login again"));
   }
 
 }
