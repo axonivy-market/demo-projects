@@ -25,7 +25,7 @@ public class ImageGenerator
       // during render response, the src attribute is evaluated,
       // not necessary to return any streamed content see
       // http://stackoverflow.com/questions/8304967/how-to-use-pgraphicimage-with-streamedcontent-within-pdatatable
-      return new DefaultStreamedContent();
+      return DefaultStreamedContent.builder().build();
     }
 
     return createImage(text);
