@@ -29,10 +29,9 @@
         paginatorPosition="bottom" rows="5"
         paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
         currentPageReportTemplate="{startRecord} - {endRecord} of {totalRecords}"
-        rowsPerPageTemplate="5,10,15,25,50,100" lazy="true"
-        sortBy="#{dossier.name.ascii}">
+        rowsPerPageTemplate="5,10,15,25,50,100" lazy="true">
         <p:column headerText="Dossier Name"
-          sortBy="#{dossier.name.ascii}">
+          sortBy="#{dossier.name.ascii}" sortOrder="ASCENDING">
           <h:outputText value="#{dossier.name}" />
         </p:column>
         <p:column headerText="Person"
