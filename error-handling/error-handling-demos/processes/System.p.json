@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.10",
+  "format" : "9.4.11",
   "id" : "150149331438F9EA",
   "data" : "error.handling.demo.technicalData",
   "elements" : [ {
@@ -27,12 +27,11 @@
       "type" : "Database",
       "name" : "Throws system error",
       "config" : {
-        "dbUrl" : "invalidDB",
-        "dbSql" : [
-          "<?xml version=\"\"1.0\"\" standalone=\"\"no\"\"?>",
-          "<!DOCTYPE ANY_SQL SYSTEM  \"\"sqlStatements.dtd\"\">",
-          "<ANY_SQL><Verbatim quote='true'></Verbatim></ANY_SQL>"
-        ]
+        "query" : {
+          "kind" : "any",
+          "quote" : true
+        },
+        "dbUrl" : "invalidDB"
       },
       "visual" : {
         "at" : { "x" : 272, "y" : 192 },

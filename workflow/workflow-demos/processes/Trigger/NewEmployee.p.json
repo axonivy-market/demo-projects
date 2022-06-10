@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.10",
+  "format" : "9.4.11",
   "id" : "15254CF1CE56AE72",
   "data" : "workflow.trigger.NewEmployeeData",
   "elements" : [ {
@@ -89,8 +89,8 @@
       "config" : {
         "headers" : {
           "emailFrom" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>",
-          "emailTo" : "<%=in.email%>",
-          "emailSubject" : "<%=ivy.cms.co(\"/Emails/welcomeHeader\")%> <%=in.name%>!"
+          "emailSubject" : "<%=ivy.cms.co(\"/Emails/welcomeHeader\")%> <%=in.name%>!",
+          "emailTo" : "<%=in.email%>"
         },
         "message" : [
           " <html> ",
