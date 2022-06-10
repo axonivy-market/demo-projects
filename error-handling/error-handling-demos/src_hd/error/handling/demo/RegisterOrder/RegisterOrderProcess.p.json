@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.10",
+  "format" : "9.4.11",
   "id" : "14ECFEF3BADB5A9E",
   "data" : "error.handling.demo.RegisterOrder.RegisterOrderData",
   "kind" : "HTML_DIALOG",
@@ -58,6 +58,10 @@
       "type" : "Database",
       "name" : "Read available products",
       "config" : {
+        "query" : {
+          "kind" : "read",
+          "xml" : "<SELECT><Table name='STOCK'/></SELECT>"
+        },
         "output" : {
           "code" : [
             "import error.handling.demo.StockItem;",
@@ -70,12 +74,7 @@
             "}"
           ]
         },
-        "dbUrl" : "stock",
-        "dbSql" : [
-          "<?xml version=\"\"1.0\"\" standalone=\"\"no\"\"?>",
-          "<!DOCTYPE SELECT SYSTEM  \"\"sqlStatements.dtd\"\">",
-          "<SELECT><Table name='STOCK'/></SELECT>"
-        ]
+        "dbUrl" : "stock"
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 64 },
