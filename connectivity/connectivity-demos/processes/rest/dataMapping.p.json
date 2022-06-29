@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.11",
+  "format" : "9.4.12",
   "id" : "15A60076034F7437",
   "data" : "com.axonivy.connectivity.rest.DataMappingData",
   "elements" : [ {
@@ -452,18 +452,18 @@
           "  \"body\": \"this is my test comment\"",
           "}"
         ],
-        "path" : "users/1",
         "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "GET",
         "statusErrorCode" : "ivy:error:rest:client",
+        "bodyInputType" : "ENTITY",
+        "responseCode" : "ivy.log.info(\"got user = \"+out.user);",
+        "path" : "users/1",
+        "clientErrorCode" : "ivy:error:rest:client",
         "responseMapping" : {
           "out.user" : "result"
         },
         "bodyObjectCode" : "param = in.myPost;",
-        "resultType" : "com.axonivy.connectivity.rest.User",
-        "bodyInputType" : "ENTITY",
-        "responseCode" : "ivy.log.info(\"got user = \"+out.user);"
+        "resultType" : "com.axonivy.connectivity.rest.User"
       },
       "visual" : {
         "at" : { "x" : 411, "y" : 434 },
@@ -633,18 +633,18 @@
           "  \"body\": \"this is my test comment\"",
           "}"
         ],
-        "path" : "users/1",
         "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "GET",
         "statusErrorCode" : "ivy:error:rest:client",
+        "bodyInputType" : "ENTITY",
+        "responseCode" : "ivy.log.info(\"got user = \"+result);",
+        "path" : "users/1",
+        "clientErrorCode" : "ivy:error:rest:client",
         "responseMapping" : {
           "out.userGenerated" : "result"
         },
         "bodyObjectCode" : "param = in.myPost;",
-        "resultType" : "com.typicode.jsonplaceholder.User",
-        "bodyInputType" : "ENTITY",
-        "responseCode" : "ivy.log.info(\"got user = \"+result);"
+        "resultType" : "com.typicode.jsonplaceholder.User"
       },
       "visual" : {
         "at" : { "x" : 415, "y" : 512 },

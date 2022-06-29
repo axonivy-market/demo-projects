@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.11",
+  "format" : "9.4.12",
   "id" : "16F375741231763F",
   "data" : "com.axonivy.connectivity.rest.OpenApiData",
   "elements" : [ {
@@ -128,14 +128,15 @@
         "(programmatic)"
       ],
       "config" : {
-        "path" : "/pet/{petId}/uploadImage",
         "clientId" : "ae69ba01-79b7-4dce-9049-900f8f420907",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "JAX_RS",
         "queryParams" : {
           "additionalMetadata" : "\"Ivy is everywhere\""
         },
         "statusErrorCode" : "ivy:error:rest:client",
+        "bodyInputType" : "RAW",
+        "path" : "/pet/{petId}/uploadImage",
+        "clientErrorCode" : "ivy:error:rest:client",
         "clientCode" : [
           "import com.axonivy.connectivity.rest.client.file.FileUpload;",
           "import io.swagger.petstore3.client.Pet;",
@@ -153,7 +154,6 @@
           "petId" : "in.pets.get(0).getId()"
         },
         "resultType" : "io.swagger.petstore3.client.ApiResponse",
-        "bodyInputType" : "RAW",
         "bodyMediaType" : "application/octet-stream"
       },
       "visual" : {

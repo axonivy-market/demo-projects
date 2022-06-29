@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.11",
+  "format" : "9.4.12",
   "id" : "15254DC87A1B183B",
   "data" : "workflow.humantask.ProcurementRequest",
   "elements" : [ {
@@ -184,8 +184,8 @@
       "name" : "Notify Requester",
       "config" : {
         "headers" : {
-          "emailFrom" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>",
           "emailSubject" : "<%=ivy.cms.co(\"/Emails/yourRequestHasBeen\")%> <%=(in.accepted ? ivy.cms.co(\"/Emails/accepted\") : ivy.cms.co(\"/Emails/declined\"))%>: <%=in.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%>  '<%=in.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in.totalPrice%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/currencySymbol\")%>",
+          "emailFrom" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>",
           "emailTo" : "<%=in.requester.email%>"
         },
         "message" : [

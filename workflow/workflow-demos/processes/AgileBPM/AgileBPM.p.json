@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.11",
+  "format" : "9.4.12",
   "id" : "15255056043EE914",
   "data" : "workflow.agileBPM.Data",
   "elements" : [ {
@@ -344,8 +344,8 @@
           "name" : "send Mail",
           "config" : {
             "headers" : {
-              "emailFrom" : "noreply@ivyserver.local",
               "emailSubject" : "<%=in.caseInfo.kind%> <%=in.caseInfo.subject%>",
+              "emailFrom" : "noreply@ivyserver.local",
               "emailTo" : "<%=ivy.case.getCreatorUser().getEMailAddress()%>"
             },
             "message" : [
