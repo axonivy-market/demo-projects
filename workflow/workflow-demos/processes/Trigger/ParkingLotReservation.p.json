@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.12",
+  "format" : "9.4.13",
   "id" : "15254CF47A16DEA1",
   "data" : "workflow.trigger.NewEmployeeData",
   "elements" : [ {
@@ -74,9 +74,9 @@
       "name" : "Inform employee",
       "config" : {
         "headers" : {
+          "emailTo" : "<%=in.email%>",
           "emailSubject" : "<%=ivy.cms.co(\"/Emails/parkingLotReservationHeader\")%>",
-          "emailFrom" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>",
-          "emailTo" : "<%=in.email%>"
+          "emailFrom" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>"
         },
         "message" : [
           " <html> ",

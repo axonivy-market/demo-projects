@@ -1,0 +1,19 @@
+# == Custom Fields Information ==
+# 
+# You can define here your project custom fields.
+#
+CustomFields:
+  Tasks:
+  #   MyTaskCustomField:
+  #      label: My task custom field
+  #      description: This new task custom field can be used to ...
+  #      type: STRING        
+  Cases:
+  #   MyCaseCustomField:
+  #      label: My case custom field
+  #      description: This new case custom field can be used to ...
+  #      type: STRING        
+  Starts:
+#   MyStartCustomField:
+#      label: My start custom field
+#      description: This new start custom field can be used to ...
