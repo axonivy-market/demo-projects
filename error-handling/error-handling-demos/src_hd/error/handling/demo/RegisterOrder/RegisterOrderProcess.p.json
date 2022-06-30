@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.12",
+  "format" : "9.4.14",
   "id" : "14ECFEF3BADB5A9E",
   "data" : "error.handling.demo.RegisterOrder.RegisterOrderData",
   "kind" : "HTML_DIALOG",
@@ -60,7 +60,7 @@
       "config" : {
         "query" : {
           "kind" : "read",
-          "xml" : "<SELECT><Table name='STOCK'/></SELECT>"
+          "table" : "STOCK"
         },
         "output" : {
           "code" : [
