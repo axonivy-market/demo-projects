@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.14",
+  "format" : "9.4.15",
   "id" : "15254CF1CE56AE72",
   "data" : "workflow.trigger.NewEmployeeData",
   "elements" : [ {
@@ -89,8 +89,8 @@
       "config" : {
         "headers" : {
           "emailTo" : "<%=in.email%>",
-          "emailSubject" : "<%=ivy.cms.co(\"/Emails/welcomeHeader\")%> <%=in.name%>!",
-          "emailFrom" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>"
+          "emailFrom" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>",
+          "emailSubject" : "<%=ivy.cms.co(\"/Emails/welcomeHeader\")%> <%=in.name%>!"
         },
         "message" : [
           " <html> ",
