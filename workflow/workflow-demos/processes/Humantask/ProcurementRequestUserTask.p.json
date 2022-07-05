@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.14",
+  "format" : "9.4.15",
   "id" : "15254DCE818AD7A2",
   "data" : "workflow.humantask.ProcurementRequest",
   "elements" : [ {
@@ -132,8 +132,8 @@
       "config" : {
         "headers" : {
           "emailTo" : "<%=in.requester.email%>",
-          "emailSubject" : "<%=ivy.cms.co(\"/Emails/yourRequestHasBeen\")%> <%=(in.accepted ? ivy.cms.co(\"/Emails/accepted\") : ivy.cms.co(\"/Emails/declined\"))%>: <%=in.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> '<%=in.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in.totalPrice%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/currencySymbol\")%>",
-          "emailFrom" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>"
+          "emailFrom" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>",
+          "emailSubject" : "<%=ivy.cms.co(\"/Emails/yourRequestHasBeen\")%> <%=(in.accepted ? ivy.cms.co(\"/Emails/accepted\") : ivy.cms.co(\"/Emails/declined\"))%>: <%=in.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> '<%=in.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in.totalPrice%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/currencySymbol\")%>"
         },
         "message" : [
           " <html> ",
