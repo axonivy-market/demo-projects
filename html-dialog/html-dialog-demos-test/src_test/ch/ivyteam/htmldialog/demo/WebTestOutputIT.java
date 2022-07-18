@@ -21,6 +21,7 @@ import com.axonivy.ivy.webtest.primeui.PrimeUi;
 import com.axonivy.ivy.webtest.primeui.widget.SelectManyCheckbox;
 import com.axonivy.ivy.webtest.primeui.widget.SelectOneMenu;
 import com.axonivy.ivy.webtest.primeui.widget.Table;
+import com.codeborne.selenide.Selenide;
 
 @IvyWebTest
 class WebTestOutputIT
@@ -226,6 +227,16 @@ class WebTestOutputIT
     $(By.id("form:upload")).click();
     $(By.id("form:doclink")).shouldHave(text(tempFile.getName()));
     $(By.id("form:viewer")).shouldBe(visible);
+  }
+
+  @Test
+  void barcode()
+  {
+    startProcess("145D180807C60B4B/BarcodeDemo.ivp");
+    var element = $(By.id("qr")).shouldBe(visible);
+    Selenide.open(element.getAttribute("src"));
+    $(By.tagName("svg")).shouldBe(visible);
+    $(By.tagName("path")).shouldBe(visible);
   }
 
   private void clearInput(By inputLocator)
