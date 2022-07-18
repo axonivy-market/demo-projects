@@ -472,5 +472,41 @@
         "labelOffset" : { "x" : -64, "y" : 24 }
       },
       "connect" : { "id" : "f53", "to" : "f51" }
+    }, {
+      "id" : "f55",
+      "type" : "RequestStart",
+      "name" : "BarcodeDemo.ivp",
+      "config" : {
+        "callSignature" : "BarcodeDemo",
+        "startCategory" : "output",
+        "outLink" : "BarcodeDemo.ivp",
+        "startCustomFields" : [
+          { "name" : "cssIcon", "value" : "fa fa-barcode" },
+          { "name" : "embedInFrame", "value" : "false" }
+        ],
+        "startName" : "Barcode Demo"
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 1304 },
+        "labelOffset" : { "x" : -23, "y" : 17 }
+      },
+      "connect" : { "id" : "f58", "to" : "f57" }
+    }, {
+      "id" : "f56",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 1304 }
+      }
+    }, {
+      "id" : "f57",
+      "type" : "DialogCall",
+      "config" : {
+        "dialogId" : "ch.ivyteam.htmldialog.demo.output.BarcodeDemo",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 1304 }
+      },
+      "connect" : { "id" : "f59", "to" : "f56" }
     } ]
 }

@@ -1,0 +1,6 @@
+BarcodeDemoData #class
+ch.ivyteam.htmldialog.demo.output.BarcodeDemo #namespace
+url String #field
+url PERSISTENT #fieldModifier
+code String #field
+code PERSISTENT #fieldModifier
