@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "16249376A44F1F8E",
   "data" : "com.axonivy.connectivity.soap.service.CreateOrderServiceData",
   "elements" : [ {
@@ -59,8 +59,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 448, "y" : 64 },
-        "labelOffset" : { "x" : -39, "y" : -8 }
+        "at" : { "x" : 448, "y" : 64 }
       },
       "boundaries" : [ {
           "id" : "f5",
@@ -87,8 +86,7 @@
       "type" : "EMail",
       "name" : "inform requester",
       "visual" : {
-        "at" : { "x" : 624, "y" : 192 },
-        "labelOffset" : { "x" : -45, "y" : -8 }
+        "at" : { "x" : 624, "y" : 192 }
       },
       "connect" : { "id" : "f8", "to" : "f7" }
     }, {
@@ -105,8 +103,7 @@
       },
       "visual" : {
         "at" : { "x" : 624, "y" : 64 },
-        "size" : { "width" : 128, "height" : 44 },
-        "labelOffset" : { "x" : -44, "y" : -16 }
+        "size" : { "width" : 128, "height" : 44 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {

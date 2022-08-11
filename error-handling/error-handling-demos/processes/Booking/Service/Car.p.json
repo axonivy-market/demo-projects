@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "1500483191BD4791",
   "data" : "booking.HertzData",
   "kind" : "CALLABLE_SUB",
@@ -39,8 +39,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 64 },
-        "labelOffset" : { "x" : -43, "y" : -8 }
+        "at" : { "x" : 224, "y" : 64 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     } ]

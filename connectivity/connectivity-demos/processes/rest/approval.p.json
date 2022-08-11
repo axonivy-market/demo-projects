@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "1549FE9E911A1812",
   "data" : "com.axonivy.connectivity.rest.Approval",
   "elements" : [ {
@@ -45,8 +45,7 @@
       "name" : "private start: only triggerable!",
       "visual" : {
         "at" : { "x" : 248, "y" : 280 },
-        "size" : { "width" : 160, "height" : 30 },
-        "labelOffset" : { "x" : -77, "y" : -8 }
+        "size" : { "width" : 160, "height" : 30 }
       },
       "connect" : { "id" : "f4", "to" : "f0", "via" : [ { "x" : 128, "y" : 264 } ] }
     }, {
@@ -93,8 +92,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 256, "y" : 224 },
-        "labelOffset" : { "x" : -42, "y" : -8 }
+        "at" : { "x" : 256, "y" : 224 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {
@@ -106,8 +104,7 @@
       ],
       "visual" : {
         "at" : { "x" : 224, "y" : 40 },
-        "size" : { "width" : 224, "height" : 44 },
-        "labelOffset" : { "x" : -106, "y" : -16 }
+        "size" : { "width" : 224, "height" : 44 }
       },
       "connect" : { "id" : "f13", "to" : "f5", "via" : [ { "x" : 128, "y" : 88 } ] }
     }, {
@@ -139,8 +136,7 @@
       },
       "visual" : {
         "at" : { "x" : 256, "y" : 128 },
-        "size" : { "width" : 128, "height" : 44 },
-        "labelOffset" : { "x" : -41, "y" : -16 }
+        "size" : { "width" : 128, "height" : 44 }
       },
       "connect" : { "id" : "f8", "to" : "f6" }
     } ],

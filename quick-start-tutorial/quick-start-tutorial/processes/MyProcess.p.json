@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "148655DDB7BB6588",
   "data" : "quickStartTutorial.Data",
   "elements" : [ {
@@ -43,8 +43,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 64 },
-        "labelOffset" : { "x" : -37, "y" : -8 }
+        "at" : { "x" : 224, "y" : 64 }
       },
       "connect" : { "id" : "f6", "to" : "f5" }
     }, {

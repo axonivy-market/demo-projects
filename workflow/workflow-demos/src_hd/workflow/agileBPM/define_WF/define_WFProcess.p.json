@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "1525503525CD0CCC",
   "data" : "workflow.agileBPM.define_WF.define_WFData",
   "kind" : "HTML_DIALOG",
@@ -94,8 +94,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 176, "y" : 160 },
-        "labelOffset" : { "x" : -32, "y" : -8 }
+        "at" : { "x" : 176, "y" : 160 }
       },
       "connect" : { "id" : "f23", "to" : "f22" }
     }, {
@@ -131,8 +130,7 @@
       },
       "visual" : {
         "at" : { "x" : 176, "y" : 256 },
-        "size" : { "width" : 128, "height" : 44 },
-        "labelOffset" : { "x" : -56, "y" : -8 }
+        "size" : { "width" : 128, "height" : 44 }
       },
       "connect" : { "id" : "f10", "to" : "f9" }
     }, {
@@ -202,8 +200,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 176, "y" : 64 },
-        "labelOffset" : { "x" : -8, "y" : -8 }
+        "at" : { "x" : 176, "y" : 64 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {
@@ -286,8 +283,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 176, "y" : 328 },
-        "labelOffset" : { "x" : -44, "y" : -8 }
+        "at" : { "x" : 176, "y" : 328 }
       },
       "connect" : { "id" : "f20", "to" : "f17" }
     }, {
@@ -344,8 +340,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 416, "y" : 112 },
-        "labelOffset" : { "x" : -27, "y" : -8 }
+        "at" : { "x" : 416, "y" : 112 }
       },
       "connect" : { "id" : "f25", "to" : "f24" }
     }, {
@@ -376,8 +371,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 176, "y" : 480 },
-        "labelOffset" : { "x" : -23, "y" : -8 }
+        "at" : { "x" : 176, "y" : 480 }
       },
       "connect" : { "id" : "f31", "to" : "f30" }
     }, {
@@ -422,8 +416,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 176, "y" : 576 },
-        "labelOffset" : { "x" : -36, "y" : -8 }
+        "at" : { "x" : 176, "y" : 576 }
       },
       "connect" : { "id" : "f36", "to" : "f35" }
     }, {
@@ -447,8 +440,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 176, "y" : 672 },
-        "labelOffset" : { "x" : -25, "y" : -8 }
+        "at" : { "x" : 176, "y" : 672 }
       },
       "connect" : { "id" : "f43", "to" : "f40" }
     }, {

@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "13D39CF289ACE89B",
   "data" : "ch.ivyteam.htmldialog.primefaces.Primefaces.PrimefacesData",
   "kind" : "HTML_DIALOG",
@@ -36,8 +36,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 160 },
-        "labelOffset" : { "x" : -31, "y" : -8 }
+        "at" : { "x" : 224, "y" : 160 }
       },
       "connect" : { "id" : "f4", "to" : "f6" }
     }, {

@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "16778F324326C1FA",
   "data" : "com.axonivy.connectivity.rest.AsyncUiInvoker.AsyncUiInvokerData",
   "kind" : "HTML_DIALOG",
@@ -52,8 +52,7 @@
       ],
       "visual" : {
         "at" : { "x" : 280, "y" : 280 },
-        "size" : { "width" : 432, "height" : 108 },
-        "labelOffset" : { "x" : -210, "y" : -50 }
+        "size" : { "width" : 432, "height" : 108 }
       }
     }, {
       "id" : "f7",
@@ -67,8 +66,7 @@
       ],
       "visual" : {
         "at" : { "x" : 272, "y" : 400 },
-        "size" : { "width" : 416, "height" : 92 },
-        "labelOffset" : { "x" : -202, "y" : -42 }
+        "size" : { "width" : 416, "height" : 92 }
       }
     } ]
 }

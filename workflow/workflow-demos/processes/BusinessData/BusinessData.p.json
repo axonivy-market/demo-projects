@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "155BB4328F79B2D5",
   "data" : "workflow.businessdata.Data",
   "elements" : [ {
@@ -163,8 +163,7 @@
       ],
       "visual" : {
         "at" : { "x" : 256, "y" : 48 },
-        "size" : { "width" : 384, "height" : 60 },
-        "labelOffset" : { "x" : -187, "y" : -24 }
+        "size" : { "width" : 384, "height" : 60 }
       }
     }, {
       "id" : "f3",
@@ -198,8 +197,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 160 },
-        "labelOffset" : { "x" : -42, "y" : -8 }
+        "at" : { "x" : 224, "y" : 160 }
       },
       "connect" : { "id" : "f13", "to" : "f11" }
     }, {
@@ -289,8 +287,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 228, "y" : 512 },
-        "labelOffset" : { "x" : -42, "y" : -8 }
+        "at" : { "x" : 228, "y" : 512 }
       },
       "connect" : { "id" : "f21", "to" : "f8" }
     } ]

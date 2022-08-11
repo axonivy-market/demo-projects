@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "156DB84CCE78254F",
   "data" : "workflow.businessdata.Data",
   "elements" : [ {
@@ -93,8 +93,7 @@
       },
       "visual" : {
         "at" : { "x" : 464, "y" : 320 },
-        "size" : { "width" : 128, "height" : 44 },
-        "labelOffset" : { "x" : -41, "y" : -16 }
+        "size" : { "width" : 128, "height" : 44 }
       },
       "connect" : { "id" : "f13", "to" : "f1", "via" : [ { "x" : 576, "y" : 320 } ], "var" : "in2" }
     }, {
@@ -117,8 +116,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 464, "y" : 448 },
-        "labelOffset" : { "x" : -23, "y" : -16 }
+        "at" : { "x" : 464, "y" : 448 }
       },
       "connect" : { "id" : "f12", "to" : "f1", "via" : [ { "x" : 576, "y" : 448 } ], "var" : "in1" }
     }, {
@@ -147,8 +145,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 688, "y" : 384 },
-        "labelOffset" : { "x" : -36, "y" : -16 }
+        "at" : { "x" : 688, "y" : 384 }
       },
       "connect" : { "id" : "f15", "to" : "f8" }
     }, {
@@ -162,8 +159,7 @@
       ],
       "visual" : {
         "at" : { "x" : 240, "y" : 576 },
-        "size" : { "width" : 352, "height" : 76 },
-        "labelOffset" : { "x" : -171, "y" : -32 }
+        "size" : { "width" : 352, "height" : 76 }
       }
     }, {
       "id" : "f18",
@@ -180,8 +176,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 384 },
-        "labelOffset" : { "x" : -43, "y" : -8 }
+        "at" : { "x" : 224, "y" : 384 }
       },
       "connect" : { "id" : "f5", "to" : "f2", "var" : "in1" }
     }, {
@@ -202,8 +197,7 @@
       ],
       "visual" : {
         "at" : { "x" : 304, "y" : 120 },
-        "size" : { "width" : 480, "height" : 204 },
-        "labelOffset" : { "x" : -232, "y" : -96 }
+        "size" : { "width" : 480, "height" : 204 }
       }
     }, {
       "id" : "f19",
@@ -211,8 +205,7 @@
       "name" : "partial *overwrite* Business Data",
       "visual" : {
         "at" : { "x" : 600, "y" : 272 },
-        "size" : { "width" : 176, "height" : 30 },
-        "labelOffset" : { "x" : -85, "y" : -8 }
+        "size" : { "width" : 176, "height" : 30 }
       },
       "connect" : { "id" : "f20", "to" : "f6" }
     }, {
@@ -221,8 +214,7 @@
       "name" : "*reload Business Data *when necessary",
       "visual" : {
         "at" : { "x" : 608, "y" : 504 },
-        "size" : { "width" : 224, "height" : 30 },
-        "labelOffset" : { "x" : -105, "y" : -8 }
+        "size" : { "width" : 224, "height" : 30 }
       },
       "connect" : { "id" : "f22", "to" : "f7" }
     } ]

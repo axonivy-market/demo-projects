@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "1523FF963044280C",
   "data" : "workflow.signal.FacilityManagementData",
   "elements" : [ {
@@ -12,8 +12,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 392, "y" : 296 },
-        "labelOffset" : { "x" : -38, "y" : -8 }
+        "at" : { "x" : 392, "y" : 296 }
       },
       "connect" : { "id" : "f24", "to" : "f23" }
     }, {
@@ -71,8 +70,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 248, "y" : 200 },
-        "labelOffset" : { "x" : -45, "y" : -8 }
+        "at" : { "x" : 248, "y" : 200 }
       },
       "boundaries" : [ {
           "id" : "St0",
@@ -110,8 +108,7 @@
       ],
       "visual" : {
         "at" : { "x" : 392, "y" : 136 },
-        "size" : { "width" : 496, "height" : 44 },
-        "labelOffset" : { "x" : -238, "y" : -16 }
+        "size" : { "width" : 496, "height" : 44 }
       },
       "connect" : { "id" : "f1", "to" : "f28" }
     }, {
@@ -120,8 +117,7 @@
       "name" : "This process is part of the signal demo process. It is started by a signal sent from the CreateUser process.",
       "visual" : {
         "at" : { "x" : 356, "y" : 48 },
-        "size" : { "width" : 592, "height" : 30 },
-        "labelOffset" : { "x" : -293, "y" : -8 }
+        "size" : { "width" : 592, "height" : 30 }
       }
     } ],
   "layout" : {

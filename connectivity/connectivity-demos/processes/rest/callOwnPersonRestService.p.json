@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "154616078A1D629D",
   "data" : "com.axonivy.connectivity.Data",
   "elements" : [ {
@@ -69,8 +69,7 @@
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 272 },
-        "size" : { "width" : 112, "height" : 48 },
-        "labelOffset" : { "x" : -32, "y" : -17 }
+        "size" : { "width" : 112, "height" : 48 }
       },
       "connect" : { "id" : "f7", "to" : "f6" }
     }, {
@@ -82,8 +81,7 @@
       ],
       "visual" : {
         "at" : { "x" : 440, "y" : 64 },
-        "size" : { "width" : 192, "height" : 44 },
-        "labelOffset" : { "x" : -87, "y" : -16 }
+        "size" : { "width" : 192, "height" : 44 }
       },
       "connect" : { "id" : "f15", "to" : "f14" }
     }, {
@@ -95,8 +93,7 @@
       ],
       "visual" : {
         "at" : { "x" : 472, "y" : 200 },
-        "size" : { "width" : 256, "height" : 44 },
-        "labelOffset" : { "x" : -121, "y" : -16 }
+        "size" : { "width" : 256, "height" : 44 }
       },
       "connect" : { "id" : "f13", "to" : "f8" }
     }, {
@@ -118,8 +115,7 @@
         "responseCode" : "ivy.log.info(result);"
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 128 },
-        "labelOffset" : { "x" : -52, "y" : -8 }
+        "at" : { "x" : 224, "y" : 128 }
       },
       "connect" : { "id" : "f4", "to" : "f1" }
     }, {

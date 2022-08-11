@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "150047A1589EB0D8",
   "data" : "booking.BookingData",
   "elements" : [ {
@@ -49,8 +49,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 168, "y" : 128 },
-        "labelOffset" : { "x" : -28, "y" : -16 }
+        "at" : { "x" : 168, "y" : 128 }
       },
       "connect" : { "id" : "f6", "to" : "f5" }
     }, {
@@ -67,8 +66,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 320, "y" : 128 },
-        "labelOffset" : { "x" : -28, "y" : -8 }
+        "at" : { "x" : 320, "y" : 128 }
       },
       "boundaries" : [ {
           "id" : "Et0",
@@ -97,8 +95,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 480, "y" : 128 },
-        "labelOffset" : { "x" : -23, "y" : -8 }
+        "at" : { "x" : 480, "y" : 128 }
       },
       "boundaries" : [ {
           "id" : "Et1",
@@ -143,7 +140,6 @@
       },
       "visual" : {
         "at" : { "x" : 512, "y" : 232 },
-        "labelOffset" : { "x" : -32, "y" : -20 },
         "description" : "compensate already booked flight"
       },
       "connect" : { "id" : "f13", "to" : "f9", "via" : [ { "x" : 752, "y" : 232 } ] }
@@ -162,8 +158,7 @@
         "message" : "..."
       },
       "visual" : {
-        "at" : { "x" : 632, "y" : 128 },
-        "labelOffset" : { "x" : -34, "y" : -16 }
+        "at" : { "x" : 632, "y" : 128 }
       },
       "connect" : { "id" : "f15", "to" : "f14" }
     }, {
@@ -177,7 +172,6 @@
       "visual" : {
         "at" : { "x" : 232, "y" : 48 },
         "size" : { "width" : 336, "height" : 60 },
-        "labelOffset" : { "x" : -158, "y" : -26 },
         "color" : "NodeStyle3"
       }
     }, {

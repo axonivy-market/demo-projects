@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "15AEFE76879218F9",
   "data" : "ch.ivyteam.htmldialog.demo.output.LazyLoadingDemo.LazyLoadingDemoData",
   "kind" : "HTML_DIALOG",
@@ -57,8 +57,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 64 },
-        "labelOffset" : { "x" : -39, "y" : -8 }
+        "at" : { "x" : 224, "y" : 64 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     } ]

@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "153D1CC01F460F8B",
   "data" : "ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData",
   "kind" : "HTML_DIALOG",
@@ -73,8 +73,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 64 },
-        "labelOffset" : { "x" : -26, "y" : -8 }
+        "at" : { "x" : 224, "y" : 64 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {
@@ -103,8 +102,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 256 },
-        "labelOffset" : { "x" : -10, "y" : -8 }
+        "at" : { "x" : 224, "y" : 256 }
       },
       "connect" : { "id" : "f10", "to" : "f9" }
     }, {
