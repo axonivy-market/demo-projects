@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "153EAAA7649F85DA",
   "data" : "rule.engine.demo.Data",
   "elements" : [ {
@@ -38,8 +38,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 208, "y" : 152 },
-        "labelOffset" : { "x" : -53, "y" : -8 }
+        "at" : { "x" : 208, "y" : 152 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {
@@ -77,8 +76,7 @@
       },
       "visual" : {
         "at" : { "x" : 208, "y" : 280 },
-        "size" : { "width" : 128, "height" : 44 },
-        "labelOffset" : { "x" : -46, "y" : -16 }
+        "size" : { "width" : 128, "height" : 44 }
       },
       "connect" : { "id" : "f8", "to" : "f5" }
     }, {
@@ -87,8 +85,7 @@
       "name" : "This demo explains how to use the Rule Engine to execute the rules from DRL files, decision tables (XLS) and DMN models.",
       "visual" : {
         "at" : { "x" : 392, "y" : 56 },
-        "size" : { "width" : 688, "height" : 30 },
-        "labelOffset" : { "x" : -339, "y" : -8 }
+        "size" : { "width" : 688, "height" : 30 }
       }
     } ]
 }

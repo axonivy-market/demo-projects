@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "13F613EA00B31DDD",
   "data" : "ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo.SelectManyCheckboxDemoData",
   "kind" : "HTML_DIALOG",
@@ -36,8 +36,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 256, "y" : 128 },
-        "labelOffset" : { "x" : -32, "y" : -8 }
+        "at" : { "x" : 256, "y" : 128 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {

@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "14ED397D47F3083D",
   "data" : "error.handling.demo.Approval",
   "elements" : [ {
@@ -40,7 +40,6 @@
       "visual" : {
         "at" : { "x" : 248, "y" : 56 },
         "size" : { "width" : 336, "height" : 44 },
-        "labelOffset" : { "x" : -163, "y" : -19 },
         "color" : "NodeStyle3"
       }
     }, {
@@ -60,8 +59,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 192 },
-        "labelOffset" : { "x" : -39, "y" : -8 }
+        "at" : { "x" : 224, "y" : 192 }
       },
       "connect" : { "id" : "f14", "to" : "f11", "via" : [ { "x" : 224, "y" : 384 } ], "condition" : "ivp==\"TaskA.ivp\"", "var" : "in1" }
     }, {
@@ -87,8 +85,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 392, "y" : 384 },
-        "labelOffset" : { "x" : -22, "y" : -8 }
+        "at" : { "x" : 392, "y" : 384 }
       },
       "boundaries" : [ {
           "id" : "Et0",
@@ -130,8 +127,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 640, "y" : 256 },
-        "labelOffset" : { "x" : -48, "y" : -8 }
+        "at" : { "x" : 640, "y" : 256 }
       },
       "connect" : { "id" : "f15", "to" : "f1", "condition" : "ivp==\"TaskA.ivp\"" }
     }, {
@@ -157,8 +153,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 640, "y" : 192 },
-        "labelOffset" : { "x" : -46, "y" : -8 }
+        "at" : { "x" : 640, "y" : 192 }
       },
       "connect" : { "id" : "f10", "to" : "f6", "condition" : "ivp==\"TaskA.ivp\"" }
     } ],

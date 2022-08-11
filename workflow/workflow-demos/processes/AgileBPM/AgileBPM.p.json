@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "15255056043EE914",
   "data" : "workflow.agileBPM.Data",
   "elements" : [ {
@@ -67,8 +67,7 @@
                 }
               },
               "visual" : {
-                "at" : { "x" : 600, "y" : 264 },
-                "labelOffset" : { "x" : -26, "y" : -8 }
+                "at" : { "x" : 600, "y" : 264 }
               },
               "connect" : { "id" : "1b0-S10-f16", "to" : "1b0-S10-f4", "via" : [ { "x" : 736, "y" : 264 } ], "var" : "in2" }
             }, {
@@ -235,8 +234,7 @@
                 }
               },
               "visual" : {
-                "at" : { "x" : 168, "y" : 160 },
-                "labelOffset" : { "x" : -8, "y" : -8 }
+                "at" : { "x" : 168, "y" : 160 }
               },
               "connect" : { "id" : "1b0-S10-f7", "to" : "1b0-S10-f6" }
             }, {
@@ -253,8 +251,7 @@
                 }
               },
               "visual" : {
-                "at" : { "x" : 392, "y" : 88 },
-                "labelOffset" : { "x" : -9, "y" : -8 }
+                "at" : { "x" : 392, "y" : 88 }
               },
               "connect" : { "id" : "1b0-S10-f13", "to" : "1b0-S10-f6", "via" : [ { "x" : 280, "y" : 88 } ] }
             }, {
@@ -270,8 +267,7 @@
                 }
               },
               "visual" : {
-                "at" : { "x" : 768, "y" : 88 },
-                "labelOffset" : { "x" : -10, "y" : -8 }
+                "at" : { "x" : 768, "y" : 88 }
               },
               "connect" : { "id" : "1b0-S10-f19", "to" : "1b0-S10-f14", "via" : [ { "x" : 680, "y" : 88 } ] }
             } ],
@@ -334,8 +330,7 @@
           },
           "visual" : {
             "at" : { "x" : 272, "y" : 224 },
-            "size" : { "width" : 104, "height" : 40 },
-            "labelOffset" : { "x" : -24, "y" : -8 }
+            "size" : { "width" : 104, "height" : 40 }
           },
           "connect" : { "id" : "1b0-f10", "to" : "1b0-f8" }
         }, {
@@ -375,8 +370,7 @@
             "contentType" : "text/html"
           },
           "visual" : {
-            "at" : { "x" : 736, "y" : 320 },
-            "labelOffset" : { "x" : -26, "y" : -8 }
+            "at" : { "x" : 736, "y" : 320 }
           },
           "connect" : { "id" : "1b0-f16", "to" : "1b0-f6", "via" : [ { "x" : 840, "y" : 320 }, { "x" : 840, "y" : 144 }, { "x" : 128, "y" : 144 } ] }
         }, {
@@ -443,8 +437,7 @@
             }
           },
           "visual" : {
-            "at" : { "x" : 576, "y" : 320 },
-            "labelOffset" : { "x" : -28, "y" : -8 }
+            "at" : { "x" : 576, "y" : 320 }
           },
           "connect" : { "id" : "1b0-f15", "to" : "1b0-f3" }
         } ],
@@ -505,8 +498,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 192 },
-        "labelOffset" : { "x" : -47, "y" : -8 }
+        "at" : { "x" : 224, "y" : 192 }
       },
       "connect" : { "id" : "f6", "to" : "f5" }
     }, {
@@ -553,8 +545,7 @@
       "name" : "Self Service Process: Launch an ad-hoc Workflow based on a predefined flow pattern.",
       "visual" : {
         "at" : { "x" : 304, "y" : 48 },
-        "size" : { "width" : 480, "height" : 30 },
-        "labelOffset" : { "x" : -233, "y" : -8 }
+        "size" : { "width" : 480, "height" : 30 }
       }
     } ],
   "layout" : {

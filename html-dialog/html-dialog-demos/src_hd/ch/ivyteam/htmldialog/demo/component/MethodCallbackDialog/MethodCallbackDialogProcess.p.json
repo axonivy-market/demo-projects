@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "13EF083D130E971B",
   "data" : "ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData",
   "kind" : "HTML_DIALOG",
@@ -64,8 +64,7 @@
       },
       "visual" : {
         "at" : { "x" : 264, "y" : 64 },
-        "size" : { "width" : 128, "height" : 44 },
-        "labelOffset" : { "x" : -42, "y" : -16 }
+        "size" : { "width" : 128, "height" : 44 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {

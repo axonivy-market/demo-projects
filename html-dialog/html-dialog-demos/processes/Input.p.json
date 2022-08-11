@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "145D18298A3E81CF",
   "data" : "htmlDialogDemos.Data",
   "elements" : [ {
@@ -78,8 +78,7 @@
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 64 },
-        "size" : { "width" : 144, "height" : 44 },
-        "labelOffset" : { "x" : -52, "y" : -16 }
+        "size" : { "width" : 144, "height" : 44 }
       },
       "connect" : { "id" : "f18", "to" : "f17" }
     }, {

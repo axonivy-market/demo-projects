@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "15A5AC9A4F755A3B",
   "data" : "workflow.humantask.Data",
   "elements" : [ {
@@ -45,8 +45,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 528, "y" : 64 },
-        "labelOffset" : { "x" : -25, "y" : -8 }
+        "at" : { "x" : 528, "y" : 64 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {
@@ -72,8 +71,7 @@
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 64 },
-        "size" : { "width" : 144, "height" : 44 },
-        "labelOffset" : { "x" : -68, "y" : -8 }
+        "size" : { "width" : 144, "height" : 44 }
       },
       "connect" : { "id" : "f6", "to" : "f5" }
     } ]

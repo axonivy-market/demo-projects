@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "152551002ABB8DFE",
   "data" : "workflow.agileBPM.Data",
   "elements" : [ {
@@ -35,13 +35,11 @@
           "name" : "Dummy-Subprocess",
           "visual" : {
             "at" : { "x" : 88, "y" : 176 },
-            "size" : { "width" : 128, "height" : 30 },
-            "labelOffset" : { "x" : -57, "y" : -8 }
+            "size" : { "width" : 128, "height" : 30 }
           }
         } ],
       "visual" : {
         "at" : { "x" : 360, "y" : 216 },
-        "labelOffset" : { "x" : -28, "y" : -16 },
         "color" : "NodeStyle2"
       }
     }, {
@@ -92,13 +90,11 @@
           "name" : "Dummy-Subprocess",
           "visual" : {
             "at" : { "x" : 96, "y" : 192 },
-            "size" : { "width" : 128, "height" : 30 },
-            "labelOffset" : { "x" : -57, "y" : -8 }
+            "size" : { "width" : 128, "height" : 30 }
           }
         } ],
       "visual" : {
-        "at" : { "x" : 352, "y" : 208 },
-        "labelOffset" : { "x" : -28, "y" : -16 }
+        "at" : { "x" : 352, "y" : 208 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {
@@ -118,8 +114,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 208, "y" : 208 },
-        "labelOffset" : { "x" : -39, "y" : -16 }
+        "at" : { "x" : 208, "y" : 208 }
       },
       "connect" : { "id" : "f3", "to" : "U10" }
     }, {
@@ -148,14 +143,12 @@
           "name" : "Dummy-Subprocess",
           "visual" : {
             "at" : { "x" : 104, "y" : 176 },
-            "size" : { "width" : 128, "height" : 30 },
-            "labelOffset" : { "x" : -57, "y" : -8 }
+            "size" : { "width" : 128, "height" : 30 }
           }
         } ],
       "visual" : {
         "at" : { "x" : 384, "y" : 448 },
-        "size" : { "width" : 128, "height" : 44 },
-        "labelOffset" : { "x" : -43, "y" : -16 }
+        "size" : { "width" : 128, "height" : 44 }
       }
     }, {
       "id" : "f4",
@@ -199,13 +192,11 @@
           "name" : "Dummy-Subprocess",
           "visual" : {
             "at" : { "x" : 128, "y" : 208 },
-            "size" : { "width" : 128, "height" : 30 },
-            "labelOffset" : { "x" : -57, "y" : -8 }
+            "size" : { "width" : 128, "height" : 30 }
           }
         } ],
       "visual" : {
-        "at" : { "x" : 552, "y" : 440 },
-        "labelOffset" : { "x" : -36, "y" : -16 }
+        "at" : { "x" : 552, "y" : 440 }
       },
       "connect" : { "id" : "f25", "to" : "f24" }
     }, {
@@ -226,8 +217,7 @@
       },
       "visual" : {
         "at" : { "x" : 216, "y" : 440 },
-        "size" : { "width" : 128, "height" : 44 },
-        "labelOffset" : { "x" : -40, "y" : -16 }
+        "size" : { "width" : 128, "height" : 44 }
       },
       "connect" : { "id" : "f12", "to" : "U21" }
     }, {
@@ -275,14 +265,12 @@
           "name" : "Dummy-Subprocess",
           "visual" : {
             "at" : { "x" : 120, "y" : 200 },
-            "size" : { "width" : 128, "height" : 30 },
-            "labelOffset" : { "x" : -57, "y" : -8 }
+            "size" : { "width" : 128, "height" : 30 }
           }
         } ],
       "visual" : {
         "at" : { "x" : 376, "y" : 440 },
-        "size" : { "width" : 128, "height" : 44 },
-        "labelOffset" : { "x" : -43, "y" : -16 }
+        "size" : { "width" : 128, "height" : 44 }
       },
       "connect" : { "id" : "f9", "to" : "U11" }
     }, {
@@ -297,8 +285,7 @@
       "name" : "**ToDo**",
       "visual" : {
         "at" : { "x" : 40, "y" : 168 },
-        "size" : { "width" : 48, "height" : 30 },
-        "labelOffset" : { "x" : -14, "y" : -8 }
+        "size" : { "width" : 48, "height" : 30 }
       }
     }, {
       "id" : "f14",
@@ -306,8 +293,7 @@
       "name" : "**Question-Answer**",
       "visual" : {
         "at" : { "x" : 72, "y" : 400 },
-        "size" : { "width" : 112, "height" : 30 },
-        "labelOffset" : { "x" : -49, "y" : -8 }
+        "size" : { "width" : 112, "height" : 30 }
       }
     }, {
       "id" : "U12",
@@ -342,14 +328,12 @@
           "name" : "Dummy-Subprocess",
           "visual" : {
             "at" : { "x" : 88, "y" : 208 },
-            "size" : { "width" : 128, "height" : 30 },
-            "labelOffset" : { "x" : -57, "y" : -8 }
+            "size" : { "width" : 128, "height" : 30 }
           }
         } ],
       "visual" : {
         "at" : { "x" : 376, "y" : 328 },
-        "size" : { "width" : 128, "height" : 44 },
-        "labelOffset" : { "x" : -42, "y" : -16 }
+        "size" : { "width" : 128, "height" : 44 }
       }
     }, {
       "id" : "U13",
@@ -379,14 +363,12 @@
           "name" : "Dummy-Subprocess",
           "visual" : {
             "at" : { "x" : 104, "y" : 184 },
-            "size" : { "width" : 128, "height" : 30 },
-            "labelOffset" : { "x" : -57, "y" : -8 }
+            "size" : { "width" : 128, "height" : 30 }
           }
         } ],
       "visual" : {
         "at" : { "x" : 368, "y" : 320 },
-        "size" : { "width" : 128, "height" : 44 },
-        "labelOffset" : { "x" : -42, "y" : -16 }
+        "size" : { "width" : 128, "height" : 44 }
       },
       "connect" : { "id" : "f19", "to" : "f18" }
     }, {
@@ -420,8 +402,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 208, "y" : 320 },
-        "labelOffset" : { "x" : -39, "y" : -16 }
+        "at" : { "x" : 208, "y" : 320 }
       },
       "connect" : { "id" : "f22", "to" : "U13" }
     }, {
@@ -439,8 +420,7 @@
       ],
       "visual" : {
         "at" : { "x" : 536, "y" : 320 },
-        "size" : { "width" : 128, "height" : 44 },
-        "labelOffset" : { "x" : -41, "y" : -16 }
+        "size" : { "width" : 128, "height" : 44 }
       },
       "connect" : { "id" : "f20", "to" : "f17" }
     }, {
@@ -449,8 +429,7 @@
       "name" : "**Approval**",
       "visual" : {
         "at" : { "x" : 48, "y" : 280 },
-        "size" : { "width" : 64, "height" : 30 },
-        "labelOffset" : { "x" : -25, "y" : -8 }
+        "size" : { "width" : 64, "height" : 30 }
       }
     }, {
       "id" : "f24",
@@ -473,8 +452,7 @@
       ],
       "visual" : {
         "at" : { "x" : 320, "y" : 48 },
-        "size" : { "width" : 512, "height" : 44 },
-        "labelOffset" : { "x" : -246, "y" : -16 }
+        "size" : { "width" : 512, "height" : 44 }
       }
     } ],
   "layout" : {

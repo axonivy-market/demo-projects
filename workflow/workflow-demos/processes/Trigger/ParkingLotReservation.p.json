@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "15254CF47A16DEA1",
   "data" : "workflow.trigger.NewEmployeeData",
   "elements" : [ {
@@ -64,8 +64,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 240, "y" : 264 },
-        "labelOffset" : { "x" : -53, "y" : -8 }
+        "at" : { "x" : 240, "y" : 264 }
       },
       "connect" : { "id" : "f6", "to" : "f5" }
     }, {
@@ -93,8 +92,7 @@
         "exceptionHandler" : ">>"
       },
       "visual" : {
-        "at" : { "x" : 432, "y" : 264 },
-        "labelOffset" : { "x" : -46, "y" : -8 }
+        "at" : { "x" : 432, "y" : 264 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {
@@ -106,8 +104,7 @@
       ],
       "visual" : {
         "at" : { "x" : 208, "y" : 152 },
-        "size" : { "width" : 208, "height" : 44 },
-        "labelOffset" : { "x" : -96, "y" : -16 }
+        "size" : { "width" : 208, "height" : 44 }
       },
       "connect" : { "id" : "f8", "to" : "f0" }
     }, {
@@ -116,8 +113,7 @@
       "name" : "This process can be started by a trigger step. It is part of the Trigger demo case.",
       "visual" : {
         "at" : { "x" : 296, "y" : 48 },
-        "size" : { "width" : 448, "height" : 30 },
-        "labelOffset" : { "x" : -217, "y" : -8 }
+        "size" : { "width" : 448, "height" : 30 }
       }
     } ],
   "layout" : {

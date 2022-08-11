@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "153E9EE0223D1DF9",
   "data" : "rule.engine.demo.DiscountCalculator.DiscountCalculatorData",
   "kind" : "HTML_DIALOG",
@@ -85,8 +85,7 @@
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 448 },
-        "size" : { "width" : 128, "height" : 44 },
-        "labelOffset" : { "x" : -61, "y" : -8 }
+        "size" : { "width" : 128, "height" : 44 }
       },
       "connect" : { "id" : "f17", "to" : "f16" }
     }, {
@@ -98,8 +97,7 @@
       ],
       "visual" : {
         "at" : { "x" : 736, "y" : 448 },
-        "size" : { "width" : 256, "height" : 44 },
-        "labelOffset" : { "x" : -125, "y" : -16 }
+        "size" : { "width" : 256, "height" : 44 }
       }
     }, {
       "id" : "f0",
@@ -147,7 +145,6 @@
       "visual" : {
         "at" : { "x" : 312, "y" : 320 },
         "size" : { "width" : 128, "height" : 44 },
-        "labelOffset" : { "x" : -60, "y" : -8 },
         "description" : [
           "'in.member' is the input object that stores the information of a member.",
           "This object will be modified during the rule execution."
@@ -167,8 +164,7 @@
       ],
       "visual" : {
         "at" : { "x" : 800, "y" : 320 },
-        "size" : { "width" : 384, "height" : 108 },
-        "labelOffset" : { "x" : -182, "y" : -48 }
+        "size" : { "width" : 384, "height" : 108 }
       }
     }, {
       "id" : "f21",
@@ -183,8 +179,7 @@
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 192 },
-        "size" : { "width" : 144, "height" : 44 },
-        "labelOffset" : { "x" : -51, "y" : -16 }
+        "size" : { "width" : 144, "height" : 44 }
       },
       "connect" : { "id" : "f8", "to" : "f4" }
     }, {
@@ -196,8 +191,7 @@
       ],
       "visual" : {
         "at" : { "x" : 808, "y" : 192 },
-        "size" : { "width" : 400, "height" : 44 },
-        "labelOffset" : { "x" : -192, "y" : -16 }
+        "size" : { "width" : 400, "height" : 44 }
       }
     } ],
   "layout" : {

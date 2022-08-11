@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "150148B81ACE3E1E",
   "data" : "error.handling.demo.ErrorHandler",
   "elements" : [ {
@@ -33,8 +33,7 @@
       "name" : "Catches uncaught system errors in the project",
       "visual" : {
         "at" : { "x" : 264, "y" : 248 },
-        "size" : { "width" : 256, "height" : 30 },
-        "labelOffset" : { "x" : -125, "y" : -8 }
+        "size" : { "width" : 256, "height" : 30 }
       },
       "connect" : { "id" : "f4", "to" : "f0" }
     }, {
@@ -48,7 +47,6 @@
       "visual" : {
         "at" : { "x" : 304, "y" : 64 },
         "size" : { "width" : 480, "height" : 60 },
-        "labelOffset" : { "x" : -233, "y" : -26 },
         "color" : "NodeStyle3"
       }
     }, {
@@ -70,8 +68,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 208, "y" : 176 },
-        "labelOffset" : { "x" : -37, "y" : -7 }
+        "at" : { "x" : 208, "y" : 176 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     } ],

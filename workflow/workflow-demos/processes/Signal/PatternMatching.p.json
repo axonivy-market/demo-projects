@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "16AC5A6319BD9D86",
   "data" : "workflow.humantask.Data",
   "elements" : [ {
@@ -47,8 +47,7 @@
       },
       "visual" : {
         "at" : { "x" : 280, "y" : 64 },
-        "size" : { "width" : 240, "height" : 44 },
-        "labelOffset" : { "x" : -102, "y" : -15 }
+        "size" : { "width" : 240, "height" : 44 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {

@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "15066B87D449F453",
   "data" : "error.handling.demo.Data",
   "elements" : [ {
@@ -40,8 +40,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 208, "y" : 160 },
-        "labelOffset" : { "x" : -29, "y" : -8 }
+        "at" : { "x" : 208, "y" : 160 }
       },
       "boundaries" : [ {
           "id" : "Et0",

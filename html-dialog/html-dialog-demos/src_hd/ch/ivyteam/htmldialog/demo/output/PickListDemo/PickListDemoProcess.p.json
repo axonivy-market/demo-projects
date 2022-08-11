@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.17",
+  "format" : "9.4.18",
   "id" : "139E3427D3640FBC",
   "data" : "ch.ivyteam.htmldialog.demo.output.PickListDemo.PickListDemoData",
   "kind" : "HTML_DIALOG",
@@ -36,8 +36,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 256, "y" : 96 },
-        "labelOffset" : { "x" : -32, "y" : -8 }
+        "at" : { "x" : 256, "y" : 96 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {
