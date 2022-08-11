@@ -30,6 +30,7 @@ public class OpenApiJsonFeature extends JsonFeature
   public static class JaxRsClientJson extends JacksonJsonProvider
   {
     @Override
+    @SuppressWarnings("deprecation")
     public ObjectMapper locateMapper(Class<?> type, MediaType mediaType)
     {
       ObjectMapper mapper = super.locateMapper(type, mediaType);
