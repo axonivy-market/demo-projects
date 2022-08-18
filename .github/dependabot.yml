@@ -8,3 +8,7 @@ updates:
     directory: rule-engine
     schedule:
       interval: daily
+  - package-ecosystem: maven
+    directory: html-dialog
+    schedule:
+      interval: daily
