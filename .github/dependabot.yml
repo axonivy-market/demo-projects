@@ -1,6 +1,6 @@
 version: 2
 updates:
   - package-ecosystem: maven
-    directory: /
+    directory: demo-projects/connectivity
     schedule:
       interval: daily
