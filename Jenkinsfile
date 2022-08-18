@@ -29,7 +29,6 @@ pipeline {
                         "-Divy.engine.version='[9.2.0,]' " +
                         "-Divy.engine.list.url=${params.engineListUrl} " + 
                         "-DaltDeploymentRepository=nexus.axonivy.com::https://nexus.axonivy.com/repository/maven-snapshots/"
-              checkVersions()
 
               archiveArtifacts '**/target/*.iar,**/target/*.zip'
               archiveArtifacts artifacts: '**/target/selenide/reports/**/*', allowEmptyArchive: true
