@@ -29,8 +29,7 @@ pipeline {
           maven cmd: "clean ${phase} -Dmaven.test.failure.ignore=true  " + 
                      "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
                      "-Divy.engine.list.url=${params.engineListUrl} " + 
-                     "-DaltDeploymentRepository=nexus.axonivy.com::https://nexus.axonivy.com/repository/maven-snapshots/"
-          checkVersions onlyProjectBuildPluginWithVersion: "8", additionalVersionArgs: "-DallowSnapshots=true"
+                     "-DaltDeploymentRepository=nexus.axonivy.com::https://nexus.axonivy.com/repository/maven-snapshots/"          
         }
         archiveArtifacts '**/target/*.iar,**/target/*.zip'
         archiveArtifacts artifacts: '**/target/selenide/reports/**/*', allowEmptyArchive: true
