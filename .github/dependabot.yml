@@ -5,10 +5,26 @@ updates:
     schedule:
       interval: daily
   - package-ecosystem: maven
-    directory: rule-engine
+    directory: demos-app
+    schedule:
+      interval: daily
+  - package-ecosystem: maven
+    directory: error-handling
     schedule:
       interval: daily
   - package-ecosystem: maven
     directory: html-dialog
+    schedule:
+      interval: daily
+  - package-ecosystem: maven
+    directory: quick-start-tutorial
+    schedule:
+      interval: daily
+  - package-ecosystem: maven
+    directory: rule-engine
+    schedule:
+      interval: daily
+  - package-ecosystem: maven
+    directory: workflow
     schedule:
       interval: daily
