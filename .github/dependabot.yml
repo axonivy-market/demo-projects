@@ -24,7 +24,16 @@ updates:
     directory: rule-engine
     schedule:
       interval: daily
+
   - package-ecosystem: maven
-    directory: workflow
+    directory: workflow/workflow-demos
+    schedule:
+      interval: daily
+  - package-ecosystem: maven
+    directory: workflow/workflow-demos-test
+    schedule:
+      interval: daily
+  - package-ecosystem: maven
+    directory: workflow/workflow-demos-product
     schedule:
       interval: daily
