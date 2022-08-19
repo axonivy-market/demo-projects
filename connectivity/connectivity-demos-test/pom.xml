@@ -9,7 +9,7 @@
   <properties>
     <wss4j.version>2.4.1</wss4j.version>
     <jersey.version>2.31</jersey.version>
-    <project.build.plugin.version>9.4.0-SNAPSHOT</project.build.plugin.version>
+    <project-build-plugin>9.4.0-SNAPSHOT</project-build-plugin>
   </properties>
 
   <pluginRepositories>
@@ -90,7 +90,7 @@
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
-        <version>${project.build.plugin.version}</version>
+        <version>${project-build-plugin}</version>
         <extensions>true</extensions>
         <executions>
           <execution>
