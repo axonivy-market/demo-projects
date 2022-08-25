@@ -3,6 +3,7 @@ package ch.ivyteam.htmldialog.demo;
 import static ch.ivyteam.htmldialog.server.test.ProcessUtil.startProcess;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.not;
 import static com.codeborne.selenide.Condition.text;
@@ -33,16 +34,16 @@ class WebTestOutputIT
 
     Table table = PrimeUi.table(By.id("form:theTable"));
     table.searchGlobal("Dais");
-    table.firstRowContains("Daisy");
+    table.valueAtShouldBe(0, 2, exactText("Daisy"));
     clearInput(By.id("form:theTable:globalFilter"));
 
     SelectOneMenu menu = PrimeUi.selectOne(By.id("form:theTable:nameFilter"));
     menu.selectItemByLabel("Achmed");
-    table.firstRowContains("Achmed");
+    table.valueAtShouldBe(0, 2, exactText("Achmed"));
     menu.selectItemByLabel("All");
 
     $(By.id("form:theTable:scorePointFilter:filter")).sendKeys("6");
-    table.firstRowContains("Birgit");
+    table.valueAtShouldBe(0, 2, exactText("Birgit"));
     clearInput(By.id("form:theTable:scorePointFilter:filter"));
     $(By.id("form:theTable:scorePointFilter:filter")).sendKeys(Keys.ENTER);
 
@@ -71,9 +72,9 @@ class WebTestOutputIT
     table.containsNot("1324");
 
     $(By.id("form:theTable:scoreId")).scrollIntoView("{block: \"center\"}").click();
-    table.firstRowContains("testPerson");
+    table.valueAtShouldBe(0, 2, exactText("testPerson"));
     $(By.id("form:theTable:scoreId")).click();
-    table.firstRowContains("Tim");
+    table.valueAtShouldBe(0, 2, exactText("Tim"));
   }
 
   @Test

@@ -75,7 +75,7 @@ class WebTestInputIT
 
     $(By.id("myForm:Name")).sendKeys("team");
     $(By.id("myForm:FirstName")).sendKeys("ivy");
-    PrimeUi.selectOneRadio(By.id("myForm:options")).selectItemByValue("Credit Card");
+    PrimeUi.selectOneRadio(By.id("myForm:options")).selectItemByValue("CreditCard");
     $(By.id("myForm:nextButton")).click();
 
     $(By.id("myForm:panel")).shouldHave(text("Payment - Credit Card"));
@@ -88,7 +88,7 @@ class WebTestInputIT
 
     waitForSummary("team", "ivy");
   }
-  
+
   @Test
   void textEditor() {
     startProcess("145D18298A3E81CF/TextEditorDemo.ivp");
