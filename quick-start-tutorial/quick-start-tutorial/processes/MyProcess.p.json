@@ -8,7 +8,8 @@
       "name" : "start.ivp",
       "config" : {
         "callSignature" : "start",
-        "outLink" : "start.ivp"
+        "outLink" : "start.ivp",
+        "tags" : "demo"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

@@ -56,7 +56,8 @@
       "config" : {
         "callSignature" : "start2",
         "outLink" : "start2.ivp",
-        "startName" : "2. Adjustable Discount Calculator"
+        "startName" : "2. Adjustable Discount Calculator",
+        "tags" : "demo"
       },
       "visual" : {
         "at" : { "x" : 80, "y" : 280 },

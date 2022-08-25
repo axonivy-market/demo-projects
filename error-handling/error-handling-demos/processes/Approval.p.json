@@ -11,7 +11,8 @@
         "responsible" : "Team",
         "outLink" : "start.ivp",
         "wfuser" : "1",
-        "startName" : "Business Error initiates an alternative flow"
+        "startName" : "Business Error initiates an alternative flow",
+        "tags" : "demo"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 192 },

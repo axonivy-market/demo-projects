@@ -14,7 +14,8 @@
           { "name" : "embedInFrame", "value" : "false" }
         ],
         "outLink" : "start.ivp",
-        "startName" : "All HtmlDialog Demos"
+        "startName" : "All HtmlDialog Demos",
+        "tags" : "demo"
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 128 },

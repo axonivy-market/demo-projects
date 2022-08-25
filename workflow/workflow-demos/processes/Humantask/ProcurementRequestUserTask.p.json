@@ -22,7 +22,8 @@
           "category" : "Input/Procurement"
         },
         "outLink" : "start.ivp",
-        "startName" : "2.1: <%=ivy.cms.co(\"/ProcessDescriptions/procurementRequest\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/userTaskExample\")%>)"
+        "startName" : "2.1: <%=ivy.cms.co(\"/ProcessDescriptions/procurementRequest\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/userTaskExample\")%>)",
+        "tags" : "demo"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 192 },
