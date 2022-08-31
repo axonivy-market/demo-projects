@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "14ED397D47F3083D",
   "data" : "error.handling.demo.Approval",
   "elements" : [ {
@@ -16,7 +16,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 192 },
-        "labelOffset" : { "x" : -21, "y" : 17 }
+        "labelOffset" : { "x" : 12, "y" : 37 }
       },
       "connect" : { "id" : "f9", "to" : "f3", "var" : "in1" }
     }, {

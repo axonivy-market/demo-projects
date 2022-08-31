@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "162B95BB70C3178E",
   "data" : "com.axonivy.connectivity.soap.service.TechnicalBackendServiceData",
   "kind" : "WEB_SERVICE",
@@ -26,7 +26,7 @@
       },
       "visual" : {
         "at" : { "x" : 347, "y" : 98 },
-        "size" : { "width" : 208, "height" : 44 }
+        "size" : { "width" : 208, "height" : 60 }
       },
       "connect" : { "id" : "f18", "to" : "f17" }
     }, {
@@ -61,7 +61,7 @@
       },
       "visual" : {
         "at" : { "x" : 131, "y" : 98 },
-        "labelOffset" : { "x" : -80, "y" : -40 }
+        "labelOffset" : { "x" : 43, "y" : -20 }
       },
       "connect" : { "id" : "f16", "to" : "f15" }
     }, {

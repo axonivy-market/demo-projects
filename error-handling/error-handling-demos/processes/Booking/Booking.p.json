@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "150047A1589EB0D8",
   "data" : "booking.BookingData",
   "elements" : [ {
@@ -19,7 +19,7 @@
       },
       "visual" : {
         "at" : { "x" : 48, "y" : 128 },
-        "labelOffset" : { "x" : -21, "y" : 17 }
+        "labelOffset" : { "x" : 12, "y" : 37 }
       },
       "connect" : { "id" : "f4", "to" : "f3" }
     }, {
@@ -120,7 +120,7 @@
       },
       "visual" : {
         "at" : { "x" : 752, "y" : 288 },
-        "labelOffset" : { "x" : -38, "y" : 17 }
+        "labelOffset" : { "x" : 14, "y" : 37 }
       }
     }, {
       "id" : "f11",
@@ -186,7 +186,7 @@
       },
       "visual" : {
         "at" : { "x" : 752, "y" : 128 },
-        "labelOffset" : { "x" : -26, "y" : 18 }
+        "labelOffset" : { "x" : -18, "y" : 38 }
       }
     } ],
   "layout" : {

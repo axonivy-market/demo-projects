@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "14ECFC90CDE278D0",
   "data" : "error.handling.demo.Data",
   "elements" : [ {
@@ -90,7 +90,7 @@
           },
           "visual" : {
             "at" : { "x" : 192, "y" : 256 },
-            "size" : { "width" : 128, "height" : 44 }
+            "size" : { "width" : 128, "height" : 60 }
           },
           "connect" : { "id" : "S10-f4", "to" : "S10-f3" }
         }, {
@@ -99,7 +99,7 @@
           "name" : "Enough items in stock?",
           "visual" : {
             "at" : { "x" : 328, "y" : 256 },
-            "labelOffset" : { "x" : -55, "y" : -39 }
+            "labelOffset" : { "x" : 25, "y" : -19 }
           },
           "connect" : [
             { "id" : "S10-f9", "to" : "S10-f8", "label" : {
@@ -123,7 +123,7 @@
           },
           "visual" : {
             "at" : { "x" : 384, "y" : 352 },
-            "labelOffset" : { "x" : -35, "y" : 17 }
+            "labelOffset" : { "x" : 12, "y" : 37 }
           }
         }, {
           "id" : "S10-f8",
@@ -142,7 +142,7 @@
           },
           "visual" : {
             "at" : { "x" : 488, "y" : 256 },
-            "size" : { "width" : 144, "height" : 44 }
+            "size" : { "width" : 144, "height" : 60 }
           },
           "connect" : { "id" : "S10-f0", "to" : "S10-g1" }
         } ],
@@ -225,7 +225,7 @@
           },
           "visual" : {
             "at" : { "x" : 192, "y" : 256 },
-            "size" : { "width" : 128, "height" : 44 }
+            "size" : { "width" : 128, "height" : 60 }
           },
           "connect" : { "id" : "S20-f2", "to" : "S20-f1" }
         } ],
@@ -357,7 +357,7 @@
           },
           "visual" : {
             "at" : { "x" : 224, "y" : 256 },
-            "size" : { "width" : 128, "height" : 44 }
+            "size" : { "width" : 128, "height" : 60 }
           },
           "boundaries" : [ {
               "id" : "S30-Et0",

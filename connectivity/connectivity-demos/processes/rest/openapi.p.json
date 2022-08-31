@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "16F375741231763F",
   "data" : "com.axonivy.connectivity.rest.OpenApiData",
   "elements" : [ {
@@ -111,7 +111,7 @@
       },
       "visual" : {
         "at" : { "x" : 64, "y" : 352 },
-        "labelOffset" : { "x" : -25, "y" : 17 }
+        "labelOffset" : { "x" : 15, "y" : 37 }
       },
       "connect" : { "id" : "f17", "to" : "f12" }
     }, {
@@ -201,7 +201,7 @@
       },
       "visual" : {
         "at" : { "x" : 64, "y" : 160 },
-        "labelOffset" : { "x" : -25, "y" : 17 }
+        "labelOffset" : { "x" : 16, "y" : 37 }
       },
       "connect" : { "id" : "f4", "to" : "f3" }
     } ]

@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "1549FEEB682EF158",
   "data" : "com.axonivy.connectivity.rest.CreateApprovalData",
   "kind" : "CALLABLE_SUB",
@@ -31,7 +31,7 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 96 },
-        "labelOffset" : { "x" : -47, "y" : 17 }
+        "labelOffset" : { "x" : 15, "y" : 37 }
       },
       "connect" : { "id" : "f4", "to" : "f3" }
     }, {

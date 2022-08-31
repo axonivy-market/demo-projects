@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "151CA1EFC1542D87",
   "data" : "workflow.signal.QuitUserProcess",
   "elements" : [ {
@@ -26,7 +26,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 224 },
-        "labelOffset" : { "x" : -21, "y" : 17 }
+        "labelOffset" : { "x" : 12, "y" : 37 }
       },
       "connect" : { "id" : "f6", "to" : "f5" }
     }, {
@@ -105,7 +105,7 @@
       },
       "visual" : {
         "at" : { "x" : 544, "y" : 224 },
-        "size" : { "width" : 128, "height" : 44 }
+        "size" : { "width" : 128, "height" : 60 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     } ],

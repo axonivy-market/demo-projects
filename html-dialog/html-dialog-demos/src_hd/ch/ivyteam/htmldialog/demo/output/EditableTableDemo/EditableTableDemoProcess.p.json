@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "139D96A5734DE195",
   "data" : "ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData",
   "kind" : "HTML_DIALOG",
@@ -13,7 +13,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 128 },
-        "labelOffset" : { "x" : -16, "y" : 12 }
+        "labelOffset" : { "x" : 12, "y" : 32 }
       },
       "connect" : { "id" : "f3", "to" : "f2" }
     }, {
@@ -48,7 +48,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 320 },
-        "labelOffset" : { "x" : -14, "y" : 12 }
+        "labelOffset" : { "x" : 9, "y" : 32 }
       },
       "connect" : { "id" : "f10", "to" : "f7" }
     }, {
@@ -60,7 +60,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 416 },
-        "labelOffset" : { "x" : -15, "y" : 12 }
+        "labelOffset" : { "x" : 9, "y" : 32 }
       },
       "connect" : { "id" : "f9", "to" : "f8" }
     }, {
@@ -115,7 +115,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 672 },
-        "labelOffset" : { "x" : -41, "y" : 12 }
+        "labelOffset" : { "x" : 14, "y" : 32 }
       },
       "connect" : { "id" : "f15", "to" : "f14" }
     }, {
@@ -129,7 +129,7 @@
       },
       "visual" : {
         "at" : { "x" : 240, "y" : 672 },
-        "size" : { "width" : 176, "height" : 44 }
+        "size" : { "width" : 176, "height" : 60 }
       },
       "connect" : { "id" : "f17", "to" : "f16" }
     }, {
@@ -147,7 +147,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 512 },
-        "labelOffset" : { "x" : -10, "y" : 12 }
+        "labelOffset" : { "x" : 10, "y" : 32 }
       },
       "connect" : { "id" : "f22", "to" : "f21" }
     }, {
@@ -167,7 +167,7 @@
       },
       "visual" : {
         "at" : { "x" : 256, "y" : 512 },
-        "size" : { "width" : 160, "height" : 44 }
+        "size" : { "width" : 160, "height" : 60 }
       },
       "connect" : { "id" : "f20", "to" : "f19" }
     } ],

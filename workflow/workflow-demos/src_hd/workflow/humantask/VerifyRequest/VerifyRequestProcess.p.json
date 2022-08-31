@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "15254DF8F30D6949",
   "data" : "workflow.humantask.VerifyRequest.VerifyRequestData",
   "kind" : "HTML_DIALOG",
@@ -31,7 +31,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },
-        "labelOffset" : { "x" : -75, "y" : 15 }
+        "labelOffset" : { "x" : 19, "y" : 35 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {
@@ -80,7 +80,7 @@
       },
       "visual" : {
         "at" : { "x" : 72, "y" : 224 },
-        "labelOffset" : { "x" : -20, "y" : 15 }
+        "labelOffset" : { "x" : 10, "y" : 35 }
       },
       "connect" : { "id" : "f12", "to" : "f10" }
     }, {
@@ -98,7 +98,7 @@
       },
       "visual" : {
         "at" : { "x" : 72, "y" : 160 },
-        "labelOffset" : { "x" : -13, "y" : 15 }
+        "labelOffset" : { "x" : 11, "y" : 35 }
       },
       "connect" : { "id" : "f9", "to" : "f6" }
     }, {

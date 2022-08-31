@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "145D1862CF17F2C9",
   "data" : "htmlDialogDemos.Data",
   "elements" : [ {
@@ -40,7 +40,7 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 160 },
-        "labelOffset" : { "x" : -69, "y" : 15 }
+        "labelOffset" : { "x" : 16, "y" : 35 }
       },
       "connect" : { "id" : "f113", "to" : "f112" }
     }, {
@@ -82,7 +82,7 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 64 },
-        "labelOffset" : { "x" : -42, "y" : 15 }
+        "labelOffset" : { "x" : 12, "y" : 35 }
       },
       "connect" : { "id" : "f107", "to" : "f104" }
     }, {
@@ -101,7 +101,6 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 352 },
-        "labelOffset" : { "x" : -66, "y" : 15 },
         "description" : "ManagedBean Demo"
       },
       "connect" : { "id" : "f45", "to" : "f44" }
@@ -155,7 +154,7 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 256 },
-        "labelOffset" : { "x" : -80, "y" : 15 }
+        "labelOffset" : { "x" : 17, "y" : 35 }
       },
       "connect" : { "id" : "f40", "to" : "f38" }
     }, {
@@ -174,7 +173,7 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 448 },
-        "labelOffset" : { "x" : -64, "y" : 17 },
+        "labelOffset" : { "x" : 15, "y" : 37 },
         "description" : "ErrorHandling Demo"
       },
       "connect" : { "id" : "f3", "to" : "f1" }
@@ -211,7 +210,7 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 544 },
-        "labelOffset" : { "x" : -66, "y" : 16 }
+        "labelOffset" : { "x" : 18, "y" : 36 }
       },
       "connect" : { "id" : "f9", "to" : "f8" }
     }, {
