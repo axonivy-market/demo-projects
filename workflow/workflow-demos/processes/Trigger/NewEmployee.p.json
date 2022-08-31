@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "15254CF1CE56AE72",
   "data" : "workflow.trigger.NewEmployeeData",
   "elements" : [ {
@@ -26,7 +26,7 @@
       },
       "visual" : {
         "at" : { "x" : 88, "y" : 224 },
-        "labelOffset" : { "x" : -21, "y" : 17 }
+        "labelOffset" : { "x" : 12, "y" : 37 }
       },
       "connect" : { "id" : "f6", "to" : "f5" }
     }, {
@@ -52,7 +52,7 @@
       },
       "visual" : {
         "at" : { "x" : 248, "y" : 224 },
-        "size" : { "width" : 144, "height" : 44 }
+        "size" : { "width" : 144, "height" : 60 }
       },
       "connect" : { "id" : "f11", "to" : "f3" }
     }, {
@@ -67,7 +67,7 @@
       "name" : "Needs parking lot?",
       "visual" : {
         "at" : { "x" : 576, "y" : 224 },
-        "labelOffset" : { "x" : -52, "y" : 18 }
+        "labelOffset" : { "x" : 14, "y" : 38 }
       },
       "connect" : [
         { "id" : "f14", "to" : "f13", "label" : {
@@ -107,7 +107,7 @@
       },
       "visual" : {
         "at" : { "x" : 864, "y" : 224 },
-        "size" : { "width" : 128, "height" : 44 }
+        "size" : { "width" : 128, "height" : 60 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {

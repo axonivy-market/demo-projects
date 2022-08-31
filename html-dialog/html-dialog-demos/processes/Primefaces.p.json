@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "145D18869AFC8A9A",
   "data" : "htmlDialogDemos.Data",
   "elements" : [ {
@@ -18,7 +18,7 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 64 },
-        "labelOffset" : { "x" : -40, "y" : 15 }
+        "labelOffset" : { "x" : 13, "y" : 35 }
       },
       "connect" : { "id" : "f75", "to" : "f73" }
     }, {
@@ -63,7 +63,7 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 160 },
-        "labelOffset" : { "x" : -56, "y" : 27 }
+        "labelOffset" : { "x" : 10, "y" : 47 }
       },
       "connect" : { "id" : "f1", "to" : "f3" }
     } ]

@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "152551002ABB8DFE",
   "data" : "workflow.agileBPM.Data",
   "elements" : [ {
@@ -53,7 +53,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 208 },
-        "labelOffset" : { "x" : -21, "y" : 17 }
+        "labelOffset" : { "x" : 12, "y" : 37 }
       },
       "connect" : { "id" : "f6", "to" : "f5" }
     }, {
@@ -148,7 +148,7 @@
         } ],
       "visual" : {
         "at" : { "x" : 384, "y" : 448 },
-        "size" : { "width" : 128, "height" : 44 }
+        "size" : { "width" : 128, "height" : 60 }
       }
     }, {
       "id" : "f4",
@@ -217,7 +217,7 @@
       },
       "visual" : {
         "at" : { "x" : 216, "y" : 440 },
-        "size" : { "width" : 128, "height" : 44 }
+        "size" : { "width" : 128, "height" : 60 }
       },
       "connect" : { "id" : "f12", "to" : "U21" }
     }, {
@@ -270,7 +270,7 @@
         } ],
       "visual" : {
         "at" : { "x" : 376, "y" : 440 },
-        "size" : { "width" : 128, "height" : 44 }
+        "size" : { "width" : 128, "height" : 60 }
       },
       "connect" : { "id" : "f9", "to" : "U11" }
     }, {
@@ -333,7 +333,7 @@
         } ],
       "visual" : {
         "at" : { "x" : 376, "y" : 328 },
-        "size" : { "width" : 128, "height" : 44 }
+        "size" : { "width" : 128, "height" : 60 }
       }
     }, {
       "id" : "U13",
@@ -368,7 +368,7 @@
         } ],
       "visual" : {
         "at" : { "x" : 368, "y" : 320 },
-        "size" : { "width" : 128, "height" : 44 }
+        "size" : { "width" : 128, "height" : 60 }
       },
       "connect" : { "id" : "f19", "to" : "f18" }
     }, {
@@ -420,7 +420,7 @@
       ],
       "visual" : {
         "at" : { "x" : 536, "y" : 320 },
-        "size" : { "width" : 128, "height" : 44 }
+        "size" : { "width" : 128, "height" : 60 }
       },
       "connect" : { "id" : "f20", "to" : "f17" }
     }, {
@@ -437,7 +437,7 @@
       "name" : "Follow-up question?",
       "visual" : {
         "at" : { "x" : 656, "y" : 440 },
-        "labelOffset" : { "x" : -30, "y" : 17 }
+        "labelOffset" : { "x" : 39, "y" : 37 }
       },
       "connect" : [
         { "id" : "f10", "to" : "f8", "condition" : "true" },

@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "15A60076034F7437",
   "data" : "com.axonivy.connectivity.rest.DataMappingData",
   "elements" : [ {
@@ -467,7 +467,7 @@
       },
       "visual" : {
         "at" : { "x" : 411, "y" : 434 },
-        "size" : { "width" : 128, "height" : 44 },
+        "size" : { "width" : 128, "height" : 60 },
         "description" : [
           "The called service returns a complex JSON object with many fields. ",
           "Even tough we can read the data back to the simple User Data Class that contains only  subset of the fields.",
@@ -648,7 +648,7 @@
       },
       "visual" : {
         "at" : { "x" : 415, "y" : 512 },
-        "size" : { "width" : 128, "height" : 44 },
+        "size" : { "width" : 128, "height" : 60 },
         "description" : [
           "The called service returns a complex JSON object with many fields. ",
           "We read it into a perfect matching class that was generated with: http://www.jsonschema2pojo.org/",
@@ -714,7 +714,7 @@
       },
       "visual" : {
         "at" : { "x" : 413, "y" : 590 },
-        "size" : { "width" : 128, "height" : 44 },
+        "size" : { "width" : 128, "height" : 60 },
         "description" : [
           "The called service returns a complex JSON object with many fields. ",
           "",

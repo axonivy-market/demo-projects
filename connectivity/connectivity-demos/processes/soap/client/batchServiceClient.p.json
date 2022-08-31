@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "161AE4E4EC67C8FD",
   "data" : "com.axonivy.connectivity.soap.BatchServiceClientData",
   "elements" : [ {
@@ -28,7 +28,7 @@
       },
       "visual" : {
         "at" : { "x" : 112, "y" : 80 },
-        "labelOffset" : { "x" : -58, "y" : -47 }
+        "labelOffset" : { "x" : -50, "y" : -27 }
       },
       "connect" : { "id" : "f4", "to" : "f3" }
     }, {

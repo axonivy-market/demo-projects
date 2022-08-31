@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "17BF3918B962C886",
   "data" : "ch.ivyteam.htmldialog.demo.input.TextEditorDemo.TextEditorDemoData",
   "kind" : "HTML_DIALOG",
@@ -30,7 +30,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 160 },
-        "labelOffset" : { "x" : -16, "y" : 15 }
+        "labelOffset" : { "x" : 14, "y" : 35 }
       },
       "connect" : { "id" : "f4", "to" : "f1" }
     } ]

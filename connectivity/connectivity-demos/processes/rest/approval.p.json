@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "1549FE9E911A1812",
   "data" : "com.axonivy.connectivity.rest.Approval",
   "elements" : [ {
@@ -29,7 +29,7 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 224 },
-        "labelOffset" : { "x" : -49, "y" : 17 },
+        "labelOffset" : { "x" : 16, "y" : 37 },
         "color" : "NodeStyle16"
       },
       "connect" : { "id" : "f11", "to" : "f10" }
@@ -66,7 +66,7 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 128 },
-        "labelOffset" : { "x" : -40, "y" : 17 }
+        "labelOffset" : { "x" : -32, "y" : 37 }
       },
       "connect" : { "id" : "f7", "to" : "f14" }
     }, {
@@ -136,7 +136,7 @@
       },
       "visual" : {
         "at" : { "x" : 256, "y" : 128 },
-        "size" : { "width" : 128, "height" : 44 }
+        "size" : { "width" : 128, "height" : 60 }
       },
       "connect" : { "id" : "f8", "to" : "f6" }
     } ],

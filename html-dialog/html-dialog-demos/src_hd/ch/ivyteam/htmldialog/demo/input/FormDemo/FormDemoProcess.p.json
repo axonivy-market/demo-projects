@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "139E30EF308FD0DC",
   "data" : "ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData",
   "kind" : "HTML_DIALOG",
@@ -13,7 +13,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 96 },
-        "labelOffset" : { "x" : -16, "y" : 12 }
+        "labelOffset" : { "x" : 12, "y" : 32 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {
@@ -31,7 +31,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 256 },
-        "labelOffset" : { "x" : -14, "y" : 12 }
+        "labelOffset" : { "x" : 9, "y" : 32 }
       },
       "connect" : { "id" : "f5", "to" : "f4" }
     }, {
@@ -49,7 +49,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 352 },
-        "labelOffset" : { "x" : -15, "y" : 12 }
+        "labelOffset" : { "x" : 9, "y" : 32 }
       },
       "connect" : { "id" : "f8", "to" : "f7" }
     }, {
@@ -84,7 +84,7 @@
       },
       "visual" : {
         "at" : { "x" : 272, "y" : 512 },
-        "size" : { "width" : 160, "height" : 44 }
+        "size" : { "width" : 160, "height" : 60 }
       },
       "connect" : { "id" : "f13", "to" : "f11" }
     }, {
@@ -119,7 +119,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 512 },
-        "labelOffset" : { "x" : -66, "y" : 12 }
+        "labelOffset" : { "x" : 18, "y" : 32 }
       },
       "connect" : { "id" : "f12", "to" : "f10" }
     } ],

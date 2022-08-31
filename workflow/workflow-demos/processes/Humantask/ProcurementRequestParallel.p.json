@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "15254DC87A1B183B",
   "data" : "workflow.humantask.ProcurementRequest",
   "elements" : [ {
@@ -56,7 +56,7 @@
       },
       "visual" : {
         "at" : { "x" : 80, "y" : 184 },
-        "labelOffset" : { "x" : -21, "y" : 17 }
+        "labelOffset" : { "x" : 12, "y" : 37 }
       },
       "connect" : { "id" : "f4", "to" : "f3" }
     }, {
@@ -172,7 +172,7 @@
       },
       "visual" : {
         "at" : { "x" : 416, "y" : 304 },
-        "size" : { "width" : 128, "height" : 44 }
+        "size" : { "width" : 128, "height" : 60 }
       },
       "connect" : { "id" : "f12", "to" : "f7", "var" : "in1" }
     }, {
@@ -236,7 +236,7 @@
       "name" : "Verified?",
       "visual" : {
         "at" : { "x" : 592, "y" : 304 },
-        "labelOffset" : { "x" : 23, "y" : -4 }
+        "labelOffset" : { "x" : 57, "y" : 16 }
       },
       "connect" : [
         { "id" : "f27", "to" : "f26", "label" : {

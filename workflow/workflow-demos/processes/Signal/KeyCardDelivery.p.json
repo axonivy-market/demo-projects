@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "1523FF963044280C",
   "data" : "workflow.signal.FacilityManagementData",
   "elements" : [ {
@@ -39,7 +39,7 @@
       },
       "visual" : {
         "at" : { "x" : 120, "y" : 200 },
-        "labelOffset" : { "x" : -36, "y" : 17 }
+        "labelOffset" : { "x" : 12, "y" : 37 }
       },
       "connect" : { "id" : "f29", "to" : "f8", "var" : "in2" }
     }, {

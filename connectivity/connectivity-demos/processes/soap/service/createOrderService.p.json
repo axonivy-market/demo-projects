@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "162492A1649E72DF",
   "data" : "com.axonivy.connectivity.soap.service.CreateOrderServiceData",
   "kind" : "WEB_SERVICE",
@@ -32,7 +32,7 @@
       },
       "visual" : {
         "at" : { "x" : 72, "y" : 152 },
-        "labelOffset" : { "x" : -27, "y" : -33 }
+        "labelOffset" : { "x" : 14, "y" : -13 }
       },
       "connect" : { "id" : "f4", "to" : "f3" }
     }, {
@@ -79,7 +79,7 @@
       "name" : "price > 10k",
       "visual" : {
         "at" : { "x" : 176, "y" : 152 },
-        "labelOffset" : { "x" : 20, "y" : -8 }
+        "labelOffset" : { "x" : 64, "y" : 12 }
       },
       "connect" : [
         { "id" : "f2", "to" : "f1", "via" : [ { "x" : 176, "y" : 88 } ], "color" : "ArcStyle7", "label" : {

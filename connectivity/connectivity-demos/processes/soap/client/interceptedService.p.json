@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "16D29C451A0AF7D5",
   "data" : "com.axonivy.connectivity.soap.service.ExceptionData",
   "elements" : [ {
@@ -17,7 +17,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },
-        "labelOffset" : { "x" : -57, "y" : 19 }
+        "labelOffset" : { "x" : 20, "y" : 39 }
       },
       "connect" : { "id" : "f3", "to" : "f2" }
     }, {

@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.19",
+  "format" : "9.4.20",
   "id" : "150850F930AF7EA6",
   "data" : "error.handling.demo.approval.RequestApproval.RequestApprovalData",
   "kind" : "HTML_DIALOG",
@@ -21,7 +21,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },
-        "labelOffset" : { "x" : -39, "y" : 15 }
+        "labelOffset" : { "x" : 16, "y" : 35 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {
@@ -45,7 +45,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 160 },
-        "labelOffset" : { "x" : -22, "y" : 12 }
+        "labelOffset" : { "x" : 11, "y" : 32 }
       },
       "connect" : { "id" : "f12", "to" : "f4" }
     }, {
@@ -57,7 +57,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 256 },
-        "labelOffset" : { "x" : -20, "y" : 12 }
+        "labelOffset" : { "x" : 10, "y" : 32 }
       },
       "connect" : { "id" : "f8", "to" : "f5" }
     }, {
@@ -73,7 +73,7 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 256 },
         "size" : { "width" : 26, "height" : 26 },
-        "labelOffset" : { "x" : -48, "y" : 15 }
+        "labelOffset" : { "x" : 15, "y" : 35 }
       }
     } ]
 }
