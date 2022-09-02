@@ -1,10 +1,11 @@
-# FROM selenium/standalone-firefox:3
-FROM maven:3.8.6-eclipse-temurin-17
+FROM selenium/standalone-firefox:latest
+# FROM maven:3.8.6-eclipse-temurin-17
 
 USER root
 
 RUN apt-get -qqy update \
-  && apt-get -qqy install firefox maven \
+  && apt-get -qqy openjdk-17-jdk \
+  && apt-get -qqy maven \
   && rm -rf /var/lib/apt/lists/*
 
 COPY docker-entrypoint.sh /opt/docker-entrypoint.sh
