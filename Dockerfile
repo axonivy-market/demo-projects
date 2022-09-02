@@ -1,5 +1,4 @@
-FROM selenium/standalone-firefox:3
-
+FROM selenium/standalone-firefox:latest
 FROM maven:3.8.6-eclipse-temurin-17
 
 USER root
