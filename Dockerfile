@@ -4,6 +4,7 @@ FROM selenium/standalone-firefox:latest
 USER root
 
 RUN apt-get -qqy update \
+  && apt-get -qqy install openjdk-17-jre \
   && apt-get -qqy install openjdk-17-jdk \
   && apt-get -qqy install maven \
   && rm -rf /var/lib/apt/lists/*
