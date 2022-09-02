@@ -4,8 +4,7 @@ FROM selenium/standalone-firefox:latest
 USER root
 
 RUN apt-get -qqy update \
-  && apt-get -qqy openjdk-11-jdk \
-  && apt-get -qqy maven \
+  && apt-get -qqy openjdk-11-jdk maven \
   && rm -rf /var/lib/apt/lists/*
 
 COPY docker-entrypoint.sh /opt/docker-entrypoint.sh
