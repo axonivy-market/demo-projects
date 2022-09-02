@@ -9,6 +9,8 @@ RUN apt-get -qqy update \
   && apt-get -qqy install maven \
   && rm -rf /var/lib/apt/lists/*
 
+RUN mvn --version
+
 COPY docker-entrypoint.sh /opt/docker-entrypoint.sh
 RUN chmod +x /opt/docker-entrypoint.sh
 
