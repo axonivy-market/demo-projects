@@ -1,9 +1,11 @@
 FROM selenium/standalone-firefox:3
 
+FROM maven:3.8.6-eclipse-temurin-17
+
 USER root
 
 RUN apt-get -qqy update \
-  && apt-get -qqy install openjdk-11-jdk maven \
+#  && apt-get -qqy install openjdk-11-jdk maven \
   && rm -rf /var/lib/apt/lists/*
 
 COPY docker-entrypoint.sh /opt/docker-entrypoint.sh
