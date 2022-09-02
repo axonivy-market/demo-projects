@@ -20,15 +20,26 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        script {          
-            docker.build('maven-selenium').inside {
+        
+        script {   
+          def random = (new Random()).nextInt(10000000)
+          def networkName = "build-" + random
+          def seleniumName = "selenium-" + random
+          def ivyName = "ivy-" + random
+          sh "docker network create ${networkName}"
+          try {
+
+          
+          docker.image("selenium/standalone-firefox:3").withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network ${networkName}") {     
+            docker.build('maven-selenium').inside("--name ${ivyName} --network ${networkName}") {
               def workspace = pwd()
               def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
               maven cmd: "clean ${phase} -Dmaven.test.failure.ignore=true  " + 
                         "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
                         "-Divy.engine.version='[9.2.0,]' " +
                         "-Divy.engine.list.url=${params.engineListUrl} " + 
-                        "-DaltDeploymentRepository=nexus.axonivy.com::https://nexus.axonivy.com/repository/maven-snapshots/"
+                        "-DaltDeploymentRepository=nexus.axonivy.com::https://nexus.axonivy.com/repository/maven-snapshots/" +
+                        "-Dselenide.remote=http://${seleniumName}:4444/wd/hub"
 
               archiveArtifacts '**/target/*.iar,**/target/*.zip'
               archiveArtifacts artifacts: '**/target/selenide/reports/**/*', allowEmptyArchive: true
@@ -39,7 +50,13 @@ pipeline {
               ]
 
               junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/*-reports/**/*.xml'          
-            }          
+            }
+          }
+          }
+          finally {
+            sh "docker network rm ${networkName}"
+          }
+
         }
       }
     }
