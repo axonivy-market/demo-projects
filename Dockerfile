@@ -4,7 +4,7 @@ FROM selenium/standalone-firefox:3
 USER root
 
 RUN apt-get -qqy update \
-  && apt-get -qqy install openjdk-17-jdk maven \
+  && apt-get -qqy install temurin-jdk-17-jdk maven \
   && rm -rf /var/lib/apt/lists/*
 
 COPY docker-entrypoint.sh /opt/docker-entrypoint.sh
