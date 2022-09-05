@@ -12,6 +12,7 @@ import javax.ws.rs.core.UriBuilder;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 
 import soap.bpm.TestDataMapping.Smartbear;
@@ -21,6 +22,8 @@ public class WebTestRestProcessStarts {
 
   @Test
   void checkAllSimpleRestCalls() {
+    Configuration.remote = System.getProperty("test.engine.url");
+    System.out.println("property: " + System.getProperty("test.engine.url"));
     checkProcess("16764B07C0329FC8/callBatchAsync.ivp");
     checkProcess("169B3B7F5EF38D8F/upAndDown.ivp");
     checkProcess("169B3B7F5EF38D8F/fileMultipart.ivp");
