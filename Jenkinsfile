@@ -37,7 +37,7 @@ pipeline {
                         "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
                         "-Divy.engine.version='[9.2.0,]' " +
                         "-Divy.engine.list.url=${params.engineListUrl} " + 
-                        "-DaltDeploymentRepository=nexus.axonivy.com::https://nexus.axonivy.com/repository/maven-snapshots/" +
+                        "-DaltDeploymentRepository=nexus.axonivy.com::https://nexus.axonivy.com/repository/maven-snapshots/ " +
                         "-Dtest.engine.url=http://${ivyName}:8080 " +
                         "-Dselenide.remote=http://${seleniumName}:4444/wd/hub"
 
