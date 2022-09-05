@@ -29,6 +29,7 @@ public class IntegrationTestBatchService
     WebTarget target = createAuthenticatedClient()
             .target(EngineUrl.createRestUrl("/batch/async"))
             .queryParam("blockSeconds", 1);
+    System.out.println("target uri: " + target.getUri().toString());
     Response asyncResponse;
     try {
       Future<Response> future = target.request().async().get();
