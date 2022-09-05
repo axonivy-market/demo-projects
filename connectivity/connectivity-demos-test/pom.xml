@@ -92,15 +92,11 @@
         <artifactId>project-build-plugin</artifactId>
         <version>${project-build-plugin}</version>
         <extensions>true</extensions>
-        <executions>
-          <execution>
-            <id>default-start-test-engine</id>
-            <configuration>
-              <deployToEngineApplication>Portal</deployToEngineApplication>
-              <additionalVmOptions>-Divy.Errors.ShowDetailsToEndUser=true -Divy.REST.Servlet.MobileWorkflow.API=true</additionalVmOptions>
-            </configuration>
-          </execution>
-        </executions>
+                
+        <configuration>
+          <additionalVmOptions>-Divy.Errors.ShowDetailsToEndUser=true -Divy.REST.Servlet.MobileWorkflow.API=true</additionalVmOptions>
+        </configuration>
+
       </plugin>
     </plugins>
     
