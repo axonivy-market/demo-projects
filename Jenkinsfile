@@ -26,7 +26,7 @@ pipeline {
           def ivyName = "ivy-" + random
           sh "docker network create ${networkName}"
           try {          
-            docker.image("selenium/standalone-firefox:latest").withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network ${networkName}") {     
+            docker.image("selenium/standalone-firefox:3").withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network ${networkName}") {     
               docker.build('maven-selenium').inside("--name ${ivyName} --network ${networkName}") {
                 def workspace = pwd()
                 def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
@@ -35,7 +35,6 @@ pipeline {
                           "-Divy.engine.version='[9.2.0,]' " +
                           "-Divy.engine.list.url=${params.engineListUrl} " + 
                           "-DaltDeploymentRepository=nexus.axonivy.com::https://nexus.axonivy.com/repository/maven-snapshots/ " +
-                          "-Dtest.engine.url=http://${ivyName}:8080 " +
                           "-Dselenide.remote=http://${seleniumName}:4444/wd/hub"
 
                 archiveArtifacts '**/target/*.iar,**/target/*.zip'
