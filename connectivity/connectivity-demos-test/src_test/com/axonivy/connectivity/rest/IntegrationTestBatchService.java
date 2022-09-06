@@ -29,17 +29,8 @@ public class IntegrationTestBatchService
     WebTarget target = createAuthenticatedClient()
             .target(EngineUrl.createRestUrl("/batch/async"))
             .queryParam("blockSeconds", 1);
-    System.out.println("target uri: " + target.getUri().toString());
-    Response asyncResponse;
-    try {
-      Future<Response> future = target.request().async().get();
-      asyncResponse = future.get(10, TimeUnit.SECONDS);
-    }
-    catch(Exception ex) {
-      System.out.println(ex);
-      System.out.println("target uri: " + target.getUri().toString());
-      throw ex;
-    }
+    Future<Response> future = target.request().async().get();
+    Reponse asyncResponse = future.get(10, TimeUnit.SECONDS);
 
     assertThat(asyncResponse.readEntity(String.class))
             .isEqualTo("Sorry for the slow processing!");
