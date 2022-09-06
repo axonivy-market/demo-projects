@@ -13,7 +13,7 @@ import org.openqa.selenium.Keys;
 import com.axonivy.ivy.webtest.IvyWebTest;
 import com.codeborne.selenide.Selenide;
 
-@IvyWebTest(headless = false)
+@IvyWebTest
 public class WebTestComponentIT
 {
   @Test
