@@ -23,7 +23,7 @@ jobs:
       uses: actions/setup-java@v1.4.3
       with:
         # The Java version to make available on the path. Takes a whole or semver Java version, or 1.x syntax (e.g. 1.8 => Java 8.x)
-        java-version: 11
+        java-version: 17
 
     # Runs a set of commands using the runners shell
     - name: Build with Maven
