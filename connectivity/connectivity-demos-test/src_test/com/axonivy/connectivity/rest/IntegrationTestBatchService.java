@@ -30,7 +30,7 @@ public class IntegrationTestBatchService
             .target(EngineUrl.createRestUrl("/batch/async"))
             .queryParam("blockSeconds", 1);
     Future<Response> future = target.request().async().get();
-    Reponse asyncResponse = future.get(10, TimeUnit.SECONDS);
+    Response asyncResponse = future.get(10, TimeUnit.SECONDS);
 
     assertThat(asyncResponse.readEntity(String.class))
             .isEqualTo("Sorry for the slow processing!");
