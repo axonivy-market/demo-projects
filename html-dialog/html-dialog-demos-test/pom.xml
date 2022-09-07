@@ -7,7 +7,7 @@
   <packaging>iar-integration-test</packaging>
 
   <properties>
-    <project-build-plugin>9.4.0-SNAPSHOT</project-build-plugin>
+    <project-build-plugin>9.4.1-SNAPSHOT</project-build-plugin>
   </properties>
 
   <pluginRepositories>
