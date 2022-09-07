@@ -23,7 +23,7 @@ pipeline {
           def random = (new Random()).nextInt(10000000)
           def seleniumName = "selenium-" + random
           def ivyName = "ivy-" + random
-          docker.image("selenium/standalone-firefox:3").withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network host") {     
+          docker.image("selenium/standalone-firefox:4").withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network host") {     
             docker.build('maven-selenium').inside("--name ${ivyName} --network host") {
               def workspace = pwd()
               def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'

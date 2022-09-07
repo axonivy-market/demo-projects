@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.JavascriptExecutor;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
 import com.codeborne.selenide.Selenide;
@@ -37,7 +37,7 @@ public class WebTestOtherIT
     startProcess("145D1862CF17F2C9/Html5BootstrapDemo.ivp");
     $(By.id("Form:Name")).shouldBe(visible).sendKeys("name");
     $(By.id("Form:Email")).sendKeys("email@ivyteam.ch");
-    ((RemoteWebDriver)WebDriverRunner.getWebDriver())
+    ((JavascriptExecutor) WebDriverRunner.getWebDriver())
             .executeScript("document.getElementById('Form:Birthdate').setAttribute('value', '2016-01-01')");
     $(By.id("Form:Captcha")).sendKeys("21");
     $(By.id("Submit")).click();
