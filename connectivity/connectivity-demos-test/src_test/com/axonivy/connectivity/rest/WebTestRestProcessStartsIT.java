@@ -17,7 +17,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import soap.bpm.TestDataMapping.Smartbear;
 
 @IvyWebTest
-public class WebTestRestProcessStarts {
+public class WebTestRestProcessStartsIT {
 
   @Test
   void checkAllSimpleRestCalls() {
