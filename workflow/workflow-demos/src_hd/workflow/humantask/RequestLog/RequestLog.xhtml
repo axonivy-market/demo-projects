@@ -7,18 +7,18 @@
 
 <cc:implementation>
   <p:dataTable value="#{data.procurementRequest.activityLog}" var="logEntry" sortBy="#{logEntry.timestamp}">
-    <p:column id="timestamp">
+    <p:column id="timestamp" headerText="Timestamp">
       <h:outputText value="#{logEntry.timestamp}">
         <f:convertDateTime pattern="dd.MM.yyyy hh:mm"></f:convertDateTime>
       </h:outputText>
     </p:column>
-    <p:column id="activity">
+    <p:column id="activity" headerText="Activity">
       <h:outputText value="#{logEntry.activity}" />
     </p:column>
-    <p:column id="user">
+    <p:column id="user" headerText="User">
       <h:outputText value="#{logEntry.user.fullName}" />
     </p:column>
-    <p:column id="role">
+    <p:column id="role" headerText="Role">
       <h:outputText value="#{logEntry.user.role}" />
     </p:column>
   </p:dataTable>
