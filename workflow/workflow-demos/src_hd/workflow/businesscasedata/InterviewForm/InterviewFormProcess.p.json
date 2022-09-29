@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "16EF56C29B4905A8",
-  "data" : "workflow.businesscasedata.InterviewForm.InterviewFormData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "workflow.businesscasedata.InterviewForm.InterviewFormData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

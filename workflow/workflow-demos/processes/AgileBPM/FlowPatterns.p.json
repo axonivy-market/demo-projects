@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "152551002ABB8DFE",
-  "data" : "workflow.agileBPM.Data",
+  "config" : {
+    "data" : "workflow.agileBPM.Data"
+  },
   "elements" : [ {
       "id" : "U31",
       "type" : "UserBpmnElement",

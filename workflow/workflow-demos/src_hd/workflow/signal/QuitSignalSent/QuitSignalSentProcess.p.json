@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "152EF97FE4494BDB",
-  "data" : "workflow.signal.QuitSignalSent.QuitSignalSentData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "workflow.signal.QuitSignalSent.QuitSignalSentData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

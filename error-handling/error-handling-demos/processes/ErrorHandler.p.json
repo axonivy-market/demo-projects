@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "150148B81ACE3E1E",
-  "data" : "error.handling.demo.ErrorHandler",
+  "config" : {
+    "data" : "error.handling.demo.ErrorHandler"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "ErrorStartEvent",

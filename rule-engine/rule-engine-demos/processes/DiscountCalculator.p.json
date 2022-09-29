@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "153EAAA7649F85DA",
-  "data" : "rule.engine.demo.Data",
+  "config" : {
+    "data" : "rule.engine.demo.Data"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "RequestStart",

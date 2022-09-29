@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "156DF88423ED9C68",
-  "data" : "workflow.businessdata.CreateAddress.CreateAddressData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "workflow.businessdata.CreateAddress.CreateAddressData"
+  },
   "elements" : [ {
       "id" : "f1",
       "type" : "HtmlDialogEnd",

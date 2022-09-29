@@ -1,9 +1,11 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "162B95BB70C3178E",
-  "data" : "com.axonivy.connectivity.soap.service.TechnicalBackendServiceData",
   "kind" : "WEB_SERVICE",
-  "wsTypeName" : "com.axonivy.connectivity.technicalBackendService",
+  "config" : {
+    "data" : "com.axonivy.connectivity.soap.service.TechnicalBackendServiceData",
+    "wsTypeName" : "com.axonivy.connectivity.technicalBackendService"
+  },
   "elements" : [ {
       "id" : "f15",
       "type" : "Script",

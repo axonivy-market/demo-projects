@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "16EF595252014E44",
-  "data" : "workflow.businesscasedata.InterviewLazyBrowser.InterviewLazyBrowserData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "workflow.businesscasedata.InterviewLazyBrowser.InterviewLazyBrowserData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

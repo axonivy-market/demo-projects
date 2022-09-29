@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "1675F33D16FB90A4",
-  "data" : "com.axonivy.connectivity.test.CreateUsersData",
+  "config" : {
+    "data" : "com.axonivy.connectivity.test.CreateUsersData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "RequestStart",

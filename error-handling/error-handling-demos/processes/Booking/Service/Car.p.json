@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "1500483191BD4791",
-  "data" : "booking.HertzData",
   "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "booking.HertzData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "CallSubStart",

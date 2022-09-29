@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "157B33AB7587F1F1",
-  "data" : "com.axonivy.connectivity.rest.BatchServiceData",
+  "config" : {
+    "data" : "com.axonivy.connectivity.rest.BatchServiceData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "RequestStart",

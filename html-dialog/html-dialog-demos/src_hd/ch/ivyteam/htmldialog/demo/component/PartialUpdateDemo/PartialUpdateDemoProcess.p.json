@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "139E3EF5C6DBC97F",
-  "data" : "ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

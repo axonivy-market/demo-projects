@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "175F99FC96A78D96",
-  "data" : "rule.engine.demo.AdjustableDiscountCalculator.AdjustableDiscountCalculatorData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "rule.engine.demo.AdjustableDiscountCalculator.AdjustableDiscountCalculatorData"
+  },
   "elements" : [ {
       "id" : "f11",
       "type" : "HtmlDialogEnd",

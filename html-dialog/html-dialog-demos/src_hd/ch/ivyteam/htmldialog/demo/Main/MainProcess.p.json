@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "139D3A1D10C506D8",
-  "data" : "ch.ivyteam.htmldialog.demo.Main.MainData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "ch.ivyteam.htmldialog.demo.Main.MainData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

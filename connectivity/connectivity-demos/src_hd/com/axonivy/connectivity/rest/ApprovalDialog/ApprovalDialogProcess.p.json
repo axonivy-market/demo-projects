@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "154A00644BB7C22B",
-  "data" : "com.axonivy.connectivity.rest.ApprovalDialog.ApprovalDialogData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "com.axonivy.connectivity.rest.ApprovalDialog.ApprovalDialogData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

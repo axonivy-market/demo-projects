@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "162AFFB8ACCCB74C",
-  "data" : "com.axonivy.connectivity.test.GreeterPolicyData",
+  "config" : {
+    "data" : "com.axonivy.connectivity.test.GreeterPolicyData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "RequestStart",

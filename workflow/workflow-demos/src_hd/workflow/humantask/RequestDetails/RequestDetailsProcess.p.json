@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "152A20D5EC31358E",
-  "data" : "workflow.humantask.RequestDetails.RequestDetailsData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "workflow.humantask.RequestDetails.RequestDetailsData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

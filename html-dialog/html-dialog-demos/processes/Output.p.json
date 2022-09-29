@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "145D180807C60B4B",
-  "data" : "htmlDialogDemos.Data",
+  "config" : {
+    "data" : "htmlDialogDemos.Data"
+  },
   "elements" : [ {
       "id" : "f94",
       "type" : "RequestStart",

@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "139D97A1E15DE439",
-  "data" : "ch.ivyteam.htmldialog.demo.InitPersonsData",
   "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "ch.ivyteam.htmldialog.demo.InitPersonsData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "CallSubStart",

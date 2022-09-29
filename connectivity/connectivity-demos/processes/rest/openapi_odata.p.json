@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "15DEF1BE5B9E5A42",
-  "data" : "com.axonivy.connectivity.rest.odata.OData",
+  "config" : {
+    "data" : "com.axonivy.connectivity.rest.odata.OData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "RequestStart",

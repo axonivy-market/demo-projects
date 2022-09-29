@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "16E59F2CEDC492A6",
-  "data" : "ch.ivyteam.htmldialog.demo.other.ResponsiveGridDemo.ResponsiveGridDemoData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "ch.ivyteam.htmldialog.demo.other.ResponsiveGridDemo.ResponsiveGridDemoData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

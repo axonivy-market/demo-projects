@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "14ECFEF3BADB5A9E",
-  "data" : "error.handling.demo.RegisterOrder.RegisterOrderData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "error.handling.demo.RegisterOrder.RegisterOrderData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

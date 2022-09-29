@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "150850F930AF7EA6",
-  "data" : "error.handling.demo.approval.RequestApproval.RequestApprovalData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "error.handling.demo.approval.RequestApproval.RequestApprovalData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

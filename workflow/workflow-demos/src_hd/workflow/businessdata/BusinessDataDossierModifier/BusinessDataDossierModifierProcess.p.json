@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "155BB4D0A6771B1B",
-  "data" : "workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData"
+  },
   "elements" : [ {
       "id" : "f1",
       "type" : "HtmlDialogEnd",

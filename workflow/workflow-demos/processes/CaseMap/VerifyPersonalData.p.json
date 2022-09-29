@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "15A849250AA78F65",
-  "data" : "workflow.humantask.Data",
+  "config" : {
+    "data" : "workflow.humantask.Data"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "RequestStart",

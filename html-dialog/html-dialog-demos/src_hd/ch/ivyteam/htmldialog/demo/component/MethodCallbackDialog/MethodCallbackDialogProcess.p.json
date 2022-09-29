@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "13EF083D130E971B",
-  "data" : "ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",
