@@ -1,9 +1,11 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "162492A1649E72DF",
-  "data" : "com.axonivy.connectivity.soap.service.CreateOrderServiceData",
   "kind" : "WEB_SERVICE",
-  "wsTypeName" : "com.axonivy.connectivity.createOrder",
+  "config" : {
+    "data" : "com.axonivy.connectivity.soap.service.CreateOrderServiceData",
+    "wsTypeName" : "com.axonivy.connectivity.createOrder"
+  },
   "elements" : [ {
       "id" : "ws0",
       "type" : "WebserviceStart",

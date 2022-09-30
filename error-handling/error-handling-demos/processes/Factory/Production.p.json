@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "1500417E1DADBB7C",
-  "data" : "error.handling.demo.FactoryData",
   "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "error.handling.demo.FactoryData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "CallSubStart",

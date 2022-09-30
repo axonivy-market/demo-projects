@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "151CA1EFC1542D87",
-  "data" : "workflow.signal.QuitUserProcess",
+  "config" : {
+    "data" : "workflow.signal.QuitUserProcess"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "RequestStart",

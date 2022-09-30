@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "15254CFABE5EF2E5",
-  "data" : "workflow.trigger.CreateNewEmployee.CreateNewEmployeeData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "workflow.trigger.CreateNewEmployee.CreateNewEmployeeData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

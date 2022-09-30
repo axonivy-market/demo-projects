@@ -1,10 +1,12 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "16150E1D07E8CA18",
-  "data" : "com.axonivy.connectivity.soap.service.PersonServiceData",
   "kind" : "WEB_SERVICE",
-  "wsTypeName" : "com.axonivy.connectivity.soap.service.PersonService",
-  "wsAuth" : "HTTP_BASIC",
+  "config" : {
+    "data" : "com.axonivy.connectivity.soap.service.PersonServiceData",
+    "wsTypeName" : "com.axonivy.connectivity.soap.service.PersonService",
+    "wsAuth" : "HTTP_BASIC"
+  },
   "elements" : [ {
       "id" : "ws0",
       "type" : "WebserviceStart",

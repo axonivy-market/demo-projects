@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "15A60076034F7437",
-  "data" : "com.axonivy.connectivity.rest.DataMappingData",
+  "config" : {
+    "data" : "com.axonivy.connectivity.rest.DataMappingData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "RequestStart",

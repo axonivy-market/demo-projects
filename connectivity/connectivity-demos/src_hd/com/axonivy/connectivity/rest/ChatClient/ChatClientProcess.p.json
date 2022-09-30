@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "16764B1AE13CC212",
-  "data" : "com.axonivy.connectivity.rest.ChatClient.ChatClientData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "com.axonivy.connectivity.rest.ChatClient.ChatClientData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

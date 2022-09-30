@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "161AE4E4EC67C8FD",
-  "data" : "com.axonivy.connectivity.soap.BatchServiceClientData",
+  "config" : {
+    "data" : "com.axonivy.connectivity.soap.BatchServiceClientData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "RequestStart",

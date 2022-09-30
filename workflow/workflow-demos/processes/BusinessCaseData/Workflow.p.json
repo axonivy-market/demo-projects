@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "16EF567002B146F2",
-  "data" : "workflow.businesscasedata.Data",
+  "config" : {
+    "data" : "workflow.businesscasedata.Data"
+  },
   "elements" : [ {
       "id" : "f3",
       "type" : "DialogCall",

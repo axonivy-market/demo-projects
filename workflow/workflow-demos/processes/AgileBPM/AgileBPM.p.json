@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "15255056043EE914",
-  "data" : "workflow.agileBPM.Data",
+  "config" : {
+    "data" : "workflow.agileBPM.Data"
+  },
   "elements" : [ {
       "id" : "1b0",
       "type" : "EmbeddedProcess",

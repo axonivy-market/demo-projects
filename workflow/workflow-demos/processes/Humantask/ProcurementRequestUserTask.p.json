@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "15254DCE818AD7A2",
-  "data" : "workflow.humantask.ProcurementRequest",
+  "config" : {
+    "data" : "workflow.humantask.ProcurementRequest"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "RequestStart",

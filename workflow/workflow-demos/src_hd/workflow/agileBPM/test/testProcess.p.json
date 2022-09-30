@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "1525511ED79C649A",
-  "data" : "workflow.agileBPM.test.testData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "workflow.agileBPM.test.testData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

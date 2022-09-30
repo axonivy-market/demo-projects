@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "156E5D9AA7D41BAA",
-  "data" : "workflow.businessdata.Data",
+  "config" : {
+    "data" : "workflow.businessdata.Data"
+  },
   "elements" : [ {
       "id" : "f30",
       "type" : "ProcessAnnotation",

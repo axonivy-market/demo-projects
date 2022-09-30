@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "139D3B8894867715",
-  "data" : "ch.ivyteam.htmldialog.demo.output.OrderListDemo.OrderListDemoData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "ch.ivyteam.htmldialog.demo.output.OrderListDemo.OrderListDemoData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "162494137FBEE605",
-  "data" : "com.axonivy.connectivity.soap.AcceptOrder.AcceptOrderData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "com.axonivy.connectivity.soap.AcceptOrder.AcceptOrderData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

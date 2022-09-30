@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "15470DE765DF45FC",
-  "data" : "com.axonivy.connectivity.rest.PersonManager.PersonManagerData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "com.axonivy.connectivity.rest.PersonManager.PersonManagerData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",

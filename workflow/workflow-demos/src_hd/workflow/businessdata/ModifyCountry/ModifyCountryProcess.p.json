@@ -1,8 +1,10 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "156DB995D6C6D132",
-  "data" : "workflow.businessdata.ModifyCountry.ModifyCountryData",
   "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "workflow.businessdata.ModifyCountry.ModifyCountryData"
+  },
   "elements" : [ {
       "id" : "f1",
       "type" : "HtmlDialogEnd",

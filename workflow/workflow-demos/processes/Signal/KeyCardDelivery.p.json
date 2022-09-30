@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "1523FF963044280C",
-  "data" : "workflow.signal.FacilityManagementData",
+  "config" : {
+    "data" : "workflow.signal.FacilityManagementData"
+  },
   "elements" : [ {
       "id" : "f19",
       "type" : "Script",

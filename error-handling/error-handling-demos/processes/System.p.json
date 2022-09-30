@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "9.4.21",
   "id" : "150149331438F9EA",
-  "data" : "error.handling.demo.technicalData",
+  "config" : {
+    "data" : "error.handling.demo.technicalData"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "RequestStart",
