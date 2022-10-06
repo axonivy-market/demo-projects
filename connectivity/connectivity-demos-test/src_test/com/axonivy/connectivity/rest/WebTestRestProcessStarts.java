@@ -2,7 +2,8 @@ package com.axonivy.connectivity.rest;
 
 import static com.axonivy.ivy.webtest.engine.EngineUrl.createProcessUrl;
 import static com.codeborne.selenide.Selenide.open;
-import static org.assertj.core.api.Assertions.assertThat;
+import static com.codeborne.selenide.Selenide.webdriver;
+import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -12,7 +13,6 @@ import javax.ws.rs.core.UriBuilder;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
-import com.codeborne.selenide.WebDriverRunner;
 
 import soap.bpm.TestDataMapping.Smartbear;
 
@@ -48,7 +48,6 @@ public class WebTestRestProcessStarts {
   private void checkProcess(String process) {
     String path = "connectivity-demos/" + process;
     open(createProcessUrl(path));
-    assertThat(WebDriverRunner.url()).as("Process url '" + path + "' should run to an end without problems.")
-          .contains("endedTaskId=");
+    webdriver().shouldHave(urlContaining("endedTaskId="));
   }
 }
