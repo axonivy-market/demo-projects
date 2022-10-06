@@ -8,6 +8,7 @@
 
   <properties>
     <project-build-plugin>10.0.1-SNAPSHOT</project-build-plugin>
+    <web.tester.version>9.4.1</web.tester.version>
   </properties>
 
   <pluginRepositories>
@@ -39,7 +40,7 @@
     <dependency>
       <groupId>com.axonivy.ivy.webtest</groupId>
       <artifactId>web-tester</artifactId>
-      <version>9.4.0</version>
+      <version>${web.tester.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
