@@ -15,6 +15,10 @@
     <module>demos-app</module>
   </modules>
 
+  <scm>
+    <developerConnection>scm:git:https://github.com/axonivy-market/demo-projects.git</developerConnection>
+  </scm>
+
   <build>
     <plugins>
       <plugin>
@@ -23,6 +27,14 @@
         <version>3.0.0</version>
         <configuration>
           <skip>true</skip>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>3.0.0-M4</version>
+        <configuration>
+          <tagNameFormat>v@{project.version}</tagNameFormat>
         </configuration>
       </plugin>
     </plugins>
