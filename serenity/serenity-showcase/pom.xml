@@ -19,7 +19,7 @@
         <artifactId>project-build-plugin</artifactId>
         <version>8.0.7</version>
         <configuration>
-          <ivyVersion>[8.0.0,]</ivyVersion>
+          <ivyVersion>[8.0.0,8.1.0]</ivyVersion>
           <compilerWarnings>false</compilerWarnings>
         </configuration>
         <extensions>true</extensions>
