@@ -7,9 +7,11 @@
 	<description>Contains all ivyProjects as module dependency</description>
 
 	<modules>
+    <!-- to release, add these projects to reactor -->
+    <!--
     <module>build.maven/web</module>
     <module>build.maven</module>
-
+    -->
 		<module>html-dialog</module>
 		<module>error-handling</module>
 		<module>quick-start-tutorial</module>
