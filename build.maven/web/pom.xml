@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.axonivy.demo</groupId>
 		<artifactId>build-maven</artifactId>
-		<version>8.0.5</version>
+		<version>8.0.6-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 
