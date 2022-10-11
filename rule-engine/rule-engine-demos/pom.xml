@@ -13,7 +13,7 @@
   </organization>
 
   <properties>
-    <project-build-plugin>9.4.2-SNAPSHOT</project-build-plugin>
+    <project-build-plugin>9.4.1</project-build-plugin>
   </properties>
 
   <build>
