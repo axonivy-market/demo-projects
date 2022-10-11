@@ -8,6 +8,9 @@
 	<description>Contains all ivyProjects as module dependency</description>
 
 	<modules>
+    <module>build.maven/web</module>
+    <module>build.maven</module>
+
 		<module>html-dialog</module>
 		<module>error-handling</module>
 		<module>quick-start-tutorial</module>
