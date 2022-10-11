@@ -3,13 +3,13 @@
   <parent>
     <groupId>com.axonivy.demo</groupId>
     <artifactId>build-maven-test</artifactId>
-    <version>9.3.0</version>
+    <version>9.3.1-SNAPSHOT</version>
     <relativePath>../../build.maven/test</relativePath>
   </parent>
 
   <groupId>com.axonivy.demo</groupId>
   <artifactId>workflow-demos-test</artifactId>
-  <version>9.3.0</version>
+  <version>9.3.1-SNAPSHOT</version>
   <packaging>iar-integration-test</packaging>
 
   <dependencies>
