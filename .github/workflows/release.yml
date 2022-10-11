@@ -1,7 +1,50 @@
 name: Release-Build
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
 
 jobs:
   build:
-    uses: axonivy-market/github-workflows/.github/workflows/release.yml@v2
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Get branch name
+      id: branch-name
+      uses: tj-actions/branch-names@v6
+
+    - name: Setup Java JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: 17
+        distribution: temurin
+        server-id: github
+
+    - name: Configure Git
+      run: |
+        git config user.email "actions@github.com"
+        git config user.name "GitHub Actions"
+        git checkout -b new-release
+    
+    - name: Provide maven repository credentials
+      uses: s4u/maven-settings-action@v2
+      with:
+        servers: |
+          [{
+              "id": "nexus.axonivy.com",
+              "username": "${{ secrets.NEXUS_AXONIVY_COM_USER }}",
+              "password": "${{ secrets.NEXUS_AXONIVY_COM_PASSWORD }}"
+          }]
+    - name: Build with Maven
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: mvn --batch-mode -Darguments="-Dmaven.test.skip=true -DaltDeploymentRepository=nexus.axonivy.com::https://nexus.axonivy.com/repository/maven-releases/" release:prepare release:perform
+
+    - name: Create pull request
+      uses: repo-sync/pull-request@v2
+      with:
+        destination_branch: ${{ steps.branch-name.outputs.current_branch }}
+        source_branch: new-release
+        pr_title: "Release"
+        github_token: ${{ secrets.GITHUB_TOKEN }}
