@@ -3,7 +3,7 @@
 
   <groupId>com.axonivy.demo</groupId>
   <artifactId>connectivity-demos-test</artifactId>
-  <version>9.4.0</version>
+  <version>9.4.1-SNAPSHOT</version>
   <packaging>iar-integration-test</packaging>
 
   <properties>
