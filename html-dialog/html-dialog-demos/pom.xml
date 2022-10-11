@@ -13,6 +13,7 @@
 
   <properties>
     <project.build.plugin.version>9.3.0</project.build.plugin.version>
+    <ivy.engine.version>9.3.4</ivy.engine.version>
   </properties>
 
   <build>
