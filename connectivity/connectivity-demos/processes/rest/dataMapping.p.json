@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.21",
+  "format" : "10.0.0",
   "id" : "15A60076034F7437",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.DataMappingData"

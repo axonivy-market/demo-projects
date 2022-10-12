@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.21",
+  "format" : "10.0.0",
   "id" : "16F375741231763F",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.OpenApiData"
