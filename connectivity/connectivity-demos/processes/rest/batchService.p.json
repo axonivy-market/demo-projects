@@ -1,5 +1,5 @@
 {
-  "format" : "9.4.21",
+  "format" : "10.0.0",
   "id" : "157B33AB7587F1F1",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.BatchServiceData"
