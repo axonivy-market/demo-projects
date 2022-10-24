@@ -19,7 +19,8 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        script {   
+        script {
+          sh "docker run -d --restart unless-stopped -p 8091:3000 --name jsonplaceholder svenwal/jsonplaceholder:latest"
           def random = (new Random()).nextInt(10000000)
           def seleniumName = "selenium-" + random
           def ivyName = "ivy-" + random
@@ -45,6 +46,8 @@ pipeline {
               junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/*-reports/**/*.xml'          
             }
           }
+          sh "docker stop jsonplaceholder"
+          sh "docker rm jsonplaceholder"
         }
       }
     }
