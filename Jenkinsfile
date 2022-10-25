@@ -22,8 +22,9 @@ pipeline {
         script {
           def random = (new Random()).nextInt(10000000)
           def seleniumName = "selenium-" + random
+          def jsonplaceholderName = "jsonplaceholder-" + random
           def ivyName = "ivy-" + random
-          docker.image("svenwal/jsonplaceholder:latest").withRun("-p 8091:3000") {
+          docker.image("svenwal/jsonplaceholder:latest").withRun("--name ${jsonplaceholderName} --network host") {
             docker.image("selenium/standalone-firefox:4").withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network host") {
               docker.build('maven-selenium').inside("--name ${ivyName} --network host") {
                 def workspace = pwd()
