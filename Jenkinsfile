@@ -36,7 +36,8 @@ pipeline {
                             "-Divy.engine.version='[9.2.0,]' " +
                             "-Divy.engine.list.url=${params.engineListUrl} " +
                             "-DaltDeploymentRepository=nexus.axonivy.com::https://nexus.axonivy.com/repository/maven-snapshots/ " +
-                            "-Dselenide.remote=http://${seleniumName}:4444/wd/hub"
+                            "-Dselenide.remote=http://${seleniumName}:4444/wd/hub " +
+                            "-Dtest.host.name=${ivyName}"
 
                   archiveArtifacts '**/target/*.iar,**/target/*.zip'
                   archiveArtifacts artifacts: '**/target/selenide/reports/**/*', allowEmptyArchive: true
