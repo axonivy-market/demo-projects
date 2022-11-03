@@ -38,8 +38,10 @@ public class WebTestRestProcessStarts {
   }
 
   private void enableSmartbearMock() throws MalformedURLException {
+    var procUrl = createProcessUrl("connectivity-demos-test/180D6E5562D69BF0/configure.ivp");
+    var engineProcUri = URI.create(procUrl.replaceAll("localhost", System.getProperty("test.host.name", "localhost")));
     URI configure = UriBuilder
-      .fromUri(URI.create(createProcessUrl("connectivity-demos-test/180D6E5562D69BF0/configure.ivp")))
+      .fromUri(engineProcUri)
       .queryParam("key", Smartbear.ENDPOINT_URI_KEY)
       .queryParam("value", Smartbear.MOCK_SERVICE).build();
     open(configure.toURL());
@@ -47,7 +49,8 @@ public class WebTestRestProcessStarts {
 
   private void checkProcess(String process) {
     String path = "connectivity-demos/" + process;
-    open(createProcessUrl(path));
+    var procUrl = createProcessUrl(path).replaceAll("localhost", System.getProperty("test.host.name", "localhost"));
+    open(procUrl);
     webdriver().shouldHave(urlContaining("endedTaskId="));
   }
 }
