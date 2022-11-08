@@ -16,3 +16,13 @@ in our documentation.
 
 ![Rule Engine Demo 1](screen1.png "Rule Engine Demo 1")
 ![Rule Engine Demo 2](screen2.png "Rule Engine Demo 2")
+
+## Setup
+
+In order to get full Design-Time support, such as auto-completion for DRL conditions, please configure all projects in your workspace to use Java 11.
+
+To do so:
+1. Right click on your project and select `Properties` in the context menu. 
+1. Select `Java Compiler` on the left side and set `Compiler compliance level`to `11`
+1. Select `Project Facets` on the left side and set the facet `Java` to version `11`.
+1. Apply and Close the Properties dialog.
