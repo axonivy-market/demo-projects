@@ -14,19 +14,18 @@ import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 import ch.ivyteam.ivy.environment.AppFixture;
 
-
 @IvyProcessTest
-public class TestOpenApi
+class TestOpenApi
 {
-  @SuppressWarnings("removal")
   @BeforeAll
   static void setUp(AppFixture fixture)
   {
-    fixture.environment(System.getProperty("test.environment", "Default"));
+    fixture.config("RestClients.jsonPlaceholder.Url", "http://jsonplaceholder:3000/");
+    fixture.config("RestClients.openApiService.Url", "http://test-webservices.ivyteam.io:8090/api/v3");
   }
 
   @Test
-  public void openApi_petListing(BpmClient bpmClient)
+  void openApi_petListing(BpmClient bpmClient)
   {
     ExecutionResult result = bpmClient.start().process("rest/openapi/listPets.ivp").execute();
     assertThat(result).isNotNull();
@@ -37,7 +36,7 @@ public class TestOpenApi
   }
 
   @Test
-  public void openApi_petQuery(BpmClient bpmClient)
+  void openApi_petQuery(BpmClient bpmClient)
   {
     ExecutionResult result = bpmClient.start().process("rest/openapi/login.ivp").execute();
     assertThat(result).isNotNull();
@@ -47,7 +46,7 @@ public class TestOpenApi
   }
 
   @Test
-  public void openApi_fileUpload(BpmClient bpmClient)
+  void openApi_fileUpload(BpmClient bpmClient)
   {
     ExecutionResult result = bpmClient.start().process("rest/openapi/upload.ivp").execute();
     assertThat(result).isNotNull();
