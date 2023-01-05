@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "14ED397D47F3083D",
   "config" : {
     "data" : "error.handling.demo.Approval"
@@ -13,9 +13,11 @@
         "responsible" : "Team",
         "outLink" : "start.ivp",
         "wfuser" : "1",
-        "startName" : "Business Error initiates an alternative flow",
-        "tags" : "demo"
+        "startName" : "Business Error initiates an alternative flow"
       },
+      "tags" : [
+        "demo"
+      ],
       "visual" : {
         "at" : { "x" : 96, "y" : 192 },
         "labelOffset" : { "x" : 12, "y" : 37 }
@@ -50,8 +52,7 @@
       "type" : "UserTask",
       "name" : "Request From",
       "config" : {
-        "dialogId" : "error.handling.demo.approval.RequestForm",
-        "startMethod" : "start()",
+        "dialog" : "error.handling.demo.approval.RequestForm:start()",
         "output" : {
           "map" : {
             "out" : "result.approval"
@@ -70,8 +71,7 @@
       "type" : "UserTask",
       "name" : "approve",
       "config" : {
-        "dialogId" : "error.handling.demo.approval.RequestApproval",
-        "startMethod" : "start(error.handling.demo.Approval)",
+        "dialog" : "error.handling.demo.approval.RequestApproval:start(error.handling.demo.Approval)",
         "task" : {
           "name" : "Approve Request for a <%=in.description%>",
           "responsible" : {
@@ -112,8 +112,7 @@
       "type" : "UserTask",
       "name" : "request approved",
       "config" : {
-        "dialogId" : "error.handling.demo.approval.RequestApproved",
-        "startMethod" : "start(error.handling.demo.Approval)",
+        "dialog" : "error.handling.demo.approval.RequestApproved:start(error.handling.demo.Approval)",
         "task" : {
           "name" : "Request for <%=in.description%> approved",
           "responsible" : {
@@ -138,8 +137,7 @@
       "type" : "UserTask",
       "name" : "request declined",
       "config" : {
-        "dialogId" : "error.handling.demo.approval.RequestDeclined",
-        "startMethod" : "start(error.handling.demo.Approval)",
+        "dialog" : "error.handling.demo.approval.RequestDeclined:start(error.handling.demo.Approval)",
         "task" : {
           "name" : "Request for <%=in.description%> declined",
           "responsible" : {

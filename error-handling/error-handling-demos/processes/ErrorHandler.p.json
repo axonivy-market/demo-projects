@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "150148B81ACE3E1E",
   "config" : {
     "data" : "error.handling.demo.ErrorHandler"
@@ -56,8 +56,7 @@
       "type" : "DialogCall",
       "name" : "Display Error",
       "config" : {
-        "dialogId" : "error.handling.demo.GlobalError",
-        "startMethod" : "start(String,String)",
+        "dialog" : "error.handling.demo.GlobalError:start(String,String)",
         "call" : {
           "params" : [
             { "name" : "errorCode", "type" : "String" },

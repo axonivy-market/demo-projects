@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "15254CF1CE56AE72",
   "config" : {
     "data" : "workflow.trigger.NewEmployeeData"
@@ -39,8 +39,7 @@
         "personal data"
       ],
       "config" : {
-        "dialogId" : "workflow.trigger.CreateNewEmployee",
-        "startMethod" : "start(workflow.trigger.NewEmployeeData)",
+        "dialog" : "workflow.trigger.CreateNewEmployee:start(workflow.trigger.NewEmployeeData)",
         "output" : {
           "map" : {
             "out" : "result.newEmployeeData"

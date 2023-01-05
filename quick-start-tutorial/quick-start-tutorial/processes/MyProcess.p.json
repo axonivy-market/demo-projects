@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "148655DDB7BB6588",
   "config" : {
     "data" : "quickStartTutorial.Data"
@@ -10,9 +10,11 @@
       "name" : "start.ivp",
       "config" : {
         "callSignature" : "start",
-        "outLink" : "start.ivp",
-        "tags" : "demo"
+        "outLink" : "start.ivp"
       },
+      "tags" : [
+        "demo"
+      ],
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },
         "labelOffset" : { "x" : 12, "y" : 37 }
@@ -29,8 +31,7 @@
       "type" : "DialogCall",
       "name" : "Enter Product",
       "config" : {
-        "dialogId" : "quickStartTutorial.EnterProduct",
-        "startMethod" : "start(quickStartTutorial.Data)",
+        "dialog" : "quickStartTutorial.EnterProduct:start(quickStartTutorial.Data)",
         "output" : {
           "map" : {
             "out" : "result.data"

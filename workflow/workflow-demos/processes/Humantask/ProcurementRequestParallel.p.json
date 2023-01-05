@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "15254DC87A1B183B",
   "config" : {
     "data" : "workflow.humantask.ProcurementRequest"
@@ -12,8 +12,7 @@
         "by Manager"
       ],
       "config" : {
-        "dialogId" : "workflow.humantask.VerifyRequest",
-        "startMethod" : "start(workflow.humantask.ProcurementRequest)",
+        "dialog" : "workflow.humantask.VerifyRequest:start(workflow.humantask.ProcurementRequest)",
         "output" : {
           "map" : {
             "out" : "in",
@@ -103,8 +102,7 @@
       "type" : "DialogCall",
       "name" : "Enter Request",
       "config" : {
-        "dialogId" : "workflow.humantask.EnterRequest",
-        "startMethod" : "start()",
+        "dialog" : "workflow.humantask.EnterRequest:start()",
         "output" : {
           "map" : {
             "out" : "result.procurementRequestData",
@@ -154,8 +152,7 @@
         "by Team Leader"
       ],
       "config" : {
-        "dialogId" : "workflow.humantask.VerifyRequest",
-        "startMethod" : "start(workflow.humantask.ProcurementRequest)",
+        "dialog" : "workflow.humantask.VerifyRequest:start(workflow.humantask.ProcurementRequest)",
         "output" : {
           "map" : {
             "out" : "in",
@@ -210,8 +207,7 @@
       "type" : "DialogCall",
       "name" : "Accept Request",
       "config" : {
-        "dialogId" : "workflow.humantask.AcceptRequest",
-        "startMethod" : "start(workflow.humantask.ProcurementRequest)",
+        "dialog" : "workflow.humantask.AcceptRequest:start(workflow.humantask.ProcurementRequest)",
         "output" : {
           "map" : {
             "out" : "in",

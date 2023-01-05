@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "1523FF963044280C",
   "config" : {
     "data" : "workflow.signal.FacilityManagementData"
@@ -49,8 +49,7 @@
       "type" : "UserTask",
       "name" : "Deliver Key Card",
       "config" : {
-        "dialogId" : "workflow.signal.TaskForm",
-        "startMethod" : "start(workflow.signal.User)",
+        "dialog" : "workflow.signal.TaskForm:start(workflow.signal.User)",
         "case" : {
           "category" : "Facility/ParkingLot/Reservation"
         },

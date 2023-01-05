@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "152551002ABB8DFE",
   "config" : {
     "data" : "workflow.agileBPM.Data"
@@ -107,8 +107,7 @@
         "Request Form"
       ],
       "config" : {
-        "dialogId" : "workflow.agileBPM.test",
-        "startMethod" : "start(String)",
+        "dialog" : "workflow.agileBPM.test:start(String)",
         "call" : {
           "params" : [
             { "name" : "answer", "type" : "String" }
@@ -209,8 +208,7 @@
         "Question Form"
       ],
       "config" : {
-        "dialogId" : "workflow.agileBPM.test",
-        "startMethod" : "start(String)",
+        "dialog" : "workflow.agileBPM.test:start(String)",
         "call" : {
           "params" : [
             { "name" : "answer", "type" : "String" }
@@ -395,8 +393,7 @@
         "Request Form"
       ],
       "config" : {
-        "dialogId" : "workflow.agileBPM.test",
-        "startMethod" : "start(String)",
+        "dialog" : "workflow.agileBPM.test:start(String)",
         "call" : {
           "params" : [
             { "name" : "answer", "type" : "String" }

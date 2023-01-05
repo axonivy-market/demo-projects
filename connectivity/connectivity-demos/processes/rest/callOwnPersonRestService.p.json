@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "154616078A1D629D",
   "config" : {
     "data" : "com.axonivy.connectivity.Data"
@@ -66,8 +66,7 @@
         "PersonManager"
       ],
       "config" : {
-        "dialogId" : "com.axonivy.connectivity.rest.PersonManager",
-        "startMethod" : "start()"
+        "dialog" : "com.axonivy.connectivity.rest.PersonManager:start()"
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 272 },
