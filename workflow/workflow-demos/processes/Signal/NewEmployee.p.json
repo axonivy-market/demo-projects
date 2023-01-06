@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "151CA0D8CBDD2DEC",
   "config" : {
     "data" : "workflow.signal.CreateUserProcess"
@@ -36,8 +36,7 @@
       "type" : "UserTask",
       "name" : "Set up office key",
       "config" : {
-        "dialogId" : "workflow.signal.TaskForm",
-        "startMethod" : "start(workflow.signal.User)",
+        "dialog" : "workflow.signal.TaskForm:start(workflow.signal.User)",
         "case" : {
           "category" : "Office/Key/Assignment"
         },
@@ -138,8 +137,7 @@
       "type" : "UserTask",
       "name" : "Set up workstation",
       "config" : {
-        "dialogId" : "workflow.signal.TaskForm",
-        "startMethod" : "start(workflow.signal.User)",
+        "dialog" : "workflow.signal.TaskForm:start(workflow.signal.User)",
         "case" : {
           "category" : "IT/Workstation/Setup"
         },
@@ -251,8 +249,7 @@
       "type" : "DialogCall",
       "name" : "Add user data",
       "config" : {
-        "dialogId" : "workflow.signal.CreateUser",
-        "startMethod" : "start(workflow.signal.User)",
+        "dialog" : "workflow.signal.CreateUser:start(workflow.signal.User)",
         "output" : {
           "map" : {
             "out" : "in",

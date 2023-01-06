@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "151CA1EFC1542D87",
   "config" : {
     "data" : "workflow.signal.QuitUserProcess"
@@ -70,8 +70,7 @@
       "type" : "DialogCall",
       "name" : "Select User",
       "config" : {
-        "dialogId" : "workflow.signal.QuitUser",
-        "startMethod" : "start()",
+        "dialog" : "workflow.signal.QuitUser:start()",
         "output" : {
           "map" : {
             "out" : "in",
@@ -102,8 +101,7 @@
         "Signal Sent"
       ],
       "config" : {
-        "dialogId" : "workflow.signal.QuitSignalSent",
-        "startMethod" : "start()"
+        "dialog" : "workflow.signal.QuitSignalSent:start()"
       },
       "visual" : {
         "at" : { "x" : 544, "y" : 224 },

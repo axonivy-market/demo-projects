@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "139D3A4CEEEDAA4B",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -16,9 +16,11 @@
           { "name" : "embedInFrame", "value" : "false" }
         ],
         "outLink" : "start.ivp",
-        "startName" : "All HtmlDialog Demos",
-        "tags" : "demo"
+        "startName" : "All HtmlDialog Demos"
       },
+      "tags" : [
+        "demo"
+      ],
       "visual" : {
         "at" : { "x" : 128, "y" : 128 },
         "labelOffset" : { "x" : 12, "y" : 35 }
@@ -34,8 +36,7 @@
       "id" : "f2",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.Main",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.Main:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 128 }

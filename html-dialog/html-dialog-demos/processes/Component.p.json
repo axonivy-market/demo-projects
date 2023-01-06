@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "145D1849FACF0EAA",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -80,8 +80,7 @@
       "id" : "f58",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.component.ComponentCustomizingDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.component.ComponentCustomizingDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 288, "y" : 160 }
@@ -91,8 +90,7 @@
       "id" : "f84",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog:start()"
       },
       "visual" : {
         "at" : { "x" : 288, "y" : 352 }
@@ -102,8 +100,7 @@
       "id" : "f99",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.component.JsfCompositeComponentDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.component.JsfCompositeComponentDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 288, "y" : 256 }
@@ -125,8 +122,7 @@
       "id" : "f21",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 288, "y" : 448 }
@@ -136,8 +132,7 @@
       "id" : "f49",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.component.ComponentDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.component.ComponentDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 288, "y" : 64 }
@@ -218,8 +213,7 @@
       "id" : "f3",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.component.LazyLoadedModalDialog",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.component.LazyLoadedModalDialog:start()"
       },
       "visual" : {
         "at" : { "x" : 288, "y" : 544 }

@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "1549FE9E911A1812",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.Approval"
@@ -82,8 +82,7 @@
       "type" : "DialogCall",
       "name" : "approval dialog",
       "config" : {
-        "dialogId" : "com.axonivy.connectivity.rest.ApprovalDialog",
-        "startMethod" : "start(com.axonivy.connectivity.rest.Approval)",
+        "dialog" : "com.axonivy.connectivity.rest.ApprovalDialog:start(com.axonivy.connectivity.rest.Approval)",
         "call" : {
           "params" : [
             { "name" : "approval", "type" : "com.axonivy.connectivity.rest.Approval" }

@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "145D18298A3E81CF",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -8,8 +8,7 @@
       "id" : "f69",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.input.MultiViewDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.input.MultiViewDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 448 }
@@ -19,8 +18,7 @@
       "id" : "f54",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.input.BeanValidationDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.input.BeanValidationDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 160 }
@@ -49,8 +47,7 @@
       "id" : "f17",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.input.FormDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.input.FormDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 528, "y" : 64 }
@@ -162,8 +159,7 @@
       "id" : "f63",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 256 }
@@ -204,8 +200,7 @@
       "id" : "f77",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 352 }
@@ -242,8 +237,7 @@
       "type" : "DialogCall",
       "name" : "TextEditorDemo",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.input.TextEditorDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.input.TextEditorDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 528 }

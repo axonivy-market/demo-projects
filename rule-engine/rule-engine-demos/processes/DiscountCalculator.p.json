@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "153EAAA7649F85DA",
   "config" : {
     "data" : "rule.engine.demo.Data"
@@ -31,8 +31,7 @@
       "type" : "DialogCall",
       "name" : "Discount Calculator",
       "config" : {
-        "dialogId" : "rule.engine.demo.DiscountCalculator",
-        "startMethod" : "start(rule.engine.demo.Member)",
+        "dialog" : "rule.engine.demo.DiscountCalculator:start(rule.engine.demo.Member)",
         "call" : {
           "params" : [
             { "name" : "member", "type" : "rule.engine.demo.Member" }
@@ -58,9 +57,11 @@
       "config" : {
         "callSignature" : "start2",
         "outLink" : "start2.ivp",
-        "startName" : "2. Adjustable Discount Calculator",
-        "tags" : "demo"
+        "startName" : "2. Adjustable Discount Calculator"
       },
+      "tags" : [
+        "demo"
+      ],
       "visual" : {
         "at" : { "x" : 80, "y" : 280 },
         "labelOffset" : { "x" : 13, "y" : 37 }
@@ -74,8 +75,7 @@
         "Discount Calculator"
       ],
       "config" : {
-        "dialogId" : "rule.engine.demo.AdjustableDiscountCalculator",
-        "startMethod" : "start()"
+        "dialog" : "rule.engine.demo.AdjustableDiscountCalculator:start()"
       },
       "visual" : {
         "at" : { "x" : 208, "y" : 280 },

@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "150425B095B4FB54",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -42,8 +42,7 @@
       "id" : "f3",
       "type" : "UserTask",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.offline.ClientSideValidation",
-        "startMethod" : "start()",
+        "dialog" : "ch.ivyteam.htmldialog.demo.offline.ClientSideValidation:start()",
         "task" : {
           "name" : "Continue with 'Client Side Validation Demo'",
           "description" : "Expires after one hour so that it's deleted automatically.",

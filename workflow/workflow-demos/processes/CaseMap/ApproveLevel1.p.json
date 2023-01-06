@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "15A852737BAA2982",
   "config" : {
     "data" : "workflow.humantask.Data"
@@ -52,8 +52,7 @@
         "Level 1"
       ],
       "config" : {
-        "dialogId" : "workflow.credit.ApproveLevel1",
-        "startMethod" : "start()"
+        "dialog" : "workflow.credit.ApproveLevel1:start()"
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 64 }

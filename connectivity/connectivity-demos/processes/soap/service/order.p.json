@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "16249376A44F1F8E",
   "config" : {
     "data" : "com.axonivy.connectivity.soap.service.CreateOrderServiceData"
@@ -49,8 +49,7 @@
       "type" : "DialogCall",
       "name" : "Approve Order",
       "config" : {
-        "dialogId" : "com.axonivy.connectivity.soap.AcceptOrder",
-        "startMethod" : "start(com.axonivy.connectivity.soap.service.Order)",
+        "dialog" : "com.axonivy.connectivity.soap.AcceptOrder:start(com.axonivy.connectivity.soap.service.Order)",
         "call" : {
           "params" : [
             { "name" : "order", "type" : "com.axonivy.connectivity.soap.service.Order" }

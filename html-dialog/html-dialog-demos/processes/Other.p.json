@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "145D1862CF17F2C9",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -8,8 +8,7 @@
       "id" : "f104",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.other.Html5Demo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.other.Html5Demo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 64 }
@@ -19,8 +18,7 @@
       "id" : "f44",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.other.ManagedBeanDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.other.ManagedBeanDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 352 }
@@ -49,8 +47,7 @@
       "id" : "f38",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 256 }
@@ -110,8 +107,7 @@
       "id" : "f102",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.Main",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.Main:start()"
       },
       "visual" : {
         "at" : { "x" : 528, "y" : 256 }
@@ -133,8 +129,7 @@
       "id" : "f112",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 160 }
@@ -183,8 +178,7 @@
       "id" : "f1",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.other.ErrorHandling",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.other.ErrorHandling:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 448 }
@@ -225,8 +219,7 @@
       "id" : "f8",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.other.ResponsiveGridDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.other.ResponsiveGridDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 544 }

@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "15254DCE818AD7A2",
   "config" : {
     "data" : "workflow.humantask.ProcurementRequest"
@@ -24,9 +24,11 @@
           "category" : "Input/Procurement"
         },
         "outLink" : "start.ivp",
-        "startName" : "2.1: <%=ivy.cms.co(\"/ProcessDescriptions/procurementRequest\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/userTaskExample\")%>)",
-        "tags" : "demo"
+        "startName" : "2.1: <%=ivy.cms.co(\"/ProcessDescriptions/procurementRequest\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/userTaskExample\")%>)"
       },
+      "tags" : [
+        "demo"
+      ],
       "visual" : {
         "at" : { "x" : 96, "y" : 192 },
         "labelOffset" : { "x" : 12, "y" : 37 }
@@ -43,8 +45,7 @@
       "type" : "DialogCall",
       "name" : "Enter Request",
       "config" : {
-        "dialogId" : "workflow.humantask.EnterRequest",
-        "startMethod" : "start()",
+        "dialog" : "workflow.humantask.EnterRequest:start()",
         "output" : {
           "map" : {
             "out" : "result.procurementRequestData",
@@ -62,8 +63,7 @@
       "type" : "UserTask",
       "name" : "Verify Request",
       "config" : {
-        "dialogId" : "workflow.humantask.VerifyRequest",
-        "startMethod" : "start(workflow.humantask.ProcurementRequest)",
+        "dialog" : "workflow.humantask.VerifyRequest:start(workflow.humantask.ProcurementRequest)",
         "output" : {
           "map" : {
             "out" : "in",
@@ -96,8 +96,7 @@
       "type" : "UserTask",
       "name" : "Accept Request",
       "config" : {
-        "dialogId" : "workflow.humantask.AcceptRequest",
-        "startMethod" : "start(workflow.humantask.ProcurementRequest)",
+        "dialog" : "workflow.humantask.AcceptRequest:start(workflow.humantask.ProcurementRequest)",
         "output" : {
           "map" : {
             "out" : "in",

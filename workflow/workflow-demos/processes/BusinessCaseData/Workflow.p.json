@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "16EF567002B146F2",
   "config" : {
     "data" : "workflow.businesscasedata.Data"
@@ -9,8 +9,7 @@
       "type" : "DialogCall",
       "name" : "InterviewForm",
       "config" : {
-        "dialogId" : "workflow.businesscasedata.InterviewForm",
-        "startMethod" : "start()"
+        "dialog" : "workflow.businesscasedata.InterviewForm:start()"
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 96 }
@@ -49,8 +48,7 @@
       "type" : "DialogCall",
       "name" : "InterviewForm",
       "config" : {
-        "dialogId" : "workflow.businesscasedata.InterviewForm",
-        "startMethod" : "start()"
+        "dialog" : "workflow.businesscasedata.InterviewForm:start()"
       },
       "visual" : {
         "at" : { "x" : 480, "y" : 96 }
@@ -99,8 +97,7 @@
       "type" : "DialogCall",
       "name" : "InterviewLazyBrowser",
       "config" : {
-        "dialogId" : "workflow.businesscasedata.InterviewLazyBrowser",
-        "startMethod" : "start()"
+        "dialog" : "workflow.businesscasedata.InterviewLazyBrowser:start()"
       },
       "visual" : {
         "at" : { "x" : 352, "y" : 192 },

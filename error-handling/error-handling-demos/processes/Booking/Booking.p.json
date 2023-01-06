@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "150047A1589EB0D8",
   "config" : {
     "data" : "booking.BookingData"
@@ -32,8 +32,7 @@
         "flight & car"
       ],
       "config" : {
-        "dialogId" : "error.handling.demo.SelectOptions",
-        "startMethod" : "start(booking.Customer)",
+        "dialog" : "error.handling.demo.SelectOptions:start(booking.Customer)",
         "output" : {
           "map" : {
             "out" : "in",
