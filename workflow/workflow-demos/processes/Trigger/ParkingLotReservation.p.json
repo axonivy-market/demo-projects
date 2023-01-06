@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "15254CF47A16DEA1",
   "config" : {
     "data" : "workflow.trigger.NewEmployeeData"
@@ -49,8 +49,7 @@
       "type" : "DialogCall",
       "name" : "Reserve parking lot",
       "config" : {
-        "dialogId" : "workflow.trigger.ReserveParkingLot",
-        "startMethod" : "start(workflow.trigger.NewEmployeeData)",
+        "dialog" : "workflow.trigger.ReserveParkingLot:start(workflow.trigger.NewEmployeeData)",
         "output" : {
           "map" : {
             "out" : "result.employee"

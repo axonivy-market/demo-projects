@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "16764B07C0329FC8",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.AsyncInvocationData"
@@ -35,8 +35,7 @@
         "with REST backend "
       ],
       "config" : {
-        "dialogId" : "com.axonivy.connectivity.rest.ChatClient",
-        "startMethod" : "start()"
+        "dialog" : "com.axonivy.connectivity.rest.ChatClient:start()"
       },
       "visual" : {
         "at" : { "x" : 240, "y" : 64 },
@@ -205,8 +204,7 @@
         "JavaScript callback"
       ],
       "config" : {
-        "dialogId" : "com.axonivy.connectivity.rest.AsyncUiInvoker",
-        "startMethod" : "start()"
+        "dialog" : "com.axonivy.connectivity.rest.AsyncUiInvoker:start()"
       },
       "visual" : {
         "at" : { "x" : 240, "y" : 160 },

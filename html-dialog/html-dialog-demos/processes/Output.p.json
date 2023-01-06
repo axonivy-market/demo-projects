@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "145D180807C60B4B",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -45,8 +45,7 @@
       "id" : "f11",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.output.EditableTableDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.EditableTableDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 64 }
@@ -99,8 +98,7 @@
       "id" : "f88",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 448 }
@@ -116,8 +114,7 @@
       "id" : "f27",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.output.PickListDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.PickListDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 352 }
@@ -127,8 +124,7 @@
       "id" : "f32",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.output.ResourceDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.ResourceDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 160 }
@@ -182,8 +178,7 @@
       "id" : "f6",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.output.OrderListDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.OrderListDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 256 }
@@ -193,8 +188,7 @@
       "id" : "f92",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 544 }
@@ -228,8 +222,7 @@
       "id" : "f2",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.output.ChartDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.ChartDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 640 }
@@ -276,8 +269,7 @@
       "id" : "f21",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 736 }
@@ -299,8 +291,7 @@
       "id" : "f16",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.output.DataTableDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.DataTableDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 832 }
@@ -351,8 +342,7 @@
       "id" : "f36",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.output.LazyLoadingDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.LazyLoadingDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 928 }
@@ -393,8 +383,7 @@
       "id" : "f42",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.output.ExportExcelDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.ExportExcelDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 1024 }
@@ -429,8 +418,7 @@
       "id" : "f47",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.output.PrettyTimeDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.PrettyTimeDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 1120 }
@@ -446,8 +434,7 @@
       "id" : "f51",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.output.DocumentViewer",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.DocumentViewer:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 1216 }
@@ -501,8 +488,7 @@
       "id" : "f57",
       "type" : "DialogCall",
       "config" : {
-        "dialogId" : "ch.ivyteam.htmldialog.demo.output.BarcodeDemo",
-        "startMethod" : "start()"
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.BarcodeDemo:start()"
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 1304 }

@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "14ECFC90CDE278D0",
   "config" : {
     "data" : "error.handling.demo.Data"
@@ -29,8 +29,7 @@
       "type" : "DialogCall",
       "name" : "Register Order",
       "config" : {
-        "dialogId" : "error.handling.demo.RegisterOrder",
-        "startMethod" : "start()",
+        "dialog" : "error.handling.demo.RegisterOrder:start()",
         "output" : {
           "map" : {
             "out.order" : "result.order"
@@ -240,8 +239,7 @@
       "type" : "DialogCall",
       "name" : "Order was shipped",
       "config" : {
-        "dialogId" : "error.handling.demo.OrderShipped",
-        "startMethod" : "start(error.handling.demo.Order)",
+        "dialog" : "error.handling.demo.OrderShipped:start(error.handling.demo.Order)",
         "call" : {
           "params" : [
             { "name" : "order", "type" : "error.handling.demo.Order" }

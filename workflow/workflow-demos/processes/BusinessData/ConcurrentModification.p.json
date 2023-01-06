@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "156DB84CCE78254F",
   "config" : {
     "data" : "workflow.businessdata.Data"
@@ -82,8 +82,7 @@
         "of Address"
       ],
       "config" : {
-        "dialogId" : "workflow.businessdata.ModifyCountry",
-        "startMethod" : "start(String)",
+        "dialog" : "workflow.businessdata.ModifyCountry:start(String)",
         "call" : {
           "params" : [
             { "name" : "id", "type" : "String" }
@@ -106,8 +105,7 @@
         "Address"
       ],
       "config" : {
-        "dialogId" : "workflow.businessdata.ModifyAddress",
-        "startMethod" : "start(String)",
+        "dialog" : "workflow.businessdata.ModifyAddress:start(String)",
         "call" : {
           "params" : [
             { "name" : "id", "type" : "String" }
@@ -135,8 +133,7 @@
         "Data"
       ],
       "config" : {
-        "dialogId" : "workflow.businessdata.ViewAddress",
-        "startMethod" : "start(String)",
+        "dialog" : "workflow.businessdata.ViewAddress:start(String)",
         "call" : {
           "params" : [
             { "name" : "id", "type" : "String" }
@@ -168,8 +165,7 @@
       "type" : "DialogCall",
       "name" : "Create Address",
       "config" : {
-        "dialogId" : "workflow.businessdata.CreateAddress",
-        "startMethod" : "start()",
+        "dialog" : "workflow.businessdata.CreateAddress:start()",
         "output" : {
           "map" : {
             "out" : "in",

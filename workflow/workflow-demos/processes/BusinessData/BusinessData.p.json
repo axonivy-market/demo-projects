@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "155BB4328F79B2D5",
   "config" : {
     "data" : "workflow.businessdata.Data"
@@ -36,8 +36,7 @@
       "type" : "DialogCall",
       "name" : "modify",
       "config" : {
-        "dialogId" : "workflow.businessdata.BusinessDataDossierModifier",
-        "startMethod" : "start(String,String)",
+        "dialog" : "workflow.businessdata.BusinessDataDossierModifier:start(String,String)",
         "output" : {
           "map" : {
             "out" : "in",
@@ -132,8 +131,7 @@
       "type" : "DialogCall",
       "name" : "browse",
       "config" : {
-        "dialogId" : "workflow.businessdata.BusinessDataDossierBrowser",
-        "startMethod" : "start(String,Boolean)",
+        "dialog" : "workflow.businessdata.BusinessDataDossierBrowser:start(String,Boolean)",
         "call" : {
           "params" : [
             { "name" : "lastId", "type" : "String" },
@@ -237,8 +235,7 @@
       "type" : "DialogCall",
       "name" : "browse lazy",
       "config" : {
-        "dialogId" : "workflow.businessdata.BusinessDataDossierLazyBrowser",
-        "startMethod" : "start()"
+        "dialog" : "workflow.businessdata.BusinessDataDossierLazyBrowser:start()"
       },
       "visual" : {
         "at" : { "x" : 420, "y" : 512 }

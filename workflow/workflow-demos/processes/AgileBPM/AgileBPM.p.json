@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "15255056043EE914",
   "config" : {
     "data" : "workflow.agileBPM.Data"
@@ -47,8 +47,7 @@
               "type" : "DialogCall",
               "name" : "taskForm",
               "config" : {
-                "dialogId" : "workflow.agileBPM.task_Form",
-                "startMethod" : "start(workflow.agileBPM.CaseDef,workflow.agileBPM.TaskDef,List<workflow.agileBPM.TaskDef>)",
+                "dialog" : "workflow.agileBPM.task_Form:start(workflow.agileBPM.CaseDef,workflow.agileBPM.TaskDef,List<workflow.agileBPM.TaskDef>)",
                 "output" : {
                   "map" : {
                     "out" : "in",
@@ -488,8 +487,7 @@
       "type" : "DialogCall",
       "name" : "define ad hoc WF",
       "config" : {
-        "dialogId" : "workflow.agileBPM.define_WF",
-        "startMethod" : "start()",
+        "dialog" : "workflow.agileBPM.define_WF:start()",
         "output" : {
           "map" : {
             "out.caseInfo" : "result.caseInfo",
