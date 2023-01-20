@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "14ECFC90CDE278D0",
   "config" : {
     "data" : "error.handling.demo.Data"
@@ -241,9 +241,6 @@
       "config" : {
         "dialog" : "error.handling.demo.OrderShipped:start(error.handling.demo.Order)",
         "call" : {
-          "params" : [
-            { "name" : "order", "type" : "error.handling.demo.Order" }
-          ],
           "map" : {
             "param.order" : "in.order"
           }

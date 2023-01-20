@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "171535C55F24D530",
   "config" : {
     "data" : "com.axonivy.connectivity.test.CreateApprovalData"
@@ -37,10 +37,6 @@
           "code" : "ivy.log.info(\"created task: \"+result.approvalTask);"
         },
         "call" : {
-          "params" : [
-            { "name" : "title", "type" : "String" },
-            { "name" : "description", "type" : "String" }
-          ],
           "map" : {
             "param.title" : "ivy.session.getSessionUserName()",
             "param.description" : "\"Tests make the world a better place\""

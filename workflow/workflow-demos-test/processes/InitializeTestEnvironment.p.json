@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "1537FF3C3382D47F",
   "config" : {
     "data" : "workflow.demos.test.Data"
@@ -27,7 +27,6 @@
       "type" : "Script",
       "name" : "Initialize Test Environment",
       "config" : {
-        "security" : "system",
         "output" : {
           "code" : [
             "import ch.ivyteam.ivy.security.*;",
@@ -37,7 +36,8 @@
             "IRole role = ivy.security.roles().find(\"HR Manager\");",
             "ivy.session.assignRole(role);"
           ]
-        }
+        },
+        "sudo" : true
       },
       "visual" : {
         "at" : { "x" : 320, "y" : 64 },

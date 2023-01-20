@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "152551002ABB8DFE",
   "config" : {
     "data" : "workflow.agileBPM.Data"
@@ -107,12 +107,7 @@
         "Request Form"
       ],
       "config" : {
-        "dialog" : "workflow.agileBPM.test:start(String)",
-        "call" : {
-          "params" : [
-            { "name" : "answer", "type" : "String" }
-          ]
-        }
+        "dialog" : "workflow.agileBPM.test:start(String)"
       },
       "visual" : {
         "at" : { "x" : 208, "y" : 208 }
@@ -208,12 +203,7 @@
         "Question Form"
       ],
       "config" : {
-        "dialog" : "workflow.agileBPM.test:start(String)",
-        "call" : {
-          "params" : [
-            { "name" : "answer", "type" : "String" }
-          ]
-        }
+        "dialog" : "workflow.agileBPM.test:start(String)"
       },
       "visual" : {
         "at" : { "x" : 216, "y" : 440 },
@@ -393,12 +383,7 @@
         "Request Form"
       ],
       "config" : {
-        "dialog" : "workflow.agileBPM.test:start(String)",
-        "call" : {
-          "params" : [
-            { "name" : "answer", "type" : "String" }
-          ]
-        }
+        "dialog" : "workflow.agileBPM.test:start(String)"
       },
       "visual" : {
         "at" : { "x" : 208, "y" : 320 }

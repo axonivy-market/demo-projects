@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "15255056043EE914",
   "config" : {
     "data" : "workflow.agileBPM.Data"
@@ -22,14 +22,18 @@
                   "name" : "<%=in1.nextTask.kind%> <%=in1.nextTask.subject%>",
                   "description" : "<%=in1.nextTask.description%>",
                   "responsible" : {
-                    "userFromAttribute" : "in1.nextTask.actoruser"
+                    "type" : "USER_FROM_ATTRIBUTE",
+                    "activator" : "in1.nextTask.actoruser"
                   },
                   "expiry" : {
                     "timeout" : "in1.nextTask.until!=null ? in1.nextTask.until - new DateTime() : null",
                     "responsible" : {
-                      "userFromAttribute" : "in1.nextTask.actoruser"
+                      "type" : "USER_FROM_ATTRIBUTE",
+                      "activator" : "in1.nextTask.actoruser"
                     },
-                    "priority" : "EXCEPTION"
+                    "priority" : {
+                      "level" : "EXCEPTION"
+                    }
                   },
                   "customFields" : [
                     { "name" : "KindCode", "type" : "String", "value" : "in1.nextTask.kind" }
@@ -55,11 +59,6 @@
                   }
                 },
                 "call" : {
-                  "params" : [
-                    { "name" : "caseInfo", "type" : "workflow.agileBPM.CaseDef" },
-                    { "name" : "nextTask", "type" : "workflow.agileBPM.TaskDef" },
-                    { "name" : "definedTasks", "type" : "List<workflow.agileBPM.TaskDef>" }
-                  ],
                   "map" : {
                     "param.caseInfo" : "in.caseInfo",
                     "param.nextTask" : "in.nextTask",
@@ -101,7 +100,8 @@
                     "name" : "Split SYSTEM",
                     "category" : "System/Split",
                     "responsible" : {
-                      "role" : "SYSTEM"
+                      "type" : "ROLE",
+                      "activator" : "SYSTEM"
                     },
                     "skipTasklist" : true
                   },
@@ -109,7 +109,8 @@
                     "name" : "Split Usertask",
                     "category" : "System/CreateUserTask",
                     "responsible" : {
-                      "role" : "SYSTEM"
+                      "type" : "ROLE",
+                      "activator" : "SYSTEM"
                     }
                   }
                 }
@@ -133,7 +134,8 @@
                     "name" : "SYSTEM join",
                     "category" : "System/Join",
                     "responsible" : {
-                      "role" : "SYSTEM"
+                      "type" : "ROLE",
+                      "activator" : "SYSTEM"
                     }
                   }
                 },
@@ -402,7 +404,8 @@
               "name" : "SYSTEM Send <%=in1.caseInfo.kind%> Mail",
               "category" : "System/Mail",
               "responsible" : {
-                "role" : "SYSTEM"
+                "type" : "ROLE",
+                "activator" : "SYSTEM"
               }
             }
           },

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "1675F33D16FB90A4",
   "config" : {
     "data" : "com.axonivy.connectivity.test.CreateUsersData"
@@ -36,13 +36,13 @@
       "id" : "f3",
       "type" : "Script",
       "config" : {
-        "security" : "system",
         "output" : {
           "code" : [
             "import com.axonivy.connectivity.rest.UserCreator;",
             "UserCreator.createUsers(in.prefix, in.amount);"
           ]
-        }
+        },
+        "sudo" : true
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 64 }

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "150047A1589EB0D8",
   "config" : {
     "data" : "booking.BookingData"
@@ -41,9 +41,6 @@
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "customer", "type" : "booking.Customer" }
-          ],
           "map" : {
             "param.customer" : "in.customer"
           }
@@ -58,13 +55,7 @@
       "type" : "SubProcessCall",
       "name" : "book flight",
       "config" : {
-        "processCall" : "Booking/Service/Flight:bookFlight(booking.Flight,booking.Customer)",
-        "call" : {
-          "params" : [
-            { "name" : "flight", "type" : "booking.Flight" },
-            { "name" : "customer", "type" : "booking.Customer" }
-          ]
-        }
+        "processCall" : "Booking/Service/Flight:bookFlight(booking.Flight,booking.Customer)"
       },
       "visual" : {
         "at" : { "x" : 320, "y" : 128 }
@@ -88,12 +79,7 @@
       "type" : "SubProcessCall",
       "name" : "book car",
       "config" : {
-        "processCall" : "Booking/Service/Car:bookCar(String)",
-        "call" : {
-          "params" : [
-            { "name" : "size", "type" : "String" }
-          ]
-        }
+        "processCall" : "Booking/Service/Car:bookCar(String)"
       },
       "visual" : {
         "at" : { "x" : 480, "y" : 128 }
@@ -131,13 +117,7 @@
         "booking"
       ],
       "config" : {
-        "processCall" : "Booking/Service/Flight:cancelFlight(booking.Flight,booking.Customer)",
-        "call" : {
-          "params" : [
-            { "name" : "flight", "type" : "booking.Flight" },
-            { "name" : "customer", "type" : "booking.Customer" }
-          ]
-        }
+        "processCall" : "Booking/Service/Flight:cancelFlight(booking.Flight,booking.Customer)"
       },
       "visual" : {
         "at" : { "x" : 512, "y" : 232 },

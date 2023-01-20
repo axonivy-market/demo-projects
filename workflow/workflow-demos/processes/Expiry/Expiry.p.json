@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "171E51B493DDB838",
   "config" : {
     "data" : "workflow.humantask.Data"
@@ -37,7 +37,7 @@
             "timeout" : "'1m'",
             "error" : "f5",
             "responsible" : {
-              "deleteTask" : true
+              "type" : "DELETE_TASK"
             }
           }
         }
@@ -87,7 +87,8 @@
           "expiry" : {
             "timeout" : "'1m'",
             "responsible" : {
-              "role" : "Manager"
+              "type" : "ROLE",
+              "activator" : "Manager"
             }
           }
         }
@@ -103,7 +104,9 @@
         "task" : {
           "expiry" : {
             "timeout" : "'1m'",
-            "priority" : "HIGH"
+            "priority" : {
+              "level" : "HIGH"
+            }
           }
         }
       },

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "162492A1649E72DF",
   "kind" : "WEB_SERVICE",
   "config" : {
@@ -61,10 +61,6 @@
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "order", "type" : "com.axonivy.connectivity.soap.service.Order" },
-            { "name" : "responsibleRole", "type" : "String" }
-          ],
           "map" : {
             "param.order" : "in.order",
             "param.responsibleRole" : "\"Boss\""
@@ -119,10 +115,6 @@
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "order", "type" : "com.axonivy.connectivity.soap.service.Order" },
-            { "name" : "responsibleRole", "type" : "String" }
-          ],
           "map" : {
             "param.order" : "in.order",
             "param.responsibleRole" : "\"Team\""

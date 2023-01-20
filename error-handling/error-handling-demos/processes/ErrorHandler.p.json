@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "150148B81ACE3E1E",
   "config" : {
     "data" : "error.handling.demo.ErrorHandler"
@@ -58,10 +58,6 @@
       "config" : {
         "dialog" : "error.handling.demo.GlobalError:start(String,String)",
         "call" : {
-          "params" : [
-            { "name" : "errorCode", "type" : "String" },
-            { "name" : "errorText", "type" : "String" }
-          ],
           "map" : {
             "param.errorCode" : "in.errorCode",
             "param.errorText" : "in.errorText"

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "156E5D9AA7D41BAA",
   "config" : {
     "data" : "workflow.businessdata.Data"
@@ -49,10 +49,6 @@
       "config" : {
         "dialog" : "workflow.businessdata.BusinessDataDossierModifier:start(String,String)",
         "call" : {
-          "params" : [
-            { "name" : "businessDataId", "type" : "String" },
-            { "name" : "title", "type" : "String" }
-          ],
           "map" : {
             "param.businessDataId" : "in.id",
             "param.title" : "\"Dossier Verification\""

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "16249376A44F1F8E",
   "config" : {
     "data" : "com.axonivy.connectivity.soap.service.CreateOrderServiceData"
@@ -24,7 +24,8 @@
         "task" : {
           "name" : "Approve Order of <%=param.order.requester%>",
           "responsible" : {
-            "roleFromAttribute" : "param.responsibleRole"
+            "type" : "ROLE_FROM_ATTRIBUTE",
+            "activator" : "param.responsibleRole"
           }
         },
         "showInStartList" : false,
@@ -51,9 +52,6 @@
       "config" : {
         "dialog" : "com.axonivy.connectivity.soap.AcceptOrder:start(com.axonivy.connectivity.soap.service.Order)",
         "call" : {
-          "params" : [
-            { "name" : "order", "type" : "com.axonivy.connectivity.soap.service.Order" }
-          ],
           "map" : {
             "param.order" : "in.order"
           }

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "169B3B7F5EF38D8F",
   "config" : {
     "data" : "com.axonivy.connectivity.Data"
@@ -33,12 +33,7 @@
       "type" : "DialogCall",
       "name" : "File Upload Form",
       "config" : {
-        "dialog" : "com.axonivy.connectivity.rest.FileUpload:start(com.axonivy.connectivity.Data)",
-        "call" : {
-          "params" : [
-            { "name" : "data", "type" : "com.axonivy.connectivity.Data" }
-          ]
-        }
+        "dialog" : "com.axonivy.connectivity.rest.FileUpload:start(com.axonivy.connectivity.Data)"
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 120 }

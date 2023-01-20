@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "15254DC87A1B183B",
   "config" : {
     "data" : "workflow.humantask.ProcurementRequest"
@@ -21,9 +21,6 @@
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "procurementRequest", "type" : "workflow.humantask.ProcurementRequest" }
-          ],
           "map" : {
             "param.procurementRequest" : "in"
           }
@@ -77,7 +74,8 @@
         "tasks" : {
           "TaskB" : {
             "responsible" : {
-              "role" : "SYSTEM"
+              "type" : "ROLE",
+              "activator" : "SYSTEM"
             },
             "skipTasklist" : true
           }
@@ -125,14 +123,16 @@
             "name" : "<%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%>  '<%=in1.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>",
             "category" : "Review/Procurement",
             "responsible" : {
-              "role" : "Teamleader"
+              "type" : "ROLE",
+              "activator" : "Teamleader"
             }
           },
           "TaskB" : {
             "name" : "<%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> '<%=in1.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>",
             "category" : "Review/Procurement",
             "responsible" : {
-              "role" : "Manager"
+              "type" : "ROLE",
+              "activator" : "Manager"
             }
           }
         }
@@ -161,9 +161,6 @@
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "procurementRequest", "type" : "workflow.humantask.ProcurementRequest" }
-          ],
           "map" : {
             "param.procurementRequest" : "in"
           }
@@ -216,9 +213,6 @@
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "procurementRequest", "type" : "workflow.humantask.ProcurementRequest" }
-          ],
           "map" : {
             "param.procurementRequest" : "in"
           }
@@ -283,11 +277,13 @@
           "name" : "<%=ivy.cms.co(\"/TaskDescriptions/acceptRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> '<%=in1.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>",
           "category" : "Accept/Procurement",
           "responsible" : {
-            "role" : "Executive Manager"
+            "type" : "ROLE",
+            "activator" : "Executive Manager"
           },
           "expiry" : {
             "responsible" : {
-              "role" : "Executive Manager"
+              "type" : "ROLE",
+              "activator" : "Executive Manager"
             }
           }
         }

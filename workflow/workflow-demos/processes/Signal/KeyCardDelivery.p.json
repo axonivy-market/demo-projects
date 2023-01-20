@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "1523FF963044280C",
   "config" : {
     "data" : "workflow.signal.FacilityManagementData"
@@ -58,13 +58,11 @@
           "description" : "<%=ivy.cms.co(\"/TaskDescriptions/DeliverKeyCardDesc\")%><%=in.user.name%> [<%=in.user.userKey%>]",
           "category" : "Assign/ParkingLot",
           "responsible" : {
-            "role" : "Facility Manager"
+            "type" : "ROLE",
+            "activator" : "Facility Manager"
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "user", "type" : "workflow.signal.User" }
-          ],
           "map" : {
             "param.user" : "in.user"
           }

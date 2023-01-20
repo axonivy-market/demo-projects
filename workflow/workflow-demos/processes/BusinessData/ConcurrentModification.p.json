@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "156DB84CCE78254F",
   "config" : {
     "data" : "workflow.businessdata.Data"
@@ -84,9 +84,6 @@
       "config" : {
         "dialog" : "workflow.businessdata.ModifyCountry:start(String)",
         "call" : {
-          "params" : [
-            { "name" : "id", "type" : "String" }
-          ],
           "map" : {
             "param.id" : "in.id"
           }
@@ -107,9 +104,6 @@
       "config" : {
         "dialog" : "workflow.businessdata.ModifyAddress:start(String)",
         "call" : {
-          "params" : [
-            { "name" : "id", "type" : "String" }
-          ],
           "map" : {
             "param.id" : "in.id"
           }
@@ -135,9 +129,6 @@
       "config" : {
         "dialog" : "workflow.businessdata.ViewAddress:start(String)",
         "call" : {
-          "params" : [
-            { "name" : "id", "type" : "String" }
-          ],
           "map" : {
             "param.id" : "in.id"
           }
