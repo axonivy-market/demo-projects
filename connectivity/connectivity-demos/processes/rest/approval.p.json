@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "1549FE9E911A1812",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.Approval"
@@ -23,7 +23,8 @@
           "name" : "Approve request from <%=param.approval.requestedBy%>",
           "description" : "<%=param.approval.title%>",
           "responsible" : {
-            "role" : "Boss"
+            "type" : "ROLE",
+            "activator" : "Boss"
           }
         },
         "triggerEnabled" : true,
@@ -84,9 +85,6 @@
       "config" : {
         "dialog" : "com.axonivy.connectivity.rest.ApprovalDialog:start(com.axonivy.connectivity.rest.Approval)",
         "call" : {
-          "params" : [
-            { "name" : "approval", "type" : "com.axonivy.connectivity.rest.Approval" }
-          ],
           "map" : {
             "param.approval" : "in"
           }

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "15254CF1CE56AE72",
   "config" : {
     "data" : "workflow.trigger.NewEmployeeData"
@@ -44,11 +44,6 @@
           "map" : {
             "out" : "result.newEmployeeData"
           }
-        },
-        "call" : {
-          "params" : [
-            { "name" : "newEmployeeData", "type" : "workflow.trigger.NewEmployeeData" }
-          ]
         }
       },
       "visual" : {
@@ -129,9 +124,6 @@
       "config" : {
         "processCall" : "Trigger/ParkingLotReservation:start(workflow.trigger.NewEmployeeData)",
         "call" : {
-          "params" : [
-            { "name" : "newEmployeeData", "type" : "workflow.trigger.NewEmployeeData" }
-          ],
           "map" : {
             "param.newEmployeeData" : "in"
           }

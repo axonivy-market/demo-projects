@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "152550395446E592",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -140,7 +140,6 @@
       "type" : "Script",
       "name" : "add new Tasks to List",
       "config" : {
-        "security" : "system",
         "output" : {
           "code" : [
             "workflow.agileBPM.TaskDef newTask1 = new workflow.agileBPM.TaskDef();",
@@ -154,7 +153,8 @@
             "",
             "out.definedTasks.add(1,in.nextTask.setUntil(ivy.cal.getWorkDayIn(2,new Time())));"
           ]
-        }
+        },
+        "sudo" : true
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 272 },

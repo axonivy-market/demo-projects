@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "150425B095B4FB54",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -50,7 +50,7 @@
           "expiry" : {
             "timeout" : "'1h'",
             "responsible" : {
-              "deleteTask" : true
+              "type" : "DELETE_TASK"
             }
           }
         }

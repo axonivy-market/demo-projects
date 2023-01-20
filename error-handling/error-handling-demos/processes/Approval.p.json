@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "14ED397D47F3083D",
   "config" : {
     "data" : "error.handling.demo.Approval"
@@ -75,13 +75,11 @@
         "task" : {
           "name" : "Approve Request for a <%=in.description%>",
           "responsible" : {
-            "role" : "Boss"
+            "type" : "ROLE",
+            "activator" : "Boss"
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "approval", "type" : "error.handling.demo.Approval" }
-          ],
           "map" : {
             "param.approval" : "in"
           }
@@ -116,13 +114,11 @@
         "task" : {
           "name" : "Request for <%=in.description%> approved",
           "responsible" : {
-            "userFromAttribute" : "ivy.case.getCreatorUser().getName()"
+            "type" : "USER_FROM_ATTRIBUTE",
+            "activator" : "ivy.case.getCreatorUser().getName()"
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "approval", "type" : "error.handling.demo.Approval" }
-          ],
           "map" : {
             "param.approval" : "in"
           }
@@ -141,13 +137,11 @@
         "task" : {
           "name" : "Request for <%=in.description%> declined",
           "responsible" : {
-            "userFromAttribute" : "ivy.case.getCreatorUserName()"
+            "type" : "USER_FROM_ATTRIBUTE",
+            "activator" : "ivy.case.getCreatorUserName()"
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "approval", "type" : "error.handling.demo.Approval" }
-          ],
           "map" : {
             "param.approval" : "in"
           }

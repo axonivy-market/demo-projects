@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "151CA0D8CBDD2DEC",
   "config" : {
     "data" : "workflow.signal.CreateUserProcess"
@@ -45,13 +45,11 @@
           "description" : "<%=ivy.cms.co(\"/TaskDescriptions/prepareOfficeKeyDesc\")%> <%=in.user.name%> [<%=in.user.userKey%>]",
           "category" : "Assign/OfficeKey",
           "responsible" : {
-            "role" : "Office Manager"
+            "type" : "ROLE",
+            "activator" : "Office Manager"
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "user", "type" : "workflow.signal.User" }
-          ],
           "map" : {
             "param.user" : "in.user"
           }
@@ -151,13 +149,11 @@
           "description" : "<%=ivy.cms.co(\"/TaskDescriptions/setupWorkstationDesc\")%> <%=in.user.name%> [<%=in.user.userKey%>]",
           "category" : "Setup/Workstation",
           "responsible" : {
-            "role" : "IT Manager"
+            "type" : "ROLE",
+            "activator" : "IT Manager"
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "user", "type" : "workflow.signal.User" }
-          ],
           "map" : {
             "param.user" : "in.user"
           }
@@ -257,9 +253,6 @@
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "user", "type" : "workflow.signal.User" }
-          ],
           "map" : {
             "param.user" : "in.user"
           }
@@ -277,7 +270,6 @@
         "'user:created'"
       ],
       "config" : {
-        "security" : "system",
         "output" : {
           "code" : [
             "import com.google.gson.Gson;",
@@ -292,7 +284,8 @@
             "// send signal with data class payload (only applicable within same project or dependent projects)",
             "ivy.wf.signals().send(new SignalCode(\"user:createdV2\"), in.user);"
           ]
-        }
+        },
+        "sudo" : true
       },
       "visual" : {
         "at" : { "x" : 368, "y" : 96 },

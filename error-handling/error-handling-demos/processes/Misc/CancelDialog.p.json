@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "1508AE543CAEEEC1",
   "config" : {
     "data" : "misc.CancelStartData"
@@ -37,9 +37,6 @@
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "email", "type" : "String" }
-          ],
           "map" : {
             "param.email" : "in.email"
           }

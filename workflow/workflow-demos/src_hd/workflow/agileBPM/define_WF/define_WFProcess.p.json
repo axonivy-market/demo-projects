@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "1525503525CD0CCC",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -158,7 +158,6 @@
       "type" : "Script",
       "name" : "Init",
       "config" : {
-        "security" : "system",
         "output" : {
           "map" : {
             "out" : "in",
@@ -199,7 +198,8 @@
             "}",
             "out.userList = Helper.sortUsers(out.userList);"
           ]
-        }
+        },
+        "sudo" : true
       },
       "visual" : {
         "at" : { "x" : 176, "y" : 64 }

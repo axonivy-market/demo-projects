@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "15254CF47A16DEA1",
   "config" : {
     "data" : "workflow.trigger.NewEmployeeData"
@@ -26,7 +26,8 @@
           "name" : "<%=ivy.cms.co(\"/TaskDescriptions/reserveParkingLotFor\")%> <%=param.newEmployeeData.name%>",
           "category" : "Assign/ParkingLot",
           "responsible" : {
-            "role" : "Facility Manager"
+            "type" : "ROLE",
+            "activator" : "Facility Manager"
           }
         },
         "outLink" : "start.ivp",
@@ -56,9 +57,6 @@
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "employee", "type" : "workflow.trigger.NewEmployeeData" }
-          ],
           "map" : {
             "param.employee" : "in"
           }

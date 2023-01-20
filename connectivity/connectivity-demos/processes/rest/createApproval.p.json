@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "1549FEEB682EF158",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -58,9 +58,6 @@
           }
         },
         "call" : {
-          "params" : [
-            { "name" : "approval", "type" : "com.axonivy.connectivity.rest.Approval" }
-          ],
           "map" : {
             "param.approval" : "in.approval"
           }
