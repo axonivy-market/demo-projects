@@ -10,7 +10,6 @@
   </organization>
 
   <properties>
-    <jersey.version>2.31</jersey.version>
     <project-build-plugin>11.1.0-SNAPSHOT</project-build-plugin>
   </properties>
 
