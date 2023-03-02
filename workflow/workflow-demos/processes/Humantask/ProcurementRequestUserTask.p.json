@@ -1,4 +1,5 @@
 {
+  "$schema" : "https://raw.githubusercontent.com/axonivy/schema/master/process.schema.json",
   "format" : "11.1.6",
   "id" : "15254DCE818AD7A2",
   "config" : {

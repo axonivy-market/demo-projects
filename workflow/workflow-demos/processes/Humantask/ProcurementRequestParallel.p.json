@@ -1,4 +1,5 @@
 {
+  "$schema" : "https://raw.githubusercontent.com/axonivy/schema/master/process.schema.json",
   "format" : "11.1.6",
   "id" : "15254DC87A1B183B",
   "config" : {
@@ -35,6 +36,7 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
+        
         "callSignature" : "start",
         "responsible" : "Employee",
         "startCategory" : "human",
