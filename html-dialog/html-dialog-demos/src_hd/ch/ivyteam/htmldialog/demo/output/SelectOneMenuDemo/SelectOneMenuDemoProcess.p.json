@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "13F3C733545FE635",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -17,7 +17,9 @@
         "at" : { "x" : 96, "y" : 128 },
         "labelOffset" : { "x" : 12, "y" : 32 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "HtmlDialogEnd",
@@ -40,7 +42,9 @@
       "visual" : {
         "at" : { "x" : 240, "y" : 128 }
       },
-      "connect" : { "id" : "f12", "to" : "f11" }
+      "connect" : [
+        { "id" : "f12", "to" : "f11" }
+      ]
     }, {
       "id" : "f6",
       "type" : "HtmlDialogEnd",
@@ -58,7 +62,9 @@
         "at" : { "x" : 96, "y" : 416 },
         "labelOffset" : { "x" : 9, "y" : 32 }
       },
-      "connect" : { "id" : "f9", "to" : "f8" }
+      "connect" : [
+        { "id" : "f9", "to" : "f8" }
+      ]
     }, {
       "id" : "f8",
       "type" : "HtmlDialogExit",
@@ -76,7 +82,9 @@
         "at" : { "x" : 96, "y" : 320 },
         "labelOffset" : { "x" : 9, "y" : 32 }
       },
-      "connect" : { "id" : "f10", "to" : "f6" }
+      "connect" : [
+        { "id" : "f10", "to" : "f6" }
+      ]
     }, {
       "id" : "f11",
       "type" : "Script",
@@ -110,7 +118,9 @@
       "visual" : {
         "at" : { "x" : 432, "y" : 128 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     } ],
   "layout" : {
     "lanes" : [ {

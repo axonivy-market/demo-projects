@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "162B95BB70C3178E",
   "kind" : "WEB_SERVICE",
   "config" : {
@@ -30,7 +30,9 @@
         "at" : { "x" : 347, "y" : 98 },
         "size" : { "width" : 208, "height" : 60 }
       },
-      "connect" : { "id" : "f18", "to" : "f17" }
+      "connect" : [
+        { "id" : "f18", "to" : "f17" }
+      ]
     }, {
       "id" : "f14",
       "type" : "WebserviceStart",
@@ -65,7 +67,9 @@
         "at" : { "x" : 131, "y" : 98 },
         "labelOffset" : { "x" : 43, "y" : -20 }
       },
-      "connect" : { "id" : "f16", "to" : "f15" }
+      "connect" : [
+        { "id" : "f16", "to" : "f15" }
+      ]
     }, {
       "id" : "f17",
       "type" : "WebserviceEnd",
@@ -80,6 +84,8 @@
         "at" : { "x" : 344, "y" : 192 },
         "size" : { "width" : 336, "height" : 30 }
       },
-      "connect" : { "id" : "f1", "to" : "f14", "via" : [ { "x" : 131, "y" : 192 } ] }
+      "connect" : [
+        { "id" : "f1", "to" : "f14", "via" : [ { "x" : 131, "y" : 192 } ] }
+      ]
     } ]
 }

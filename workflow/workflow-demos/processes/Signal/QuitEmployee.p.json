@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "151CA1EFC1542D87",
   "config" : {
     "data" : "workflow.signal.QuitUserProcess"
@@ -30,7 +30,9 @@
         "at" : { "x" : 96, "y" : 224 },
         "labelOffset" : { "x" : 12, "y" : 37 }
       },
-      "connect" : { "id" : "f6", "to" : "f5" }
+      "connect" : [
+        { "id" : "f6", "to" : "f5" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -64,7 +66,9 @@
       "visual" : {
         "at" : { "x" : 384, "y" : 224 }
       },
-      "connect" : { "id" : "f9", "to" : "f7" }
+      "connect" : [
+        { "id" : "f9", "to" : "f7" }
+      ]
     }, {
       "id" : "f5",
       "type" : "DialogCall",
@@ -81,7 +85,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 224 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f8",
       "type" : "ProcessAnnotation",
@@ -107,7 +113,9 @@
         "at" : { "x" : 544, "y" : 224 },
         "size" : { "width" : 128, "height" : 60 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     } ],
   "layout" : {
     "lanes" : [ {

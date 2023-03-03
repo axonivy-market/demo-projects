@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "15255056043EE914",
   "config" : {
     "data" : "workflow.agileBPM.Data"
@@ -45,7 +45,9 @@
                 "size" : { "width" : 28, "height" : 28 },
                 "labelOffset" : { "x" : 15, "y" : 40 }
               },
-              "connect" : { "id" : "1b0-S10-f12", "to" : "1b0-S10-f11", "condition" : "ivp==\"TaskA.ivp\"" }
+              "connect" : [
+                { "id" : "1b0-S10-f12", "to" : "1b0-S10-f11", "condition" : "ivp==\"TaskA.ivp\"" }
+              ]
             }, {
               "id" : "1b0-S10-f11",
               "type" : "DialogCall",
@@ -69,7 +71,9 @@
               "visual" : {
                 "at" : { "x" : 600, "y" : 264 }
               },
-              "connect" : { "id" : "1b0-S10-f16", "to" : "1b0-S10-f4", "via" : [ { "x" : 736, "y" : 264 } ], "var" : "in2" }
+              "connect" : [
+                { "id" : "1b0-S10-f16", "to" : "1b0-S10-f4", "via" : [ { "x" : 736, "y" : 264 } ], "var" : "in2" }
+              ]
             }, {
               "id" : "1b0-S10-g0",
               "type" : "EmbeddedStart",
@@ -79,7 +83,9 @@
                 "labelOffset" : { "x" : 21, "y" : 34 }
               },
               "parentConnector" : "1b0-f19",
-              "connect" : { "id" : "1b0-S10-f21", "to" : "1b0-S10-f20" }
+              "connect" : [
+                { "id" : "1b0-S10-f21", "to" : "1b0-S10-f20" }
+              ]
             }, {
               "id" : "1b0-S10-g1",
               "type" : "EmbeddedEnd",
@@ -236,7 +242,9 @@
               "visual" : {
                 "at" : { "x" : 168, "y" : 160 }
               },
-              "connect" : { "id" : "1b0-S10-f7", "to" : "1b0-S10-f6" }
+              "connect" : [
+                { "id" : "1b0-S10-f7", "to" : "1b0-S10-f6" }
+              ]
             }, {
               "id" : "1b0-S10-f22",
               "type" : "Script",
@@ -253,7 +261,9 @@
               "visual" : {
                 "at" : { "x" : 392, "y" : 88 }
               },
-              "connect" : { "id" : "1b0-S10-f13", "to" : "1b0-S10-f6", "via" : [ { "x" : 280, "y" : 88 } ] }
+              "connect" : [
+                { "id" : "1b0-S10-f13", "to" : "1b0-S10-f6", "via" : [ { "x" : 280, "y" : 88 } ] }
+              ]
             }, {
               "id" : "1b0-S10-f24",
               "type" : "Script",
@@ -269,12 +279,16 @@
               "visual" : {
                 "at" : { "x" : 768, "y" : 88 }
               },
-              "connect" : { "id" : "1b0-S10-f19", "to" : "1b0-S10-f14", "via" : [ { "x" : 680, "y" : 88 } ] }
+              "connect" : [
+                { "id" : "1b0-S10-f19", "to" : "1b0-S10-f14", "via" : [ { "x" : 680, "y" : 88 } ] }
+              ]
             } ],
           "visual" : {
             "at" : { "x" : 576, "y" : 224 }
           },
-          "connect" : { "id" : "1b0-f20", "to" : "1b0-f6", "via" : [ { "x" : 840, "y" : 224 }, { "x" : 840, "y" : 144 }, { "x" : 128, "y" : 144 } ] }
+          "connect" : [
+            { "id" : "1b0-f20", "to" : "1b0-f6", "via" : [ { "x" : 840, "y" : 224 }, { "x" : 840, "y" : 144 }, { "x" : 128, "y" : 144 } ] }
+          ]
         }, {
           "id" : "1b0-f6",
           "type" : "Alternative",
@@ -304,7 +318,9 @@
             "labelOffset" : { "x" : 6, "y" : 38 }
           },
           "parentConnector" : "f4",
-          "connect" : { "id" : "1b0-f0", "to" : "1b0-f6" }
+          "connect" : [
+            { "id" : "1b0-f0", "to" : "1b0-f6" }
+          ]
         }, {
           "id" : "1b0-g1",
           "type" : "EmbeddedEnd",
@@ -331,7 +347,9 @@
             "at" : { "x" : 272, "y" : 224 },
             "size" : { "width" : 104, "height" : 40 }
           },
-          "connect" : { "id" : "1b0-f10", "to" : "1b0-f8" }
+          "connect" : [
+            { "id" : "1b0-f10", "to" : "1b0-f8" }
+          ]
         }, {
           "id" : "1b0-f3",
           "type" : "EMail",
@@ -373,7 +391,9 @@
           "visual" : {
             "at" : { "x" : 736, "y" : 320 }
           },
-          "connect" : { "id" : "1b0-f16", "to" : "1b0-f6", "via" : [ { "x" : 840, "y" : 320 }, { "x" : 840, "y" : 144 }, { "x" : 128, "y" : 144 } ] }
+          "connect" : [
+            { "id" : "1b0-f16", "to" : "1b0-f6", "via" : [ { "x" : 840, "y" : 320 }, { "x" : 840, "y" : 144 }, { "x" : 128, "y" : 144 } ] }
+          ]
         }, {
           "id" : "1b0-f8",
           "type" : "Alternative",
@@ -411,7 +431,9 @@
             "at" : { "x" : 432, "y" : 320 },
             "labelOffset" : { "x" : 9, "y" : 37 }
           },
-          "connect" : { "id" : "1b0-f18", "to" : "1b0-f17", "condition" : "ivp==\"TaskA.ivp\"" }
+          "connect" : [
+            { "id" : "1b0-f18", "to" : "1b0-f17", "condition" : "ivp==\"TaskA.ivp\"" }
+          ]
         }, {
           "id" : "1b0-f17",
           "type" : "Script",
@@ -440,12 +462,16 @@
           "visual" : {
             "at" : { "x" : 576, "y" : 320 }
           },
-          "connect" : { "id" : "1b0-f15", "to" : "1b0-f3" }
+          "connect" : [
+            { "id" : "1b0-f15", "to" : "1b0-f3" }
+          ]
         } ],
       "visual" : {
         "at" : { "x" : 448, "y" : 192 }
       },
-      "connect" : { "id" : "f3", "to" : "f9" }
+      "connect" : [
+        { "id" : "f3", "to" : "f9" }
+      ]
     }, {
       "id" : "f0",
       "type" : "RequestStart",
@@ -482,7 +508,9 @@
         "size" : { "width" : 26, "height" : 26 },
         "labelOffset" : { "x" : 12, "y" : 35 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f1",
       "type" : "DialogCall",
@@ -499,7 +527,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 192 }
       },
-      "connect" : { "id" : "f6", "to" : "f5" }
+      "connect" : [
+        { "id" : "f6", "to" : "f5" }
+      ]
     }, {
       "id" : "f5",
       "type" : "Alternative",

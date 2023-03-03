@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "150148B81ACE3E1E",
   "config" : {
     "data" : "error.handling.demo.ErrorHandler"
@@ -22,7 +22,9 @@
         "at" : { "x" : 80, "y" : 176 },
         "labelOffset" : { "x" : 9, "y" : 37 }
       },
-      "connect" : { "id" : "f7", "to" : "f6" }
+      "connect" : [
+        { "id" : "f7", "to" : "f6" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -37,7 +39,9 @@
         "at" : { "x" : 264, "y" : 248 },
         "size" : { "width" : 256, "height" : 30 }
       },
-      "connect" : { "id" : "f4", "to" : "f0" }
+      "connect" : [
+        { "id" : "f4", "to" : "f0" }
+      ]
     }, {
       "id" : "f5",
       "type" : "ProcessAnnotation",
@@ -67,7 +71,9 @@
       "visual" : {
         "at" : { "x" : 208, "y" : 176 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     } ],
   "layout" : {
     "colors" : {

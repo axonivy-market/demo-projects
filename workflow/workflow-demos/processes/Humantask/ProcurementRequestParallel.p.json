@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "15254DC87A1B183B",
   "config" : {
     "data" : "workflow.humantask.ProcurementRequest"
@@ -29,7 +29,9 @@
       "visual" : {
         "at" : { "x" : 416, "y" : 424 }
       },
-      "connect" : { "id" : "f13", "to" : "f7", "via" : [ { "x" : 528, "y" : 424 } ], "var" : "in2" }
+      "connect" : [
+        { "id" : "f13", "to" : "f7", "via" : [ { "x" : 528, "y" : 424 } ], "var" : "in2" }
+      ]
     }, {
       "id" : "f0",
       "type" : "RequestStart",
@@ -56,7 +58,9 @@
         "at" : { "x" : 80, "y" : 184 },
         "labelOffset" : { "x" : 12, "y" : 37 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -111,7 +115,9 @@
       "visual" : {
         "at" : { "x" : 208, "y" : 184 }
       },
-      "connect" : { "id" : "f9", "to" : "f2", "via" : [ { "x" : 312, "y" : 184 } ], "var" : "in1" }
+      "connect" : [
+        { "id" : "f9", "to" : "f2", "via" : [ { "x" : 312, "y" : 184 } ], "var" : "in1" }
+      ]
     }, {
       "id" : "f2",
       "type" : "TaskSwitchGateway",
@@ -167,7 +173,9 @@
         "at" : { "x" : 416, "y" : 304 },
         "size" : { "width" : 128, "height" : 60 }
       },
-      "connect" : { "id" : "f12", "to" : "f7", "var" : "in1" }
+      "connect" : [
+        { "id" : "f12", "to" : "f7", "var" : "in1" }
+      ]
     }, {
       "id" : "f8",
       "type" : "EMail",
@@ -197,7 +205,9 @@
       "visual" : {
         "at" : { "x" : 768, "y" : 184 }
       },
-      "connect" : { "id" : "f15", "to" : "f1" }
+      "connect" : [
+        { "id" : "f15", "to" : "f1" }
+      ]
     }, {
       "id" : "f16",
       "type" : "DialogCall",
@@ -220,7 +230,9 @@
       "visual" : {
         "at" : { "x" : 688, "y" : 536 }
       },
-      "connect" : { "id" : "f17", "to" : "f8", "via" : [ { "x" : 768, "y" : 536 } ] }
+      "connect" : [
+        { "id" : "f17", "to" : "f8", "via" : [ { "x" : 768, "y" : 536 } ] }
+      ]
     }, {
       "id" : "f19",
       "type" : "Alternative",
@@ -266,7 +278,9 @@
         "at" : { "x" : 272, "y" : 544 },
         "size" : { "width" : 352, "height" : 76 }
       },
-      "connect" : { "id" : "f25", "to" : "f2" }
+      "connect" : [
+        { "id" : "f25", "to" : "f2" }
+      ]
     }, {
       "id" : "f26",
       "type" : "TaskSwitchEvent",
@@ -288,7 +302,9 @@
       "visual" : {
         "at" : { "x" : 592, "y" : 536 }
       },
-      "connect" : { "id" : "f18", "to" : "f16", "condition" : "ivp==\"TaskA.ivp\"" }
+      "connect" : [
+        { "id" : "f18", "to" : "f16", "condition" : "ivp==\"TaskA.ivp\"" }
+      ]
     } ],
   "layout" : {
     "lanes" : [ {

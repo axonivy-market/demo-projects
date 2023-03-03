@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "155BB4328F79B2D5",
   "config" : {
     "data" : "workflow.businessdata.Data"
@@ -30,7 +30,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 256 }
       },
-      "connect" : { "id" : "f15", "to" : "f5", "via" : [ { "x" : 160, "y" : 256 }, { "x" : 160, "y" : 288 } ] }
+      "connect" : [
+        { "id" : "f15", "to" : "f5", "via" : [ { "x" : 160, "y" : 256 }, { "x" : 160, "y" : 288 } ] }
+      ]
     }, {
       "id" : "f5",
       "type" : "DialogCall",
@@ -53,7 +55,9 @@
       "visual" : {
         "at" : { "x" : 304, "y" : 288 }
       },
-      "connect" : { "id" : "f16", "to" : "f11", "via" : [ { "x" : 416, "y" : 288 } ] }
+      "connect" : [
+        { "id" : "f16", "to" : "f11", "via" : [ { "x" : 416, "y" : 288 } ] }
+      ]
     }, {
       "id" : "f7",
       "type" : "RequestStart",
@@ -87,7 +91,9 @@
         "at" : { "x" : 96, "y" : 321 },
         "labelOffset" : { "x" : -3, "y" : 37 }
       },
-      "connect" : { "id" : "f9", "to" : "f5", "via" : [ { "x" : 160, "y" : 321 }, { "x" : 160, "y" : 288 } ] }
+      "connect" : [
+        { "id" : "f9", "to" : "f5", "via" : [ { "x" : 160, "y" : 321 }, { "x" : 160, "y" : 288 } ] }
+      ]
     }, {
       "id" : "f10",
       "type" : "RequestStart",
@@ -121,7 +127,9 @@
       "visual" : {
         "at" : { "x" : 97, "y" : 160 }
       },
-      "connect" : { "id" : "f26", "to" : "f25" }
+      "connect" : [
+        { "id" : "f26", "to" : "f25" }
+      ]
     }, {
       "id" : "f11",
       "type" : "DialogCall",
@@ -138,7 +146,9 @@
       "visual" : {
         "at" : { "x" : 416, "y" : 160 }
       },
-      "connect" : { "id" : "f14", "to" : "f12" }
+      "connect" : [
+        { "id" : "f14", "to" : "f12" }
+      ]
     }, {
       "id" : "f12",
       "type" : "TaskEnd",
@@ -174,7 +184,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 416 }
       },
-      "connect" : { "id" : "f1", "to" : "f11", "via" : [ { "x" : 416, "y" : 416 } ] }
+      "connect" : [
+        { "id" : "f1", "to" : "f11", "via" : [ { "x" : 416, "y" : 416 } ] }
+      ]
     }, {
       "id" : "f25",
       "type" : "Script",
@@ -191,7 +203,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 160 }
       },
-      "connect" : { "id" : "f13", "to" : "f11" }
+      "connect" : [
+        { "id" : "f13", "to" : "f11" }
+      ]
     }, {
       "id" : "f4",
       "type" : "RequestStart",
@@ -221,7 +235,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 417 }
       },
-      "connect" : { "id" : "f6", "to" : "f3" }
+      "connect" : [
+        { "id" : "f6", "to" : "f3" }
+      ]
     }, {
       "id" : "f8",
       "type" : "DialogCall",
@@ -232,7 +248,9 @@
       "visual" : {
         "at" : { "x" : 420, "y" : 512 }
       },
-      "connect" : { "id" : "f22", "to" : "f18" }
+      "connect" : [
+        { "id" : "f22", "to" : "f18" }
+      ]
     }, {
       "id" : "f17",
       "type" : "RequestStart",
@@ -257,7 +275,9 @@
       "visual" : {
         "at" : { "x" : 101, "y" : 512 }
       },
-      "connect" : { "id" : "f20", "to" : "f19" }
+      "connect" : [
+        { "id" : "f20", "to" : "f19" }
+      ]
     }, {
       "id" : "f18",
       "type" : "TaskEnd",
@@ -280,6 +300,8 @@
       "visual" : {
         "at" : { "x" : 228, "y" : 512 }
       },
-      "connect" : { "id" : "f21", "to" : "f8" }
+      "connect" : [
+        { "id" : "f21", "to" : "f8" }
+      ]
     } ]
 }

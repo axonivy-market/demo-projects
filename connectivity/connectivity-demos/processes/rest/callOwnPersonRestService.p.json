@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "154616078A1D629D",
   "config" : {
     "data" : "com.axonivy.connectivity.Data"
@@ -24,7 +24,9 @@
         "at" : { "x" : 96, "y" : 128 },
         "labelOffset" : { "x" : 13, "y" : 37 }
       },
-      "connect" : { "id" : "f11", "to" : "f14" }
+      "connect" : [
+        { "id" : "f11", "to" : "f14" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -51,7 +53,9 @@
         "at" : { "x" : 96, "y" : 272 },
         "labelOffset" : { "x" : 16, "y" : 37 }
       },
-      "connect" : { "id" : "f9", "to" : "f8" }
+      "connect" : [
+        { "id" : "f9", "to" : "f8" }
+      ]
     }, {
       "id" : "f6",
       "type" : "TaskEnd",
@@ -72,7 +76,9 @@
         "at" : { "x" : 224, "y" : 272 },
         "size" : { "width" : 112, "height" : 48 }
       },
-      "connect" : { "id" : "f7", "to" : "f6" }
+      "connect" : [
+        { "id" : "f7", "to" : "f6" }
+      ]
     }, {
       "id" : "f10",
       "type" : "ProcessAnnotation",
@@ -84,7 +90,9 @@
         "at" : { "x" : 440, "y" : 64 },
         "size" : { "width" : 192, "height" : 44 }
       },
-      "connect" : { "id" : "f15", "to" : "f14" }
+      "connect" : [
+        { "id" : "f15", "to" : "f14" }
+      ]
     }, {
       "id" : "f12",
       "type" : "ProcessAnnotation",
@@ -96,7 +104,9 @@
         "at" : { "x" : 472, "y" : 200 },
         "size" : { "width" : 256, "height" : 44 }
       },
-      "connect" : { "id" : "f13", "to" : "f8" }
+      "connect" : [
+        { "id" : "f13", "to" : "f8" }
+      ]
     }, {
       "id" : "f14",
       "type" : "RestClientCall",
@@ -118,7 +128,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 128 }
       },
-      "connect" : { "id" : "f4", "to" : "f1" }
+      "connect" : [
+        { "id" : "f4", "to" : "f1" }
+      ]
     }, {
       "id" : "f2",
       "type" : "RequestStart",
@@ -135,7 +147,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 408 }
       },
-      "connect" : { "id" : "f18", "to" : "f17" }
+      "connect" : [
+        { "id" : "f18", "to" : "f17" }
+      ]
     }, {
       "id" : "f3",
       "type" : "TaskEnd",
@@ -169,7 +183,9 @@
         "size" : { "width" : 128, "height" : 60 },
         "description" : "Shows how to get API documentation for ivy REST services"
       },
-      "connect" : { "id" : "f16", "to" : "f3" }
+      "connect" : [
+        { "id" : "f16", "to" : "f3" }
+      ]
     }, {
       "id" : "f19",
       "type" : "ProcessAnnotation",
@@ -181,6 +197,8 @@
         "at" : { "x" : 480, "y" : 352 },
         "size" : { "width" : 272, "height" : 44 }
       },
-      "connect" : { "id" : "f20", "to" : "f17" }
+      "connect" : [
+        { "id" : "f20", "to" : "f17" }
+      ]
     } ]
 }

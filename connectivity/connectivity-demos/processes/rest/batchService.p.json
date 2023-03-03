@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "157B33AB7587F1F1",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.BatchServiceData"
@@ -20,7 +20,9 @@
       "visual" : {
         "at" : { "x" : 128, "y" : 64 }
       },
-      "connect" : { "id" : "f2", "to" : "f6" }
+      "connect" : [
+        { "id" : "f2", "to" : "f6" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -44,7 +46,9 @@
         "at" : { "x" : 312, "y" : 192 },
         "size" : { "width" : 320, "height" : 156 }
       },
-      "connect" : { "id" : "f4", "to" : "f6" }
+      "connect" : [
+        { "id" : "f4", "to" : "f6" }
+      ]
     }, {
       "id" : "f6",
       "type" : "RestClientCall",
@@ -58,7 +62,9 @@
       "visual" : {
         "at" : { "x" : 256, "y" : 64 }
       },
-      "connect" : { "id" : "f3", "to" : "f1" }
+      "connect" : [
+        { "id" : "f3", "to" : "f1" }
+      ]
     } ],
   "layout" : {
     "lanes" : [ {

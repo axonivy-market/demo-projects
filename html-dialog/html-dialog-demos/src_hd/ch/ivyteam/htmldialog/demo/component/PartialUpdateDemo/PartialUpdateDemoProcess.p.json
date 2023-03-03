@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "139E3EF5C6DBC97F",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -22,7 +22,9 @@
         "at" : { "x" : 96, "y" : 96 },
         "labelOffset" : { "x" : 12, "y" : 32 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f1",
       "type" : "HtmlDialogEnd",
@@ -40,7 +42,9 @@
         "at" : { "x" : 96, "y" : 320 },
         "labelOffset" : { "x" : 14, "y" : 32 }
       },
-      "connect" : { "id" : "f6", "to" : "f5" }
+      "connect" : [
+        { "id" : "f6", "to" : "f5" }
+      ]
     }, {
       "id" : "f4",
       "type" : "HtmlDialogEnd",
@@ -62,7 +66,9 @@
       "visual" : {
         "at" : { "x" : 256, "y" : 320 }
       },
-      "connect" : { "id" : "f7", "to" : "f4" }
+      "connect" : [
+        { "id" : "f7", "to" : "f4" }
+      ]
     } ],
   "layout" : {
     "lanes" : [ {

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "16AC5A6319BD9D86",
   "config" : {
     "data" : "workflow.humantask.Data"
@@ -16,7 +16,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f5", "to" : "f4" }
+      "connect" : [
+        { "id" : "f5", "to" : "f4" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -34,7 +36,9 @@
         "at" : { "x" : 96, "y" : 160 },
         "labelOffset" : { "x" : 99, "y" : 36 }
       },
-      "connect" : { "id" : "f7", "to" : "f6" }
+      "connect" : [
+        { "id" : "f7", "to" : "f6" }
+      ]
     }, {
       "id" : "f4",
       "type" : "Script",
@@ -51,7 +55,9 @@
         "at" : { "x" : 280, "y" : 64 },
         "size" : { "width" : 240, "height" : 60 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f6",
       "type" : "TaskEnd",
@@ -69,7 +75,9 @@
         "at" : { "x" : 96, "y" : 224 },
         "labelOffset" : { "x" : 78, "y" : 37 }
       },
-      "connect" : { "id" : "f9", "to" : "f6", "via" : [ { "x" : 480, "y" : 224 } ] }
+      "connect" : [
+        { "id" : "f9", "to" : "f6", "via" : [ { "x" : 480, "y" : 224 } ] }
+      ]
     }, {
       "id" : "f10",
       "type" : "SignalStartEvent",
@@ -81,14 +89,18 @@
         "at" : { "x" : 96, "y" : 288 },
         "labelOffset" : { "x" : 48, "y" : 37 }
       },
-      "connect" : { "id" : "f11", "to" : "f6", "via" : [ { "x" : 480, "y" : 288 } ] }
+      "connect" : [
+        { "id" : "f11", "to" : "f6", "via" : [ { "x" : 480, "y" : 288 } ] }
+      ]
     }, {
       "id" : "f12",
       "type" : "SignalStartEvent",
       "visual" : {
         "at" : { "x" : 96, "y" : 352 }
       },
-      "connect" : { "id" : "f13", "to" : "f6", "via" : [ { "x" : 480, "y" : 352 } ] }
+      "connect" : [
+        { "id" : "f13", "to" : "f6", "via" : [ { "x" : 480, "y" : 352 } ] }
+      ]
     }, {
       "id" : "f14",
       "type" : "SignalStartEvent",
@@ -101,7 +113,9 @@
         "labelOffset" : { "x" : 59, "y" : 37 },
         "color" : "NodeStyle3"
       },
-      "connect" : { "id" : "f15", "to" : "f6", "via" : [ { "x" : 480, "y" : 416 } ] }
+      "connect" : [
+        { "id" : "f15", "to" : "f6", "via" : [ { "x" : 480, "y" : 416 } ] }
+      ]
     }, {
       "id" : "f16",
       "type" : "SignalStartEvent",
@@ -113,7 +127,9 @@
         "at" : { "x" : 96, "y" : 512 },
         "labelOffset" : { "x" : 51, "y" : 36 }
       },
-      "connect" : { "id" : "f19", "to" : "f18" }
+      "connect" : [
+        { "id" : "f19", "to" : "f18" }
+      ]
     }, {
       "id" : "f18",
       "type" : "TaskEnd",
@@ -131,7 +147,9 @@
         "at" : { "x" : 96, "y" : 576 },
         "labelOffset" : { "x" : 33, "y" : 36 }
       },
-      "connect" : { "id" : "f20", "to" : "f18", "via" : [ { "x" : 480, "y" : 576 } ] }
+      "connect" : [
+        { "id" : "f20", "to" : "f18", "via" : [ { "x" : 480, "y" : 576 } ] }
+      ]
     }, {
       "id" : "f21",
       "type" : "SignalStartEvent",
@@ -143,7 +161,9 @@
         "at" : { "x" : 96, "y" : 640 },
         "labelOffset" : { "x" : 28, "y" : 36 }
       },
-      "connect" : { "id" : "f22", "to" : "f18", "via" : [ { "x" : 480, "y" : 640 } ] }
+      "connect" : [
+        { "id" : "f22", "to" : "f18", "via" : [ { "x" : 480, "y" : 640 } ] }
+      ]
     }, {
       "id" : "f23",
       "type" : "ProcessAnnotation",
