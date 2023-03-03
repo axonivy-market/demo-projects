@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "150425B095B4FB54",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -37,7 +37,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 96 }
       },
-      "connect" : { "id" : "f1", "to" : "f3" }
+      "connect" : [
+        { "id" : "f1", "to" : "f3" }
+      ]
     }, {
       "id" : "f3",
       "type" : "UserTask",
@@ -58,6 +60,8 @@
       "visual" : {
         "at" : { "x" : 272, "y" : 96 }
       },
-      "connect" : { "id" : "f2", "to" : "f5" }
+      "connect" : [
+        { "id" : "f2", "to" : "f5" }
+      ]
     } ]
 }

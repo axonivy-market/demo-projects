@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "153EAAA7649F85DA",
   "config" : {
     "data" : "rule.engine.demo.Data"
@@ -17,7 +17,9 @@
         "at" : { "x" : 80, "y" : 152 },
         "labelOffset" : { "x" : 16, "y" : 37 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -36,7 +38,9 @@
       "visual" : {
         "at" : { "x" : 208, "y" : 152 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f5",
       "type" : "TaskEnd",
@@ -61,7 +65,9 @@
         "at" : { "x" : 80, "y" : 280 },
         "labelOffset" : { "x" : 13, "y" : 37 }
       },
-      "connect" : { "id" : "f9", "to" : "f7" }
+      "connect" : [
+        { "id" : "f9", "to" : "f7" }
+      ]
     }, {
       "id" : "f7",
       "type" : "DialogCall",
@@ -76,7 +82,9 @@
         "at" : { "x" : 208, "y" : 280 },
         "size" : { "width" : 128, "height" : 60 }
       },
-      "connect" : { "id" : "f8", "to" : "f5" }
+      "connect" : [
+        { "id" : "f8", "to" : "f5" }
+      ]
     }, {
       "id" : "f10",
       "type" : "ProcessAnnotation",

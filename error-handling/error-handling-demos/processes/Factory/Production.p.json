@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "1500417E1DADBB7C",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -29,7 +29,9 @@
         "at" : { "x" : 96, "y" : 224 },
         "labelOffset" : { "x" : -36, "y" : 37 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "CallSubEnd",
@@ -63,7 +65,9 @@
       "visual" : {
         "at" : { "x" : 432, "y" : 224 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f3",
       "type" : "WebServiceCall",
@@ -109,9 +113,13 @@
             "at" : { "x" : 256, "y" : 256 },
             "labelOffset" : { "x" : 19, "y" : -6 }
           },
-          "connect" : { "id" : "f6", "to" : "f5", "via" : [ { "x" : 256, "y" : 320 } ] }
+          "connect" : [
+            { "id" : "f6", "to" : "f5", "via" : [ { "x" : 256, "y" : 320 } ] }
+          ]
         } ],
-      "connect" : { "id" : "f8", "to" : "f7" }
+      "connect" : [
+        { "id" : "f8", "to" : "f7" }
+      ]
     }, {
       "id" : "f5",
       "type" : "ErrorEnd",

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "150850F930AF7EA6",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -25,7 +25,9 @@
         "at" : { "x" : 96, "y" : 64 },
         "labelOffset" : { "x" : 16, "y" : 35 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f1",
       "type" : "HtmlDialogEnd",
@@ -49,7 +51,9 @@
         "at" : { "x" : 96, "y" : 160 },
         "labelOffset" : { "x" : 11, "y" : 32 }
       },
-      "connect" : { "id" : "f12", "to" : "f4" }
+      "connect" : [
+        { "id" : "f12", "to" : "f4" }
+      ]
     }, {
       "id" : "f9",
       "type" : "HtmlDialogEventStart",
@@ -61,7 +65,9 @@
         "at" : { "x" : 96, "y" : 256 },
         "labelOffset" : { "x" : 10, "y" : 32 }
       },
-      "connect" : { "id" : "f8", "to" : "f5" }
+      "connect" : [
+        { "id" : "f8", "to" : "f5" }
+      ]
     }, {
       "id" : "f5",
       "type" : "ErrorEnd",
