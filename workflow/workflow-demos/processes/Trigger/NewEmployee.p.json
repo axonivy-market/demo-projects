@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "15254CF1CE56AE72",
   "config" : {
     "data" : "workflow.trigger.NewEmployeeData"
@@ -83,23 +83,25 @@
       "name" : "Send welcome mail",
       "config" : {
         "headers" : {
-          "emailSubject" : "<%=ivy.cms.co(\"/Emails/welcomeHeader\")%> <%=in.name%>!",
-          "emailFrom" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>",
-          "emailTo" : "<%=in.email%>"
+          "subject" : "<%=ivy.cms.co(\"/Emails/welcomeHeader\")%> <%=in.name%>!",
+          "from" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>",
+          "to" : "<%=in.email%>"
         },
-        "message" : [
-          " <html> ",
-          "  <style type=\"text/css\">",
-          "         <%=ivy.cms.co(\"/Styles/Classic\")%>",
-          "  </style>",
-          "  ",
-          "  <%=ivy.cms.co(\"/Images/Logo\")%>",
-          "  ",
-          "  <%=ivy.cms.co(\"/Emails/welcomeMail\")%>",
-          "</html>"
-        ],
-        "contentType" : "text/html",
-        "exceptionHandler" : ">>"
+        "message" : {
+          "body" : [
+            " <html> ",
+            "  <style type=\"text/css\">",
+            "         <%=ivy.cms.co(\"/Styles/Classic\")%>",
+            "  </style>",
+            "  ",
+            "  <%=ivy.cms.co(\"/Images/Logo\")%>",
+            "  ",
+            "  <%=ivy.cms.co(\"/Emails/welcomeMail\")%>",
+            "</html>"
+          ],
+          "contentType" : "text/html"
+        },
+        "exceptionHandler" : ">> Ignore Exception"
       },
       "visual" : {
         "at" : { "x" : 864, "y" : 224 },

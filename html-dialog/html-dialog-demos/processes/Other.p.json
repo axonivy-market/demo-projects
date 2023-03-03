@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "145D1862CF17F2C9",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -96,6 +96,7 @@
           { "name" : "cssIcon", "value" : "fa fa-code" },
           { "name" : "embedInFrame", "value" : "false" }
         ],
+        "description" : "ManagedBean Demo",
         "startName" : "ManagedBean Demo"
       },
       "visual" : {
@@ -166,6 +167,7 @@
           { "name" : "cssIcon", "value" : "fa fa-exclamation-triangle" },
           { "name" : "embedInFrame", "value" : "false" }
         ],
+        "description" : "ErrorHandling Demo",
         "startName" : "ErrorHandlingDemo"
       },
       "visual" : {

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "1605A38503199ADB",
   "config" : {
     "data" : "com.axonivy.connectivity.soap.DataMappingData"
@@ -13,6 +13,11 @@
         "startCategory" : "soap",
         "outLink" : "resolveToCache.ivp",
         "startDescription" : "Caches the result of a WebService invocation as the we do not expect the value to change.",
+        "description" : [
+          "Caches the result of a remote WebService invocation.",
+          "Only the first execution will fire an HTTP request over the network. ",
+          "Follow up executions will simply consume the first result from the cache."
+        ],
         "startName" : "9.1.1 read remote result to cache"
       },
       "visual" : {
@@ -89,6 +94,10 @@
         "outLink" : "mapComplexData.ivp",
         "startCustomFields" : [
           { "name" : "cssIcon", "value" : "fa fa-object-group" }
+        ],
+        "description" : [
+          "sends and consumes complex objects:",
+          "- for demo reasons, the remote service is also provided with axon.ivy tooling."
         ],
         "startName" : "9.1.2 map complex data"
       },

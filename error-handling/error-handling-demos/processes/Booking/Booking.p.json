@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "150047A1589EB0D8",
   "config" : {
     "data" : "booking.BookingData"
@@ -33,16 +33,16 @@
       ],
       "config" : {
         "dialog" : "error.handling.demo.SelectOptions:start(booking.Customer)",
+        "call" : {
+          "map" : {
+            "param.customer" : "in.customer"
+          }
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.carSize" : "result.carSize",
             "out.flight" : "result.flight"
-          }
-        },
-        "call" : {
-          "map" : {
-            "param.customer" : "in.customer"
           }
         }
       },
@@ -117,7 +117,8 @@
         "booking"
       ],
       "config" : {
-        "processCall" : "Booking/Service/Flight:cancelFlight(booking.Flight,booking.Customer)"
+        "processCall" : "Booking/Service/Flight:cancelFlight(booking.Flight,booking.Customer)",
+        "description" : "compensate already booked flight"
       },
       "visual" : {
         "at" : { "x" : 512, "y" : 232 },
@@ -133,10 +134,12 @@
       ],
       "config" : {
         "headers" : {
-          "emailSubject" : "Booking confirmation",
-          "emailTo" : "<%=in.customer.email%>"
+          "subject" : "Booking confirmation",
+          "to" : "<%=in.customer.email%>"
         },
-        "message" : "..."
+        "message" : {
+          "body" : "..."
+        }
       },
       "visual" : {
         "at" : { "x" : 632, "y" : 128 }

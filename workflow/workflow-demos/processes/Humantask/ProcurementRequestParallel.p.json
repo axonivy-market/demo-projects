@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "15254DC87A1B183B",
   "config" : {
     "data" : "workflow.humantask.ProcurementRequest"
@@ -13,16 +13,16 @@
       ],
       "config" : {
         "dialog" : "workflow.humantask.VerifyRequest:start(workflow.humantask.ProcurementRequest)",
+        "call" : {
+          "map" : {
+            "param.procurementRequest" : "in"
+          }
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.activityLog" : "in.activityLog.add(result.logEntry)",
             "out.dataOkManager" : "result.dataOk"
-          }
-        },
-        "call" : {
-          "map" : {
-            "param.procurementRequest" : "in"
           }
         }
       },
@@ -74,7 +74,6 @@
         "tasks" : {
           "TaskB" : {
             "responsible" : {
-              "type" : "ROLE",
               "activator" : "SYSTEM"
             },
             "skipTasklist" : true
@@ -123,7 +122,6 @@
             "name" : "<%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%>  '<%=in1.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>",
             "category" : "Review/Procurement",
             "responsible" : {
-              "type" : "ROLE",
               "activator" : "Teamleader"
             }
           },
@@ -131,7 +129,6 @@
             "name" : "<%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> '<%=in1.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>",
             "category" : "Review/Procurement",
             "responsible" : {
-              "type" : "ROLE",
               "activator" : "Manager"
             }
           }
@@ -153,16 +150,16 @@
       ],
       "config" : {
         "dialog" : "workflow.humantask.VerifyRequest:start(workflow.humantask.ProcurementRequest)",
+        "call" : {
+          "map" : {
+            "param.procurementRequest" : "in"
+          }
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.activityLog" : "in.activityLog.add(result.logEntry)",
             "out.dataOkTeamLeader" : "result.dataOk"
-          }
-        },
-        "call" : {
-          "map" : {
-            "param.procurementRequest" : "in"
           }
         }
       },
@@ -177,23 +174,25 @@
       "name" : "Notify Requester",
       "config" : {
         "headers" : {
-          "emailSubject" : "<%=ivy.cms.co(\"/Emails/yourRequestHasBeen\")%> <%=(in.accepted ? ivy.cms.co(\"/Emails/accepted\") : ivy.cms.co(\"/Emails/declined\"))%>: <%=in.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%>  '<%=in.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in.totalPrice%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/currencySymbol\")%>",
-          "emailFrom" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>",
-          "emailTo" : "<%=in.requester.email%>"
+          "subject" : "<%=ivy.cms.co(\"/Emails/yourRequestHasBeen\")%> <%=(in.accepted ? ivy.cms.co(\"/Emails/accepted\") : ivy.cms.co(\"/Emails/declined\"))%>: <%=in.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%>  '<%=in.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in.totalPrice%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/currencySymbol\")%>",
+          "from" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>",
+          "to" : "<%=in.requester.email%>"
         },
-        "message" : [
-          " <html> ",
-          "  <style type=\"text/css\">",
-          "         <%=ivy.cms.co(\"/Styles/Classic\")%>",
-          "  </style>",
-          "  ",
-          "  <%=ivy.cms.co(\"/Images/Logo\")%>",
-          "",
-          "  <%=ivy.cms.co(\"/Emails/procurementRequestNotification\")%>",
-          "</html>"
-        ],
-        "contentType" : "text/html",
-        "exceptionHandler" : ">>"
+        "message" : {
+          "body" : [
+            " <html> ",
+            "  <style type=\"text/css\">",
+            "         <%=ivy.cms.co(\"/Styles/Classic\")%>",
+            "  </style>",
+            "  ",
+            "  <%=ivy.cms.co(\"/Images/Logo\")%>",
+            "",
+            "  <%=ivy.cms.co(\"/Emails/procurementRequestNotification\")%>",
+            "</html>"
+          ],
+          "contentType" : "text/html"
+        },
+        "exceptionHandler" : ">> Ignore Exception"
       },
       "visual" : {
         "at" : { "x" : 768, "y" : 184 }
@@ -205,16 +204,16 @@
       "name" : "Accept Request",
       "config" : {
         "dialog" : "workflow.humantask.AcceptRequest:start(workflow.humantask.ProcurementRequest)",
+        "call" : {
+          "map" : {
+            "param.procurementRequest" : "in"
+          }
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.accepted" : "result.accepted",
             "out.activityLog" : "in.activityLog.add(result.logEntry)"
-          }
-        },
-        "call" : {
-          "map" : {
-            "param.procurementRequest" : "in"
           }
         }
       },
@@ -277,12 +276,10 @@
           "name" : "<%=ivy.cms.co(\"/TaskDescriptions/acceptRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> '<%=in1.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>",
           "category" : "Accept/Procurement",
           "responsible" : {
-            "type" : "ROLE",
             "activator" : "Executive Manager"
           },
           "expiry" : {
             "responsible" : {
-              "type" : "ROLE",
               "activator" : "Executive Manager"
             }
           }

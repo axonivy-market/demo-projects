@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "16249376A44F1F8E",
   "config" : {
     "data" : "com.axonivy.connectivity.soap.service.CreateOrderServiceData"

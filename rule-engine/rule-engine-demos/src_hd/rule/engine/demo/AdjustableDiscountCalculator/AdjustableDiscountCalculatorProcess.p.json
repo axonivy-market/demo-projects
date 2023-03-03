@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "175F99FC96A78D96",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -41,7 +41,11 @@
       "impl" : "RuleActivity",
       "name" : "Apply Rules from DRL",
       "config" : {
-        "beanConfig" : "{\"namespace\":\"rule.engine.adjustable-drl\",\"dataObject\":\"in.ruleData\"}"
+        "beanConfig" : "{\"namespace\":\"rule.engine.adjustable-drl\",\"dataObject\":\"in.ruleData\"}",
+        "description" : [
+          "'in.member' is the input object that stores the information of a member.",
+          "This object will be modified during the rule execution."
+        ]
       },
       "visual" : {
         "at" : { "x" : 280, "y" : 384 },

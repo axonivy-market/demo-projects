@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "15254CF47A16DEA1",
   "config" : {
     "data" : "workflow.trigger.NewEmployeeData"
@@ -26,7 +26,6 @@
           "name" : "<%=ivy.cms.co(\"/TaskDescriptions/reserveParkingLotFor\")%> <%=param.newEmployeeData.name%>",
           "category" : "Assign/ParkingLot",
           "responsible" : {
-            "type" : "ROLE",
             "activator" : "Facility Manager"
           }
         },
@@ -51,14 +50,14 @@
       "name" : "Reserve parking lot",
       "config" : {
         "dialog" : "workflow.trigger.ReserveParkingLot:start(workflow.trigger.NewEmployeeData)",
-        "output" : {
-          "map" : {
-            "out" : "result.employee"
-          }
-        },
         "call" : {
           "map" : {
             "param.employee" : "in"
+          }
+        },
+        "output" : {
+          "map" : {
+            "out" : "result.employee"
           }
         }
       },
@@ -72,23 +71,25 @@
       "name" : "Inform employee",
       "config" : {
         "headers" : {
-          "emailSubject" : "<%=ivy.cms.co(\"/Emails/parkingLotReservationHeader\")%>",
-          "emailFrom" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>",
-          "emailTo" : "<%=in.email%>"
+          "subject" : "<%=ivy.cms.co(\"/Emails/parkingLotReservationHeader\")%>",
+          "from" : "<%=ivy.cms.co(\"/Emails/senderMail\")%>",
+          "to" : "<%=in.email%>"
         },
-        "message" : [
-          " <html> ",
-          "  <style type=\"text/css\">",
-          "         <%=ivy.cms.co(\"/Styles/Classic\")%>",
-          "  </style>",
-          "  ",
-          "  <%=ivy.cms.co(\"/Images/Logo\")%>",
-          "",
-          "  <%=ivy.cms.co(\"/Emails/confirmParkingLot\")%>",
-          "</html>"
-        ],
-        "contentType" : "text/html",
-        "exceptionHandler" : ">>"
+        "message" : {
+          "body" : [
+            " <html> ",
+            "  <style type=\"text/css\">",
+            "         <%=ivy.cms.co(\"/Styles/Classic\")%>",
+            "  </style>",
+            "  ",
+            "  <%=ivy.cms.co(\"/Images/Logo\")%>",
+            "",
+            "  <%=ivy.cms.co(\"/Emails/confirmParkingLot\")%>",
+            "</html>"
+          ],
+          "contentType" : "text/html"
+        },
+        "exceptionHandler" : ">> Ignore Exception"
       },
       "visual" : {
         "at" : { "x" : 432, "y" : 264 }

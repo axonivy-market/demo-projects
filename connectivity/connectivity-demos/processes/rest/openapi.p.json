@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "16F375741231763F",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.OpenApiData"
@@ -136,6 +136,10 @@
           "additionalMetadata" : "\"Ivy is everywhere\""
         },
         "statusErrorCode" : "ivy:error:rest:client",
+        "description" : [
+          "Show that the presence of a strictly defined service descriptor is not a blocker to use advanced JAX-RS Api to interact with the remote service.",
+          "This is usefull during prototyping or to overcome technical boundaries caused by weakly defined services."
+        ],
         "bodyInputType" : "RAW",
         "path" : "/pet/{petId}/uploadImage",
         "clientErrorCode" : "ivy:error:rest:client",
