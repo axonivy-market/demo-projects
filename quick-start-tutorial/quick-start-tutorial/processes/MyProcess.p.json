@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "148655DDB7BB6588",
   "config" : {
     "data" : "quickStartTutorial.Data"
@@ -32,14 +32,14 @@
       "name" : "Enter Product",
       "config" : {
         "dialog" : "quickStartTutorial.EnterProduct:start(quickStartTutorial.Data)",
-        "output" : {
-          "map" : {
-            "out" : "result.data"
-          }
-        },
         "call" : {
           "map" : {
             "param.data" : "in"
+          }
+        },
+        "output" : {
+          "map" : {
+            "out" : "result.data"
           }
         }
       },

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "151CA0D8CBDD2DEC",
   "config" : {
     "data" : "workflow.signal.CreateUserProcess"
@@ -37,22 +37,21 @@
       "name" : "Set up office key",
       "config" : {
         "dialog" : "workflow.signal.TaskForm:start(workflow.signal.User)",
-        "case" : {
-          "category" : "Office/Key/Assignment"
+        "call" : {
+          "map" : {
+            "param.user" : "in.user"
+          }
         },
         "task" : {
           "name" : "<%=ivy.cms.co(\"/TaskDescriptions/prepareOfficeKeyFor\")%> <%=in.user.name%> [<%=in.user.userKey%>]",
           "description" : "<%=ivy.cms.co(\"/TaskDescriptions/prepareOfficeKeyDesc\")%> <%=in.user.name%> [<%=in.user.userKey%>]",
           "category" : "Assign/OfficeKey",
           "responsible" : {
-            "type" : "ROLE",
             "activator" : "Office Manager"
           }
         },
-        "call" : {
-          "map" : {
-            "param.user" : "in.user"
-          }
+        "case" : {
+          "category" : "Office/Key/Assignment"
         }
       },
       "visual" : {
@@ -136,12 +135,9 @@
       "name" : "Set up workstation",
       "config" : {
         "dialog" : "workflow.signal.TaskForm:start(workflow.signal.User)",
-        "case" : {
-          "category" : "IT/Workstation/Setup"
-        },
-        "output" : {
+        "call" : {
           "map" : {
-            "out.user" : "result.user"
+            "param.user" : "in.user"
           }
         },
         "task" : {
@@ -149,13 +145,15 @@
           "description" : "<%=ivy.cms.co(\"/TaskDescriptions/setupWorkstationDesc\")%> <%=in.user.name%> [<%=in.user.userKey%>]",
           "category" : "Setup/Workstation",
           "responsible" : {
-            "type" : "ROLE",
             "activator" : "IT Manager"
           }
         },
-        "call" : {
+        "case" : {
+          "category" : "IT/Workstation/Setup"
+        },
+        "output" : {
           "map" : {
-            "param.user" : "in.user"
+            "out.user" : "result.user"
           }
         }
       },
@@ -246,15 +244,15 @@
       "name" : "Add user data",
       "config" : {
         "dialog" : "workflow.signal.CreateUser:start(workflow.signal.User)",
+        "call" : {
+          "map" : {
+            "param.user" : "in.user"
+          }
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.user" : "result.user"
-          }
-        },
-        "call" : {
-          "map" : {
-            "param.user" : "in.user"
           }
         }
       },

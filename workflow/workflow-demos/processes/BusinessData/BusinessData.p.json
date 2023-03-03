@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "155BB4328F79B2D5",
   "config" : {
     "data" : "workflow.businessdata.Data"
@@ -37,16 +37,16 @@
       "name" : "modify",
       "config" : {
         "dialog" : "workflow.businessdata.BusinessDataDossierModifier:start(String,String)",
-        "output" : {
-          "map" : {
-            "out" : "in",
-            "out.id" : "result.id"
-          }
-        },
         "call" : {
           "map" : {
             "param.businessDataId" : "in.id",
             "param.title" : "\"Person Dossier\""
+          }
+        },
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.id" : "result.id"
           }
         }
       },

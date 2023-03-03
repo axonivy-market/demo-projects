@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "15A8492F526C14B3",
   "config" : {
     "data" : "workflow.humantask.Data"
@@ -16,7 +16,6 @@
         "task" : {
           "name" : "Check Company Register",
           "responsible" : {
-            "type" : "ROLE",
             "activator" : "SYSTEM"
           }
         },

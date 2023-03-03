@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "1523FF963044280C",
   "config" : {
     "data" : "workflow.signal.FacilityManagementData"
@@ -50,22 +50,21 @@
       "name" : "Deliver Key Card",
       "config" : {
         "dialog" : "workflow.signal.TaskForm:start(workflow.signal.User)",
-        "case" : {
-          "category" : "Facility/ParkingLot/Reservation"
+        "call" : {
+          "map" : {
+            "param.user" : "in.user"
+          }
         },
         "task" : {
           "name" : "<%=ivy.cms.co(\"/TaskDescriptions/deliverKeyCardFor\")%> <%=in.user.name%> [<%=in.user.userKey%>]",
           "description" : "<%=ivy.cms.co(\"/TaskDescriptions/DeliverKeyCardDesc\")%><%=in.user.name%> [<%=in.user.userKey%>]",
           "category" : "Assign/ParkingLot",
           "responsible" : {
-            "type" : "ROLE",
             "activator" : "Facility Manager"
           }
         },
-        "call" : {
-          "map" : {
-            "param.user" : "in.user"
-          }
+        "case" : {
+          "category" : "Facility/ParkingLot/Reservation"
         }
       },
       "visual" : {

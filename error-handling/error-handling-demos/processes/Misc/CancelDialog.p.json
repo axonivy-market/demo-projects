@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "1508AE543CAEEEC1",
   "config" : {
     "data" : "misc.CancelStartData"
@@ -30,15 +30,15 @@
       "name" : "Get email",
       "config" : {
         "dialog" : "error.handling.demo.misc.CancelStart:start(String)",
+        "call" : {
+          "map" : {
+            "param.email" : "in.email"
+          }
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.email" : "result.email"
-          }
-        },
-        "call" : {
-          "map" : {
-            "param.email" : "in.email"
           }
         }
       },
