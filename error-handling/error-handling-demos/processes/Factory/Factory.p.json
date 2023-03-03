@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "15066B87D449F453",
   "config" : {
     "data" : "error.handling.demo.Data"
@@ -17,7 +17,9 @@
         "at" : { "x" : 80, "y" : 160 },
         "labelOffset" : { "x" : 12, "y" : 37 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -50,10 +52,11 @@
           "visual" : {
             "at" : { "x" : 240, "y" : 184 },
             "labelOffset" : { "x" : 19, "y" : 6 }
-          },
-          "connect" : { "id" : "f6", "to" : "f5", "via" : [ { "x" : 240, "y" : 240 } ] }
+          }
         } ],
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f9",
       "type" : "ProcessAnnotation",

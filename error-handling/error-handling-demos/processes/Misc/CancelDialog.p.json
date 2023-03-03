@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "1508AE543CAEEEC1",
   "config" : {
     "data" : "misc.CancelStartData"
@@ -17,7 +17,9 @@
         "at" : { "x" : 72, "y" : 160 },
         "labelOffset" : { "x" : 10, "y" : 37 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -55,10 +57,11 @@
           "visual" : {
             "at" : { "x" : 232, "y" : 192 },
             "labelOffset" : { "x" : 19, "y" : 8 }
-          },
-          "connect" : { "id" : "f6", "to" : "f5", "via" : [ { "x" : 232, "y" : 256 } ] }
+          }
         } ],
-      "connect" : { "id" : "f7", "to" : "S10" }
+      "connect" : [
+        { "id" : "f7", "to" : "S10" }
+      ]
     }, {
       "id" : "f5",
       "type" : "TaskEnd",
@@ -76,7 +79,9 @@
             "at" : { "x" : 64, "y" : 256 }
           },
           "parentConnector" : "f7",
-          "connect" : { "id" : "S10-f0", "to" : "S10-g1" }
+          "connect" : [
+            { "id" : "S10-f0", "to" : "S10-g1" }
+          ]
         }, {
           "id" : "S10-g1",
           "type" : "EmbeddedEnd",
@@ -88,7 +93,9 @@
       "visual" : {
         "at" : { "x" : 376, "y" : 160 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f8",
       "type" : "ProcessAnnotation",

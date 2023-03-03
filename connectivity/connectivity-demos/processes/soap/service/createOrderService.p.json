@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "162492A1649E72DF",
   "kind" : "WEB_SERVICE",
   "config" : {
@@ -36,7 +36,9 @@
         "at" : { "x" : 72, "y" : 152 },
         "labelOffset" : { "x" : 14, "y" : -13 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "ws1",
       "type" : "WebserviceEnd",
@@ -70,7 +72,9 @@
       "visual" : {
         "at" : { "x" : 328, "y" : 88 }
       },
-      "connect" : { "id" : "f0", "to" : "ws1" }
+      "connect" : [
+        { "id" : "f0", "to" : "ws1" }
+      ]
     }, {
       "id" : "f3",
       "type" : "Alternative",
@@ -124,7 +128,9 @@
       "visual" : {
         "at" : { "x" : 328, "y" : 218 }
       },
-      "connect" : { "id" : "f7", "to" : "f5" }
+      "connect" : [
+        { "id" : "f7", "to" : "f5" }
+      ]
     }, {
       "id" : "f9",
       "type" : "ProcessAnnotation",
@@ -140,7 +146,9 @@
         "at" : { "x" : 312, "y" : 328 },
         "size" : { "width" : 448, "height" : 60 }
       },
-      "connect" : { "id" : "f10", "to" : "ws0", "via" : [ { "x" : 72, "y" : 328 } ] }
+      "connect" : [
+        { "id" : "f10", "to" : "ws0", "via" : [ { "x" : 72, "y" : 328 } ] }
+      ]
     } ],
   "layout" : {
     "colors" : {

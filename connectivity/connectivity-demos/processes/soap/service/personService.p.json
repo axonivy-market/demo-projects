@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "16150E1D07E8CA18",
   "kind" : "WEB_SERVICE",
   "config" : {
@@ -26,7 +26,9 @@
         "at" : { "x" : 88, "y" : 128 },
         "labelOffset" : { "x" : 13, "y" : 37 }
       },
-      "connect" : { "id" : "f7", "to" : "f0" }
+      "connect" : [
+        { "id" : "f7", "to" : "f0" }
+      ]
     }, {
       "id" : "ws1",
       "type" : "WebserviceEnd",
@@ -60,7 +62,9 @@
         "at" : { "x" : 88, "y" : 208 },
         "labelOffset" : { "x" : 19, "y" : 37 }
       },
-      "connect" : { "id" : "f10", "to" : "f9" }
+      "connect" : [
+        { "id" : "f10", "to" : "f9" }
+      ]
     }, {
       "id" : "f2",
       "type" : "WebserviceStart",
@@ -88,7 +92,9 @@
         "at" : { "x" : 88, "y" : 288 },
         "labelOffset" : { "x" : 20, "y" : 37 }
       },
-      "connect" : { "id" : "f12", "to" : "f11" }
+      "connect" : [
+        { "id" : "f12", "to" : "f11" }
+      ]
     }, {
       "id" : "f3",
       "type" : "WebserviceEnd",
@@ -117,7 +123,9 @@
       "visual" : {
         "at" : { "x" : 272, "y" : 128 }
       },
-      "connect" : { "id" : "f8", "to" : "ws1" }
+      "connect" : [
+        { "id" : "f8", "to" : "ws1" }
+      ]
     }, {
       "id" : "f9",
       "type" : "Script",
@@ -134,7 +142,9 @@
       "visual" : {
         "at" : { "x" : 272, "y" : 208 }
       },
-      "connect" : { "id" : "f5", "to" : "f3" }
+      "connect" : [
+        { "id" : "f5", "to" : "f3" }
+      ]
     }, {
       "id" : "f11",
       "type" : "Script",
@@ -151,7 +161,9 @@
       "visual" : {
         "at" : { "x" : 272, "y" : 288 }
       },
-      "connect" : { "id" : "f6", "to" : "f4" }
+      "connect" : [
+        { "id" : "f6", "to" : "f4" }
+      ]
     }, {
       "id" : "f13",
       "type" : "ProcessAnnotation",

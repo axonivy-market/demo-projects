@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "15A60076034F7437",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.DataMappingData"
@@ -20,7 +20,9 @@
       "visual" : {
         "at" : { "x" : 95, "y" : 152 }
       },
-      "connect" : { "id" : "f6", "to" : "f5" }
+      "connect" : [
+        { "id" : "f6", "to" : "f5" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -63,7 +65,9 @@
         "at" : { "x" : 408, "y" : 152 },
         "size" : { "width" : 152, "height" : 48 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f5",
       "type" : "Script",
@@ -81,7 +85,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 152 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f7",
       "type" : "Script",
@@ -104,7 +110,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 320 }
       },
-      "connect" : { "id" : "f13", "to" : "f10" }
+      "connect" : [
+        { "id" : "f13", "to" : "f10" }
+      ]
     }, {
       "id" : "f8",
       "type" : "RequestStart",
@@ -121,7 +129,9 @@
       "visual" : {
         "at" : { "x" : 95, "y" : 320 }
       },
-      "connect" : { "id" : "f12", "to" : "f7" }
+      "connect" : [
+        { "id" : "f12", "to" : "f7" }
+      ]
     }, {
       "id" : "f9",
       "type" : "TaskEnd",
@@ -166,7 +176,9 @@
         "at" : { "x" : 408, "y" : 320 },
         "size" : { "width" : 152, "height" : 48 }
       },
-      "connect" : { "id" : "f11", "to" : "f9" }
+      "connect" : [
+        { "id" : "f11", "to" : "f9" }
+      ]
     }, {
       "id" : "f14",
       "type" : "RestClientCall",
@@ -203,7 +215,9 @@
         "at" : { "x" : 408, "y" : 728 },
         "size" : { "width" : 152, "height" : 48 }
       },
-      "connect" : { "id" : "f18", "to" : "f16" }
+      "connect" : [
+        { "id" : "f18", "to" : "f16" }
+      ]
     }, {
       "id" : "f15",
       "type" : "RequestStart",
@@ -220,7 +234,9 @@
       "visual" : {
         "at" : { "x" : 95, "y" : 728 }
       },
-      "connect" : { "id" : "f20", "to" : "f19" }
+      "connect" : [
+        { "id" : "f20", "to" : "f19" }
+      ]
     }, {
       "id" : "f16",
       "type" : "TaskEnd",
@@ -248,7 +264,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 728 }
       },
-      "connect" : { "id" : "f17", "to" : "f14" }
+      "connect" : [
+        { "id" : "f17", "to" : "f14" }
+      ]
     }, {
       "id" : "f21",
       "type" : "RestClientCall",
@@ -280,7 +298,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 888 }
       },
-      "connect" : { "id" : "f26", "to" : "f25" }
+      "connect" : [
+        { "id" : "f26", "to" : "f25" }
+      ]
     }, {
       "id" : "f22",
       "type" : "RequestStart",
@@ -302,7 +322,9 @@
       "visual" : {
         "at" : { "x" : 95, "y" : 888 }
       },
-      "connect" : { "id" : "f24", "to" : "f21" }
+      "connect" : [
+        { "id" : "f24", "to" : "f21" }
+      ]
     }, {
       "id" : "f23",
       "type" : "TaskEnd",
@@ -340,7 +362,9 @@
       "visual" : {
         "at" : { "x" : 408, "y" : 888 }
       },
-      "connect" : { "id" : "f59", "to" : "f58" }
+      "connect" : [
+        { "id" : "f59", "to" : "f58" }
+      ]
     }, {
       "id" : "f28",
       "type" : "RequestStart",
@@ -357,7 +381,9 @@
       "visual" : {
         "at" : { "x" : 95, "y" : 240 }
       },
-      "connect" : { "id" : "f32", "to" : "f30" }
+      "connect" : [
+        { "id" : "f32", "to" : "f30" }
+      ]
     }, {
       "id" : "f29",
       "type" : "RestClientCall",
@@ -398,7 +424,9 @@
         "at" : { "x" : 408, "y" : 240 },
         "size" : { "width" : 152, "height" : 48 }
       },
-      "connect" : { "id" : "f34", "to" : "f31" }
+      "connect" : [
+        { "id" : "f34", "to" : "f31" }
+      ]
     }, {
       "id" : "f30",
       "type" : "Script",
@@ -421,7 +449,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 240 }
       },
-      "connect" : { "id" : "f33", "to" : "f29" }
+      "connect" : [
+        { "id" : "f33", "to" : "f29" }
+      ]
     }, {
       "id" : "f31",
       "type" : "TaskEnd",
@@ -501,7 +531,9 @@
           "}"
         ]
       },
-      "connect" : { "id" : "f42", "to" : "f41" }
+      "connect" : [
+        { "id" : "f42", "to" : "f41" }
+      ]
     }, {
       "id" : "f38",
       "type" : "RequestStart",
@@ -518,7 +550,9 @@
       "visual" : {
         "at" : { "x" : 95, "y" : 434 }
       },
-      "connect" : { "id" : "f37", "to" : "f36" }
+      "connect" : [
+        { "id" : "f37", "to" : "f36" }
+      ]
     }, {
       "id" : "f41",
       "type" : "TaskEnd",
@@ -562,7 +596,9 @@
       "visual" : {
         "at" : { "x" : 408, "y" : 808 }
       },
-      "connect" : { "id" : "f40", "to" : "f39" }
+      "connect" : [
+        { "id" : "f40", "to" : "f39" }
+      ]
     }, {
       "id" : "f44",
       "type" : "RequestStart",
@@ -579,7 +615,9 @@
       "visual" : {
         "at" : { "x" : 95, "y" : 808 }
       },
-      "connect" : { "id" : "f45", "to" : "f48" }
+      "connect" : [
+        { "id" : "f45", "to" : "f48" }
+      ]
     }, {
       "id" : "f48",
       "type" : "Script",
@@ -596,7 +634,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 808 }
       },
-      "connect" : { "id" : "f46", "to" : "f43" }
+      "connect" : [
+        { "id" : "f46", "to" : "f43" }
+      ]
     }, {
       "id" : "f47",
       "type" : "RequestStart",
@@ -613,7 +653,9 @@
       "visual" : {
         "at" : { "x" : 95, "y" : 512 }
       },
-      "connect" : { "id" : "f52", "to" : "f51" }
+      "connect" : [
+        { "id" : "f52", "to" : "f51" }
+      ]
     }, {
       "id" : "f49",
       "type" : "TaskEnd",
@@ -682,7 +724,9 @@
           "}"
         ]
       },
-      "connect" : { "id" : "f50", "to" : "f49" }
+      "connect" : [
+        { "id" : "f50", "to" : "f49" }
+      ]
     }, {
       "id" : "f53",
       "type" : "RestClientCall",
@@ -746,7 +790,9 @@
           "}"
         ]
       },
-      "connect" : { "id" : "f57", "to" : "f56" }
+      "connect" : [
+        { "id" : "f57", "to" : "f56" }
+      ]
     }, {
       "id" : "f54",
       "type" : "RequestStart",
@@ -763,7 +809,9 @@
       "visual" : {
         "at" : { "x" : 95, "y" : 590 }
       },
-      "connect" : { "id" : "f55", "to" : "f53" }
+      "connect" : [
+        { "id" : "f55", "to" : "f53" }
+      ]
     }, {
       "id" : "f56",
       "type" : "TaskEnd",
@@ -793,7 +841,9 @@
       "visual" : {
         "at" : { "x" : 584, "y" : 888 }
       },
-      "connect" : { "id" : "f27", "to" : "f23" }
+      "connect" : [
+        { "id" : "f27", "to" : "f23" }
+      ]
     } ],
   "layout" : {
     "lanes" : [ {

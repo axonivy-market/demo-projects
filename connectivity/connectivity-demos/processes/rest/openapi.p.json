@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "16F375741231763F",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.OpenApiData"
@@ -34,7 +34,9 @@
       "visual" : {
         "at" : { "x" : 192, "y" : 160 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f5",
       "type" : "ProcessAnnotation",
@@ -73,7 +75,9 @@
       "visual" : {
         "at" : { "x" : 192, "y" : 256 }
       },
-      "connect" : { "id" : "f10", "to" : "f8" }
+      "connect" : [
+        { "id" : "f10", "to" : "f8" }
+      ]
     }, {
       "id" : "f7",
       "type" : "RequestStart",
@@ -90,7 +94,9 @@
       "visual" : {
         "at" : { "x" : 64, "y" : 256 }
       },
-      "connect" : { "id" : "f9", "to" : "f6" }
+      "connect" : [
+        { "id" : "f9", "to" : "f6" }
+      ]
     }, {
       "id" : "f8",
       "type" : "TaskEnd",
@@ -115,7 +121,9 @@
         "at" : { "x" : 64, "y" : 352 },
         "labelOffset" : { "x" : 15, "y" : 37 }
       },
-      "connect" : { "id" : "f17", "to" : "f12" }
+      "connect" : [
+        { "id" : "f17", "to" : "f12" }
+      ]
     }, {
       "id" : "f13",
       "type" : "TaskEnd",
@@ -166,7 +174,9 @@
           "This is usefull during prototyping or to overcome technical boundaries caused by weakly defined services."
         ]
       },
-      "connect" : { "id" : "f16", "to" : "f13" }
+      "connect" : [
+        { "id" : "f16", "to" : "f13" }
+      ]
     }, {
       "id" : "f12",
       "type" : "RestClientCall",
@@ -187,7 +197,9 @@
       "visual" : {
         "at" : { "x" : 192, "y" : 352 }
       },
-      "connect" : { "id" : "f15", "to" : "f14" }
+      "connect" : [
+        { "id" : "f15", "to" : "f14" }
+      ]
     }, {
       "id" : "f0",
       "type" : "RequestStart",
@@ -205,6 +217,8 @@
         "at" : { "x" : 64, "y" : 160 },
         "labelOffset" : { "x" : 16, "y" : 37 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     } ]
 }

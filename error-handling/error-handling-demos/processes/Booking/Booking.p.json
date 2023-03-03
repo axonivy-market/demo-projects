@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "150047A1589EB0D8",
   "config" : {
     "data" : "booking.BookingData"
@@ -23,7 +23,9 @@
         "at" : { "x" : 48, "y" : 128 },
         "labelOffset" : { "x" : 12, "y" : 37 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f3",
       "type" : "DialogCall",
@@ -49,7 +51,9 @@
       "visual" : {
         "at" : { "x" : 168, "y" : 128 }
       },
-      "connect" : { "id" : "f6", "to" : "f5" }
+      "connect" : [
+        { "id" : "f6", "to" : "f5" }
+      ]
     }, {
       "id" : "f5",
       "type" : "SubProcessCall",
@@ -70,10 +74,11 @@
           "visual" : {
             "at" : { "x" : 352, "y" : 160 },
             "labelOffset" : { "x" : 19, "y" : 0 }
-          },
-          "connect" : { "id" : "f10", "to" : "f9", "via" : [ { "x" : 352, "y" : 288 } ] }
+          }
         } ],
-      "connect" : { "id" : "f8", "to" : "f7" }
+      "connect" : [
+        { "id" : "f8", "to" : "f7" }
+      ]
     }, {
       "id" : "f7",
       "type" : "SubProcessCall",
@@ -94,10 +99,11 @@
           "visual" : {
             "at" : { "x" : 512, "y" : 160 },
             "labelOffset" : { "x" : 18, "y" : 1 }
-          },
-          "connect" : { "id" : "f12", "to" : "f11" }
+          }
         } ],
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f9",
       "type" : "TaskEndPage",
@@ -123,7 +129,9 @@
         "at" : { "x" : 512, "y" : 232 },
         "description" : "compensate already booked flight"
       },
-      "connect" : { "id" : "f13", "to" : "f9", "via" : [ { "x" : 752, "y" : 232 } ] }
+      "connect" : [
+        { "id" : "f13", "to" : "f9", "via" : [ { "x" : 752, "y" : 232 } ] }
+      ]
     }, {
       "id" : "f1",
       "type" : "EMail",
@@ -143,7 +151,9 @@
       "visual" : {
         "at" : { "x" : 632, "y" : 128 }
       },
-      "connect" : { "id" : "f15", "to" : "f14" }
+      "connect" : [
+        { "id" : "f15", "to" : "f14" }
+      ]
     }, {
       "id" : "f16",
       "type" : "ProcessAnnotation",

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "1523FF963044280C",
   "config" : {
     "data" : "workflow.signal.FacilityManagementData"
@@ -16,7 +16,9 @@
       "visual" : {
         "at" : { "x" : 392, "y" : 296 }
       },
-      "connect" : { "id" : "f24", "to" : "f23" }
+      "connect" : [
+        { "id" : "f24", "to" : "f23" }
+      ]
     }, {
       "id" : "f6",
       "type" : "TaskEnd",
@@ -43,7 +45,9 @@
         "at" : { "x" : 120, "y" : 200 },
         "labelOffset" : { "x" : 12, "y" : 37 }
       },
-      "connect" : { "id" : "f29", "to" : "f8", "var" : "in2" }
+      "connect" : [
+        { "id" : "f29", "to" : "f8", "var" : "in2" }
+      ]
     }, {
       "id" : "f8",
       "type" : "UserTask",
@@ -87,10 +91,11 @@
           "visual" : {
             "at" : { "x" : 280, "y" : 232 },
             "labelOffset" : { "x" : 15, "y" : 6 }
-          },
-          "connect" : { "id" : "f20", "to" : "f19", "via" : [ { "x" : 280, "y" : 296 } ] }
+          }
         } ],
-      "connect" : { "id" : "f7", "to" : "f6", "condition" : "ivp==\"TaskA.ivp\"" }
+      "connect" : [
+        { "id" : "f7", "to" : "f6", "condition" : "ivp==\"TaskA.ivp\"" }
+      ]
     }, {
       "id" : "f23",
       "type" : "TaskEnd",
@@ -108,7 +113,9 @@
         "at" : { "x" : 392, "y" : 136 },
         "size" : { "width" : 496, "height" : 44 }
       },
-      "connect" : { "id" : "f1", "to" : "f28" }
+      "connect" : [
+        { "id" : "f1", "to" : "f28" }
+      ]
     }, {
       "id" : "f2",
       "type" : "ProcessAnnotation",

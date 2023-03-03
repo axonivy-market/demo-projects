@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "171535C55F24D530",
   "config" : {
     "data" : "com.axonivy.connectivity.test.CreateApprovalData"
@@ -16,7 +16,9 @@
         "at" : { "x" : 96, "y" : 64 },
         "labelOffset" : { "x" : 6, "y" : 37 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -47,6 +49,8 @@
         "at" : { "x" : 224, "y" : 64 },
         "size" : { "width" : 128, "height" : 60 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     } ]
 }

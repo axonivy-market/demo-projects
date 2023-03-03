@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "15254DCE818AD7A2",
   "config" : {
     "data" : "workflow.humantask.ProcurementRequest"
@@ -33,7 +33,9 @@
         "at" : { "x" : 96, "y" : 192 },
         "labelOffset" : { "x" : 12, "y" : 37 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -57,7 +59,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 192 }
       },
-      "connect" : { "id" : "f6", "to" : "f5", "via" : [ { "x" : 224, "y" : 320 } ], "var" : "in1" }
+      "connect" : [
+        { "id" : "f6", "to" : "f5", "via" : [ { "x" : 224, "y" : 320 } ], "var" : "in1" }
+      ]
     }, {
       "id" : "f5",
       "type" : "UserTask",
@@ -87,7 +91,9 @@
       "visual" : {
         "at" : { "x" : 384, "y" : 320 }
       },
-      "connect" : { "id" : "f12", "to" : "f11", "condition" : "ivp==\"TaskA.ivp\"" }
+      "connect" : [
+        { "id" : "f12", "to" : "f11", "condition" : "ivp==\"TaskA.ivp\"" }
+      ]
     }, {
       "id" : "f7",
       "type" : "UserTask",
@@ -117,7 +123,9 @@
       "visual" : {
         "at" : { "x" : 640, "y" : 440 }
       },
-      "connect" : { "id" : "f10", "to" : "f9", "via" : [ { "x" : 800, "y" : 440 } ], "condition" : "ivp==\"TaskA.ivp\"" }
+      "connect" : [
+        { "id" : "f10", "to" : "f9", "via" : [ { "x" : 800, "y" : 440 } ], "condition" : "ivp==\"TaskA.ivp\"" }
+      ]
     }, {
       "id" : "f9",
       "type" : "EMail",
@@ -148,7 +156,9 @@
         "at" : { "x" : 800, "y" : 192 },
         "size" : { "width" : 112, "height" : 48 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f11",
       "type" : "Alternative",
@@ -180,7 +190,9 @@
         "at" : { "x" : 312, "y" : 392 },
         "size" : { "width" : 176, "height" : 44 }
       },
-      "connect" : { "id" : "f15", "to" : "f5" }
+      "connect" : [
+        { "id" : "f15", "to" : "f5" }
+      ]
     }, {
       "id" : "f16",
       "type" : "ProcessAnnotation",

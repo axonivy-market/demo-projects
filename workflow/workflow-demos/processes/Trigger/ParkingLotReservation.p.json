@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "15254CF47A16DEA1",
   "config" : {
     "data" : "workflow.trigger.NewEmployeeData"
@@ -37,7 +37,9 @@
         "at" : { "x" : 112, "y" : 264 },
         "labelOffset" : { "x" : 17, "y" : 37 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -64,7 +66,9 @@
       "visual" : {
         "at" : { "x" : 240, "y" : 264 }
       },
-      "connect" : { "id" : "f6", "to" : "f5" }
+      "connect" : [
+        { "id" : "f6", "to" : "f5" }
+      ]
     }, {
       "id" : "f5",
       "type" : "EMail",
@@ -94,7 +98,9 @@
       "visual" : {
         "at" : { "x" : 432, "y" : 264 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f7",
       "type" : "ProcessAnnotation",
@@ -106,7 +112,9 @@
         "at" : { "x" : 208, "y" : 152 },
         "size" : { "width" : 208, "height" : 44 }
       },
-      "connect" : { "id" : "f8", "to" : "f0" }
+      "connect" : [
+        { "id" : "f8", "to" : "f0" }
+      ]
     }, {
       "id" : "f9",
       "type" : "ProcessAnnotation",

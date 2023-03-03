@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "16764B07C0329FC8",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.AsyncInvocationData"
@@ -20,7 +20,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -41,7 +43,9 @@
         "at" : { "x" : 240, "y" : 64 },
         "size" : { "width" : 144, "height" : 60 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f10",
       "type" : "RestClientCall",
@@ -69,7 +73,9 @@
         "at" : { "x" : 320, "y" : 368 },
         "size" : { "width" : 128, "height" : 60 }
       },
-      "connect" : { "id" : "f9", "to" : "f8" }
+      "connect" : [
+        { "id" : "f9", "to" : "f8" }
+      ]
     }, {
       "id" : "f12",
       "type" : "SignalStartEvent",
@@ -85,7 +91,9 @@
       "visual" : {
         "at" : { "x" : 160, "y" : 472 }
       },
-      "connect" : { "id" : "f15", "to" : "f14" }
+      "connect" : [
+        { "id" : "f15", "to" : "f14" }
+      ]
     }, {
       "id" : "f17",
       "type" : "SignalStartEvent",
@@ -98,7 +106,9 @@
         "labelOffset" : { "x" : 49, "y" : 37 },
         "color" : "NodeStyle3"
       },
-      "connect" : { "id" : "f20", "to" : "f19" }
+      "connect" : [
+        { "id" : "f20", "to" : "f19" }
+      ]
     }, {
       "id" : "f22",
       "type" : "ProcessAnnotation",
@@ -110,7 +120,9 @@
         "at" : { "x" : 160, "y" : 584 },
         "size" : { "width" : 160, "height" : 44 }
       },
-      "connect" : { "id" : "f26", "to" : "f12", "via" : [ { "x" : 72, "y" : 584 }, { "x" : 72, "y" : 472 } ] }
+      "connect" : [
+        { "id" : "f26", "to" : "f12", "via" : [ { "x" : 72, "y" : 584 }, { "x" : 72, "y" : 472 } ] }
+      ]
     }, {
       "id" : "f18",
       "type" : "ProcessAnnotation",
@@ -123,7 +135,9 @@
         "at" : { "x" : 424, "y" : 288 },
         "size" : { "width" : 256, "height" : 60 }
       },
-      "connect" : { "id" : "f25", "to" : "f10" }
+      "connect" : [
+        { "id" : "f25", "to" : "f10" }
+      ]
     }, {
       "id" : "f13",
       "type" : "TaskEnd",
@@ -142,7 +156,9 @@
       "visual" : {
         "at" : { "x" : 320, "y" : 472 }
       },
-      "connect" : { "id" : "f16", "to" : "f13" }
+      "connect" : [
+        { "id" : "f16", "to" : "f13" }
+      ]
     }, {
       "id" : "f8",
       "type" : "TaskEnd",
@@ -165,7 +181,9 @@
       "visual" : {
         "at" : { "x" : 160, "y" : 368 }
       },
-      "connect" : { "id" : "f11", "to" : "f10" }
+      "connect" : [
+        { "id" : "f11", "to" : "f10" }
+      ]
     }, {
       "id" : "f19",
       "type" : "ErrorEnd",
@@ -195,7 +213,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 160 }
       },
-      "connect" : { "id" : "f23", "to" : "f6" }
+      "connect" : [
+        { "id" : "f23", "to" : "f6" }
+      ]
     }, {
       "id" : "f6",
       "type" : "DialogCall",
@@ -210,7 +230,9 @@
         "at" : { "x" : 240, "y" : 160 },
         "size" : { "width" : 144, "height" : 60 }
       },
-      "connect" : { "id" : "f24", "to" : "f21" }
+      "connect" : [
+        { "id" : "f24", "to" : "f21" }
+      ]
     }, {
       "id" : "f21",
       "type" : "TaskEnd",

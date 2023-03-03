@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "152551002ABB8DFE",
   "config" : {
     "data" : "workflow.agileBPM.Data"
@@ -24,7 +24,9 @@
           "visual" : {
             "at" : { "x" : 32, "y" : 240 }
           },
-          "connect" : { "id" : "U31-f2", "to" : "U31-f1" }
+          "connect" : [
+            { "id" : "U31-f2", "to" : "U31-f1" }
+          ]
         }, {
           "id" : "U31-f1",
           "type" : "TaskEnd",
@@ -57,7 +59,9 @@
         "at" : { "x" : 96, "y" : 208 },
         "labelOffset" : { "x" : 12, "y" : 37 }
       },
-      "connect" : { "id" : "f6", "to" : "f5" }
+      "connect" : [
+        { "id" : "f6", "to" : "f5" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -78,7 +82,9 @@
             "at" : { "x" : 64, "y" : 256 }
           },
           "parentConnector" : "f3",
-          "connect" : { "id" : "U10-f0", "to" : "U10-g1" }
+          "connect" : [
+            { "id" : "U10-f0", "to" : "U10-g1" }
+          ]
         }, {
           "id" : "U10-g1",
           "type" : "EmbeddedEnd",
@@ -98,7 +104,9 @@
       "visual" : {
         "at" : { "x" : 352, "y" : 208 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f5",
       "type" : "DialogCall",
@@ -112,7 +120,9 @@
       "visual" : {
         "at" : { "x" : 208, "y" : 208 }
       },
-      "connect" : { "id" : "f3", "to" : "U10" }
+      "connect" : [
+        { "id" : "f3", "to" : "U10" }
+      ]
     }, {
       "id" : "U20",
       "type" : "UserBpmnElement",
@@ -126,7 +136,9 @@
           "visual" : {
             "at" : { "x" : 51, "y" : 224 }
           },
-          "connect" : { "id" : "U20-f1", "to" : "U20-f0" }
+          "connect" : [
+            { "id" : "U20-f1", "to" : "U20-f0" }
+          ]
         }, {
           "id" : "U20-f0",
           "type" : "TaskEnd",
@@ -159,7 +171,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 440 }
       },
-      "connect" : { "id" : "f11", "to" : "f7" }
+      "connect" : [
+        { "id" : "f11", "to" : "f7" }
+      ]
     }, {
       "id" : "U11",
       "type" : "UserBpmnElement",
@@ -174,7 +188,9 @@
             "at" : { "x" : 80, "y" : 248 }
           },
           "parentConnector" : "f9",
-          "connect" : { "id" : "U11-f0", "to" : "U11-g1" }
+          "connect" : [
+            { "id" : "U11-f0", "to" : "U11-g1" }
+          ]
         }, {
           "id" : "U11-g1",
           "type" : "EmbeddedEnd",
@@ -194,7 +210,9 @@
       "visual" : {
         "at" : { "x" : 552, "y" : 440 }
       },
-      "connect" : { "id" : "f25", "to" : "f24" }
+      "connect" : [
+        { "id" : "f25", "to" : "f24" }
+      ]
     }, {
       "id" : "f7",
       "type" : "DialogCall",
@@ -209,7 +227,9 @@
         "at" : { "x" : 216, "y" : 440 },
         "size" : { "width" : 128, "height" : 60 }
       },
-      "connect" : { "id" : "f12", "to" : "U21" }
+      "connect" : [
+        { "id" : "f12", "to" : "U21" }
+      ]
     }, {
       "id" : "U21",
       "type" : "UserBpmnElement",
@@ -224,7 +244,9 @@
             "at" : { "x" : 64, "y" : 256 }
           },
           "parentConnector" : "f12",
-          "connect" : { "id" : "U21-f2", "to" : "U21-f1" }
+          "connect" : [
+            { "id" : "U21-f2", "to" : "U21-f1" }
+          ]
         }, {
           "id" : "U21-g1",
           "type" : "EmbeddedEnd",
@@ -239,7 +261,9 @@
             "at" : { "x" : 352, "y" : 160 }
           },
           "parentConnector" : "f26",
-          "connect" : { "id" : "U21-f3", "to" : "U21-f1" }
+          "connect" : [
+            { "id" : "U21-f3", "to" : "U21-f1" }
+          ]
         }, {
           "id" : "U21-f1",
           "type" : "Alternative",
@@ -262,7 +286,9 @@
         "at" : { "x" : 376, "y" : 440 },
         "size" : { "width" : 128, "height" : 60 }
       },
-      "connect" : { "id" : "f9", "to" : "U11" }
+      "connect" : [
+        { "id" : "f9", "to" : "U11" }
+      ]
     }, {
       "id" : "f8",
       "type" : "TaskEnd",
@@ -311,7 +337,9 @@
           "visual" : {
             "at" : { "x" : 40, "y" : 288 }
           },
-          "connect" : { "id" : "U12-f2", "to" : "U12-f1" }
+          "connect" : [
+            { "id" : "U12-f2", "to" : "U12-f1" }
+          ]
         }, {
           "id" : "U12-f3",
           "type" : "ProcessAnnotation",
@@ -339,7 +367,9 @@
             "at" : { "x" : 64, "y" : 256 }
           },
           "parentConnector" : "f22",
-          "connect" : { "id" : "U13-f0", "to" : "U13-g1" }
+          "connect" : [
+            { "id" : "U13-f0", "to" : "U13-g1" }
+          ]
         }, {
           "id" : "U13-g1",
           "type" : "EmbeddedEnd",
@@ -360,7 +390,9 @@
         "at" : { "x" : 368, "y" : 320 },
         "size" : { "width" : 128, "height" : 60 }
       },
-      "connect" : { "id" : "f19", "to" : "f18" }
+      "connect" : [
+        { "id" : "f19", "to" : "f18" }
+      ]
     }, {
       "id" : "f15",
       "type" : "RequestStart",
@@ -374,7 +406,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 320 }
       },
-      "connect" : { "id" : "f21", "to" : "f16" }
+      "connect" : [
+        { "id" : "f21", "to" : "f16" }
+      ]
     }, {
       "id" : "f16",
       "type" : "DialogCall",
@@ -388,7 +422,9 @@
       "visual" : {
         "at" : { "x" : 208, "y" : 320 }
       },
-      "connect" : { "id" : "f22", "to" : "U13" }
+      "connect" : [
+        { "id" : "f22", "to" : "U13" }
+      ]
     }, {
       "id" : "f17",
       "type" : "TaskEnd",
@@ -406,7 +442,9 @@
         "at" : { "x" : 536, "y" : 320 },
         "size" : { "width" : 128, "height" : 60 }
       },
-      "connect" : { "id" : "f20", "to" : "f17" }
+      "connect" : [
+        { "id" : "f20", "to" : "f17" }
+      ]
     }, {
       "id" : "f23",
       "type" : "ProcessAnnotation",

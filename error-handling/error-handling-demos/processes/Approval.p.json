@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "14ED397D47F3083D",
   "config" : {
     "data" : "error.handling.demo.Approval"
@@ -22,7 +22,9 @@
         "at" : { "x" : 96, "y" : 192 },
         "labelOffset" : { "x" : 12, "y" : 37 }
       },
-      "connect" : { "id" : "f9", "to" : "f3", "var" : "in1" }
+      "connect" : [
+        { "id" : "f9", "to" : "f3", "var" : "in1" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -65,7 +67,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 192 }
       },
-      "connect" : { "id" : "f14", "to" : "f11", "via" : [ { "x" : 224, "y" : 384 } ], "condition" : "ivp==\"TaskA.ivp\"", "var" : "in1" }
+      "connect" : [
+        { "id" : "f14", "to" : "f11", "via" : [ { "x" : 224, "y" : 384 } ], "condition" : "ivp==\"TaskA.ivp\"", "var" : "in1" }
+      ]
     }, {
       "id" : "f11",
       "type" : "UserTask",
@@ -100,10 +104,11 @@
           "visual" : {
             "at" : { "x" : 424, "y" : 360 },
             "labelOffset" : { "x" : 18, "y" : -25 }
-          },
-          "connect" : { "id" : "f19", "to" : "f17", "via" : [ { "x" : 424, "y" : 192 } ], "var" : "in2" }
+          }
         } ],
-      "connect" : { "id" : "f13", "to" : "f12", "via" : [ { "x" : 544, "y" : 384 }, { "x" : 544, "y" : 256 } ], "condition" : "ivp==\"TaskA.ivp\"", "var" : "in1" }
+      "connect" : [
+        { "id" : "f13", "to" : "f12", "via" : [ { "x" : 544, "y" : 384 }, { "x" : 544, "y" : 256 } ], "condition" : "ivp==\"TaskA.ivp\"", "var" : "in1" }
+      ]
     }, {
       "id" : "f12",
       "type" : "UserTask",
@@ -126,7 +131,9 @@
       "visual" : {
         "at" : { "x" : 640, "y" : 256 }
       },
-      "connect" : { "id" : "f15", "to" : "f1", "condition" : "ivp==\"TaskA.ivp\"" }
+      "connect" : [
+        { "id" : "f15", "to" : "f1", "condition" : "ivp==\"TaskA.ivp\"" }
+      ]
     }, {
       "id" : "f17",
       "type" : "UserTask",
@@ -149,7 +156,9 @@
       "visual" : {
         "at" : { "x" : 640, "y" : 192 }
       },
-      "connect" : { "id" : "f10", "to" : "f6", "condition" : "ivp==\"TaskA.ivp\"" }
+      "connect" : [
+        { "id" : "f10", "to" : "f6", "condition" : "ivp==\"TaskA.ivp\"" }
+      ]
     } ],
   "layout" : {
     "lanes" : [ {

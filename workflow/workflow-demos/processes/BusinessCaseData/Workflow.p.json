@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "16EF567002B146F2",
   "config" : {
     "data" : "workflow.businesscasedata.Data"
@@ -14,7 +14,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 96 }
       },
-      "connect" : { "id" : "f6", "to" : "f5" }
+      "connect" : [
+        { "id" : "f6", "to" : "f5" }
+      ]
     }, {
       "id" : "f0",
       "type" : "RequestStart",
@@ -36,7 +38,9 @@
         "labelOffset" : { "x" : 14, "y" : 37 },
         "description" : "Creates an Interview"
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -53,7 +57,9 @@
       "visual" : {
         "at" : { "x" : 480, "y" : 96 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f5",
       "type" : "TaskSwitchEvent",
@@ -66,7 +72,9 @@
       "visual" : {
         "at" : { "x" : 352, "y" : 96 }
       },
-      "connect" : { "id" : "f8", "to" : "f7" }
+      "connect" : [
+        { "id" : "f8", "to" : "f7" }
+      ]
     }, {
       "id" : "f9",
       "type" : "RequestStart",
@@ -85,7 +93,9 @@
         "at" : { "x" : 96, "y" : 192 },
         "labelOffset" : { "x" : 16, "y" : 37 }
       },
-      "connect" : { "id" : "f12", "to" : "f11" }
+      "connect" : [
+        { "id" : "f12", "to" : "f11" }
+      ]
     }, {
       "id" : "f10",
       "type" : "TaskEnd",
@@ -103,7 +113,9 @@
         "at" : { "x" : 352, "y" : 192 },
         "size" : { "width" : 144, "height" : 60 }
       },
-      "connect" : { "id" : "f13", "to" : "f10" }
+      "connect" : [
+        { "id" : "f13", "to" : "f10" }
+      ]
     }, {
       "id" : "f14",
       "type" : "ProcessAnnotation",

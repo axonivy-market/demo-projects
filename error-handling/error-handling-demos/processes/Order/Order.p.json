@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "14ECFC90CDE278D0",
   "config" : {
     "data" : "error.handling.demo.Data"
@@ -16,7 +16,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 128 }
       },
-      "connect" : { "id" : "f8", "to" : "S30" }
+      "connect" : [
+        { "id" : "f8", "to" : "S30" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -39,7 +41,9 @@
       "visual" : {
         "at" : { "x" : 400, "y" : 128 }
       },
-      "connect" : { "id" : "f5", "to" : "S10" }
+      "connect" : [
+        { "id" : "f5", "to" : "S10" }
+      ]
     }, {
       "id" : "S10",
       "type" : "EmbeddedProcess",
@@ -51,7 +55,9 @@
             "at" : { "x" : 32, "y" : 256 }
           },
           "parentConnector" : "f5",
-          "connect" : { "id" : "S10-f2", "to" : "S10-f1" }
+          "connect" : [
+            { "id" : "S10-f2", "to" : "S10-f1" }
+          ]
         }, {
           "id" : "S10-g1",
           "type" : "EmbeddedEnd",
@@ -66,7 +72,9 @@
             "at" : { "x" : 32, "y" : 320 }
           },
           "parentConnector" : "f10",
-          "connect" : { "id" : "S10-f7", "to" : "S10-f1", "via" : [ { "x" : 96, "y" : 320 } ] }
+          "connect" : [
+            { "id" : "S10-f7", "to" : "S10-f1", "via" : [ { "x" : 96, "y" : 320 } ] }
+          ]
         }, {
           "id" : "S10-f1",
           "type" : "Database",
@@ -94,7 +102,9 @@
             "at" : { "x" : 192, "y" : 256 },
             "size" : { "width" : 128, "height" : 60 }
           },
-          "connect" : { "id" : "S10-f4", "to" : "S10-f3" }
+          "connect" : [
+            { "id" : "S10-f4", "to" : "S10-f3" }
+          ]
         }, {
           "id" : "S10-f3",
           "type" : "Alternative",
@@ -148,7 +158,9 @@
             "at" : { "x" : 488, "y" : 256 },
             "size" : { "width" : 144, "height" : 60 }
           },
-          "connect" : { "id" : "S10-f0", "to" : "S10-g1" }
+          "connect" : [
+            { "id" : "S10-f0", "to" : "S10-g1" }
+          ]
         } ],
       "visual" : {
         "at" : { "x" : 592, "y" : 128 }
@@ -163,10 +175,11 @@
           "visual" : {
             "at" : { "x" : 648, "y" : 160 },
             "labelOffset" : { "x" : 17, "y" : 6 }
-          },
-          "connect" : { "id" : "f12", "to" : "S20", "via" : [ { "x" : 648, "y" : 225 } ] }
+          }
         } ],
-      "connect" : { "id" : "f6", "to" : "f2" }
+      "connect" : [
+        { "id" : "f6", "to" : "f2" }
+      ]
     }, {
       "id" : "S20",
       "type" : "EmbeddedProcess",
@@ -177,8 +190,9 @@
           "visual" : {
             "at" : { "x" : 64, "y" : 256 }
           },
-          "parentConnector" : "f12",
-          "connect" : { "id" : "S20-f4", "to" : "S20-f3" }
+          "connect" : [
+            { "id" : "S20-f4", "to" : "S20-f3" }
+          ]
         }, {
           "id" : "S20-g1",
           "type" : "EmbeddedEnd",
@@ -207,7 +221,9 @@
             "at" : { "x" : 432, "y" : 256 },
             "size" : { "width" : 136, "height" : 48 }
           },
-          "connect" : { "id" : "S20-f0", "to" : "S20-g1" }
+          "connect" : [
+            { "id" : "S20-f0", "to" : "S20-g1" }
+          ]
         }, {
           "id" : "S20-f3",
           "type" : "Database",
@@ -234,12 +250,16 @@
             "at" : { "x" : 192, "y" : 256 },
             "size" : { "width" : 128, "height" : 60 }
           },
-          "connect" : { "id" : "S20-f2", "to" : "S20-f1" }
+          "connect" : [
+            { "id" : "S20-f2", "to" : "S20-f1" }
+          ]
         } ],
       "visual" : {
         "at" : { "x" : 560, "y" : 224 }
       },
-      "connect" : { "id" : "f10", "to" : "S10", "via" : [ { "x" : 480, "y" : 225 }, { "x" : 480, "y" : 144 } ] }
+      "connect" : [
+        { "id" : "f10", "to" : "S10", "via" : [ { "x" : 480, "y" : 225 }, { "x" : 480, "y" : 144 } ] }
+      ]
     }, {
       "id" : "f2",
       "type" : "DialogCall",
@@ -255,7 +275,9 @@
       "visual" : {
         "at" : { "x" : 776, "y" : 128 }
       },
-      "connect" : { "id" : "f7", "to" : "f1" }
+      "connect" : [
+        { "id" : "f7", "to" : "f1" }
+      ]
     }, {
       "id" : "f16",
       "type" : "ProcessAnnotation",
@@ -279,7 +301,9 @@
             "at" : { "x" : 64, "y" : 256 }
           },
           "parentConnector" : "f8",
-          "connect" : { "id" : "S30-f2", "to" : "S30-f1" }
+          "connect" : [
+            { "id" : "S30-f2", "to" : "S30-f1" }
+          ]
         }, {
           "id" : "S30-g1",
           "type" : "EmbeddedEnd",
@@ -310,7 +334,9 @@
           "visual" : {
             "at" : { "x" : 464, "y" : 320 }
           },
-          "connect" : { "id" : "S30-f6", "to" : "S30-f5" }
+          "connect" : [
+            { "id" : "S30-f6", "to" : "S30-f5" }
+          ]
         }, {
           "id" : "S30-f5",
           "type" : "Database",
@@ -331,7 +357,9 @@
           "visual" : {
             "at" : { "x" : 624, "y" : 320 }
           },
-          "connect" : { "id" : "S30-f8", "to" : "S30-f7" }
+          "connect" : [
+            { "id" : "S30-f8", "to" : "S30-f7" }
+          ]
         }, {
           "id" : "S30-f7",
           "type" : "Database",
@@ -352,7 +380,9 @@
           "visual" : {
             "at" : { "x" : 784, "y" : 320 }
           },
-          "connect" : { "id" : "S30-f9", "to" : "S30-f10", "via" : [ { "x" : 896, "y" : 320 } ] }
+          "connect" : [
+            { "id" : "S30-f9", "to" : "S30-f10", "via" : [ { "x" : 896, "y" : 320 } ] }
+          ]
         }, {
           "id" : "S30-f1",
           "type" : "Database",
@@ -379,10 +409,11 @@
               "visual" : {
                 "at" : { "x" : 264, "y" : 288 },
                 "labelOffset" : { "x" : 21, "y" : -5 }
-              },
-              "connect" : { "id" : "S30-f0", "to" : "S30-f3", "via" : [ { "x" : 264, "y" : 320 } ] }
+              }
             } ],
-          "connect" : { "id" : "S30-f11", "to" : "S30-f10" }
+          "connect" : [
+            { "id" : "S30-f11", "to" : "S30-f10" }
+          ]
         }, {
           "id" : "S30-f10",
           "type" : "Alternative",
@@ -396,7 +427,9 @@
       "visual" : {
         "at" : { "x" : 240, "y" : 128 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     } ],
   "layout" : {
     "colors" : {

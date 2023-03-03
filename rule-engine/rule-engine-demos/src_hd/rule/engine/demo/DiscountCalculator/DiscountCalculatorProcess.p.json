@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "153E9EE0223D1DF9",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -17,7 +17,9 @@
         "at" : { "x" : 96, "y" : 320 },
         "labelOffset" : { "x" : 11, "y" : 35 }
       },
-      "connect" : { "id" : "f12", "to" : "f6" }
+      "connect" : [
+        { "id" : "f12", "to" : "f6" }
+      ]
     }, {
       "id" : "f11",
       "type" : "HtmlDialogEnd",
@@ -36,7 +38,9 @@
         "at" : { "x" : 96, "y" : 192 },
         "labelOffset" : { "x" : 16, "y" : 35 }
       },
-      "connect" : { "id" : "f22", "to" : "f21" }
+      "connect" : [
+        { "id" : "f22", "to" : "f21" }
+      ]
     }, {
       "id" : "f4",
       "type" : "HtmlDialogEnd",
@@ -55,7 +59,9 @@
         "at" : { "x" : 96, "y" : 448 },
         "labelOffset" : { "x" : 13, "y" : 35 }
       },
-      "connect" : { "id" : "f19", "to" : "f18" }
+      "connect" : [
+        { "id" : "f19", "to" : "f18" }
+      ]
     }, {
       "id" : "f16",
       "type" : "HtmlDialogEnd",
@@ -89,7 +95,9 @@
         "at" : { "x" : 312, "y" : 448 },
         "size" : { "width" : 128, "height" : 60 }
       },
-      "connect" : { "id" : "f17", "to" : "f16" }
+      "connect" : [
+        { "id" : "f17", "to" : "f16" }
+      ]
     }, {
       "id" : "f20",
       "type" : "ProcessAnnotation",
@@ -129,7 +137,9 @@
         "at" : { "x" : 96, "y" : 64 },
         "labelOffset" : { "x" : 15, "y" : 35 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f1",
       "type" : "HtmlDialogEnd",
@@ -152,7 +162,9 @@
           "This object will be modified during the rule execution."
         ]
       },
-      "connect" : { "id" : "f13", "to" : "f11" }
+      "connect" : [
+        { "id" : "f13", "to" : "f11" }
+      ]
     }, {
       "id" : "f14",
       "type" : "ProcessAnnotation",
@@ -183,7 +195,9 @@
         "at" : { "x" : 312, "y" : 192 },
         "size" : { "width" : 144, "height" : 60 }
       },
-      "connect" : { "id" : "f8", "to" : "f4" }
+      "connect" : [
+        { "id" : "f8", "to" : "f4" }
+      ]
     }, {
       "id" : "f23",
       "type" : "ProcessAnnotation",
