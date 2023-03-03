@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "15DEF1BE5B9E5A42",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.odata.OData"

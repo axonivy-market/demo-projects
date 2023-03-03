@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "161AE4E4EC67C8FD",
   "config" : {
     "data" : "com.axonivy.connectivity.soap.BatchServiceClientData"

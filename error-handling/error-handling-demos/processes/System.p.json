@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "150149331438F9EA",
   "config" : {
     "data" : "error.handling.demo.technicalData"
@@ -30,10 +30,12 @@
       "name" : "Throws system error",
       "config" : {
         "query" : {
-          "kind" : "any",
-          "quote" : true
-        },
-        "dbUrl" : "invalidDB"
+          "dbName" : "invalidDB",
+          "sql" : {
+            "kind" : "ANY",
+            "quote" : true
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 272, "y" : 192 },

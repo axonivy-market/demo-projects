@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "14ECFEF3BADB5A9E",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -61,8 +61,10 @@
       "name" : "Read available products",
       "config" : {
         "query" : {
-          "kind" : "read",
-          "table" : "STOCK"
+          "dbName" : "stock",
+          "sql" : {
+            "table" : "STOCK"
+          }
         },
         "output" : {
           "code" : [
@@ -75,8 +77,7 @@
             "  in.productsInStock.add(item);",
             "}"
           ]
-        },
-        "dbUrl" : "stock"
+        }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 64 },

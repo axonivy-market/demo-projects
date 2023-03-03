@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "14ED397D47F3083D",
   "config" : {
     "data" : "error.handling.demo.Approval"
@@ -53,13 +53,13 @@
       "name" : "Request From",
       "config" : {
         "dialog" : "error.handling.demo.approval.RequestForm:start()",
+        "task" : {
+          "skipTasklist" : true
+        },
         "output" : {
           "map" : {
             "out" : "result.approval"
           }
-        },
-        "task" : {
-          "skipTasklist" : true
         }
       },
       "visual" : {
@@ -72,16 +72,15 @@
       "name" : "approve",
       "config" : {
         "dialog" : "error.handling.demo.approval.RequestApproval:start(error.handling.demo.Approval)",
-        "task" : {
-          "name" : "Approve Request for a <%=in.description%>",
-          "responsible" : {
-            "type" : "ROLE",
-            "activator" : "Boss"
-          }
-        },
         "call" : {
           "map" : {
             "param.approval" : "in"
+          }
+        },
+        "task" : {
+          "name" : "Approve Request for a <%=in.description%>",
+          "responsible" : {
+            "activator" : "Boss"
           }
         }
       },
@@ -111,16 +110,16 @@
       "name" : "request approved",
       "config" : {
         "dialog" : "error.handling.demo.approval.RequestApproved:start(error.handling.demo.Approval)",
+        "call" : {
+          "map" : {
+            "param.approval" : "in"
+          }
+        },
         "task" : {
           "name" : "Request for <%=in.description%> approved",
           "responsible" : {
             "type" : "USER_FROM_ATTRIBUTE",
             "activator" : "ivy.case.getCreatorUser().getName()"
-          }
-        },
-        "call" : {
-          "map" : {
-            "param.approval" : "in"
           }
         }
       },
@@ -134,16 +133,16 @@
       "name" : "request declined",
       "config" : {
         "dialog" : "error.handling.demo.approval.RequestDeclined:start(error.handling.demo.Approval)",
+        "call" : {
+          "map" : {
+            "param.approval" : "in"
+          }
+        },
         "task" : {
           "name" : "Request for <%=in.description%> declined",
           "responsible" : {
             "type" : "USER_FROM_ATTRIBUTE",
             "activator" : "ivy.case.getCreatorUserName()"
-          }
-        },
-        "call" : {
-          "map" : {
-            "param.approval" : "in"
           }
         }
       },

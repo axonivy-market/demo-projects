@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "171E51B493DDB838",
   "config" : {
     "data" : "workflow.humantask.Data"
@@ -87,7 +87,6 @@
           "expiry" : {
             "timeout" : "'1m'",
             "responsible" : {
-              "type" : "ROLE",
               "activator" : "Manager"
             }
           }
