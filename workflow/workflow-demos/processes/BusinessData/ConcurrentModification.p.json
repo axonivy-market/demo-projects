@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "156DB84CCE78254F",
   "config" : {
     "data" : "workflow.businessdata.Data"
@@ -39,17 +39,15 @@
       "id" : "f2",
       "type" : "TaskSwitchGateway",
       "config" : {
-        "outLinks" : [ "TaskA.ivp", "TaskB.ivp" ],
-        "tasks" : {
-          "TaskA" : {
+        "tasks" : [ {
+            "id" : "TaskA",
             "name" : "Modify country of address",
             "category" : "Modification/Address"
-          },
-          "TaskB" : {
+          }, {
+            "id" : "TaskB",
             "name" : "Modify address",
             "category" : "Modification/Address"
-          }
-        }
+          } ]
       },
       "visual" : {
         "at" : { "x" : 352, "y" : 384 }
@@ -62,13 +60,11 @@
       "id" : "f1",
       "type" : "TaskSwitchGateway",
       "config" : {
-        "outLinks" : [ "TaskA.ivp" ],
-        "tasks" : {
-          "TaskA" : {
+        "tasks" : [ {
+            "id" : "TaskA",
             "name" : "View merged address data",
             "category" : "Review/Address"
-          }
-        }
+          } ]
       },
       "visual" : {
         "at" : { "x" : 576, "y" : 384 }

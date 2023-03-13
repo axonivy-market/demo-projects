@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "152550395446E592",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,12 +10,12 @@
       "type" : "HtmlDialogStart",
       "name" : "start(CaseDef,TaskDef)",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "caseInfo", "type" : "workflow.agileBPM.CaseDef" },
-            { "name" : "nextTask", "type" : "workflow.agileBPM.TaskDef" },
-            { "name" : "definedTasks", "type" : "List<workflow.agileBPM.TaskDef>" }
+            { "name" : "caseInfo", "type" : "workflow.agileBPM.CaseDef", "desc" : "" },
+            { "name" : "nextTask", "type" : "workflow.agileBPM.TaskDef", "desc" : "" },
+            { "name" : "definedTasks", "type" : "List<workflow.agileBPM.TaskDef>", "desc" : "" }
           ],
           "map" : {
             "out.caseInfo" : "param.caseInfo",
@@ -51,7 +51,7 @@
         },
         "result" : {
           "params" : [
-            { "name" : "definedTasks", "type" : "List<workflow.agileBPM.TaskDef>" }
+            { "name" : "definedTasks", "type" : "List<workflow.agileBPM.TaskDef>", "desc" : "" }
           ],
           "map" : {
             "result.definedTasks" : "in.definedTasks"
@@ -238,16 +238,21 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "done(Boolean)",
       "config" : {
-        "callSignature" : "done",
+        "signature" : "done",
         "input" : {
           "params" : [
-            { "name" : "done", "type" : "Boolean" }
+            { "name" : "done", "type" : "Boolean", "desc" : "" }
           ],
           "map" : {
             "out.done" : "param.done"
           }
         },
-        "guid" : "14B7E1153B0E4196"
+        "guid" : "14B7E1153B0E4196",
+        "output" : {
+          "map" : {
+            "out.done" : "param.done"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 416 },
@@ -408,17 +413,25 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "deleteTask(TaskDef)",
       "config" : {
-        "callSignature" : "deleteTask",
+        "signature" : "deleteTask",
         "input" : {
           "params" : [
-            { "name" : "taskDef", "type" : "workflow.agileBPM.TaskDef" }
+            { "name" : "taskDef", "type" : "workflow.agileBPM.TaskDef", "desc" : "" }
           ],
+          "map" : { },
           "code" : [
             "out.definedTasks = out.definedTasks.remove(param.taskDef);",
             "out.msg = param.taskDef.actor;"
           ]
         },
-        "guid" : "14C46FC6DC345ABA"
+        "guid" : "14C46FC6DC345ABA",
+        "output" : {
+          "map" : { },
+          "code" : [
+            "out.definedTasks = out.definedTasks.remove(param.taskDef);",
+            "out.msg = param.taskDef.actor;"
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 704 },

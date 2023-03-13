@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "162492A1649E72DF",
   "kind" : "WEB_SERVICE",
   "config" : {
@@ -54,18 +54,18 @@
       ],
       "config" : {
         "processCall" : "soap/service/order:approveOrder(com.axonivy.connectivity.soap.service.Order,String)",
+        "call" : {
+          "map" : {
+            "param.order" : "in.order",
+            "param.responsibleRole" : "\"Boss\""
+          }
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.task.activator" : "triggeredTask.getActivatorName()",
             "out.task.id" : "triggeredTask.getId()",
             "out.task.name" : "triggeredTask.getName()"
-          }
-        },
-        "call" : {
-          "map" : {
-            "param.order" : "in.order",
-            "param.responsibleRole" : "\"Boss\""
           }
         }
       },
@@ -110,18 +110,18 @@
       ],
       "config" : {
         "processCall" : "soap/service/order:approveOrder(com.axonivy.connectivity.soap.service.Order,String)",
+        "call" : {
+          "map" : {
+            "param.order" : "in.order",
+            "param.responsibleRole" : "\"Team\""
+          }
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.task.activator" : "triggeredTask.getActivatorName()",
             "out.task.id" : "triggeredTask.getId()",
             "out.task.name" : "triggeredTask.getName()"
-          }
-        },
-        "call" : {
-          "map" : {
-            "param.order" : "in.order",
-            "param.responsibleRole" : "\"Team\""
           }
         }
       },

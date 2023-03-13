@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "13D39CF289ACE89B",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "guid" : "13D39CF28B9D0EB7"
       },
       "visual" : {
@@ -50,7 +50,7 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "getVersion()",
       "config" : {
-        "callSignature" : "getVersion",
+        "signature" : "getVersion",
         "guid" : "14E3F8D0750EC6BD"
       },
       "visual" : {

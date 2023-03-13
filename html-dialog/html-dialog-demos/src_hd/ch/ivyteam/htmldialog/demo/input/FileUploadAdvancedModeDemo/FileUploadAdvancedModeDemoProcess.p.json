@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "13D440EE6A78EF1E",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,8 +10,9 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
+          "map" : { },
           "code" : [
             "import ch.ivyteam.ivy.cm.ContentObject;",
             "",
@@ -41,16 +42,21 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "uploadFile(FileUploadEvent)",
       "config" : {
-        "callSignature" : "uploadFile",
+        "signature" : "uploadFile",
         "input" : {
           "params" : [
-            { "name" : "event", "type" : "org.primefaces.event.FileUploadEvent" }
+            { "name" : "event", "type" : "org.primefaces.event.FileUploadEvent", "desc" : "" }
           ],
           "map" : {
             "out.fileUploadEvent" : "param.event"
           }
         },
-        "guid" : "13CF8146B1D3BB71"
+        "guid" : "13CF8146B1D3BB71",
+        "output" : {
+          "map" : {
+            "out.fileUploadEvent" : "param.event"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 160 },

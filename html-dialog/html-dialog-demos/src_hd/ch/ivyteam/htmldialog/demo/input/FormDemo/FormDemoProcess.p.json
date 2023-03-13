@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "139E30EF308FD0DC",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "guid" : "139E30EF3229D74F"
       },
       "visual" : {
@@ -108,24 +108,29 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "completeCountry(String)",
       "config" : {
-        "callSignature" : "completeCountry",
-        "result" : {
-          "params" : [
-            { "name" : "matchingCountries", "type" : "List<String>" }
-          ],
-          "map" : {
-            "result.matchingCountries" : "in.matchingCountries"
-          }
-        },
+        "signature" : "completeCountry",
         "input" : {
           "params" : [
-            { "name" : "countryPartialString", "type" : "String" }
+            { "name" : "countryPartialString", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.country" : "param.countryPartialString"
           }
         },
-        "guid" : "139E37250FA7DB14"
+        "result" : {
+          "params" : [
+            { "name" : "matchingCountries", "type" : "List<String>", "desc" : "" }
+          ],
+          "map" : {
+            "result.matchingCountries" : "in.matchingCountries"
+          }
+        },
+        "guid" : "139E37250FA7DB14",
+        "output" : {
+          "map" : {
+            "out.country" : "param.countryPartialString"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 512 },
