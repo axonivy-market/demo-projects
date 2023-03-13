@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "13C3DAFB89BB3EB0",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,13 +10,18 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "map" : {
             "out.person.name" : "\"\""
           }
         },
-        "guid" : "13C3DAFB8BAE8F79"
+        "guid" : "13C3DAFB8BAE8F79",
+        "output" : {
+          "map" : {
+            "out.person.name" : "\"\""
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 96 },

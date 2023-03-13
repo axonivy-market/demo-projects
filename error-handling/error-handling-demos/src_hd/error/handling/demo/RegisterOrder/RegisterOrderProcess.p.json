@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "14ECFEF3BADB5A9E",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,21 +10,26 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
-        "result" : {
-          "params" : [
-            { "name" : "order", "type" : "error.handling.demo.Order" }
-          ],
-          "map" : {
-            "result.order" : "in.order"
-          }
-        },
+        "signature" : "start",
         "input" : {
           "map" : {
             "out.order.numberOfItems" : "1"
           }
         },
-        "guid" : "14ECFEF3BCE67A37"
+        "result" : {
+          "params" : [
+            { "name" : "order", "type" : "error.handling.demo.Order", "desc" : "" }
+          ],
+          "map" : {
+            "result.order" : "in.order"
+          }
+        },
+        "guid" : "14ECFEF3BCE67A37",
+        "output" : {
+          "map" : {
+            "out.order.numberOfItems" : "1"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

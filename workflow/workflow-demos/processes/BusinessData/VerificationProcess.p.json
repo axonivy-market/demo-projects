@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "156E5D9AA7D41BAA",
   "config" : {
     "data" : "workflow.businessdata.Data"
@@ -68,7 +68,6 @@
       "type" : "TaskSwitchEvent",
       "name" : "verification task",
       "config" : {
-        "outLinks" : [ "TaskA.ivp" ],
         "task" : {
           "name" : "Verification of Person <%=(ivy.repo.find(in1.id, workflow.businessdata.Dossier.class) as workflow.businessdata.Dossier).name%>"
         }

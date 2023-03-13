@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "156DB995D6C6D132",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -36,16 +36,21 @@
       "type" : "HtmlDialogStart",
       "name" : "start(String)",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "id", "type" : "String" }
+            { "name" : "id", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.addressId" : "param.id"
           }
         },
-        "guid" : "156DBA4F86F4C0B3"
+        "guid" : "156DBA4F86F4C0B3",
+        "output" : {
+          "map" : {
+            "out.addressId" : "param.id"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

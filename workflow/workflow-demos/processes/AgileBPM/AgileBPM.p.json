@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "15255056043EE914",
   "config" : {
     "data" : "workflow.agileBPM.Data"
@@ -17,7 +17,6 @@
               "type" : "TaskSwitchEvent",
               "name" : "task list",
               "config" : {
-                "outLinks" : [ "TaskA.ivp" ],
                 "task" : {
                   "name" : "<%=in1.nextTask.kind%> <%=in1.nextTask.subject%>",
                   "description" : "<%=in1.nextTask.description%>",
@@ -100,24 +99,22 @@
               "type" : "TaskSwitchGateway",
               "name" : "SYSTEM spilt",
               "config" : {
-                "outLinks" : [ "TaskA.ivp", "TaskB.ivp" ],
-                "tasks" : {
-                  "TaskA" : {
+                "tasks" : [ {
+                    "id" : "TaskA",
                     "name" : "Split SYSTEM",
                     "category" : "System/Split",
                     "responsible" : {
                       "activator" : "SYSTEM"
                     },
                     "skipTasklist" : true
-                  },
-                  "TaskB" : {
+                  }, {
+                    "id" : "TaskB",
                     "name" : "Split Usertask",
                     "category" : "System/CreateUserTask",
                     "responsible" : {
                       "activator" : "SYSTEM"
                     }
-                  }
-                }
+                  } ]
               },
               "visual" : {
                 "at" : { "x" : 352, "y" : 160 },
@@ -132,16 +129,14 @@
               "type" : "TaskSwitchGateway",
               "name" : "SYSTEM join",
               "config" : {
-                "outLinks" : [ "TaskA.ivp" ],
-                "tasks" : {
-                  "TaskA" : {
+                "tasks" : [ {
+                    "id" : "TaskA",
                     "name" : "SYSTEM join",
                     "category" : "System/Join",
                     "responsible" : {
                       "activator" : "SYSTEM"
                     }
-                  }
-                },
+                  } ],
                 "output" : {
                   "map" : {
                     "out" : "in1",
@@ -418,7 +413,6 @@
           "type" : "TaskSwitchEvent",
           "name" : "SYSTEM",
           "config" : {
-            "outLinks" : [ "TaskA.ivp" ],
             "task" : {
               "name" : "SYSTEM Send <%=in1.caseInfo.kind%> Mail",
               "category" : "System/Mail",
@@ -484,8 +478,8 @@
           "category" : "AdHoc",
           "attachToBusinessCase" : false,
           "customFields" : [
-            { "name" : "ProcessCategoryCode", "type" : "STRING", "value" : "\"Self Service WF\"" },
-            { "name" : "ProcessCategoryName", "type" : "STRING", "value" : "\"Self Service WF\"" }
+            { "name" : "ProcessCategoryCode", "type" : "String", "value" : "\"Self Service WF\"" },
+            { "name" : "ProcessCategoryName", "type" : "String", "value" : "\"Self Service WF\"" }
           ]
         },
         "startDescription" : "<%=ivy.cms.co(\"/ProcessDescriptions/AdHocDescription\")%>",
@@ -496,7 +490,7 @@
           "name" : "Self Service Workflow",
           "category" : "Input/Adhoc",
           "customFields" : [
-            { "name" : "KindCode", "type" : "STRING", "value" : "\"CREATOR\"" }
+            { "name" : "KindCode", "type" : "String", "value" : "\"CREATOR\"" }
           ]
         },
         "outLink" : "start.ivp",

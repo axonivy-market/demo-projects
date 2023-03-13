@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "15254CFDBF077CCB",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,24 +10,29 @@
       "type" : "HtmlDialogStart",
       "name" : "start(ParkingLotReservationData)",
       "config" : {
-        "callSignature" : "start",
-        "result" : {
-          "params" : [
-            { "name" : "employee", "type" : "workflow.trigger.NewEmployeeData" }
-          ],
-          "map" : {
-            "result.employee" : "in.newEmployeeData"
-          }
-        },
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "employee", "type" : "workflow.trigger.NewEmployeeData" }
+            { "name" : "employee", "type" : "workflow.trigger.NewEmployeeData", "desc" : "" }
           ],
           "map" : {
             "out.newEmployeeData" : "param.employee"
           }
         },
-        "guid" : "15089E383F0E1564"
+        "result" : {
+          "params" : [
+            { "name" : "employee", "type" : "workflow.trigger.NewEmployeeData", "desc" : "" }
+          ],
+          "map" : {
+            "result.employee" : "in.newEmployeeData"
+          }
+        },
+        "guid" : "15089E383F0E1564",
+        "output" : {
+          "map" : {
+            "out.newEmployeeData" : "param.employee"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

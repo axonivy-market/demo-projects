@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "145D18869AFC8A9A",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -47,7 +47,7 @@
       "id" : "f3",
       "type" : "TaskEndPage",
       "config" : {
-        "template" : "view/icons.xhtml"
+        "page" : "view/icons.xhtml"
       },
       "visual" : {
         "at" : { "x" : 384, "y" : 160 }

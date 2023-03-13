@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "155BB4D0A6771B1B",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -108,26 +108,32 @@
       "type" : "HtmlDialogStart",
       "name" : "start(String,String)",
       "config" : {
-        "callSignature" : "start",
-        "result" : {
-          "params" : [
-            { "name" : "id", "type" : "String" }
-          ],
-          "map" : {
-            "result.id" : "in.id"
-          }
-        },
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "businessDataId", "type" : "String" },
-            { "name" : "title", "type" : "String" }
+            { "name" : "businessDataId", "type" : "String", "desc" : "" },
+            { "name" : "title", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.id" : "param.businessDataId",
             "out.title" : "param.title"
           }
         },
-        "guid" : "156D6BFA70854D75"
+        "result" : {
+          "params" : [
+            { "name" : "id", "type" : "String", "desc" : "" }
+          ],
+          "map" : {
+            "result.id" : "in.id"
+          }
+        },
+        "guid" : "156D6BFA70854D75",
+        "output" : {
+          "map" : {
+            "out.id" : "param.businessDataId",
+            "out.title" : "param.title"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 96 },

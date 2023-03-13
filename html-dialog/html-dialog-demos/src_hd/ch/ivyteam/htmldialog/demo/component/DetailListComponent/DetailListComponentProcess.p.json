@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "13EF084DCC4BDEAE",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,17 +10,25 @@
       "type" : "HtmlDialogStart",
       "name" : "start(persons)",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "persons", "type" : "java.util.List<ch.ivyteam.htmldialog.demo.Person>" }
+            { "name" : "persons", "type" : "java.util.List<ch.ivyteam.htmldialog.demo.Person>", "desc" : "" }
           ],
+          "map" : { },
           "code" : [
             "import ch.ivyteam.htmldialog.demo.component.PersonListDataModel;",
             "out.persons = new PersonListDataModel(param.persons);"
           ]
         },
-        "guid" : "13EF084DCD4FB354"
+        "guid" : "13EF084DCD4FB354",
+        "output" : {
+          "map" : { },
+          "code" : [
+            "import ch.ivyteam.htmldialog.demo.component.PersonListDataModel;",
+            "out.persons = new PersonListDataModel(param.persons);"
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

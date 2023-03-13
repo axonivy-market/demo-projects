@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1820141419461CCB",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,14 +10,20 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "map" : {
             "out.code" : "\"0987654321\"",
             "out.url" : "\"https://developer.axonivy.com/market\""
           }
         },
-        "guid" : "182014141985D952"
+        "guid" : "182014141985D952",
+        "output" : {
+          "map" : {
+            "out.code" : "\"0987654321\"",
+            "out.url" : "\"https://developer.axonivy.com/market\""
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }

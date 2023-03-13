@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "148655EC6EF98127",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,24 +10,29 @@
       "type" : "HtmlDialogStart",
       "name" : "start(Data)",
       "config" : {
-        "callSignature" : "start",
-        "result" : {
-          "params" : [
-            { "name" : "data", "type" : "quickStartTutorial.Data" }
-          ],
-          "map" : {
-            "result.data" : "in.data"
-          }
-        },
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "data", "type" : "quickStartTutorial.Data" }
+            { "name" : "data", "type" : "quickStartTutorial.Data", "desc" : "" }
           ],
           "map" : {
             "out.data" : "param.data"
           }
         },
-        "guid" : "148655EC7054ADE6"
+        "result" : {
+          "params" : [
+            { "name" : "data", "type" : "quickStartTutorial.Data", "desc" : "" }
+          ],
+          "map" : {
+            "result.data" : "in.data"
+          }
+        },
+        "guid" : "148655EC7054ADE6",
+        "output" : {
+          "map" : {
+            "out.data" : "param.data"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

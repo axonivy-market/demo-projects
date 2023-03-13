@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1525508CF8DC4D23",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,24 +10,29 @@
       "type" : "HtmlDialogStart",
       "name" : "start(User)",
       "config" : {
-        "callSignature" : "start",
-        "result" : {
-          "params" : [
-            { "name" : "user", "type" : "workflow.signal.User" }
-          ],
-          "map" : {
-            "result.user" : "in.user"
-          }
-        },
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "user", "type" : "workflow.signal.User" }
+            { "name" : "user", "type" : "workflow.signal.User", "desc" : "" }
           ],
           "map" : {
             "out.user" : "param.user"
           }
         },
-        "guid" : "1525508CFBCA6CB1"
+        "result" : {
+          "params" : [
+            { "name" : "user", "type" : "workflow.signal.User", "desc" : "" }
+          ],
+          "map" : {
+            "result.user" : "in.user"
+          }
+        },
+        "guid" : "1525508CFBCA6CB1",
+        "output" : {
+          "map" : {
+            "out.user" : "param.user"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

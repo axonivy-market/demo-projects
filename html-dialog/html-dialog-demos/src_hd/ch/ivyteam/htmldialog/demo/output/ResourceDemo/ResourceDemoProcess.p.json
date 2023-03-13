@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "13A0168D09848672",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "guid" : "13A0168D0B4F1482"
       },
       "visual" : {
@@ -31,11 +31,12 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "getStreamedImage()",
       "config" : {
-        "callSignature" : "getStreamedImage",
+        "signature" : "getStreamedImage",
         "result" : {
           "params" : [
-            { "name" : "image", "type" : "org.primefaces.model.StreamedContent" }
+            { "name" : "image", "type" : "org.primefaces.model.StreamedContent", "desc" : "" }
           ],
+          "map" : { },
           "code" : [
             "import javax.faces.event.PhaseId;",
             "import javax.faces.context.FacesContext;",

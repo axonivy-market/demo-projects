@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "16EF595252014E44",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,13 +10,18 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "map" : {
             "out.interviewModel" : "new ch.ivyteam.ivy.wfdemo.businessdata.InterviewLazyDataModel()"
           }
         },
-        "guid" : "16EF5952527DB8C6"
+        "guid" : "16EF5952527DB8C6",
+        "output" : {
+          "map" : {
+            "out.interviewModel" : "new ch.ivyteam.ivy.wfdemo.businessdata.InterviewLazyDataModel()"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }

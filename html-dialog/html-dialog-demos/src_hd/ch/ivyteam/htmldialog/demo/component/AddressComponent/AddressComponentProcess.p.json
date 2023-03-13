@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "13B69F6D60FCC080",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,24 +10,29 @@
       "type" : "HtmlDialogStart",
       "name" : "start(Address)",
       "config" : {
-        "callSignature" : "start",
-        "result" : {
-          "params" : [
-            { "name" : "address", "type" : "ch.ivyteam.htmldialog.demo.Address" }
-          ],
-          "map" : {
-            "result.address" : "in.address"
-          }
-        },
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "address", "type" : "ch.ivyteam.htmldialog.demo.Address" }
+            { "name" : "address", "type" : "ch.ivyteam.htmldialog.demo.Address", "desc" : "" }
           ],
           "map" : {
             "out.address" : "param.address.clone()"
           }
         },
-        "guid" : "13B69F6D63DF676C"
+        "result" : {
+          "params" : [
+            { "name" : "address", "type" : "ch.ivyteam.htmldialog.demo.Address", "desc" : "" }
+          ],
+          "map" : {
+            "result.address" : "in.address"
+          }
+        },
+        "guid" : "13B69F6D63DF676C",
+        "output" : {
+          "map" : {
+            "out.address" : "param.address.clone()"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

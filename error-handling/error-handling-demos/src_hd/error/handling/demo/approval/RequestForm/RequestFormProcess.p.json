@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1508509E77759115",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,19 +10,24 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
+          "map" : { },
           "code" : "out.approval; // init"
         },
         "result" : {
           "params" : [
-            { "name" : "approval", "type" : "error.handling.demo.Approval" }
+            { "name" : "approval", "type" : "error.handling.demo.Approval", "desc" : "" }
           ],
           "map" : {
             "result.approval" : "in.approval"
           }
         },
-        "guid" : "1508509E7C5A7EE9"
+        "guid" : "1508509E7C5A7EE9",
+        "output" : {
+          "map" : { },
+          "code" : "out.approval; // init"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

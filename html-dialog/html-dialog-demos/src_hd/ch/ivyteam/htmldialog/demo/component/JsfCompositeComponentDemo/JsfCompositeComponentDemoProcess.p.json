@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "14377E60D299F34F",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "map" : {
             "out.person.billingAddress.country" : "\"Switzerland\"",
@@ -21,7 +21,17 @@
             "out.person.name" : "\"Muster\""
           }
         },
-        "guid" : "139D96A574FD8C6C"
+        "guid" : "139D96A574FD8C6C",
+        "output" : {
+          "map" : {
+            "out.person.billingAddress.country" : "\"Switzerland\"",
+            "out.person.billingAddress.street" : "\"Bahnhofstrasse\"",
+            "out.person.deliveryAddress.country" : "\"Germany\"",
+            "out.person.deliveryAddress.street" : "\"Landstrasse\"",
+            "out.person.firstname" : "\"Hans\"",
+            "out.person.name" : "\"Muster\""
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

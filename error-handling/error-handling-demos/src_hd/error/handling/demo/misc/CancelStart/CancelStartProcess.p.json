@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1508AEC47C4FFEA2",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,24 +10,29 @@
       "type" : "HtmlDialogStart",
       "name" : "start(String)",
       "config" : {
-        "callSignature" : "start",
-        "result" : {
-          "params" : [
-            { "name" : "email", "type" : "String" }
-          ],
-          "map" : {
-            "result.email" : "in.email"
-          }
-        },
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "email", "type" : "String" }
+            { "name" : "email", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.email" : "param.email"
           }
         },
-        "guid" : "1508AEC47E153D81"
+        "result" : {
+          "params" : [
+            { "name" : "email", "type" : "String", "desc" : "" }
+          ],
+          "map" : {
+            "result.email" : "in.email"
+          }
+        },
+        "guid" : "1508AEC47E153D81",
+        "output" : {
+          "map" : {
+            "out.email" : "param.email"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "17B3048A0BCFD437",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,8 +10,9 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
+          "map" : { },
           "code" : [
             "import java.time.ZoneId;",
             "import java.time.LocalDateTime;",
@@ -22,7 +23,19 @@
             "out.threeYearsAgo = java.util.Date.from(LocalDateTime.now().minusYears(3).atZone(ZoneId.systemDefault()).toInstant());"
           ]
         },
-        "guid" : "17B3048A15A8C5C7"
+        "guid" : "17B3048A15A8C5C7",
+        "output" : {
+          "map" : { },
+          "code" : [
+            "import java.time.ZoneId;",
+            "import java.time.LocalDateTime;",
+            "",
+            "out.twoHoursBefore = java.util.Date.from(LocalDateTime.now().minusHours(2).atZone(ZoneId.systemDefault()).toInstant());",
+            "out.yesterday = java.util.Date.from(LocalDateTime.now().minusDays(1).atZone(ZoneId.systemDefault()).toInstant());",
+            "out.threeWeeksAgo = java.util.Date.from(LocalDateTime.now().minusWeeks(3).atZone(ZoneId.systemDefault()).toInstant());",
+            "out.threeYearsAgo = java.util.Date.from(LocalDateTime.now().minusYears(3).atZone(ZoneId.systemDefault()).toInstant());"
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }

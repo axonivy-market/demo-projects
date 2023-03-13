@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "15254DC87A1B183B",
   "config" : {
     "data" : "workflow.humantask.ProcurementRequest"
@@ -71,17 +71,15 @@
       "id" : "f7",
       "type" : "TaskSwitchGateway",
       "config" : {
-        "outLinks" : [ "TaskB.ivp" ],
-        "case" : {
-          "category" : "System"
-        },
-        "tasks" : {
-          "TaskB" : {
+        "tasks" : [ {
+            "id" : "TaskB",
             "responsible" : {
               "activator" : "SYSTEM"
             },
             "skipTasklist" : true
-          }
+          } ],
+        "case" : {
+          "category" : "System"
         },
         "output" : {
           "map" : {
@@ -122,23 +120,21 @@
       "id" : "f2",
       "type" : "TaskSwitchGateway",
       "config" : {
-        "outLinks" : [ "TaskA.ivp", "TaskB.ivp" ],
-        "tasks" : {
-          "TaskA" : {
+        "tasks" : [ {
+            "id" : "TaskA",
             "name" : "<%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%>  '<%=in1.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>",
             "category" : "Review/Procurement",
             "responsible" : {
               "activator" : "Teamleader"
             }
-          },
-          "TaskB" : {
+          }, {
+            "id" : "TaskB",
             "name" : "<%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> '<%=in1.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>",
             "category" : "Review/Procurement",
             "responsible" : {
               "activator" : "Manager"
             }
-          }
-        }
+          } ]
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 304 }
@@ -285,7 +281,6 @@
       "id" : "f26",
       "type" : "TaskSwitchEvent",
       "config" : {
-        "outLinks" : [ "TaskA.ivp" ],
         "task" : {
           "name" : "<%=ivy.cms.co(\"/TaskDescriptions/acceptRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> '<%=in1.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>",
           "category" : "Accept/Procurement",

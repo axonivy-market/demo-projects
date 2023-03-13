@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1500483191BD4791",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -10,11 +10,12 @@
       "type" : "CallSubStart",
       "name" : "bookCar(String)",
       "config" : {
-        "callSignature" : "bookCar",
+        "signature" : "bookCar",
         "input" : {
           "params" : [
-            { "name" : "size", "type" : "String" }
-          ]
+            { "name" : "size", "type" : "String", "desc" : "" }
+          ],
+          "map" : { }
         }
       },
       "visual" : {

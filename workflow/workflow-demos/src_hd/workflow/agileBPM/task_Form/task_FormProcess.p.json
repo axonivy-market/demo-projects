@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "152550395446E592",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,12 +10,12 @@
       "type" : "HtmlDialogStart",
       "name" : "start(CaseDef,TaskDef)",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "caseInfo", "type" : "workflow.agileBPM.CaseDef" },
-            { "name" : "nextTask", "type" : "workflow.agileBPM.TaskDef" },
-            { "name" : "definedTasks", "type" : "List<workflow.agileBPM.TaskDef>" }
+            { "name" : "caseInfo", "type" : "workflow.agileBPM.CaseDef", "desc" : "" },
+            { "name" : "nextTask", "type" : "workflow.agileBPM.TaskDef", "desc" : "" },
+            { "name" : "definedTasks", "type" : "List<workflow.agileBPM.TaskDef>", "desc" : "" }
           ],
           "map" : {
             "out.caseInfo" : "param.caseInfo",
@@ -51,13 +51,46 @@
         },
         "result" : {
           "params" : [
-            { "name" : "definedTasks", "type" : "List<workflow.agileBPM.TaskDef>" }
+            { "name" : "definedTasks", "type" : "List<workflow.agileBPM.TaskDef>", "desc" : "" }
           ],
           "map" : {
             "result.definedTasks" : "in.definedTasks"
           }
         },
-        "guid" : "1492E077AC02C00B"
+        "guid" : "1492E077AC02C00B",
+        "output" : {
+          "map" : {
+            "out.caseInfo" : "param.caseInfo",
+            "out.definedTasks" : "param.definedTasks",
+            "out.nextTask" : "param.nextTask"
+          },
+          "code" : [
+            "import workflow.agileBPM.TaskDef;",
+            "import ch.ivyteam.ivy.workflow.ITask;",
+            "",
+            "for (ITask itask : ivy.case.tasks().all()) {",
+            "  if(!\"#SYSTEM\".equalsIgnoreCase(itask.getActivatorName()) ",
+            "    && itask.getEndTimestamp().toString().length()>0",
+            "    && !\"AD_HOC_MODIFIED\".equals(itask.customFields().stringField(\"CustomVarCharField1\").getOrNull()))",
+            "  {",
+            "    TaskDef def =   new TaskDef();",
+            "    def.actor = itask.getWorkerUserName();",
+            "    def.kind = itask.customFields().stringField(\"KindCode\").getOrNull();",
+            "    def.done = itask.getEndTimestamp();",
+            "    def.taskNotes = itask.getNotes();",
+            "    out.taskHistory.add(def);",
+            "  }",
+            "}",
+            "out.addTask = new workflow.agileBPM.TaskDef();",
+            "workflow.agileBPM.TaskDef oldTask = param.nextTask; //out.taskHistory.get(out.taskHistory.size()-1);",
+            "out.addTask.setActor(ivy.session.getSessionUserName());",
+            "out.addTask.setAssigned(new DateTime());",
+            "out.addTask.setUntil(ivy.cal.getWorkDayIn(1,new Time()));",
+            "out.addTask.kind = oldTask.kind;",
+            "",
+            "out.caseNotes = ivy.case.getNotes();"
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },
@@ -238,16 +271,21 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "done(Boolean)",
       "config" : {
-        "callSignature" : "done",
+        "signature" : "done",
         "input" : {
           "params" : [
-            { "name" : "done", "type" : "Boolean" }
+            { "name" : "done", "type" : "Boolean", "desc" : "" }
           ],
           "map" : {
             "out.done" : "param.done"
           }
         },
-        "guid" : "14B7E1153B0E4196"
+        "guid" : "14B7E1153B0E4196",
+        "output" : {
+          "map" : {
+            "out.done" : "param.done"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 416 },
@@ -408,17 +446,25 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "deleteTask(TaskDef)",
       "config" : {
-        "callSignature" : "deleteTask",
+        "signature" : "deleteTask",
         "input" : {
           "params" : [
-            { "name" : "taskDef", "type" : "workflow.agileBPM.TaskDef" }
+            { "name" : "taskDef", "type" : "workflow.agileBPM.TaskDef", "desc" : "" }
           ],
+          "map" : { },
           "code" : [
             "out.definedTasks = out.definedTasks.remove(param.taskDef);",
             "out.msg = param.taskDef.actor;"
           ]
         },
-        "guid" : "14C46FC6DC345ABA"
+        "guid" : "14C46FC6DC345ABA",
+        "output" : {
+          "map" : { },
+          "code" : [
+            "out.definedTasks = out.definedTasks.remove(param.taskDef);",
+            "out.msg = param.taskDef.actor;"
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 704 },

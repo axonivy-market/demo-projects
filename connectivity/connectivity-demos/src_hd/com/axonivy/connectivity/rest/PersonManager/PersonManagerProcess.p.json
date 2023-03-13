@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "15470DE765DF45FC",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,11 +10,16 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
+          "map" : { },
           "code" : "out.editPerson; //init"
         },
-        "guid" : "15470DE767CB62E5"
+        "guid" : "15470DE767CB62E5",
+        "output" : {
+          "map" : { },
+          "code" : "out.editPerson; //init"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },
@@ -54,16 +59,21 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "edit(Person)",
       "config" : {
-        "callSignature" : "edit",
+        "signature" : "edit",
         "input" : {
           "params" : [
-            { "name" : "person", "type" : "com.axonivy.connectivity.Person" }
+            { "name" : "person", "type" : "com.axonivy.connectivity.Person", "desc" : "" }
           ],
           "map" : {
             "out.editPerson" : "param.person"
           }
         },
-        "guid" : "154714B11193C26B"
+        "guid" : "154714B11193C26B",
+        "output" : {
+          "map" : {
+            "out.editPerson" : "param.person"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 128 },
@@ -123,7 +133,7 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "update()",
       "config" : {
-        "callSignature" : "update",
+        "signature" : "update",
         "guid" : "154756E891F20C23"
       },
       "visual" : {
@@ -144,16 +154,21 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "delete(UUID)",
       "config" : {
-        "callSignature" : "delete",
+        "signature" : "delete",
         "input" : {
           "params" : [
-            { "name" : "id", "type" : "java.util.UUID" }
+            { "name" : "id", "type" : "java.util.UUID", "desc" : "" }
           ],
           "map" : {
             "out.editPerson.id" : "param.id"
           }
         },
-        "guid" : "154996947DF8D2D2"
+        "guid" : "154996947DF8D2D2",
+        "output" : {
+          "map" : {
+            "out.editPerson.id" : "param.id"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 480 },

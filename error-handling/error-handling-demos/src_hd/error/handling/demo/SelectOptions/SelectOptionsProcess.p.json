@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "15004A488FF27022",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,10 +10,10 @@
       "type" : "HtmlDialogStart",
       "name" : "start(Customer)",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "customer", "type" : "booking.Customer" }
+            { "name" : "customer", "type" : "booking.Customer", "desc" : "" }
           ],
           "map" : {
             "out.customer" : "param.customer"
@@ -22,15 +22,21 @@
         },
         "result" : {
           "params" : [
-            { "name" : "flight", "type" : "booking.Flight" },
-            { "name" : "carSize", "type" : "String" }
+            { "name" : "flight", "type" : "booking.Flight", "desc" : "" },
+            { "name" : "carSize", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "result.flight" : "in.flight",
             "result.carSize" : "in.carSize"
           }
         },
-        "guid" : "15004A489138060F"
+        "guid" : "15004A489138060F",
+        "output" : {
+          "map" : {
+            "out.customer" : "param.customer"
+          },
+          "code" : "out.flight; // init"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

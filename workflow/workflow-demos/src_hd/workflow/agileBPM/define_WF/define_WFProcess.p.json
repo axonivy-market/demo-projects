@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1525503525CD0CCC",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,11 +10,11 @@
       "type" : "HtmlDialogStart",
       "name" : "start(List<TaskDef>,CaseDef)",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "result" : {
           "params" : [
-            { "name" : "definedTasks", "type" : "List<workflow.agileBPM.TaskDef>" },
-            { "name" : "caseInfo", "type" : "workflow.agileBPM.CaseDef" }
+            { "name" : "definedTasks", "type" : "List<workflow.agileBPM.TaskDef>", "desc" : "" },
+            { "name" : "caseInfo", "type" : "workflow.agileBPM.CaseDef", "desc" : "" }
           ],
           "map" : {
             "result.definedTasks" : "in.definedTasks",
@@ -222,14 +222,19 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "deleteTask(TaskDef)",
       "config" : {
-        "callSignature" : "deleteTask",
+        "signature" : "deleteTask",
         "input" : {
           "params" : [
-            { "name" : "taskdef", "type" : "workflow.agileBPM.TaskDef" }
+            { "name" : "taskdef", "type" : "workflow.agileBPM.TaskDef", "desc" : "" }
           ],
+          "map" : { },
           "code" : "out.definedTasks = out.definedTasks.remove(param.taskdef);"
         },
-        "guid" : "14ADE4A40F9E30A6"
+        "guid" : "14ADE4A40F9E30A6",
+        "output" : {
+          "map" : { },
+          "code" : "out.definedTasks = out.definedTasks.remove(param.taskdef);"
+        }
       },
       "visual" : {
         "at" : { "x" : 64, "y" : 400 },
@@ -486,17 +491,23 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "initUserList(TaskDef)",
       "config" : {
-        "callSignature" : "initUserList",
+        "signature" : "initUserList",
         "input" : {
           "params" : [
-            { "name" : "taskDef", "type" : "workflow.agileBPM.TaskDef" }
+            { "name" : "taskDef", "type" : "workflow.agileBPM.TaskDef", "desc" : "" }
           ],
           "map" : {
             "out.editTask" : "param.taskDef",
             "out.user" : "param.taskDef.actor"
           }
         },
-        "guid" : "14BEF560D05EF4D6"
+        "guid" : "14BEF560D05EF4D6",
+        "output" : {
+          "map" : {
+            "out.editTask" : "param.taskDef",
+            "out.user" : "param.taskDef.actor"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 64, "y" : 672 },
@@ -510,17 +521,23 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "editTaskDescription(TaskDef)",
       "config" : {
-        "callSignature" : "editTaskDescription",
+        "signature" : "editTaskDescription",
         "input" : {
           "params" : [
-            { "name" : "taskDef", "type" : "workflow.agileBPM.TaskDef" }
+            { "name" : "taskDef", "type" : "workflow.agileBPM.TaskDef", "desc" : "" }
           ],
           "map" : {
             "out.editTask" : "param.taskDef",
             "out.taskDescription" : "\"...\".equals(param.taskDef.description) ? \"\" : param.taskDef.description"
           }
         },
-        "guid" : "150143FB91A313FB"
+        "guid" : "150143FB91A313FB",
+        "output" : {
+          "map" : {
+            "out.editTask" : "param.taskDef",
+            "out.taskDescription" : "\"...\".equals(param.taskDef.description) ? \"\" : param.taskDef.description"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 64, "y" : 768 },

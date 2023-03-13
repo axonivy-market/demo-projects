@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "13A3F854E6D3A3F7",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "guid" : "13A3F854E8424F18"
       },
       "visual" : {
@@ -31,24 +31,29 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "helloWorld(String)",
       "config" : {
-        "callSignature" : "helloWorld",
-        "result" : {
-          "params" : [
-            { "name" : "result", "type" : "String" }
-          ],
-          "map" : {
-            "result.result" : "in.welcomeMessage"
-          }
-        },
+        "signature" : "helloWorld",
         "input" : {
           "params" : [
-            { "name" : "name", "type" : "String" }
+            { "name" : "name", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.name" : "param.name"
           }
         },
-        "guid" : "13A3FA51C962D77C"
+        "result" : {
+          "params" : [
+            { "name" : "result", "type" : "String", "desc" : "" }
+          ],
+          "map" : {
+            "result.result" : "in.welcomeMessage"
+          }
+        },
+        "guid" : "13A3FA51C962D77C",
+        "output" : {
+          "map" : {
+            "out.name" : "param.name"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 160 },
@@ -85,7 +90,7 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "closeDialog()",
       "config" : {
-        "callSignature" : "closeDialog",
+        "signature" : "closeDialog",
         "guid" : "1437CC3BEFF4691B"
       },
       "visual" : {

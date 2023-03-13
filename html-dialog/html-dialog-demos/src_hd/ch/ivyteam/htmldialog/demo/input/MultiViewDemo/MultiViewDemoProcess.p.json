@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "13D0159BD5D40664",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -185,14 +185,20 @@
       "type" : "HtmlDialogStart",
       "name" : "Init_Start1",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "map" : {
             "out.paymentKind" : "\"Invoice\"",
             "out.processing" : "true"
           }
         },
-        "guid" : "13D0159BD8A52D62"
+        "guid" : "13D0159BD8A52D62",
+        "output" : {
+          "map" : {
+            "out.paymentKind" : "\"Invoice\"",
+            "out.processing" : "true"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },
@@ -212,24 +218,29 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "nextView",
       "config" : {
-        "callSignature" : "nextView",
-        "result" : {
-          "params" : [
-            { "name" : "nextView", "type" : "String" }
-          ],
-          "map" : {
-            "result.nextView" : "in.nextView"
-          }
-        },
+        "signature" : "nextView",
         "input" : {
           "params" : [
-            { "name" : "currentView", "type" : "String" }
+            { "name" : "currentView", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.currentView" : "param.currentView"
           }
         },
-        "guid" : "13D016AD58EF27F9"
+        "result" : {
+          "params" : [
+            { "name" : "nextView", "type" : "String", "desc" : "" }
+          ],
+          "map" : {
+            "result.nextView" : "in.nextView"
+          }
+        },
+        "guid" : "13D016AD58EF27F9",
+        "output" : {
+          "map" : {
+            "out.currentView" : "param.currentView"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 352 },
@@ -269,13 +280,18 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "stopProcessing",
       "config" : {
-        "callSignature" : "stopProcessing",
+        "signature" : "stopProcessing",
         "input" : {
           "map" : {
             "out.processing" : "false"
           }
         },
-        "guid" : "13D01F2037B4084E"
+        "guid" : "13D01F2037B4084E",
+        "output" : {
+          "map" : {
+            "out.processing" : "false"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 256 },

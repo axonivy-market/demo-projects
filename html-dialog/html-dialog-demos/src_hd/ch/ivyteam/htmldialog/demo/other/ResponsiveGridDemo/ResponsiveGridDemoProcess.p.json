@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "16E59F2CEDC492A6",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "map" : {
             "out.address" : "\"271 Sodavaya Street\"",
@@ -22,7 +22,18 @@
             "out.zipCode" : "191023"
           }
         },
-        "guid" : "16E59F2CEE27168D"
+        "guid" : "16E59F2CEE27168D",
+        "output" : {
+          "map" : {
+            "out.address" : "\"271 Sodavaya Street\"",
+            "out.birthday" : "new Date(\"1707-04-15\")",
+            "out.city" : "\"St. Petersburg\"",
+            "out.email" : "\"leo.euler@genius.com\"",
+            "out.firstName" : "\"Leonard\"",
+            "out.lastName" : "\"Euler\"",
+            "out.zipCode" : "191023"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

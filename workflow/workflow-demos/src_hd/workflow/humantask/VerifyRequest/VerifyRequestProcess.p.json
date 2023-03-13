@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "15254DF8F30D6949",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,26 +10,31 @@
       "type" : "HtmlDialogStart",
       "name" : "start(ProcurementRequest)",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
+        "input" : {
+          "params" : [
+            { "name" : "procurementRequest", "type" : "workflow.humantask.ProcurementRequest", "desc" : "" }
+          ],
+          "map" : {
+            "out.procurementRequest" : "param.procurementRequest"
+          }
+        },
         "result" : {
           "params" : [
-            { "name" : "dataOk", "type" : "Boolean" },
-            { "name" : "logEntry", "type" : "workflow.humantask.LogEntry" }
+            { "name" : "dataOk", "type" : "Boolean", "desc" : "" },
+            { "name" : "logEntry", "type" : "workflow.humantask.LogEntry", "desc" : "" }
           ],
           "map" : {
             "result.dataOk" : "in.ok",
             "result.logEntry" : "in.logEntry"
           }
         },
-        "input" : {
-          "params" : [
-            { "name" : "procurementRequest", "type" : "workflow.humantask.ProcurementRequest" }
-          ],
+        "guid" : "14FAE07217F2117A",
+        "output" : {
           "map" : {
             "out.procurementRequest" : "param.procurementRequest"
           }
-        },
-        "guid" : "14FAE07217F2117A"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },
