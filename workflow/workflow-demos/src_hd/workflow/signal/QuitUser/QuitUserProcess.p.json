@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "151CA244D672B3A4",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,18 +10,18 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
-        "result" : {
-          "params" : [
-            { "name" : "quitUserEvent", "type" : "workflow.signal.QuitUserEvent" }
-          ],
-          "map" : {
-            "result.quitUserEvent" : "in.quitUserEvent"
-          }
-        },
+        "signature" : "start",
         "input" : {
           "map" : {
             "out.quitUserEvent.reason" : "\"\""
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "quitUserEvent", "type" : "workflow.signal.QuitUserEvent", "desc" : "" }
+          ],
+          "map" : {
+            "result.quitUserEvent" : "in.quitUserEvent"
           }
         },
         "guid" : "151CA244D8521FFA"

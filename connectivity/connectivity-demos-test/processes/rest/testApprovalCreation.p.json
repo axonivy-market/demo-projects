@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "171535C55F24D530",
   "config" : {
     "data" : "com.axonivy.connectivity.test.CreateApprovalData"
@@ -31,18 +31,18 @@
       "name" : "rest/createApproval",
       "config" : {
         "processCall" : "rest/createApproval:call(String,String)",
+        "call" : {
+          "map" : {
+            "param.title" : "ivy.session.getSessionUserName()",
+            "param.description" : "\"Tests make the world a better place\""
+          }
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.createdTask" : "result.approvalTask"
           },
           "code" : "ivy.log.info(\"created task: \"+result.approvalTask);"
-        },
-        "call" : {
-          "map" : {
-            "param.title" : "ivy.session.getSessionUserName()",
-            "param.description" : "\"Tests make the world a better place\""
-          }
         }
       },
       "visual" : {

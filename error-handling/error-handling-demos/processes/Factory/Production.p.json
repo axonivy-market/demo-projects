@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1500417E1DADBB7C",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -13,11 +13,11 @@
         "(String,Number)"
       ],
       "config" : {
-        "callSignature" : "produceShoes",
+        "signature" : "produceShoes",
         "input" : {
           "params" : [
-            { "name" : "model", "type" : "String" },
-            { "name" : "amount", "type" : "Number" }
+            { "name" : "model", "type" : "String", "desc" : "" },
+            { "name" : "amount", "type" : "Number", "desc" : "" }
           ],
           "map" : {
             "out.amount" : "param.amount",

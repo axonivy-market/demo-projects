@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "15254CFABE5EF2E5",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,22 +10,22 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
-        "result" : {
-          "params" : [
-            { "name" : "newEmployeeData", "type" : "workflow.trigger.NewEmployeeData" }
-          ],
-          "map" : {
-            "result.newEmployeeData" : "in.newEmployeeData"
-          }
-        },
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "newEmployeeData", "type" : "workflow.trigger.NewEmployeeData" }
+            { "name" : "newEmployeeData", "type" : "workflow.trigger.NewEmployeeData", "desc" : "" }
           ],
           "map" : {
             "out.newEmployeeData" : "param.newEmployeeData",
             "out.newEmployeeData.needsParkingLot" : "true"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "newEmployeeData", "type" : "workflow.trigger.NewEmployeeData", "desc" : "" }
+          ],
+          "map" : {
+            "result.newEmployeeData" : "in.newEmployeeData"
           }
         },
         "guid" : "1508AB08E1F988C2"

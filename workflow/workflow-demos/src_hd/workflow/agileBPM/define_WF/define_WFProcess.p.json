@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1525503525CD0CCC",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,11 +10,11 @@
       "type" : "HtmlDialogStart",
       "name" : "start(List<TaskDef>,CaseDef)",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "result" : {
           "params" : [
-            { "name" : "definedTasks", "type" : "List<workflow.agileBPM.TaskDef>" },
-            { "name" : "caseInfo", "type" : "workflow.agileBPM.CaseDef" }
+            { "name" : "definedTasks", "type" : "List<workflow.agileBPM.TaskDef>", "desc" : "" },
+            { "name" : "caseInfo", "type" : "workflow.agileBPM.CaseDef", "desc" : "" }
           ],
           "map" : {
             "result.definedTasks" : "in.definedTasks",
@@ -222,11 +222,12 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "deleteTask(TaskDef)",
       "config" : {
-        "callSignature" : "deleteTask",
+        "signature" : "deleteTask",
         "input" : {
           "params" : [
-            { "name" : "taskdef", "type" : "workflow.agileBPM.TaskDef" }
+            { "name" : "taskdef", "type" : "workflow.agileBPM.TaskDef", "desc" : "" }
           ],
+          "map" : { },
           "code" : "out.definedTasks = out.definedTasks.remove(param.taskdef);"
         },
         "guid" : "14ADE4A40F9E30A6"
@@ -486,10 +487,10 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "initUserList(TaskDef)",
       "config" : {
-        "callSignature" : "initUserList",
+        "signature" : "initUserList",
         "input" : {
           "params" : [
-            { "name" : "taskDef", "type" : "workflow.agileBPM.TaskDef" }
+            { "name" : "taskDef", "type" : "workflow.agileBPM.TaskDef", "desc" : "" }
           ],
           "map" : {
             "out.editTask" : "param.taskDef",
@@ -510,10 +511,10 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "editTaskDescription(TaskDef)",
       "config" : {
-        "callSignature" : "editTaskDescription",
+        "signature" : "editTaskDescription",
         "input" : {
           "params" : [
-            { "name" : "taskDef", "type" : "workflow.agileBPM.TaskDef" }
+            { "name" : "taskDef", "type" : "workflow.agileBPM.TaskDef", "desc" : "" }
           ],
           "map" : {
             "out.editTask" : "param.taskDef",

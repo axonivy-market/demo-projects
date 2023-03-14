@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1508513598141BB4",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,10 +10,10 @@
       "type" : "HtmlDialogStart",
       "name" : "start(Approval)",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "approval", "type" : "error.handling.demo.Approval" }
+            { "name" : "approval", "type" : "error.handling.demo.Approval", "desc" : "" }
           ],
           "map" : {
             "out.approval" : "param.approval"

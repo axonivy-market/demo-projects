@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "150425B095B4FB54",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -8,7 +8,7 @@
       "id" : "f5",
       "type" : "TaskEndPage",
       "config" : {
-        "template" : "view/redirect.xhtml"
+        "page" : "view/redirect.xhtml"
       },
       "visual" : {
         "at" : { "x" : 448, "y" : 96 }

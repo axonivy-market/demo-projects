@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "15254DF1CAEC5132",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,23 +10,23 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
+        "input" : {
+          "params" : [
+            { "name" : "procurementRequest", "type" : "workflow.humantask.ProcurementRequest", "desc" : "" }
+          ],
+          "map" : {
+            "out.procurementRequest" : "param.procurementRequest"
+          }
+        },
         "result" : {
           "params" : [
-            { "name" : "accepted", "type" : "Boolean" },
-            { "name" : "logEntry", "type" : "workflow.humantask.LogEntry" }
+            { "name" : "accepted", "type" : "Boolean", "desc" : "" },
+            { "name" : "logEntry", "type" : "workflow.humantask.LogEntry", "desc" : "" }
           ],
           "map" : {
             "result.accepted" : "in.ok",
             "result.logEntry" : "in.logEntry"
-          }
-        },
-        "input" : {
-          "params" : [
-            { "name" : "procurementRequest", "type" : "workflow.humantask.ProcurementRequest" }
-          ],
-          "map" : {
-            "out.procurementRequest" : "param.procurementRequest"
           }
         },
         "guid" : "14FAE0B7D586F3B8"

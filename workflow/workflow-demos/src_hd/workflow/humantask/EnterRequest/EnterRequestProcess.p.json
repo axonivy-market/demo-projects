@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "15254DF5837F8B00",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,11 +10,11 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "result" : {
           "params" : [
-            { "name" : "procurementRequestData", "type" : "workflow.humantask.ProcurementRequest" },
-            { "name" : "logEntry", "type" : "workflow.humantask.LogEntry" }
+            { "name" : "procurementRequestData", "type" : "workflow.humantask.ProcurementRequest", "desc" : "" },
+            { "name" : "logEntry", "type" : "workflow.humantask.LogEntry", "desc" : "" }
           ],
           "map" : {
             "result.procurementRequestData" : "in.procurementRequestData",

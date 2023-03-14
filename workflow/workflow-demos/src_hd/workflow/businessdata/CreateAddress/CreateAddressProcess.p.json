@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "156DF88423ED9C68",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -36,10 +36,10 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "result" : {
           "params" : [
-            { "name" : "id", "type" : "String" }
+            { "name" : "id", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "result.id" : "in.id"

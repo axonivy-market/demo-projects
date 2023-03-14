@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "175F99FC96A78D96",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -16,11 +16,12 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "result" : {
           "params" : [
-            { "name" : "member", "type" : "rule.engine.demo.Member" }
-          ]
+            { "name" : "member", "type" : "rule.engine.demo.Member", "desc" : "" }
+          ],
+          "map" : { }
         },
         "guid" : "153E9EE0238C8F41"
       },

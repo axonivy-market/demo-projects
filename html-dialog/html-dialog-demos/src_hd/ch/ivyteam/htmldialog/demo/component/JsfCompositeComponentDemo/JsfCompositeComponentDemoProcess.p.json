@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "14377E60D299F34F",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "map" : {
             "out.person.billingAddress.country" : "\"Switzerland\"",

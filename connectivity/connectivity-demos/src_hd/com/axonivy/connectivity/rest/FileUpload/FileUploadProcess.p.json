@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "169B3B8EB21D10D8",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,18 +10,20 @@
       "type" : "HtmlDialogStart",
       "name" : "start(Data)",
       "config" : {
-        "callSignature" : "start",
-        "result" : {
-          "params" : [
-            { "name" : "data", "type" : "com.axonivy.connectivity.Data" }
-          ]
-        },
-        "guid" : "169B3B8EB3CCFDE2",
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "data", "type" : "com.axonivy.connectivity.Data" }
-          ]
-        }
+            { "name" : "data", "type" : "com.axonivy.connectivity.Data", "desc" : "" }
+          ],
+          "map" : { }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "data", "type" : "com.axonivy.connectivity.Data", "desc" : "" }
+          ],
+          "map" : { }
+        },
+        "guid" : "169B3B8EB3CCFDE2"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
@@ -225,10 +227,10 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "download(String)",
       "config" : {
-        "callSignature" : "download",
+        "signature" : "download",
         "input" : {
           "params" : [
-            { "name" : "fileName", "type" : "String" }
+            { "name" : "fileName", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.downloadName" : "param.fileName"
@@ -247,10 +249,10 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "addJsToList(String)",
       "config" : {
-        "callSignature" : "addJsToList",
+        "signature" : "addJsToList",
         "input" : {
           "params" : [
-            { "name" : "fileName", "type" : "String" }
+            { "name" : "fileName", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.fileName" : "param.fileName"
@@ -269,7 +271,7 @@
         },
         "result" : {
           "params" : [
-            { "name" : "result", "type" : "String" }
+            { "name" : "result", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "result.result" : "in.fileName"

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "146052EC6B2ADB68",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "guid" : "146052EC6FEF2D5C"
       },
       "visual" : {
@@ -107,11 +107,12 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "itemSelected(...)",
       "config" : {
-        "callSignature" : "itemSelected",
+        "signature" : "itemSelected",
         "input" : {
           "params" : [
-            { "name" : "event", "type" : "org.primefaces.event.ItemSelectEvent" }
+            { "name" : "event", "type" : "org.primefaces.event.ItemSelectEvent", "desc" : "" }
           ],
+          "map" : { },
           "code" : [
             "import javax.faces.context.FacesContext;",
             "import javax.faces.application.FacesMessage;",
@@ -181,11 +182,12 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "sliceSelected(...)",
       "config" : {
-        "callSignature" : "sliceSelected",
+        "signature" : "sliceSelected",
         "input" : {
           "params" : [
-            { "name" : "event", "type" : "org.primefaces.event.ItemSelectEvent" }
+            { "name" : "event", "type" : "org.primefaces.event.ItemSelectEvent", "desc" : "" }
           ],
+          "map" : { },
           "code" : [
             "import javax.faces.context.FacesContext;",
             "import javax.faces.application.FacesMessage;",

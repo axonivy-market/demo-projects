@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "15FB50542D237D38",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "guid" : "15FB50542FA41B51"
       },
       "visual" : {
@@ -50,10 +50,10 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "showAddress",
       "config" : {
-        "callSignature" : "showAddress",
+        "signature" : "showAddress",
         "input" : {
           "params" : [
-            { "name" : "show", "type" : "Boolean" }
+            { "name" : "show", "type" : "Boolean", "desc" : "" }
           ],
           "map" : {
             "out.showAddress" : "param.show"

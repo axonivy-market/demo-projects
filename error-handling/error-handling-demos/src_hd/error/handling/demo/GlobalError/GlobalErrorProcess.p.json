@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "15014A15C1CA5451",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,11 +10,11 @@
       "type" : "HtmlDialogStart",
       "name" : "start(String,String)",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "errorCode", "type" : "String" },
-            { "name" : "errorText", "type" : "String" }
+            { "name" : "errorCode", "type" : "String", "desc" : "" },
+            { "name" : "errorText", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.errorCode" : "param.errorCode",
