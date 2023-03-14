@@ -34,7 +34,7 @@ public class IntegrationTestRestfulApprovalService
     Entity<Form> entity = createApproval("I need a break", "really i'm working really hard");
     Response response = getApprovalClient().request().header("X-Requested-By", "ivy").put(entity);
     assertThat(response.getStatus()).isEqualTo(Response.Status.CREATED.getStatusCode());
-    assertThat(response.getLocation().toString()).startsWith(EngineUrl.createRestUrl("/workflow/task/"));
+    assertThat(response.getLocation().toString()).startsWith(EngineUrl.base() + "api/workflow/task/");
 
     JsonNode taskMetaNode = response.readEntity(JsonNode.class);
     assertThat(taskMetaNode.get("description").textValue()).isEqualTo("I need a break");
