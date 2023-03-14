@@ -49,11 +49,10 @@ public class ApprovalService
             .call()
             .get("approvalTask", ITask.class);
 
-    String appRelativeUri = "workflow/task/{id}";
-    Link createdLink = Link.fromPath(appRelativeUri).rel("approvalTask").build(task.getId());
+    var uri = "/api/workflow/task/{id}";
+    var createdLink = Link.fromPath(uri).rel("approvalTask").build(task.getId());
     return Response.status(Status.CREATED)
-            .location(UriBuilder.fromPath(appRelativeUri)
-                    .build(task.getId()))
+            .location(UriBuilder.fromPath(uri).build(task.getId()))
             .links(createdLink)
             .entity(new TaskMeta(task))
             .build();
