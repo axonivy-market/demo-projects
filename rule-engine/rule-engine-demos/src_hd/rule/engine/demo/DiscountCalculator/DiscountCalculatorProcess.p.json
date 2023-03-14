@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "153E9EE0223D1DF9",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "applyRulesFromDRL()",
       "config" : {
-        "callSignature" : "applyRulesFromDRL",
+        "signature" : "applyRulesFromDRL",
         "guid" : "153EA7B7991C970A"
       },
       "visual" : {
@@ -31,7 +31,7 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "applyRulesFromDecisionTable()",
       "config" : {
-        "callSignature" : "applyRulesFromDecisionTable",
+        "signature" : "applyRulesFromDecisionTable",
         "guid" : "153EA7D0A9692E67"
       },
       "visual" : {
@@ -52,7 +52,7 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "applyRulesFromDMN()",
       "config" : {
-        "callSignature" : "applyRulesFromDMN",
+        "signature" : "applyRulesFromDMN",
         "guid" : "1740BA3DD7672D96"
       },
       "visual" : {
@@ -114,21 +114,21 @@
       "type" : "HtmlDialogStart",
       "name" : "start(Member)",
       "config" : {
-        "callSignature" : "start",
-        "result" : {
-          "params" : [
-            { "name" : "member", "type" : "rule.engine.demo.Member" }
-          ],
-          "map" : {
-            "result.member" : "in.member"
-          }
-        },
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "member", "type" : "rule.engine.demo.Member" }
+            { "name" : "member", "type" : "rule.engine.demo.Member", "desc" : "" }
           ],
           "map" : {
             "out.member" : "param.member"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "member", "type" : "rule.engine.demo.Member", "desc" : "" }
+          ],
+          "map" : {
+            "result.member" : "in.member"
           }
         },
         "guid" : "153E9EE0238C8F41"

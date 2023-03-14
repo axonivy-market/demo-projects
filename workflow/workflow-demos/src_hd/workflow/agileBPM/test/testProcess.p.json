@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1525511ED79C649A",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,21 +10,21 @@
       "type" : "HtmlDialogStart",
       "name" : "start(String)",
       "config" : {
-        "callSignature" : "start",
-        "result" : {
-          "params" : [
-            { "name" : "answer", "type" : "String" }
-          ],
-          "map" : {
-            "result.answer" : "in.answer"
-          }
-        },
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "answer", "type" : "String" }
+            { "name" : "answer", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.answer" : "param.answer"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "answer", "type" : "String", "desc" : "" }
+          ],
+          "map" : {
+            "result.answer" : "in.answer"
           }
         },
         "guid" : "151338266F158E1B"

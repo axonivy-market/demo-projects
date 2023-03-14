@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "139D97A1E15DE439",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -10,10 +10,10 @@
       "type" : "CallSubStart",
       "name" : "initPerson()",
       "config" : {
-        "callSignature" : "initPerson",
+        "signature" : "initPerson",
         "result" : {
           "params" : [
-            { "name" : "persons", "type" : "List<ch.ivyteam.htmldialog.demo.Person>" }
+            { "name" : "persons", "type" : "List<ch.ivyteam.htmldialog.demo.Person>", "desc" : "" }
           ],
           "map" : {
             "result.persons" : "in.persons"

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1500482C30B7492E",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -13,12 +13,13 @@
         "(Flight,Customer)"
       ],
       "config" : {
-        "callSignature" : "bookFlight",
+        "signature" : "bookFlight",
         "input" : {
           "params" : [
-            { "name" : "flight", "type" : "booking.Flight" },
-            { "name" : "customer", "type" : "booking.Customer" }
-          ]
+            { "name" : "flight", "type" : "booking.Flight", "desc" : "" },
+            { "name" : "customer", "type" : "booking.Customer", "desc" : "" }
+          ],
+          "map" : { }
         }
       },
       "visual" : {
@@ -96,12 +97,13 @@
         "(Flight,Customer)"
       ],
       "config" : {
-        "callSignature" : "cancelFlight",
+        "signature" : "cancelFlight",
         "input" : {
           "params" : [
-            { "name" : "flight", "type" : "booking.Flight" },
-            { "name" : "customer", "type" : "booking.Customer" }
-          ]
+            { "name" : "flight", "type" : "booking.Flight", "desc" : "" },
+            { "name" : "customer", "type" : "booking.Customer", "desc" : "" }
+          ],
+          "map" : { }
         }
       },
       "visual" : {

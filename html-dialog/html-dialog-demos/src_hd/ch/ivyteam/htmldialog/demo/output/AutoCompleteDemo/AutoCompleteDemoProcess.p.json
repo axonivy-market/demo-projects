@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1468B144151F2C82",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "guid" : "1468B144171FC46C"
       },
       "visual" : {
@@ -31,21 +31,21 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "searchUsers(String)",
       "config" : {
-        "callSignature" : "searchUsers",
-        "result" : {
-          "params" : [
-            { "name" : "foundUsers", "type" : "List<ch.ivyteam.ivy.security.IUser>" }
-          ],
-          "map" : {
-            "result.foundUsers" : "in.searchResult"
-          }
-        },
+        "signature" : "searchUsers",
         "input" : {
           "params" : [
-            { "name" : "searchText", "type" : "String" }
+            { "name" : "searchText", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.searchText" : "param.searchText"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "foundUsers", "type" : "List<ch.ivyteam.ivy.security.IUser>", "desc" : "" }
+          ],
+          "map" : {
+            "result.foundUsers" : "in.searchResult"
           }
         },
         "guid" : "1468B1E4E5D48D18"

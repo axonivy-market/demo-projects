@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1549FE9E911A1812",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.Approval"
@@ -23,6 +23,7 @@
           "name" : "Approve request from <%=param.approval.requestedBy%>",
           "description" : "<%=param.approval.title%>",
           "responsible" : {
+            "type" : "ROLE",
             "activator" : "Boss"
           }
         },

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "150047A1589EB0D8",
   "config" : {
     "data" : "booking.BookingData"
@@ -115,7 +115,7 @@
       "type" : "TaskEndPage",
       "name" : "booking failed",
       "config" : {
-        "template" : "view/booking-failed.xhtml"
+        "page" : "view/booking-failed.xhtml"
       },
       "visual" : {
         "at" : { "x" : 752, "y" : 288 },
@@ -181,7 +181,7 @@
         "successful"
       ],
       "config" : {
-        "template" : "view/booking-success.xhtml"
+        "page" : "view/booking-success.xhtml"
       },
       "visual" : {
         "at" : { "x" : 752, "y" : 128 },

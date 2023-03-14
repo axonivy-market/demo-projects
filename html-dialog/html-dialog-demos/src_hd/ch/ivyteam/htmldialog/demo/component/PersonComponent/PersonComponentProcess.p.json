@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "13B69F6612D62493",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,21 +10,21 @@
       "type" : "HtmlDialogStart",
       "name" : "start(Person)",
       "config" : {
-        "callSignature" : "start",
-        "result" : {
-          "params" : [
-            { "name" : "person", "type" : "ch.ivyteam.htmldialog.demo.Person" }
-          ],
-          "map" : {
-            "result.person" : "in.person"
-          }
-        },
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "person", "type" : "ch.ivyteam.htmldialog.demo.Person" }
+            { "name" : "person", "type" : "ch.ivyteam.htmldialog.demo.Person", "desc" : "" }
           ],
           "map" : {
             "out.person" : "param.person"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "person", "type" : "ch.ivyteam.htmldialog.demo.Person", "desc" : "" }
+          ],
+          "map" : {
+            "result.person" : "in.person"
           }
         },
         "guid" : "13B69F6613C66357"
