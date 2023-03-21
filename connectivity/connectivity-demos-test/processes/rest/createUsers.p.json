@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.14",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
   "id" : "1675F33D16FB90A4",
   "config" : {
     "data" : "com.axonivy.connectivity.test.CreateUsersData"
