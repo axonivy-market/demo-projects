@@ -40,8 +40,8 @@
           <h:panelGrid columns="3">
             <p:inputText value="#{data.editPerson.firstname}" />
             <p:inputText value="#{data.editPerson.lastname}" />
-            <p:commandButton actionListener="#{logic.update}"
-              value="Edit" update=":form:persons, :form:notify"
+            <p:commandButton actionListener="#{logic.save}"
+              value="Save" update=":form:persons, :form:notify"
               oncomplete="PF('editDlg').hide(); PF('status').show();"
               icon="fa-solid fa-check" />
           </h:panelGrid>
