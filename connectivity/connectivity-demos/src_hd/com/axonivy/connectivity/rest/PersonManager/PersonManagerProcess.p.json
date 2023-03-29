@@ -102,7 +102,7 @@
     }, {
       "id" : "f14",
       "type" : "HtmlDialogEventStart",
-      "name" : "update",
+      "name" : "save",
       "config" : {
         "guid" : "154756D22FAF47CA"
       },
