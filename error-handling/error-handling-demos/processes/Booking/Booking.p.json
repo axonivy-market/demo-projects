@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "150047A1589EB0D8",
   "config" : {
     "data" : "booking.BookingData"
@@ -9,15 +9,16 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "map" : {
             "out.customer.firstname" : "\"John\"",
             "out.customer.lastname" : "\"Smith\""
           }
         },
-        "outLink" : "start.ivp",
-        "startName" : "Business Error interrupts the happy path and calls rollback activities"
+        "request" : {
+          "name" : "Business Error interrupts the happy path and calls rollback activities"
+        }
       },
       "visual" : {
         "at" : { "x" : 48, "y" : 128 },

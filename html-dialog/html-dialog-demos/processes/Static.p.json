@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "1698080EFEC9C585",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -9,14 +9,15 @@
       "type" : "RequestStart",
       "name" : "StaticEndPage.ivp",
       "config" : {
-        "callSignature" : "StaticEndPage",
-        "startCategory" : "static",
-        "outLink" : "StaticEndPage.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-file-o" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "StaticEndPage"
+        "signature" : "StaticEndPage",
+        "request" : {
+          "name" : "StaticEndPage",
+          "category" : "static",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-file-o" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "16D29C451A0AF7D5",
   "config" : {
     "data" : "com.axonivy.connectivity.soap.service.ExceptionData"
@@ -9,13 +9,14 @@
       "type" : "RequestStart",
       "name" : "interceptException.ivp",
       "config" : {
-        "callSignature" : "interceptException",
-        "startCategory" : "soap",
-        "outLink" : "interceptException.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-exclamation-triangle" }
-        ],
-        "startName" : "9.4 Intercept webservice response"
+        "signature" : "interceptException",
+        "request" : {
+          "name" : "9.4 Intercept webservice response",
+          "category" : "soap",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-exclamation-triangle" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },
@@ -35,12 +36,14 @@
       "type" : "WebServiceCall",
       "config" : {
         "clientId" : "16D2A643A3A25C52",
-        "port" : "ServiceWithExceptionPort",
-        "inputParams" : {
-          "parameters.exceptionMessage" : "\"This exception has been intercepted\"",
-          "parameters.throwException" : "true"
+        "operation" : {
+          "name" : "call",
+          "port" : "ServiceWithExceptionPort",
+          "parameters" : {
+            "parameters.exceptionMessage" : "\"This exception has been intercepted\"",
+            "parameters.throwException" : "true"
+          }
         },
-        "operation" : "call",
         "properties" : {
           "AXIS.mapNullValues" : "true",
           "AXIS2.autoInitFirstLevelFields" : "true",

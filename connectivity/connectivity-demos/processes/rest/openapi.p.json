@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "16F375741231763F",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.OpenApiData"
@@ -18,18 +18,22 @@
         "PETs"
       ],
       "config" : {
-        "path" : "/pet/findByStatus",
-        "clientId" : "ae69ba01-79b7-4dce-9049-900f8f420907",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "queryParams" : {
-          "status" : "\"available\""
+        "target" : {
+          "clientId" : "ae69ba01-79b7-4dce-9049-900f8f420907",
+          "path" : "/pet/findByStatus",
+          "queryParams" : {
+            "status" : "\"available\""
+          }
         },
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.pets" : "result"
-        },
-        "resultType" : "java.util.List<io.swagger.petstore3.client.Pet>",
-        "responseCode" : "ivy.log.info(\"some pets are available: \"+out.pets.size());"
+        "response" : {
+          "entity" : {
+            "type" : "java.util.List",
+            "map" : {
+              "out.pets" : "result"
+            },
+            "code" : "ivy.log.info(\"some pets are available: \"+out.pets.size());"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 192, "y" : 160 }
@@ -57,20 +61,24 @@
         "(query params)"
       ],
       "config" : {
-        "path" : "/user/login",
-        "clientId" : "ae69ba01-79b7-4dce-9049-900f8f420907",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "queryParams" : {
-          "username" : "\"IvyPowerUser\"",
-          "password" : "ivy.session.getAttribute(\"pet.secret\") as String"
+        "target" : {
+          "clientId" : "ae69ba01-79b7-4dce-9049-900f8f420907",
+          "path" : "/user/login",
+          "queryParams" : {
+            "username" : "\"IvyPowerUser\"",
+            "password" : "ivy.session.getAttribute(\"pet.secret\") as String"
+          }
         },
-        "statusErrorCode" : "ivy:error:rest:client",
-        "resultType" : "java.lang.String",
-        "responseCode" : [
-          "import org.apache.commons.lang.StringUtils;",
-          "String id = StringUtils.substringAfterLast(result, \"session: \");",
-          "ivy.session.setAttribute(\"pet.session.id\", id);"
-        ]
+        "response" : {
+          "entity" : {
+            "type" : "java.lang.String",
+            "code" : [
+              "import org.apache.commons.lang.StringUtils;",
+              "String id = StringUtils.substringAfterLast(result, \"session: \");",
+              "ivy.session.setAttribute(\"pet.session.id\", id);"
+            ]
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 192, "y" : 256 }
@@ -83,13 +91,14 @@
       "type" : "RequestStart",
       "name" : "login.ivp",
       "config" : {
-        "callSignature" : "login",
-        "startCategory" : "rest/openapi",
-        "outLink" : "login.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-sign-in" }
-        ],
-        "startName" : "8.1.2 open api query"
+        "signature" : "login",
+        "request" : {
+          "name" : "8.1.2 open api query",
+          "category" : "rest/openapi",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-sign-in" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 64, "y" : 256 }
@@ -108,14 +117,15 @@
       "type" : "RequestStart",
       "name" : "upload.ivp",
       "config" : {
-        "callSignature" : "upload",
-        "startCategory" : "rest/openapi",
-        "outLink" : "upload.ivp",
-        "startDescription" : "Use any undocummented feature",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-upload" }
-        ],
-        "startName" : "8.1.3 open api upload file"
+        "signature" : "upload",
+        "request" : {
+          "name" : "8.1.3 open api upload file",
+          "description" : "Use any undocummented feature",
+          "category" : "rest/openapi",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-upload" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 64, "y" : 352 },
@@ -138,16 +148,27 @@
         "(programmatic)"
       ],
       "config" : {
-        "clientId" : "ae69ba01-79b7-4dce-9049-900f8f420907",
         "method" : "JAX_RS",
-        "queryParams" : {
-          "additionalMetadata" : "\"Ivy is everywhere\""
+        "target" : {
+          "clientId" : "ae69ba01-79b7-4dce-9049-900f8f420907",
+          "path" : "/pet/{petId}/uploadImage",
+          "templateParams" : {
+            "petId" : "in.pets.get(0).getId()"
+          },
+          "queryParams" : {
+            "additionalMetadata" : "\"Ivy is everywhere\""
+          }
         },
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyInputType" : "RAW",
-        "path" : "/pet/{petId}/uploadImage",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "clientCode" : [
+        "body" : {
+          "type" : "RAW",
+          "mediaType" : "application/octet-stream"
+        },
+        "response" : {
+          "entity" : {
+            "type" : "io.swagger.petstore3.client.ApiResponse"
+          }
+        },
+        "code" : [
           "import com.axonivy.connectivity.rest.client.file.FileUpload;",
           "import io.swagger.petstore3.client.Pet;",
           "import javax.ws.rs.core.MediaType;",
@@ -159,12 +180,7 @@
           "",
           "ivy.log.info(\"Screenshots: \"+pet.photoUrls);",
           "out.pets.set(0, pet);"
-        ],
-        "templateParams" : {
-          "petId" : "in.pets.get(0).getId()"
-        },
-        "resultType" : "io.swagger.petstore3.client.ApiResponse",
-        "bodyMediaType" : "application/octet-stream"
+        ]
       },
       "visual" : {
         "at" : { "x" : 352, "y" : 352 },
@@ -182,17 +198,21 @@
       "type" : "RestClientCall",
       "name" : "read Pets",
       "config" : {
-        "path" : "/pet/findByStatus",
-        "clientId" : "ae69ba01-79b7-4dce-9049-900f8f420907",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "queryParams" : {
-          "status" : "\"available\""
+        "target" : {
+          "clientId" : "ae69ba01-79b7-4dce-9049-900f8f420907",
+          "path" : "/pet/findByStatus",
+          "queryParams" : {
+            "status" : "\"available\""
+          }
         },
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.pets" : "result"
-        },
-        "resultType" : "java.util.List<io.swagger.petstore3.client.Pet>"
+        "response" : {
+          "entity" : {
+            "type" : "java.util.List",
+            "map" : {
+              "out.pets" : "result"
+            }
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 192, "y" : 352 }
@@ -205,13 +225,14 @@
       "type" : "RequestStart",
       "name" : "listPets.ivp",
       "config" : {
-        "callSignature" : "listPets",
-        "startCategory" : "rest/openapi",
-        "outLink" : "listPets.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-paw" }
-        ],
-        "startName" : "8.1.1 open api read collection"
+        "signature" : "listPets",
+        "request" : {
+          "name" : "8.1.1 open api read collection",
+          "category" : "rest/openapi",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-paw" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 64, "y" : 160 },

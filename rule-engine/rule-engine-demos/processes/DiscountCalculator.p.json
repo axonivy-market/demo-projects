@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "153EAAA7649F85DA",
   "config" : {
     "data" : "rule.engine.demo.Data"
@@ -9,9 +9,10 @@
       "type" : "RequestStart",
       "name" : "start1.ivp",
       "config" : {
-        "callSignature" : "start1",
-        "outLink" : "start1.ivp",
-        "startName" : "1. Discount Calculator"
+        "signature" : "start1",
+        "request" : {
+          "name" : "1. Discount Calculator"
+        }
       },
       "visual" : {
         "at" : { "x" : 80, "y" : 152 },
@@ -54,9 +55,10 @@
       "type" : "RequestStart",
       "name" : "start2.ivp",
       "config" : {
-        "callSignature" : "start2",
-        "outLink" : "start2.ivp",
-        "startName" : "2. Adjustable Discount Calculator"
+        "signature" : "start2",
+        "request" : {
+          "name" : "2. Adjustable Discount Calculator"
+        }
       },
       "tags" : [
         "demo"

@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "150149331438F9EA",
   "config" : {
     "data" : "error.handling.demo.technicalData"
@@ -9,9 +9,10 @@
       "type" : "RequestStart",
       "name" : "throwSystemError.ivp",
       "config" : {
-        "callSignature" : "throwSystemError",
-        "outLink" : "throwSystemError.ivp",
-        "startName" : "Use global Error Process"
+        "signature" : "throwSystemError",
+        "request" : {
+          "name" : "Use global Error Process"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 192 },

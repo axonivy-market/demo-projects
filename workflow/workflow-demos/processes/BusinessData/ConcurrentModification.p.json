@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "156DB84CCE78254F",
   "config" : {
     "data" : "workflow.businessdata.Data"
@@ -9,24 +9,25 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
-        "startCategory" : "business/data",
-        "case" : {
-          "category" : "Customer/Onboarding",
-          "attachToBusinessCase" : false
+        "signature" : "start",
+        "request" : {
+          "name" : "5.2: Concurrent Modification (Business Data)",
+          "description" : [
+            "This use case handles the problematic of concurrent modification",
+            "of the same business data values."
+          ],
+          "category" : "business/data",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-pencil-square-o" }
+          ]
         },
-        "startDescription" : [
-          "This use case handles the problematic of concurrent modification",
-          "of the same business data values."
-        ],
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-pencil-square-o" }
-        ],
         "task" : {
           "category" : "Input/Address"
         },
-        "outLink" : "start.ivp",
-        "startName" : "5.2: Concurrent Modification (Business Data)"
+        "case" : {
+          "category" : "Customer/Onboarding",
+          "attachToBusinessCase" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 384 },

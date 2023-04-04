@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "16764B07C0329FC8",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.AsyncInvocationData"
@@ -9,13 +9,14 @@
       "type" : "RequestStart",
       "name" : "chatAsync.ivp",
       "config" : {
-        "callSignature" : "chatAsync",
-        "startCategory" : "rest/async",
-        "outLink" : "chatAsync.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-comments-o" }
-        ],
-        "startName" : "5.3 chat async with JS client for REST"
+        "signature" : "chatAsync",
+        "request" : {
+          "name" : "5.3 chat async with JS client for REST",
+          "category" : "rest/async",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-comments-o" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
@@ -54,13 +55,15 @@
         "operation"
       ],
       "config" : {
-        "path" : "/async",
-        "clientId" : "b0a5f371-e479-444d-b71c-af1fff4c084d",
         "method" : "JAX_RS",
-        "queryParams" : {
-          "blockSeconds" : "3"
+        "target" : {
+          "clientId" : "b0a5f371-e479-444d-b71c-af1fff4c084d",
+          "path" : "/async",
+          "queryParams" : {
+            "blockSeconds" : "3"
+          }
         },
-        "clientCode" : [
+        "code" : [
           "import javax.ws.rs.client.InvocationCallback;",
           "import com.axonivy.connectivity.rest.aynch.SignalInvoker;",
           "",
@@ -170,13 +173,14 @@
       "type" : "RequestStart",
       "name" : "callBatchAsync.ivp",
       "config" : {
-        "callSignature" : "callBatchAsync",
-        "startCategory" : "rest/async",
-        "outLink" : "callBatchAsync.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-hourglass-end" }
-        ],
-        "startName" : "5.1 call long running operation async"
+        "signature" : "callBatchAsync",
+        "request" : {
+          "name" : "5.1 call long running operation async",
+          "category" : "rest/async",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-hourglass-end" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 160, "y" : 368 }
@@ -202,13 +206,14 @@
       "type" : "RequestStart",
       "name" : "restCallback.ivp",
       "config" : {
-        "callSignature" : "restCallback",
-        "startCategory" : "rest/async",
-        "outLink" : "restCallback.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-reply" }
-        ],
-        "startName" : "5.2 invoke async with JS callback"
+        "signature" : "restCallback",
+        "request" : {
+          "name" : "5.2 invoke async with JS callback",
+          "category" : "rest/async",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-reply" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 160 }

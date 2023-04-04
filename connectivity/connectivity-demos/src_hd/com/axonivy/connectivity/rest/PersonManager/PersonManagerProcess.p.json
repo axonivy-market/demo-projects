@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "15470DE765DF45FC",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -174,22 +174,27 @@
       "type" : "RestClientCall",
       "name" : "PersonService.PUT",
       "config" : {
-        "bodyForm" : {
-          "firstname" : "in.firstName",
-          "lastname" : "in.lastName"
-        },
-        "headers" : {
-          "Accept" : "*/*",
-          "X-Requested-By" : "\"ivy\""
-        },
-        "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "PUT",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.response" : "response"
+        "target" : {
+          "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
+          "headers" : {
+            "X-Requested-By" : "\"ivy\""
+          }
         },
-        "bodyInputType" : "FORM"
+        "body" : {
+          "type" : "FORM",
+          "form" : {
+            "firstname" : [ "in.firstName" ],
+            "lastname" : [ "in.lastName" ]
+          }
+        },
+        "response" : {
+          "entity" : {
+            "map" : {
+              "out.response" : "response"
+            }
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 352 },
@@ -203,13 +208,17 @@
       "type" : "RestClientCall",
       "name" : "PersonService.GET",
       "config" : {
-        "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.persons" : "result"
+        "target" : {
+          "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3"
         },
-        "resultType" : "java.util.List<com.axonivy.connectivity.Person>"
+        "response" : {
+          "entity" : {
+            "type" : "java.util.List",
+            "map" : {
+              "out.persons" : "result"
+            }
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 288 },
@@ -223,26 +232,32 @@
       "type" : "RestClientCall",
       "name" : "PersonService.POST",
       "config" : {
-        "path" : "{person.id}",
-        "headers" : {
-          "Accept" : "*/*",
-          "X-Requested-By" : "\"ivy\""
-        },
-        "bodyObjectMapping" : {
-          "param" : "in.editPerson"
-        },
-        "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "POST",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.response" : "response"
+        "target" : {
+          "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
+          "path" : "{person.id}",
+          "templateParams" : {
+            "person.id" : "in.editPerson.id"
+          },
+          "headers" : {
+            "X-Requested-By" : "\"ivy\""
+          }
         },
-        "bodyObjectType" : "com.axonivy.connectivity.Person",
-        "templateParams" : {
-          "person.id" : "in.editPerson.id"
+        "body" : {
+          "entity" : {
+            "type" : "com.axonivy.connectivity.Person",
+            "map" : {
+              "param" : "in.editPerson"
+            }
+          }
         },
-        "bodyInputType" : "ENTITY"
+        "response" : {
+          "entity" : {
+            "map" : {
+              "out.response" : "response"
+            }
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 416 },
@@ -256,23 +271,29 @@
       "type" : "RestClientCall",
       "name" : "PersonService.DELETE",
       "config" : {
-        "path" : "{person.id}",
-        "headers" : {
-          "Accept" : "*/*",
-          "X-Requested-By" : "\"ivy\""
-        },
-        "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "DELETE",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.response" : "response"
+        "target" : {
+          "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
+          "path" : "{person.id}",
+          "templateParams" : {
+            "person.id" : "in.editPerson.id"
+          },
+          "headers" : {
+            "X-Requested-By" : "\"ivy\""
+          }
         },
-        "templateParams" : {
-          "person.id" : "in.editPerson.id"
+        "body" : {
+          "entity" : {
+            "code" : "param = in.editPerson;"
+          }
         },
-        "bodyObjectCode" : "param = in.editPerson;",
-        "bodyInputType" : "ENTITY"
+        "response" : {
+          "entity" : {
+            "map" : {
+              "out.response" : "response"
+            }
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 225, "y" : 480 },

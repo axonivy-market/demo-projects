@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "15254DC87A1B183B",
   "config" : {
     "data" : "workflow.humantask.ProcurementRequest"
@@ -37,22 +37,25 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
-        "responsible" : "Employee",
-        "startCategory" : "human",
-        "case" : {
-          "category" : "Procurement/Request",
-          "attachToBusinessCase" : false
+        "signature" : "start",
+        "request" : {
+          "name" : "2.2: <%=ivy.cms.co(\"/ProcessDescriptions/procurementRequest\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/parallelTaskExample\")%>)",
+          "description" : "<%=ivy.cms.co(\"/ProcessDescriptions/procurementRequestParallelDescription\")%>",
+          "category" : "human",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-male" }
+          ]
         },
-        "startDescription" : "<%=ivy.cms.co(\"/ProcessDescriptions/procurementRequestParallelDescription\")%>",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-male" }
-        ],
+        "permission" : {
+          "role" : "Employee"
+        },
         "task" : {
           "category" : "Input/Procurement"
         },
-        "outLink" : "start.ivp",
-        "startName" : "2.2: <%=ivy.cms.co(\"/ProcessDescriptions/procurementRequest\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/parallelTaskExample\")%>)"
+        "case" : {
+          "category" : "Procurement/Request",
+          "attachToBusinessCase" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 80, "y" : 184 },

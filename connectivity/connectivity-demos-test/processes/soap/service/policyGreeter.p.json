@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "162AFFB8ACCCB74C",
   "config" : {
     "data" : "com.axonivy.connectivity.test.GreeterPolicyData"
@@ -9,8 +9,7 @@
       "type" : "RequestStart",
       "name" : "greeterPoliciesDisabled.ivp",
       "config" : {
-        "callSignature" : "greeterPoliciesDisabled",
-        "outLink" : "greeterPoliciesDisabled.ivp"
+        "signature" : "greeterPoliciesDisabled"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },
@@ -24,18 +23,19 @@
       "type" : "WebServiceCall",
       "config" : {
         "clientId" : "162AF1AE2B935160",
-        "port" : "SecureGreetPolicyServicePort",
-        "inputParams" : {
-          "parameters.greet" : "\"Hello Greeter!\""
+        "operation" : {
+          "name" : "greet",
+          "port" : "SecureGreetPolicyServicePort",
+          "parameters" : {
+            "parameters.greet" : "\"Hello Greeter!\""
+          }
         },
         "output" : {
           "map" : {
             "out" : "in",
             "out.greetResponse" : "wsResponse"
           }
-        },
-        "operation" : "greet",
-        "timeout" : "0"
+        }
       },
       "visual" : {
         "at" : { "x" : 280, "y" : 64 }

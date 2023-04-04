@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "15A8492F526C14B3",
   "config" : {
     "data" : "workflow.humantask.Data"
@@ -12,18 +12,18 @@
         "start.ivp"
       ],
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
+        "request" : {
+          "name" : "Check company register",
+          "isVisibleOnStartList" : false
+        },
+        "triggerable" : true,
         "task" : {
           "name" : "Check Company Register",
           "responsible" : {
-            "type" : "ROLE",
             "activator" : "SYSTEM"
           }
-        },
-        "showInStartList" : false,
-        "outLink" : "start.ivp",
-        "triggerEnabled" : true,
-        "startName" : "Check company register"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "150425B095B4FB54",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -18,21 +18,23 @@
       "type" : "RequestStart",
       "name" : "ClientSideValidationDemo.ivp",
       "config" : {
-        "callSignature" : "ClientSideValidationDemo",
-        "startCategory" : "offline",
-        "outLink" : "ClientSideValidationDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-wifi" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
+        "signature" : "ClientSideValidationDemo",
         "input" : {
+          "map" : { },
           "code" : [
             "if (ivy.session.isSessionUserUnknown()) {",
             "  ivy.session.loginSessionUser(\"demoUser1\", \"demoUser1\");",
             "}"
           ]
         },
-        "startName" : "ClientSideValidationDemo"
+        "request" : {
+          "name" : "ClientSideValidationDemo",
+          "category" : "offline",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-wifi" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 96 }

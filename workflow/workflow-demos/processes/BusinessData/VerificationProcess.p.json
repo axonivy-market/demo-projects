@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "156E5D9AA7D41BAA",
   "config" : {
     "data" : "workflow.businessdata.Data"
@@ -90,26 +90,27 @@
       "type" : "RequestStart",
       "name" : "verifyDossier.ivp",
       "config" : {
-        "callSignature" : "verifyDossier",
+        "signature" : "verifyDossier",
         "input" : {
           "params" : [
-            { "name" : "id", "type" : "String" }
+            { "name" : "id", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.id" : "param.id"
           }
         },
-        "startCategory" : "business/data",
-        "case" : {
-          "category" : "Dossier/Verify",
-          "attachToBusinessCase" : false
+        "request" : {
+          "name" : "Verify Dossier Process",
+          "category" : "business/data",
+          "isVisibleOnStartList" : false
         },
-        "outLink" : "verifyDossier.ivp",
         "task" : {
           "category" : "Review/Dossier"
         },
-        "showInStartList" : false,
-        "startName" : "Verify Dossier Process"
+        "case" : {
+          "category" : "Dossier/Verify",
+          "attachToBusinessCase" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 80, "y" : 128 },

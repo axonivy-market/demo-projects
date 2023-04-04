@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "145D180807C60B4B",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -9,14 +9,15 @@
       "type" : "RequestStart",
       "name" : "SelectManyCheckboxDemo",
       "config" : {
-        "callSignature" : "SelectManyCheckboxDemo",
-        "startCategory" : "output",
-        "outLink" : "SelectManyCheckboxDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-check-square-o" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Select Many Checkbox Demo"
+        "signature" : "SelectManyCheckboxDemo",
+        "request" : {
+          "name" : "Select Many Checkbox Demo",
+          "category" : "output",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-check-square-o" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 544 },
@@ -30,14 +31,15 @@
       "type" : "RequestStart",
       "name" : "SelectOneMenuDemo",
       "config" : {
-        "callSignature" : "SelectOneMenuDemo",
-        "startCategory" : "output",
-        "outLink" : "SelectOneMenuDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-list-alt" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Select One Menu Demo"
+        "signature" : "SelectOneMenuDemo",
+        "request" : {
+          "name" : "Select One Menu Demo",
+          "category" : "output",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-list-alt" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 448 }
@@ -68,14 +70,15 @@
       "type" : "RequestStart",
       "name" : "PickListDemo.ivp",
       "config" : {
-        "callSignature" : "PickListDemo",
-        "startCategory" : "output",
-        "outLink" : "PickListDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-list-ul" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "PickList Demo"
+        "signature" : "PickListDemo",
+        "request" : {
+          "name" : "PickList Demo",
+          "category" : "output",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-list-ul" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 352 },
@@ -149,14 +152,15 @@
       "type" : "RequestStart",
       "name" : "OrderListDemo.ivp",
       "config" : {
-        "callSignature" : "OrderListDemo",
-        "startCategory" : "output",
-        "outLink" : "OrderListDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-list-ol" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "OrderListDemo"
+        "signature" : "OrderListDemo",
+        "request" : {
+          "name" : "OrderListDemo",
+          "category" : "output",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-list-ol" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 256 },
@@ -176,14 +180,15 @@
       "type" : "RequestStart",
       "name" : "ResourceDemo.ivp",
       "config" : {
-        "callSignature" : "ResourceDemo",
-        "startCategory" : "output",
-        "outLink" : "ResourceDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-picture-o" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Resource Demo"
+        "signature" : "ResourceDemo",
+        "request" : {
+          "name" : "Resource Demo",
+          "category" : "output",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-picture-o" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 160 },
@@ -221,14 +226,15 @@
       "type" : "RequestStart",
       "name" : "EditableTableDemo.ivp",
       "config" : {
-        "callSignature" : "EditableTableDemo",
-        "startCategory" : "output",
-        "outLink" : "EditableTableDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-table" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Editable Table Demo"
+        "signature" : "EditableTableDemo",
+        "request" : {
+          "name" : "Editable Table Demo",
+          "category" : "output",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-table" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 64 }
@@ -259,14 +265,15 @@
       "type" : "RequestStart",
       "name" : "ChartDemo.ivp",
       "config" : {
-        "callSignature" : "ChartDemo",
-        "startCategory" : "output",
-        "outLink" : "ChartDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-line-chart" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Chart Demo"
+        "signature" : "ChartDemo",
+        "request" : {
+          "name" : "Chart Demo",
+          "category" : "output",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-line-chart" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 640 }
@@ -279,14 +286,15 @@
       "type" : "RequestStart",
       "name" : "AutoCompleteDemo.ivp",
       "config" : {
-        "callSignature" : "AutoCompleteDemo",
-        "startCategory" : "output",
-        "outLink" : "AutoCompleteDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-bars" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Auto Complete Demo"
+        "signature" : "AutoCompleteDemo",
+        "request" : {
+          "name" : "Auto Complete Demo",
+          "category" : "output",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-bars" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 736 },
@@ -336,17 +344,18 @@
       "type" : "RequestStart",
       "name" : "DataTableDemo.ivp",
       "config" : {
-        "callSignature" : "DataTableDemo",
-        "startCategory" : "output",
+        "signature" : "DataTableDemo",
+        "request" : {
+          "name" : "DataTable Demo",
+          "category" : "output",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-table" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        },
         "case" : {
           "attachToBusinessCase" : false
-        },
-        "outLink" : "DataTableDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-table" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "DataTable Demo"
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 832 },
@@ -360,14 +369,15 @@
       "type" : "RequestStart",
       "name" : "LazyLoadingDemo.ivp",
       "config" : {
-        "callSignature" : "LazyLoadingDemo",
-        "startCategory" : "output",
-        "outLink" : "LazyLoadingDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-spinner" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Lazy Table-Loading Demo"
+        "signature" : "LazyLoadingDemo",
+        "request" : {
+          "name" : "Lazy Table-Loading Demo",
+          "category" : "output",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-spinner" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 928 },
@@ -399,14 +409,15 @@
       "type" : "RequestStart",
       "name" : "ExportExcelDemo.ivp",
       "config" : {
-        "callSignature" : "ExportExcelDemo",
-        "startCategory" : "output",
-        "outLink" : "ExportExcelDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-file-excel-o" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Export Excel Demo"
+        "signature" : "ExportExcelDemo",
+        "request" : {
+          "name" : "Export Excel Demo",
+          "category" : "output",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-file-excel-o" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 1024 },
@@ -438,14 +449,15 @@
       "type" : "RequestStart",
       "name" : "PrettyTimeDemo.ivp",
       "config" : {
-        "callSignature" : "PrettyTimeDemo",
-        "startCategory" : "output",
-        "outLink" : "PrettyTimeDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-clock-o" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Pretty Time Demo"
+        "signature" : "PrettyTimeDemo",
+        "request" : {
+          "name" : "Pretty Time Demo",
+          "category" : "output",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-clock-o" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 1120 },
@@ -495,14 +507,15 @@
       "type" : "RequestStart",
       "name" : "DocumentViewerDemo.ivp",
       "config" : {
-        "callSignature" : "DocumentViewerDemo",
-        "startCategory" : "output",
-        "outLink" : "DocumentViewerDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-file-pdf-o" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Document Viewer Demo"
+        "signature" : "DocumentViewerDemo",
+        "request" : {
+          "name" : "Document Viewer Demo",
+          "category" : "output",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-file-pdf-o" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 1216 },
@@ -516,14 +529,15 @@
       "type" : "RequestStart",
       "name" : "BarcodeDemo.ivp",
       "config" : {
-        "callSignature" : "BarcodeDemo",
-        "startCategory" : "output",
-        "outLink" : "BarcodeDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-barcode" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Barcode Demo"
+        "signature" : "BarcodeDemo",
+        "request" : {
+          "name" : "Barcode Demo",
+          "category" : "output",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-barcode" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 1304 },

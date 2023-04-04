@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "15A60076034F7437",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.DataMappingData"
@@ -9,13 +9,14 @@
       "type" : "RequestStart",
       "name" : "rawJSON.ivp",
       "config" : {
-        "callSignature" : "rawJSON",
-        "startCategory" : "rest/mapping",
-        "outLink" : "rawJSON.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-code" }
-        ],
-        "startName" : "6.1.1 send raw JSON"
+        "signature" : "rawJSON",
+        "request" : {
+          "name" : "6.1.1 send raw JSON",
+          "category" : "rest/mapping",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-code" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 152 }
@@ -37,29 +38,35 @@
         "RAW JSON"
       ],
       "config" : {
-        "bodyRaw" : [
-          "{",
-          "  \"name\": \"The sailor\",",
-          "  \"email\": \"<%= in.myPost.email %>\",",
-          "  \"body\": \"Freedom of speech\"",
-          "}"
-        ],
-        "path" : "posts",
-        "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "POST",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
-        "bodyInputType" : "RAW",
-        "responseCode" : [
-          "int newId = result.get(\"id\").asInt();",
-          "",
-          "ivy.log.info(\"new ID = \"+newId);",
-          "",
-          "out.myPost.id = newId;",
-          "out.myPost.name = result.get(\"name\").asText();",
-          "out.myPost.body = result.get(\"body\").asText();"
-        ]
+        "target" : {
+          "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
+          "path" : "posts"
+        },
+        "body" : {
+          "type" : "RAW",
+          "raw" : [
+            "{",
+            "  \"name\": \"The sailor\",",
+            "  \"email\": \"<%= in.myPost.email %>\",",
+            "  \"body\": \"Freedom of speech\"",
+            "}"
+          ]
+        },
+        "response" : {
+          "entity" : {
+            "type" : "com.fasterxml.jackson.databind.JsonNode",
+            "code" : [
+              "int newId = result.get(\"id\").asInt();",
+              "",
+              "ivy.log.info(\"new ID = \"+newId);",
+              "",
+              "out.myPost.id = newId;",
+              "out.myPost.name = result.get(\"name\").asText();",
+              "out.myPost.body = result.get(\"body\").asText();"
+            ]
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 408, "y" : 152 },
@@ -118,13 +125,14 @@
       "type" : "RequestStart",
       "name" : "complexObject.ivp",
       "config" : {
-        "callSignature" : "complexObject",
-        "startCategory" : "rest/mapping",
-        "outLink" : "complexObject.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-object-group" }
-        ],
-        "startName" : "6.1.3 send complex Object"
+        "signature" : "complexObject",
+        "request" : {
+          "name" : "6.1.3 send complex Object",
+          "category" : "rest/mapping",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-object-group" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 320 }
@@ -146,31 +154,38 @@
         "Java Object"
       ],
       "config" : {
-        "bodyRaw" : [
-          "{",
-          "  \"name\": \"hey there\",",
-          "  \"email\": \"<%= in.myPost.email %>\",",
-          "  \"body\": \"this is my test comment\"",
-          "}"
-        ],
-        "bodyObjectMapping" : {
-          "param" : "in.myPost"
-        },
-        "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
         "method" : "POST",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyObjectType" : "com.axonivy.connectivity.rest.Post",
-        "bodyInputType" : "ENTITY",
-        "responseCode" : [
-          "out.posts.add(result);",
-          "ivy.log.info(\"new ID = \"+result.id);"
-        ],
-        "path" : "posts",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.myPost" : "result"
+        "target" : {
+          "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
+          "path" : "posts"
         },
-        "resultType" : "com.axonivy.connectivity.rest.Post"
+        "body" : {
+          "raw" : [
+            "{",
+            "  \"name\": \"hey there\",",
+            "  \"email\": \"<%= in.myPost.email %>\",",
+            "  \"body\": \"this is my test comment\"",
+            "}"
+          ],
+          "entity" : {
+            "type" : "com.axonivy.connectivity.rest.Post",
+            "map" : {
+              "param" : "in.myPost"
+            }
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "com.axonivy.connectivity.rest.Post",
+            "map" : {
+              "out.myPost" : "result"
+            },
+            "code" : [
+              "out.posts.add(result);",
+              "ivy.log.info(\"new ID = \"+result.id);"
+            ]
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 408, "y" : 320 },
@@ -187,29 +202,35 @@
         "as query parameter"
       ],
       "config" : {
-        "bodyRaw" : [
-          "{",
-          "  \"name\": \"hey there\",",
-          "  \"email\": \"<%= in.myPost.email %>\",",
-          "  \"body\": \"this is my test comment\"",
-          "}"
-        ],
-        "path" : "posts",
-        "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "method" : "GET",
-        "queryParams" : {
-          "userId" : "in.userId"
+        "target" : {
+          "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
+          "path" : "posts",
+          "queryParams" : {
+            "userId" : "in.userId"
+          }
         },
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyObjectCode" : "param = in.myPost;",
-        "resultType" : "java.util.List<com.axonivy.connectivity.rest.Post>",
-        "bodyInputType" : "ENTITY",
-        "responseCode" : [
-          "out.posts = result;",
-          "",
-          "ivy.log.info(\"resolved \"+result.size()+\" posts from user with id \"+in.userId);"
-        ]
+        "body" : {
+          "raw" : [
+            "{",
+            "  \"name\": \"hey there\",",
+            "  \"email\": \"<%= in.myPost.email %>\",",
+            "  \"body\": \"this is my test comment\"",
+            "}"
+          ],
+          "entity" : {
+            "code" : "param = in.myPost;"
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "java.util.List",
+            "code" : [
+              "out.posts = result;",
+              "",
+              "ivy.log.info(\"resolved \"+result.size()+\" posts from user with id \"+in.userId);"
+            ]
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 408, "y" : 728 },
@@ -223,13 +244,14 @@
       "type" : "RequestStart",
       "name" : "queryParameters.ivp",
       "config" : {
-        "callSignature" : "queryParameters",
-        "startCategory" : "rest/mapping",
-        "outLink" : "queryParameters.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-question" }
-        ],
-        "startName" : "6.3.1 query parameters"
+        "signature" : "queryParameters",
+        "request" : {
+          "name" : "6.3.1 query parameters",
+          "category" : "rest/mapping",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-question" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 728 }
@@ -275,25 +297,31 @@
         "as JSON"
       ],
       "config" : {
-        "bodyRaw" : [
-          "{",
-          "  \"name\": \"hey there\",",
-          "  \"email\": \"<%= in.myPost.email %>\",",
-          "  \"body\": \"this is my test comment\"",
-          "}"
-        ],
-        "path" : "1",
-        "headers" : {
-          "Accept" : "application/json"
+        "target" : {
+          "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
+          "path" : "1",
+          "headers" : {
+            "Accept" : "application/json"
+          }
         },
-        "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "method" : "GET",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyObjectCode" : "param = in.myPost;",
-        "resultType" : "java.lang.String",
-        "bodyInputType" : "ENTITY",
-        "responseCode" : "ivy.log.info(\"JSON:\"+result);"
+        "body" : {
+          "raw" : [
+            "{",
+            "  \"name\": \"hey there\",",
+            "  \"email\": \"<%= in.myPost.email %>\",",
+            "  \"body\": \"this is my test comment\"",
+            "}"
+          ],
+          "entity" : {
+            "code" : "param = in.myPost;"
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "java.lang.String",
+            "code" : "ivy.log.info(\"JSON:\"+result);"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 888 }
@@ -306,18 +334,19 @@
       "type" : "RequestStart",
       "name" : "acceptType.ivp",
       "config" : {
-        "callSignature" : "acceptType",
+        "signature" : "acceptType",
         "input" : {
           "map" : {
             "out.userId" : "1"
           }
         },
-        "startCategory" : "rest/mapping",
-        "outLink" : "acceptType.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-file-code-o" }
-        ],
-        "startName" : "6.3.3 accept type header"
+        "request" : {
+          "name" : "6.3.3 accept type header",
+          "category" : "rest/mapping",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-file-code-o" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 888 }
@@ -339,25 +368,31 @@
         "as raw XML"
       ],
       "config" : {
-        "bodyRaw" : [
-          "{",
-          "  \"name\": \"hey there\",",
-          "  \"email\": \"<%= in.myPost.email %>\",",
-          "  \"body\": \"this is my test comment\"",
-          "}"
-        ],
-        "path" : "1",
-        "headers" : {
-          "Accept" : "application/xml"
+        "target" : {
+          "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
+          "path" : "1",
+          "headers" : {
+            "Accept" : "application/xml"
+          }
         },
-        "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "method" : "GET",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyObjectCode" : "param = in.myPost;",
-        "resultType" : "java.lang.String",
-        "bodyInputType" : "ENTITY",
-        "responseCode" : "ivy.log.info(\"XML:\"+result);"
+        "body" : {
+          "raw" : [
+            "{",
+            "  \"name\": \"hey there\",",
+            "  \"email\": \"<%= in.myPost.email %>\",",
+            "  \"body\": \"this is my test comment\"",
+            "}"
+          ],
+          "entity" : {
+            "code" : "param = in.myPost;"
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "java.lang.String",
+            "code" : "ivy.log.info(\"XML:\"+result);"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 408, "y" : 888 }
@@ -370,13 +405,14 @@
       "type" : "RequestStart",
       "name" : "formData.ivp",
       "config" : {
-        "callSignature" : "formData",
-        "startCategory" : "rest/mapping",
-        "outLink" : "formData.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-id-card-o" }
-        ],
-        "startName" : "6.1.2 send form data"
+        "signature" : "formData",
+        "request" : {
+          "name" : "6.1.2 send form data",
+          "category" : "rest/mapping",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-id-card-o" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 240 }
@@ -392,33 +428,41 @@
         "Form with Strings"
       ],
       "config" : {
-        "bodyRaw" : [
-          "{",
-          "  \"name\": \"hey there\",",
-          "  \"email\": \"<%= in.myPost.email %>\",",
-          "  \"body\": \"this is my test comment\"",
-          "}"
-        ],
-        "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
         "method" : "POST",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyInputType" : "FORM",
-        "responseCode" : [
-          "int newId = result.get(\"id\").asInt();",
-          "",
-          "ivy.log.info(\"new ID = \"+newId);",
-          "",
-          "out.myPost.id = newId;"
-        ],
-        "bodyForm" : {
-          "firstname" : "\"John\"",
-          "lastname" : "in.myPost.name"
+        "target" : {
+          "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
+          "path" : "posts"
         },
-        "path" : "posts",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "bodyObjectCode" : "param = in.myPost;",
-        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
-        "bodyMediaType" : "application/x-www-form-urlencoded"
+        "body" : {
+          "type" : "FORM",
+          "mediaType" : "application/x-www-form-urlencoded",
+          "form" : {
+            "firstname" : [ "\"John\"" ],
+            "lastname" : [ "in.myPost.name" ]
+          },
+          "raw" : [
+            "{",
+            "  \"name\": \"hey there\",",
+            "  \"email\": \"<%= in.myPost.email %>\",",
+            "  \"body\": \"this is my test comment\"",
+            "}"
+          ],
+          "entity" : {
+            "code" : "param = in.myPost;"
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "com.fasterxml.jackson.databind.JsonNode",
+            "code" : [
+              "int newId = result.get(\"id\").asInt();",
+              "",
+              "ivy.log.info(\"new ID = \"+newId);",
+              "",
+              "out.myPost.id = newId;"
+            ]
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 408, "y" : 240 },
@@ -477,25 +521,31 @@
         "of complex object"
       ],
       "config" : {
-        "bodyRaw" : [
-          "{",
-          "  \"name\": \"hey there\",",
-          "  \"email\": \"<%= in.myPost.email %>\",",
-          "  \"body\": \"this is my test comment\"",
-          "}"
-        ],
-        "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
-        "method" : "GET",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyInputType" : "ENTITY",
-        "responseCode" : "ivy.log.info(\"got user = \"+out.user);",
-        "path" : "users/1",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.user" : "result"
+        "target" : {
+          "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
+          "path" : "users/1"
         },
-        "bodyObjectCode" : "param = in.myPost;",
-        "resultType" : "com.axonivy.connectivity.rest.User"
+        "body" : {
+          "raw" : [
+            "{",
+            "  \"name\": \"hey there\",",
+            "  \"email\": \"<%= in.myPost.email %>\",",
+            "  \"body\": \"this is my test comment\"",
+            "}"
+          ],
+          "entity" : {
+            "code" : "param = in.myPost;"
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "com.axonivy.connectivity.rest.User",
+            "map" : {
+              "out.user" : "result"
+            },
+            "code" : "ivy.log.info(\"got user = \"+out.user);"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 411, "y" : 434 },
@@ -539,13 +589,14 @@
       "type" : "RequestStart",
       "name" : "readPartialObject.ivp",
       "config" : {
-        "callSignature" : "readPartialObject",
-        "startCategory" : "rest/mapping",
-        "outLink" : "readPartialObject.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-book" }
-        ],
-        "startName" : "6.2.1 read complex object partially to DataClass"
+        "signature" : "readPartialObject",
+        "request" : {
+          "name" : "6.2.1 read complex object partially to DataClass",
+          "category" : "rest/mapping",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-book" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 434 }
@@ -573,25 +624,31 @@
         "as JSON"
       ],
       "config" : {
-        "bodyRaw" : [
-          "{",
-          "  \"name\": \"hey there\",",
-          "  \"email\": \"<%= in.myPost.email %>\",",
-          "  \"body\": \"this is my test comment\"",
-          "}"
-        ],
-        "path" : "{in.userId}",
-        "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "method" : "GET",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "templateParams" : {
-          "in.userId" : "in.userId"
+        "target" : {
+          "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
+          "path" : "{in.userId}",
+          "templateParams" : {
+            "in.userId" : "in.userId"
+          }
         },
-        "bodyObjectCode" : "param = in.myPost;",
-        "resultType" : "java.lang.String",
-        "bodyInputType" : "ENTITY",
-        "responseCode" : "ivy.log.info(\"JSON:\"+result);"
+        "body" : {
+          "raw" : [
+            "{",
+            "  \"name\": \"hey there\",",
+            "  \"email\": \"<%= in.myPost.email %>\",",
+            "  \"body\": \"this is my test comment\"",
+            "}"
+          ],
+          "entity" : {
+            "code" : "param = in.myPost;"
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "java.lang.String",
+            "code" : "ivy.log.info(\"JSON:\"+result);"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 408, "y" : 808 }
@@ -604,13 +661,14 @@
       "type" : "RequestStart",
       "name" : "pathParameters.ivp",
       "config" : {
-        "callSignature" : "pathParameters",
-        "startCategory" : "rest/mapping",
-        "outLink" : "pathParameters.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-code-fork" }
-        ],
-        "startName" : "6.3.2 path parameters"
+        "signature" : "pathParameters",
+        "request" : {
+          "name" : "6.3.2 path parameters",
+          "category" : "rest/mapping",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-code-fork" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 808 }
@@ -642,13 +700,14 @@
       "type" : "RequestStart",
       "name" : "readGenerated.ivp",
       "config" : {
-        "callSignature" : "readGenerated",
-        "startCategory" : "rest/mapping",
-        "outLink" : "readGenerated.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-plus-circle" }
-        ],
-        "startName" : "6.2.2 read complex object to GeneratedClass"
+        "signature" : "readGenerated",
+        "request" : {
+          "name" : "6.2.2 read complex object to GeneratedClass",
+          "category" : "rest/mapping",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-plus-circle" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 512 }
@@ -670,25 +729,31 @@
         "generated class"
       ],
       "config" : {
-        "bodyRaw" : [
-          "{",
-          "  \"name\": \"hey there\",",
-          "  \"email\": \"<%= in.myPost.email %>\",",
-          "  \"body\": \"this is my test comment\"",
-          "}"
-        ],
-        "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
-        "method" : "GET",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyInputType" : "ENTITY",
-        "responseCode" : "ivy.log.info(\"got user = \"+result);",
-        "path" : "users/1",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.userGenerated" : "result"
+        "target" : {
+          "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
+          "path" : "users/1"
         },
-        "bodyObjectCode" : "param = in.myPost;",
-        "resultType" : "com.typicode.jsonplaceholder.User"
+        "body" : {
+          "raw" : [
+            "{",
+            "  \"name\": \"hey there\",",
+            "  \"email\": \"<%= in.myPost.email %>\",",
+            "  \"body\": \"this is my test comment\"",
+            "}"
+          ],
+          "entity" : {
+            "code" : "param = in.myPost;"
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "com.typicode.jsonplaceholder.User",
+            "map" : {
+              "out.userGenerated" : "result"
+            },
+            "code" : "ivy.log.info(\"got user = \"+result);"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 415, "y" : 512 },
@@ -735,28 +800,34 @@
         "manually"
       ],
       "config" : {
-        "bodyRaw" : [
-          "{",
-          "  \"name\": \"hey there\",",
-          "  \"email\": \"<%= in.myPost.email %>\",",
-          "  \"body\": \"this is my test comment\"",
-          "}"
-        ],
-        "path" : "users/1",
-        "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "method" : "GET",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyObjectCode" : "param = in.myPost;",
-        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
-        "bodyInputType" : "ENTITY",
-        "responseCode" : [
-          "out.user.name = result.get(\"name\").asText();",
-          "out.user.phone = result.get(\"phone\").asText();",
-          "out.user.email = result.get(\"email\").asText();",
-          "",
-          "ivy.log.info(\"got user = \"+out.user);"
-        ]
+        "target" : {
+          "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
+          "path" : "users/1"
+        },
+        "body" : {
+          "raw" : [
+            "{",
+            "  \"name\": \"hey there\",",
+            "  \"email\": \"<%= in.myPost.email %>\",",
+            "  \"body\": \"this is my test comment\"",
+            "}"
+          ],
+          "entity" : {
+            "code" : "param = in.myPost;"
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "com.fasterxml.jackson.databind.JsonNode",
+            "code" : [
+              "out.user.name = result.get(\"name\").asText();",
+              "out.user.phone = result.get(\"phone\").asText();",
+              "out.user.email = result.get(\"email\").asText();",
+              "",
+              "ivy.log.info(\"got user = \"+out.user);"
+            ]
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 413, "y" : 590 },
@@ -798,13 +869,14 @@
       "type" : "RequestStart",
       "name" : "readJsonNode.ivp",
       "config" : {
-        "callSignature" : "readJsonNode",
-        "startCategory" : "rest/mapping",
-        "outLink" : "readJsonNode.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-sitemap" }
-        ],
-        "startName" : "6.2.3 read complex object partially as JsonNode"
+        "signature" : "readJsonNode",
+        "request" : {
+          "name" : "6.2.3 read complex object partially as JsonNode",
+          "category" : "rest/mapping",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-sitemap" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 590 }
@@ -826,17 +898,22 @@
         "from XML"
       ],
       "config" : {
-        "path" : "1",
-        "headers" : {
-          "Accept" : "application/xml"
+        "target" : {
+          "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
+          "path" : "1",
+          "headers" : {
+            "Accept" : "application/xml"
+          }
         },
-        "clientId" : "e00c9735-7733-4da8-85c8-6413c6fb2cd3",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "method" : "GET",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "resultType" : "com.axonivy.connectivity.Person",
-        "bodyInputType" : "RAW",
-        "responseCode" : "ivy.log.info(\"person from XML:\"+result);"
+        "body" : {
+          "type" : "RAW"
+        },
+        "response" : {
+          "entity" : {
+            "type" : "com.axonivy.connectivity.Person",
+            "code" : "ivy.log.info(\"person from XML:\"+result);"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 584, "y" : 888 }

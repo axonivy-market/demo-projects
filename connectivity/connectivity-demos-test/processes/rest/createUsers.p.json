@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "1675F33D16FB90A4",
   "config" : {
     "data" : "com.axonivy.connectivity.test.CreateUsersData"
@@ -9,18 +9,17 @@
       "type" : "RequestStart",
       "name" : "createTestUsers.ivp",
       "config" : {
-        "callSignature" : "createTestUsers",
+        "signature" : "createTestUsers",
         "input" : {
           "params" : [
-            { "name" : "amount", "type" : "String" },
-            { "name" : "prefix", "type" : "String" }
+            { "name" : "amount", "type" : "String", "desc" : "" },
+            { "name" : "prefix", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.amount" : "Integer.valueOf(param.amount)",
             "out.prefix" : "param.prefix"
           }
-        },
-        "outLink" : "createTestUsers.ivp"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }

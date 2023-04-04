@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "15A89963C015F70D",
   "config" : {
     "data" : "workflow.humantask.Data"
@@ -9,16 +9,17 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
+        "request" : {
+          "name" : "Approve Level 2",
+          "isVisibleOnStartList" : false
+        },
         "task" : {
           "name" : "Approve Level 2",
           "expiry" : {
             "timeout" : "new Duration(\"8h\")"
           }
-        },
-        "showInStartList" : false,
-        "outLink" : "start.ivp",
-        "startName" : "Approve Level 2"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

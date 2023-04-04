@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "15A5AC9A4F755A3B",
   "config" : {
     "data" : "workflow.humantask.Data"
@@ -9,10 +9,14 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
-        "case" : {
-          "name" : "Lending"
+        "signature" : "start",
+        "request" : {
+          "isVisibleOnStartList" : false
         },
+        "permission" : {
+          "anonymous" : false
+        },
+        "persistOnStart" : true,
         "task" : {
           "name" : "Collect Personal Data",
           "priority" : {
@@ -25,10 +29,9 @@
             }
           }
         },
-        "showInStartList" : false,
-        "outLink" : "start.ivp",
-        "persist" : true,
-        "wfuser" : "1"
+        "case" : {
+          "name" : "Lending"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

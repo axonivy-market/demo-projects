@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "169B3B7F5EF38D8F",
   "config" : {
     "data" : "com.axonivy.connectivity.Data"
@@ -9,13 +9,14 @@
       "type" : "RequestStart",
       "name" : "fileClient.ivp",
       "config" : {
-        "callSignature" : "fileClient",
-        "startCategory" : "rest/mapping/file",
-        "outLink" : "fileClient.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-upload" }
-        ],
-        "startName" : "6.4.0 Upload file UI"
+        "signature" : "fileClient",
+        "request" : {
+          "name" : "6.4.0 Upload file UI",
+          "category" : "rest/mapping/file",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-upload" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 120 },
@@ -56,19 +57,21 @@
       "type" : "RequestStart",
       "name" : "fileMultipart.ivp",
       "config" : {
-        "callSignature" : "fileMultipart",
-        "startCategory" : "rest/mapping/file",
-        "outLink" : "fileMultipart.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-upload" }
-        ],
+        "signature" : "fileMultipart",
         "input" : {
+          "map" : { },
           "code" : [
             "import com.axonivy.connectivity.rest.client.file.FileUpload;",
             "out.file = FileUpload.getIvyLogo();"
           ]
         },
-        "startName" : "6.4.1 Upload file multipart"
+        "request" : {
+          "name" : "6.4.1 Upload file multipart",
+          "category" : "rest/mapping/file",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-upload" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 320 },
@@ -91,31 +94,35 @@
         "(multi/part)"
       ],
       "config" : {
-        "bodyForm" : {
-          "file" : [
-            "in.file",
-            "com.axonivy.connectivity.rest.client.file.FileUpload.getIvyLogo()"
-          ],
-          "description" : "",
-          "ownerId" : ""
-        },
-        "path" : "/file",
-        "headers" : {
-          "Accept" : "*/*",
-          "X-Requested-By" : "\"ivy\""
-        },
-        "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "PUT",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyObjectType" : "ivy.local.client.Body3",
-        "bodyInputType" : "FORM",
-        "bodyMediaType" : "multipart/form-data",
-        "responseCode" : [
-          "String result = response.readEntity(String.class) as String;",
-          "ivy.log.info(result);",
-          "out.result = result;"
-        ]
+        "target" : {
+          "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
+          "path" : "/file",
+          "headers" : {
+            "X-Requested-By" : "\"ivy\""
+          }
+        },
+        "body" : {
+          "type" : "FORM",
+          "mediaType" : "multipart/form-data",
+          "form" : {
+            "file" : [ "in.file", "com.axonivy.connectivity.rest.client.file.FileUpload.getIvyLogo()" ],
+            "description" : [ "" ],
+            "ownerId" : [ "" ]
+          },
+          "entity" : {
+            "type" : "ivy.local.client.Body3"
+          }
+        },
+        "response" : {
+          "entity" : {
+            "code" : [
+              "String result = response.readEntity(String.class) as String;",
+              "ivy.log.info(result);",
+              "out.result = result;"
+            ]
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 320 }
@@ -128,19 +135,21 @@
       "type" : "RequestStart",
       "name" : "upAndDown.ivp",
       "config" : {
-        "callSignature" : "upAndDown",
-        "startCategory" : "rest/mapping/file",
-        "outLink" : "upAndDown.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-upload" }
-        ],
+        "signature" : "upAndDown",
         "input" : {
+          "map" : { },
           "code" : [
             "import com.axonivy.connectivity.rest.client.file.FileUpload;",
             "out.file = FileUpload.getIvyLogo();"
           ]
         },
-        "startName" : "6.4.2 Upload and Download file octet-stream"
+        "request" : {
+          "name" : "6.4.2 Upload and Download file octet-stream",
+          "category" : "rest/mapping/file",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-upload" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 224 },
@@ -157,21 +166,35 @@
         "(octet stream)"
       ],
       "config" : {
-        "headers" : {
-          "Accept" : "*/*",
-          "X-Requested-By" : "\"ivy\""
-        },
-        "bodyObjectMapping" : {
-          "param" : "in.file"
-        },
-        "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
         "method" : "POST",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyObjectType" : "java.io.File",
-        "bodyInputType" : "ENTITY",
-        "path" : "/file/{fileName}",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "clientCode" : [
+        "target" : {
+          "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
+          "path" : "/file/{fileName}",
+          "templateParams" : {
+            "fileName" : "in.file.getName()"
+          },
+          "headers" : {
+            "X-Requested-By" : "\"ivy\""
+          }
+        },
+        "body" : {
+          "mediaType" : "application/octet-stream",
+          "entity" : {
+            "type" : "java.io.File",
+            "map" : {
+              "param" : "in.file"
+            }
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "[B",
+            "map" : {
+              "out.result" : "response.getHeaderString(\"uploadedFile\")"
+            }
+          }
+        },
+        "code" : [
           "import javax.ws.rs.core.Response;",
           "import javax.ws.rs.core.MediaType;",
           "import javax.ws.rs.client.Entity;",
@@ -184,15 +207,7 @@
           "ivy.session.setAttribute(\"lastUpload\", uploaded);",
           "",
           "ivy.log.info(\"Result: \"+response.readEntity(String.class));"
-        ],
-        "responseMapping" : {
-          "out.result" : "response.getHeaderString(\"uploadedFile\")"
-        },
-        "templateParams" : {
-          "fileName" : "in.file.getName()"
-        },
-        "resultType" : "[B",
-        "bodyMediaType" : "application/octet-stream"
+        ]
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 224 },
@@ -215,15 +230,19 @@
         "(octet stream)"
       ],
       "config" : {
-        "path" : "/file/{fileName}",
-        "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "templateParams" : {
-          "fileName" : "in.result"
+        "target" : {
+          "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
+          "path" : "/file/{fileName}",
+          "templateParams" : {
+            "fileName" : "in.result"
+          }
         },
-        "resultType" : "java.io.File",
-        "responseCode" : "ivy.log.info(\"got file: \"+result);"
+        "response" : {
+          "entity" : {
+            "type" : "java.io.File",
+            "code" : "ivy.log.info(\"got file: \"+result);"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 384, "y" : 224 },
@@ -246,21 +265,26 @@
         "(multi/part)"
       ],
       "config" : {
-        "bodyForm" : {
-          "files" : "[in.file, com.axonivy.connectivity.rest.client.file.FileUpload.getIvyLogo()]",
-          "description" : "\"some logos\"",
-          "ownerId" : "-1"
-        },
-        "path" : "/file/multi",
-        "headers" : {
-          "Accept" : "*/*",
-          "X-Requested-By" : "\"ivy\""
-        },
-        "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
         "method" : "PUT",
-        "bodyObjectType" : "ivy.local.client.Body3",
-        "bodyInputType" : "FORM",
-        "bodyMediaType" : "multipart/form-data"
+        "target" : {
+          "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
+          "path" : "/file/multi",
+          "headers" : {
+            "X-Requested-By" : "\"ivy\""
+          }
+        },
+        "body" : {
+          "type" : "FORM",
+          "mediaType" : "multipart/form-data",
+          "form" : {
+            "files" : [ "[in.file, com.axonivy.connectivity.rest.client.file.FileUpload.getIvyLogo()]" ],
+            "description" : [ "\"some logos\"" ],
+            "ownerId" : [ "-1" ]
+          },
+          "entity" : {
+            "type" : "ivy.local.client.Body3"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 416 }
@@ -273,19 +297,21 @@
       "type" : "RequestStart",
       "name" : "multipleFiles.ivp",
       "config" : {
-        "callSignature" : "multipleFiles",
-        "startCategory" : "rest/mapping/file",
-        "outLink" : "multipleFiles.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-upload" }
-        ],
+        "signature" : "multipleFiles",
         "input" : {
+          "map" : { },
           "code" : [
             "import com.axonivy.connectivity.rest.client.file.FileUpload;",
             "out.file = FileUpload.getIvyLogo();"
           ]
         },
-        "startName" : "6.4.2 Upload many files at once"
+        "request" : {
+          "name" : "6.4.2 Upload many files at once",
+          "category" : "rest/mapping/file",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-upload" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 416 },

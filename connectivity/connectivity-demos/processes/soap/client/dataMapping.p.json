@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "1605A38503199ADB",
   "config" : {
     "data" : "com.axonivy.connectivity.soap.DataMappingData"
@@ -9,11 +9,12 @@
       "type" : "RequestStart",
       "name" : "resolveToCache.ivp",
       "config" : {
-        "callSignature" : "resolveToCache",
-        "startCategory" : "soap",
-        "outLink" : "resolveToCache.ivp",
-        "startDescription" : "Caches the result of a WebService invocation as the we do not expect the value to change.",
-        "startName" : "9.1.1 read remote result to cache"
+        "signature" : "resolveToCache",
+        "request" : {
+          "name" : "9.1.1 read remote result to cache",
+          "description" : "Caches the result of a WebService invocation as the we do not expect the value to change.",
+          "category" : "soap"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },
@@ -40,29 +41,26 @@
         "remote time"
       ],
       "config" : {
+        "clientId" : "162B97C859B22CA3",
+        "operation" : {
+          "name" : "GetCurrentTime",
+          "port" : "SampleWebServiceSoap12"
+        },
         "cache" : {
           "mode" : "CACHE",
-          "scope" : "APPLICATION",
           "group" : {
-            "name" : "\"remoteTime\"",
-            "invalidation" : "NONE",
-            "time" : ""
+            "name" : "\"remoteTime\""
           },
           "entry" : {
-            "name" : "\"local\"",
-            "invalidation" : "NONE",
-            "time" : ""
+            "name" : "\"local\""
           }
         },
-        "clientId" : "162B97C859B22CA3",
-        "port" : "SampleWebServiceSoap12",
         "output" : {
           "map" : {
             "out" : "in",
             "out.time" : "wsResponse"
           }
-        },
-        "operation" : "GetCurrentTime"
+        }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 64 }
@@ -90,13 +88,14 @@
       "type" : "RequestStart",
       "name" : "mapComplexData.ivp",
       "config" : {
-        "callSignature" : "mapComplexData",
-        "startCategory" : "soap",
-        "outLink" : "mapComplexData.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-object-group" }
-        ],
-        "startName" : "9.1.2 map complex data"
+        "signature" : "mapComplexData",
+        "request" : {
+          "name" : "9.1.2 map complex data",
+          "category" : "soap",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-object-group" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 152 },
@@ -118,10 +117,13 @@
       ],
       "config" : {
         "clientId" : "16150E44A158D09C",
-        "port" : "PersonServicePort",
-        "inputParams" : {
-          "parameters.person.firstname" : "\"Diana\"",
-          "parameters.person.lastname" : "\"Larsen\""
+        "operation" : {
+          "name" : "addPerson",
+          "port" : "PersonServicePort",
+          "parameters" : {
+            "parameters.person.firstname" : "\"Diana\"",
+            "parameters.person.lastname" : "\"Larsen\""
+          }
         },
         "output" : {
           "map" : {
@@ -129,9 +131,7 @@
             "out.person" : "wsResponse"
           },
           "code" : "// mapping is done in the attribute table: where 'wsReponse' is assigned to out.person!"
-        },
-        "operation" : "addPerson",
-        "timeout" : "0"
+        }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 152 },

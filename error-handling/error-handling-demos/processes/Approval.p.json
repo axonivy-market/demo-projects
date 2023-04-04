@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "14ED397D47F3083D",
   "config" : {
     "data" : "error.handling.demo.Approval"
@@ -9,11 +9,14 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
-        "responsible" : "Team",
-        "outLink" : "start.ivp",
-        "wfuser" : "1",
-        "startName" : "Business Error initiates an alternative flow"
+        "signature" : "start",
+        "request" : {
+          "name" : "Business Error initiates an alternative flow"
+        },
+        "permission" : {
+          "anonymous" : false,
+          "role" : "Team"
+        }
       },
       "tags" : [
         "demo"

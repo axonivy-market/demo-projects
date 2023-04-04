@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "15255056043EE914",
   "config" : {
     "data" : "workflow.agileBPM.Data"
@@ -471,31 +471,34 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
-        "responsible" : "Employee",
-        "startCategory" : "agile",
-        "case" : {
-          "category" : "AdHoc",
-          "attachToBusinessCase" : false,
+        "signature" : "start",
+        "request" : {
+          "name" : "1: <%=ivy.cms.co(\"/ProcessDescriptions/SelfServiceBPM\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/AdHocName\")%>)",
+          "description" : "<%=ivy.cms.co(\"/ProcessDescriptions/AdHocDescription\")%>",
+          "category" : "agile",
           "customFields" : [
-            { "name" : "ProcessCategoryCode", "type" : "String", "value" : "\"Self Service WF\"" },
-            { "name" : "ProcessCategoryName", "type" : "String", "value" : "\"Self Service WF\"" }
+            { "name" : "cssIcon", "value" : "fa fa-map-signs" }
           ]
         },
-        "startDescription" : "<%=ivy.cms.co(\"/ProcessDescriptions/AdHocDescription\")%>",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-map-signs" }
-        ],
+        "permission" : {
+          "anonymous" : false,
+          "role" : "Employee"
+        },
         "task" : {
           "name" : "Self Service Workflow",
           "category" : "Input/Adhoc",
           "customFields" : [
-            { "name" : "KindCode", "type" : "String", "value" : "\"CREATOR\"" }
+            { "name" : "KindCode", "type" : "STRING", "value" : "\"CREATOR\"" }
           ]
         },
-        "outLink" : "start.ivp",
-        "wfuser" : "1",
-        "startName" : "1: <%=ivy.cms.co(\"/ProcessDescriptions/SelfServiceBPM\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/AdHocName\")%>)"
+        "case" : {
+          "category" : "AdHoc",
+          "attachToBusinessCase" : false,
+          "customFields" : [
+            { "name" : "ProcessCategoryCode", "type" : "STRING", "value" : "\"Self Service WF\"" },
+            { "name" : "ProcessCategoryName", "type" : "STRING", "value" : "\"Self Service WF\"" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 192 },

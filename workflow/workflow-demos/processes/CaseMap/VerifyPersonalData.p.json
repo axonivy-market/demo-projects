@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "15A849250AA78F65",
   "config" : {
     "data" : "workflow.humantask.Data"
@@ -9,13 +9,14 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
+        "request" : {
+          "name" : "Verify Personal Data",
+          "isVisibleOnStartList" : false
+        },
         "task" : {
           "name" : "Verify Personal Data"
-        },
-        "showInStartList" : false,
-        "outLink" : "start.ivp",
-        "startName" : "Verify Personal Data"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

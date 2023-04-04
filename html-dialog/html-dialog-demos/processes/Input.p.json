@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "145D18298A3E81CF",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -33,14 +33,15 @@
       "type" : "RequestStart",
       "name" : "BeanValidationDemo.ivp",
       "config" : {
-        "callSignature" : "BeanValidationDemo",
-        "startCategory" : "input",
-        "outLink" : "BeanValidationDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-check" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Bean Validation Demo"
+        "signature" : "BeanValidationDemo",
+        "request" : {
+          "name" : "Bean Validation Demo",
+          "category" : "input",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-check" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 160 },
@@ -95,14 +96,15 @@
       "type" : "RequestStart",
       "name" : "MultiViewDemo.ivp",
       "config" : {
-        "callSignature" : "MultiViewDemo",
-        "startCategory" : "input",
-        "outLink" : "MultiViewDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-object-group" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Multi View Demo"
+        "signature" : "MultiViewDemo",
+        "request" : {
+          "name" : "Multi View Demo",
+          "category" : "input",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-object-group" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 448 },
@@ -128,14 +130,15 @@
       "type" : "RequestStart",
       "name" : "FileUploadAdvancedModeDemo.ivp",
       "config" : {
-        "callSignature" : "FileUploadAdvancedModeDemo",
-        "startCategory" : "input",
-        "outLink" : "FileUploadAdvancedModeDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-upload" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "File upload demo"
+        "signature" : "FileUploadAdvancedModeDemo",
+        "request" : {
+          "name" : "File upload demo",
+          "category" : "input",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-upload" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 352 },
@@ -149,14 +152,15 @@
       "type" : "RequestStart",
       "name" : "FormDemo.ivp",
       "config" : {
-        "callSignature" : "FormDemo",
-        "startCategory" : "input",
-        "outLink" : "FormDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-id-card-o" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "FormDemo"
+        "signature" : "FormDemo",
+        "request" : {
+          "name" : "FormDemo",
+          "category" : "input",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-id-card-o" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 64 },
@@ -194,14 +198,15 @@
       "type" : "RequestStart",
       "name" : "FileUploadSimpleModeDemo.ivp",
       "config" : {
-        "callSignature" : "FileUploadSimpleModeDemo",
-        "startCategory" : "input",
-        "outLink" : "FileUploadSimpleModeDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-upload" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "File upload demo"
+        "signature" : "FileUploadSimpleModeDemo",
+        "request" : {
+          "name" : "File upload demo",
+          "category" : "input",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-upload" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 256 },
@@ -233,14 +238,15 @@
       "type" : "RequestStart",
       "name" : "TextEditorDemo.ivp",
       "config" : {
-        "callSignature" : "TextEditorDemo",
-        "startCategory" : "input",
-        "outLink" : "TextEditorDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-bars" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Text Editor Demo"
+        "signature" : "TextEditorDemo",
+        "request" : {
+          "name" : "Text Editor Demo",
+          "category" : "input",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-bars" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 528 },

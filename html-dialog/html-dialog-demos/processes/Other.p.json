@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "145D1862CF17F2C9",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -33,14 +33,15 @@
       "type" : "RequestStart",
       "name" : "Html5BootstrapDemo.ivp",
       "config" : {
-        "callSignature" : "Html5BootstrapDemo",
-        "startCategory" : "other",
-        "outLink" : "Html5BootstrapDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-drivers-license-o" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Html 5 Bootstrap Demo"
+        "signature" : "Html5BootstrapDemo",
+        "request" : {
+          "name" : "Html 5 Bootstrap Demo",
+          "category" : "other",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-drivers-license-o" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 160 },
@@ -78,14 +79,15 @@
       "type" : "RequestStart",
       "name" : "Html5Demo.ivp",
       "config" : {
-        "callSignature" : "Html5Demo",
-        "startCategory" : "other",
-        "outLink" : "Html5Demo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-html5" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Html 5 Demo"
+        "signature" : "Html5Demo",
+        "request" : {
+          "name" : "Html 5 Demo",
+          "category" : "other",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-html5" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 64 },
@@ -99,14 +101,15 @@
       "type" : "RequestStart",
       "name" : "ManagedBeanDemo.ivp",
       "config" : {
-        "callSignature" : "ManagedBeanDemo",
-        "startCategory" : "other",
-        "outLink" : "ManagedBeanDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-code" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "ManagedBean Demo"
+        "signature" : "ManagedBeanDemo",
+        "request" : {
+          "name" : "ManagedBean Demo",
+          "category" : "other",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-code" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 352 },
@@ -156,14 +159,15 @@
       "type" : "RequestStart",
       "name" : "MethodCallWithAjaxDemo.ivp",
       "config" : {
-        "callSignature" : "MethodCallWithAjaxDemo",
-        "startCategory" : "other",
-        "outLink" : "MethodCallWithAjaxDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa  fa-spinner" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Method call with Ajax"
+        "signature" : "MethodCallWithAjaxDemo",
+        "request" : {
+          "name" : "Method call with Ajax",
+          "category" : "other",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa  fa-spinner" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 256 },
@@ -177,14 +181,15 @@
       "type" : "RequestStart",
       "name" : "ErrorHandlingDemo.ivp",
       "config" : {
-        "callSignature" : "ErrorHandlingDemo",
-        "startCategory" : "other",
-        "outLink" : "ErrorHandlingDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-exclamation-triangle" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "ErrorHandlingDemo"
+        "signature" : "ErrorHandlingDemo",
+        "request" : {
+          "name" : "ErrorHandlingDemo",
+          "category" : "other",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-exclamation-triangle" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 448 },
@@ -217,14 +222,15 @@
       "type" : "RequestStart",
       "name" : "ResponsiveGridDemo.ivp",
       "config" : {
-        "callSignature" : "ResponsiveGridDemo",
-        "startCategory" : "other",
-        "outLink" : "ResponsiveGridDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-th" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Responsive Grid Demo"
+        "signature" : "ResponsiveGridDemo",
+        "request" : {
+          "name" : "Responsive Grid Demo",
+          "category" : "other",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-th" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 544 },

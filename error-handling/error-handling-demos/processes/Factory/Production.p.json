@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "1500417E1DADBB7C",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -77,20 +77,22 @@
       ],
       "config" : {
         "clientId" : "16FEC3EAEC5333CC",
-        "port" : "NikeFactoryPort",
-        "inputParams" : {
-          "parameters.amount" : "200",
-          "parameters.model" : "\"Super Runners\""
+        "operation" : {
+          "name" : "produce",
+          "port" : "NikeFactoryPort",
+          "parameters" : {
+            "parameters.amount" : "200",
+            "parameters.model" : "\"Super Runners\""
+          }
+        },
+        "properties" : {
+          "timeout.timeInSeconds" : "1"
         },
         "output" : {
           "map" : {
             "out" : "in",
             "out.newShoes" : "wsResponse.shoes"
           }
-        },
-        "operation" : "produce",
-        "properties" : {
-          "timeout.timeInSeconds" : "1"
         }
       },
       "visual" : {

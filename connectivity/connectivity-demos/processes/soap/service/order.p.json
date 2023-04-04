@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "16249376A44F1F8E",
   "config" : {
     "data" : "com.axonivy.connectivity.soap.service.CreateOrderServiceData"
@@ -9,29 +9,32 @@
       "type" : "RequestStart",
       "name" : "approveOrder(Order,String)",
       "config" : {
-        "callSignature" : "approveOrder",
-        "responsible" : "Team",
+        "signature" : "approveOrder",
         "input" : {
           "params" : [
-            { "name" : "order", "type" : "com.axonivy.connectivity.soap.service.Order" },
-            { "name" : "responsibleRole", "type" : "String" }
+            { "name" : "order", "type" : "com.axonivy.connectivity.soap.service.Order", "desc" : "" },
+            { "name" : "responsibleRole", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.order" : "param.order"
           }
         },
-        "outLink" : "approveOrder.ivp",
+        "request" : {
+          "isHttpRequestable" : false,
+          "name" : "New Order",
+          "isVisibleOnStartList" : false
+        },
+        "permission" : {
+          "role" : "Team"
+        },
+        "triggerable" : true,
         "task" : {
           "name" : "Approve Order of <%=param.order.requester%>",
           "responsible" : {
             "type" : "ROLE_FROM_ATTRIBUTE",
             "activator" : "param.responsibleRole"
           }
-        },
-        "showInStartList" : false,
-        "triggerEnabled" : true,
-        "requestEnabled" : false,
-        "startName" : "New Order"
+        }
       },
       "visual" : {
         "at" : { "x" : 56, "y" : 64 },
