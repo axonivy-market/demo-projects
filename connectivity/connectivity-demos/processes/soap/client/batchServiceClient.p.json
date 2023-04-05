@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "161AE4E4EC67C8FD",
   "config" : {
     "data" : "com.axonivy.connectivity.soap.BatchServiceClientData"
@@ -12,21 +12,22 @@
         "BatchOperation.ivp"
       ],
       "config" : {
-        "callSignature" : "callLongRunningBatchOperation",
+        "signature" : "callLongRunningBatchOperation",
         "input" : {
           "params" : [
-            { "name" : "blockSeconds", "type" : "Integer" }
+            { "name" : "blockSeconds", "type" : "Integer", "desc" : "" }
           ],
           "map" : {
             "out.blockSeconds" : "param.blockSeconds"
           }
         },
-        "startCategory" : "soap",
-        "outLink" : "callLongRunningBatchOperation.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-clock-o" }
-        ],
-        "startName" : "9.3 Increase timeout properties for long running requests"
+        "request" : {
+          "name" : "9.3 Increase timeout properties for long running requests",
+          "category" : "soap",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-clock-o" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 112, "y" : 80 },
@@ -47,9 +48,16 @@
       "name" : "call batch",
       "config" : {
         "clientId" : "162B962523BAAB85",
-        "port" : "TechnicalBackendServicePort",
-        "inputParams" : {
-          "parameters.blockSeconds" : "in.blockSeconds"
+        "operation" : {
+          "name" : "longRunningBatchOperation",
+          "port" : "TechnicalBackendServicePort",
+          "parameters" : {
+            "parameters.blockSeconds" : "in.blockSeconds"
+          }
+        },
+        "properties" : {
+          "javax.xml.ws.client.connectionTimeout" : "1000",
+          "javax.xml.ws.client.receiveTimeout" : "70000"
         },
         "output" : {
           "map" : {
@@ -57,13 +65,7 @@
             "out.message" : "wsResponse"
           },
           "code" : "ivy.log.info(wsResponse);"
-        },
-        "operation" : "longRunningBatchOperation",
-        "properties" : {
-          "javax.xml.ws.client.connectionTimeout" : "1000",
-          "javax.xml.ws.client.receiveTimeout" : "70000"
-        },
-        "timeout" : "0"
+        }
       },
       "visual" : {
         "at" : { "x" : 304, "y" : 80 }

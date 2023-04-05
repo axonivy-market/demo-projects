@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "15A89953E2D3784F",
   "config" : {
     "data" : "workflow.humantask.Data"
@@ -9,16 +9,17 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
+        "request" : {
+          "name" : "Internal Solvency Check",
+          "isVisibleOnStartList" : false
+        },
         "task" : {
           "name" : "Internal Solvency Check",
           "expiry" : {
             "timeout" : "new Duration(\"20h\")"
           }
-        },
-        "showInStartList" : false,
-        "outLink" : "start.ivp",
-        "startName" : "Internal Solvency Check"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

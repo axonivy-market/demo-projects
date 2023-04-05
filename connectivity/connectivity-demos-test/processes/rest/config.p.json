@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "180D6E5562D69BF0",
   "config" : {
     "data" : "com.axonivy.connectivity.test.Data"
@@ -9,13 +9,13 @@
       "type" : "RequestStart",
       "name" : "configure.ivp",
       "config" : {
-        "callSignature" : "configure",
-        "outLink" : "configure.ivp",
+        "signature" : "configure",
         "input" : {
           "params" : [
-            { "name" : "key", "type" : "String" },
-            { "name" : "value", "type" : "String" }
+            { "name" : "key", "type" : "String", "desc" : "" },
+            { "name" : "value", "type" : "String", "desc" : "" }
           ],
+          "map" : { },
           "code" : [
             "import ch.ivyteam.ivy.application.config.Config;",
             "import ch.ivyteam.ivy.application.IApplication;",

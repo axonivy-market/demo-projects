@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "171535C55F24D530",
   "config" : {
     "data" : "com.axonivy.connectivity.test.CreateApprovalData"
@@ -9,8 +9,7 @@
       "type" : "RequestStart",
       "name" : "test.ivp",
       "config" : {
-        "callSignature" : "test",
-        "outLink" : "test.ivp"
+        "signature" : "test"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

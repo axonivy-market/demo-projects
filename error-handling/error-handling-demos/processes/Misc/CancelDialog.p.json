@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "1508AE543CAEEEC1",
   "config" : {
     "data" : "misc.CancelStartData"
@@ -9,9 +9,10 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
-        "outLink" : "start.ivp",
-        "startName" : "Cancel a dialog using an error boundary event"
+        "signature" : "start",
+        "request" : {
+          "name" : "Cancel a dialog using an error boundary event"
+        }
       },
       "visual" : {
         "at" : { "x" : 72, "y" : 160 },

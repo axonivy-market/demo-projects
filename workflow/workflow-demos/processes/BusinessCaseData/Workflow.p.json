@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "16EF567002B146F2",
   "config" : {
     "data" : "workflow.businesscasedata.Data"
@@ -22,16 +22,19 @@
       "type" : "RequestStart",
       "name" : "create.ivp",
       "config" : {
-        "callSignature" : "create",
-        "startCategory" : "business/data/case",
-        "outLink" : "create.ivp",
-        "startDescription" : "BusinessCaseData Worlflow Demo. Use BusinessCaseData in workflow with save and park task.",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-id-badge" }
-        ],
-        "persist" : true,
-        "wfuser" : "1",
-        "startName" : "6.1: Save BusinessCaseData When Park Task"
+        "signature" : "create",
+        "request" : {
+          "name" : "6.1: Save BusinessCaseData When Park Task",
+          "description" : "BusinessCaseData Worlflow Demo. Use BusinessCaseData in workflow with save and park task.",
+          "category" : "business/data/case",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-id-badge" }
+          ]
+        },
+        "permission" : {
+          "anonymous" : false
+        },
+        "persistOnStart" : true
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 96 },
@@ -80,14 +83,15 @@
       "type" : "RequestStart",
       "name" : "browse.ivp",
       "config" : {
-        "callSignature" : "browse",
-        "startCategory" : "business/data/case",
-        "outLink" : "browse.ivp",
-        "startDescription" : "BusinessCaseData Worlflow Demo. Browse Interviews created by BusinessCaseData/Workflow/create.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-newspaper-o" }
-        ],
-        "startName" : "6.2: Browse BusinessCaseData Created By 6.1"
+        "signature" : "browse",
+        "request" : {
+          "name" : "6.2: Browse BusinessCaseData Created By 6.1",
+          "description" : "BusinessCaseData Worlflow Demo. Browse Interviews created by BusinessCaseData/Workflow/create.ivp",
+          "category" : "business/data/case",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-newspaper-o" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 192 },

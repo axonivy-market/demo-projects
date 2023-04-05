@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "157B33AB7587F1F1",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.BatchServiceData"
@@ -9,13 +9,14 @@
       "type" : "RequestStart",
       "name" : "callLongRunningBatch.ivp",
       "config" : {
-        "callSignature" : "callLongRunningBatch",
-        "startCategory" : "rest/async",
-        "outLink" : "callLongRunningBatch.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-clock-o" }
-        ],
-        "startName" : "5. Increase timeout properties for long running requests"
+        "signature" : "callLongRunningBatch",
+        "request" : {
+          "name" : "5. Increase timeout properties for long running requests",
+          "category" : "rest/async",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-clock-o" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 64 }
@@ -54,10 +55,15 @@
       "type" : "RestClientCall",
       "name" : "call batch",
       "config" : {
-        "clientId" : "b0a5f371-e479-444d-b71c-af1fff4c084d",
-        "method" : "GET",
-        "resultType" : "java.lang.String",
-        "responseCode" : "ivy.log.info(\"batch service returned: \"+result);"
+        "target" : {
+          "clientId" : "b0a5f371-e479-444d-b71c-af1fff4c084d"
+        },
+        "response" : {
+          "entity" : {
+            "type" : "java.lang.String",
+            "code" : "ivy.log.info(\"batch service returned: \"+result);"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 256, "y" : 64 }

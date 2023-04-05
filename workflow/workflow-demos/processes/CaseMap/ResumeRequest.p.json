@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "015A8996ACC13882",
   "config" : {
     "data" : "workflow.humantask.Data"
@@ -9,12 +9,13 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
+        "request" : {
+          "isVisibleOnStartList" : false
+        },
         "task" : {
           "name" : "Resume Request"
-        },
-        "showInStartList" : false,
-        "outLink" : "start.ivp"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

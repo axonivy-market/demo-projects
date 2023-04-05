@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "15254CF1CE56AE72",
   "config" : {
     "data" : "workflow.trigger.NewEmployeeData"
@@ -9,22 +9,25 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
-        "responsible" : "HR Manager",
-        "startCategory" : "trigger",
-        "case" : {
-          "category" : "HR/Employee/Entry",
-          "attachToBusinessCase" : false
+        "signature" : "start",
+        "request" : {
+          "name" : "4: <%=ivy.cms.co(\"/ProcessDescriptions/newEmployee\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/triggerExample\")%>)",
+          "description" : "<%=ivy.cms.co(\"/ProcessDescriptions/triggerDescription\")%>",
+          "category" : "trigger",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-bolt" }
+          ]
         },
-        "startDescription" : "<%=ivy.cms.co(\"/ProcessDescriptions/triggerDescription\")%>",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-bolt" }
-        ],
+        "permission" : {
+          "role" : "HR Manager"
+        },
         "task" : {
           "category" : "Input/Employee"
         },
-        "outLink" : "start.ivp",
-        "startName" : "4: <%=ivy.cms.co(\"/ProcessDescriptions/newEmployee\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/triggerExample\")%>)"
+        "case" : {
+          "category" : "HR/Employee/Entry",
+          "attachToBusinessCase" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 88, "y" : 224 },

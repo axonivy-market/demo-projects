@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "15254CF47A16DEA1",
   "config" : {
     "data" : "workflow.trigger.NewEmployeeData"
@@ -9,30 +9,30 @@
       "type" : "RequestStart",
       "name" : "start(NewEmployeeData)",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "newEmployeeData", "type" : "workflow.trigger.NewEmployeeData" }
+            { "name" : "newEmployeeData", "type" : "workflow.trigger.NewEmployeeData", "desc" : "" }
           ],
           "map" : {
             "out" : "param.newEmployeeData"
           }
         },
-        "case" : {
-          "category" : "Facility/ParkingLot/Reservation",
-          "attachToBusinessCase" : false
+        "request" : {
+          "isHttpRequestable" : false
         },
+        "triggerable" : true,
         "task" : {
           "name" : "<%=ivy.cms.co(\"/TaskDescriptions/reserveParkingLotFor\")%> <%=param.newEmployeeData.name%>",
           "category" : "Assign/ParkingLot",
           "responsible" : {
-            "type" : "ROLE",
             "activator" : "Facility Manager"
           }
         },
-        "outLink" : "start.ivp",
-        "triggerEnabled" : true,
-        "requestEnabled" : false
+        "case" : {
+          "category" : "Facility/ParkingLot/Reservation",
+          "attachToBusinessCase" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 112, "y" : 264 },

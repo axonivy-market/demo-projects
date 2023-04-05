@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "155BB4328F79B2D5",
   "config" : {
     "data" : "workflow.businessdata.Data"
@@ -9,23 +9,24 @@
       "type" : "RequestStart",
       "name" : "create.ivp",
       "config" : {
-        "callSignature" : "create",
+        "signature" : "create",
         "input" : {
           "map" : {
             "out.id" : "\"\""
           }
         },
-        "startCategory" : "business/data",
-        "case" : {
-          "category" : "Dossier/Create",
-          "attachToBusinessCase" : false
+        "request" : {
+          "name" : "Create new Dossier",
+          "category" : "business/data",
+          "isVisibleOnStartList" : false
         },
-        "outLink" : "create.ivp",
         "task" : {
           "category" : "Input/Dossier"
         },
-        "showInStartList" : false,
-        "startName" : "Create new Dossier"
+        "case" : {
+          "category" : "Dossier/Create",
+          "attachToBusinessCase" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 256 }
@@ -63,29 +64,30 @@
       "type" : "RequestStart",
       "name" : "edit.ivp",
       "config" : {
-        "callSignature" : "edit",
+        "signature" : "edit",
         "input" : {
           "params" : [
-            { "name" : "id", "type" : "String" }
+            { "name" : "id", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.id" : "param.id"
           }
         },
-        "startCategory" : "business/data",
-        "case" : {
-          "category" : "Dossier/Edit",
-          "attachToBusinessCase" : false
+        "request" : {
+          "name" : "Edit Dossier",
+          "category" : "business/data",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-pencil-square-o" }
+          ],
+          "isVisibleOnStartList" : false
         },
-        "outLink" : "edit.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-pencil-square-o" }
-        ],
         "task" : {
           "category" : "Modification/Dossier"
         },
-        "showInStartList" : false,
-        "startName" : "Edit Dossier"
+        "case" : {
+          "category" : "Dossier/Edit",
+          "attachToBusinessCase" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 321 },
@@ -99,30 +101,31 @@
       "type" : "RequestStart",
       "name" : "browse.ivp",
       "config" : {
-        "callSignature" : "browse",
+        "signature" : "browse",
         "input" : {
           "params" : [
-            { "name" : "showAll", "type" : "Boolean" }
+            { "name" : "showAll", "type" : "Boolean", "desc" : "" }
           ],
           "map" : {
             "out.id" : "\"\"",
             "out.showAll" : "param.showAll"
           }
         },
-        "startCategory" : "business/data",
-        "case" : {
-          "category" : "Dossier/Browse",
-          "attachToBusinessCase" : false
+        "request" : {
+          "name" : "5.1: Browse Dossiers (Business Data)",
+          "description" : "Business Data Store Demo. Manage dossier objects in the Business Data Repository",
+          "category" : "business/data",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-th-list" }
+          ]
         },
-        "outLink" : "browse.ivp",
-        "startDescription" : "Business Data Store Demo. Manage dossier objects in the Business Data Repository",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-th-list" }
-        ],
         "task" : {
           "category" : "View/Dossier"
         },
-        "startName" : "5.1: Browse Dossiers (Business Data)"
+        "case" : {
+          "category" : "Dossier/Browse",
+          "attachToBusinessCase" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 97, "y" : 160 }
@@ -211,26 +214,27 @@
       "type" : "RequestStart",
       "name" : "delete.ivp",
       "config" : {
-        "callSignature" : "delete",
+        "signature" : "delete",
         "input" : {
           "params" : [
-            { "name" : "id", "type" : "String" }
+            { "name" : "id", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.id" : "param.id"
           }
         },
-        "startCategory" : "business/data",
-        "case" : {
-          "category" : "Dossier/Delete",
-          "attachToBusinessCase" : false
+        "request" : {
+          "name" : "Delete Dossier",
+          "category" : "business/data",
+          "isVisibleOnStartList" : false
         },
-        "outLink" : "delete.ivp",
         "task" : {
           "category" : "Deletion/Dossier"
         },
-        "showInStartList" : false,
-        "startName" : "Delete Dossier"
+        "case" : {
+          "category" : "Dossier/Delete",
+          "attachToBusinessCase" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 417 }
@@ -256,21 +260,22 @@
       "type" : "RequestStart",
       "name" : "browseLazy.ivp",
       "config" : {
-        "callSignature" : "browseLazy",
-        "startCategory" : "business/data",
-        "case" : {
-          "category" : "Dossier/Browse",
-          "attachToBusinessCase" : false
+        "signature" : "browseLazy",
+        "request" : {
+          "name" : "5.1: Browse Dossiers (Business Data)",
+          "description" : "Business Data Store Demo. Manage dossier objects in the Business Data Repository",
+          "category" : "business/data",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-list" }
+          ]
         },
-        "outLink" : "browseLazy.ivp",
-        "startDescription" : "Business Data Store Demo. Manage dossier objects in the Business Data Repository",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-list" }
-        ],
         "task" : {
           "category" : "View/Dossier"
         },
-        "startName" : "5.1: Browse Dossiers (Business Data)"
+        "case" : {
+          "category" : "Dossier/Browse",
+          "attachToBusinessCase" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 101, "y" : 512 }

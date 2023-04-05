@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "169B3B8EB21D10D8",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -91,12 +91,16 @@
         "with ivy Script"
       ],
       "config" : {
-        "path" : "file",
-        "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "JAX_RS",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "clientCode" : [
+        "target" : {
+          "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
+          "path" : "file"
+        },
+        "body" : {
+          "type" : "FORM",
+          "mediaType" : "multipart/form-data"
+        },
+        "code" : [
           "import com.axonivy.connectivity.rest.client.file.FileUpload;",
           "import org.eclipse.core.resources.IFile;",
           "import javax.ws.rs.client.Entity;",
@@ -120,9 +124,7 @@
           "",
           "in.downloadName = jaxrsresponse.getHeaderString(\"uploadedFile\");",
           "in.listFile.add(jaxrsresponse.getHeaderString(\"uploadedFile\"));"
-        ],
-        "bodyInputType" : "FORM",
-        "bodyMediaType" : "multipart/form-data"
+        ]
       },
       "visual" : {
         "at" : { "x" : 208, "y" : 128 },
@@ -147,12 +149,16 @@
         "with Java"
       ],
       "config" : {
-        "path" : "file",
-        "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "JAX_RS",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "clientCode" : [
+        "target" : {
+          "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
+          "path" : "file"
+        },
+        "body" : {
+          "type" : "FORM",
+          "mediaType" : "multipart/form-data"
+        },
+        "code" : [
           "import com.axonivy.connectivity.rest.client.file.FileUpload;",
           "import org.eclipse.core.resources.IFile;",
           "import javax.ws.rs.core.Response;",
@@ -162,9 +168,7 @@
           "Response response = FileUpload.upload(client, resource);",
           "in.downloadName = response.getHeaderString(\"uploadedFile\");",
           "in.listFile.add(in.downloadName);"
-        ],
-        "bodyInputType" : "FORM",
-        "bodyMediaType" : "multipart/form-data"
+        ]
       },
       "visual" : {
         "at" : { "x" : 208, "y" : 192 }
@@ -191,29 +195,32 @@
       "type" : "RestClientCall",
       "name" : "GET File",
       "config" : {
-        "path" : "/file/{fileName}",
-        "headers" : {
-          "Accept" : "application/octet-stream"
+        "target" : {
+          "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
+          "path" : "/file/{fileName}",
+          "templateParams" : {
+            "fileName" : "in.downloadName"
+          },
+          "headers" : {
+            "Accept" : "application/octet-stream"
+          }
         },
-        "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "method" : "GET",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "templateParams" : {
-          "fileName" : "in.downloadName"
-        },
-        "resultType" : "[B",
-        "responseCode" : [
-          "import ch.ivyteam.ivy.jsf.primefaces.stream.InputStreamSupplier;",
-          "import java.io.ByteArrayInputStream;",
-          "import org.primefaces.model.DefaultStreamedContent;",
-          "",
-          "out.fileDownload = DefaultStreamedContent.builder()",
-          "  .stream(InputStreamSupplier.stream(new ByteArrayInputStream(result)))",
-          "  .contentType(\"text/plain\")",
-          "  .name(in.downloadName)",
-          "  .build();"
-        ]
+        "response" : {
+          "entity" : {
+            "type" : "[B",
+            "code" : [
+              "import ch.ivyteam.ivy.jsf.primefaces.stream.InputStreamSupplier;",
+              "import java.io.ByteArrayInputStream;",
+              "import org.primefaces.model.DefaultStreamedContent;",
+              "",
+              "out.fileDownload = DefaultStreamedContent.builder()",
+              "  .stream(InputStreamSupplier.stream(new ByteArrayInputStream(result)))",
+              "  .contentType(\"text/plain\")",
+              "  .name(in.downloadName)",
+              "  .build();"
+            ]
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 208, "y" : 320 },

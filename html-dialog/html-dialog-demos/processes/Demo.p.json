@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "139D3A4CEEEDAA4B",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -9,14 +9,15 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
-        "startCategory" : "demo",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-desktop" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "outLink" : "start.ivp",
-        "startName" : "All HtmlDialog Demos"
+        "signature" : "start",
+        "request" : {
+          "name" : "All HtmlDialog Demos",
+          "category" : "demo",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-desktop" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "tags" : [
         "demo"

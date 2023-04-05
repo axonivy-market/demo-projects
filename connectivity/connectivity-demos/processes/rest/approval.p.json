@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "1549FE9E911A1812",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.Approval"
@@ -9,26 +9,26 @@
       "type" : "RequestStart",
       "name" : "approve(Approval)",
       "config" : {
-        "callSignature" : "approve",
+        "signature" : "approve",
         "input" : {
           "params" : [
-            { "name" : "approval", "type" : "com.axonivy.connectivity.rest.Approval" }
+            { "name" : "approval", "type" : "com.axonivy.connectivity.rest.Approval", "desc" : "" }
           ],
           "map" : {
             "out" : "param.approval"
           }
         },
-        "outLink" : "approve.ivp",
+        "request" : {
+          "isHttpRequestable" : false
+        },
+        "triggerable" : true,
         "task" : {
           "name" : "Approve request from <%=param.approval.requestedBy%>",
           "description" : "<%=param.approval.title%>",
           "responsible" : {
-            "type" : "ROLE",
             "activator" : "Boss"
           }
-        },
-        "triggerEnabled" : true,
-        "requestEnabled" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 224 },
@@ -63,13 +63,14 @@
         "viaREST.ivp"
       ],
       "config" : {
-        "callSignature" : "createApprovalViaREST",
-        "startCategory" : "rest/approval",
-        "outLink" : "createApprovalViaREST.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "si si-check-2" }
-        ],
-        "startName" : "3. Calls a BPM process from REST service"
+        "signature" : "createApprovalViaREST",
+        "request" : {
+          "name" : "3. Calls a BPM process from REST service",
+          "category" : "rest/approval",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "si si-check-2" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 128 },
@@ -124,24 +125,32 @@
         "create approval"
       ],
       "config" : {
-        "headers" : {
-          "Accept" : "application/json",
-          "X-Requested-By" : "\"ivy\""
-        },
-        "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
         "method" : "PUT",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyObjectType" : "ivy.local.client.Body1",
-        "bodyInputType" : "FORM",
-        "responseCode" : "ivy.log.info(result);",
-        "bodyForm" : {
-          "title" : "\"I need a new car\"",
-          "description" : "\"really, I'm sick of my old Fiat Punto\""
+        "target" : {
+          "clientId" : "4d9a8b09-9968-4476-a8ac-b71a94d25e94",
+          "path" : "/approve",
+          "headers" : {
+            "Accept" : "application/json",
+            "X-Requested-By" : "\"ivy\""
+          }
         },
-        "path" : "/approve",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
-        "bodyMediaType" : "application/x-www-form-urlencoded"
+        "body" : {
+          "type" : "FORM",
+          "mediaType" : "application/x-www-form-urlencoded",
+          "form" : {
+            "title" : [ "\"I need a new car\"" ],
+            "description" : [ "\"really, I'm sick of my old Fiat Punto\"" ]
+          },
+          "entity" : {
+            "type" : "ivy.local.client.Body1"
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "com.fasterxml.jackson.databind.JsonNode",
+            "code" : "ivy.log.info(result);"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 256, "y" : 128 },

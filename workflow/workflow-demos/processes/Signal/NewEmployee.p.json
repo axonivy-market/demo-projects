@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "151CA0D8CBDD2DEC",
   "config" : {
     "data" : "workflow.signal.CreateUserProcess"
@@ -315,27 +315,30 @@
       "type" : "RequestStart",
       "name" : "addUser.ivp",
       "config" : {
-        "callSignature" : "addUser",
-        "responsible" : "HR Manager",
+        "signature" : "addUser",
         "input" : {
           "map" : {
             "out.user.userKey" : "(new DateTime()).getMinutes().toString() + (new DateTime()).getSeconds().toString()"
           }
         },
-        "startCategory" : "signal",
-        "case" : {
-          "category" : "HR/Employee/Entry",
-          "attachToBusinessCase" : false
+        "request" : {
+          "name" : "3.1: <%=ivy.cms.co(\"/ProcessDescriptions/createUserProcess\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/signalExample\")%>)",
+          "description" : "<%=ivy.cms.co(\"/ProcessDescriptions/signalCreateUserDescription\")%>",
+          "category" : "signal",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-user-plus" }
+          ]
         },
-        "outLink" : "addUser.ivp",
-        "startDescription" : "<%=ivy.cms.co(\"/ProcessDescriptions/signalCreateUserDescription\")%>",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-user-plus" }
-        ],
+        "permission" : {
+          "role" : "HR Manager"
+        },
         "task" : {
           "category" : "Input/Employee"
         },
-        "startName" : "3.1: <%=ivy.cms.co(\"/ProcessDescriptions/createUserProcess\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/signalExample\")%>)"
+        "case" : {
+          "category" : "HR/Employee/Entry",
+          "attachToBusinessCase" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 96 },

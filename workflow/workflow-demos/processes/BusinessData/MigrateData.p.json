@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "15DC0CCB70274584",
   "config" : {
     "data" : "workflow.humantask.Data"
@@ -9,17 +9,18 @@
       "type" : "RequestStart",
       "name" : "migrate.ivp",
       "config" : {
-        "callSignature" : "migrate",
-        "startCategory" : "business/data",
-        "outLink" : "migrate.ivp",
-        "startDescription" : [
-          "Starts the migration of the internal Business Data JSON format. ",
-          "This is an administrative tasks, that should not be made accessible to worklow users."
-        ],
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-exchange" }
-        ],
-        "startName" : "5.3 Migrate BusinessData format"
+        "signature" : "migrate",
+        "request" : {
+          "name" : "5.3 Migrate BusinessData format",
+          "description" : [
+            "Starts the migration of the internal Business Data JSON format. ",
+            "This is an administrative tasks, that should not be made accessible to worklow users."
+          ],
+          "category" : "business/data",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-exchange" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }

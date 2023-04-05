@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "171E51B493DDB838",
   "config" : {
     "data" : "workflow.humantask.Data"
@@ -9,13 +9,14 @@
       "type" : "RequestStart",
       "name" : "createExpriyErrorTask.ivp",
       "config" : {
-        "callSignature" : "createExpriyErrorTask",
-        "startCategory" : "expiry",
-        "outLink" : "createExpriyErrorTask.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-calendar-times-o" }
-        ],
-        "startName" : "7.3 Create an exception task on expiry"
+        "signature" : "createExpriyErrorTask",
+        "request" : {
+          "name" : "7.3 Create an exception task on expiry",
+          "category" : "expiry",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-calendar-times-o" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 384 },
@@ -66,13 +67,14 @@
       "type" : "RequestStart",
       "name" : "createExpiryTaskOtherRole.ivp",
       "config" : {
-        "callSignature" : "createExpiryTaskOtherRole",
-        "startCategory" : "expiry",
-        "outLink" : "createExpiryTaskOtherRole.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-calendar" }
-        ],
-        "startName" : "7.2 Assign task to another role on expiry"
+        "signature" : "createExpiryTaskOtherRole",
+        "request" : {
+          "name" : "7.2 Assign task to another role on expiry",
+          "category" : "expiry",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-calendar" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 224 },
@@ -136,13 +138,14 @@
       "type" : "RequestStart",
       "name" : "createExpriyTaskHigherPrio.ivp",
       "config" : {
-        "callSignature" : "createExpriyTaskHigherPrio",
-        "startCategory" : "expiry",
-        "outLink" : "createExpriyTaskHigherPrio.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-clock-o" }
-        ],
-        "startName" : "7.1 Set higher task priority on expiry"
+        "signature" : "createExpriyTaskHigherPrio",
+        "request" : {
+          "name" : "7.1 Set higher task priority on expiry",
+          "category" : "expiry",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-clock-o" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

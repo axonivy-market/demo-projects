@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "15DEF1BE5B9E5A42",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.odata.OData"
@@ -9,13 +9,14 @@
       "type" : "RequestStart",
       "name" : "readCollection.ivp",
       "config" : {
-        "callSignature" : "readCollection",
-        "startCategory" : "rest/openapi/odata",
-        "outLink" : "readCollection.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-list" }
-        ],
-        "startName" : "7.1 OData read collection"
+        "signature" : "readCollection",
+        "request" : {
+          "name" : "7.1 OData read collection",
+          "category" : "rest/openapi/odata",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-list" }
+          ]
+        }
       },
       "docs" : {
         "odata" : "http://www.odata.org"
@@ -37,15 +38,19 @@
       "type" : "RestClientCall",
       "name" : "get persons",
       "config" : {
-        "path" : "/People",
-        "clientId" : "65f8e5a4-768d-4a68-813a-e6d569cda522",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.users" : "result.value"
+        "target" : {
+          "clientId" : "65f8e5a4-768d-4a68-813a-e6d569cda522",
+          "path" : "/People"
         },
-        "resultType" : "org.odata.trippin.client.CollectionOfPerson",
-        "responseCode" : "ivy.log.info(\"got \"+result.atOdataCount+\" users\");"
+        "response" : {
+          "entity" : {
+            "type" : "org.odata.trippin.client.CollectionOfPerson",
+            "map" : {
+              "out.users" : "result.value"
+            },
+            "code" : "ivy.log.info(\"got \"+result.atOdataCount+\" users\");"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 160 }
@@ -58,13 +63,14 @@
       "type" : "RequestStart",
       "name" : "readById.ivp",
       "config" : {
-        "callSignature" : "readById",
-        "startCategory" : "rest/openapi/odata",
-        "outLink" : "readById.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-id-badge" }
-        ],
-        "startName" : "7.2 OData read single object"
+        "signature" : "readById",
+        "request" : {
+          "name" : "7.2 OData read single object",
+          "category" : "rest/openapi/odata",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-id-badge" }
+          ]
+        }
       },
       "docs" : {
         "odata" : "http://www.odata.org"
@@ -86,18 +92,22 @@
       "type" : "RestClientCall",
       "name" : "get russel",
       "config" : {
-        "path" : "/People('{UserName}')",
-        "clientId" : "65f8e5a4-768d-4a68-813a-e6d569cda522",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.users" : "[result]"
+        "target" : {
+          "clientId" : "65f8e5a4-768d-4a68-813a-e6d569cda522",
+          "path" : "/People('{UserName}')",
+          "templateParams" : {
+            "UserName" : "\"russellwhyte\""
+          }
         },
-        "templateParams" : {
-          "UserName" : "\"russellwhyte\""
-        },
-        "resultType" : "org.odata.trippin.client.MicrosoftODataSampleServiceModelsTripPinPerson",
-        "responseCode" : "ivy.log.info(\"found \"+result);"
+        "response" : {
+          "entity" : {
+            "type" : "org.odata.trippin.client.MicrosoftODataSampleServiceModelsTripPinPerson",
+            "map" : {
+              "out.users" : "[result]"
+            },
+            "code" : "ivy.log.info(\"found \"+result);"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 256 }

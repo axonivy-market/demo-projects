@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "145D18869AFC8A9A",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -9,14 +9,15 @@
       "type" : "RequestStart",
       "name" : "primefaces.ivp",
       "config" : {
-        "callSignature" : "Primefaces",
-        "startCategory" : "primefaces",
-        "outLink" : "Primefaces.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-code" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Primefaces"
+        "signature" : "Primefaces",
+        "request" : {
+          "name" : "Primefaces",
+          "category" : "primefaces",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-code" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 64 },
@@ -57,14 +58,15 @@
       "type" : "RequestStart",
       "name" : "IconsShowcase.ivp",
       "config" : {
-        "callSignature" : "IconsShowcase",
-        "startCategory" : "primefaces",
-        "outLink" : "IconsShowcase.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-font-awesome" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Icons Showcase"
+        "signature" : "IconsShowcase",
+        "request" : {
+          "name" : "Icons Showcase",
+          "category" : "primefaces",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-font-awesome" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 160 },

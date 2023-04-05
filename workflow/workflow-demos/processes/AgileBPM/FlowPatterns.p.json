@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "152551002ABB8DFE",
   "config" : {
     "data" : "workflow.agileBPM.Data"
@@ -16,10 +16,11 @@
           "type" : "RequestStart",
           "name" : "",
           "config" : {
-            "callSignature" : "dummy",
-            "outLink" : "dummy.ivp",
-            "showInStartList" : false,
-            "requestEnabled" : false
+            "signature" : "dummy",
+            "request" : {
+              "isHttpRequestable" : false,
+              "isVisibleOnStartList" : false
+            }
           },
           "visual" : {
             "at" : { "x" : 32, "y" : 240 }
@@ -51,9 +52,10 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
-        "showInStartList" : false,
-        "outLink" : "start.ivp"
+        "signature" : "start",
+        "request" : {
+          "isVisibleOnStartList" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 208 },
@@ -163,10 +165,11 @@
       "type" : "RequestStart",
       "name" : "",
       "config" : {
-        "callSignature" : "start2",
-        "outLink" : "start2.ivp",
-        "showInStartList" : false,
-        "requestEnabled" : false
+        "signature" : "start2",
+        "request" : {
+          "isHttpRequestable" : false,
+          "isVisibleOnStartList" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 440 }
@@ -329,10 +332,11 @@
           "type" : "RequestStart",
           "name" : "",
           "config" : {
-            "callSignature" : "dummy2",
-            "outLink" : "dummy2.ivp",
-            "showInStartList" : false,
-            "requestEnabled" : false
+            "signature" : "dummy2",
+            "request" : {
+              "isHttpRequestable" : false,
+              "isVisibleOnStartList" : false
+            }
           },
           "visual" : {
             "at" : { "x" : 40, "y" : 288 }
@@ -398,10 +402,11 @@
       "type" : "RequestStart",
       "name" : "",
       "config" : {
-        "callSignature" : "start22",
-        "outLink" : "start22.ivp",
-        "showInStartList" : false,
-        "requestEnabled" : false
+        "signature" : "start22",
+        "request" : {
+          "isHttpRequestable" : false,
+          "isVisibleOnStartList" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 320 }

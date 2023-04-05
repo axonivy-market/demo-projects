@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "14ECFC90CDE278D0",
   "config" : {
     "data" : "error.handling.demo.Data"
@@ -9,9 +9,10 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
-        "outLink" : "start.ivp",
-        "startName" : "Due to a Business Error the process can not continue"
+        "signature" : "start",
+        "request" : {
+          "name" : "Due to a Business Error the process can not continue"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 128 }

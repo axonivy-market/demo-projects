@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "145D1849FACF0EAA",
   "config" : {
     "data" : "htmlDialogDemos.Data"
@@ -15,14 +15,15 @@
       "type" : "RequestStart",
       "name" : "PartialUpdateDemo.ivp",
       "config" : {
-        "callSignature" : "PartialUpdateDemo",
-        "startCategory" : "component",
-        "outLink" : "PartialUpdateDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-object-group" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Partial Update Demo"
+        "signature" : "PartialUpdateDemo",
+        "request" : {
+          "name" : "Partial Update Demo",
+          "category" : "component",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-object-group" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 448 },
@@ -42,14 +43,15 @@
       "type" : "RequestStart",
       "name" : "ComponentDemo.ivp",
       "config" : {
-        "callSignature" : "ComponentDemo",
-        "startCategory" : "component",
-        "outLink" : "ComponentDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-cube" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Component Demo"
+        "signature" : "ComponentDemo",
+        "request" : {
+          "name" : "Component Demo",
+          "category" : "component",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-cube" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 64 },
@@ -66,14 +68,15 @@
         "EventListenerDemo.ivp"
       ],
       "config" : {
-        "callSignature" : "ComponentEventListenerDemo",
-        "startCategory" : "component",
-        "outLink" : "ComponentEventListenerDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-bolt" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Component Callback Demo"
+        "signature" : "ComponentEventListenerDemo",
+        "request" : {
+          "name" : "Component Callback Demo",
+          "category" : "component",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-bolt" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 352 },
@@ -162,14 +165,15 @@
         "CustomizingDemo"
       ],
       "config" : {
-        "callSignature" : "ComponentCustomizingDemo",
-        "startCategory" : "component",
-        "outLink" : "ComponentCustomizingDemo.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-cubes" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Component Customizing Demo"
+        "signature" : "ComponentCustomizingDemo",
+        "request" : {
+          "name" : "Component Customizing Demo",
+          "category" : "component",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-cubes" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 160 },
@@ -189,14 +193,15 @@
       "type" : "RequestStart",
       "name" : "JsfCompositeComponent.ivp",
       "config" : {
-        "callSignature" : "JsfCompositeComponent",
-        "startCategory" : "component",
-        "outLink" : "JsfCompositeComponent.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-cube" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Jsf Composite Component Demo"
+        "signature" : "JsfCompositeComponent",
+        "request" : {
+          "name" : "Jsf Composite Component Demo",
+          "category" : "component",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-cube" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 256 },
@@ -210,14 +215,15 @@
       "type" : "RequestStart",
       "name" : "LazyLoadComponent.ivp",
       "config" : {
-        "callSignature" : "lazyLoadComponent",
-        "startCategory" : "component",
-        "outLink" : "lazyLoadComponent.ivp",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-spinner" },
-          { "name" : "embedInFrame", "value" : "false" }
-        ],
-        "startName" : "Lazy loaded UI parts"
+        "signature" : "lazyLoadComponent",
+        "request" : {
+          "name" : "Lazy loaded UI parts",
+          "category" : "component",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-spinner" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 544 }

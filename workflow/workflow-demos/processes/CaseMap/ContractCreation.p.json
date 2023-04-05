@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "15A89966729CE3FC",
   "config" : {
     "data" : "workflow.humantask.Data"
@@ -9,16 +9,17 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
+        "request" : {
+          "name" : "Create Contract",
+          "isVisibleOnStartList" : false
+        },
         "task" : {
           "name" : "Create Contract",
           "expiry" : {
             "timeout" : "new Duration(\"4h\")"
           }
-        },
-        "showInStartList" : false,
-        "outLink" : "start.ivp",
-        "startName" : "Create Contract"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

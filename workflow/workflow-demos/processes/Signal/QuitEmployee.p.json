@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "151CA1EFC1542D87",
   "config" : {
     "data" : "workflow.signal.QuitUserProcess"
@@ -9,22 +9,25 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
-        "responsible" : "HR Manager",
-        "startCategory" : "signal",
-        "case" : {
-          "category" : "HR/Employee/Leave",
-          "attachToBusinessCase" : false
+        "signature" : "start",
+        "request" : {
+          "name" : "3.2: <%=ivy.cms.co(\"/ProcessDescriptions/quitUserProcess\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/signalExample\")%>)",
+          "description" : "<%=ivy.cms.co(\"/ProcessDescriptions/SignalQuitUserDescription\")%>",
+          "category" : "signal",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-user-times" }
+          ]
         },
-        "startDescription" : "<%=ivy.cms.co(\"/ProcessDescriptions/SignalQuitUserDescription\")%>",
-        "startCustomFields" : [
-          { "name" : "cssIcon", "value" : "fa fa-user-times" }
-        ],
+        "permission" : {
+          "role" : "HR Manager"
+        },
         "task" : {
           "category" : "Leave/Employee"
         },
-        "outLink" : "start.ivp",
-        "startName" : "3.2: <%=ivy.cms.co(\"/ProcessDescriptions/quitUserProcess\")%> (<%=ivy.cms.co(\"/ProcessDescriptions/signalExample\")%>)"
+        "case" : {
+          "category" : "HR/Employee/Leave",
+          "attachToBusinessCase" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 224 },
