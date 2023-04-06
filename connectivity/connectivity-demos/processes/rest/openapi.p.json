@@ -27,7 +27,7 @@
         },
         "response" : {
           "entity" : {
-            "type" : "java.util.List",
+            "type" : "java.util.List<io.swagger.petstore3.client.Pet>",
             "map" : {
               "out.pets" : "result"
             },
@@ -207,7 +207,7 @@
         },
         "response" : {
           "entity" : {
-            "type" : "java.util.List",
+            "type" : "java.util.List<io.swagger.petstore3.client.Pet>",
             "map" : {
               "out.pets" : "result"
             }
