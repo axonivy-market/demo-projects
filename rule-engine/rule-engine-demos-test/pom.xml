@@ -8,7 +8,7 @@
 
   <properties>
     <project-build-plugin>11.1.0-SNAPSHOT</project-build-plugin>
-    <web.tester.version>10.0.0</web.tester.version>
+    <web.tester.version>11.1.0</web.tester.version>
   </properties>
 
   <pluginRepositories>
