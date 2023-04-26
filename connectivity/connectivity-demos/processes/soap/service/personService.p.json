@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
   "id" : "16150E1D07E8CA18",
   "kind" : "WEB_SERVICE",
   "config" : {
@@ -12,10 +12,10 @@
       "type" : "WebserviceStart",
       "name" : "getPersons()",
       "config" : {
-        "callSignature" : "getPersons",
+        "signature" : "getPersons",
         "result" : {
           "params" : [
-            { "name" : "persons", "type" : "java.util.List<com.axonivy.connectivity.Person>" }
+            { "name" : "persons", "type" : "java.util.List<com.axonivy.connectivity.Person>", "desc" : "" }
           ],
           "map" : {
             "result.persons" : "in.persons"
@@ -40,10 +40,10 @@
       "type" : "WebserviceStart",
       "name" : "addPerson(Person)",
       "config" : {
-        "callSignature" : "addPerson",
+        "signature" : "addPerson",
         "input" : {
           "params" : [
-            { "name" : "person", "type" : "com.axonivy.connectivity.Person" }
+            { "name" : "person", "type" : "com.axonivy.connectivity.Person", "desc" : "" }
           ],
           "map" : {
             "out.person" : "param.person"
@@ -51,7 +51,7 @@
         },
         "result" : {
           "params" : [
-            { "name" : "created", "type" : "com.axonivy.connectivity.Person" }
+            { "name" : "created", "type" : "com.axonivy.connectivity.Person", "desc" : "" }
           ],
           "map" : {
             "result.created" : "in.person"
@@ -70,10 +70,10 @@
       "type" : "WebserviceStart",
       "name" : "deletePerson(Person)",
       "config" : {
-        "callSignature" : "deletePerson",
+        "signature" : "deletePerson",
         "input" : {
           "params" : [
-            { "name" : "person", "type" : "com.axonivy.connectivity.Person" }
+            { "name" : "person", "type" : "com.axonivy.connectivity.Person", "desc" : "" }
           ],
           "map" : {
             "out.person" : "param.person"
@@ -81,7 +81,7 @@
         },
         "result" : {
           "params" : [
-            { "name" : "deleted", "type" : "com.axonivy.connectivity.Person" }
+            { "name" : "deleted", "type" : "com.axonivy.connectivity.Person", "desc" : "" }
           ],
           "map" : {
             "result.deleted" : "in.person"

@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
   "id" : "1508AEC47C4FFEA2",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -81,8 +81,8 @@
       "type" : "ErrorEnd",
       "name" : "start:cancelled",
       "config" : {
-        "error" : {
-          "code" : "start:cancelled"
+        "throws" : {
+          "error" : "start:cancelled"
         }
       },
       "visual" : {

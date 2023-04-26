@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
   "id" : "151CA0D8CBDD2DEC",
   "config" : {
     "data" : "workflow.signal.CreateUserProcess"
@@ -113,6 +113,7 @@
       "config" : {
         "signalCode" : "user:created",
         "output" : {
+          "map" : { },
           "code" : [
             "import workflow.signal.User;",
             "import com.google.gson.Gson;",
@@ -218,6 +219,7 @@
       "config" : {
         "signalCode" : "user:created",
         "output" : {
+          "map" : { },
           "code" : [
             "import workflow.signal.User;",
             "import com.google.gson.Gson;",

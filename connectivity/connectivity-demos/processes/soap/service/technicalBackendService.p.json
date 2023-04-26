@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
   "id" : "162B95BB70C3178E",
   "kind" : "WEB_SERVICE",
   "config" : {
@@ -38,10 +38,10 @@
       "type" : "WebserviceStart",
       "name" : "longRunningBatchOperation(Integer)",
       "config" : {
-        "callSignature" : "longRunningBatchOperation",
+        "signature" : "longRunningBatchOperation",
         "input" : {
           "params" : [
-            { "name" : "blockSeconds", "type" : "Integer" }
+            { "name" : "blockSeconds", "type" : "Integer", "desc" : "" }
           ],
           "map" : {
             "out.blockSeconds" : "param.blockSeconds",
@@ -56,7 +56,7 @@
         },
         "result" : {
           "params" : [
-            { "name" : "message", "type" : "String" }
+            { "name" : "message", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "result.message" : "\"batch processed in \"+(System.currentTimeMillis()-in.startTimeMillis)+ \" [ms]\""

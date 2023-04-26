@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
   "id" : "175F99FC96A78D96",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -44,7 +44,7 @@
       "impl" : "RuleActivity",
       "name" : "Apply Rules from DRL",
       "config" : {
-        "beanConfig" : "{\"namespace\":\"rule.engine.adjustable-drl\",\"dataObject\":\"in.ruleData\"}"
+        "userConfig" : "{\"namespace\":\"rule.engine.adjustable-drl\",\"dataObject\":\"in.ruleData\"}"
       },
       "visual" : {
         "at" : { "x" : 280, "y" : 384 },
