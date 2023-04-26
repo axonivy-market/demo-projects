@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
   "id" : "162492A1649E72DF",
   "kind" : "WEB_SERVICE",
   "config" : {
@@ -11,10 +11,10 @@
       "type" : "WebserviceStart",
       "name" : "call(Order)",
       "config" : {
-        "callSignature" : "call",
+        "signature" : "call",
         "input" : {
           "params" : [
-            { "name" : "order", "type" : "com.axonivy.connectivity.soap.service.Order" }
+            { "name" : "order", "type" : "com.axonivy.connectivity.soap.service.Order", "desc" : "" }
           ],
           "map" : {
             "out.order" : "param.order"
@@ -22,7 +22,7 @@
         },
         "result" : {
           "params" : [
-            { "name" : "task", "type" : "com.axonivy.connectivity.soap.service.Task" }
+            { "name" : "task", "type" : "com.axonivy.connectivity.soap.service.Task", "desc" : "" }
           ],
           "map" : {
             "result.task" : "in.task"

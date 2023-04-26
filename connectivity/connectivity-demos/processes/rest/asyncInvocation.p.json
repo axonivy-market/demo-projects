@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
   "id" : "16764B07C0329FC8",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.AsyncInvocationData"
@@ -193,8 +193,8 @@
       "type" : "ErrorEnd",
       "name" : "ivy:error:rest:client",
       "config" : {
-        "error" : {
-          "code" : "ivy:error:rest:client"
+        "throws" : {
+          "error" : "ivy:error:rest:client"
         }
       },
       "visual" : {

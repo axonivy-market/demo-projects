@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
   "id" : "150850F930AF7EA6",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -73,10 +73,10 @@
       "type" : "ErrorEnd",
       "name" : "approval:declined",
       "config" : {
-        "error" : {
-          "code" : "approval:declined"
+        "throws" : {
+          "error" : "approval:declined"
         },
-        "actionCode" : "error.setAttribute(\"declineReason\",in.declineReason);"
+        "code" : "error.setAttribute(\"declineReason\",in.declineReason);"
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 256 },

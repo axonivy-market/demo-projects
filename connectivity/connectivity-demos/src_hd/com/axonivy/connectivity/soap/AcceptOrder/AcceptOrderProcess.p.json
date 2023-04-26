@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
   "id" : "162494137FBEE605",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -59,8 +59,8 @@
       "type" : "ErrorEnd",
       "name" : "order:declined",
       "config" : {
-        "error" : {
-          "code" : "order:declined"
+        "throws" : {
+          "error" : "order:declined"
         }
       },
       "visual" : {

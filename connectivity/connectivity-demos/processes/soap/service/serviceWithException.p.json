@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
   "id" : "16D29AE50A7A6E34",
   "kind" : "WEB_SERVICE",
   "config" : {
@@ -11,28 +11,30 @@
       "type" : "WebserviceStart",
       "name" : "call(Boolean,String)",
       "config" : {
-        "callSignature" : "call",
+        "signature" : "call",
         "input" : {
           "params" : [
-            { "name" : "throwException", "type" : "Boolean" },
-            { "name" : "exceptionMessage", "type" : "String" }
+            { "name" : "throwException", "type" : "Boolean", "desc" : "" },
+            { "name" : "exceptionMessage", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.exceptionMessage" : "param.exceptionMessage",
             "out.throwException" : "param.throwException"
           }
         },
-        "useUserDefinedException" : "true",
-        "userDefinedExceptionCondition" : "in.throwException",
         "result" : {
           "params" : [
-            { "name" : "exceptionMessage", "type" : "String" }
+            { "name" : "exceptionMessage", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "result.exceptionMessage" : "in.exceptionMessage"
           }
         },
-        "userDefinedExceptionMessage" : "in.exceptionMessage"
+        "exception" : {
+          "enabled" : true,
+          "condition" : "in.throwException",
+          "message" : "in.exceptionMessage"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

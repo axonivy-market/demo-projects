@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
   "id" : "1500482C30B7492E",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -80,9 +80,9 @@
       "type" : "ErrorEnd",
       "name" : "booking:flight:failed",
       "config" : {
-        "error" : {
-          "expression" : "in.wsError",
-          "code" : "booking:flight:failed"
+        "throws" : {
+          "error" : "booking:flight:failed",
+          "cause" : "in.wsError"
         }
       },
       "visual" : {
