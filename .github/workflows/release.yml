@@ -39,7 +39,7 @@ jobs:
     - name: Build with Maven
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: mvn --batch-mode -Darguments="-Dmaven.test.skip=true -DaltDeploymentRepository=nexus.axonivy.com::https://nexus.axonivy.com/repository/maven-releases/" release:prepare release:perform
+      run: mvn --batch-mode -Darguments="-Dmaven.test.skip=true -DaltDeploymentRepository=nexus.axonivy.com::https://nexus.axonivy.com/repository/maven-releases/ -Divy.engine.download.url=https://dev.axonivy.com/permalink/nightly-11.1/axonivy-engine.zip" release:prepare release:perform
 
     - name: Create pull request
       uses: repo-sync/pull-request@v2
