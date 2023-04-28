@@ -11,7 +11,7 @@
   </organization>
 
   <properties>
-    <project-build-plugin>11.2.0-SNAPSHOT</project-build-plugin>
+    <project-build-plugin>11.1.0-SNAPSHOT</project-build-plugin>
   </properties>
 
   <build>
