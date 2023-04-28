@@ -27,4 +27,4 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: Build with Maven
-      run: mvn clean verify --batch-mode -Dmaven.test.skip=true -Divy.engine.version='[9.2.0,]' -Divy.engine.download.url=https://developer.axonivy.com/permalink/nightly/axonivy-engine.zip
+      run: mvn clean verify --batch-mode -Dmaven.test.skip=true -Divy.engine.version='[10.0.0,]' -Divy.engine.download.url=https://developer.axonivy.com/permalink/nightly/axonivy-engine.zip
