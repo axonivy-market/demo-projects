@@ -3,7 +3,7 @@
   
   <groupId>com.axonivy.demo</groupId>
   <artifactId>rule-engine-demos-test</artifactId>
-  <version>11.1.1</version>
+  <version>11.1.2-SNAPSHOT</version>
   <packaging>iar-integration-test</packaging>
 
   <properties>
