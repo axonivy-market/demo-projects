@@ -122,7 +122,7 @@
         },
         "response" : {
           "entity" : {
-            "type" : "java.util.List",
+            "type" : "java.util.List<com.axonivy.connectivity.Person>",
             "map" : {
               "out.persons" : "result"
             },
