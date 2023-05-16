@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.2.1/process.json",
   "id" : "1525503525CD0CCC",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -323,6 +323,12 @@
       "id" : "f22",
       "type" : "Alternative",
       "name" : "wf user ok?",
+      "config" : {
+        "conditions" : {
+          "f6" : "in.errormsg.length() == 0",
+          "f27" : ""
+        }
+      },
       "visual" : {
         "at" : { "x" : 288, "y" : 160 },
         "labelOffset" : { "x" : 12, "y" : 38 }
@@ -331,7 +337,7 @@
         { "id" : "f6", "to" : "f4", "label" : {
             "name" : "Yes",
             "offset" : { "x" : 0, "y" : 7 }
-          }, "condition" : "in.errormsg.length() == 0" },
+          } },
         { "id" : "f27", "to" : "f26", "via" : [ { "x" : 288, "y" : 112 } ], "label" : {
             "name" : "No",
             "segment" : 1.36,

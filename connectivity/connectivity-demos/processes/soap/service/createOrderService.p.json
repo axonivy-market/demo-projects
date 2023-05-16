@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.2.1/process.json",
   "id" : "162492A1649E72DF",
   "kind" : "WEB_SERVICE",
   "config" : {
@@ -79,6 +79,12 @@
       "id" : "f3",
       "type" : "Alternative",
       "name" : "price > 10k",
+      "config" : {
+        "conditions" : {
+          "f2" : "in.order.amount * in.order.unitPrice > 10000",
+          "f8" : ""
+        }
+      },
       "visual" : {
         "at" : { "x" : 176, "y" : 152 },
         "labelOffset" : { "x" : 64, "y" : 12 }
@@ -88,7 +94,7 @@
             "name" : "yes",
             "segment" : 1.19,
             "offset" : { "x" : 1, "y" : 9 }
-          }, "condition" : "in.order.amount * in.order.unitPrice > 10000" },
+          } },
         { "id" : "f8", "to" : "f6", "via" : [ { "x" : 176, "y" : 218 } ], "label" : {
             "name" : "no",
             "segment" : 1.21,

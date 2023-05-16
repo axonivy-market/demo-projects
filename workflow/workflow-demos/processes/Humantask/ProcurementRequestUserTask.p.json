@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.2.1/process.json",
   "id" : "15254DCE818AD7A2",
   "config" : {
     "data" : "workflow.humantask.ProcurementRequest"
@@ -166,6 +166,12 @@
       "id" : "f11",
       "type" : "Alternative",
       "name" : "Verified?",
+      "config" : {
+        "conditions" : {
+          "f8" : "in.dataOkManager",
+          "f13" : ""
+        }
+      },
       "visual" : {
         "at" : { "x" : 512, "y" : 320 },
         "labelOffset" : { "x" : 61, "y" : 13 }
@@ -175,7 +181,7 @@
             "name" : "Yes",
             "segment" : 0.85,
             "offset" : { "x" : 15, "y" : 0 }
-          }, "condition" : "in.dataOkManager", "var" : "in1" },
+          }, "var" : "in1" },
         { "id" : "f13", "to" : "f9", "via" : [ { "x" : 512, "y" : 192 } ], "label" : {
             "name" : "No",
             "segment" : 1.06,
