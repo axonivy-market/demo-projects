@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.2.1/process.json",
   "id" : "152551002ABB8DFE",
   "config" : {
     "data" : "workflow.agileBPM.Data"
@@ -462,12 +462,17 @@
       "id" : "f24",
       "type" : "Alternative",
       "name" : "Follow-up question?",
+      "config" : {
+        "conditions" : {
+          "f10" : "true"
+        }
+      },
       "visual" : {
         "at" : { "x" : 656, "y" : 440 },
         "labelOffset" : { "x" : 39, "y" : 37 }
       },
       "connect" : [
-        { "id" : "f10", "to" : "f8", "condition" : "true" },
+        { "id" : "f10", "to" : "f8" },
         { "id" : "f26", "to" : "U21", "via" : [ { "x" : 656, "y" : 376 }, { "x" : 376, "y" : 376 } ] }
       ]
     }, {

@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.2.1/process.json",
   "id" : "156DF5CB0BDE73A1",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -92,12 +92,17 @@
       "id" : "f10",
       "type" : "Alternative",
       "name" : "is up to date?",
+      "config" : {
+        "conditions" : {
+          "f9" : "ivy.repo.isUpToDate(in.address)"
+        }
+      },
       "visual" : {
         "at" : { "x" : 192, "y" : 160 },
         "labelOffset" : { "x" : 15, "y" : -15 }
       },
       "connect" : [
-        { "id" : "f9", "to" : "f8", "condition" : "ivy.repo.isUpToDate(in.address)" },
+        { "id" : "f9", "to" : "f8" },
         { "id" : "f14", "to" : "f13", "via" : [ { "x" : 192, "y" : 256 } ] }
       ]
     }, {
