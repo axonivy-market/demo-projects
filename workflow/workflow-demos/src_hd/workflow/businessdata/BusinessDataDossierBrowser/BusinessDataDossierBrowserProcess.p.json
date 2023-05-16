@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.2.1/process.json",
   "id" : "155BB5BDEDF19356",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -181,13 +181,20 @@
     }, {
       "id" : "f28",
       "type" : "Alternative",
+      "config" : {
+        "conditions" : {
+          "f12" : "in.searchType==\"FullText\"",
+          "f13" : "in.searchType==\"LastName\"",
+          "f17" : "in.searchType==\"BirthDate\""
+        }
+      },
       "visual" : {
         "at" : { "x" : 192, "y" : 160 }
       },
       "connect" : [
-        { "id" : "f12", "to" : "f11", "condition" : "in.searchType==\"FullText\"" },
-        { "id" : "f13", "to" : "f16", "via" : [ { "x" : 192, "y" : 224 } ], "condition" : "in.searchType==\"LastName\"" },
-        { "id" : "f17", "to" : "f22", "via" : [ { "x" : 192, "y" : 288 } ], "condition" : "in.searchType==\"BirthDate\"" },
+        { "id" : "f12", "to" : "f11" },
+        { "id" : "f13", "to" : "f16", "via" : [ { "x" : 192, "y" : 224 } ] },
+        { "id" : "f17", "to" : "f22", "via" : [ { "x" : 192, "y" : 288 } ] },
         { "id" : "f39", "to" : "f37", "via" : [ { "x" : 192, "y" : 360 } ] }
       ]
     }, {

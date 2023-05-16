@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.26/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.2.1/process.json",
   "id" : "13D0159BD5D40664",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -81,6 +81,11 @@
           "id" : "S10-f13",
           "type" : "Alternative",
           "name" : "Payment Kind?",
+          "config" : {
+            "conditions" : {
+              "S10-f15" : "in.paymentKind==\"Invoice\""
+            }
+          },
           "visual" : {
             "at" : { "x" : 256, "y" : 576 },
             "labelOffset" : { "x" : 77, "y" : 11 }
@@ -90,7 +95,7 @@
                 "name" : "Invoice",
                 "segment" : 1.26,
                 "offset" : { "x" : 0, "y" : -9 }
-              }, "condition" : "in.paymentKind==\"Invoice\"" },
+              } },
             { "id" : "S10-f16", "to" : "S10-f11", "via" : [ { "x" : 256, "y" : 496 } ], "label" : {
                 "name" : "Credit Card",
                 "segment" : 1.37,
@@ -118,6 +123,13 @@
           "id" : "S10-f5",
           "type" : "Alternative",
           "name" : "Current View?",
+          "config" : {
+            "conditions" : {
+              "S10-f14" : "in.currentView == \"MultiViewDemo\"",
+              "S10-f19" : "in.currentView == \"Invoice\"",
+              "S10-f25" : "in.currentView == \"CreditCard\""
+            }
+          },
           "visual" : {
             "at" : { "x" : 128, "y" : 352 },
             "labelOffset" : { "x" : 73, "y" : 12 }
@@ -126,17 +138,17 @@
             { "id" : "S10-f14", "to" : "S10-f13", "via" : [ { "x" : 128, "y" : 576 } ], "label" : {
                 "name" : "MultiViewDemo",
                 "segment" : 1.45
-              }, "condition" : "in.currentView == \"MultiViewDemo\"" },
+              } },
             { "id" : "S10-f19", "to" : "S10-f12", "via" : [ { "x" : 128, "y" : 80 } ], "label" : {
                 "name" : "Invoice",
                 "segment" : 1.31,
                 "offset" : { "x" : 0, "y" : -3 }
-              }, "condition" : "in.currentView == \"Invoice\"" },
+              } },
             { "id" : "S10-f25", "to" : "S10-f21", "via" : [ { "x" : 128, "y" : 176 } ], "label" : {
                 "name" : "Credit Card",
                 "segment" : 1.38,
                 "offset" : { "x" : 0, "y" : -3 }
-              }, "condition" : "in.currentView == \"CreditCard\"" },
+              } },
             { "id" : "S10-f26", "to" : "S10-f23", "via" : [ { "x" : 128, "y" : 272 } ], "label" : {
                 "name" : "Processing",
                 "segment" : 1.41,
