@@ -27,7 +27,7 @@ pipeline {
           try {
             sh "docker network create ${networkName}"
             docker.image("svenwal/jsonplaceholder:latest").withRun("--name jsonplaceholder --network ${networkName}") {
-              docker.image("selenium/standalone-firefox:4").withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network ${networkName}") {
+              docker.image("selenium/standalone-firefox:4.10").withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network ${networkName}") {
                 docker.build('maven-selenium').inside("--name ${ivyName} --network ${networkName}") {
                   def workspace = pwd()
                   def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
