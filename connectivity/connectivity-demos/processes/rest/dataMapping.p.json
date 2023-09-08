@@ -82,9 +82,9 @@
       "config" : {
         "output" : {
           "code" : [
-            "import org.apache.commons.lang3.RandomUtils;",
+            "import java.util.Random;",
             "",
-            "int no = RandomUtils.nextInt(0,100);",
+            "int no = new Random().nextInt(0,100);",
             "out.myPost.email = \"tester_\"+no+\"@ivy-community.com\";"
           ]
         }
@@ -107,9 +107,9 @@
             "out.myPost.name" : "\"Mr. Smith\""
           },
           "code" : [
-            "import org.apache.commons.lang3.RandomUtils;",
+            "import java.util.Random;",
             "",
-            "int no = RandomUtils.nextInt(0,100);",
+            "int no = new Random().nextInt(0,100);",
             "out.myPost.email = \"tester_\"+no+\"@ivy-community.com\";"
           ]
         }
@@ -277,9 +277,9 @@
             "out.myPost.name" : "\"Mr. Smith\""
           },
           "code" : [
-            "import org.apache.commons.lang3.RandomUtils;",
+            "import java.util.Random;",
             "",
-            "out.userId = RandomUtils.nextInt(1,10);"
+            "out.userId = new Random().nextInt(1,10);"
           ]
         }
       },
@@ -483,9 +483,9 @@
             "out.myPost.name" : "\"Mr. Smith\""
           },
           "code" : [
-            "import org.apache.commons.lang3.RandomUtils;",
+            "import java.util.Random;",
             "",
-            "int no = RandomUtils.nextInt(0,100);",
+            "int no = new Random().nextInt(0,100);",
             "out.myPost.email = \"tester_\"+no+\"@ivy-community.com\";"
           ]
         }
@@ -683,9 +683,9 @@
       "config" : {
         "output" : {
           "code" : [
-            "import org.apache.commons.lang3.RandomUtils;",
+          	"import java.util.Random;",
             "",
-            "out.userId = RandomUtils.nextInt(1,4);"
+            "out.userId = new Random().nextInt(1,4);"
           ]
         }
       },
