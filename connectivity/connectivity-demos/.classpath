@@ -5,7 +5,7 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-		<classpathentry kind="src" path="src_wsproc">
+	<classpathentry kind="src" path="src_wsproc">
 		<attributes>
 			<attribute name="optional" value="true"/>
 		</attributes>
@@ -48,5 +48,6 @@
 	<classpathentry exported="true" kind="lib" path="lib/generated/rest/jaxRsClient_ae69ba01-79b7-4dce-9049-900f8f420907.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/generated/rest/jaxRsClient_65f8e5a4-768d-4a68-813a-e6d569cda522.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/generated/rest/jaxRsClient_4d9a8b09-9968-4476-a8ac-b71a94d25e94.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_16330E44A158D09C.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
