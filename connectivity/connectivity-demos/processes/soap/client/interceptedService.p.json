@@ -34,6 +34,10 @@
     }, {
       "id" : "f2",
       "type" : "WebServiceCall",
+      "name" : [
+        "intercepted",
+        "backend"
+      ],
       "config" : {
         "clientId" : "16D2A643A3A25C52",
         "operation" : {
@@ -70,5 +74,44 @@
       "connect" : [
         { "id" : "f6", "to" : "f2" }
       ]
+    }, {
+      "id" : "f7",
+      "type" : "RequestStart",
+      "name" : "interceptingClient",
+      "config" : {
+        "signature" : "clientIntercept"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 280 }
+      },
+      "connect" : [
+        { "id" : "f9", "to" : "f8" }
+      ]
+    }, {
+      "id" : "f8",
+      "type" : "WebServiceCall",
+      "name" : [
+        "custom client",
+        "interceptor"
+      ],
+      "config" : {
+        "clientId" : "16330E44A158D09C",
+        "operation" : {
+          "name" : "getPersons",
+          "port" : "PersonServicePort"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 280 }
+      },
+      "connect" : [
+        { "id" : "f11", "to" : "f10" }
+      ]
+    }, {
+      "id" : "f10",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 280 }
+      }
     } ]
 }
