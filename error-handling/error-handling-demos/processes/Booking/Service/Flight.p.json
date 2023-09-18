@@ -23,11 +23,10 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 96, "y" : 64 },
-        "labelOffset" : { "x" : -40, "y" : 37 }
+        "at" : { "x" : 96, "y" : 64 }
       },
       "connect" : [
-        { "id" : "f4", "to" : "f3" }
+        { "id" : "f2", "to" : "f15" }
       ]
     }, {
       "id" : "f1",
@@ -35,26 +34,6 @@
       "visual" : {
         "at" : { "x" : 512, "y" : 64 }
       }
-    }, {
-      "id" : "f3",
-      "type" : "WebServiceCall",
-      "name" : "register customer",
-      "visual" : {
-        "at" : { "x" : 224, "y" : 64 }
-      },
-      "connect" : [
-        { "id" : "f6", "to" : "f5" }
-      ]
-    }, {
-      "id" : "f5",
-      "type" : "WebServiceCall",
-      "name" : "book flight",
-      "visual" : {
-        "at" : { "x" : 384, "y" : 64 }
-      },
-      "connect" : [
-        { "id" : "f2", "to" : "f1" }
-      ]
     }, {
       "id" : "f7",
       "type" : "ErrorStartEvent",
@@ -107,11 +86,10 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 96, "y" : 288 },
-        "labelOffset" : { "x" : -40, "y" : 37 }
+        "at" : { "x" : 96, "y" : 288 }
       },
       "connect" : [
-        { "id" : "f14", "to" : "f13" }
+        { "id" : "f6", "to" : "f5" }
       ]
     }, {
       "id" : "f11",
@@ -120,9 +98,50 @@
         "at" : { "x" : 512, "y" : 288 }
       }
     }, {
-      "id" : "f13",
-      "type" : "WebServiceCall",
+      "id" : "f15",
+      "type" : "Script",
+      "name" : "register customer",
+      "config" : {
+        "output" : {
+          "code" : "ivy.log.info(\"register customer\");"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f3", "to" : "f16" }
+      ]
+    }, {
+      "id" : "f16",
+      "type" : "Script",
+      "name" : "book flight",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import ch.ivyteam.ivy.bpm.error.BpmError;",
+            "",
+            "if (Math.random() > 0.5) {",
+            "  BpmError.create(\"ivy:error:webservice:exception\").throwError();",
+            "}"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 392, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f4", "to" : "f1" }
+      ]
+    }, {
+      "id" : "f5",
+      "type" : "Script",
       "name" : "cancel flight",
+      "config" : {
+        "output" : {
+          "code" : "ivy.log.info(\"Cancel flight\");"
+        }
+      },
       "visual" : {
         "at" : { "x" : 288, "y" : 288 }
       },

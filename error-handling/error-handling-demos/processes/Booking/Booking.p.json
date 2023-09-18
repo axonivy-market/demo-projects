@@ -73,8 +73,7 @@
             "errorCode" : "booking:flight:failed"
           },
           "visual" : {
-            "at" : { "x" : 352, "y" : 160 },
-            "labelOffset" : { "x" : 19, "y" : 0 }
+            "at" : { "x" : 352, "y" : 160 }
           },
           "connect" : [
             { "id" : "f10", "to" : "f9", "via" : [ { "x" : 352, "y" : 288 } ] }
@@ -101,8 +100,7 @@
             "errorCode" : "booking:car:failed"
           },
           "visual" : {
-            "at" : { "x" : 512, "y" : 160 },
-            "labelOffset" : { "x" : 18, "y" : 1 }
+            "at" : { "x" : 512, "y" : 160 }
           },
           "connect" : [
             { "id" : "f12", "to" : "f11" }
@@ -186,7 +184,7 @@
       },
       "visual" : {
         "at" : { "x" : 752, "y" : 128 },
-        "labelOffset" : { "x" : -18, "y" : 38 }
+        "labelOffset" : { "x" : 17, "y" : 41 }
       }
     } ],
   "layout" : {
