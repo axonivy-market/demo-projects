@@ -16,9 +16,8 @@ import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 import ch.ivyteam.ivy.environment.AppFixture;
 
-
-@IvyProcessTest
-public class TestDataMapping
+@IvyProcessTest(enableWebServer = true)
+class TestDataMapping
 {
   @SuppressWarnings("removal")
   @BeforeAll

@@ -12,9 +12,8 @@ import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 import ch.ivyteam.ivy.environment.AppFixture;
 
-
-@IvyProcessTest
-public class TestFileUpload
+@IvyProcessTest(enableWebServer = true)
+class TestFileUpload
 {
   @SuppressWarnings("removal")
   @BeforeAll

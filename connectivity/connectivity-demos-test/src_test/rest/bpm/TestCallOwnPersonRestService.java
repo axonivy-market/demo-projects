@@ -13,7 +13,7 @@ import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
 import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 
-@IvyProcessTest
+@IvyProcessTest(enableWebServer = true)
 public class TestCallOwnPersonRestService
 {
 
