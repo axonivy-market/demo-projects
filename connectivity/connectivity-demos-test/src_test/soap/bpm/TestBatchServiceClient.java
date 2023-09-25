@@ -9,7 +9,7 @@ import com.axonivy.connectivity.soap.BatchServiceClientData;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 
-@IvyProcessTest
+@IvyProcessTest(enableWebServer = true)
 public class TestBatchServiceClient
 {
   @Test

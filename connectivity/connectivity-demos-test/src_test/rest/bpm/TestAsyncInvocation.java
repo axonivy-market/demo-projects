@@ -12,7 +12,7 @@ import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.workflow.query.SignalEventQuery;
 
-@IvyProcessTest
+@IvyProcessTest(enableWebServer = true)
 public class TestAsyncInvocation
 {
 

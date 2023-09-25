@@ -16,7 +16,7 @@ import ch.ivyteam.ivy.environment.IvyTest;
  * This test tests the functionality of the {@link PersonClient} class.
  * As this class uses {@link Ivy#rest}, this test class have to be annotated with {@literal @IvyTest}.
  */
-@IvyTest
+@IvyTest(enableWebServer = true)
 public class TestPersonClient
 {
 
