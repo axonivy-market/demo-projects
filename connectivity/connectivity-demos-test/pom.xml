@@ -69,8 +69,8 @@
           <groupId>org.opensaml</groupId>
         </exclusion>
         <exclusion>
-        	<groupId>com.google.guava</groupId>
-        	<artifactId>guava</artifactId>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -80,10 +80,10 @@
       <version>11.1.0</version>
       <scope>test</scope>
       <exclusions>
-      	<exclusion>
-      		<groupId>com.google.guava</groupId>
-      		<artifactId>guava</artifactId>
-      	</exclusion>
+        <exclusion>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
