@@ -136,15 +136,6 @@
             </execution>
           </executions>
         </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <configuration>
-            <systemPropertyVariables>
-              <test.environment>dev-axonivy</test.environment>
-            </systemPropertyVariables>
-          </configuration>
-        </plugin>
       </plugins>
     </pluginManagement>
   </build>
