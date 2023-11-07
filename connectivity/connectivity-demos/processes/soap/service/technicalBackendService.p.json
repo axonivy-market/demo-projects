@@ -1,9 +1,10 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.1/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
   "id" : "162B95BB70C3178E",
   "kind" : "WEB_SERVICE",
   "config" : {
     "data" : "com.axonivy.connectivity.soap.service.TechnicalBackendServiceData",
+    "wsAuth" : "NONE",
     "wsTypeName" : "com.axonivy.connectivity.technicalBackendService"
   },
   "elements" : [ {
