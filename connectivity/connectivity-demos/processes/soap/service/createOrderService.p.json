@@ -4,7 +4,6 @@
   "kind" : "WEB_SERVICE",
   "config" : {
     "data" : "com.axonivy.connectivity.soap.service.CreateOrderServiceData",
-    "wsAuth" : "NONE",
     "wsTypeName" : "com.axonivy.connectivity.createOrder"
   },
   "elements" : [ {
