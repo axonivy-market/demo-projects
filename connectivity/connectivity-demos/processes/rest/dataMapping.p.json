@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.1/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
   "id" : "15A60076034F7437",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.DataMappingData"
@@ -683,7 +683,7 @@
       "config" : {
         "output" : {
           "code" : [
-          	"import java.util.Random;",
+            "import java.util.Random;",
             "",
             "out.userId = new Random().nextInt(1,4);"
           ]

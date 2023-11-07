@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.1/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
   "id" : "153E9EE0223D1DF9",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -152,7 +152,10 @@
       "impl" : "RuleActivity",
       "name" : "Apply Rules from DRL",
       "config" : {
-        "userConfig" : "{\"namespace\":\"rule.engine.drl\",\"dataObject\":\"in.member\"}"
+        "userConfig" : {
+          "namespace" : "rule.engine.drl",
+          "dataObject" : "in.member"
+        }
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 320 },
@@ -189,7 +192,10 @@
         "Decision Table (xls)"
       ],
       "config" : {
-        "userConfig" : "{\"namespace\":\"rule.engine.decisiontable\",\"dataObject\":\"in.member\"}"
+        "userConfig" : {
+          "namespace" : "rule.engine.decisiontable",
+          "dataObject" : "in.member"
+        }
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 192 },
