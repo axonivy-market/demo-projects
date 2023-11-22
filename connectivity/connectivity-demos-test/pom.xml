@@ -9,7 +9,7 @@
   <properties>
     <wss4j.version>2.4.3</wss4j.version>
     <jersey.version>2.41</jersey.version>
-    <project-build-plugin>11.2.1-SNAPSHOT</project-build-plugin>
+    <project-build-plugin>11.3.0-SNAPSHOT</project-build-plugin>
     <web.tester.version>11.2.1</web.tester.version>
   </properties>
 
