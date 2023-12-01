@@ -265,7 +265,6 @@
     }, {
       "id" : "f2",
       "type" : "DialogCall",
-      "name" : "TextEditorDemo",
       "config" : {
         "dialog" : "ch.ivyteam.htmldialog.demo.input.TextEditorDemo:start()"
       },
@@ -275,5 +274,44 @@
       "connect" : [
         { "id" : "f4", "to" : "f1" }
       ]
+    }, {
+      "id" : "f5",
+      "type" : "RequestStart",
+      "name" : "EnterMultipleRowsDemo.ivp",
+      "config" : {
+        "signature" : "EnterMultipleRowsDemo",
+        "request" : {
+          "name" : "Enter Multiple Rows Demo",
+          "category" : "input",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-list-alt" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 616 }
+      },
+      "connect" : [
+        { "id" : "f7", "to" : "f6" }
+      ]
+    }, {
+      "id" : "f6",
+      "type" : "DialogCall",
+      "config" : {
+        "dialog" : "ch.ivyteam.htmldialog.demo.input.EnterMulipleRowsDemo:start()"
+      },
+      "visual" : {
+        "at" : { "x" : 312, "y" : 616 }
+      },
+      "connect" : [
+        { "id" : "f9", "to" : "f8" }
+      ]
+    }, {
+      "id" : "f8",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 616 }
+      }
     } ]
 }

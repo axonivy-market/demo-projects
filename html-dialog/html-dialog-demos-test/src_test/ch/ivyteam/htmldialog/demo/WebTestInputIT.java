@@ -95,6 +95,15 @@ class WebTestInputIT
     $(By.id("form:update")).click();
   }
 
+  @Test
+  void enterMultipleRows()
+  {
+    startProcess("145D18298A3E81CF/EnterMultipleRowsDemo.ivp");
+    $(By.id("form:playerName")).shouldBe(visible).sendKeys("Hugo");
+    $(By.id("form:submit")).click();
+    $$(".ui-messages-error span").find(text("At least one score is required")).shouldBe(visible);
+  }
+  
   private void waitForSummary(String name, String firstName)
   {
     $(By.id("myForm:panel")).shouldHave(text("Payment - Summary"));
