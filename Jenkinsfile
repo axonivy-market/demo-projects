@@ -33,7 +33,7 @@ pipeline {
                   def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
                   maven cmd: "clean ${phase} -Dmaven.test.failure.ignore=true  " +
                             "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
-                            "-Divy.engine.version='[9.2.0,]' " +
+                            "-Divy.engine.version.latest.minor=true " +
                             "-Divy.engine.list.url=${params.engineListUrl} " +
                             "-DaltDeploymentRepository=nexus.axonivy.com::https://nexus.axonivy.com/repository/maven-snapshots/ " +
                             "-Dselenide.remote=http://${seleniumName}:4444/wd/hub " +
