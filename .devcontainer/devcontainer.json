@@ -6,6 +6,7 @@
       "IVY_ENGINE_DOWNLOAD_URL": "https://dev.axonivy.com/permalink/dev/axonivy-engine.zip"
     }
   },
+  "postStartCommand": "/usr/lib/axonivy-engine/bin/AxonIvyEngine",
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
       "version": "17",
@@ -16,7 +17,7 @@
     "vscode": {
       "extensions": ["axon-ivy.designer-11"],
       "settings": {
-        "engine.runByExtension": true,
+        "engine.runByExtension": false,
         "engine.directory": "/usr/lib/axonivy-engine"
       }
     }
