@@ -22,6 +22,7 @@ import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 
 import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.project.IIvyProject;
 
 /**
  * <p>
@@ -86,7 +87,7 @@ public class FileUpload
    */
   public static IFile getHdResource(String dialogId, String pathToFileInDialog) throws FileNotFoundException
   {
-    IProject eclipseProject = Ivy.request().getProject().getProject();
+    IProject eclipseProject = IIvyProject.of(Ivy.request().project()).getProject();
     String dialogPath = dialogId.replace(".", "/");
 
     IFolder dialogDir = eclipseProject.getFolder("src_hd").getFolder(dialogPath);
