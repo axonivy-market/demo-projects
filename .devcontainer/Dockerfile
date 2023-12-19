@@ -13,7 +13,6 @@ RUN apt-get update && \
     \
     mkdir ${IVY_HOME}/applications && \
     mkdir ${IVY_HOME}/configuration/applications && \
-    rm -r ${IVY_HOME}/system/demo-applications && \
     chown -R vscode:0 ${IVY_HOME} && \
     \
     chmod -R g=u ${IVY_HOME}
