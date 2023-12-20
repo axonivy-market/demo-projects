@@ -7,6 +7,7 @@
     }
   },
   "forwardPorts": [8080],
+  "postCreateCommand": "mvn package --batch-mode -Dmaven.test.skip=true -Divy.engine.directory=/usr/lib/axonivy-engine",
   "postStartCommand": "/usr/lib/axonivy-engine/bin/AxonIvyEngine",
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
