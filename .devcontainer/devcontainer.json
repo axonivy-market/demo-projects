@@ -7,7 +7,8 @@
     }
   },
   "forwardPorts": [8080],
-  "postCreateCommand": "mkdir -p logs && rm -f logs/maven-nohup.out && nohup bash -c 'mvn dependency:go-offline &'> logs/maven-nohup.out",
+  "containerEnv": { "JAVA_OPTS_IVY_SYSTEM": "-Ddev.mode=true -Divy.engine.testheadless=true" },
+  "postCreateCommand": "mkdir -p logs && rm -f logs/maven-nohup.out && nohup bash -c 'mvn --batch-mode dependency:go-offline &'> logs/maven-nohup.out",
   "postStartCommand": "mkdir -p logs && rm -f logs/eninge-nohup.out && nohup bash -c '/usr/lib/axonivy-engine/bin/AxonIvyEngine &'> logs/engine-nohup.out",
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
