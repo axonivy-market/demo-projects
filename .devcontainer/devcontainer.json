@@ -1,11 +1,6 @@
 {
   "name": "Axon Ivy Dev Container",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "args": {
-      "IVY_ENGINE_DOWNLOAD_URL": "https://dev.axonivy.com/permalink/dev/axonivy-engine-slim.zip"
-    }
-  },
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
   "forwardPorts": [8080],
   "containerEnv": { "JAVA_OPTS_IVY_SYSTEM": "-Ddev.mode=true -Divy.engine.testheadless=true" },
   "postStartCommand": "mkdir -p logs && rm -f logs/eninge-nohup.out && nohup bash -c '/usr/lib/axonivy-engine/bin/AxonIvyEngine &'> logs/engine-nohup.out",
@@ -14,7 +9,8 @@
       "version": "17",
       "installMaven": "true",
       "jdkDistro": "tem"
-    }
+    },
+    "ghcr.io/axonivy/devcontainer-features/engine:1": {}
   },
   "customizations": {
     "vscode": {
