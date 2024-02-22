@@ -1,3 +1,7 @@
+Categories:
+  notification:
+    cssIcon: si si-messages-bubble
+    name: 8. Notification
 Dialogs:
   agileBPM:
     define_WF:
@@ -107,15 +111,14 @@ Dialogs:
     selectParkingLot: Parkplatz auswählen
 Emails:
   accepted: akzeptiert
-  confirmParkingLot: "<H1>\r\nHallo <%=in.name%>\r\n</H1>\r\n<P>\r\nDer Parkplatz Nr. <%=in.selectedParkingLotNr%> wurde für Sie reserviert. \r\n</P>\r\n<P>\r\nWir wünschen Ihnen einen schönen Tag.\r\n</P>\r\n"
+  confirmParkingLot: "<H1>\nHallo <%=in.name%>\n</H1>\n<P>\nDer Parkplatz Nr. <%=in.selectedParkingLotNr%> wurde für Sie reserviert. \n</P>\n<P>\nWir wünschen Ihnen einen schönen Tag.\n</P>\n"
   declined: abgelehnt
   parkingLotReservationHeader: Ihr Parkplatz wurde reserviert
-  procurementRequestNotification: "<H1>\r\nHallo <%=in.requester.fullName%> \r\n</H1>\r\n<P>\r\nIhr Antrag wurde <%=(in.accepted ? \"angenommen\" : \"abgelehnt\")%>: \r\n</P>\r\n<P>\r\n<%=in.amount%> Stück '<%=in.description%>' zum Gesamtpreis von <%=in.totalPrice%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/currencySymbol\"\
-    )%> \r\n</P>\r\n<P>\r\nFreundliche Grüsse \r\n</P>\r\n"
+  procurementRequestNotification: "<H1>\nHallo <%=in.requester.fullName%> \n</H1>\n<P>\nIhr Antrag wurde <%=(in.accepted ? \"angenommen\" : \"abgelehnt\")%>: \n</P>\n<P>\n<%=in.amount%> Stück '<%=in.description%>' zum Gesamtpreis von <%=in.totalPrice%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/currencySymbol\"\
+    )%> \n</P>\n<P>\nFreundliche Grüsse \n</P>\n"
   senderMail: noreply@axonivy.com
   welcomeHeader: Willkommen
-  welcomeMail: "<H1>\r\nHallo <%=in.name%> \r\n</H1>\r\n<P>\r\nWillkommen in unserem Unternehmen. Wir freuen uns, Sie bei uns begrüssen zu dürfen! \r\n</P>\r\n<P>\r\nWenn Sie Fragen haben, wenden Sie sich bitte an Ihren Teamleiter oder an Ihren HR Manager. \r\n</P>\r\n<P>\r\nWir wünschen Ihnen einen schö\
-    nen Tag! \r\n</P>\r\n"
+  welcomeMail: "<H1>\nHallo <%=in.name%> \n</H1>\n<P>\nWillkommen in unserem Unternehmen. Wir freuen uns, Sie bei uns begrüssen zu dürfen! \n</P>\n<P>\nWenn Sie Fragen haben, wenden Sie sich bitte an Ihren Teamleiter oder an Ihren HR Manager. \n</P>\n<P>\nWir wünschen Ihnen einen schönen Tag! \n</P>\n"
   yourRequestHasBeen: 'Ihre Anfrage wurde '
 Labels:
   AdhocWorkflow: Beschreiben Sie Ihren Workflow
@@ -125,6 +128,19 @@ Labels:
   InsertTheTask: Aufgabe einfügen
   TaskUser-Explain: Komma getrennte Liste von Benutzern
   title: Self Service Ad-Hoc Workflow
+Notification:
+  Messages:
+    InvoiceSent: Die Rechnung für die Bestellung {0} wurde versendet
+    OrderDelivered: Bestellung {0} wurde an Kunde {1} {2} ausgeliefert
+    OrderFinished: Die Bestellung {0} wurde erfolgreich abgeschlossen
+  business:
+    Templates:
+      Order:
+        Labels:
+          Customer: Kunde
+          Greeting: 'Hallo '
+          Message: Meldung
+          Title: Bestellungsinformation
 TaskDescriptions:
   DeliverKeyCardDesc: Bitte liefern Sie die Schlüsselkarte aus für
   acceptRequest: Antrag annehmen
@@ -138,8 +154,11 @@ TaskDescriptions:
   verifyRequest: Prüfe Antrag
 Texts:
   Adhoc-Explain: '<P>  <B>Geben Sie Ihren Kommentar ein </B>und drücken Sie <B>Senden</B> um weiterzufahren.  </P>  '
-  AdhocWF-Explain: "<P>\r\nDefinieren und starten Sie einen Workflow auf Knopfdruck. \r\n</P>\r\n"
-  Approval-Explain: "<P>\r\n<B>Treffen Sie Ihre Entscheidung</B> und klicken Sie auf <B>Senden </B>um weiterzufahren. \r\n</P>\r\n"
-  QA-Explain: "<P>\r\nBeantworten Sie die Frage und <B>Senden </B>Sie Ihre Antwort an den Fragesteller zurück.\r\n</P>\r\n"
+  AdhocWF-Explain: "<P>\nDefinieren und starten Sie einen Workflow auf Knopfdruck. \n</P>\n"
+  Approval-Explain: "<P>\n<B>Treffen Sie Ihre Entscheidung</B> und klicken Sie auf <B>Senden </B>um weiterzufahren. \n</P>\n"
+  QA-Explain: |
+    <P>
+    Beantworten Sie die Frage und <B>Senden </B>Sie Ihre Antwort an den Fragesteller zurück.
+    </P>
   QAresponse-Explain: '<P>  Sie können eine Anschlussfrage <B>Zurücksenden</B> oder den Workflow <B>Beenden</B>.</P>  '
   ToDo-Explain: '<P>  Bestätigen Sie, dass das <B> TODO Erledigt</B> wurde oder lehnen Sie es ab.</P>  '

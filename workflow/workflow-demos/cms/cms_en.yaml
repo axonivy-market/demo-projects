@@ -20,6 +20,9 @@ Categories:
     cssIcon: si si-multiple-neutral-1
     name: 2. Human Tasks
     tooltip: How to integrate humans into workflows
+  notification:
+    cssIcon: si si-messages-bubble
+    name: 8. Notification
   signal:
     cssIcon: si si-network-signal
     name: 3. Signals
@@ -138,14 +141,46 @@ Dialogs:
     selectParkingLot: Select parking lot
 Emails:
   accepted: accepted
-  confirmParkingLot: "<H1>\r\nHello <%=in.name%>\r\n</H1>\r\n<P>\r\nWe reserved the parking lot nr. <%=in.selectedParkingLotNr%> for you.\r\n</P>\r\n<P>\r\nHave a nice day.\r\n</P>\r\n"
+  confirmParkingLot: |
+    <H1>
+    Hello <%=in.name%>
+    </H1>
+    <P>
+    We reserved the parking lot nr. <%=in.selectedParkingLotNr%> for you.
+    </P>
+    <P>
+    Have a nice day.
+    </P>
   declined: declined
   parkingLotReservationHeader: Your parking lot has been reserved
-  procurementRequestNotification: "<H1>\r\nHello <%=in.requester.fullName%>\r\n</H1>\r\n<P>\r\nYour request has been <%=(in.accepted ? \"accepted\" : \"declined\")%>:\r\n</P>\r\n<P>\r\n<%=in.amount%> pieces of '<%=in.description%>' for a total of <%=in.totalPrice%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/currencySymbol\"\
-    )%>\r\n</P>\r\n<P>\r\nKind regards\r\n</P>\r\n"
+  procurementRequestNotification: |
+    <H1>
+    Hello <%=in.requester.fullName%>
+    </H1>
+    <P>
+    Your request has been <%=(in.accepted ? "accepted" : "declined")%>:
+    </P>
+    <P>
+    <%=in.amount%> pieces of '<%=in.description%>' for a total of <%=in.totalPrice%> <%=ivy.cms.co("/Dialogs/procurementRequest/currencySymbol")%>
+    </P>
+    <P>
+    Kind regards
+    </P>
   senderMail: noreply@axonivy.com
   welcomeHeader: Welcome
-  welcomeMail: "<H1>\r\nHello <%=in.name%>\r\n</H1>\r\n<P>\r\nWelcome at our company. It is a great pleasure to have you here!\r\n</P>\r\n<P>\r\nIf you have any question, please don't hesitate to contact your teamleader or your HR Manager.\r\n</P>\r\n<P>\r\nHave a nice day!\r\n</P>\r\n"
+  welcomeMail: |
+    <H1>
+    Hello <%=in.name%>
+    </H1>
+    <P>
+    Welcome at our company. It is a great pleasure to have you here!
+    </P>
+    <P>
+    If you have any question, please don't hesitate to contact your teamleader or your HR Manager.
+    </P>
+    <P>
+    Have a nice day!
+    </P>
   yourRequestHasBeen: Your request has been
 Labels:
   AdhocWorkflow: Describe your Workflow
@@ -155,6 +190,23 @@ Labels:
   InsertTheTask: Insert the task
   TaskUser-Explain: Comma separated list of users
   title: Self Service Ad-hoc Workflow
+Notification:
+  Messages:
+    InvoiceSent: The invoice for order {0} was sent
+    OrderDelivered: Order {0} delivered to customer {1} {2}
+    OrderFinished: The order {0} successfully finished
+  business:
+    Templates:
+      Order:
+        Labels:
+          Customer: Customer
+          Greeting: Hello
+          Message: Message
+          Title: Order Information
+        web:
+          Subject: |-
+            <%= ivy.html.escape(message) %><br>
+            <%= ivy.cm.co("/Notification/business/Templates/Order/Labels/Customer") %> <i style="color:red;"><%= ivy.html.escape(payload.get("surname")) %> <%= ivy.html.escape(payload.get("name")) %> </i>
 ProcessDescriptions:
   AdHocDescription: 'Self Service Process: Launch an ad-hoc Workflow based on a predefined flow pattern.'
   AdHocName: Ad-hoc Process
@@ -194,9 +246,21 @@ TaskDescriptions:
   setupWorkstationDesc: 'Please set up the workstation for '
   verifyRequest: Verify Request
 Texts:
-  Adhoc-Explain: "<P>\r\n<B>Enter your comment </B>and press <B>Send</B> to proceed the workflow.\r\n</P>\r\n"
-  AdhocWF-Explain: "<P>\r\nDefine and launch a Workflow at your fingertip: Select a flow pattern, add some tasks and start the Workflow. \r\n</P>\r\n<P>\r\n\r\n</P>\r\n"
-  Approval-Explain: "<P>\r\n<B>Enter your decision</B> and press <B>Send </B>to proceed the workflow.\r\n</P>\r\n"
-  QA-Explain: "<P>\r\nAnswer the question and <B>Send </B>your answer back to the caller. \r\n</P>\r\n"
-  QAresponse-Explain: "<P>\r\nYou can <B>Send</B> back a follow-up question or <B>Finish</B> the Workflow.\r\n</P>\r\n"
-  ToDo-Explain: "<P>\r\nConfirm that the<B> TODO </B>is <B>Done</B> or decline it.\r\n</P>\r\n"
+  Adhoc-Explain: |
+    <P>
+    <B>Enter your comment </B>and press <B>Send</B> to proceed the workflow.
+    </P>
+  AdhocWF-Explain: "<P>\nDefine and launch a Workflow at your fingertip: Select a flow pattern, add some tasks and start the Workflow. \n</P>\n<P>\n\n</P>\n"
+  Approval-Explain: |
+    <P>
+    <B>Enter your decision</B> and press <B>Send </B>to proceed the workflow.
+    </P>
+  QA-Explain: "<P>\nAnswer the question and <B>Send </B>your answer back to the caller. \n</P>\n"
+  QAresponse-Explain: |
+    <P>
+    You can <B>Send</B> back a follow-up question or <B>Finish</B> the Workflow.
+    </P>
+  ToDo-Explain: |
+    <P>
+    Confirm that the<B> TODO </B>is <B>Done</B> or decline it.
+    </P>

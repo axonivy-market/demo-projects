@@ -17,6 +17,7 @@
         <role>IT Manager</role>
         <role>Office Manager</role>
         <role>Executive Manager</role>
+        <role>Processor</role>
     </user>
     <user>
         <username>wt</username>
@@ -41,6 +42,7 @@
         <fullName>James Bond</fullName>
         <emailAddress>james.bond@axonivy.com</emailAddress>
         <role>Office Manager</role>
+        <role>Deliverer</role>
     </user>
     <user>
         <username>hf</username>
@@ -53,5 +55,6 @@
         <fullName>Benjamin Franklin</fullName>
         <emailAddress>benjamin.franklin@axonivy.com</emailAddress>
         <role>Executive Manager</role>
+        <role>Finance</role>
     </user>
 </userConfig>

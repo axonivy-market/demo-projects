@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <img class="logo" src="<%= ivy.branding.ref("logo_mail") %>"/>
+    <h1><%= ivy.cm.co("/Notification/business/Templates/Order/Labels/Title") %></h1>
+    <p><%= ivy.cm.co("/Notification/business/Templates/Order/Labels/Greeting") %> <%= ivy.session.getSessionUser().getFullName() %></p>
+    <table>
+      <tr>
+        <th><%= ivy.cm.co("/Notification/business/Templates/Order/Labels/Message") %><th>
+        <td><%= ivy.html.escape(message) %></td>
+      </tr>
+      <tr>
+        <th><%= ivy.cm.co("/Notification/business/Templates/Order/Labels/Customer") %></th>
+        <td><i style="color: red;"> <%= ivy.html.escape(payload.get("surname")) %> <%= ivy.html.escape(payload.get("name")) %> </i></td>
+      </tr>
+    </table> 
+  </body>
+</html>
