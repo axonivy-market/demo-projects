@@ -1,0 +1,6 @@
+ProcessOrderData #class
+workflow.order.ProcessOrder #namespace
+customer workflow.order.Person #field
+customer PERSISTENT #fieldModifier
+order workflow.order.Order #field
+order PERSISTENT #fieldModifier

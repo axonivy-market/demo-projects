@@ -1,0 +1,6 @@
+Person #class
+workflow.order #namespace
+name String #field
+name PERSISTENT #fieldModifier
+surname String #field
+surname PERSISTENT #fieldModifier

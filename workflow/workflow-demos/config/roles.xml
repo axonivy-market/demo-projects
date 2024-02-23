@@ -29,4 +29,16 @@
             <identifier>Executive Manager</identifier>
         </role>
     </role>
+    <role>
+        <identifier>Order</identifier>
+        <role>
+            <identifier>Deliverer</identifier>
+        </role>
+        <role>
+            <identifier>Processor</identifier>
+        </role>
+        <role>
+            <identifier>Finance</identifier>
+        </role>
+    </role>
 </role>
