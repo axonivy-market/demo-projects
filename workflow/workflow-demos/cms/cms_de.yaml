@@ -129,11 +129,11 @@ Labels:
   TaskUser-Explain: Komma getrennte Liste von Benutzern
   title: Self Service Ad-Hoc Workflow
 Notification:
-  Messages:
-    InvoiceSent: Die Rechnung für die Bestellung {0} wurde versendet
-    OrderDelivered: Bestellung {0} wurde an Kunde {1} {2} ausgeliefert
-    OrderFinished: Die Bestellung {0} wurde erfolgreich abgeschlossen
   business:
+    Messages:
+      InvoiceSent: Die Rechnung für die Bestellung {0} wurde versendet
+      OrderDelivered: Bestellung {0} wurde an Kunde {1} {2} ausgeliefert
+      OrderFinished: Die Bestellung {0} wurde erfolgreich abgeschlossen
     Templates:
       Order:
         Labels:
