@@ -75,11 +75,10 @@
             "  with the message \"New Order received\"",
             "  to all users that owns the role \"Processor\"",
             "*/",
-            "IRole processor = ivy.security.roles().find(\"Processor\");",
             "BusinessNotification",
             "    .create()",
             "    .message().text(\"New order received\")",
-            "    .receivers().add(processor)",
+            "    .receivers().addRole(\"Processor\")",
             "    .send();"
           ]
         }
@@ -215,8 +214,8 @@
             "*/",
             "BusinessNotification",
             "    .create()",
-            "    .message().fromCms(\"/Notification/Messages/OrderDelivered\", in.order.product, in.customer.surname, in.customer.name)",
-            "    .receivers().addCase().allInvolved()",
+            "    .message().fromCms(\"OrderDelivered\", in.order.product, in.customer.surname, in.customer.name)",
+            "    .receivers().ofCase().addAllInvolved()",
             "    .send();"
           ]
         }
@@ -281,8 +280,8 @@
             "    .create()",
             "    .template(\"Order\")",
             "    .payload(in.customer)",
-            "    .message().fromCms(\"/Notification/Messages/InvoiceSent\", in.order.product)",
-            "    .receivers().addTask().activator()",
+            "    .message().fromCms(\"InvoiceSent\", in.order.product)",
+            "    .receivers().ofTask().addActivator()",
             "    .send();"
           ]
         }
@@ -350,8 +349,8 @@
             "    .create()",
             "    .template(\"Order\")",
             "    .payload(in.customer)",
-            "    .message().fromCms(\"/Notification/Messages/OrderFinished\", in.order.product)",
-            "    .receivers().addCase().allInvolved()",
+            "    .message().fromCms(\"OrderFinished\", in.order.product)",
+            "    .receivers().ofCase().addAllInvolved()",
             "    .send();"
           ]
         }
