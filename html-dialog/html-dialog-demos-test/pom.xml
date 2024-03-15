@@ -24,7 +24,24 @@
     </pluginRepository>
   </pluginRepositories>
 
+  <repositories>
+    <repository>
+      <id>nexus.axonivy.com</id>
+      <url>https://nexus.axonivy.com/repository/maven/</url>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+
   <dependencies>
+    <dependency>
+      <groupId>ch.ivyteam.ivy.public-api</groupId>
+      <artifactId>public-api</artifactId>
+      <version>11.3.0-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+
     <dependency>
       <groupId>com.axonivy.demo</groupId>
       <artifactId>html-dialog-demos</artifactId>
