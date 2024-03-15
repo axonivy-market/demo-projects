@@ -26,6 +26,28 @@
     </pluginRepository>
   </pluginRepositories>
 
+  <repositories>
+    <repository>
+      <id>nexus.axonivy.com-snapshots</id>
+      <url>https://nexus.axonivy.com/repository/maven-snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>ch.ivyteam.ivy.api</groupId>
+      <artifactId>ivy-full-api</artifactId>
+      <version>11.3.0-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>

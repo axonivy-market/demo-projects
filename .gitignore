@@ -10,3 +10,4 @@
 **/src_ws/
 **/build/
 .gitignore
+**/lib/mvn-deps/
