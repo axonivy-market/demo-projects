@@ -11,7 +11,7 @@
         <p>This demo explains how Resources from the dialog resources folder, the webContent folder or the CMS can be
           used.</p>
         <h4>For using resources use the following code:</h4>
-        <p:panelGrid columns="2" id="resourcesResultPanel">
+        <p:panelGrid columns="2" id="resourcesResultPanel" layout="tabular">
           <h:outputText>&lt;h:outputStylesheet name="folder/style.css"/></h:outputText>
           <h:outputText>Adds the stylesheet <i>style.css</i> to the HTML page.</h:outputText>
 
@@ -26,7 +26,7 @@
         </p:panelGrid>
 
         <h4>Examples:</h4>
-        <p:panelGrid id="resultPanel" style="width:1000px">
+        <p:panelGrid id="resultPanel" style="width:1000px" layout="tabular" columns="0">
           <f:facet name="header">
             <p:row>
               <p:column style="width:400px">code</p:column>
