@@ -1,6 +1,7 @@
 package ch.ivyteam.htmldialog.demo;
 
 import static ch.ivyteam.htmldialog.server.test.ProcessUtil.startProcess;
+import static com.codeborne.selenide.CollectionCondition.anyMatch;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.exactText;
@@ -9,6 +10,7 @@ import static com.codeborne.selenide.Condition.not;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 import java.io.File;
 import java.util.Arrays;
@@ -202,6 +204,13 @@ class WebTestOutputIT {
     Selenide.open(element.getAttribute("src"));
     $(By.tagName("svg")).shouldBe(visible);
     $(By.tagName("path")).shouldBe(visible);
+  }
+
+  @Test
+  void jsfAgnosticForm() {
+    startProcess("145D1862CF17F2C9/JsfAgnosticFormDemo.ivp");
+    $$("span").shouldHave(anyMatch("build-form is rendered",
+      span -> span.getText().contains("the FormEditor")));
   }
 
   private void clearInput(By inputLocator) {

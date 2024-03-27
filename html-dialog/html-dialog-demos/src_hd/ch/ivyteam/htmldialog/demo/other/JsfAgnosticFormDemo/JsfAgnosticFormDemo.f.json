@@ -1,0 +1,71 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/form/11.3.1/form.json",
+  "id" : null,
+  "config" : {
+    "renderer" : "JSF",
+    "theme" : ""
+  },
+  "components" : [ {
+    "id" : "Text-cb667ab2-6bc4-4070-8961-fde0f51b1f89",
+    "type" : "Text",
+    "config" : {
+      "lgSpan" : "6",
+      "mdSpan" : "12",
+      "type" : "RAW",
+      "content" : "This form was built with the FormEditor, introduced as alpha in 11.3.0"
+    }
+  }, {
+    "id" : "Input-cc491431-8972-446c-b329-7e71c9966c82",
+    "type" : "Input",
+    "config" : {
+      "lgSpan" : "6",
+      "mdSpan" : "12",
+      "label" : "Name",
+      "required" : false,
+      "value" : "",
+      "type" : "TEXT"
+    }
+  }, {
+    "id" : "Input-4e42e6fb-b44e-4f6b-b3f5-c84853942ee2",
+    "type" : "Input",
+    "config" : {
+      "lgSpan" : "6",
+      "mdSpan" : "12",
+      "label" : "Lastname",
+      "required" : false,
+      "value" : "",
+      "type" : "TEXT"
+    }
+  }, {
+    "id" : "Input-c601f72a-0f93-4176-9181-0c415837aa35",
+    "type" : "Input",
+    "config" : {
+      "lgSpan" : "6",
+      "mdSpan" : "12",
+      "label" : "EMail",
+      "required" : true,
+      "value" : "",
+      "type" : "EMAIL"
+    }
+  }, {
+    "id" : "Text-c271023a-5bca-4833-8e39-e2029bf666c7",
+    "type" : "Text",
+    "config" : {
+      "lgSpan" : "6",
+      "mdSpan" : "12",
+      "type" : "MARKDOWN",
+      "content" : "Forms are: \neasy to create using the form-editor, maintained technology agnostic, but rendered as JSF view at built time."
+    }
+  }, {
+    "id" : "Button-5ab32180-0ac1-4f34-8972-a29501e07f5c",
+    "type" : "Button",
+    "config" : {
+      "lgSpan" : "6",
+      "mdSpan" : "12",
+      "name" : "Proceed",
+      "action" : "#{logic.close}",
+      "variant" : "PRIMARY",
+      "icon" : ""
+    }
+  } ]
+}
