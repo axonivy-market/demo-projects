@@ -13,30 +13,22 @@ import org.primefaces.model.SortMeta;
 import ch.ivyteam.htmldialog.demo.Person;
 import ch.ivyteam.htmldialog.demo.component.PersonLazySorter;
 
-public class DataSource
-{
+public class DataSource {
+
   private List<Person> allPersons;
 
-  public DataSource(int sourceSize)
-  {
+  public DataSource(int sourceSize) {
     allPersons = DataGenerator.generatePersons(sourceSize);
   }
 
-  private List<Person> paginate(int first, int pageSize, List<Person> filteredPersons)
-  {
-    if (filteredPersons.size() > pageSize)
-    {
-      if (first + pageSize > filteredPersons.size())
-      {
+  private List<Person> paginate(int first, int pageSize, List<Person> filteredPersons) {
+    if (filteredPersons.size() > pageSize) {
+      if (first + pageSize > filteredPersons.size()) {
         return filteredPersons.subList(first, first + (filteredPersons.size() % pageSize));
-      }
-      else
-      {
+      } else {
         return filteredPersons.subList(first, first + pageSize);
       }
-    }
-    else
-    {
+    } else {
       return filteredPersons;
     }
   }
@@ -84,7 +76,6 @@ public class DataSource
       }
       return false;
     }
-
     String fieldValue = getValue(person, filterProperty);
     return filterValue == null || StringUtils.containsIgnoreCase(fieldValue, filterValue);
   }
@@ -101,7 +92,7 @@ public class DataSource
   }
 
   public Person getPerson(String rowKey) {
-    for (Person person : allPersons)  {
+    for (Person person : allPersons) {
       if (person.getId().equals(Double.valueOf(rowKey))) {
         return person;
       }
@@ -109,15 +100,15 @@ public class DataSource
     return null;
   }
 
-  public List<Person> query(Map<String, FilterMeta> filters, Map<String, SortMeta> sortBy, int pageSize, int first) {
+  public List<Person> query(Map<String, FilterMeta> filters, Map<String, SortMeta> sortBy, int pageSize,
+          int first) {
     List<Person> persons = filter(filters);
     persons = sort(sortBy, persons);
     persons = paginate(first, pageSize, persons);
     return persons;
   }
 
-  public int count(Map<String, FilterMeta> filters)
-  {
+  public int count(Map<String, FilterMeta> filters) {
     return filter(filters).size();
   }
 }

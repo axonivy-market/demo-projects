@@ -14,23 +14,19 @@ import com.axonivy.ivy.webtest.IvyWebTest;
 import com.codeborne.selenide.Selenide;
 
 @IvyWebTest
-public class WebTestComponentIT
-{
-  @Test
-  public void testComponentDemo()
-  {
-    startProcess("145D1849FACF0EAA/ComponentDemo.ivp");
+public class WebTestComponentIT {
 
+  @Test
+  public void testComponentDemo() {
+    startProcess("145D1849FACF0EAA/ComponentDemo.ivp");
     $(By.id("demoForm:personComponent:firstname")).shouldBe(visible).sendKeys("testFirstName");
     $(By.id("demoForm:personComponent:lastname")).sendKeys("testName" + Keys.ENTER);
     $(By.id("demoForm:result")).shouldHave(text("testFirstName"), text("testName"));
-
     fillAddressComponent("delivery");
     fillAddressComponent("billing");
   }
 
-  private void fillAddressComponent(String prefix)
-  {
+  private void fillAddressComponent(String prefix) {
     $(By.id("demoForm:personComponent:" + prefix + "AddressComponent:street")).sendKeys(
             prefix + "Street");
     $(By.id("demoForm:personComponent:" + prefix + "AddressComponent:country")).sendKeys(
@@ -39,10 +35,8 @@ public class WebTestComponentIT
   }
 
   @Test
-  public void testCallbackDemo()
-  {
+  public void testCallbackDemo() {
     startProcess("145D1849FACF0EAA/ComponentEventListenerDemo.ivp");
-
     $(By.id("componentForm:detailListComponent:personsTable")).shouldBe(visible);
     Selenide.executeJavaScript("PF('personsTable').selectRow(1, false);");
     $(By.id("componentForm:selectionResult_container")).shouldHave(text("Person selected"), text("Peter"));
@@ -53,10 +47,8 @@ public class WebTestComponentIT
   }
 
   @Test
-  public void testPartialUpdate()
-  {
+  public void testPartialUpdate() {
     startProcess("145D1849FACF0EAA/PartialUpdateDemo.ivp");
-
     increaseCounter("A", 2);
     assertPanelValue(2, 0);
     increaseCounter("B", 1);
@@ -65,19 +57,15 @@ public class WebTestComponentIT
     assertPanelValue(4, 4);
   }
 
-  private void increaseCounter(String panel, int increaseClicks)
-  {
-    for (int i = 1; i <= increaseClicks; i++)
-    {
+  private void increaseCounter(String panel, int increaseClicks) {
+    for (int i = 1; i <= increaseClicks; i++) {
       $(By.id("Form:increaseP" + panel + "Button"))
               .shouldBe(visible, enabled).click();
     }
   }
 
-  private void assertPanelValue(Integer expectedValueA, Integer expectedValueB)
-  {
+  private void assertPanelValue(Integer expectedValueA, Integer expectedValueB) {
     $(By.id("Form:counterPanel_1_content")).shouldHave(text(expectedValueA.toString()));
     $(By.id("Form:counterPanel_2_content")).shouldHave(text(expectedValueB.toString()));
   }
-
 }

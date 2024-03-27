@@ -13,11 +13,10 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 
 @IvyWebTest
-public class WebTestOfflineIT
-{
+public class WebTestOfflineIT {
+
   @Test
-  public void testClientSideValidationExists()
-  {
+  public void testClientSideValidationExists() {
     startOfflineProcess();
     $(By.id("form:firstName")).shouldBe(visible).sendKeys("Someone");
     $(By.id("form:personName")).sendKeys("Else");
@@ -32,8 +31,7 @@ public class WebTestOfflineIT
   }
 
   @Test
-  public void testClientSideValidationWorks()
-  {
+  public void testClientSideValidationWorks() {
     startOfflineProcess();
     $(By.id("form:firstName")).shouldBe(visible).sendKeys("Someone");
     $(By.id("form:personName")).sendKeys("El");
@@ -48,5 +46,4 @@ public class WebTestOfflineIT
     Selenide.$$(".ui-message-error").find(Condition.attribute("data-target", "form:addressZip"))
             .shouldHave(text("Specified attribute is not between the expected values of 1000 and 9999."));
   }
-
 }

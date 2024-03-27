@@ -8,17 +8,15 @@ import ch.ivyteam.ivy.environment.Ivy;
 
 @ManagedBean
 @RequestScoped
-public class StaticBean
-{
+public class StaticBean {
+
   String text = "I was sent from the ManagedBean.";
 
-  public String getText()
-  {
+  public String getText() {
     return text;
   }
 
-  public void buttonAction()
-  {
+  public void buttonAction() {
     text = Ivy.session().getSessionUserName() + " clicked the button in application '"
             + IApplication.current().getName() + "'.";
   }

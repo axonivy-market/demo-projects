@@ -19,6 +19,7 @@ import javax.validation.Payload;
                                                      // check
 @Documented
 public @interface StartsWith {
+
   String prefix() default ""; // defines a custom field
 
   String message() default "Field has not the expected prefix";

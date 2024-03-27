@@ -19,6 +19,7 @@ import javax.validation.Payload;
                                                     // check
 @Documented
 public @interface UpperCase {
+
   String message() default "field must be uppercase";
 
   Class<?>[] groups() default {};

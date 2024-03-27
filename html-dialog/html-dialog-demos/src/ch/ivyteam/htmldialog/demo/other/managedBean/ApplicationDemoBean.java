@@ -33,8 +33,8 @@ import javax.faces.bean.ManagedBean;
  */
 @ManagedBean
 @ApplicationScoped
-public class ApplicationDemoBean
-{
+public class ApplicationDemoBean {
+
   private String description;
 
   /**
@@ -43,8 +43,7 @@ public class ApplicationDemoBean
    * E.g. within a label:
    * <code>&lt;h:outputLabel value="#{applicationDemoBean.description}" /&gt;</code>
    */
-  public String getDescription()
-  {
+  public String getDescription() {
     return description;
   }
 
@@ -54,8 +53,7 @@ public class ApplicationDemoBean
    * E.g. within an input text:
    * <code>&lt;h:inputText value="#{applicationDemoBean.description}" /&gt;</code>
    */
-  public void setDescription(String description)
-  {
+  public void setDescription(String description) {
     this.description = description;
   }
 }

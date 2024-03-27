@@ -13,8 +13,7 @@ import com.axonivy.ivy.webtest.IvyWebTest;
 public class WebTestStaticPageIT {
 
   @Test
-  void testStaticPage()
-  {
+  void testStaticPage() {
     startProcess("1698080EFEC9C585/StaticEndPage.ivp");
     $(".layout-content").shouldNotHave(text("clicked the button"));
     $$("button").find(text("Bean Magic")).click();
