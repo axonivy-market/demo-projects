@@ -25,12 +25,10 @@ import com.codeborne.selenide.FileDownloadMode;
 import com.codeborne.selenide.Selenide;
 
 @IvyWebTest
-public class WebTestInputDownloadIT
-{
+public class WebTestInputDownloadIT {
 
   @BeforeAll
-  public static void setUp()
-  {
+  public static void setUp() {
     Selenide.closeWebDriver();
     Configuration.proxyEnabled = true;
     Configuration.fileDownload = FileDownloadMode.PROXY;
@@ -38,15 +36,12 @@ public class WebTestInputDownloadIT
   }
 
   @Test
-  public void testSimpleFileUpDownload() throws Exception
-  {
+  public void testSimpleFileUpDownload() throws Exception {
     startProcess("145D18298A3E81CF/FileUploadSimpleModeDemo.ivp");
-
     File tempFile = File.createTempFile("tempTextFile", ".txt");
     tempFile.deleteOnExit();
     String testContent = "this is a test for the Simple File Up- and Download";
     FileUtils.write(tempFile, testContent, Charset.defaultCharset());
-
     $(By.id("demoForm:fileUpload")).shouldBe(visible);
     $(By.id("demoForm:fileUpload_input")).sendKeys(tempFile.getAbsolutePath());
     $(By.id("demoForm:fileUploadButton")).click();
@@ -57,19 +52,14 @@ public class WebTestInputDownloadIT
   }
 
   @Test
-  public void testAdvancedFileUpload() throws Exception
-  {
+  public void testAdvancedFileUpload() throws Exception {
     startProcess("145D18298A3E81CF/FileUploadAdvancedModeDemo.ivp");
-
     File tempImage = File.createTempFile("tempImageFile", ".png");
     try (InputStream inputImage = getClass().getResourceAsStream("ExampleImage.png");
-            FileOutputStream outputImage = new FileOutputStream(tempImage);)
-    {
+            FileOutputStream outputImage = new FileOutputStream(tempImage);) {
       IOUtils.copy(inputImage, outputImage);
     }
-
     $(By.id("pictureGalleryForm:fileUpload_input")).shouldBe(exist).sendKeys(tempImage.getAbsolutePath());
     $(By.id("pictureGalleryForm:pictureGallery")).findAll(".ui-galleria-item").shouldHave(size(4));
   }
-
 }

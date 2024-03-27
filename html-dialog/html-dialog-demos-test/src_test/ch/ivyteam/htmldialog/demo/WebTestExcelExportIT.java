@@ -23,12 +23,10 @@ import com.codeborne.selenide.FileDownloadMode;
 import com.codeborne.selenide.Selenide;
 
 @IvyWebTest
-public class WebTestExcelExportIT
-{
+public class WebTestExcelExportIT {
 
   @BeforeAll
-  public static void setUp()
-  {
+  public static void setUp() {
     Selenide.closeWebDriver();
     Configuration.proxyEnabled = true;
     Configuration.fileDownload = FileDownloadMode.PROXY;
@@ -36,25 +34,20 @@ public class WebTestExcelExportIT
   }
 
   @Test
-  public void testExcelExport() throws Exception
-  {
+  public void testExcelExport() throws Exception {
     startProcess("145D180807C60B4B/ExportExcelDemo.ivp");
     File excel = $(By.id("form:exportBtn")).shouldBe(visible).download();
-
     Awaitility.await().untilAsserted(() -> {
       assertThat(excel).exists();
       assertThat(readExcel(excel)).contains("Name", "Weiss", "Reto");
     });
   }
 
-  private String readExcel(File excel) throws Exception
-  {
+  private String readExcel(File excel) throws Exception {
     StringJoiner stringJoiner = new StringJoiner(" ");
-    try (Workbook workbook = WorkbookFactory.create(excel))
-    {
+    try (Workbook workbook = WorkbookFactory.create(excel)) {
       DataFormatter dataFormatter = new DataFormatter();
       Sheet sheet = workbook.getSheetAt(0);
-
       sheet.forEach(row -> {
         row.forEach(cell -> {
           String cellValue = dataFormatter.formatCellValue(cell);
@@ -62,8 +55,6 @@ public class WebTestExcelExportIT
         });
       });
     }
-
     return stringJoiner.toString();
   }
-
 }

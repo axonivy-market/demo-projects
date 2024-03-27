@@ -12,14 +12,12 @@ import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.engine.EngineUrl;
 
 @IvyWebTest
-public class WebTestErrorHandlingIT
-{
+public class WebTestErrorHandlingIT {
+
   @Test
-  public void ajax_error_dialog()
-  {
+  public void ajax_error_dialog() {
     startProcess("145D1862CF17F2C9/ErrorHandlingDemo.ivp");
     $(By.id("form:ajax")).shouldBe(visible).click();
-
     $(By.id("ajaxExceptionDialog_title")).shouldHave(text("Error"));
     $(By.id("ajaxExceptionDialog_content")).shouldHave(
             text("ivy:error:script"),
@@ -33,7 +31,7 @@ public class WebTestErrorHandlingIT
             text("Instruction:"),
             text("(0 / 0)"),
             text("Request Uri"),
-            text("/"+EngineUrl.applicationName()+"/faces/instances/html-dialog-demos$1/"),
+            text("/" + EngineUrl.applicationName() + "/faces/instances/html-dialog-demos$1/"),
             text("/ch.ivyteam.htmldialog.demo.other.ErrorHandling/ErrorHandling.xhtml"),
             text("Servlet"),
             text("Faces Servlet"),
@@ -55,11 +53,9 @@ public class WebTestErrorHandlingIT
   }
 
   @Test
-  public void non_ajax_error_dialog()
-  {
+  public void non_ajax_error_dialog() {
     startProcess("145D1862CF17F2C9/ErrorHandlingDemo.ivp");
     $(By.id("form:nonAjax")).shouldBe(visible).click();
-
     $("h1").shouldHave(text("ivy:error:script"));
     $(".exception-detail-link > a").click();
     $(".ui-dialog").shouldHave(text("ivy:error:script"),
@@ -95,17 +91,14 @@ public class WebTestErrorHandlingIT
   }
 
   @Test
-  public void session_expired()
-  {
+  public void session_expired() {
     startProcess("145D1862CF17F2C9/ErrorHandlingDemo.ivp");
     $(By.id("form:expireSession")).shouldBe(visible).click();
     $(By.id("form:ajaxWithExpiredSession")).shouldBe(visible).click();
-
     $(By.id("viewExpiredExceptionDialog_title")).shouldHave(text("View or Session Expired"));
     $(By.id("viewExpiredExceptionDialog_content")).shouldHave(
             text("Custom Exception Handling for ViewExpiredException"),
             text("The view or session has expired"),
             text("Please login again"));
   }
-
 }

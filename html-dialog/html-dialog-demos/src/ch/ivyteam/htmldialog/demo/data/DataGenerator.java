@@ -5,8 +5,7 @@ import java.util.List;
 
 import ch.ivyteam.htmldialog.demo.Person;
 
-public class DataGenerator
-{
+public class DataGenerator {
 
   private static final String[] firstNames = {"Anna", "Anton", "Angela", "Alvin", "Basil", "Bettina",
       "Claudia", "Christoph", "Daniel", "Denise",
@@ -22,12 +21,9 @@ public class DataGenerator
       "Schmid", "Keller", "Miller", "Jackson", "Abeggler", "Künzi", "Held", "Jung", "Zimmermann",
       "Lustig", "Muster", "Lang"};
 
-  public static List<Person> generatePersons(int count)
-  {
+  public static List<Person> generatePersons(int count) {
     List<Person> persons = new ArrayList<Person>();
-
-    for (int i = 0; i < count; i++)
-    {
+    for (int i = 0; i < count; i++) {
       Person person = new Person();
       person.setId(i + 1);
       person.setFirstname(generateFirstName());
@@ -38,28 +34,22 @@ public class DataGenerator
     return persons;
   }
 
-  private static int generateBirthYear()
-  {
+  private static int generateBirthYear() {
     return (int) (Math.random() * 77 + 1940);
   }
 
-  private static String generateFirstName()
-  {
+  private static String generateFirstName() {
     return firstNames[(int) (Math.random() * firstNames.length)];
   }
 
-  private static String generateLastName()
-  {
-    if (Math.random() > 0.80)
-    {
+  private static String generateLastName() {
+    if (Math.random() > 0.80) {
       return getLastName() + "-" + getLastName();
     }
-
     return getLastName();
   }
 
-  private static String getLastName()
-  {
+  private static String getLastName() {
     return lastNames[(int) (Math.random() * lastNames.length)];
   }
 }

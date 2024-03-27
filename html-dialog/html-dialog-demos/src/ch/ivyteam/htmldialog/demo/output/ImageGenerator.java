@@ -15,24 +15,20 @@ import javax.imageio.ImageIO;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
-public class ImageGenerator
-{
-  public static StreamedContent generateImage(String text) throws Exception
-  {
+public class ImageGenerator {
+
+  public static StreamedContent generateImage(String text) throws Exception {
     final FacesContext facesContext = FacesContext.getCurrentInstance();
-    if (facesContext.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE)
-    {
+    if (facesContext.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
       // during render response, the src attribute is evaluated,
       // not necessary to return any streamed content see
       // http://stackoverflow.com/questions/8304967/how-to-use-pgraphicimage-with-streamedcontent-within-pdatatable
       return DefaultStreamedContent.builder().build();
     }
-
     return createImage(text);
   }
 
-  public static StreamedContent createImage(String text) throws Exception
-  {
+  public static StreamedContent createImage(String text) throws Exception {
     BufferedImage bufferedImg = new BufferedImage(120, 40,
             BufferedImage.TYPE_INT_RGB);
     Graphics2D g2 = bufferedImg.createGraphics();
