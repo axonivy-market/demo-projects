@@ -45,7 +45,7 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 160 },
-        "labelOffset" : { "x" : 16, "y" : 35 }
+        "labelOffset" : { "x" : 16 }
       },
       "connect" : [
         { "id" : "f113", "to" : "f112" }
@@ -91,7 +91,7 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 64 },
-        "labelOffset" : { "x" : 12, "y" : 35 }
+        "labelOffset" : { "x" : 12 }
       },
       "connect" : [
         { "id" : "f107", "to" : "f104" }
@@ -171,7 +171,7 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 256 },
-        "labelOffset" : { "x" : 17, "y" : 35 }
+        "labelOffset" : { "x" : 17 }
       },
       "connect" : [
         { "id" : "f40", "to" : "f38" }
@@ -193,7 +193,7 @@
       },
       "visual" : {
         "at" : { "x" : 128, "y" : 448 },
-        "labelOffset" : { "x" : 15, "y" : 37 },
+        "labelOffset" : { "y" : 37 },
         "description" : "ErrorHandling Demo"
       },
       "connect" : [
@@ -257,5 +257,45 @@
       "connect" : [
         { "id" : "f7", "to" : "f6" }
       ]
+    }, {
+      "id" : "f10",
+      "type" : "RequestStart",
+      "name" : "JsfAgnosticFormDemo.ivp",
+      "config" : {
+        "signature" : "JsfAgnosticFormDemo",
+        "request" : {
+          "name" : "JsfAgnosticFormDemo",
+          "category" : "other",
+          "customFields" : [
+            { "name" : "cssIcon", "value" : "fa fa-id-card" },
+            { "name" : "embedInFrame", "value" : "false" }
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 640 }
+      },
+      "connect" : [
+        { "id" : "f12", "to" : "f11" }
+      ]
+    }, {
+      "id" : "f11",
+      "type" : "DialogCall",
+      "config" : {
+        "dialog" : "ch.ivyteam.htmldialog.demo.other.JsfAgnosticFormDemo:start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 640 }
+      },
+      "connect" : [
+        { "id" : "f14", "to" : "f13" }
+      ]
+    }, {
+      "id" : "f13",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 640 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      }
     } ]
 }
