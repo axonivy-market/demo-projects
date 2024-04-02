@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "15254DCE818AD7A2",
   "config" : {
     "data" : "workflow.humantask.ProcurementRequest"
@@ -157,7 +157,7 @@
       },
       "visual" : {
         "at" : { "x" : 800, "y" : 192 },
-        "size" : { "width" : 112, "height" : 48 }
+        "size" : { "height" : 48 }
       },
       "connect" : [
         { "id" : "f2", "to" : "f1" }
@@ -179,12 +179,12 @@
         { "id" : "f8", "to" : "f7", "via" : [ { "x" : 512, "y" : 440 } ], "label" : {
             "name" : "Yes",
             "segment" : 0.85,
-            "offset" : { "x" : 15, "y" : 0 }
+            "offset" : { "x" : 15 }
           }, "var" : "in1" },
         { "id" : "f13", "to" : "f9", "via" : [ { "x" : 512, "y" : 192 } ], "label" : {
             "name" : "No",
             "segment" : 1.06,
-            "offset" : { "x" : 0, "y" : 13 }
+            "offset" : { "y" : 13 }
           } }
       ]
     }, {
@@ -211,7 +211,7 @@
       ],
       "visual" : {
         "at" : { "x" : 352, "y" : 48 },
-        "size" : { "width" : 576, "height" : 60 }
+        "size" : { "width" : 576 }
       }
     } ],
   "layout" : {

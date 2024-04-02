@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "16F375741231763F",
   "config" : {
     "data" : "com.axonivy.connectivity.rest.OpenApiData"
@@ -51,7 +51,7 @@
       ],
       "visual" : {
         "at" : { "x" : 240, "y" : 64 },
-        "size" : { "width" : 416, "height" : 60 }
+        "size" : { "width" : 416 }
       }
     }, {
       "id" : "f6",
@@ -129,7 +129,7 @@
       },
       "visual" : {
         "at" : { "x" : 64, "y" : 352 },
-        "labelOffset" : { "x" : 15, "y" : 37 }
+        "labelOffset" : { "y" : 37 }
       },
       "connect" : [
         { "id" : "f17", "to" : "f12" }
@@ -184,7 +184,7 @@
       },
       "visual" : {
         "at" : { "x" : 352, "y" : 352 },
-        "size" : { "width" : 112, "height" : 48 },
+        "size" : { "height" : 48 },
         "description" : [
           "Show that the presence of a strictly defined service descriptor is not a blocker to use advanced JAX-RS Api to interact with the remote service.",
           "This is usefull during prototyping or to overcome technical boundaries caused by weakly defined services."

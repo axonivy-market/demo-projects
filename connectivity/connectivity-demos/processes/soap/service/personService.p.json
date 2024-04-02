@@ -1,11 +1,11 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "16150E1D07E8CA18",
   "kind" : "WEB_SERVICE",
   "config" : {
     "data" : "com.axonivy.connectivity.soap.service.PersonServiceData",
-    "wsAuth" : "HTTP_BASIC",
-    "wsTypeName" : "com.axonivy.connectivity.soap.service.PersonService"
+    "wsTypeName" : "com.axonivy.connectivity.soap.service.PersonService",
+    "wsAuth" : "HTTP_BASIC"
   },
   "elements" : [ {
       "id" : "ws0",

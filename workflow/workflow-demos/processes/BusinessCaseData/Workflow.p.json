@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "16EF567002B146F2",
   "config" : {
     "data" : "workflow.businesscasedata.Data"
@@ -115,7 +115,7 @@
       },
       "visual" : {
         "at" : { "x" : 352, "y" : 192 },
-        "size" : { "width" : 144, "height" : 60 }
+        "size" : { "width" : 144 }
       },
       "connect" : [
         { "id" : "f13", "to" : "f10" }

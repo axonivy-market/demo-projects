@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "1523FF963044280C",
   "config" : {
     "data" : "workflow.signal.FacilityManagementData"
@@ -90,7 +90,7 @@
           },
           "visual" : {
             "at" : { "x" : 280, "y" : 232 },
-            "labelOffset" : { "x" : 15, "y" : 6 }
+            "labelOffset" : { "y" : 6 }
           },
           "connect" : [
             { "id" : "f20", "to" : "f19", "via" : [ { "x" : 280, "y" : 296 } ] }
