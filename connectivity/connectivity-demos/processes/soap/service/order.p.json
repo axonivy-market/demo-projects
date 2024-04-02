@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "16249376A44F1F8E",
   "config" : {
     "data" : "com.axonivy.connectivity.soap.service.CreateOrderServiceData"
@@ -113,7 +113,7 @@
       },
       "visual" : {
         "at" : { "x" : 624, "y" : 64 },
-        "size" : { "width" : 128, "height" : 60 }
+        "size" : { "width" : 128 }
       },
       "connect" : [
         { "id" : "f2", "to" : "f1" }
@@ -128,7 +128,7 @@
       ],
       "visual" : {
         "at" : { "x" : 256, "y" : 160 },
-        "size" : { "width" : 352, "height" : 60 }
+        "size" : { "width" : 352 }
       },
       "connect" : [
         { "id" : "f13", "to" : "f0", "via" : [ { "x" : 56, "y" : 160 } ] }

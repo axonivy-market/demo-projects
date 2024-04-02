@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "13D0159BD5D40664",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -94,12 +94,12 @@
             { "id" : "S10-f15", "to" : "S10-f10", "via" : [ { "x" : 256, "y" : 656 } ], "label" : {
                 "name" : "Invoice",
                 "segment" : 1.26,
-                "offset" : { "x" : 0, "y" : -9 }
+                "offset" : { "y" : -9 }
               } },
             { "id" : "S10-f16", "to" : "S10-f11", "via" : [ { "x" : 256, "y" : 496 } ], "label" : {
                 "name" : "Credit Card",
                 "segment" : 1.37,
-                "offset" : { "x" : 0, "y" : -4 }
+                "offset" : { "y" : -4 }
               } }
           ]
         }, {
@@ -142,17 +142,17 @@
             { "id" : "S10-f19", "to" : "S10-f12", "via" : [ { "x" : 128, "y" : 80 } ], "label" : {
                 "name" : "Invoice",
                 "segment" : 1.31,
-                "offset" : { "x" : 0, "y" : -3 }
+                "offset" : { "y" : -3 }
               } },
             { "id" : "S10-f25", "to" : "S10-f21", "via" : [ { "x" : 128, "y" : 176 } ], "label" : {
                 "name" : "Credit Card",
                 "segment" : 1.38,
-                "offset" : { "x" : 0, "y" : -3 }
+                "offset" : { "y" : -3 }
               } },
             { "id" : "S10-f26", "to" : "S10-f23", "via" : [ { "x" : 128, "y" : 272 } ], "label" : {
                 "name" : "Processing",
                 "segment" : 1.41,
-                "offset" : { "x" : 0, "y" : -8 }
+                "offset" : { "y" : -8 }
               } }
           ]
         }, {
@@ -208,7 +208,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },
-        "labelOffset" : { "x" : 13, "y" : 32 }
+        "labelOffset" : { "y" : 32 }
       },
       "connect" : [
         { "id" : "f2", "to" : "f1" }
@@ -291,7 +291,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 256 },
-        "labelOffset" : { "x" : 13, "y" : 32 }
+        "labelOffset" : { "y" : 32 }
       },
       "connect" : [
         { "id" : "f29", "to" : "f28" }

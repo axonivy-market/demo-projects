@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "153E9EE0223D1DF9",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -57,7 +57,7 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 448 },
-        "labelOffset" : { "x" : 13, "y" : 35 }
+        "labelOffset" : { "y" : 35 }
       },
       "connect" : [
         { "id" : "f19", "to" : "f18" }
@@ -93,7 +93,7 @@
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 448 },
-        "size" : { "width" : 128, "height" : 60 }
+        "size" : { "width" : 128 }
       },
       "connect" : [
         { "id" : "f17", "to" : "f16" }
@@ -159,7 +159,7 @@
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 320 },
-        "size" : { "width" : 128, "height" : 60 },
+        "size" : { "width" : 128 },
         "description" : [
           "'in.member' is the input object that stores the information of a member.",
           "This object will be modified during the rule execution."
@@ -199,7 +199,7 @@
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 192 },
-        "size" : { "width" : 144, "height" : 60 }
+        "size" : { "width" : 144 }
       },
       "connect" : [
         { "id" : "f8", "to" : "f4" }

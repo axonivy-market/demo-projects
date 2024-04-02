@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "154616078A1D629D",
   "config" : {
     "data" : "com.axonivy.connectivity.Data"
@@ -76,7 +76,7 @@
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 272 },
-        "size" : { "width" : 112, "height" : 48 }
+        "size" : { "height" : 48 }
       },
       "connect" : [
         { "id" : "f7", "to" : "f6" }
@@ -190,7 +190,7 @@
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 408 },
-        "size" : { "width" : 128, "height" : 60 },
+        "size" : { "width" : 128 },
         "description" : "Shows how to get API documentation for ivy REST services"
       },
       "connect" : [

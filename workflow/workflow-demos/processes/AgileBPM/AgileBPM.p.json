@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "15255056043EE914",
   "config" : {
     "data" : "workflow.agileBPM.Data"
@@ -42,7 +42,7 @@
               "visual" : {
                 "at" : { "x" : 488, "y" : 264 },
                 "size" : { "width" : 28, "height" : 28 },
-                "labelOffset" : { "x" : 15, "y" : 40 }
+                "labelOffset" : { "y" : 40 }
               },
               "connect" : [
                 { "id" : "1b0-S10-f12", "to" : "1b0-S10-f11", "condition" : "ivp==\"TaskA.ivp\"" }
@@ -91,7 +91,7 @@
               "name" : "out 1",
               "visual" : {
                 "at" : { "x" : 992, "y" : 160 },
-                "labelOffset" : { "x" : 8, "y" : 33 }
+                "labelOffset" : { "x" : 8 }
               },
               "parentConnector" : "1b0-f20"
             }, {
@@ -177,12 +177,12 @@
                 { "id" : "1b0-S10-f23", "to" : "1b0-S10-f22", "via" : [ { "x" : 488, "y" : 88 } ], "label" : {
                     "name" : "Yes",
                     "segment" : 0.79,
-                    "offset" : { "x" : 14, "y" : 0 }
+                    "offset" : { "x" : 14 }
                   } },
                 { "id" : "1b0-S10-f15", "to" : "1b0-S10-f14", "label" : {
                     "name" : "No",
                     "segment" : 0.16,
-                    "offset" : { "x" : 0, "y" : 7 }
+                    "offset" : { "y" : 7 }
                   } }
               ]
             }, {
@@ -211,12 +211,12 @@
                 { "id" : "1b0-S10-f25", "to" : "1b0-S10-f24", "via" : [ { "x" : 864, "y" : 88 } ], "label" : {
                     "name" : "Yes",
                     "segment" : 0.77,
-                    "offset" : { "x" : 13, "y" : 0 }
+                    "offset" : { "x" : 13 }
                   } },
                 { "id" : "1b0-S10-f1", "to" : "1b0-S10-g1", "label" : {
                     "name" : "No",
                     "segment" : 0.46,
-                    "offset" : { "x" : 0, "y" : 8 }
+                    "offset" : { "y" : 8 }
                   } }
               ]
             }, {
@@ -312,11 +312,11 @@
             { "id" : "1b0-f1", "to" : "1b0-g1", "via" : [ { "x" : 128, "y" : 416 } ], "label" : {
                 "name" : "No",
                 "segment" : 0.28,
-                "offset" : { "x" : 12, "y" : 0 }
+                "offset" : { "x" : 12 }
               } },
             { "id" : "1b0-f4", "to" : "1b0-f5", "label" : {
                 "name" : "Yes",
-                "offset" : { "x" : 0, "y" : -5 }
+                "offset" : { "y" : -5 }
               } }
           ]
         }, {
@@ -415,12 +415,12 @@
           },
           "visual" : {
             "at" : { "x" : 384, "y" : 224 },
-            "labelOffset" : { "x" : 16, "y" : -25 }
+            "labelOffset" : { "y" : -25 }
           },
           "connect" : [
             { "id" : "1b0-f19", "to" : "1b0-S10", "label" : {
                 "name" : "No",
-                "offset" : { "x" : 0, "y" : 7 }
+                "offset" : { "y" : 7 }
               } },
             { "id" : "1b0-f14", "to" : "1b0-f13", "via" : [ { "x" : 384, "y" : 320 } ], "label" : {
                 "name" : "Yes",
@@ -523,7 +523,7 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 192 },
         "size" : { "width" : 26, "height" : 26 },
-        "labelOffset" : { "x" : 12, "y" : 35 }
+        "labelOffset" : { "x" : 12 }
       },
       "connect" : [
         { "id" : "f2", "to" : "f1" }
@@ -559,17 +559,17 @@
       "visual" : {
         "at" : { "x" : 336, "y" : 192 },
         "size" : { "width" : 28, "height" : 28 },
-        "labelOffset" : { "x" : 16, "y" : -14 }
+        "labelOffset" : { "y" : -14 }
       },
       "connect" : [
         { "id" : "f4", "to" : "1b0", "label" : {
             "name" : "No",
-            "offset" : { "x" : 0, "y" : -8 }
+            "offset" : { "y" : -8 }
           } },
         { "id" : "f8", "to" : "f7", "via" : [ { "x" : 336, "y" : 256 } ], "label" : {
             "name" : "Yes",
             "segment" : 1.38,
-            "offset" : { "x" : 0, "y" : -6 }
+            "offset" : { "y" : -6 }
           } }
       ]
     }, {

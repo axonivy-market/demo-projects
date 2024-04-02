@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "148655DDB7BB6588",
   "config" : {
     "data" : "quickStartTutorial.Data"
@@ -67,12 +67,12 @@
         { "id" : "f2", "to" : "f1", "label" : {
             "name" : "yes",
             "segment" : 0.19,
-            "offset" : { "x" : 0, "y" : -8 }
+            "offset" : { "y" : -8 }
           } },
         { "id" : "f8", "to" : "f7", "via" : [ { "x" : 352, "y" : 160 } ], "label" : {
             "name" : "no",
             "segment" : 1.27,
-            "offset" : { "x" : 0, "y" : -8 }
+            "offset" : { "y" : -8 }
           } }
       ]
     }, {

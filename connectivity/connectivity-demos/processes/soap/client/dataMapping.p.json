@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "1605A38503199ADB",
   "config" : {
     "data" : "com.axonivy.connectivity.soap.DataMappingData"
@@ -135,7 +135,7 @@
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 152 },
-        "size" : { "width" : 128, "height" : 60 }
+        "size" : { "width" : 128 }
       },
       "connect" : [
         { "id" : "f13", "to" : "f12" }
