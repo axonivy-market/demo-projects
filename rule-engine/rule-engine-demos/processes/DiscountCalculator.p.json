@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "153EAAA7649F85DA",
   "config" : {
     "data" : "rule.engine.demo.Data"
@@ -82,7 +82,7 @@
       },
       "visual" : {
         "at" : { "x" : 208, "y" : 280 },
-        "size" : { "width" : 128, "height" : 60 }
+        "size" : { "width" : 128 }
       },
       "connect" : [
         { "id" : "f8", "to" : "f5" }

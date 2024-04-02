@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.2.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "150148B81ACE3E1E",
   "config" : {
     "data" : "error.handling.demo.ErrorHandler"
@@ -52,7 +52,7 @@
       ],
       "visual" : {
         "at" : { "x" : 304, "y" : 64 },
-        "size" : { "width" : 480, "height" : 60 },
+        "size" : { "width" : 480 },
         "color" : "NodeStyle3"
       }
     }, {
