@@ -11,16 +11,16 @@
       <h:form id="form">
         <p:growl id="growl" showDetail="true" />
         <br />
-        <p:chart type="line" model="#{data.comboChartModel}" style="width:450px;height:300px;" id="comboChart">
+        <p:barChart model="#{data.comboChartModel}" style="width:450px;height:300px;" id="comboChart">
 
           <p:ajax event="itemSelect" update="growl" listener="#{logic.itemSelected}" />
-        </p:chart>
+        </p:barChart>
         <br />
         <br />
-        <p:chart type="pie" model="#{data.pieChartModel}" style="width:450px;height:300px" id="pieChart">
+        <p:pieChart model="#{data.pieChartModel}" style="width:450px;height:300px" id="pieChart">
 
           <p:ajax event="itemSelect" update="growl" listener="#{logic.sliceSelected}" />
-        </p:chart>
+        </p:pieChart>
       </h:form>
 
       <h:outputScript>
