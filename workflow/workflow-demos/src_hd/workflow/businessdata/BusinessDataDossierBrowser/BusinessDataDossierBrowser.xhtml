@@ -22,7 +22,7 @@
       <h3>Browse Dossiers</h3>
 
       <h:form>
-        <p:panelGrid columns="1">
+        <p:panelGrid columns="1" layout="tabular">
           <p:selectOneRadio id="search" value="#{data.searchType}">
             <f:selectItem itemLabel="Full Text (scored query)"
               itemValue="FullText" />
@@ -35,12 +35,12 @@
             <p:ajax update="searchBox" />
           </p:selectOneRadio>
           <p:panelGrid columns="4" id="searchBox"
-            styleClass="ui-panelgrid-blank">
+            styleClass="ui-panelgrid-blank" layout="tabular">
             <p:inputText value="#{data.searchText}"
               placeholder="Ask me anything" size="80"
               rendered="#{data.searchType=='FullText' || data.searchType=='LastName' || data.searchType=='Equals'}" />
             <p:panelGrid columns="4" id="DateRange"
-              rendered="#{data.searchType=='BirthDate'}">
+              rendered="#{data.searchType=='BirthDate'}" layout="tabular">
               <p:outputLabel value="From:" for="fromDate" />
               <p:calendar id="fromDate" value="#{data.searchFromDate}"
                 navigator="true" yearRange="c-50:c+10"
