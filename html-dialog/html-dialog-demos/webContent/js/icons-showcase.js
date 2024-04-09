@@ -15,7 +15,7 @@ icons.forEach(icon => {
   iconTitle.appendChild(document.createTextNode("si " + iconClass));
   
   var iconDiv = document.createElement("div");
-  iconDiv.className = "p-col icon-block";
+  iconDiv.className = "col icon-block";
   iconDiv.appendChild(iconImage)
   iconDiv.appendChild(iconTitle);
   element.appendChild(iconDiv);
