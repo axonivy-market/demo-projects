@@ -43,7 +43,7 @@ class WebTestOutputIT {
     $(By.id("form:theTable:scorePointFilter:filter")).sendKeys("6");
     table.valueAtShouldBe(0, 2, exactText("Birgit"));
     clearInput(By.id("form:theTable:scorePointFilter:filter"));
-    $(By.id("form:theTable:scorePointFilter:filter")).sendKeys(Keys.ENTER);
+    $(By.id("form:theTable:scorePointFilter:filter")).sendKeys(" ");
     $(By.id("form:theTable:6:colName")).shouldBe(visible);
     $(By.id("form:theTable_data")).find(".ui-row-toggler").click();
     clearInput(By.id("form:theTable:0:name"));
