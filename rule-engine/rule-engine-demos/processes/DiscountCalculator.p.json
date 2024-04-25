@@ -95,5 +95,165 @@
         "at" : { "x" : 392, "y" : 56 },
         "size" : { "width" : 688, "height" : 30 }
       }
+    }, {
+      "id" : "f11",
+      "type" : "RequestStart",
+      "name" : "testDmnRule",
+      "config" : {
+        "signature" : "testDmnRule",
+        "input" : {
+          "map" : {
+            "out.member.memberType" : "rule.engine.demo.enums.MemberType.Silver",
+            "out.member.purchaseAmount" : "500"
+          }
+        },
+        "request" : {
+          "isVisibleOnStartList" : false
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 536, "y" : 368 }
+      },
+      "connect" : [
+        { "id" : "f15", "to" : "f14" }
+      ]
+    }, {
+      "id" : "f12",
+      "type" : "RequestStart",
+      "name" : "testDrlRule",
+      "config" : {
+        "signature" : "testDrlRule",
+        "input" : {
+          "map" : {
+            "out.member.memberType" : "rule.engine.demo.enums.MemberType.Silver",
+            "out.member.purchaseAmount" : "500"
+          }
+        },
+        "request" : {
+          "isVisibleOnStartList" : false
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 536, "y" : 256 }
+      },
+      "connect" : [
+        { "id" : "f20", "to" : "f26" }
+      ]
+    }, {
+      "id" : "f13",
+      "type" : "RequestStart",
+      "name" : "testXlsRule",
+      "config" : {
+        "signature" : "testXlsRule",
+        "input" : {
+          "map" : {
+            "out.member.memberType" : "rule.engine.demo.enums.MemberType.Silver",
+            "out.member.purchaseAmount" : "500"
+          }
+        },
+        "request" : {
+          "isVisibleOnStartList" : false
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 536, "y" : 152 }
+      },
+      "connect" : [
+        { "id" : "f23", "to" : "f21" }
+      ]
+    }, {
+      "id" : "f21",
+      "type" : "ThirdPartyProgramInterface",
+      "impl" : "RuleActivity",
+      "name" : [
+        "Apply Rules from ",
+        "Decision Table (xls)"
+      ],
+      "config" : {
+        "userConfig" : {
+          "namespace" : "rule.engine.decisiontable",
+          "dataObject" : "in.member"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 696, "y" : 152 },
+        "size" : { "width" : 144 }
+      },
+      "connect" : [
+        { "id" : "f25", "to" : "f16" }
+      ]
+    }, {
+      "id" : "f16",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 856, "y" : 152 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      }
+    }, {
+      "id" : "f17",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 856, "y" : 256 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      }
+    }, {
+      "id" : "f18",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 856, "y" : 368 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      }
+    }, {
+      "id" : "f26",
+      "type" : "ThirdPartyProgramInterface",
+      "impl" : "RuleActivity",
+      "name" : "Apply Rules from DRL",
+      "config" : {
+        "userConfig" : {
+          "namespace" : "rule.engine.drl",
+          "dataObject" : "in.member"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 696, "y" : 256 },
+        "size" : { "width" : 128 },
+        "description" : [
+          "'in.member' is the input object that stores the information of a member.",
+          "This object will be modified during the rule execution."
+        ]
+      },
+      "connect" : [
+        { "id" : "f22", "to" : "f17" }
+      ]
+    }, {
+      "id" : "f14",
+      "type" : "Script",
+      "name" : "Apply Rules from DMN",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import java.util.HashMap;",
+            "import java.util.Map;",
+            "",
+            "HashMap input = new HashMap();",
+            "in.member.type= in.member.#memberType == null ? \"\" : in.member.memberType.name();  //get string value of Enumeration for DMN",
+            "input.put(\"member\", in.member);",
+            "",
+            "Map result = ivy.rules.create()",
+            "  .namespace(\"rule.engine.dmn\")",
+            "  .executor()",
+            "  .executeDMN(input);",
+            "",
+            "out.member.discount = result.get(\"member.discount\").toNumber();"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 696, "y" : 368 },
+        "size" : { "width" : 128 }
+      },
+      "connect" : [
+        { "id" : "f19", "to" : "f18" }
+      ]
     } ]
 }
