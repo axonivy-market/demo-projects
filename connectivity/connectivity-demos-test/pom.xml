@@ -52,8 +52,8 @@
   
   <dependencies>
     <dependency>
-      <groupId>ch.ivyteam.ivy.api</groupId>
-      <artifactId>ivy-full-api</artifactId>
+      <groupId>com.axonivy.ivy.api</groupId>
+      <artifactId>ivy-api</artifactId>
       <version>11.3.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
