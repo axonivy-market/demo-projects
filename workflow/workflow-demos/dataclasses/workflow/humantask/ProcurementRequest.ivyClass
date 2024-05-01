@@ -20,5 +20,7 @@ requester workflow.humantask.User #field
 requester PERSISTENT #fieldModifier
 activityLog List<workflow.humantask.LogEntry> #field
 activityLog PERSISTENT #fieldModifier
-dynamicTasks Number #field
-dynamicTasks PERSISTENT #fieldModifier
+dynamicRoles java.util.List<String> #field
+dynamicRoles PERSISTENT #fieldModifier
+dynamicRole String #field
+dynamicRole PERSISTENT #fieldModifier

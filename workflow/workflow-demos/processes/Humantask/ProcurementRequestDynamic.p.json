@@ -29,7 +29,7 @@
       "id" : "f1",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 784, "y" : 640 },
+        "at" : { "x" : 784, "y" : 648 },
         "labelOffset" : { "x" : 13, "y" : 33 }
       }
     }, {
@@ -37,7 +37,7 @@
       "type" : "Alternative",
       "config" : {
         "conditions" : {
-          "f4" : "in.dynamicTasks > 0"
+          "f4" : "in.dynamicRoles.size() > 0"
         }
       },
       "visual" : {
@@ -55,7 +55,11 @@
       "config" : {
         "dialog" : "workflow.humantask.VerifyRequest:start(workflow.humantask.ProcurementRequest)",
         "task" : {
-          "name" : "<%= in.dynamicTasks %>: <%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> '<%=in.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>"
+          "name" : "<%= in.dynamicRole %>: <%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> '<%=in.description%>' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>",
+          "responsible" : {
+            "type" : "ROLE_FROM_ATTRIBUTE",
+            "activator" : "in.dynamicRole"
+          }
         },
         "output" : {
           "map" : {
@@ -66,7 +70,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 496, "y" : 424 }
+        "at" : { "x" : 496, "y" : 416 }
       },
       "boundaries" : [ {
           "id" : "f16",
@@ -76,9 +80,12 @@
             "signalCode" : "dynamic:cancel"
           },
           "visual" : {
-            "at" : { "x" : 528, "y" : 464 },
+            "at" : { "x" : 528, "y" : 456 },
             "labelOffset" : { "x" : 13, "y" : 33 }
-          }
+          },
+          "connect" : [
+            { "id" : "f39", "to" : "f38" }
+          ]
         } ],
       "connect" : [
         { "id" : "f6", "to" : "f25", "color" : "default" }
@@ -91,13 +98,20 @@
             "id" : "TaskA",
             "responsible" : {
               "activator" : "SYSTEM"
-            }
+            },
+            "skipTasklist" : true
           }, {
             "id" : "TaskB",
             "responsible" : {
               "activator" : "SYSTEM"
             }
-          } ]
+          } ],
+        "output" : {
+          "map" : {
+            "out" : "in1",
+            "out.dynamicRole" : "in1.dynamicRoles.get(0)"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 496, "y" : 272 },
@@ -123,7 +137,10 @@
       ],
       "config" : {
         "output" : {
-          "code" : "in.dynamicTasks--;"
+          "map" : {
+            "out" : "in",
+            "out.dynamicRoles" : "in.dynamicRoles.removeAt(0)"
+          }
         }
       },
       "visual" : {
@@ -142,7 +159,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 784, "y" : 424 },
+        "at" : { "x" : 784, "y" : 416 },
         "labelOffset" : { "x" : 14, "y" : -22 }
       },
       "connect" : [
@@ -153,7 +170,7 @@
       "id" : "f17",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 864, "y" : 424 },
+        "at" : { "x" : 864, "y" : 416 },
         "labelOffset" : { "x" : 13, "y" : 33 }
       }
     }, {
@@ -176,7 +193,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 784, "y" : 568 }
+        "at" : { "x" : 784, "y" : 560 }
       },
       "connect" : [
         { "id" : "f20", "to" : "f1", "color" : "default" }
@@ -217,7 +234,6 @@
           "map" : {
             "out" : "result.procurementRequestData",
             "out.activityLog" : "in.activityLog.add(result.logEntry)",
-            "out.dynamicTasks" : "3",
             "out.totalPrice" : "result.procurementRequestData.amount * result.procurementRequestData.pricePerUnit"
           }
         }
@@ -226,7 +242,7 @@
         "at" : { "x" : 216, "y" : 80 }
       },
       "connect" : [
-        { "id" : "f27", "to" : "f3", "via" : [ { "x" : 216, "y" : 272 } ], "color" : "default" }
+        { "id" : "f27", "to" : "f36", "color" : "default" }
       ]
     }, {
       "id" : "f28",
@@ -270,7 +286,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 640, "y" : 424 },
+        "at" : { "x" : 640, "y" : 416 },
         "labelOffset" : { "x" : 14, "y" : -22 }
       },
       "connect" : [
@@ -298,7 +314,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 640, "y" : 568 }
+        "at" : { "x" : 640, "y" : 560 }
       },
       "connect" : [
         { "id" : "f33", "to" : "f32" }
@@ -307,7 +323,7 @@
       "id" : "f32",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 640, "y" : 640 },
+        "at" : { "x" : 640, "y" : 648 },
         "labelOffset" : { "x" : 13, "y" : 33 }
       }
     }, {
@@ -317,17 +333,53 @@
         "task" : {
           "responsible" : {
             "activator" : "SYSTEM"
-          },
-          "skipTasklist" : true
+          }
         }
       },
       "visual" : {
-        "at" : { "x" : 640, "y" : 480 },
+        "at" : { "x" : 640, "y" : 472 },
         "labelOffset" : { "x" : 14, "y" : 34 }
       },
       "connect" : [
         { "id" : "f35", "to" : "f31", "color" : "default" }
       ]
+    }, {
+      "id" : "f36",
+      "type" : "Script",
+      "name" : "Accept Roles",
+      "config" : {
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.dynamicRoles" : "[\"Teamleader\", \"Manager\"]"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 216, "y" : 272 }
+      },
+      "connect" : [
+        { "id" : "f37", "to" : "f3", "color" : "default" }
+      ]
+    }, {
+      "id" : "f38",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 528, "y" : 648 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      }
+    }, {
+      "id" : "f40",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "Create dynamic Task for the defined Roles in the 'Accept Roles' Script Step.",
+        "",
+        "Maybe have a look at the AgileBPM example for other dynamic task process patterns."
+      ],
+      "visual" : {
+        "at" : { "x" : 724, "y" : 208 },
+        "size" : { "width" : 340, "height" : 76 }
+      }
     } ],
   "layout" : {
     "lanes" : [ {
