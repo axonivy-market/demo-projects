@@ -165,6 +165,10 @@
       ],
       "config" : {
         "output" : {
+          "map" : {
+            "out" : "in",
+            "out.accepted" : "true"
+          },
           "code" : [
             "import ch.ivyteam.ivy.process.model.value.SignalCode;",
             "ivy.wf.signals().send(new SignalCode(\"dynamic:mail\"), in);"
@@ -200,7 +204,7 @@
       "id" : "f24",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 856, "y" : 80 },
+        "at" : { "x" : 864, "y" : 80 },
         "labelOffset" : { "x" : 13, "y" : 33 }
       }
     }, {
@@ -282,6 +286,10 @@
       ],
       "config" : {
         "output" : {
+          "map" : {
+            "out" : "in",
+            "out.accepted" : "false"
+          },
           "code" : [
             "import ch.ivyteam.ivy.process.model.value.SignalCode;",
             "ivy.wf.signals().send(new SignalCode(\"dynamic:mail\"), in);",
