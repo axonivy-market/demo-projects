@@ -178,7 +178,7 @@
       "type" : "Script",
       "name" : [
         "Send signal ",
-        "'dynamic:mail'"
+        "'dynamic'"
       ],
       "config" : {
         "output" : {
@@ -188,7 +188,7 @@
           },
           "code" : [
             "import ch.ivyteam.ivy.process.model.value.SignalCode;",
-            "ivy.wf.signals().send(new SignalCode(\"dynamic:mail\"), in);"
+            "ivy.wf.signals().send(new SignalCode(\"dynamic\"), in);"
           ]
         }
       },
@@ -201,9 +201,9 @@
     }, {
       "id" : "f21",
       "type" : "SignalStartEvent",
-      "name" : "dynamic:mail",
+      "name" : "dynamic",
       "config" : {
-        "signalCode" : "dynamic:mail",
+        "signalCode" : "dynamic",
         "output" : {
           "map" : {
             "out" : "signal.getSignalData() as workflow.humantask.ProcurementRequest"
@@ -308,8 +308,7 @@
           },
           "code" : [
             "import ch.ivyteam.ivy.process.model.value.SignalCode;",
-            "ivy.wf.signals().send(new SignalCode(\"dynamic:mail\"), in);",
-            "ivy.wf.signals().send(\"dynamic:cancel\");"
+            "ivy.wf.signals().send(new SignalCode(\"dynamic:cancel\"), in);"
           ]
         }
       },
