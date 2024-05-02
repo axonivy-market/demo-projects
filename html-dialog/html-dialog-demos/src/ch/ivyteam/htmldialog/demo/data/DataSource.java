@@ -65,28 +65,26 @@ public class DataSource
     if (filters.isEmpty()) {
       return true;
     }
+    boolean allFiltersMatch = true;
     for (Iterator<String> it = filters.keySet().iterator(); it.hasNext();) {
       String filterProperty = it.next();
-      if (matches(filters, person, filterProperty)) {
-        return true;
-      }
+      String filterValue = filters.get(filterProperty).getFilterValue().toString();
+      allFiltersMatch = allFiltersMatch && matches(filterValue, person, filterProperty);
     }
-    return false;
+    return allFiltersMatch;
   }
 
-  private static boolean matches(Map<String, FilterMeta> filters, Person person, String filterProperty) {
-    String filterValue = filters.get(filterProperty).toString();
+  private static boolean matches(String filterValue, Person person, String filterProperty) {
     if (filterProperty.equals("globalFilter")) {
       if (StringUtils.containsIgnoreCase(person.getName(), filterValue)
-              || StringUtils.containsIgnoreCase(person.getFirstname(), filterValue)
-              || person.getBirthYear().toString().contains(filterValue)) {
+          || StringUtils.containsIgnoreCase(person.getFirstname(), filterValue)
+          || person.getBirthYear().toString().contains(filterValue)) {
         return true;
       }
       return false;
     }
-
     String fieldValue = getValue(person, filterProperty);
-    return filterValue == null || StringUtils.containsIgnoreCase(fieldValue, filterValue);
+    return StringUtils.startsWithIgnoreCase(fieldValue, filterValue);
   }
 
   private static String getValue(Person person, String filterProperty) {
