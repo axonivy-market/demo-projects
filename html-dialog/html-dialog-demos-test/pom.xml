@@ -8,7 +8,7 @@
 
   <properties>
     <project-build-plugin>11.4.0-SNAPSHOT</project-build-plugin>
-    <web.tester.version>11.2.1</web.tester.version>
+    <web.tester.version>11.3.0</web.tester.version>
   </properties>
 
   <pluginRepositories>
@@ -46,7 +46,7 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide-proxy</artifactId>
-      <version>6.19.1</version>
+      <version>7.3.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
