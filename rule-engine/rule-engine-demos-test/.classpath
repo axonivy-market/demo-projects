@@ -36,5 +36,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="RULE_ENGINE_CONTAINER"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
