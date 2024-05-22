@@ -77,7 +77,7 @@
             "input.put(\"member\", in.member);",
             "",
             "Map result = ivy.rules.create()",
-            "  .namespace(\"rule.engine.dmn\")",
+            "  .namespace(\"rule.engine.demo.dmn\")",
             "  .executor()",
             "  .executeDMN(input);",
             "",
@@ -142,7 +142,7 @@
       "impl" : "RuleActivity",
       "name" : "Apply Rules from DRL",
       "config" : {
-        "beanConfig" : "{\"namespace\":\"rule.engine.drl\",\"dataObject\":\"in.member\"}"
+        "beanConfig" : "{\"namespace\":\"rule.engine.demo.drl\",\"dataObject\":\"in.member\"}"
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 320 },
@@ -177,7 +177,7 @@
         "Decision Table (xls)"
       ],
       "config" : {
-        "beanConfig" : "{\"namespace\":\"rule.engine.decisiontable\",\"dataObject\":\"in.member\"}"
+        "beanConfig" : "{\"namespace\":\"rule.engine.demo.decisiontable\",\"dataObject\":\"in.member\"}"
       },
       "visual" : {
         "at" : { "x" : 312, "y" : 192 },

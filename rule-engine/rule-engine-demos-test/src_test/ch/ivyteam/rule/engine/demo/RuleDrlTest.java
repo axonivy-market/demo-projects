@@ -21,7 +21,7 @@ class RuleDrlTest
     member.setMemberType(MemberType.valueOf(memberType));
 
     Rules.create()
-            .namespace("rule.engine.drl")
+            .namespace("rule.engine.demo.drl")
             .executor()
             .execute(member);
 
