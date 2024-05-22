@@ -1,4 +1,5 @@
-package rule.engine.demo
+package rules.rule.engine.demo.drl
+import rule.engine.demo.Member;
 import rule.engine.demo.enums.MemberType
 
 dialect "mvel"

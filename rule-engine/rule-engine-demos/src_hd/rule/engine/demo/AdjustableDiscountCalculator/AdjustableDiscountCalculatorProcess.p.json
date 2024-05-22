@@ -45,7 +45,7 @@
       "name" : "Apply Rules from DRL",
       "config" : {
         "userConfig" : {
-          "namespace" : "rule.engine.adjustable-drl",
+          "namespace" : "rule.engine.demo.adjustableDrl",
           "dataObject" : "in.ruleData"
         }
       },
@@ -144,7 +144,7 @@
             "// make a call to force the rule engine to initialize rulebase",
             "out.ruleData.member.purchaseAmount = 0;",
             "ivy.rules.create()",
-            "   .namespace(\"rule.engine.adjustable-drl\")",
+            "  .namespace(\"rule.engine.demo.adjustableDrl\")",
             "  .executor()",
             "  .execute(in.ruleData);"
           ]
