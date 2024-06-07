@@ -114,11 +114,7 @@
           "out.persons" : "result"
         },
         "resultType" : "java.util.List<com.axonivy.connectivity.Person>",
-        "responseCode" : [
-          "import com.axonivy.connectivity.rest.log.ownLogger.CustomLogger;",
-          "ivy.log.info(result);",
-          "CustomLogger.logInfo(\"test\");"
-        ]
+        "responseCode" : "ivy.log.info(result);"
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 128 }
