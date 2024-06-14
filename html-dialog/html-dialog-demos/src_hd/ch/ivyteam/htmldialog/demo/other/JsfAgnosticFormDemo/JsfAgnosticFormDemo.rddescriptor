@@ -2,6 +2,6 @@
 <richDialogDescriptor>
     <property>
         <name>viewTechnology</name>
-        <value>JSF</value>
+        <value>Form</value>
     </property>
 </richDialogDescriptor>
