@@ -564,5 +564,42 @@
       "connect" : [
         { "id" : "f59", "to" : "f56" }
       ]
+    }, {
+      "id" : "f60",
+      "type" : "RequestStart",
+      "name" : "DynamicDialog.ivp",
+      "config" : {
+        "signature" : "DynamicDialog",
+        "request" : {
+          "name" : "Dynamic Dialog",
+          "category" : "output"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 1400 },
+        "labelOffset" : { "x" : 12, "y" : 37 }
+      },
+      "connect" : [
+        { "id" : "f63", "to" : "f61" }
+      ]
+    }, {
+      "id" : "f61",
+      "type" : "DialogCall",
+      "config" : {
+        "dialog" : "ch.ivyteam.htmldialog.demo.output.DynamicDialogDemo:start()"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 1400 }
+      },
+      "connect" : [
+        { "id" : "f64", "to" : "f62" }
+      ]
+    }, {
+      "id" : "f62",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 480, "y" : 1400 },
+        "labelOffset" : { "x" : 0, "y" : 15 }
+      }
     } ]
 }
