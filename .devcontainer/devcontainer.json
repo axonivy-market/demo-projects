@@ -6,7 +6,7 @@
   "postStartCommand": "mkdir -p logs && rm -f logs/eninge-nohup.out && nohup bash -c '/usr/lib/axonivy-engine/bin/AxonIvyEngine &'> logs/engine-nohup.out",
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
-      "version": "17",
+      "version": "21",
       "installMaven": "true",
       "jdkDistro": "tem"
     },
