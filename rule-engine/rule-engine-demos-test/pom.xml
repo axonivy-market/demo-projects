@@ -54,7 +54,9 @@
         <version>${project-build-plugin}</version>
         <extensions>true</extensions>
         <configuration>
-          <additionalVmOptions>-Divy.Errors.ShowDetailsToEndUser=true</additionalVmOptions>
+          <additionalVmArgs>
+            <additionalVmArg>-Divy.Errors.ShowDetailsToEndUser=true</additionalVmArg>
+          </additionalVmArgs>
         </configuration>
       </plugin>
     </plugins>
