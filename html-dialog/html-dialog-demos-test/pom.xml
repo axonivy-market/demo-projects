@@ -61,7 +61,9 @@
         <extensions>true</extensions>
         <configuration>
           <deployTargetFileFormat>EXPANDED</deployTargetFileFormat> <!-- need for input/download test -->
-          <additionalVmOptions>-Divy.Errors.ShowDetailsToEndUser=true</additionalVmOptions>
+          <additionalVmArgs>
+            <additionalVmArg>-Divy.Errors.ShowDetailsToEndUser=true</additionalVmArg>
+          </additionalVmArgs>
         </configuration>
       </plugin>
     </plugins>

@@ -135,7 +135,10 @@
             <id>default-start-test-engine</id>
             <configuration>
               <deployToEngineApplication>Portal</deployToEngineApplication>
-              <additionalVmOptions>-Divy.Errors.ShowDetailsToEndUser=true -Divy.REST.Servlet.MobileWorkflow.API=true</additionalVmOptions>
+              <additionalVmArgs>
+                <additionalVmArg>-Divy.Errors.ShowDetailsToEndUser=true</additionalVmArg>
+                <additionalVmArg>-Divy.REST.Servlet.MobileWorkflow.API=true</additionalVmArg>
+              </additionalVmArgs>
             </configuration>
           </execution>
         </executions>
