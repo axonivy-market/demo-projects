@@ -13,12 +13,14 @@
         <p:outputLabel>This is a called Dynamic Nested Dialog</p:outputLabel><br/>
         <p:outputLabel>Choose a Dialog</p:outputLabel><br/><br/>
           
-        <p:commandButton style="width:130px" id="openDialogA" actionListener="#{dynamicDialog.open('FinalDlg')}" value="Open Dialog A">
-        </p:commandButton>
-        <p:commandButton style="width:130px" id="openDialogB" actionListener="#{dynamicDialog.open('FinalDlg')}" value="Open Dialog B">
-        </p:commandButton>
-          
-        <p:commandButton style="width:100px" id="closeDialog" actionListener="#{dynamicDialog.close('NestedDlg')}" value="Close" icon="ui-icon-check" update="dialogForm"/>
+        <p:commandButton style="width:130px" id="openDialogA" actionListener="#{ivyDynamicDialog.open('FinalDlg')}" value="Open Dialog A" />
+        <p:commandButton style="width:130px" id="openDialogB" actionListener="#{ivyDynamicDialog.open('FinalDlg')}" value="Open Dialog B" />
+        <p:commandButton style="width:130px" id="useLogic" actionListener="#{logic.logicStart}" value="Use the Logic" update="dialogForm" />
+       
+        <p:inputText style="width:130px" id="text" title="inputtext" value="#{data.message}"></p:inputText><br></br>
+
+        <p:commandButton style="width:100px" id="closeDialog" actionListener="#{ivyDynamicDialog.close('NestedDlg')}" value="Close"
+        icon="ui-icon-check" update="dialogForm"/>
       </h:form>
     </ui:define>
   </ui:composition>
