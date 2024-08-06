@@ -14,6 +14,7 @@ import static test.web.ProcessUtil.startTestProcess;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.engine.EngineUrl;
@@ -36,23 +37,23 @@ public class WebTestBusinessCaseDataWorkflowIT
     login();
 
     startProcess("16EF567002B146F2/create.ivp");
-    $("#form\\:interviewFirstName").shouldBe(visible).sendKeys("Hans");
-    $("#form\\:interviewLastName").sendKeys("Muster");
-    $("#form\\:saveAndPark").click();
+    $(By.id("form:interviewFirstName")).shouldBe(visible).sendKeys("Hans");
+    $(By.id("form:interviewLastName")).sendKeys("Muster");
+    $(By.id("form:saveAndPark")).click();
 
     $$("table tr a").find(text("6.1: Save BusinessCaseData When Park Task")).click();
     $(By.id("taskName")).shouldHave(text("6.1: Save BusinessCaseData When Park Task"));
     $(By.id("actionMenuForm:taskStartBtn")).shouldBe(visible).click();
     Selenide.switchTo().frame("iFrame");
-    $("#form\\:interviewFirstName").shouldBe(visible, exactValue("Hans"));
-    $("#form\\:interviewLastName").shouldBe(exactValue("Muster")).sendKeys("mann");
-    $("#form\\:interviewConversation").sendKeys("This is an interview");
-    $("#form\\:interviewDate_input").sendKeys("13.12.2025");
+    $(By.id("form:interviewFirstName")).shouldBe(visible, exactValue("Hans"));
+    $(By.id("form:interviewLastName")).shouldBe(exactValue("Muster")).sendKeys("mann");
+    $(By.id("form:interviewConversation")).sendKeys("This is an interview");
+    $(By.id("form:interviewDate_input")).sendKeys("13.12.2025");
 
-    $("#form\\:proceed").click();
+    $(By.id("form:proceed")).click();
 
     startProcess("16EF567002B146F2/browse.ivp");
-    sleep(1000); //wait for elasic search
+    sleep(1000); //wait for elastic search
     $$("button").find(text("Search")).shouldBe(visible, enabled).click();
     $$("#interviewTable tbody tr").first().shouldHave(text("Hans"),
             text("Mustermann"),
@@ -65,10 +66,10 @@ public class WebTestBusinessCaseDataWorkflowIT
     if (!EngineUrl.isDesigner())
     {
       open(EngineUrl.create().path("login").toUrl());
-      $("#loginForm\\:userName").shouldBe(visible).sendKeys("hb");
-      $("#loginForm\\:password").sendKeys("hb");
-      $("#loginForm\\:login").click();
-      $("#sessionUserName").shouldBe(text("hb"));
+      $(By.id("loginForm:userName")).shouldBe(visible).sendKeys("hb");
+      $(By.id("loginForm:password")).sendKeys("hb");
+      $(By.id("loginForm:login")).click();
+      $(By.id("sessionUserName")).shouldBe(text("hb"));
     }
   }
 
