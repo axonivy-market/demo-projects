@@ -12,7 +12,8 @@
       <h:form id="finalDialogForm">
         <p:outputLabel>This is the called Dynamic Final Dialog</p:outputLabel><br/><br/>
           
-          <p:commandButton style="width:180px" id="closeDialog" actionListener="#{dynamicDialog.close('FinalDlg')}" value="Close Final Dialog" icon="ui-icon-check" update="finalDialogForm"/>
+          <p:commandButton style="width:180px" id="closeDialog" actionListener="#{ivyDynamicDialog.close('FinalDlg')}" value="Close Final Dialog" icon="ui-icon-check" update="finalDialogForm"/>
+          <p:outputLabel value="#{data.message}"></p:outputLabel>
         </h:form>
     </ui:define>
   </ui:composition>

@@ -46,5 +46,31 @@
         "at" : { "x" : 224, "y" : 160 },
         "labelOffset" : { "x" : 10, "y" : 30 }
       }
+    }, {
+      "id" : "f6",
+      "type" : "HtmlDialogEventStart",
+      "name" : "logicStart",
+      "config" : {
+        "guid" : "191228C19FFF78F4",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.message" : "\"The Logic was used\""
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 248 }
+      },
+      "connect" : [
+        { "id" : "f8", "to" : "f7" }
+      ]
+    }, {
+      "id" : "f7",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 248 },
+        "labelOffset" : { "x" : 10, "y" : 30 }
+      }
     } ]
 }
