@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+  <ui:composition template="/layouts/frame-10.xhtml">
+    <ui:define name="title">Configurated Dialog</ui:define>
+    <ui:define name="content">
+      <h:form id="ConfiguratedDialogForm">
+        <p>This Dialog is configurated so this dialog is not resizable
+          and not draggable. This film was added to the dialog as a parameter.</p>
+        <h:outputText value="Film: " />
+        <ui:repeat value="#{param['Films']}" var="film">
+          <h:outputText value="#{film}" />
+          <br />
+        </ui:repeat>
+        <br />
+        <p:commandButton id="closeDialog"
+          actionListener="#{ivyDynamicDialog.close('ConfiguratedDlg')}"
+          value="Close Dialog" icon="ui-icon-check"
+          update="ConfiguratedDialogForm" />
+      </h:form>
+    </ui:define>
+  </ui:composition>
+</h:body>
+</html>

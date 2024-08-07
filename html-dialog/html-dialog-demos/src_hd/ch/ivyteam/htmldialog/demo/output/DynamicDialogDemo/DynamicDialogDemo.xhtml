@@ -25,12 +25,20 @@
         <h:form id="form">
           <div class="command-btns-">
             
-            <p>Press the Button to open an Dynamic Dialog and write something in the Text box to see how it handles the Data </p>
-            <p:commandButton style="width:120px" id="open"
-              actionListener="#{ivyDynamicDialog.open('NestedDlg')}"
-              value="Open Dialog">
-            </p:commandButton>
-            <p:inputText style="width:150px" id="text" title="inputtext" value="#{data.message}"></p:inputText>
+            <p>Press the Button Open Dialog to open an normal Dynamic Dialog or press the button Open Configurated Dialog to open an configurated Dialog. 
+            You can also write something in the Text box to see how it handles the Data. </p>
+            
+            <h:panelGroup id="buttons">
+              <p:commandButton style="width:120px" id="open"
+                actionListener="#{ivyDynamicDialog.open('NestedDlg')}"
+                value="Open Dialog" />
+              
+              <p:commandButton style="width:200px" id="openConfigurated"
+                  actionListener="#{dynamicDialogBean.view}"
+                  value="Open Configurated Dialog" />
+            
+              <p:inputText style="width:150px" id="text" title="inputtext" value="#{data.message}"></p:inputText>
+            </h:panelGroup>
 
           </div>
         </h:form>
