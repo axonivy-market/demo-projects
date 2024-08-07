@@ -21,13 +21,13 @@ public class DynamicDialogBean {
         .builder()
         .resizable(false)
         .draggable(false)
+        .width("713px")
         .build();
     Map<String, List<String>> parameters = new HashMap<String, List<String>>();
     List<String> keys = new ArrayList<String>();
     keys.add("Harry Potter");
     keys.add("Lords of the Rings");
     parameters.put("Films", keys);
-    IvyDynamicDialog ivyDynamicDialog = new IvyDynamicDialog();
-    ivyDynamicDialog.open("ConfiguratedDlg", options, parameters);
+    new IvyDynamicDialog().open("ConfiguratedDlg", options, parameters);
   }
 }
