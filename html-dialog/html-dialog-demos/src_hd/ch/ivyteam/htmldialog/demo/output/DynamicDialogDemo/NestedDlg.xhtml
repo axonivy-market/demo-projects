@@ -1,26 +1,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:ic="http://ivyteam.ch/jsf/component"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:pe="http://primefaces.org/ui/extensions">
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
   <ui:composition template="/layouts/frame-10.xhtml">
     <ui:define name="title">Nested Dialog</ui:define>
     <ui:define name="content">
       <h:form id="dialogForm">
-        <p:outputLabel>This is a called Dynamic Nested Dialog</p:outputLabel><br/>
-        <p:outputLabel>Choose a Dialog</p:outputLabel><br/><br/>
-          
-        <p:commandButton style="width:130px" id="openDialogA" actionListener="#{ivyDynamicDialog.open('FinalDlg')}" value="Open Dialog A" />
-        <p:commandButton style="width:130px" id="openDialogB" actionListener="#{ivyDynamicDialog.open('FinalDlg')}" value="Open Dialog B" />
-        <p:commandButton style="width:130px" id="useLogic" actionListener="#{logic.logicStart}" value="Use the Logic" update="dialogForm" />
-       
-        <p:inputText style="width:130px" id="text" title="inputtext" value="#{data.message}"></p:inputText><br></br>
+        <p:outputLabel>This is a called Dynamic Nested Dialog</p:outputLabel>
+        <br />
+        <p:outputLabel>Choose a Dialog or use the logic out of the Dialog.</p:outputLabel>
+        <br /><br />
 
-        <p:commandButton style="width:100px" id="closeDialog" actionListener="#{ivyDynamicDialog.close('NestedDlg')}" value="Close"
-        icon="ui-icon-check" update="dialogForm"/>
+        <p:commandButton style="width:130px" id="openDialogA"
+          actionListener="#{ivyDynamicDialog.open('FinalDlg')}"
+          value="Open Dialog A" />
+        <p:commandButton style="width:130px" id="openDialogB"
+          actionListener="#{ivyDynamicDialog.open('FinalDlg')}"
+          value="Open Dialog B" />
+        <p:commandButton style="width:130px" id="useLogic"
+          actionListener="#{logic.logicStart}" value="Use the Logic"
+          update="dialogForm" />
+
+        <p:inputText style="width:150px" id="text" title="inputtext"
+          value="#{data.message}"></p:inputText>
+        <br/><br/>
+
+        <p:commandButton style="width:100px" id="closeDialog"
+          actionListener="#{ivyDynamicDialog.close('NestedDlg')}"
+          value="Close" icon="ui-icon-check" update="dialogForm" />
+
       </h:form>
     </ui:define>
   </ui:composition>
