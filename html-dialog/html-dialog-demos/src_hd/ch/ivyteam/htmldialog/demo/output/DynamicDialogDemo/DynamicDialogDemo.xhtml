@@ -1,10 +1,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:ic="http://ivyteam.ch/jsf/component"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:pe="http://primefaces.org/ui/extensions">
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
   <ui:composition template="/layouts/HtmlDemo.xhtml">
     <ui:param name="centerHeader" value="Dynamic Dialog Demo" />
@@ -13,38 +13,36 @@
 
       <h:panelGroup layout="block">
 
-        <p>Dynamic dialogs allow you to open xhtml files in a new dialog.</p>
+        <p>This demo explains how to open views (*.xhtml) files with Dynamic Dialogs. 
+           The view has to be in the same HTML Dialog.</p>
         <ul>
           <li>This helps you to maintain the dialogs.</li>
           <li>It's easier to test.</li>
           <li>The view state is smaller and saves memory.</li>
-          <li>You can use the logic and the Html Dialog Data</li>
+          <li>The dialog data and the dialog logic is shared and accessible in the dynamic dialogs.</li>
+          <li>The dialog can be configured and parameters can be specified.</li>
         </ul>
-        <p>The file has to be in the same package as the HTML Dialog.</p>
-        
+
         <h:form id="form">
           <div class="command-btns-">
-            
-            <p>Press the Button Open Dialog to open an normal Dynamic Dialog or press the button Open Configurated Dialog to open an configurated Dialog. 
-            You can also write something in the Text box to see how it handles the Data. </p>
-            
-            <h:panelGroup id="buttons">
+            <p:panelGrid id="buttons" columns="1">
+
+              <p>Press the button to open an Dynamic Dialog.</p>
               <p:commandButton style="width:120px" id="open"
                 actionListener="#{ivyDynamicDialog.open('NestedDlg')}"
                 value="Open Dialog" />
-              
+
+              <p>Press the button to open a configured Dynamic Dialog with specified parameters.</p>
               <p:commandButton style="width:200px" id="openConfigurated"
-                  actionListener="#{dynamicDialogBean.view}"
-                  value="Open Configurated Dialog" />
-            
-              <p:inputText style="width:150px" id="text" title="inputtext" value="#{data.message}"></p:inputText>
-            </h:panelGroup>
+                actionListener="#{dynamicDialogDemoBean.setupAndOpen('ConfiguratedDlg')}"
+                value="Open Configurated Dialog" />
+            </p:panelGrid>
 
           </div>
         </h:form>
       </h:panelGroup>
     </ui:define>
- 
+
   </ui:composition>
 </h:body>
 

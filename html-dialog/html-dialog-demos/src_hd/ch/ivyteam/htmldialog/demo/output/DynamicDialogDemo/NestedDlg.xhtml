@@ -10,28 +10,33 @@
     <ui:define name="title">Nested Dialog</ui:define>
     <ui:define name="content">
       <h:form id="dialogForm">
-        <p:outputLabel>This is a called Dynamic Nested Dialog</p:outputLabel>
+        <p:outputLabel>This is a called Dynamic Dialog</p:outputLabel>
         <br />
-        <p:outputLabel>Choose a Dialog or use the logic out of the Dialog.</p:outputLabel>
         <br /><br />
 
-        <p:commandButton style="width:130px" id="openDialogA"
-          actionListener="#{ivyDynamicDialog.open('FinalDlg')}"
-          value="Open Dialog A" />
-        <p:commandButton style="width:130px" id="openDialogB"
-          actionListener="#{ivyDynamicDialog.open('FinalDlg')}"
-          value="Open Dialog B" />
-        <p:commandButton style="width:130px" id="useLogic"
-          actionListener="#{logic.logicStart}" value="Use the Logic"
-          update="dialogForm" />
+        <p:panelGrid id="buttons" columns="1">
+          <p>This button opens a further dialog.</p>
+          <p:commandButton style="width:160px" id="openFurtherDialog"
+            actionListener="#{ivyDynamicDialog.open('FurtherDlg')}"
+            value="Open further Dialog" />
 
-        <p:inputText style="width:150px" id="text" title="inputtext"
-          value="#{data.message}"></p:inputText>
-        <br/><br/>
+          <p></p>
+          <p>This button calls a method that increments the counter. 
+             The counter is saved in the Html Dialog Data.</p>
 
-        <p:commandButton style="width:100px" id="closeDialog"
-          actionListener="#{ivyDynamicDialog.close('NestedDlg')}"
-          value="Close" icon="ui-icon-check" update="dialogForm" />
+          <h:panelGroup>
+            <p:commandButton style="width:130px" id="useLogic"
+              actionListener="#{logic.logicStart}" value="Call Method:"
+              update="dialogForm" />
+
+            <p:outputLabel id="text" title="outputlabel"
+              value="Counter: #{data.counter}"></p:outputLabel>
+          </h:panelGroup>
+
+          <p:commandButton style="width:100px" id="closeDialog"
+            actionListener="#{ivyDynamicDialog.close('NestedDlg')}"
+            value="Close" icon="ui-icon-check" update="dialogForm" />
+        </p:panelGrid>
 
       </h:form>
     </ui:define>

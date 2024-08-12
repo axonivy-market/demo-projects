@@ -1,4 +1,4 @@
 DynamicDialogDemoData #class
 ch.ivyteam.htmldialog.demo.output.DynamicDialogDemo #namespace
-message String #field
-message PERSISTENT #fieldModifier
+counter Number #field
+counter PERSISTENT #fieldModifier
