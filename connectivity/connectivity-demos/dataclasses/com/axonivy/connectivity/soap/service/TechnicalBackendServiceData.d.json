@@ -1,0 +1,13 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "TechnicalBackendServiceData",
+  "namespace" : "com.axonivy.connectivity.soap.service",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "startTimeMillis",
+    "type" : "Long"
+  }, {
+    "name" : "blockSeconds",
+    "type" : "Integer"
+  } ]
+}

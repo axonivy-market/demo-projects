@@ -1,6 +1,0 @@
-EnterRequestData #class
-workflow.humantask.EnterRequest #namespace
-procurementRequestData workflow.humantask.ProcurementRequest #field
-procurementRequestData PERSISTENT #fieldModifier
-logEntry workflow.humantask.LogEntry #field
-logEntry PERSISTENT #fieldModifier

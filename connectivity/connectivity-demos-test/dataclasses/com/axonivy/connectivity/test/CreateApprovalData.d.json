@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "CreateApprovalData",
+  "namespace" : "com.axonivy.connectivity.test",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "createdTask",
+    "type" : "ch.ivyteam.ivy.workflow.ITask",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

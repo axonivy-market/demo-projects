@@ -1,8 +1,0 @@
-SelectOptionsData #class
-error.handling.demo.SelectOptions #namespace
-customer booking.Customer #field
-customer PERSISTENT #fieldModifier
-flight booking.Flight #field
-flight PERSISTENT #fieldModifier
-carSize String #field
-carSize PERSISTENT #fieldModifier

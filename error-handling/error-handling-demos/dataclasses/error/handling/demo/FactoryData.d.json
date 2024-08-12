@@ -1,0 +1,19 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "FactoryData",
+  "namespace" : "error.handling.demo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "model",
+    "type" : "String"
+  }, {
+    "name" : "amount",
+    "type" : "Number"
+  }, {
+    "name" : "wsError",
+    "type" : "ch.ivyteam.ivy.bpm.error.BpmError"
+  }, {
+    "name" : "newShoes",
+    "type" : "java.util.List<String>"
+  } ]
+}

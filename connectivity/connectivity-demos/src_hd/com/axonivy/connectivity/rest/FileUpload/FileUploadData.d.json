@@ -1,0 +1,31 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "FileUploadData",
+  "namespace" : "com.axonivy.connectivity.rest.FileUpload",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "resourceName",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "file",
+    "type" : "File",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "fileDownload",
+    "type" : "org.primefaces.model.StreamedContent",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "listFile",
+    "type" : "java.util.List<String>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "downloadName",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "fileName",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

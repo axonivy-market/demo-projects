@@ -1,0 +1,15 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "EnterMulipleRowsDemoData",
+  "namespace" : "ch.ivyteam.htmldialog.demo.input.EnterMulipleRowsDemo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "scores",
+    "type" : "List<ch.ivyteam.htmldialog.demo.Score>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "player",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

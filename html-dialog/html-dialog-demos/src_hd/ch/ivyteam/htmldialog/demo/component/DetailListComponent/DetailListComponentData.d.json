@@ -1,0 +1,13 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "DetailListComponentData",
+  "namespace" : "ch.ivyteam.htmldialog.demo.component.DetailListComponent",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "persons",
+    "type" : "ch.ivyteam.htmldialog.demo.component.PersonListDataModel"
+  }, {
+    "name" : "selectedPerson",
+    "type" : "ch.ivyteam.htmldialog.demo.Person"
+  } ]
+}

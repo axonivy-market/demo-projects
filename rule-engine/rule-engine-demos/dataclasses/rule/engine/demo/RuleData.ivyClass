@@ -1,6 +1,0 @@
-RuleData #class
-rule.engine.demo #namespace
-member rule.engine.demo.Member #field
-member PERSISTENT #fieldModifier
-rules List<rule.engine.demo.Rule> #field
-rules PERSISTENT #fieldModifier

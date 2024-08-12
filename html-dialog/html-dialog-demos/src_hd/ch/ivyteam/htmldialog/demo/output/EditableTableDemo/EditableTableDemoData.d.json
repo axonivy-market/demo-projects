@@ -1,0 +1,19 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "EditableTableDemoData",
+  "namespace" : "ch.ivyteam.htmldialog.demo.output.EditableTableDemo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "recordset",
+    "type" : "Recordset",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "selectedPerson",
+    "type" : "Record",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "persons",
+    "type" : "List<ch.ivyteam.htmldialog.demo.Person>",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

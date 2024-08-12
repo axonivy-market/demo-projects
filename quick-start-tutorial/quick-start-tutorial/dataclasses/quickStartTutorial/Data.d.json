@@ -1,0 +1,19 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "Data",
+  "namespace" : "quickStartTutorial",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "product",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "releaseDate",
+    "type" : "Date",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "price",
+    "type" : "Number",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

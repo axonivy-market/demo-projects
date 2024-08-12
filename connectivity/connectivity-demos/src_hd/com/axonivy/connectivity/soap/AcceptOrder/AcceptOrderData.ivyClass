@@ -1,4 +1,0 @@
-AcceptOrderData #class
-com.axonivy.connectivity.soap.AcceptOrder #namespace
-order com.axonivy.connectivity.soap.service.Order #field
-order PERSISTENT #fieldModifier

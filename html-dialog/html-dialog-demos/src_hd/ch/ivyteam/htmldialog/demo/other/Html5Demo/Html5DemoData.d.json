@@ -1,0 +1,14 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "Html5DemoData",
+  "namespace" : "ch.ivyteam.htmldialog.demo.other.Html5Demo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "userName",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "subscribe",
+    "type" : "String"
+  } ]
+}

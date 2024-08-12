@@ -1,8 +1,0 @@
-Approval #class
-com.axonivy.connectivity.rest #namespace
-title String #field
-title PERSISTENT #fieldModifier
-description String #field
-description PERSISTENT #fieldModifier
-requestedBy String #field
-requestedBy PERSISTENT #fieldModifier

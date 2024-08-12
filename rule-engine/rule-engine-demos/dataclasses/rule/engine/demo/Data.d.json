@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "Data",
+  "namespace" : "rule.engine.demo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "member",
+    "type" : "rule.engine.demo.Member",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

@@ -1,6 +1,0 @@
-CreateUsersData #class
-com.axonivy.connectivity.test #namespace
-prefix String #field
-prefix PERSISTENT #fieldModifier
-amount Integer #field
-amount PERSISTENT #fieldModifier

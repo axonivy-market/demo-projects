@@ -1,8 +1,0 @@
-Approval #class
-error.handling.demo #namespace
-description String #field
-description PERSISTENT #fieldModifier
-cost Number #field
-cost PERSISTENT #fieldModifier
-declineReason String #field
-declineReason PERSISTENT #fieldModifier

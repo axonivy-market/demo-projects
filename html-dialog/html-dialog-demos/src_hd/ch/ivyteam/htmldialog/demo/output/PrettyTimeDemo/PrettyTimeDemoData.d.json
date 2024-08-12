@@ -1,0 +1,23 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "PrettyTimeDemoData",
+  "namespace" : "ch.ivyteam.htmldialog.demo.output.PrettyTimeDemo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "yesterday",
+    "type" : "java.util.Date",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "twoHoursBefore",
+    "type" : "java.util.Date",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "threeYearsAgo",
+    "type" : "java.util.Date",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "threeWeeksAgo",
+    "type" : "java.util.Date",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

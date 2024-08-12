@@ -1,3 +1,0 @@
-OpenApiData #class
-com.axonivy.connectivity.rest #namespace
-pets java.util.List<io.swagger.petstore3.client.Pet> #field

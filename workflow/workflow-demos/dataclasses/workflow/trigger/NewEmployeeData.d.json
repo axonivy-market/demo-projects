@@ -1,0 +1,31 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "NewEmployeeData",
+  "namespace" : "workflow.trigger",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "needsParkingLot",
+    "type" : "Boolean",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "name",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "dateOfBirth",
+    "type" : "Date",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "email",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "selectedParkingLotNr",
+    "type" : "Number",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "availableParkingLots",
+    "type" : "List<Number>",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

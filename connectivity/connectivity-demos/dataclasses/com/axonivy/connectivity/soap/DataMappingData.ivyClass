@@ -1,6 +1,0 @@
-DataMappingData #class
-com.axonivy.connectivity.soap #namespace
-time DateTime #field
-time PERSISTENT #fieldModifier
-person com.axonivy.connectivity.soap.service.client.Person #field
-person PERSISTENT #fieldModifier

@@ -1,0 +1,13 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "BatchServiceClientData",
+  "namespace" : "com.axonivy.connectivity.soap",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "blockSeconds",
+    "type" : "Integer"
+  }, {
+    "name" : "message",
+    "type" : "String"
+  } ]
+}

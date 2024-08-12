@@ -1,4 +1,0 @@
-testData #class
-workflow.agileBPM.test #namespace
-answer String #field
-answer PERSISTENT #fieldModifier

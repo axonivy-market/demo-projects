@@ -1,0 +1,71 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "TaskDef",
+  "namespace" : "workflow.agileBPM",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "actor",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "subject",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "until",
+    "type" : "DateTime",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "assigned",
+    "type" : "DateTime",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "prio",
+    "type" : "Number",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "kind",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "description",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "done",
+    "type" : "DateTime",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "n",
+    "type" : "Number",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "count",
+    "type" : "Number",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "actoruser",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "actorusers",
+    "type" : "List<String>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "note",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "subtype",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "taskNotes",
+    "type" : "List<ch.ivyteam.ivy.workflow.INote>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "adhoc",
+    "type" : "Boolean",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

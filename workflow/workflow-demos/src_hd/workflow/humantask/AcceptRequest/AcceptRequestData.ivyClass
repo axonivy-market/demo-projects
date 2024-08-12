@@ -1,6 +1,0 @@
-AcceptRequestData #class
-workflow.humantask.AcceptRequest #namespace
-ok Boolean #field
-procurementRequest workflow.humantask.ProcurementRequest #field
-logEntry workflow.humantask.LogEntry #field
-logEntry PERSISTENT #fieldModifier

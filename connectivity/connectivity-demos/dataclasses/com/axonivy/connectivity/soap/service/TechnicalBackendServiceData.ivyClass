@@ -1,4 +1,0 @@
-TechnicalBackendServiceData #class
-com.axonivy.connectivity.soap.service #namespace
-startTimeMillis Long #field
-blockSeconds Integer #field

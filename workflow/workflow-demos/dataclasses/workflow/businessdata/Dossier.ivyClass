@@ -1,6 +1,0 @@
-Dossier #class
-workflow.businessdata #namespace
-person workflow.businessdata.Person #field
-person PERSISTENT #fieldModifier
-name String #field
-name PERSISTENT #fieldModifier
