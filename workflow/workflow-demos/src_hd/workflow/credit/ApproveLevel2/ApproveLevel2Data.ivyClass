@@ -1,4 +1,0 @@
-ApproveLevel2Data #class
-workflow.credit.ApproveLevel2 #namespace
-dossier workflow.credit.CreditDossier #field
-dossier PERSISTENT #fieldModifier

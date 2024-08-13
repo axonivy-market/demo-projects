@@ -1,4 +1,0 @@
-Order #class
-workflow.order #namespace
-product String #field
-product PERSISTENT #fieldModifier

@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "PersonClientData",
+  "namespace" : "com.axonivy.connectivity.soap",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "persons",
+    "type" : "List<com.axonivy.connectivity.soap.service.client.Person>",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

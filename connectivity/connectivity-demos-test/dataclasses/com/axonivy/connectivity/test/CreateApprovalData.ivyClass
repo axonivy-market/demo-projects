@@ -1,4 +1,0 @@
-CreateApprovalData #class
-com.axonivy.connectivity.test #namespace
-createdTask ch.ivyteam.ivy.workflow.ITask #field
-createdTask PERSISTENT #fieldModifier

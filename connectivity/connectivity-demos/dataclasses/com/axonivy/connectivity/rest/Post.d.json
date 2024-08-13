@@ -1,0 +1,26 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "Post",
+  "namespace" : "com.axonivy.connectivity.rest",
+  "comment" : "forum post ",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "id",
+    "type" : "Number"
+  }, {
+    "name" : "userId",
+    "type" : "Number"
+  }, {
+    "name" : "name",
+    "type" : "String"
+  }, {
+    "name" : "email",
+    "type" : "String"
+  }, {
+    "name" : "body",
+    "type" : "String"
+  }, {
+    "name" : "title",
+    "type" : "String"
+  } ]
+}

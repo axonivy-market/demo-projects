@@ -1,4 +1,0 @@
-BusinessDataDossierLazyBrowserData #class
-workflow.businessdata.BusinessDataDossierLazyBrowser #namespace
-dossierModel ch.ivyteam.ivy.wfdemo.businessdata.DossierLazyDataModel #field
-dossierModel PERSISTENT #fieldModifier

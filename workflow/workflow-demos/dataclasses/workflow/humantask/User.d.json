@@ -1,0 +1,19 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "User",
+  "namespace" : "workflow.humantask",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "fullName",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "email",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "role",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

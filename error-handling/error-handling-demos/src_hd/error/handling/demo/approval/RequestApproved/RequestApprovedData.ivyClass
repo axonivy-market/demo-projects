@@ -1,4 +1,0 @@
-RequestApprovedData #class
-error.handling.demo.approval.RequestApproved #namespace
-approval error.handling.demo.Approval #field
-approval PERSISTENT #fieldModifier

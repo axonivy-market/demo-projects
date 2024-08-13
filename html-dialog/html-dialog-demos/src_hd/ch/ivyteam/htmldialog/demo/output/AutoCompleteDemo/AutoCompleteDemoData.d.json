@@ -1,0 +1,27 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "AutoCompleteDemoData",
+  "namespace" : "ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "searchText",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "searchResult",
+    "type" : "List<ch.ivyteam.ivy.security.IUser>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "selectedUserId",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "userViaAjax",
+    "type" : "ch.ivyteam.ivy.security.IUser",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "selectedUserViaFacesConverter",
+    "type" : "ch.ivyteam.ivy.security.IUser",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

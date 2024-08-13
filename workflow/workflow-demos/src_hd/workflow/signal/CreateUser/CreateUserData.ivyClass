@@ -1,4 +1,0 @@
-CreateUserData #class
-workflow.signal.CreateUser #namespace
-user workflow.signal.User #field
-user PERSISTENT #fieldModifier

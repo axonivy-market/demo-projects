@@ -1,0 +1,52 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "define_WFData",
+  "namespace" : "workflow.agileBPM.define_WF",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "definedTasks",
+    "type" : "List<workflow.agileBPM.TaskDef>"
+  }, {
+    "name" : "caseInfo",
+    "type" : "workflow.agileBPM.CaseDef"
+  }, {
+    "name" : "newTask",
+    "type" : "workflow.agileBPM.TaskDef",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "wfusers",
+    "type" : "List<String>"
+  }, {
+    "name" : "started",
+    "type" : "DateTime",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "additionalTasks",
+    "type" : "List<workflow.agileBPM.TaskDef>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "errormsg",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "user",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "editTask",
+    "type" : "workflow.agileBPM.TaskDef",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "userList",
+    "type" : "List<ch.ivyteam.ivy.security.IUser>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "userSelection",
+    "type" : "List<ch.ivyteam.ivy.security.IUser>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "taskDescription",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

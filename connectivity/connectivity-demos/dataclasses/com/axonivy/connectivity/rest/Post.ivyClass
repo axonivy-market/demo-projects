@@ -1,9 +1,0 @@
-Post #class
-'forum post ' #classComment
-com.axonivy.connectivity.rest #namespace
-id Number #field
-userId Number #field
-name String #field
-email String #field
-body String #field
-title String #field

@@ -1,4 +1,0 @@
-PersonClientData #class
-com.axonivy.connectivity.soap #namespace
-persons List<com.axonivy.connectivity.soap.service.client.Person> #field
-persons PERSISTENT #fieldModifier

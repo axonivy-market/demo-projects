@@ -1,6 +1,0 @@
-OrderData #class
-workflow.order #namespace
-customer workflow.order.Person #field
-customer PERSISTENT #fieldModifier
-order workflow.order.Order #field
-order PERSISTENT #fieldModifier

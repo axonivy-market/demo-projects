@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "ComponentDemoData",
+  "namespace" : "ch.ivyteam.htmldialog.demo.component.ComponentDemo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "person",
+    "type" : "ch.ivyteam.htmldialog.demo.Person",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

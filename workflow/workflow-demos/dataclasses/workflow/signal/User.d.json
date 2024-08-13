@@ -1,0 +1,23 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "User",
+  "namespace" : "workflow.signal",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "userKey",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "name",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "street",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "city",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "Order",
+  "namespace" : "com.axonivy.connectivity.soap.service",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "product",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "amount",
+    "type" : "Integer",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "requester",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "unitPrice",
+    "type" : "Double",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

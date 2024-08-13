@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "TaskFormData",
+  "namespace" : "workflow.signal.TaskForm",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "user",
+    "type" : "workflow.signal.User",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

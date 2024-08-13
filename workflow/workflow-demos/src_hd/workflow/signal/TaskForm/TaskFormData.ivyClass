@@ -1,4 +1,0 @@
-TaskFormData #class
-workflow.signal.TaskForm #namespace
-user workflow.signal.User #field
-user PERSISTENT #fieldModifier

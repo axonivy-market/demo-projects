@@ -1,9 +1,0 @@
-CreditDossier #class
-ch.ivyteam.ivy.business.data.store.context.BusinessCaseData #classAnnotation
-workflow.credit #namespace
-customer workflow.credit.Person #field
-customer PERSISTENT #fieldModifier
-request workflow.credit.CreditRequest #field
-request PERSISTENT #fieldModifier
-decision workflow.credit.Decision #field
-decision PERSISTENT #fieldModifier

@@ -1,4 +1,0 @@
-InterviewLazyBrowserData #class
-workflow.businesscasedata.InterviewLazyBrowser #namespace
-interviewModel ch.ivyteam.ivy.wfdemo.businessdata.InterviewLazyDataModel #field
-interviewModel PERSISTENT #fieldModifier

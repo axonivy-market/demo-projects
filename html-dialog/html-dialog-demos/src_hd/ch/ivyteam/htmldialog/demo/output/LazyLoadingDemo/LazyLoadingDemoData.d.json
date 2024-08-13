@@ -1,0 +1,12 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "LazyLoadingDemoData",
+  "namespace" : "ch.ivyteam.htmldialog.demo.output.LazyLoadingDemo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "lazyModel",
+    "type" : "org.primefaces.model.LazyDataModel",
+    "comment" : "Model is lazy loaded",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

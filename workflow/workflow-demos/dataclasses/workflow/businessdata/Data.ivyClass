@@ -1,6 +1,0 @@
-Data #class
-workflow.businessdata #namespace
-id String #field
-id PERSISTENT #fieldModifier
-showAll Boolean #field
-showAll PERSISTENT #fieldModifier

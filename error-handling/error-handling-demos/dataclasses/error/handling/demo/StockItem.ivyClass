@@ -1,6 +1,0 @@
-StockItem #class
-error.handling.demo #namespace
-product String #field
-product PERSISTENT #fieldModifier
-numberInStock Number #field
-numberInStock PERSISTENT #fieldModifier
