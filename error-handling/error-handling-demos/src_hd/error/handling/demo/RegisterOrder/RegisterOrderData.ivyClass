@@ -1,5 +1,0 @@
-RegisterOrderData #class
-error.handling.demo.RegisterOrder #namespace
-order error.handling.demo.Order #field
-productsInStock List<error.handling.demo.StockItem> #field
-productsInStock PERSISTENT #fieldModifier

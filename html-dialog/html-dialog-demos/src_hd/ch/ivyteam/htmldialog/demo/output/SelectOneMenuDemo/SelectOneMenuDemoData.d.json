@@ -1,0 +1,27 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "SelectOneMenuDemoData",
+  "namespace" : "ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "persons",
+    "type" : "List<ch.ivyteam.htmldialog.demo.Person>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "morePersons",
+    "type" : "List<ch.ivyteam.htmldialog.demo.Person>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "onePerson",
+    "type" : "ch.ivyteam.htmldialog.demo.Person",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "selectedPerson",
+    "type" : "ch.ivyteam.htmldialog.demo.Person",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "advanceSelectedPerson",
+    "type" : "ch.ivyteam.htmldialog.demo.Person",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

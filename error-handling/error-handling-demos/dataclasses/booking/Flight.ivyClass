@@ -1,4 +1,0 @@
-Flight #class
-booking #namespace
-name String #field
-name PERSISTENT #fieldModifier

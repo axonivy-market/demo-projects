@@ -1,5 +1,0 @@
-Data #class
-com.axonivy.connectivity #namespace
-persons java.util.List<com.axonivy.connectivity.Person> #field
-result String #field
-file java.io.File #field

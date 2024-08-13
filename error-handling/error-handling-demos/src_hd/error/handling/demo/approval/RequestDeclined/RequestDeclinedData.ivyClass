@@ -1,4 +1,0 @@
-RequestDeclinedData #class
-error.handling.demo.approval.RequestDeclined #namespace
-approval error.handling.demo.Approval #field
-approval PERSISTENT #fieldModifier

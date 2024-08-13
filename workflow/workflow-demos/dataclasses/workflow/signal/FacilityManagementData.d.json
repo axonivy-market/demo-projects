@@ -1,0 +1,15 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "FacilityManagementData",
+  "namespace" : "workflow.signal",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "user",
+    "type" : "workflow.signal.User",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "quitUserEvent",
+    "type" : "workflow.signal.QuitUserEvent",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

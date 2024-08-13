@@ -1,4 +1,0 @@
-DetailListComponentData #class
-ch.ivyteam.htmldialog.demo.component.DetailListComponent #namespace
-persons ch.ivyteam.htmldialog.demo.component.PersonListDataModel #field
-selectedPerson ch.ivyteam.htmldialog.demo.Person #field

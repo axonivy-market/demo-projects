@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "PartialUpdateDemoData",
+  "namespace" : "ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "counter",
+    "type" : "Number",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

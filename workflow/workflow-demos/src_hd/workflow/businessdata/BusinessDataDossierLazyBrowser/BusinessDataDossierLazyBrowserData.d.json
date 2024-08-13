@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "BusinessDataDossierLazyBrowserData",
+  "namespace" : "workflow.businessdata.BusinessDataDossierLazyBrowser",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "dossierModel",
+    "type" : "ch.ivyteam.ivy.wfdemo.businessdata.DossierLazyDataModel",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

@@ -1,6 +1,0 @@
-EnterMulipleRowsDemoData #class
-ch.ivyteam.htmldialog.demo.input.EnterMulipleRowsDemo #namespace
-scores List<ch.ivyteam.htmldialog.demo.Score> #field
-scores PERSISTENT #fieldModifier
-player String #field
-player PERSISTENT #fieldModifier

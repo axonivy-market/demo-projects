@@ -1,6 +1,0 @@
-ExceptionData #class
-com.axonivy.connectivity.soap.service #namespace
-throwException Boolean #field
-throwException PERSISTENT #fieldModifier
-exceptionMessage String #field
-exceptionMessage PERSISTENT #fieldModifier

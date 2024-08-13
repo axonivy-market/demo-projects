@@ -1,3 +1,0 @@
-OData #class
-com.axonivy.connectivity.rest.odata #namespace
-users java.util.List<org.odata.trippin.client.MicrosoftODataSampleServiceModelsTripPinPerson> #field

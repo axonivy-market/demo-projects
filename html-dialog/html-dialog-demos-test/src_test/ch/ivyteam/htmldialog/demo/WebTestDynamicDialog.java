@@ -48,7 +48,6 @@ class WebTestDynamicDialog {
     $(By.id("dialogForm:closeDialog")).shouldBe(visible).click();
   }
 
-
   @Test
   void parameter() {
     $(By.id("form:openConfigurated")).shouldBe(visible).click();
@@ -57,7 +56,6 @@ class WebTestDynamicDialog {
     $(By.id("dialogForm:closeDialog")).shouldBe(visible).click();
     switchToForm();
     $(By.id("form:proceed")).shouldBe(visible).click();
-
   }
 
   @Test
@@ -69,7 +67,6 @@ class WebTestDynamicDialog {
     $(By.id("dialogForm:closeDialog")).shouldBe(visible).click();
     switchToForm();
     $(By.id("form:proceed")).shouldBe(visible).click();
-
   }
 
     private void switchToDialogs(int index) {

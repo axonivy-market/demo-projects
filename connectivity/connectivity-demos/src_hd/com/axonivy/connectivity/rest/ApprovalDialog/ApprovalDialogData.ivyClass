@@ -1,4 +1,0 @@
-ApprovalDialogData #class
-com.axonivy.connectivity.rest.ApprovalDialog #namespace
-approval com.axonivy.connectivity.rest.Approval #field
-approval PERSISTENT #fieldModifier

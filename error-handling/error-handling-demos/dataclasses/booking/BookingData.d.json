@@ -1,0 +1,16 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "BookingData",
+  "namespace" : "booking",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "customer",
+    "type" : "booking.Customer"
+  }, {
+    "name" : "flight",
+    "type" : "booking.Flight"
+  }, {
+    "name" : "carSize",
+    "type" : "String"
+  } ]
+}

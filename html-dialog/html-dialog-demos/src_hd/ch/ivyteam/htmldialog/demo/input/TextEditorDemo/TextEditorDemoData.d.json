@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "TextEditorDemoData",
+  "namespace" : "ch.ivyteam.htmldialog.demo.input.TextEditorDemo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "text",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

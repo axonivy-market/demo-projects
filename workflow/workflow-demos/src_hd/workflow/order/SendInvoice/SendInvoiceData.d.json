@@ -1,0 +1,15 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "SendInvoiceData",
+  "namespace" : "workflow.order.SendInvoice",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "customer",
+    "type" : "workflow.order.Person",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "order",
+    "type" : "workflow.order.Order",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

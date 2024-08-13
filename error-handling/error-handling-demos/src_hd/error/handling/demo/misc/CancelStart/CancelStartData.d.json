@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "CancelStartData",
+  "namespace" : "error.handling.demo.misc.CancelStart",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "email",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

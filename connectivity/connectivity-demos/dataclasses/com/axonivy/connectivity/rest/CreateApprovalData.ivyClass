@@ -1,4 +1,0 @@
-CreateApprovalData #class
-com.axonivy.connectivity.rest #namespace
-approval com.axonivy.connectivity.rest.Approval #field
-approvalTask ch.ivyteam.ivy.workflow.ITask #field

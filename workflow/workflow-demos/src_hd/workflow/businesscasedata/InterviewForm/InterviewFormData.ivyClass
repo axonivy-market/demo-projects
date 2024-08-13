@@ -1,4 +1,0 @@
-InterviewFormData #class
-workflow.businesscasedata.InterviewForm #namespace
-interview workflow.businesscasedata.Interview #field
-interview PERSISTENT #fieldModifier

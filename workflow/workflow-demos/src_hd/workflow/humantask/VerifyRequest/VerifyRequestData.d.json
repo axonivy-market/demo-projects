@@ -1,0 +1,19 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "VerifyRequestData",
+  "namespace" : "workflow.humantask.VerifyRequest",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "procurementRequest",
+    "type" : "workflow.humantask.ProcurementRequest",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "ok",
+    "type" : "Boolean",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "logEntry",
+    "type" : "workflow.humantask.LogEntry",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

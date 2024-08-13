@@ -1,5 +1,0 @@
-BookingData #class
-booking #namespace
-customer booking.Customer #field
-flight booking.Flight #field
-carSize String #field

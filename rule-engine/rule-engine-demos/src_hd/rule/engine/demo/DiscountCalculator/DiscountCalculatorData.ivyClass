@@ -1,4 +1,0 @@
-DiscountCalculatorData #class
-rule.engine.demo.DiscountCalculator #namespace
-member rule.engine.demo.Member #field
-member PERSISTENT #fieldModifier

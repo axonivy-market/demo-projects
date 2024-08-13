@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "RequestApprovedData",
+  "namespace" : "error.handling.demo.approval.RequestApproved",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "approval",
+    "type" : "error.handling.demo.Approval",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

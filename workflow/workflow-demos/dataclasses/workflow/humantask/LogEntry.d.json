@@ -1,0 +1,19 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "LogEntry",
+  "namespace" : "workflow.humantask",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "user",
+    "type" : "workflow.humantask.User",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "activity",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "timestamp",
+    "type" : "DateTime",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "Data",
+  "namespace" : "workflow.agileBPM",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "definedTasks",
+    "type" : "List<workflow.agileBPM.TaskDef>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "caseInfo",
+    "type" : "workflow.agileBPM.CaseDef",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "nextTask",
+    "type" : "workflow.agileBPM.TaskDef",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "ok",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "answer",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "started",
+    "type" : "DateTime",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "additionalTasks",
+    "type" : "List<workflow.agileBPM.TaskDef>",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

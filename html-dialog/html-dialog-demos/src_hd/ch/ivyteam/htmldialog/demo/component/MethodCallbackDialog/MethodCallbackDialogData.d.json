@@ -1,0 +1,10 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "MethodCallbackDialogData",
+  "namespace" : "ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "persons",
+    "type" : "java.util.List<ch.ivyteam.htmldialog.demo.Person>"
+  } ]
+}

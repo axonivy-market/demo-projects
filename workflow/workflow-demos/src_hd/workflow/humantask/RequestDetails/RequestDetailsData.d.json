@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "RequestDetailsData",
+  "namespace" : "workflow.humantask.RequestDetails",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "procurementRequestData",
+    "type" : "workflow.humantask.ProcurementRequest",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

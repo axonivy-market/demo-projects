@@ -1,0 +1,23 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "AdjustableDiscountCalculatorData",
+  "namespace" : "rule.engine.demo.AdjustableDiscountCalculator",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "ruleData",
+    "type" : "rule.engine.demo.RuleData",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "memberTypes",
+    "type" : "List<String>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "files",
+    "type" : "List<String>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "filename",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

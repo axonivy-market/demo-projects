@@ -1,0 +1,27 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "PersonManagerData",
+  "namespace" : "com.axonivy.connectivity.rest.PersonManager",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "editPerson",
+    "type" : "com.axonivy.connectivity.Person",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "firstName",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "lastName",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "response",
+    "type" : "javax.ws.rs.core.Response",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "persons",
+    "type" : "List<com.axonivy.connectivity.Person>",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

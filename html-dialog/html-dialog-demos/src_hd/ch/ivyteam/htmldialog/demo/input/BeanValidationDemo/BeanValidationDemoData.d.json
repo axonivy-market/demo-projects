@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "BeanValidationDemoData",
+  "namespace" : "ch.ivyteam.htmldialog.demo.input.BeanValidationDemo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "person",
+    "type" : "ch.ivyteam.htmldialog.demo.input.beanValidation.Person",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

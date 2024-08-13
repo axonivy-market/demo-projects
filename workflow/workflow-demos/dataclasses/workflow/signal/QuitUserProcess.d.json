@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "QuitUserProcess",
+  "namespace" : "workflow.signal",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "quitUserEvent",
+    "type" : "workflow.signal.QuitUserEvent",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

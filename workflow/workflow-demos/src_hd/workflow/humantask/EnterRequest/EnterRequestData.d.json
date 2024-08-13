@@ -1,0 +1,15 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "EnterRequestData",
+  "namespace" : "workflow.humantask.EnterRequest",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "procurementRequestData",
+    "type" : "workflow.humantask.ProcurementRequest",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "logEntry",
+    "type" : "workflow.humantask.LogEntry",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

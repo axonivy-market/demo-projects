@@ -1,8 +1,0 @@
-Address #class
-workflow.businessdata #namespace
-zip String #field
-zip PERSISTENT #fieldModifier
-city String #field
-city PERSISTENT #fieldModifier
-country String #field
-country PERSISTENT #fieldModifier

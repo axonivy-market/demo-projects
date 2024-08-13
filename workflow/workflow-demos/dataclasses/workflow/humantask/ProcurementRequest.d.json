@@ -1,0 +1,55 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "ProcurementRequest",
+  "namespace" : "workflow.humantask",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "amount",
+    "type" : "Number",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "description",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "notes",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "pricePerUnit",
+    "type" : "Number",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "dataOkManager",
+    "type" : "Boolean",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "accepted",
+    "type" : "Boolean",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "dataOkTeamLeader",
+    "type" : "Boolean",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "totalPrice",
+    "type" : "Number",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "requester",
+    "type" : "workflow.humantask.User",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "activityLog",
+    "type" : "List<workflow.humantask.LogEntry>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "dynamicRoles",
+    "type" : "java.util.List<String>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "dynamicRole",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

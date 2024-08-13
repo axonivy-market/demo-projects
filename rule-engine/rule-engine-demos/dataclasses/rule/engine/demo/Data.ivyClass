@@ -1,4 +1,0 @@
-Data #class
-rule.engine.demo #namespace
-member rule.engine.demo.Member #field
-member PERSISTENT #fieldModifier
