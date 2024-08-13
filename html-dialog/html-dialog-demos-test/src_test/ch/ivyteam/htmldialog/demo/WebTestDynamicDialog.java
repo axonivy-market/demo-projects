@@ -1,8 +1,8 @@
 package ch.ivyteam.htmldialog.demo;
 
 import static ch.ivyteam.htmldialog.server.test.ProcessUtil.startProcess;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -29,17 +29,25 @@ class WebTestDynamicDialog {
   void openDialog() {
     $(By.id("form:open")).shouldBe(visible).click();
     switchToDialogs(firstDialog);
-    $(By.id("dialogForm:openDialogA")).shouldBe(visible).click();
-    switchToDialogs(secondDialog);
-    $(By.id("finalDialogForm:closeDialog")).shouldBe(visible).click();
-    switchToDialogs(firstDialog);
-    $(By.id("dialogForm:openDialogB")).shouldBe(visible).click();
+    $(By.id("dialogForm:openDialog")).shouldBe(visible).click();
+    $(By.id("dialogForm:openFurtherDialog")).shouldBe(visible).click();
     switchToDialogs(secondDialog);
     $(By.id("finalDialogForm:closeDialog")).shouldBe(visible).click();
     switchToDialogs(firstDialog);
     $(By.id("dialogForm:closeDialog")).shouldBe(visible).click();
   }
-  
+
+  @Test
+  void logicAndData() {
+    $(By.id("form:open")).shouldBe(visible).click();
+    switchToDialogs(firstDialog);
+    $(By.id("dialogForm:text")).shouldHave(text("Counter:"));
+    $(By.id("dialogForm:useLogic")).shouldBe(visible).click();
+    $(By.id("dialogForm:text")).shouldHave(text("Counter: 1"));
+    switchToDialogs(firstDialog);
+    $(By.id("dialogForm:closeDialog")).shouldBe(visible).click();
+  }
+
   @Test
   void parameter() {
     $(By.id("form:openConfigurated")).shouldBe(visible).click();
@@ -48,9 +56,8 @@ class WebTestDynamicDialog {
     $(By.id("dialogForm:closeDialog")).shouldBe(visible).click();
     switchToForm();
     $(By.id("form:proceed")).shouldBe(visible).click();
-
   }
-  
+
   @Test
   void configurationOptions() {
     $(By.id("form:openConfigurated")).shouldBe(visible).click();
@@ -60,7 +67,6 @@ class WebTestDynamicDialog {
     $(By.id("dialogForm:closeDialog")).shouldBe(visible).click();
     switchToForm();
     $(By.id("form:proceed")).shouldBe(visible).click();
-
   }
 
     private void switchToDialogs(int index) {

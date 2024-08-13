@@ -55,8 +55,9 @@
         "output" : {
           "map" : {
             "out" : "in",
-            "out.message" : "\"The Logic was used\""
-          }
+            "out.counter" : "in.counter"
+          },
+          "code" : "in.counter++ ;"
         }
       },
       "visual" : {

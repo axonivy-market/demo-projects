@@ -11,10 +11,12 @@
     <ui:define name="title">Configurated Dialog</ui:define>
     <ui:define name="content">
       <h:form id="ConfiguratedDialogForm">
-        <p>This Dialog is configurated so this dialog is not resizable
-          and not draggable. This film was added to the dialog as a parameter.</p>
-        <h:outputText value="Film: " />
-        <ui:repeat value="#{param['Films']}" var="film">
+        <p>This Dialog is configured so this dialog is not resizable
+          and not draggable. A list of movies is added to the dialog as parameters.
+          It's configured in the DynamicDialogDemoBean.</p>
+        <h:outputText value="Films: " />
+         <br />
+        <ui:repeat value="#{paramValues['Films']}" var="film">
           <h:outputText value="#{film}" />
           <br />
         </ui:repeat>
