@@ -41,7 +41,7 @@ public class WebTestBusinessCaseDataWorkflowIT
     $(By.id("form:interviewLastName")).sendKeys("Muster");
     $(By.id("form:saveAndPark")).click();
 
-    $$("table tr a").find(text("6.1: Save BusinessCaseData When Park Task")).click();
+    $(By.id("tasksForm:tasks:0:taskName")).shouldHave(text("6.1: Save BusinessCaseData When Park Task")).click();
     $(By.id("taskName")).shouldHave(text("6.1: Save BusinessCaseData When Park Task"));
     $(By.id("actionMenuForm:taskStartBtn")).shouldBe(visible).click();
     Selenide.switchTo().frame("iFrame");
