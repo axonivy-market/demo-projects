@@ -35,7 +35,13 @@ Once you have successfully installed the connectivity connector in the Designer,
 
 ### callOwnPersonRestService Demo
 ![callOwnPersonRestService-Demol](connectivity-person1.png)
+
+UI for the process "personManager.ivp" - where it is shown how to use all methods of the self-created REST service
 ![Restful Person Manager](connectivity-person2.png)
+
+In this demo a REST client has been created, providing GET, PUT, POST and DELETE 
+![Restful Person Manager](connectivity-person3.png)
+
 
 ![OpenAPI](screen1.png "OpenAPI")
 
