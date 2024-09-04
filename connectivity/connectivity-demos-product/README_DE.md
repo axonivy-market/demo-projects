@@ -8,7 +8,7 @@ Diese Demo-Beispiele veranschaulichen:
 - einen Geschäftsprozess, der über einen REST-Dienst aufgerufen wird
 - asynchrone Dienste über REST (eigene Chat-Implementierung)
 - wie  das Datenmapping über REST funktioniert
-- das Hochladen von Daten über REST
+- das Hochladen von Files über REST
 - REST in Kombination mit OpenAPI und OData
 - viele Beispiele für die Verwendung von SOAP-Diensten in der Plattform
 
