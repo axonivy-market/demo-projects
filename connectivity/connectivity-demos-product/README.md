@@ -23,6 +23,8 @@ Once you have successfully installed the connectivity connector in the Designer,
 
 ### Approval Demo
 ![Approva-Demol](connectivity-approval1.png)
+
+The functional Sub-Process "createApproval" is invoked by the REST call
 ![Approva-Demol](connectivity-approval2.png)
 ![Approva-Demol](connectivity-approval3.png)
 ![Approva-Demol](connectivity-approval4.png)
@@ -41,6 +43,12 @@ UI for the process "personManager.ivp" - where it is shown how to use all method
 
 In this demo a REST client has been created, providing GET, PUT, POST and DELETE 
 ![Restful Person Manager](connectivity-person3.png)
+
+### dataMapping Demo
+Various options are shown here on how you can design the data mapping in a REST call.
+![Data Mapping](connectivity-datamapping1.png)
+
+
 
 
 ![OpenAPI](screen1.png "OpenAPI")
