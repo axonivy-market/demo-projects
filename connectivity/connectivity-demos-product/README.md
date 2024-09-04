@@ -57,9 +57,15 @@ There is also a demo showing a nice UI for various solutions to upload a file.
 
 ### openapi Demo
 
-OpenAPI is a specification for building APIs, allowing developers to define, describe, and document RESTful web services in a standardized, machine-readable format. It simplifies the integration a lot.
+OpenAPI is a specification for building APIs, allowing developers to define, describe, and document RESTful web services in a standardized, machine-readable format. It simplifies the integration a lot - this is of course also true for the integration into an Axon Ivy application.  
+  
 ![OpenApi](connectivity-openapi1.png)
+  
 ![OpenApi](connectivity-openapi2.png)
+
+### openapi odata Demo
+
+![Odata](connectivity-odata1.png)
 
 ## Setup
 
