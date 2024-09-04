@@ -17,7 +17,7 @@ Learn more about [3rd party integration](https://developer.axonivy.com/doc/9/con
 
 ## Demo
 
-Once you have successfully installed the Konnectivity connector in the Designer, you will have a number of examples at your fingertips:
+Once you have successfully installed the connectivity connector in the Designer, you will have a number of examples at your fingertips:
 
 ![Approva-Demol](connectivity-overview.png)
 
