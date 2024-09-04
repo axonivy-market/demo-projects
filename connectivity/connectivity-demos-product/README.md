@@ -30,9 +30,15 @@ Once you have successfully installed the connectivity connector in the Designer,
 ### Async Demo
 ![Async-Demol](connectivity-async1.png)
 
+### batchService Demo
+![batchService-Demol](connectivity-batch1.png)
+
+### callOwnPersonRestService Demo
+![callOwnPersonRestService-Demol](connectivity-person1.png)
+![Restful Person Manager](connectivity-person2.png)
 
 ![OpenAPI](screen1.png "OpenAPI")
-![Restful Person Manager](screen2.png "Restful Person Manager")
+
 
 ## Setup
 
