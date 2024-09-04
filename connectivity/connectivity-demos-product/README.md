@@ -1,14 +1,14 @@
 # Connectivity Demo
-Axon Ivy's Connectivity (REST/SOAP) Demo nicely showcases how simple process
-automation can be. Using standard architecture principles to create interactive
-applications with web services is key to accelerate time-to-market. The
-solution:
+Axon Ivy's Connectivity (REST/SOAP) Demo nicely showcases using standard architecture principles to create interactive
+applications with web services.
+
+The solution:
  
-- illustrates how to access a own REST serivce
-- includes an example of a business process being called via REST service
-- points out async services using REST (own chat implementation)
-- shows how easy data mapping works using REST
-- exemplifies data upload via REST
+- illustrates how to access your own REST service
+- contains an example of a business process that is called via a REST service
+- shows asynchronous services via REST (own chat implementation)
+- shows how easy data mapping using REST works
+- illustrates the uploading of data via REST
 - demonstrates REST in combination with OpenAPI and OData
 - gives many examples of how to use SOAP service within the platform
 
@@ -17,5 +17,22 @@ Learn more about [3rd party integration](https://developer.axonivy.com/doc/9/con
 
 ## Demo
 
+Once you have successfully installed the Konnectivity connector in the Designer, you will have a number of examples at your fingertips:
+
+![Approva-Demol](connectivity-overview.png)
+
+### Approval Demo
+![Approva-Demol](connectivity-approval1.png)
+![Approva-Demol](connectivity-approval2.png)
+![Approva-Demol](connectivity-approval3.png)
+![Approva-Demol](connectivity-approval4.png)
+
+
+
 ![OpenAPI](screen1.png "OpenAPI")
 ![Restful Person Manager](screen2.png "Restful Person Manager")
+
+## Setup
+
+Simply install the connector from within the Designer - nothing else needs to be done :blush:
+![Installation](connectivity-installation.png)
