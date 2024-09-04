@@ -49,17 +49,20 @@ Various options are shown here on how you can design the data mapping in a REST 
 ![Data Mapping](connectivity-datamapping1.png)
 
 ### fileUpload Demo
-This Demo uses a Rest Service Call to upload a File.
+This Demo uses a Rest Service Call to upload a File.  
 ![Fileupload](connectivity-upload1.png)
 
 There is also a demo showing a nice UI for various solutions to upload a file.
 ![Fileupload](connectivity-upload2.png)
 
+### openapi Demo
 
-![OpenAPI](screen1.png "OpenAPI")
-
+OpenAPI is a specification for building APIs, allowing developers to define, describe, and document RESTful web services in a standardized, machine-readable format. It simplifies the integration a lot.
+![OpenApi](connectivity-openapi1.png)
+![OpenApi](connectivity-openapi2.png)
 
 ## Setup
 
 Simply install the connector from within the Designer - nothing else needs to be done :blush:
+  
 ![Installation](connectivity-installation.png)
