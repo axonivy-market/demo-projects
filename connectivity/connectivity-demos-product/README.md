@@ -1,15 +1,16 @@
 # Connectivity Demo
+
 Axon Ivy's Connectivity (REST/SOAP) Demo is a comprehensive collection of examples that demonstrate the use of standard architectural principles to create interactive web services.
 
-The solution:
+These demo examples illustrate
  
-- illustrates how to access your own REST service
-- contains an example of a business process that is called via a REST service
-- shows asynchronous services via REST (own chat implementation)
-- shows how easy data mapping using REST works
-- illustrates the uploading of data via REST
-- demonstrates REST in combination with OpenAPI and OData
-- gives many examples of how to use SOAP service within the platform
+- how you can access your own REST service
+- a business process that is called via a REST service
+- asynchronous services via REST (custom chat implementation)
+- how data mapping works via REST
+- uploading data via REST
+- REST in combination with OpenAPI and OData
+- many examples of the use of SOAP services in the platform
 
 Learn more about [3rd party integration](https://developer.axonivy.com/doc/9/concepts/3rd-party-integration/index.html) in our documentation.
 
