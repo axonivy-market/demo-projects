@@ -1,6 +1,5 @@
 # Connectivity Demo
-Axon Ivy's Connectivity (REST/SOAP) Demo nicely showcases using standard architecture principles to create interactive
-applications with web services.
+Axon Ivy's Connectivity (REST/SOAP) Demo is a comprehensive collection of examples that demonstrate the use of standard architectural principles to create interactive web services.
 
 The solution:
  
