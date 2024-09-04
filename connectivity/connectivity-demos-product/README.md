@@ -48,7 +48,12 @@ In this demo a REST client has been created, providing GET, PUT, POST and DELETE
 Various options are shown here on how you can design the data mapping in a REST call.
 ![Data Mapping](connectivity-datamapping1.png)
 
+### fileUpload Demo
+This Demo uses a Rest Service Call to upload a File.
+![Fileupload](connectivity-upload1.png)
 
+There is also a demo showing a nice UI for various solutions to upload a file.
+![Fileupload](connectivity-upload2.png)
 
 
 ![OpenAPI](screen1.png "OpenAPI")
