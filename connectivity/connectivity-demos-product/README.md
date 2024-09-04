@@ -8,7 +8,7 @@ These demo examples illustrate
 - a business process that is called via a REST service
 - asynchronous services via REST (custom chat implementation)
 - how data mapping works via REST
-- uploading data via REST
+- uploading files via REST
 - REST in combination with OpenAPI and OData
 - many examples of the use of SOAP services in the platform
 
