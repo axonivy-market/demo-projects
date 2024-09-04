@@ -27,6 +27,8 @@ Once you have successfully installed the connectivity connector in the Designer,
 ![Approva-Demol](connectivity-approval3.png)
 ![Approva-Demol](connectivity-approval4.png)
 
+### Async Demo
+![Async-Demol](connectivity-async1.png)
 
 
 ![OpenAPI](screen1.png "OpenAPI")
