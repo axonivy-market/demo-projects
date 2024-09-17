@@ -1,22 +1,2 @@
 :root {
-  /* Sidebar */
-  --sidebar-bg-color: hsl(195, 100%, 29%);
-  --sidebar-logo-bg-color: hsl(195, 100%, 29%);
-  --sidebar-app-text-color: hsl(0, 0%, 100%);
-  /* Topbar */
-  --topbar-bg-color: hsl(195, 100%, 29%);
-  --topbar-text-color-h: 0;
-  --topbar-text-color-s: 0%;
-  --topbar-text-color-l: 100%;
-  /* Submenu */
-  --submenu-bg-color: hsla(0, 0%, 100%, 0.2);
-  /* Default MenuItem */
-  --menuitem-text-color: hsl(0, 0%, 100%);
-  /* Hover MenuItem */
-  --menuitem-hover-bg-color: hsla(0, 0%, 0%, 0.4);
-  --menuitem-hover-text-color: hsl(0, 0%, 100%);
-  /* Active MenuItem */
-  --menuitem-active-bg-color: hsl(64, 70%, 49%);
-  --menuitem-active-text-color: hsl(0, 1%, 20%);
-  --sub-menuitem-active-text-color: hsl(65, 78%, 54%);
 }
