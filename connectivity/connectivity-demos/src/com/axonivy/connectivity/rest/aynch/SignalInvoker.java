@@ -42,13 +42,13 @@ public class SignalInvoker implements InvocationCallback<String>
   @Override
   public void completed(String response)
   {
-    asyncRunner.run(() -> Ivy.wf().signals().send(successSignal, response));
+    asyncRunner.run(() -> Ivy.wf().signals().create().data(response).send(successSignal));
   }
 
   @Override
   public void failed(Throwable throwable)
   {
-    asyncRunner.run(() -> Ivy.wf().signals().send(errorSignal, throwable));
+    asyncRunner.run(() -> Ivy.wf().signals().create().data(throwable).send(errorSignal));
   }
 
 }
