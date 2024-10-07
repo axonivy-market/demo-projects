@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/form/11.3.1/form.json",
+  "$schema" : "https://json-schema.axonivy.com/form/12.0.0/form.json",
   "id" : "a35c9de8-3e2a-49d4-b7a5-5edc08a80658",
   "config" : {
     "renderer" : "JSF",
@@ -11,8 +11,11 @@
     "config" : {
       "lgSpan" : "6",
       "mdSpan" : "12",
+      "visible" : "",
       "type" : "RAW",
-      "content" : "This form was built with the FormEditor, introduced as alpha in 11.3.0"
+      "content" : "This form was built with the FormEditor, introduced as alpha in 11.3.0",
+      "icon" : "",
+      "iconStyle" : "INLINE"
     }
   }, {
     "id" : "Input-cc491431-8972-446c-b329-7e71c9966c82",
@@ -20,8 +23,12 @@
     "config" : {
       "lgSpan" : "6",
       "mdSpan" : "12",
+      "visible" : "",
+      "disabled" : "",
+      "required" : "false",
+      "requiredMessage" : "",
+      "updateOnChange" : false,
       "label" : "Name",
-      "required" : false,
       "value" : "",
       "type" : "TEXT"
     }
@@ -31,8 +38,12 @@
     "config" : {
       "lgSpan" : "6",
       "mdSpan" : "12",
+      "visible" : "",
+      "disabled" : "",
+      "required" : "false",
+      "requiredMessage" : "",
+      "updateOnChange" : false,
       "label" : "Lastname",
-      "required" : false,
       "value" : "",
       "type" : "TEXT"
     }
@@ -42,8 +53,12 @@
     "config" : {
       "lgSpan" : "6",
       "mdSpan" : "12",
+      "visible" : "",
+      "disabled" : "",
+      "required" : "true",
+      "requiredMessage" : "",
+      "updateOnChange" : false,
       "label" : "EMail",
-      "required" : true,
       "value" : "",
       "type" : "EMAIL"
     }
@@ -53,8 +68,11 @@
     "config" : {
       "lgSpan" : "6",
       "mdSpan" : "12",
+      "visible" : "",
       "type" : "MARKDOWN",
-      "content" : "Forms are: \neasy to create using the form-editor, maintained technology agnostic, but rendered as JSF view at built time."
+      "content" : "Forms are: \neasy to create using the form-editor, maintained technology agnostic, but rendered as JSF view at built time.",
+      "icon" : "",
+      "iconStyle" : "INLINE"
     }
   }, {
     "id" : "Button-5ab32180-0ac1-4f34-8972-a29501e07f5c",
@@ -62,10 +80,13 @@
     "config" : {
       "lgSpan" : "6",
       "mdSpan" : "12",
+      "visible" : "",
+      "disabled" : "",
       "name" : "Proceed",
       "action" : "#{logic.close}",
       "variant" : "PRIMARY",
-      "icon" : ""
+      "icon" : "",
+      "processOnlySelf" : false
     }
   } ]
 }
