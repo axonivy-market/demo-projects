@@ -1,4 +1,3 @@
-ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=htmlDialogDemos.Data
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=htmlDialogDemos
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:useProjectSettings=true
 ch.ivyteam.ivy.designer.preferences.editor.ProcessEditorPreferencePage\:ELEMENT_STYLE=BPMN
@@ -7,5 +6,5 @@ ch.ivyteam.ivy.designer.preferences.editor.ProcessEditorPreferencePage\:NET_GRID
 ch.ivyteam.ivy.designer.preferences.editor.ProcessEditorPreferencePage\:SHOW_GRID=true
 ch.ivyteam.ivy.designer.preferences.editor.ProcessEditorPreferencePage\:useProjectSettings=true
 ch.ivyteam.ivy.project.preferences\:PRIMEFACES_VERSION=13
-ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=120000
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=120001
 eclipse.preferences.version=1
