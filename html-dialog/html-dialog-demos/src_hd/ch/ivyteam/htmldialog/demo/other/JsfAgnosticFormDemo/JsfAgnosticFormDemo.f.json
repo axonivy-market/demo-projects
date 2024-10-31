@@ -1,92 +1,47 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/form/12.0.0/form.json",
+  "$schema" : "https://json-schema.axonivy.com/form/12.0.1/form.json",
   "id" : "a35c9de8-3e2a-49d4-b7a5-5edc08a80658",
-  "config" : {
-    "renderer" : "JSF",
-    "theme" : ""
-  },
   "components" : [ {
-    "id" : "Text-cb667ab2-6bc4-4070-8961-fde0f51b1f89",
+    "cid" : "text1",
     "type" : "Text",
     "config" : {
-      "lgSpan" : "6",
-      "mdSpan" : "12",
-      "visible" : "",
-      "type" : "RAW",
-      "content" : "This form was built with the FormEditor, introduced as alpha in 11.3.0",
-      "icon" : "",
-      "iconStyle" : "INLINE"
+      "content" : "This form was built with the FormEditor, introduced as alpha in 11.3.0"
     }
   }, {
-    "id" : "Input-cc491431-8972-446c-b329-7e71c9966c82",
+    "cid" : "input2",
     "type" : "Input",
     "config" : {
-      "lgSpan" : "6",
-      "mdSpan" : "12",
-      "visible" : "",
-      "disabled" : "",
       "required" : "false",
-      "requiredMessage" : "",
-      "updateOnChange" : false,
-      "label" : "Name",
-      "value" : "",
-      "type" : "TEXT"
+      "label" : "Name"
     }
   }, {
-    "id" : "Input-4e42e6fb-b44e-4f6b-b3f5-c84853942ee2",
+    "cid" : "input3",
     "type" : "Input",
     "config" : {
-      "lgSpan" : "6",
-      "mdSpan" : "12",
-      "visible" : "",
-      "disabled" : "",
       "required" : "false",
-      "requiredMessage" : "",
-      "updateOnChange" : false,
-      "label" : "Lastname",
-      "value" : "",
-      "type" : "TEXT"
+      "label" : "Lastname"
     }
   }, {
-    "id" : "Input-c601f72a-0f93-4176-9181-0c415837aa35",
+    "cid" : "input4",
     "type" : "Input",
     "config" : {
-      "lgSpan" : "6",
-      "mdSpan" : "12",
-      "visible" : "",
-      "disabled" : "",
       "required" : "true",
-      "requiredMessage" : "",
-      "updateOnChange" : false,
       "label" : "EMail",
-      "value" : "",
       "type" : "EMAIL"
     }
   }, {
-    "id" : "Text-c271023a-5bca-4833-8e39-e2029bf666c7",
+    "cid" : "text5",
     "type" : "Text",
     "config" : {
-      "lgSpan" : "6",
-      "mdSpan" : "12",
-      "visible" : "",
       "type" : "MARKDOWN",
-      "content" : "Forms are: \neasy to create using the form-editor, maintained technology agnostic, but rendered as JSF view at built time.",
-      "icon" : "",
-      "iconStyle" : "INLINE"
+      "content" : "Forms are: \neasy to create using the form-editor, maintained technology agnostic, but rendered as JSF view at built time."
     }
   }, {
-    "id" : "Button-5ab32180-0ac1-4f34-8972-a29501e07f5c",
+    "cid" : "button6",
     "type" : "Button",
     "config" : {
-      "lgSpan" : "6",
-      "mdSpan" : "12",
-      "visible" : "",
-      "disabled" : "",
       "name" : "Proceed",
-      "action" : "#{logic.close}",
-      "variant" : "PRIMARY",
-      "icon" : "",
-      "processOnlySelf" : false
+      "action" : "#{logic.close}"
     }
   } ]
 }
