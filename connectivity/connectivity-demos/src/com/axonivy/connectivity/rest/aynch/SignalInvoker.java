@@ -4,14 +4,14 @@ import javax.ws.rs.client.InvocationCallback;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.process.model.value.SignalCode;
-import ch.ivyteam.util.threadcontext.IvyAsyncRunner;
+import ch.ivyteam.ivy.request.async.IvyAsyncExecutor;
 
 /**
  * Fires a signal to the BPM Engine when the result of an asynchronous REST
  * request is available.
  *
  * <p>
- * Async callback methods use the {@link IvyAsyncRunner} to avoid
+ * Async callback methods use the {@link IvyAsyncExecutor} to avoid
  * environment not available exceptions.
  * </p>
  *
@@ -25,7 +25,7 @@ public class SignalInvoker implements InvocationCallback<String>
 {
   private final SignalCode successSignal;
   private final SignalCode errorSignal;
-  private final IvyAsyncRunner asyncRunner;
+  private final IvyAsyncExecutor asyncExecutor;
 
   public SignalInvoker(String successSignal)
   {
@@ -36,19 +36,19 @@ public class SignalInvoker implements InvocationCallback<String>
   {
     this.successSignal = new SignalCode(successSignal);
     this.errorSignal = new SignalCode(errorSignal);
-    this.asyncRunner = new IvyAsyncRunner();
+    this.asyncExecutor = IvyAsyncExecutor.create();
   }
 
   @Override
   public void completed(String response)
   {
-    asyncRunner.run(() -> Ivy.wf().signals().create().data(response).send(successSignal));
+    asyncExecutor.run(() -> Ivy.wf().signals().create().data(response).send(successSignal));
   }
 
   @Override
   public void failed(Throwable throwable)
   {
-    asyncRunner.run(() -> Ivy.wf().signals().create().data(throwable).send(errorSignal));
+    asyncExecutor.run(() -> Ivy.wf().signals().create().data(throwable).send(errorSignal));
   }
 
 }
