@@ -18,8 +18,7 @@
     "type" : "String"
   }, {
     "name" : "fileDownload",
-    "type" : "org.primefaces.model.StreamedContent",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "org.primefaces.model.StreamedContent"
   }, {
     "name" : "showContent",
     "type" : "Boolean",

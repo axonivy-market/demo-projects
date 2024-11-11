@@ -5,8 +5,7 @@
   "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "editPerson",
-    "type" : "com.axonivy.connectivity.Person",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.axonivy.connectivity.Person"
   }, {
     "name" : "firstName",
     "type" : "String",
@@ -17,11 +16,9 @@
     "modifiers" : [ "PERSISTENT" ]
   }, {
     "name" : "response",
-    "type" : "javax.ws.rs.core.Response",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "javax.ws.rs.core.Response"
   }, {
     "name" : "persons",
-    "type" : "List<com.axonivy.connectivity.Person>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "List<com.axonivy.connectivity.Person>"
   } ]
 }

@@ -21,7 +21,6 @@
     "modifiers" : [ "PERSISTENT" ]
   }, {
     "name" : "memberType",
-    "type" : "rule.engine.demo.enums.MemberType",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "rule.engine.demo.enums.MemberType"
   } ]
 }

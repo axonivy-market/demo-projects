@@ -5,7 +5,6 @@
   "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "persons",
-    "type" : "List<com.axonivy.connectivity.soap.service.client.Person>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "List<com.axonivy.connectivity.soap.service.client.Person>"
   } ]
 }

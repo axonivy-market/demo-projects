@@ -5,11 +5,9 @@
   "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "persons",
-    "type" : "List<com.axonivy.connectivity.Person>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "List<com.axonivy.connectivity.Person>"
   }, {
     "name" : "person",
-    "type" : "com.axonivy.connectivity.Person",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.axonivy.connectivity.Person"
   } ]
 }
