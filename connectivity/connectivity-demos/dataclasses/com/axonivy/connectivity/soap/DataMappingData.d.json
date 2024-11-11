@@ -9,7 +9,6 @@
     "modifiers" : [ "PERSISTENT" ]
   }, {
     "name" : "person",
-    "type" : "com.axonivy.connectivity.soap.service.client.Person",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.axonivy.connectivity.soap.service.client.Person"
   } ]
 }

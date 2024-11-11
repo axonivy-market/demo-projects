@@ -5,7 +5,6 @@
   "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "persons",
-    "type" : "org.primefaces.model.DualListModel",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "org.primefaces.model.DualListModel"
   } ]
 }

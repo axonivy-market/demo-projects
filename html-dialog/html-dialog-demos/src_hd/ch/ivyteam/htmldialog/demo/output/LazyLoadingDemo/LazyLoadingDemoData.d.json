@@ -6,7 +6,6 @@
   "fields" : [ {
     "name" : "lazyModel",
     "type" : "org.primefaces.model.LazyDataModel",
-    "comment" : "Model is lazy loaded",
-    "modifiers" : [ "PERSISTENT" ]
+    "comment" : "Model is lazy loaded"
   } ]
 }

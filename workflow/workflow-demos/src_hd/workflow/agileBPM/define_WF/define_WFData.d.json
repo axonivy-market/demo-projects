@@ -38,12 +38,10 @@
     "modifiers" : [ "PERSISTENT" ]
   }, {
     "name" : "userList",
-    "type" : "List<ch.ivyteam.ivy.security.IUser>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "List<ch.ivyteam.ivy.security.IUser>"
   }, {
     "name" : "userSelection",
-    "type" : "List<ch.ivyteam.ivy.security.IUser>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "List<ch.ivyteam.ivy.security.IUser>"
   }, {
     "name" : "taskDescription",
     "type" : "String",

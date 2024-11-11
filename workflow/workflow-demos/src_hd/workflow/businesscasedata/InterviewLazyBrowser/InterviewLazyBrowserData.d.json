@@ -5,7 +5,6 @@
   "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "interviewModel",
-    "type" : "ch.ivyteam.ivy.wfdemo.businessdata.InterviewLazyDataModel",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "ch.ivyteam.ivy.wfdemo.businessdata.InterviewLazyDataModel"
   } ]
 }

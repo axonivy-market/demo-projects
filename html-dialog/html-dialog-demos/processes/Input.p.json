@@ -78,8 +78,8 @@
             "String locale = httpRequest.getFirstParameter(\"language\");",
             "if (locale != \"\")",
             "{",
-            "  ivy.session.setContentLocale(new Locale(locale));",
-            "  ivy.session.setFormattingLocale(new Locale(locale));",
+            "  ivy.session.setContentLocale(Locale.of(locale));",
+            "  ivy.session.setFormattingLocale(Locale.of(locale));",
             "}"
           ]
         }

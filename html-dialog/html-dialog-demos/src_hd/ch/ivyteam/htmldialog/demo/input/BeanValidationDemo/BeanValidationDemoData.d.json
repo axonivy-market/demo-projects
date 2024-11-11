@@ -5,7 +5,6 @@
   "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "person",
-    "type" : "ch.ivyteam.htmldialog.demo.input.beanValidation.Person",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "ch.ivyteam.htmldialog.demo.input.beanValidation.Person"
   } ]
 }

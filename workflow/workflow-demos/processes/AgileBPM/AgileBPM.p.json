@@ -455,15 +455,15 @@
           "config" : {
             "output" : {
               "code" : [
-                "import ch.ivyteam.ivy.workflow.INote;",
+                "import ch.ivyteam.ivy.workflow.note.Note;",
                 "StringBuffer sb = new StringBuffer();",
-                "for(INote note: ivy.case.getNotes())",
+                "for(Note note: ivy.case.notes().all())",
                 "{",
-                "  sb.append(note.getCreationTimestamp());",
+                "  sb.append(note.createdAt());",
                 "  sb.append(\" \");",
-                "  sb.append(note.getWritterName());",
+                "  sb.append(note.authorName());",
                 "  sb.append(\": \");",
-                "  sb.append(note.getMessage());",
+                "  sb.append(note.content());",
                 "  sb.append(\"<br>\");",
                 "}  ",
                 "",

@@ -186,10 +186,7 @@
             "out" : "in",
             "out.accepted" : "true"
           },
-          "code" : [
-            "import ch.ivyteam.ivy.process.model.value.SignalCode;",
-            "ivy.wf.signals().send(new SignalCode(\"dynamic\"), in);"
-          ]
+          "code" : "ivy.wf.signals().create().data(in).send(\"dynamic\");"
         }
       },
       "visual" : {
@@ -306,10 +303,7 @@
             "out" : "in",
             "out.accepted" : "false"
           },
-          "code" : [
-            "import ch.ivyteam.ivy.process.model.value.SignalCode;",
-            "ivy.wf.signals().send(new SignalCode(\"dynamic:cancel\"), in);"
-          ]
+          "code" : "ivy.wf.signals().create().data(in).send(\"dynamic:cancel\");"
         }
       },
       "visual" : {

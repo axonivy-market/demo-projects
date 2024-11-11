@@ -5,7 +5,6 @@
   "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "dossierModel",
-    "type" : "ch.ivyteam.ivy.wfdemo.businessdata.DossierLazyDataModel",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "ch.ivyteam.ivy.wfdemo.businessdata.DossierLazyDataModel"
   } ]
 }
