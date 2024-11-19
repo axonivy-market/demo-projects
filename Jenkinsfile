@@ -30,7 +30,7 @@ pipeline {
               docker.image("selenium/standalone-firefox:4.10").withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network ${networkName}") {
                 docker.build('maven-selenium').inside("--name ${ivyName} --network ${networkName}") {
                   def workspace = pwd()
-                  def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
+                  def phase = isReleasingBranch() ? 'deploy' : 'verify'
                   maven cmd: "clean ${phase} -Dmaven.test.failure.ignore=true  " +
                             "-Dengine.directory=${workspace}/html-dialog-demos/html-dialog-demos/target/ivyEngine " +
                             "-Divy.engine.version='[10.0.0, 10.1.0)' " +
