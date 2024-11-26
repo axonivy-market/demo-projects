@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.inject.Singleton;
+import javax.validation.constraints.Size;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
@@ -118,7 +119,7 @@ public class PersonService
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
   public Response add(
-    @Parameter(required = true) @FormParam("firstname") String firstname,
+    @Parameter(required = true) @FormParam("firstname") @Size(min = 2, max = 255) String firstname,
     @Parameter(required = true) @FormParam("lastname") String lastname)
   {
     Person person = addNewPerson(firstname, lastname);
