@@ -5,8 +5,7 @@
   "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "error",
-    "type" : "ch.ivyteam.ivy.bpm.error.BpmError",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "ch.ivyteam.ivy.bpm.error.BpmError"
   }, {
     "name" : "greetResponse",
     "type" : "String",
