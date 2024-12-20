@@ -8,6 +8,6 @@ on:
 
 jobs:
   build:
-    uses: axonivy-market/github-workflows/.github/workflows/dev.yml@v4
+    uses: axonivy-market/github-workflows/.github/workflows/dev.yml@v5
     with:
-      mvnArgs: -Dmaven.test.failure.ignore=true
+      mvnArgs: -Dmaven.test.skip=true # We run the tests on our Jenkins CI
