@@ -1,0 +1,15 @@
+services:
+  java:
+    image: mcr.microsoft.com/devcontainers/java:1-21-bookworm
+    volumes:
+      - ../..:/workspace:cached
+    network_mode: service:ivy
+    command: sleep infinity
+
+  ivy:
+    image: axonivy/axonivy-engine:12.0
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    volumes:
+      - ../..:/workspace:cached

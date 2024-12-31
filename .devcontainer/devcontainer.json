@@ -1,24 +1,24 @@
 {
   "name": "Axon Ivy Dev Container",
-  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "dockerComposeFile": "docker-compose.yml",
+  "onCreateCommand": "mvn package --batch-mode -Dmaven.test.skip=true",
+  "service": "java",
+  "workspaceFolder": "/workspace/${localWorkspaceFolderBasename}",
+  "shutdownAction": "stopCompose",
   "forwardPorts": [8080],
-  "containerEnv": { "JAVA_OPTS_IVY_SYSTEM": "-Ddev.mode=true -Divy.engine.testheadless=true" },
-  "postStartCommand": "mkdir -p logs && rm -f logs/eninge-nohup.out && nohup bash -c '/usr/lib/axonivy-engine/bin/AxonIvyEngine &'> logs/engine-nohup.out",
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
-      "version": "21",
+      "version": "none",
       "installMaven": "true",
-      "jdkDistro": "tem"
-    },
-    "ghcr.io/axonivy/devcontainer-features/engine:1": {}
+      "installGradle": "false"
+    }
   },
   "customizations": {
     "vscode": {
-      "extensions": ["axon-ivy.designer-11"],
+      "extensions": ["axon-ivy.designer-13"],
       "settings": {
         "engine.runByExtension": false,
-        "engine.url": "http://localhost:8080/",
-        "engine.directory": "/usr/lib/axonivy-engine"
+        "engine.url": "http://localhost:8080/"
       }
     }
   }
