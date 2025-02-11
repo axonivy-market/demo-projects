@@ -6,24 +6,7 @@
   xmlns:ic="http://ivyteam.ch/jsf/component"
   xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions">
-  
-<!--
-DESCRIPTION:
-This is the default template to use the freya-ivy theme as well as iFrames approach.
 
-PORTAL:
-If you are using the Axon Ivy Portal, you can pass several parameters to it to use some features (e.g. process chain).
-You'll find the list of parameters here: https://developer.axonivy.com/portal/11.4/doc/portal-developer-guide/components/layout-templates.html#components-layout-templates-iframe-task-template
-For further information about iframes and usage in Portal please refer to: https://developer.axonivy.com/portal/11.4/doc/portal-developer-guide/iframe/index.html
-
-BRANDING:
-If you want to brand your dialogs, please take a look at our documentation: https://developer.axonivy.com/doc/11.4/designer-guide/user-interface/branding/index.html
-
-STYLING:
-If you want to add custom styles, you can simply add your own .css file (e.g. at the location: "webContent/layouts/styles/style.css")
-and refence it below in the head part.
--->
-  
 <h:head>
   <f:attribute name="primefaces.THEME" value="#{ivyFreyaTheme.theme}" />
   <meta charset="utf-8" />
@@ -34,11 +17,9 @@ and refence it below in the head part.
   <h:outputStylesheet name="#{ivyFreyaTheme.layout}" library="#{ivyFreyaTheme.library}" />
   <h:outputStylesheet name="primeflex-3.min.css" library="primeflex" />
   <h:outputStylesheet name="custom.css" library="ivy-branding" />
-  <!-- Optional Style or Script files: 
-  <h:outputStylesheet name="layouts/styles/style.css" /> 
-  -->
 </h:head>
 <h:body class="body-hd #{ivyFreyaTheme.mode}">
+  <ui:include src="/ivy-form/layouts/includes/progress-loader.xhtml" />
   <div id="content" class="container frame">
     <ui:insert name="content">
       default content
@@ -46,15 +27,7 @@ and refence it below in the head part.
   </div>
 
   <ui:insert name="exception">
-    <ui:include src="/layouts/includes/exception.xhtml" />
+    <ui:include src="/ivy-form/layouts/includes/exception.xhtml" />
   </ui:insert>
-
-  <!-- optional Portal parameters:
-  <script>
-    window.
-  </script>
-  -->
-
 </h:body>
-
 </html>
