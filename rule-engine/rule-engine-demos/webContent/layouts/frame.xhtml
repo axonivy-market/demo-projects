@@ -14,16 +14,12 @@
   <title><ui:insert name="title">Ivy Html Dialog</ui:insert></title>
   <link rel="shortcut icon" href="#{resource['ivy-branding:favicon']}" />
   <h:outputScript name="js/layout.js" library="#{ivyFreyaTheme.library}" />
-  <h:outputStylesheet name="#{ivyFreyaTheme.layout}"
-    library="#{ivyFreyaTheme.library}" />
+  <h:outputStylesheet name="#{ivyFreyaTheme.layout}" library="#{ivyFreyaTheme.library}" />
   <h:outputStylesheet name="primeflex-3.min.css" library="primeflex" />
   <h:outputStylesheet name="custom.css" library="ivy-branding" />
-  <!-- Optional Style or Script files: 
-  <h:outputStylesheet name="layouts/styles/style.css" /> 
-  -->
 </h:head>
-<h:body class="body-hd">
-  <ui:include src="/layouts/includes/progress-loader.xhtml" />
+<h:body class="body-hd #{ivyFreyaTheme.mode}">
+  <ui:include src="/ivy-form/layouts/includes/progress-loader.xhtml" />
   <div id="content" class="container frame">
     <ui:insert name="content">
       default content
@@ -31,8 +27,7 @@
   </div>
 
   <ui:insert name="exception">
-    <ui:include src="/layouts/includes/exception.xhtml" />
+    <ui:include src="/ivy-form/layouts/includes/exception.xhtml" />
   </ui:insert>
-
 </h:body>
 </html>
