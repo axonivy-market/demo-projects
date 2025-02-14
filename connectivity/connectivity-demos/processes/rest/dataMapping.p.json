@@ -15,7 +15,8 @@
         "startCustomFields" : [
           { "name" : "cssIcon", "value" : "fa fa-code" }
         ],
-        "startName" : "6.1.1 send raw JSON"
+        "startName" : "6.1.1 send raw JSON",
+        "case" : { }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 152 }
@@ -73,7 +74,7 @@
           "code" : [
             "import org.apache.commons.lang3.RandomUtils;",
             "",
-            "int no = RandomUtils.nextInt(0,100);",
+            "int no = RandomUtils.secure().randomInt(0,100);",
             "out.myPost.email = \"tester_\"+no+\"@ivy-community.com\";"
           ]
         }
@@ -96,7 +97,7 @@
           "code" : [
             "import org.apache.commons.lang3.RandomUtils;",
             "",
-            "int no = RandomUtils.nextInt(0,100);",
+            "int no = RandomUtils.secure().randomInt(0,100);",
             "out.myPost.email = \"tester_\"+no+\"@ivy-community.com\";"
           ]
         }
@@ -116,7 +117,8 @@
         "startCustomFields" : [
           { "name" : "cssIcon", "value" : "fa fa-object-group" }
         ],
-        "startName" : "6.1.3 send complex Object"
+        "startName" : "6.1.3 send complex Object",
+        "case" : { }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 320 }
@@ -215,7 +217,8 @@
         "startCustomFields" : [
           { "name" : "cssIcon", "value" : "fa fa-question" }
         ],
-        "startName" : "6.3.1 query parameters"
+        "startName" : "6.3.1 query parameters",
+        "case" : { }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 728 }
@@ -241,7 +244,7 @@
           "code" : [
             "import org.apache.commons.lang3.RandomUtils;",
             "",
-            "out.userId = RandomUtils.nextInt(1,10);"
+            "out.userId = RandomUtils.secure().randomInt(1,10);"
           ]
         }
       },
@@ -297,7 +300,8 @@
         "startCustomFields" : [
           { "name" : "cssIcon", "value" : "fa fa-file-code-o" }
         ],
-        "startName" : "6.3.3 accept type header"
+        "startName" : "6.3.3 accept type header",
+        "case" : { }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 888 }
@@ -352,7 +356,8 @@
         "startCustomFields" : [
           { "name" : "cssIcon", "value" : "fa fa-id-card-o" }
         ],
-        "startName" : "6.1.2 send form data"
+        "startName" : "6.1.2 send form data",
+        "case" : { }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 240 }
@@ -413,7 +418,7 @@
           "code" : [
             "import org.apache.commons.lang3.RandomUtils;",
             "",
-            "int no = RandomUtils.nextInt(0,100);",
+            "int no = RandomUtils.secure().randomInt(0,100);",
             "out.myPost.email = \"tester_\"+no+\"@ivy-community.com\";"
           ]
         }
@@ -454,18 +459,18 @@
           "  \"body\": \"this is my test comment\"",
           "}"
         ],
+        "path" : "users/1",
         "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
+        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "GET",
         "statusErrorCode" : "ivy:error:rest:client",
-        "bodyInputType" : "ENTITY",
-        "responseCode" : "ivy.log.info(\"got user = \"+out.user);",
-        "path" : "users/1",
-        "clientErrorCode" : "ivy:error:rest:client",
         "responseMapping" : {
           "out.user" : "result"
         },
         "bodyObjectCode" : "param = in.myPost;",
-        "resultType" : "com.axonivy.connectivity.rest.User"
+        "resultType" : "com.axonivy.connectivity.rest.User",
+        "bodyInputType" : "ENTITY",
+        "responseCode" : "ivy.log.info(\"got user = \"+out.user);"
       },
       "visual" : {
         "at" : { "x" : 411, "y" : 434 },
@@ -513,7 +518,8 @@
         "startCustomFields" : [
           { "name" : "cssIcon", "value" : "fa fa-book" }
         ],
-        "startName" : "6.2.1 read complex object partially to DataClass"
+        "startName" : "6.2.1 read complex object partially to DataClass",
+        "case" : { }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 434 }
@@ -574,7 +580,8 @@
         "startCustomFields" : [
           { "name" : "cssIcon", "value" : "fa fa-code-fork" }
         ],
-        "startName" : "6.3.2 path parameters"
+        "startName" : "6.3.2 path parameters",
+        "case" : { }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 808 }
@@ -589,7 +596,7 @@
           "code" : [
             "import org.apache.commons.lang3.RandomUtils;",
             "",
-            "out.userId = RandomUtils.nextInt(1,4);"
+            "out.userId = RandomUtils.secure().randomInt(1,4);"
           ]
         }
       },
@@ -608,7 +615,8 @@
         "startCustomFields" : [
           { "name" : "cssIcon", "value" : "fa fa-plus-circle" }
         ],
-        "startName" : "6.2.2 read complex object to GeneratedClass"
+        "startName" : "6.2.2 read complex object to GeneratedClass",
+        "case" : { }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 512 }
@@ -635,18 +643,18 @@
           "  \"body\": \"this is my test comment\"",
           "}"
         ],
+        "path" : "users/1",
         "clientId" : "449e7581-aa1e-4e3b-931a-903253491b50",
+        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "GET",
         "statusErrorCode" : "ivy:error:rest:client",
-        "bodyInputType" : "ENTITY",
-        "responseCode" : "ivy.log.info(\"got user = \"+result);",
-        "path" : "users/1",
-        "clientErrorCode" : "ivy:error:rest:client",
         "responseMapping" : {
           "out.userGenerated" : "result"
         },
         "bodyObjectCode" : "param = in.myPost;",
-        "resultType" : "com.typicode.jsonplaceholder.User"
+        "resultType" : "com.typicode.jsonplaceholder.User",
+        "bodyInputType" : "ENTITY",
+        "responseCode" : "ivy.log.info(\"got user = \"+result);"
       },
       "visual" : {
         "at" : { "x" : 415, "y" : 512 },
@@ -758,7 +766,8 @@
         "startCustomFields" : [
           { "name" : "cssIcon", "value" : "fa fa-sitemap" }
         ],
-        "startName" : "6.2.3 read complex object partially as JsonNode"
+        "startName" : "6.2.3 read complex object partially as JsonNode",
+        "case" : { }
       },
       "visual" : {
         "at" : { "x" : 95, "y" : 590 }
