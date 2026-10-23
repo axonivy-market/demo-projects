@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://json-schema.axonivy.com/14.0/config/rest-clients.json
+# yaml-language-server: $schema=https://json-schema.axonivy.com/15.1/config/rest-clients.json
 RestClients:
   personService:
     Name: personService
@@ -47,7 +47,7 @@ RestClients:
   #These endpoints either derive from application/projects or
   #static engine resources.
   ivyengine-localbackend:
-    Name: ivy.engine (local.backend)
+    Name: ivyengine-localbackend
     Url: "{ivy.app.baseurl}/api"
     Features:
       - ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature
